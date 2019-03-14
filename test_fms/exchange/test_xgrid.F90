@@ -17,14 +17,12 @@
 !* License along with FMS.  If not, see <http://www.gnu.org/licenses/>.
 !***********************************************************************
 
-#ifdef TEST_XGRID
 ! Now only test some simple test, will test cubic grid mosaic in the future.
-
 program xgrid_test
 
   use mpp_mod,         only : mpp_pe, mpp_npes, mpp_error, FATAL, mpp_chksum, mpp_min, mpp_max
   use mpp_mod,         only : mpp_set_current_pelist, mpp_declare_pelist, mpp_sync
-  use mpp_mod,         only : mpp_root_pe, mpp_broadcast, stdout, NOTE, mpp_sync_self
+  use mpp_mod,         only : mpp_root_pe, mpp_broadcast, stdout, NOTE, mpp_sync_self, input_nml_file
   use mpp_domains_mod, only : mpp_define_domains, mpp_define_layout, mpp_domains_exit
   use mpp_domains_mod, only : mpp_get_compute_domain, domain2d, mpp_domains_init
   use mpp_domains_mod, only : mpp_define_mosaic_pelist, mpp_define_mosaic, mpp_global_sum
@@ -993,9 +991,3 @@ contains
   end subroutine compare_chksum
 
 end program xgrid_test
-
-#else
-module null_test_xgrid
-end module  
-
-#endif /* test_mpp */
