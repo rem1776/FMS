@@ -66,6 +66,12 @@ AC_ARG_ENABLE([setting-flags],
 AS_IF([test ${enable_setting_flags:-yes} = yes],
   [enable_setting_flags=yes],
   [enable_setting_flags=no])
+AC_ARG_ENABLE([mpp-io],
+  [AS_HELP_STRING([--enable-mpp-io],
+    [Configures to compile using mpp_io. Otherwise will compile using fms2_io. (Default no)])])
+AS_IF([test ${enable_mpp_io:-no} = no],
+  [enable_setting_flags=no],
+  [enable_setting_flags=yes])
 
 # Does the user want to build documentation?
 AC_MSG_CHECKING([whether documentation should be build (requires doxygen)])
@@ -200,6 +206,11 @@ if test $enable_setting_flags = yes; then
   fi
   if test ! -z "$OPENMP_FCFLAGS"; then
     FCFLAGS="$FCFLAGS $OPENMP_FCFLAGS"
+  fi
+ 
+  # Add mpp io flags to CPPFLAGS
+  if test $enable_mpp_io = yes; then
+    CPPFLAGS="$CPPFLAGS -Duse_mpp_io"
   fi
 fi
 
