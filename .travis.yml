@@ -37,6 +37,7 @@ addons:
     - pkg-config gfortran netcdf-bin libnetcdf-dev libnetcdff-dev openmpi-bin libopenmpi-dev
 
 env:
+  - FCFLAGS_ADD='' DISTCHECK_CONFIGURE_FLAGS=''
   - FCFLAGS_ADD='' DISTCHECK_CONFIGURE_FLAGS='--enable-mpp-io'
   - FCFLAGS_ADD='' DISTCHECK_CONFIGURE_FLAGS='--without-openmp'
   - FCFLAGS_ADD='' DISTCHECK_CONFIGURE_FLAGS='--enable-mixed-mode'
