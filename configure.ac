@@ -209,7 +209,7 @@ if test $enable_setting_flags = yes; then
   fi
 
   # Add mpp io flags
-  if test $enable-mpp-io = yes; then
+  if test $enable_mpp_io = yes; then
     CPPFLAGS="$CPPFLAGS -Duse_mpp_io"
   fi
 fi
