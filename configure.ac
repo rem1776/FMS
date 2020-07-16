@@ -68,7 +68,7 @@ AS_IF([test ${enable_setting_flags:-yes} = yes],
   [enable_setting_flags=no])
 AC_ARG_ENABLE([mpp-io],
   [AS_HELP_STRING([--enable-mpp-io],
-    [Configures to compile with mpp io. Otherwise compiles using fms2_io. (Default no)])])
+    [Configures to compile with mpp io. Otherwise compiles using fms2_io.])])
 AS_IF([test ${enable_mpp_io:-yes}= yes],
   [enable_mpp_io=yes],
   [enable_mpp_io=no])
