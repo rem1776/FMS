@@ -17,7 +17,7 @@
 !* License along with FMS.  If not, see <http://www.gnu.org/licenses/>.
 !***********************************************************************
 module mosaic2_mod
-
+#ifndef use_mpp_io
 ! <CONTACT EMAIL="Zhi.Liang@noaa.gov">
 !   Zhi Liang
 ! </CONTACT>
@@ -669,5 +669,5 @@ end function transfer_to_model_index
 
   end subroutine get_mosaic_tile_grid
 
-
+#endif
 end module mosaic2_mod

@@ -18,6 +18,7 @@
 !***********************************************************************
 
 module axis_utils2_mod
+#ifndef use_mpp_io
   !
   !<CONTACT EMAIL="Matthew.Harrison@noaa.gov">M.J. Harrison</CONTACT>
   !
@@ -776,5 +777,5 @@ end subroutine axis_edges
     if(ke == 0 ) call mpp_error(FATAL,' xe locate outside of grid1')
 
   end subroutine find_index
-
+#endif
 end module axis_utils2_mod
