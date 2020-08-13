@@ -66,8 +66,8 @@ use,intrinsic :: iso_c_binding, only: c_double,c_float,c_int64_t, &
   use mpp_mod,         only: uppercase,lowercase
 #ifndef use_mpp_io
   use fms2_io_mod
-#endif
   use axis_utils2_mod,   only: axis_edges
+#endif
 
 
   IMPLICIT NONE
