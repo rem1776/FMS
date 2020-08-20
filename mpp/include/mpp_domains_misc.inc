@@ -1042,7 +1042,6 @@ end subroutine init_nonblock_type
 #include <mpp_update_domains2D.h>
 #endif
 
-#ifdef OVERLOAD_R4
 #undef VECTOR_FIELD_
 #define VECTOR_FIELD_
 #undef MPP_TYPE_
@@ -1064,7 +1063,6 @@ end subroutine init_nonblock_type
 #define MPP_UPDATE_DOMAINS_4D_V_ mpp_update_domain2D_r4_4Dv
 #undef MPP_UPDATE_DOMAINS_5D_V_
 #define MPP_UPDATE_DOMAINS_5D_V_ mpp_update_domain2D_r4_5Dv
-#endif
 #undef MPP_REDISTRIBUTE_2D_
 #define MPP_REDISTRIBUTE_2D_ mpp_redistribute_r4_2D
 #undef MPP_REDISTRIBUTE_3D_
@@ -1213,7 +1211,6 @@ end subroutine init_nonblock_type
 #include <mpp_update_domains2D_nonblock.h>
 #endif
 
-#ifdef OVERLOAD_R4
 #undef VECTOR_FIELD_
 #define VECTOR_FIELD_
 #undef MPP_TYPE_
@@ -1253,7 +1250,6 @@ end subroutine init_nonblock_type
 #define MPP_COMPLETE_UPDATE_DOMAINS_5D_V_ mpp_complete_update_domain2D_r4_5Dv
 #endif
 #include <mpp_update_domains2D_nonblock.h>
-#endif
 
 #ifdef OVERLOAD_C4
 #undef VECTOR_FIELD_
@@ -1345,7 +1341,6 @@ end subroutine init_nonblock_type
 #include <mpp_do_update_nonblock.h>
 #endif
 
-#ifdef OVERLOAD_R4
 #undef MPP_TYPE_
 #define MPP_TYPE_ real(FLOAT_KIND)
 #undef MPI_TYPE_
@@ -1360,7 +1355,6 @@ end subroutine init_nonblock_type
 #define MPP_COMPLETE_DO_UPDATE_3D_V_ mpp_complete_do_update_r4_3Dv
 #include <mpp_do_update_nonblock.h>
 #include <mpp_do_updateV_nonblock.h>
-#endif
 
 #ifdef OVERLOAD_C4
 #undef MPP_TYPE_
@@ -1416,7 +1410,6 @@ end subroutine init_nonblock_type
 #include <mpp_do_update.h>
 #endif
 
-#ifdef OVERLOAD_R4
 #undef VECTOR_FIELD_
 #define VECTOR_FIELD_
 #undef MPP_TYPE_
@@ -1429,7 +1422,6 @@ end subroutine init_nonblock_type
 #endif
 #include <mpp_do_update.h>
 #include <mpp_do_updateV.h>
-#endif
 
 #ifdef OVERLOAD_C4
 #undef  VECTOR_FIELD_
@@ -1477,7 +1469,6 @@ end subroutine init_nonblock_type
 #include <mpp_do_check.h>
 #endif
 
-#ifdef OVERLOAD_R4
 #undef VECTOR_FIELD_
 #define VECTOR_FIELD_
 #undef MPP_TYPE_
@@ -1490,7 +1481,6 @@ end subroutine init_nonblock_type
 #endif
 #include <mpp_do_check.h>
 #include <mpp_do_checkV.h>
-#endif
 
 #ifdef OVERLOAD_C4
 #undef  VECTOR_FIELD_
@@ -1575,7 +1565,6 @@ end subroutine init_nonblock_type
 #include <mpp_update_nest_domains.h>
 #endif
 
-#ifdef OVERLOAD_R4
 #undef VECTOR_FIELD_
 #define VECTOR_FIELD_
 #undef MPP_TYPE_
@@ -1605,7 +1594,6 @@ end subroutine init_nonblock_type
 #undef MPP_UPDATE_NEST_COARSE_4D_V_
 #define MPP_UPDATE_NEST_COARSE_4D_V_ mpp_update_nest_coarse_r4_4Dv
 #include <mpp_update_nest_domains.h>
-#endif
 
 #ifdef OVERLOAD_C4
 #undef VECTOR_FIELD_
@@ -1679,7 +1667,6 @@ end subroutine init_nonblock_type
 #include <mpp_do_update_nest.h>
 #endif
 
-#ifdef OVERLOAD_R4
 #undef VECTOR_FIELD_
 #define VECTOR_FIELD_
 #undef MPP_TYPE_
@@ -1693,7 +1680,6 @@ end subroutine init_nonblock_type
 #undef MPP_DO_UPDATE_NEST_COARSE_3D_V_
 #define MPP_DO_UPDATE_NEST_COARSE_3D_V_ mpp_do_update_nest_coarse_r4_3Dv
 #include <mpp_do_update_nest.h>
-#endif
 
 #ifdef OVERLOAD_C4
 #undef VECTOR_FIELD_
@@ -1745,7 +1731,6 @@ end subroutine init_nonblock_type
 #endif
 #include <mpp_update_domains2D_ad.h>
 
-#ifdef OVERLOAD_R4
 #undef VECTOR_FIELD_
 #define VECTOR_FIELD_
 #undef MPP_TYPE_
@@ -1769,7 +1754,6 @@ end subroutine init_nonblock_type
 #define MPP_UPDATE_DOMAINS_AD_5D_V_ mpp_update_domains_ad_2D_r4_5Dv
 #endif
 #include <mpp_update_domains2D_ad.h>
-#endif
 
 !*******************************************************
 #undef VECTOR_FIELD_
@@ -1803,7 +1787,6 @@ end subroutine init_nonblock_type
 #include <mpp_do_update_ad.h>
 #endif
 
-#ifdef OVERLOAD_R4
 #undef VECTOR_FIELD_
 #define VECTOR_FIELD_
 #undef MPP_TYPE_
@@ -1816,7 +1799,6 @@ end subroutine init_nonblock_type
 #endif
 #include <mpp_do_update_ad.h>
 #include <mpp_do_updateV_ad.h>
-#endif
 
 #ifdef OVERLOAD_C4
 #undef  VECTOR_FIELD_
@@ -1926,14 +1908,12 @@ end subroutine init_nonblock_type
 #include <mpp_do_redistribute.h>
 #endif
 
-#ifdef OVERLOAD_R4
 #undef MPP_TYPE_
 #define MPP_TYPE_ real(FLOAT_KIND)
 #undef MPP_DO_REDISTRIBUTE_3D_
 #define MPP_DO_REDISTRIBUTE_3D_ mpp_do_redistribute_r4_3D
 #include <mpp_do_redistribute.h>
 #undef  VECTOR_FIELD_
-#endif
 
 #ifdef OVERLOAD_C4
 #undef MPP_TYPE_
@@ -1987,7 +1967,6 @@ end subroutine init_nonblock_type
 #define MPP_GET_BOUNDARY_AD_3D_V_ mpp_get_boundary_ad_r8_3dv
 #include <mpp_get_boundary_ad.h>
 
-#ifdef OVERLOAD_R4
 #undef MPP_TYPE_
 #define MPP_TYPE_ real(FLOAT_KIND)
 #undef MPP_GET_BOUNDARY_2D_
@@ -2007,9 +1986,7 @@ end subroutine init_nonblock_type
 !#undef MPP_GET_BOUNDARY_5D_V_
 !#define MPP_GET_BOUNDARY_5D_V_ mpp_get_boundary_r4_5dv
 #include <mpp_get_boundary.h>
-#endif
 
-#ifdef OVERLOAD_R4
 #undef MPP_TYPE_
 #define MPP_TYPE_ real(FLOAT_KIND)
 #undef MPP_GET_BOUNDARY_AD_2D_
@@ -2021,7 +1998,6 @@ end subroutine init_nonblock_type
 #undef MPP_GET_BOUNDARY_AD_3D_V_
 #define MPP_GET_BOUNDARY_AD_3D_V_ mpp_get_boundary_ad_r4_3dv
 #include <mpp_get_boundary_ad.h>
-#endif
 
 #undef MPP_TYPE_
 #define MPP_TYPE_ real(DOUBLE_KIND)
@@ -2039,7 +2015,6 @@ end subroutine init_nonblock_type
 #define MPP_DO_GET_BOUNDARY_AD_3D_V_ mpp_do_get_boundary_ad_r8_3dv
 #include <mpp_do_get_boundary_ad.h>
 
-#ifdef OVERLOAD_R4
 #undef MPP_TYPE_
 #define MPP_TYPE_ real(FLOAT_KIND)
 #undef MPP_DO_GET_BOUNDARY_3D_
@@ -2047,9 +2022,7 @@ end subroutine init_nonblock_type
 #undef MPP_DO_GET_BOUNDARY_3D_V_
 #define MPP_DO_GET_BOUNDARY_3D_V_ mpp_do_get_boundary_r4_3dv
 #include <mpp_do_get_boundary.h>
-#endif
 
-#ifdef OVERLOAD_R4
 #undef MPP_TYPE_
 #define MPP_TYPE_ real(FLOAT_KIND)
 #undef MPP_DO_GET_BOUNDARY_AD_3D_
@@ -2057,7 +2030,6 @@ end subroutine init_nonblock_type
 #undef MPP_DO_GET_BOUNDARY_AD_3D_V_
 #define MPP_DO_GET_BOUNDARY_AD_3D_V_ mpp_do_get_boundary_ad_r4_3dv
 #include <mpp_do_get_boundary_ad.h>
-#endif
 
 #undef MPP_TYPE_
 #define MPP_TYPE_ real(DOUBLE_KIND)

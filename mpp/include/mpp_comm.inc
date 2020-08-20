@@ -247,7 +247,6 @@
 #include <mpp_chksum.h>
 #endif
 
-#ifdef OVERLOAD_R4
 #undef MPP_CHKSUM_
 #define MPP_CHKSUM_ mpp_chksum_r4_0d
 #undef MPP_TRANSFER_KIND_
@@ -307,7 +306,6 @@
 #undef MPP_RANK_
 #define MPP_RANK_ (:,:,:,:,:)
 #include <mpp_chksum.h>
-#endif
 
 #ifdef OVERLOAD_C4
 #undef MPP_CHKSUM_
