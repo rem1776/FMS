@@ -590,13 +590,13 @@ type :: atttype
      module procedure mpp_read_text
      module procedure mpp_read_region_r2D
      module procedure mpp_read_region_r3D
-#ifdef OVERLOAD_R8
+!#ifdef OVERLOAD_R8
      module procedure mpp_read_region_r2D_r8
      module procedure mpp_read_region_r3D_r8
      module procedure mpp_read_2ddecomp_r2d_r8
      module procedure mpp_read_2ddecomp_r3d_r8
      module procedure mpp_read_2ddecomp_r4d_r8
-#endif
+!#endif
   end interface
 
 !***********************************************************************
@@ -897,20 +897,20 @@ type :: atttype
 
   interface write_record
      module procedure write_record_default
-#ifdef OVERLOAD_R8
+!#ifdef OVERLOAD_R8
      module procedure write_record_r8
-#endif
+!#endif
   end interface
 
   interface mpp_write
      module procedure mpp_write_2ddecomp_r2d
      module procedure mpp_write_2ddecomp_r3d
      module procedure mpp_write_2ddecomp_r4d
-#ifdef OVERLOAD_R8
+!#ifdef OVERLOAD_R8
      module procedure mpp_write_2ddecomp_r2d_r8
      module procedure mpp_write_2ddecomp_r3d_r8
      module procedure mpp_write_2ddecomp_r4d_r8
-#endif
+!#endif
      module procedure mpp_write_r0D
      module procedure mpp_write_r1D
      module procedure mpp_write_r2D

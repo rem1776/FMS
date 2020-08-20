@@ -39,7 +39,7 @@
 #define MPP_TYPE_ real
 #include <mpp_read_2Ddecomp.h>
 
-#ifdef OVERLOAD_R8
+!#ifdef OVERLOAD_R8
 #undef READ_RECORD_CORE_
 #define READ_RECORD_CORE_ read_record_core_r8
 #undef READ_RECORD_
@@ -53,7 +53,7 @@
 #undef MPP_TYPE_
 #define MPP_TYPE_ real(DOUBLE_KIND)
 #include <mpp_read_2Ddecomp.h>
-#endif
+!#endif
 
 #undef MPP_READ_COMPRESSED_1D_
 #define MPP_READ_COMPRESSED_1D_ mpp_read_compressed_r1d
@@ -168,7 +168,7 @@
       return
     end subroutine mpp_read_region_r3D
 
-#ifdef OVERLOAD_R8
+!#ifdef OVERLOAD_R8
     subroutine mpp_read_region_r2D_r8(unit, field, data, start, nread)
       integer,                intent(in) :: unit
       type(fieldtype),        intent(in) :: field
@@ -206,7 +206,7 @@
 
       return
     end subroutine mpp_read_region_r3D_r8
-#endif
+!#endif
 
 
     !--- Assume the text field is at most two-dimensional
