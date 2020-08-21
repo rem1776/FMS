@@ -75,7 +75,8 @@ program test
   type(domain1D)     :: xdom, ydom
   integer(LONG_KIND) :: rchk, chk
   real(DOUBLE_KIND)                  :: doubledata = 0.0
-  real                               :: realarray(4)
+  real(DOUBLE_KIND)                               :: realarray8(4)
+  real(FLOAT_KIND)                               :: realarray4(4)
 
   call mpp_init()
   pe = mpp_pe()
@@ -117,7 +118,9 @@ program test
   write( file,'(a,i3.3)' )trim(file), npes
 
 ! determine the pack_size
-  pack_size = size(transfer(doubledata, realarray))
+  pack_size = size(transfer(doubledata, realarray4))
+  if( pack_size .NE. size(transfer(doubledata8))) call mpp_error(FATAL, &
+        'test_mpp_io: pack_size differs with mixed precision arrays')
   if( pack_size .NE. 1 .AND. pack_size .NE. 2) call mpp_error(FATAL,'test_mpp_io: pack_size should be 1 or 2')
 
   call test_netcdf_io_append()
@@ -196,8 +199,10 @@ program test
   type(atttype),          allocatable :: atts(:)
   type(fieldtype),        allocatable :: vars(:)
   type(axistype),         allocatable :: axes(:)
-  real,                   allocatable :: tstamp(:)
-  real, dimension(:,:,:), allocatable :: data, gdata, rdata
+  real(DOUBLE_KIND),                   allocatable :: tstamp8(:)
+  real(DOUBLE_KIND), dimension(:,:,:), allocatable :: data8, gdata8, rdata8
+  real(FLOAT_KIND),                   allocatable :: tstamp4(:)
+  real(FLOAT_KIND), dimension(:,:,:), allocatable :: data4, gdata4, rdata4
 
   !--- determine the shift and symmetry according to type,
   select case(type)
@@ -233,20 +238,35 @@ program test
   call mpp_get_domain_components( domain, xdom, ydom )
 
 !define global data array
-  allocate( gdata(nxg,nyg,nz) )
-  gdata = 0.
+  allocate( gdata4(nxg,nyg,nz) )
+  gdata4 = 0.
   do k = 1,nz
      do j = 1,nyg
         do i = 1,nxg
-           gdata(i,j,k) = k + i*1e-3 + j*1e-6
+           gdata4(i,j,k) = k + i*1e-3 + j*1e-6
         end do
      end do
   end do
 
   ioff = ism - isd; joff = jsm - jsd
-  allocate( data(ism:iem,jsm:jem,nz) )
-  data = 0
-  data(is+ioff:ie+ioff,js+joff:je+joff,:) = gdata(is:ie,js:je,:)
+  allocate( data4(ism:iem,jsm:jem,nz) )
+  data4 = 0
+  data4(is+ioff:ie+ioff,js+joff:je+joff,:) = gdata4(is:ie,js:je,:)
+
+  allocate( gdata8(nxg,nyg,nz) )
+  gdata8 = 0.
+  do k = 1,nz
+     do j = 1,nyg
+        do i = 1,nxg
+           gdata8(i,j,k) = k + i*1e-3 + j*1e-6
+        end do
+     end do
+  end do
+
+  ioff = ism - isd; joff = jsm - jsd
+  allocate( data8(ism:iem,jsm:jem,nz) )
+  data8 = 0
+  data8(is+ioff:ie+ioff,js+joff:je+joff,:) = gdata8(is:ie,js:je,:)
 
 !tests
 
@@ -254,7 +274,7 @@ program test
   if( nx*ny*nz*nt.LT.1000 .AND. index(type,"memory") .NE. 0 )then
       if( pe.EQ.mpp_root_pe() )print *, 'sequential write: single-threaded formatted'
 !here the only test is a successful write: please look at test.txt for verification.
-      call mpp_open( unit, trim(file)//'s.txt', action=MPP_OVERWR, form=MPP_ASCII, threading=MPP_SINGLE )
+      call mpp_open( unit, trim(file)//'sR4.txt', action=MPP_OVERWR, form=MPP_ASCII, threading=MPP_SINGLE )
       call mpp_write_meta( unit, x, 'X', 'km', 'X distance', domain=xdom, data=(/(i-1.,i=1,nxg)/) )
       call mpp_write_meta( unit, y, 'Y', 'km', 'Y distance', domain=ydom, data=(/(i-1.,i=1,nyg)/) )
       call mpp_write_meta( unit, z, 'Z', 'km', 'Z distance',              data=(/(i-1.,i=1,nz)/) )
@@ -265,14 +285,29 @@ program test
       call mpp_write( unit, z )
       do i = 0,nt-1
          time = i*10.
-         call mpp_write( unit, f, domain, data, time )
+         call mpp_write( unit, f, domain, data4, time )
+      end do
+      call mpp_close(unit)
+      ! test with DOUBLE_KIND
+      call mpp_open( unit, trim(file)//'sR8.txt', action=MPP_OVERWR, form=MPP_ASCII, threading=MPP_SINGLE )
+      call mpp_write_meta( unit, x, 'X', 'km', 'X distance', domain=xdom, data=(/(i-1.,i=1,nxg)/) )
+      call mpp_write_meta( unit, y, 'Y', 'km', 'Y distance', domain=ydom, data=(/(i-1.,i=1,nyg)/) )
+      call mpp_write_meta( unit, z, 'Z', 'km', 'Z distance',              data=(/(i-1.,i=1,nz)/) )
+      call mpp_write_meta( unit, t, 'T', 'sec', 'Time' )
+      call mpp_write_meta( unit, f, (/x,y,z,t/), 'Data', 'metres', 'Random data' )
+      call mpp_write( unit, x )
+      call mpp_write( unit, y )
+      call mpp_write( unit, z )
+      do i = 0,nt-1
+         time = i*10.
+         call mpp_write( unit, f, domain, data8, time )
       end do
       call mpp_close(unit)
   end if
 
 !netCDF distributed write
   if( pe.EQ.mpp_root_pe() )print *, 'netCDF distributed write'
-  call mpp_open( unit, trim(type)//"_"//trim(file)//'d', action=MPP_OVERWR, &
+  call mpp_open( unit, trim(type)//"_"//trim(file)//'dR4', action=MPP_OVERWR, &
                  form=MPP_NETCDF, threading=MPP_MULTI, fileset=MPP_MULTI )
   call mpp_write_meta( unit, x, 'X', 'km', 'X distance', 'X', domain=xdom, data=(/(i-1.,i=1,nxg)/) )
   call mpp_write_meta( unit, y, 'Y', 'km', 'Y distance', 'Y', domain=ydom, data=(/(i-1.,i=1,nyg)/) )
@@ -284,13 +319,29 @@ program test
   call mpp_write( unit, z )
   do i = 0,nt-1
      time = i*10.
-     call mpp_write( unit, f, domain, data, time )
+     call mpp_write( unit, f, domain, data4, time )
+  end do
+  call mpp_close(unit)
+  ! test with DOUBLE_KIND
+  call mpp_open( unit, trim(type)//"_"//trim(file)//'dR8', action=MPP_OVERWR, &
+                 form=MPP_NETCDF, threading=MPP_MULTI, fileset=MPP_MULTI )
+  call mpp_write_meta( unit, x, 'X', 'km', 'X distance', 'X', domain=xdom, data=(/(i-1.,i=1,nxg)/) )
+  call mpp_write_meta( unit, y, 'Y', 'km', 'Y distance', 'Y', domain=ydom, data=(/(i-1.,i=1,nyg)/) )
+  call mpp_write_meta( unit, z, 'Z', 'km', 'Z distance', 'Z', data=(/(i-1.,i=1,nz)/) )
+  call mpp_write_meta( unit, t, 'T', 'sec', 'Time', 'T' )
+  call mpp_write_meta( unit, f, (/x,y,z,t/), 'Data', 'metres', 'Random data', pack=pack_size )
+  call mpp_write( unit, x )
+  call mpp_write( unit, y )
+  call mpp_write( unit, z )
+  do i = 0,nt-1
+     time = i*10.
+     call mpp_write( unit, f, domain, data8, time )
   end do
   call mpp_close(unit)
 
 !netCDF single-threaded write
   if( pe.EQ.mpp_root_pe() )print *, 'netCDF single-threaded write'
-  call mpp_open( unit, trim(type)//"_"//trim(file)//'s', action=MPP_OVERWR, form=MPP_NETCDF, threading=MPP_SINGLE )
+  call mpp_open( unit, trim(type)//"_"//trim(file)//'sR4', action=MPP_OVERWR, form=MPP_NETCDF, threading=MPP_SINGLE )
 
   call mpp_write_meta( unit, x, 'X', 'km', 'X distance', 'X', domain=xdom, data=(/(i-1.,i=1,nxg)/) )
 
@@ -305,32 +356,53 @@ program test
 
   do i = 0,nt-1
      time = i*10.
-     call mpp_write( unit, f, domain, data, time)
+     call mpp_write( unit, f, domain, data4, time)
   end do
   call mpp_close(unit)
-  allocate( rdata(is:ie,js:je,nz) )
+  allocate( rdata4(is:ie,js:je,nz) )
+
+  ! test with DOUBLE_KIND
+  call mpp_open( unit, trim(type)//"_"//trim(file)//'sR8', action=MPP_OVERWR, form=MPP_NETCDF, threading=MPP_SINGLE )
+
+  call mpp_write_meta( unit, x, 'X', 'km', 'X distance', 'X', domain=xdom, data=(/(i-1.,i=1,nxg)/) )
+
+  call mpp_write_meta( unit, y, 'Y', 'km', 'Y distance', 'Y', domain=ydom, data=(/(i-1.,i=1,nyg)/) )
+  call mpp_write_meta( unit, z, 'Z', 'km', 'Z distance', 'Z',              data=(/(i-1.,i=1,nz)/) )
+  call mpp_write_meta( unit, t, 'T', 'sec', 'Time', 'T' )
+  call mpp_write_meta( unit, f, (/x,y,z,t/), 'Data', 'metres', 'Random data', pack=pack_size )
+
+  call mpp_write( unit, x )
+  call mpp_write( unit, y )
+  call mpp_write( unit, z )
+
+  do i = 0,nt-1
+     time = i*10.
+     call mpp_write( unit, f, domain, data8, time)
+  end do
+  call mpp_close(unit)
+  allocate( rdata8(is:ie,js:je,nz) )
 
 !netCDF multi-threaded read
   if( pe.EQ.mpp_root_pe() )print *, 'netCDF multi-threaded read'
   call mpp_sync()
-  call mpp_open( unit, trim(type)//"_"//trim(file)//'s', action=MPP_RDONLY,  &
+  call mpp_open( unit, trim(type)//"_"//trim(file)//'sR4', action=MPP_RDONLY,  &
                  form=MPP_NETCDF, threading=MPP_MULTI, fileset=MPP_SINGLE )
   call mpp_get_info( unit, ndim, nvar, natt, ntime )
   allocate( atts(natt) )
   allocate( axes(ndim) )
   allocate( vars(nvar) )
-  allocate( tstamp(ntime) )
+  allocate( tstamp4(ntime) )
   call mpp_get_atts ( unit, atts(:) )
   call mpp_get_axes ( unit, axes(:) )
   call mpp_get_fields ( unit, vars(:) )
-  call mpp_get_times( unit, tstamp(:) )
+  call mpp_get_times( unit, tstamp4(:) )
 
   call mpp_get_atts(vars(1),name=varname)
 
   if( varname.NE.'Data' )call mpp_error( FATAL, 'File being read is not the expected one.' )
-  call mpp_read( unit, vars(1), domain, rdata, 1 )
-  rchk = mpp_chksum(rdata(is:ie,js:je,:))
-  chk  = mpp_chksum( data(is+ioff:ie+ioff,js+joff:je+joff,:))
+  call mpp_read( unit, vars(1), domain, rdata4, 1 )
+  rchk = mpp_chksum(rdata4(is:ie,js:je,:))
+  chk  = mpp_chksum( data4(is+ioff:ie+ioff,js+joff:je+joff,:))
   if( pe.EQ.mpp_root_pe() )print '(a,2z18)', trim(type)//' checksum=', rchk, chk
   if( rchk == chk ) then
       if( pe.EQ.mpp_root_pe() )call mpp_error( NOTE, trim(type)//': single-fileset: data comparison are OK.' )
@@ -338,33 +410,63 @@ program test
       call mpp_error( FATAL, 'Checksum error on multi-threaded/single-fileset netCDF read for type ' &
                //trim(type) )
   end if
+  call mpp_close(unit)
+  deallocate( atts, axes, vars, tstamp4 )
 
-  deallocate( atts, axes, vars, tstamp )
+  ! test with DOUBLE_KIND
+  call mpp_sync()
+  call mpp_open( unit, trim(type)//"_"//trim(file)//'sR8', action=MPP_RDONLY,  &
+                 form=MPP_NETCDF, threading=MPP_MULTI, fileset=MPP_SINGLE )
+  call mpp_get_info( unit, ndim, nvar, natt, ntime )
+  allocate( atts(natt) )
+  allocate( axes(ndim) )
+  allocate( vars(nvar) )
+  allocate( tstamp8(ntime) )
+  call mpp_get_atts ( unit, atts(:) )
+  call mpp_get_axes ( unit, axes(:) )
+  call mpp_get_fields ( unit, vars(:) )
+  call mpp_get_times( unit, tstamp8(:) )
+
+  call mpp_get_atts(vars(1),name=varname)
+
+  if( varname.NE.'Data' )call mpp_error( FATAL, 'File being read is not the expected one.' )
+  call mpp_read( unit, vars(1), domain, rdata8, 1 )
+  rchk = mpp_chksum(rdata8(is:ie,js:je,:))
+  chk  = mpp_chksum( data8(is+ioff:ie+ioff,js+joff:je+joff,:))
+  if( pe.EQ.mpp_root_pe() )print '(a,2z18)', trim(type)//' checksum=', rchk, chk
+  if( rchk == chk ) then
+      if( pe.EQ.mpp_root_pe() )call mpp_error( NOTE, trim(type)//': single-fileset: data comparison are OK.' )
+  else
+      call mpp_error( FATAL, 'Checksum error on multi-threaded/single-fileset netCDF read for type ' &
+               //trim(type) )
+  end if
+  call mpp_close(unit)
+  deallocate( atts, axes, vars, tstamp8 )
 
 !netCDF distributed read
   if( pe.EQ.mpp_root_pe() )print *, 'netCDF multi-threaded read'
   call mpp_sync()               !wait for previous write to complete
-  call mpp_open( unit, trim(type)//"_"//trim(file)//'d', action=MPP_RDONLY,  &
+  call mpp_open( unit, trim(type)//"_"//trim(file)//'dR4', action=MPP_RDONLY,  &
                  form=MPP_NETCDF, threading=MPP_MULTI, fileset=MPP_MULTI )
   call mpp_get_info( unit, ndim, nvar, natt, ntime )
   allocate( atts(natt) )
   allocate( axes(ndim) )
   allocate( vars(nvar) )
-  allocate( tstamp(ntime) )
+  allocate( tstamp4(ntime) )
   call mpp_get_atts ( unit, atts(:) )
   call mpp_get_axes ( unit, axes(:) )
   call mpp_get_fields ( unit, vars(:) )
-  call mpp_get_times( unit, tstamp(:) )
+  call mpp_get_times( unit, tstamp4(:) )
 
   call mpp_get_atts(vars(1),name=varname)
-  rdata = 0
+  rdata4 = 0
 
   if( varname.NE.'Data' )call mpp_error( FATAL, 'File being read is not the expected one.' )
 
-  call mpp_read( unit, vars(1), domain, rdata, 1 )
+  call mpp_read( unit, vars(1), domain, rdata4, 1 )
 
-  rchk = mpp_chksum(rdata(is:ie,js:je,:))
-  chk  = mpp_chksum( data(is+ioff:ie+ioff,js+joff:je+joff,:))
+  rchk = mpp_chksum(rdata4(is:ie,js:je,:))
+  chk  = mpp_chksum( data4(is+ioff:ie+ioff,js+joff:je+joff,:))
   if( pe.EQ.mpp_root_pe() )print '(a,2z18)', trim(type)//' checksum=', rchk, chk
   if( rchk == chk ) then
       if( pe.EQ.mpp_root_pe() )call mpp_error( NOTE, trim(type)//': multi-fileset: data comparison are OK.' )
@@ -373,9 +475,40 @@ program test
            //trim(type) )
   end if
 
-  deallocate( atts, axes, vars, tstamp )
+  deallocate( atts, axes, vars, tstamp4 )
+  ! test with DOUBLE_KIND
+  call mpp_sync()               !wait for previous write to complete
+  call mpp_open( unit, trim(type)//"_"//trim(file)//'dR8', action=MPP_RDONLY,  &
+                 form=MPP_NETCDF, threading=MPP_MULTI, fileset=MPP_MULTI )
+  call mpp_get_info( unit, ndim, nvar, natt, ntime )
+  allocate( atts(natt) )
+  allocate( axes(ndim) )
+  allocate( vars(nvar) )
+  allocate( tstamp8(ntime) )
+  call mpp_get_atts ( unit, atts(:) )
+  call mpp_get_axes ( unit, axes(:) )
+  call mpp_get_fields ( unit, vars(:) )
+  call mpp_get_times( unit, tstamp8(:) )
 
-  deallocate( rdata, gdata, data)
+  call mpp_get_atts(vars(1),name=varname)
+  rdata8 = 0
+
+  if( varname.NE.'Data' )call mpp_error( FATAL, 'File being read is not the expected one.' )
+
+  call mpp_read( unit, vars(1), domain, rdata8, 1 )
+
+  rchk = mpp_chksum(rdata8(is:ie,js:je,:))
+  chk  = mpp_chksum( data8(is+ioff:ie+ioff,js+joff:je+joff,:))
+  if( pe.EQ.mpp_root_pe() )print '(a,2z18)', trim(type)//' checksum=', rchk, chk
+  if( rchk == chk ) then
+      if( pe.EQ.mpp_root_pe() )call mpp_error( NOTE, trim(type)//': multi-fileset: data comparison are OK.' )
+  else
+      call mpp_error( FATAL, 'Checksum error on multi-threaded/multi-fileset netCDF read for type ' &
+           //trim(type) )
+  end if
+
+  deallocate( atts, axes, vars, tstamp8 )
+  deallocate( rdata8, gdata8, data8)
 
   end subroutine test_netcdf_io
 
@@ -384,25 +517,26 @@ program test
   integer :: is, ie, js, je, isd, ied, jsd, jed, ism, iem, jsm, jem
   integer :: position, msize(2), ioff, joff, nxg, nyg
   logical :: symmetry
-  real :: data
+  real(FLOAT_KIND)  :: data4
+  real(DOUBLE_KIND) :: data8
   type(fieldtype),        allocatable :: vars(:)
 
 !netCDF distributed write
   if( pe.EQ.mpp_root_pe() )print *, 'netCDF single thread write'
-  call mpp_open( unit, "timestats.nc", action=MPP_OVERWR, &
+  call mpp_open( unit, "timestatsR4.nc", action=MPP_OVERWR, &
                  form=MPP_NETCDF, threading=MPP_SINGLE, fileset=MPP_SINGLE )
   call mpp_write_meta( unit, t, 'T', 'sec', 'Time', 'T' )
   call mpp_write_meta( unit, f, (/t/), 'Data', 'metres', 'Random data', pack=pack_size )
   do i = 0,nt-1
      time = i*1.
-     data = i*3.0
-     call mpp_write( unit, f, data, time )
+     data4 = i*3.0
+     call mpp_write( unit, f, data4, time )
   end do
   call mpp_close(unit)
 
 !--- append
   if( pe.EQ.mpp_root_pe() )print *, 'netCDF single thread append'
-  call mpp_open( unit, "timestats.nc", action=MPP_APPEND, &
+  call mpp_open( unit, "timestatsR4.nc", action=MPP_APPEND, &
                  form=MPP_NETCDF, threading=MPP_SINGLE, fileset=MPP_SINGLE )
   allocate(vars(1))
   if(pe.EQ.mpp_root_pe() ) then
@@ -416,12 +550,44 @@ program test
 
     do i = nt,2*nt-1
       time = i*1.
-      data = i*3.0
-      call mpp_write( unit, vars(1), data, time )
+      data4 = i*3.0
+      call mpp_write( unit, vars(1), data4, time )
     end do
     call mpp_close(unit)
     deallocate(vars)
+  ! test with DOUBLE_KIND
+  call mpp_open( unit, "timestatsR8.nc", action=MPP_OVERWR, &
+                 form=MPP_NETCDF, threading=MPP_SINGLE, fileset=MPP_SINGLE )
+  call mpp_write_meta( unit, t, 'T', 'sec', 'Time', 'T' )
+  call mpp_write_meta( unit, f, (/t/), 'Data', 'metres', 'Random data', pack=pack_size )
+  do i = 0,nt-1
+     time = i*1.
+     data8 = i*3.0
+     call mpp_write( unit, f, data8, time )
+  end do
+  call mpp_close(unit)
 
+!--- append
+  if( pe.EQ.mpp_root_pe() )print *, 'netCDF single thread append'
+  call mpp_open( unit, "timestatsR8.nc", action=MPP_APPEND, &
+                 form=MPP_NETCDF, threading=MPP_SINGLE, fileset=MPP_SINGLE )
+  allocate(vars(1))
+  if(pe.EQ.mpp_root_pe() ) then
+    call mpp_get_info(unit, ndim, nvar, natt, ntime)
+
+    if (nvar /= 1) then
+       call mpp_error(FATAL, "test_netcdf_io_append: nvar should be 1")
+    endif
+    call mpp_get_fields(unit,vars(1:nvar))
+  endif
+
+    do i = nt,2*nt-1
+      time = i*1.
+      data8 = i*3.0
+      call mpp_write( unit, vars(1), data8, time )
+    end do
+    call mpp_close(unit)
+    deallocate(vars)
 
   end subroutine test_netcdf_io_append
 
