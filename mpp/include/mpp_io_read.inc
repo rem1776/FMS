@@ -36,10 +36,9 @@
 #undef MPP_READ_2DDECOMP_4D_
 #define MPP_READ_2DDECOMP_4D_ mpp_read_2ddecomp_r4d
 #undef MPP_TYPE_
-#define MPP_TYPE_ real
+#define MPP_TYPE_ real(FLOAT_KIND)
 #include <mpp_read_2Ddecomp.h>
 
-!#ifdef OVERLOAD_R8
 #undef READ_RECORD_CORE_
 #define READ_RECORD_CORE_ read_record_core_r8
 #undef READ_RECORD_
@@ -53,7 +52,6 @@
 #undef MPP_TYPE_
 #define MPP_TYPE_ real(DOUBLE_KIND)
 #include <mpp_read_2Ddecomp.h>
-!#endif
 
 #undef MPP_READ_COMPRESSED_1D_
 #define MPP_READ_COMPRESSED_1D_ mpp_read_compressed_r1d
@@ -131,7 +129,7 @@
     subroutine mpp_read_region_r2D(unit, field, data, start, nread)
       integer,         intent(in) :: unit
       type(fieldtype), intent(in) :: field
-      real,         intent(inout) :: data(:,:)
+      real(FLOAT_KIND),         intent(inout) :: data(:,:)
       integer,         intent(in) :: start(:), nread(:)
 
       if(size(start(:)) .NE. 4 .OR. size(nread(:)) .NE. 4) call mpp_error(FATAL, &
@@ -152,7 +150,7 @@
     subroutine mpp_read_region_r3D(unit, field, data, start, nread)
       integer,         intent(in) :: unit
       type(fieldtype), intent(in) :: field
-      real,         intent(inout) :: data(:,:,:)
+      real(FLOAT_KIND),         intent(inout) :: data(:,:,:)
       integer,         intent(in) :: start(:), nread(:)
 
       if(size(start(:)) .NE. 4 .OR. size(nread(:)) .NE. 4) call mpp_error(FATAL, &
@@ -168,7 +166,6 @@
       return
     end subroutine mpp_read_region_r3D
 
-!#ifdef OVERLOAD_R8
     subroutine mpp_read_region_r2D_r8(unit, field, data, start, nread)
       integer,                intent(in) :: unit
       type(fieldtype),        intent(in) :: field
@@ -206,7 +203,6 @@
 
       return
     end subroutine mpp_read_region_r3D_r8
-!#endif
 
 
     !--- Assume the text field is at most two-dimensional

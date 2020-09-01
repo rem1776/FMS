@@ -75,8 +75,7 @@ program test
   type(domain1D)     :: xdom, ydom
   integer(LONG_KIND) :: rchk, chk
   real(DOUBLE_KIND)                  :: doubledata = 0.0
-  real(DOUBLE_KIND)                               :: realarray8(4)
-  real(FLOAT_KIND)                               :: realarray4(4)
+  real(DOUBLE_KIND)                               :: realarray(4)
 
   call mpp_init()
   pe = mpp_pe()
@@ -118,9 +117,7 @@ program test
   write( file,'(a,i3.3)' )trim(file), npes
 
 ! determine the pack_size
-  pack_size = size(transfer(doubledata, realarray4))
-  if( pack_size .NE. size(transfer(doubledata8))) call mpp_error(FATAL, &
-        'test_mpp_io: pack_size differs with mixed precision arrays')
+  pack_size = size(transfer(doubledata, realarray))
   if( pack_size .NE. 1 .AND. pack_size .NE. 2) call mpp_error(FATAL,'test_mpp_io: pack_size should be 1 or 2')
 
   call test_netcdf_io_append()
