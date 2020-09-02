@@ -54,13 +54,23 @@
 #include <mpp_read_2Ddecomp.h>
 
 #undef MPP_READ_COMPRESSED_1D_
-#define MPP_READ_COMPRESSED_1D_ mpp_read_compressed_r1d
+#define MPP_READ_COMPRESSED_1D_ mpp_read_compressed_r1d_r4
 #undef MPP_READ_COMPRESSED_2D_
-#define MPP_READ_COMPRESSED_2D_ mpp_read_compressed_r2d
+#define MPP_READ_COMPRESSED_2D_ mpp_read_compressed_r2d_r4
 #undef MPP_READ_COMPRESSED_3D_
-#define MPP_READ_COMPRESSED_3D_ mpp_read_compressed_r3d
+#define MPP_READ_COMPRESSED_3D_ mpp_read_compressed_r3d_r4
 #undef MPP_TYPE_
-#define MPP_TYPE_ real
+#define MPP_TYPE_ real(FLOAT_KIND)
+#include <mpp_read_compressed.h>
+
+#undef MPP_READ_COMPRESSED_1D_
+#define MPP_READ_COMPRESSED_1D_ mpp_read_compressed_r1d_r8
+#undef MPP_READ_COMPRESSED_2D_
+#define MPP_READ_COMPRESSED_2D_ mpp_read_compressed_r2d_r8
+#undef MPP_READ_COMPRESSED_3D_
+#define MPP_READ_COMPRESSED_3D_ mpp_read_compressed_r3d_r8
+#undef MPP_TYPE_
+#define MPP_TYPE_ real(DOUBLE_KIND)
 #include <mpp_read_compressed.h>
 
 #include <mpp_read_distributed_ascii.inc>

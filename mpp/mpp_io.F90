@@ -669,9 +669,12 @@ type :: atttype
 !  </NOTE>
 ! </INTERFACE>
   interface mpp_read_compressed
-     module procedure mpp_read_compressed_r1d
-     module procedure mpp_read_compressed_r2d
-     module procedure mpp_read_compressed_r3d
+     module procedure mpp_read_compressed_r1d_r4
+     module procedure mpp_read_compressed_r2d_r4
+     module procedure mpp_read_compressed_r3d_r4
+     module procedure mpp_read_compressed_r1d_r8
+     module procedure mpp_read_compressed_r2d_r8
+     module procedure mpp_read_compressed_r3d_r8
   end interface mpp_read_compressed
 
 
@@ -955,9 +958,12 @@ type :: atttype
 !  </NOTE>
 ! </INTERFACE>
   interface mpp_write_compressed
-     module procedure mpp_write_compressed_r1d
-     module procedure mpp_write_compressed_r2d
-     module procedure mpp_write_compressed_r3d
+     module procedure mpp_write_compressed_r1d_r4
+     module procedure mpp_write_compressed_r2d_r4
+     module procedure mpp_write_compressed_r3d_r4
+     module procedure mpp_write_compressed_r1d_r8
+     module procedure mpp_write_compressed_r2d_r8
+     module procedure mpp_write_compressed_r3d_r8
   end interface mpp_write_compressed
 
 !***********************************************************************

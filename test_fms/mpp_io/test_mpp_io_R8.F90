@@ -186,7 +186,7 @@ program test
   contains
 
   !------------------------------------------------------------------
-
+  !> Tests mpp_ reads and writes on netcdf files for both 32 and 64-bit reals
   subroutine test_netcdf_io(type)
   character(len=*), intent(in) :: type
   integer :: ndim, nvar, natt, ntime
@@ -196,11 +196,15 @@ program test
   type(atttype),          allocatable :: atts(:)
   type(fieldtype),        allocatable :: vars(:)
   type(axistype),         allocatable :: axes(:)
+  !> to repeat read/writes with both reals
   real(DOUBLE_KIND),                   allocatable :: tstamp8(:)
   real(DOUBLE_KIND), dimension(:,:,:), allocatable :: data8, gdata8, rdata8
   real(FLOAT_KIND),                   allocatable :: tstamp4(:)
   real(FLOAT_KIND), dimension(:,:,:), allocatable :: data4, gdata4, rdata4
-
+  !> for comparing read/write results
+  type(atttype),          allocatable :: attsTemp(:)
+  type(fieldtype),        allocatable :: varsTemp(:)
+  type(axistype),         allocatable :: axesTemp(:)
   !--- determine the shift and symmetry according to type,
   select case(type)
   case('Simple')
@@ -234,7 +238,7 @@ program test
   call mpp_get_global_domain ( domain, xsize=nxg, ysize=nyg, position=position )
   call mpp_get_domain_components( domain, xdom, ydom )
 
-!define global data array
+!define global data arrays for 32 and 64 bit reals
   allocate( gdata4(nxg,nyg,nz) )
   gdata4 = 0.
   do k = 1,nz
@@ -408,6 +412,9 @@ program test
                //trim(type) )
   end if
   call mpp_close(unit)
+  attsTemp = atts
+  varsTemp = vars
+  axesTemp = axis
   deallocate( atts, axes, vars, tstamp4 )
 
   ! test with DOUBLE_KIND
