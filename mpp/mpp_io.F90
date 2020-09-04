@@ -592,9 +592,10 @@ type :: atttype
      module procedure mpp_read_region_r3D
      module procedure mpp_read_region_r2D_r8
      module procedure mpp_read_region_r3D_r8
-     module procedure mpp_read_2ddecomp_r2d_r8
-     module procedure mpp_read_2ddecomp_r3d_r8
-     module procedure mpp_read_2ddecomp_r4d_r8
+     !! added for mixed prec
+     module procedure mpp_read_2ddecomp_r2d_r4
+     module procedure mpp_read_2ddecomp_r3d_r4
+     module procedure mpp_read_2ddecomp_r4d_r4
   end interface
 
 !***********************************************************************
@@ -669,12 +670,9 @@ type :: atttype
 !  </NOTE>
 ! </INTERFACE>
   interface mpp_read_compressed
-     module procedure mpp_read_compressed_r1d_r4
-     module procedure mpp_read_compressed_r2d_r4
-     module procedure mpp_read_compressed_r3d_r4
-     module procedure mpp_read_compressed_r1d_r8
-     module procedure mpp_read_compressed_r2d_r8
-     module procedure mpp_read_compressed_r3d_r8
+     module procedure mpp_read_compressed_r1d
+     module procedure mpp_read_compressed_r2d
+     module procedure mpp_read_compressed_r3d
   end interface mpp_read_compressed
 
 
@@ -898,16 +896,16 @@ type :: atttype
 
   interface write_record
      module procedure write_record_default
-     module procedure write_record_r8
+     module procedure write_record_r4
   end interface
 
   interface mpp_write
      module procedure mpp_write_2ddecomp_r2d
      module procedure mpp_write_2ddecomp_r3d
      module procedure mpp_write_2ddecomp_r4d
-     module procedure mpp_write_2ddecomp_r2d_r8
-     module procedure mpp_write_2ddecomp_r3d_r8
-     module procedure mpp_write_2ddecomp_r4d_r8
+     module procedure mpp_write_2ddecomp_r2d_r4
+     module procedure mpp_write_2ddecomp_r3d_r4
+     module procedure mpp_write_2ddecomp_r4d_r4
      module procedure mpp_write_r0D
      module procedure mpp_write_r1D
      module procedure mpp_write_r2D
@@ -958,12 +956,9 @@ type :: atttype
 !  </NOTE>
 ! </INTERFACE>
   interface mpp_write_compressed
-     module procedure mpp_write_compressed_r1d_r4
-     module procedure mpp_write_compressed_r2d_r4
-     module procedure mpp_write_compressed_r3d_r4
-     module procedure mpp_write_compressed_r1d_r8
-     module procedure mpp_write_compressed_r2d_r8
-     module procedure mpp_write_compressed_r3d_r8
+     module procedure mpp_write_compressed_r1d
+     module procedure mpp_write_compressed_r2d
+     module procedure mpp_write_compressed_r3d
   end interface mpp_write_compressed
 
 !***********************************************************************

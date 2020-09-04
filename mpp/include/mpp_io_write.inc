@@ -1098,39 +1098,29 @@
 #undef MPP_WRITE_2DDECOMP_4D_
 #define MPP_WRITE_2DDECOMP_4D_ mpp_write_2ddecomp_r4d
 #undef MPP_TYPE_
-#define MPP_TYPE_ real(FLOAT_KIND)
+#define MPP_TYPE_ real
 #include <mpp_write_2Ddecomp.h>
 
 #undef WRITE_RECORD_
-#define WRITE_RECORD_ write_record_r8
+#define WRITE_RECORD_ write_record_r4
 #undef MPP_WRITE_2DDECOMP_2D_
-#define MPP_WRITE_2DDECOMP_2D_ mpp_write_2ddecomp_r2d_r8
+#define MPP_WRITE_2DDECOMP_2D_ mpp_write_2ddecomp_r2d_r4
 #undef MPP_WRITE_2DDECOMP_3D_
-#define MPP_WRITE_2DDECOMP_3D_ mpp_write_2ddecomp_r3d_r8
+#define MPP_WRITE_2DDECOMP_3D_ mpp_write_2ddecomp_r3d_r4
 #undef MPP_WRITE_2DDECOMP_4D_
-#define MPP_WRITE_2DDECOMP_4D_ mpp_write_2ddecomp_r4d_r8
+#define MPP_WRITE_2DDECOMP_4D_ mpp_write_2ddecomp_r4d_r4
 #undef MPP_TYPE_
-#define MPP_TYPE_ real(DOUBLE_KIND)
+#define MPP_TYPE_ real(FLOAT_KIND)
 #include <mpp_write_2Ddecomp.h>
 
 #undef MPP_WRITE_COMPRESSED_1D_
-#define MPP_WRITE_COMPRESSED_1D_ mpp_write_compressed_r1d_r4
+#define MPP_WRITE_COMPRESSED_1D_ mpp_write_compressed_r1d
 #undef MPP_WRITE_COMPRESSED_2D_
-#define MPP_WRITE_COMPRESSED_2D_ mpp_write_compressed_r2d_r4
+#define MPP_WRITE_COMPRESSED_2D_ mpp_write_compressed_r2d
 #undef MPP_WRITE_COMPRESSED_3D_
-#define MPP_WRITE_COMPRESSED_3D_ mpp_write_compressed_r3d_r4
+#define MPP_WRITE_COMPRESSED_3D_ mpp_write_compressed_r3d
 #undef MPP_TYPE_
-#define MPP_TYPE_ real(FLOAT_KIND)
-#include <mpp_write_compressed.h>
-
-#undef MPP_WRITE_COMPRESSED_1D_
-#define MPP_WRITE_COMPRESSED_1D_ mpp_write_compressed_r1d_r8
-#undef MPP_WRITE_COMPRESSED_2D_
-#define MPP_WRITE_COMPRESSED_2D_ mpp_write_compressed_r2d_r8
-#undef MPP_WRITE_COMPRESSED_3D_
-#define MPP_WRITE_COMPRESSED_3D_ mpp_write_compressed_r3d_r8
-#undef MPP_TYPE_
-#define MPP_TYPE_ real(DOUBLE_KIND)
+#define MPP_TYPE_ real
 #include <mpp_write_compressed.h>
 
 #undef MPP_WRITE_UNLIMITED_AXIS_1D_
