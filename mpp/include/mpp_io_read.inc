@@ -36,7 +36,7 @@
 #undef MPP_READ_2DDECOMP_4D_
 #define MPP_READ_2DDECOMP_4D_ mpp_read_2ddecomp_r4d
 #undef MPP_TYPE_
-#define MPP_TYPE_ real
+#define MPP_TYPE_ real(DOUBLE_KIND)
 #include <mpp_read_2Ddecomp.h>
 
 #undef READ_RECORD_CORE_

@@ -1098,7 +1098,7 @@
 #undef MPP_WRITE_2DDECOMP_4D_
 #define MPP_WRITE_2DDECOMP_4D_ mpp_write_2ddecomp_r4d
 #undef MPP_TYPE_
-#define MPP_TYPE_ real
+#define MPP_TYPE_ real(DOUBLE_KIND)
 #include <mpp_write_2Ddecomp.h>
 
 #undef WRITE_RECORD_
