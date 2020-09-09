@@ -16,9 +16,15 @@
 !* You should have received a copy of the GNU Lesser General Public
 !* License along with FMS.  If not, see <http://www.gnu.org/licenses/>.
 !***********************************************************************
+!> @file
+!> @brief unit test for mpp_write and mpp_read
+!> @email gfdl.climate.model.info@noaa.gov
+!> @description Tests mpp_write and mpp_read for 2Ddecomposed reads/writes
+!>  with mixed precision reals
 program test
 #include <fms_platform.h>
 
+  use platform_mod,    only : r4_kind, r8_kind, i8_kind
   use mpp_mod,         only : mpp_init, mpp_pe, mpp_npes, mpp_root_pe, mpp_error, mpp_sync_self
   use mpp_mod,         only : FATAL, NOTE, mpp_chksum, MPP_DEBUG, mpp_set_stack_size, MPP_CLOCK_SYNC
   use mpp_mod,         only : mpp_sync, mpp_exit, mpp_clock_begin, mpp_clock_end, mpp_clock_id
@@ -69,14 +75,14 @@ program test
   logical            :: opened
   character(len=64)  :: varname
 
-  real(FLOAT_KIND)               :: time4
-  real(DOUBLE_KIND)              :: time8
+  real(r4_kind)               :: time4
+  real(r8_kind)              :: time8
   type(axistype)     :: x, y, z, t
   type(fieldtype)    :: f
   type(domain1D)     :: xdom, ydom
-  integer(LONG_KIND) :: rchk, chk
-  real(DOUBLE_KIND)                  :: doubledata = 0.0
-  real(DOUBLE_KIND)                  :: realarray(4)
+  integer(i8_kind) :: rchk, chk
+  real(r8_kind)                  :: doubledata = 0.0
+  real(r8_kind)                  :: realarray(4)
 
 ! initialize modules and set up namelist
   call mpp_init()
@@ -116,10 +122,9 @@ program test
   pack_size = size(transfer(doubledata, realarray))
   if( pack_size .NE. 1 .AND. pack_size .NE. 2) call mpp_error(FATAL,'test_mpp_io_R8: pack_size should be 1 or 2')
 
-! test read/writes for dffierent symmetries and positions
+! test read/writes for different symmetries and positions and 
 
   if(ntiles_x == 1 .and. ntiles_y == 1 .and. io_layout(1) == 1 .and. io_layout(2) == 1) then
-     print *, "Testing read/writes with 32 bit reals"
      call test_netcdf_io_R4('Simple')
      call test_netcdf_io_R4('Symmetry_T_cell')
      call test_netcdf_io_R4('Symmetry_E_cell')
@@ -129,7 +134,6 @@ program test
      call test_netcdf_io_R4('Symmetry_E_cell_memory')
      call test_netcdf_io_R4('Symmetry_N_cell_memory')
      call test_netcdf_io_R4('Symmetry_C_cell_memory')
-     print *, "Testing read/writes with 64 bit reals"
      call test_netcdf_io_R8('Simple')
      call test_netcdf_io_R8('Symmetry_T_cell')
      call test_netcdf_io_R8('Symmetry_E_cell')
@@ -160,8 +164,8 @@ program test
   type(atttype),          allocatable :: atts(:)
   type(fieldtype),        allocatable :: vars(:)
   type(axistype),         allocatable :: axes(:)
-  real(DOUBLE_KIND),                   allocatable :: tstamp(:)
-  real(FLOAT_KIND), dimension(:,:,:), allocatable  :: data4, gdata4, rdata4
+  real(r8_kind),                   allocatable :: tstamp(:)
+  real(r4_kind), dimension(:,:,:), allocatable  :: data4, gdata4, rdata4
   !--- determine the shift and symmetry according to type,
   select case(type)
   case('Simple')
@@ -214,7 +218,6 @@ program test
 ! test single thread ascii writes 
  if( nx*ny*nz*nt.LT.1000 .AND. index(type,"memory") .NE. 0) then
   if( index(type,"memory") .NE. 0 )then
-      if( pe.EQ.mpp_root_pe() )print *, 'sequential write: single-threaded formatted'
       call mpp_open( unit, trim(file)//'sR4.txt', action=MPP_OVERWR, form=MPP_ASCII, threading=MPP_SINGLE )
       call mpp_write_meta( unit, x, 'X', 'km', 'X distance', domain=xdom, data=(/(i-1.,i=1,nxg)/) )
       call mpp_write_meta( unit, y, 'Y', 'km', 'Y distance', domain=ydom, data=(/(i-1.,i=1,nyg)/) )
@@ -232,7 +235,6 @@ program test
   end if
  end if
 !netCDF distributed write
-  if( pe.EQ.mpp_root_pe() )print *, 'netCDF distributed write'
   call mpp_open( unit, trim(type)//"_"//trim(file)//'dR4', action=MPP_OVERWR, &
                  form=MPP_NETCDF, threading=MPP_MULTI, fileset=MPP_MULTI )
   call mpp_write_meta( unit, x, 'X', 'km', 'X distance', 'X', domain=xdom, data=(/(i-1.,i=1,nxg)/) )
@@ -250,7 +252,6 @@ program test
   call mpp_close(unit)
 
 !netCDF single-threaded write
-  if( pe.EQ.mpp_root_pe() )print *, 'netCDF single-threaded write'
   call mpp_open( unit, trim(type)//"_"//trim(file)//'sR4', action=MPP_OVERWR, form=MPP_NETCDF, threading=MPP_SINGLE )
 
   call mpp_write_meta( unit, x, 'X', 'km', 'X distance', 'X', domain=xdom, data=(/(i-1.,i=1,nxg)/) )
@@ -269,12 +270,15 @@ program test
      call mpp_write( unit, f, domain, data4, time4)
   end do
   call mpp_close(unit)
+!reopen and test appending write
+  call mpp_open( unit, trim(type)//"_"//trim(file)//'sR4', action=MPP_APPEND, form=MPP_NETCDF, threading=MPP_SINGLE )
+  call mpp_write( unit, f, domain, data4, time4) 
+  call mpp_close( unit )
 
 ! clear out for reads
   allocate( rdata4(is:ie,js:je,nz) )
 
 !netCDF multi-threaded read
-  if( pe.EQ.mpp_root_pe() )print *, 'netCDF multi-threaded read'
   call mpp_sync()
   call mpp_open( unit, trim(type)//"_"//trim(file)//'sR4', action=MPP_RDONLY,  &
                  form=MPP_NETCDF, threading=MPP_MULTI, fileset=MPP_SINGLE )
@@ -295,7 +299,6 @@ program test
   ! compare read and stored chksums
   rchk = mpp_chksum(rdata4(is:ie,js:je,:))
   chk  = mpp_chksum( data4(is+ioff:ie+ioff,js+joff:je+joff,:))
-  if( pe.EQ.mpp_root_pe() )print '(a,2z18)', trim(type)//' checksum=', rchk, chk
   if( rchk == chk ) then
       if( pe.EQ.mpp_root_pe() )call mpp_error( NOTE, trim(type)//': single-fileset: data comparison are OK.' )
   else
@@ -306,7 +309,6 @@ program test
   deallocate( atts, axes, vars, tstamp )
 
 !netCDF distributed read
-  if( pe.EQ.mpp_root_pe() )print *, 'netCDF multi-threaded read'
   call mpp_sync()               !wait for previous write to complete
   call mpp_open( unit, trim(type)//"_"//trim(file)//'dR4', action=MPP_RDONLY,  &
                  form=MPP_NETCDF, threading=MPP_MULTI, fileset=MPP_MULTI )
@@ -329,32 +331,12 @@ program test
   ! compare read and stored chksums
   rchk = mpp_chksum(rdata4(is:ie,js:je,:))
   chk  = mpp_chksum( data4(is+ioff:ie+ioff,js+joff:je+joff,:))
-  if( pe.EQ.mpp_root_pe() )print '(a,2z18)', trim(type)//' checksum=', rchk, chk
   if( rchk == chk ) then
       if( pe.EQ.mpp_root_pe() )call mpp_error( NOTE, trim(type)//': multi-fileset: data comparison are OK.' )
   else
       call mpp_error( FATAL, 'Checksum error on multi-threaded/multi-fileset netCDF read for type ' &
            //trim(type) )
   end if
-! test appending writes
-  !if( pe.EQ.mpp_root_pe() )print *, 'netCDF single-threaded appending write'
-  !call mpp_open( unit, trim(type)//"_"//trim(file)//'sR4', action=MPP_APPEND, form=MPP_NETCDF, threading=MPP_SINGLE )
-  !if(pe.EQ.mpp_root_pe() ) then
-    !call mpp_get_info(unit, ndim, nvar, natt, ntime)
-
-    !if (nvar /= 1) then
-       !call mpp_error(FATAL, "test_netcdf_io_append: nvar should be 1")
-    !endif
-    !call mpp_get_fields(unit,vars(1:nvar))
-  !endif
-
-  !do i = nt,2*nt-1
-    !time4 = i*1.
-    !data4 = i*3.0
-    !call mpp_write( unit, vars(1),domain4, data4, time4 )
-  !end do
-  !call mpp_close(unit)
-  !deallocate(vars)
   deallocate( atts, axes, vars, tstamp )
   deallocate( rdata4, gdata4, data4) 
 
@@ -369,8 +351,8 @@ program test
   type(atttype),          allocatable :: atts(:)
   type(fieldtype),        allocatable :: vars(:)
   type(axistype),         allocatable :: axes(:)
-  real(DOUBLE_KIND),                   allocatable :: tstamp8(:)
-  real(DOUBLE_KIND), dimension(:,:,:), allocatable :: data8, gdata8, rdata8
+  real(r8_kind),                   allocatable :: tstamp8(:)
+  real(r8_kind), dimension(:,:,:), allocatable :: data8, gdata8, rdata8
   !--- determine the shift and symmetry according to type,
   select case(type)
   case('Simple')
@@ -424,7 +406,6 @@ program test
 !sequential write: single-threaded formatted: only if small
 ! test ascii writes
   if( nx*ny*nz*nt.LT.1000 .AND. index(type,"memory") .NE. 0 )then
-      if( pe.EQ.mpp_root_pe() )print *, 'sequential write: single-threaded formatted'
 !here the only test is a successful write: please look at test.txt for verification.
       call mpp_open( unit, trim(file)//'sR8.txt', action=MPP_OVERWR, form=MPP_ASCII, threading=MPP_SINGLE )
       call mpp_write_meta( unit, x, 'X', 'km', 'X distance', domain=xdom, data=(/(i-1.,i=1,nxg)/) )
@@ -443,7 +424,6 @@ program test
   end if
 
 !netCDF distributed write
-  if( pe.EQ.mpp_root_pe() )print *, 'netCDF distributed write'
   call mpp_open( unit, trim(type)//"_"//trim(file)//'dR8', action=MPP_OVERWR, &
                  form=MPP_NETCDF, threading=MPP_MULTI, fileset=MPP_MULTI )
   call mpp_write_meta( unit, x, 'X', 'km', 'X distance', 'X', domain=xdom, data=(/(i-1.,i=1,nxg)/) )
@@ -461,7 +441,6 @@ program test
   call mpp_close(unit)
 
 !netCDF single-threaded write
-  if( pe.EQ.mpp_root_pe() )print *, 'netCDF single-threaded write'
   call mpp_open( unit, trim(type)//"_"//trim(file)//'sR8', action=MPP_OVERWR, form=MPP_NETCDF, threading=MPP_SINGLE )
 
   call mpp_write_meta( unit, x, 'X', 'km', 'X distance', 'X', domain=xdom, data=(/(i-1.,i=1,nxg)/) )
@@ -482,8 +461,12 @@ program test
   call mpp_close(unit)
   allocate( rdata8(is:ie,js:je,nz) )
 
+!reopen and test appending write
+  call mpp_open( unit, trim(type)//"_"//trim(file)//'sR8', action=MPP_APPEND, form=MPP_NETCDF, threading=MPP_SINGLE )
+  call mpp_write( unit, f, domain, data8, time8) 
+  call mpp_close( unit )
+
 !netCDF multi-threaded read
-  if( pe.EQ.mpp_root_pe() )print *, 'netCDF multi-threaded read'
   call mpp_sync()
   call mpp_open( unit, trim(type)//"_"//trim(file)//'sR8', action=MPP_RDONLY,  &
                  form=MPP_NETCDF, threading=MPP_MULTI, fileset=MPP_SINGLE )
@@ -503,7 +486,6 @@ program test
   call mpp_read( unit, vars(1), domain, rdata8, 1 )
   rchk = mpp_chksum(rdata8(is:ie,js:je,:))
   chk  = mpp_chksum( data8(is+ioff:ie+ioff,js+joff:je+joff,:))
-  if( pe.EQ.mpp_root_pe() )print '(a,2z18)', trim(type)//' checksum=', rchk, chk
   if( rchk == chk ) then
       if( pe.EQ.mpp_root_pe() )call mpp_error( NOTE, trim(type)//': single-fileset: data comparison are OK.' )
   else
@@ -515,7 +497,6 @@ program test
   deallocate( atts, axes, vars, tstamp8 )
 
 !netCDF distributed read
-  if( pe.EQ.mpp_root_pe() )print *, 'netCDF multi-threaded read'
   call mpp_sync()               !wait for previous write to complete
   call mpp_open( unit, trim(type)//"_"//trim(file)//'dR8', action=MPP_RDONLY,  &
                  form=MPP_NETCDF, threading=MPP_MULTI, fileset=MPP_MULTI )
@@ -538,7 +519,6 @@ program test
 
   rchk = mpp_chksum(rdata8(is:ie,js:je,:))
   chk  = mpp_chksum( data8(is+ioff:ie+ioff,js+joff:je+joff,:))
-  if( pe.EQ.mpp_root_pe() )print '(a,2z18)', trim(type)//' checksum=', rchk, chk
   if( rchk == chk ) then
       if( pe.EQ.mpp_root_pe() )call mpp_error( NOTE, trim(type)//': multi-fileset: data comparison are OK.' )
   else
