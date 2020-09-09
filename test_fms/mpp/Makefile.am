@@ -22,7 +22,8 @@
 # Find the needed mod and inc files.
 AM_CPPFLAGS = -I${top_srcdir}/include \
   -I${top_builddir}/mpp \
-  -I${top_builddir}/affinity
+	-I${top_builddir}/affinity \
+	-I${top_builddir}/platform
 
 # Link to the FMS library.
 LDADD = ${top_builddir}/libFMS/libFMS.la
@@ -38,6 +39,8 @@ check_PROGRAMS = test_mpp \
   test_mpp_print_memuse_stats_file \
   test_mpp_memutils_begin_2x \
   test_mpp_memutils_end_before_begin \
+  test_read_ascii_file \
+  test_read_input_nml \
   test_stdout \
   test_stderr \
   test_mpp_get_ascii_lines \
@@ -48,7 +51,11 @@ check_PROGRAMS = test_mpp \
   test_mpp_npes \
   test_mpp_pe \
   test_mpp_root_pe \
-  test_peset
+  test_peset \
+  test_mpp_update_domains \
+  test_mpp_gatscat \
+	test_mpp_sum \
+	test_update_domains_performance
 
 # These are the sources for the tests.
 test_mpp_SOURCES = test_mpp.F90
@@ -61,6 +68,8 @@ test_mpp_print_memuse_stats_stderr_SOURCES=test_mpp_print_memuse_stats_stderr.F9
 test_mpp_print_memuse_stats_file_SOURCES=test_mpp_print_memuse_stats_file.F90
 test_mpp_memutils_begin_2x_SOURCES=test_mpp_memutils_begin_2x.F90
 test_mpp_memutils_end_before_begin_SOURCES=test_mpp_memutils_end_before_begin.F90
+test_read_ascii_file_SOURCES=test_read_ascii_file.F90
+test_read_input_nml_SOURCES=test_read_input_nml.F90
 test_stdout_SOURCES=test_stdout.F90
 test_stderr_SOURCES=test_stderr.F90
 test_mpp_get_ascii_lines_SOURCES=test_mpp_get_ascii_lines.F90
@@ -72,6 +81,12 @@ test_mpp_npes_SOURCES = test_mpp_npes.F90
 test_mpp_pe_SOURCES = test_mpp_pe.F90
 test_mpp_root_pe_SOURCES=test_mpp_root_pe.F90
 test_peset_SOURCES=test_peset.F90
+test_mpp_gatscat_SOURCES=test_mpp_gatscat.F90
+test_mpp_update_domains_SOURCES = test_mpp_update_domains.F90 \
+                                  fill_halo.F90 compare_data_checksums.F90
+test_mpp_sum_SOURCES=test_mpp_sum.F90
+test_update_domains_performance_SOURCES=test_update_domains_performance.F90 \
+                                        compare_data_checksums.F90
 
 # Run the test programs.
 TESTS = test_mpp_domains2.sh \
@@ -80,6 +95,8 @@ TESTS = test_mpp_domains2.sh \
   test_mpp_memuse \
   test_mpp_mem_dump \
   test_mpp_memutils_mod.sh \
+  test_read_ascii_file.sh \
+  test_read_input_nml2.sh \
   test_stdout.sh \
   test_stderr.sh \
   test_mpp_get_ascii_lines2.sh \
@@ -87,9 +104,13 @@ TESTS = test_mpp_domains2.sh \
   test_mpp_broadcast.sh \
   test_clock_init.sh \
   test_mpp_npes.sh \
-  test_mpp_pe.sh \
-  test_mpp_root_pe.sh \
-  test_peset.sh
+	test_mpp_pe.sh \
+	test_mpp_root_pe.sh \
+	test_peset.sh \
+	test_mpp_update_domains.sh \
+  test_mpp_sum.sh \
+  test_mpp_gatscat.sh \
+	test_update_domains_performance.sh
 
 # These files will also be included in the distribution.
 EXTRA_DIST = input_base.nml \
@@ -97,6 +118,8 @@ EXTRA_DIST = input_base.nml \
   test_mpp_pset2.sh     \
   test_mpp2.sh \
   test_mpp_memutils_mod.sh \
+  test_read_ascii_file.sh \
+  test_read_input_nml2.sh \
   test_stdout.sh \
   test_stderr.sh \
   test_mpp_get_ascii_lines2.sh \
@@ -109,9 +132,19 @@ EXTRA_DIST = input_base.nml \
   test_mpp_broadcast.sh \
   test_clock_init.sh \
   test_mpp_npes.sh \
-  test_mpp_pe.sh \
-  test_mpp_root_pe.sh \
-  test_peset.sh
+	test_mpp_pe.sh \
+	test_mpp_root_pe.sh \
+	test_peset.sh \
+	test_mpp_update_domains.sh \
+	test_mpp_sum.sh \
+	test_mpp_gatscat.sh \
+	test_update_domains_performance.sh
+
+compare_data_checksums.mod : compare_data_checksums.$(OBJEXT)
+fill_halo.mod : fill_halo.$(OBJEXT)
+test_mpp_update_domains.$(OBJEXT) : fill_halo.mod compare_data_checksums.mod
+test_update_domains_performance.$(OBJEXT) : compare_data_checksums.mod
 
 # Clean up
-CLEANFILES = include_files_mod.mod input.nml *.out* ascii*
+CLEANFILES = input.nml input_alternative.nml input_blank.nml empty.nml *.out* *.tst* \
+             include_files_mod.mod ascii* test_numb*

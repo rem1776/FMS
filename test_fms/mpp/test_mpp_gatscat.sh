@@ -1,7 +1,5 @@
 #!/bin/sh
-#
-# author @underwoo
-#
+
 #***********************************************************************
 #                   GNU Lesser General Public License
 #
@@ -20,26 +18,41 @@
 # You should have received a copy of the GNU Lesser General Public
 # License along with FMS.  If not, see <http://www.gnu.org/licenses/>.
 #***********************************************************************
-#
-# Script to test the mpp_memutils_mod Fortran module code.
 
-# Set common test settings
+# This is part of the GFDL FMS package. This is a shell script to
+# execute tests in the test_fms/mpp directory.
+
+# Ed Hartnett 11/29/19
+
+# Set common test settings.
 . ../test_common.sh
 
-# All tests use blank input.nml file.
+skip_test="no"
+
+# Get the number of available CPUs on the system
+if [ $(command -v nproc) ]
+then
+    # Looks like a linux system
+    nProc=$(nproc)
+elif [ $(command -v sysctl) ]
+then
+    # Looks like a Mac OS X system
+    nProc=$(sysctl -n hw.physicalcpu)
+else
+    nProc=-1
+fi
+
+# Do we need to oversubscribe
+if [ ${nProc} -lt 0 ]
+then
+    # Couldn't get the number of CPUs, skip the test.
+    skip_test="skip"
+elif [ $nProc -lt 4 ]
+then
+    # Need to oversubscribe the MPI
+    run_test test_mpp_gatscat 4 $skip_test "true"
+fi
+
 touch input.nml
+run_test test_mpp_gatscat 4 $skip_test
 
-echo "1: Test begin/end routines of mpp_memutils_mod"
-run_test ./test_mpp_memutils_begin_end 1
-
-echo "2: Test mpp_print_memuse_stats"
-run_test ./test_mpp_print_memuse_stats_stderr 1
-
-echo "3: Test mpp_print_memuse_stats to file (stdout)"
-run_test ./test_mpp_print_memuse_stats_file 1
-
-echo "4: Test failure caught if mpp_memuse_begin called multiple times"
-run_test ./test_mpp_memutils_begin_2x 1 || echo "Ok"
-
-echo "5: Test failure caught if mpp_memuse_end called before mpp_memuse_begin"
-run_test ./test_mpp_memutils_end_before_begin 1 || echo "Ok"
