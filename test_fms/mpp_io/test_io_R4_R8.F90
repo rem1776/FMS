@@ -21,7 +21,7 @@
 !> @email gfdl.climate.model.info@noaa.gov
 !> @description Tests mpp_write and mpp_read for reads/writes
 !>  with mixed precision reals on non-mosaic files
-program test
+program test_io_R4_R8
 
   use platform_mod,    only : r4_kind, r8_kind, i8_kind
   use mpp_mod,         only : mpp_init, mpp_pe, mpp_npes, mpp_root_pe, mpp_error, mpp_sync_self
@@ -530,4 +530,4 @@ program test
 
   end subroutine test_netcdf_io_R8
 
-end program test
+end program test_io_R4_R8
