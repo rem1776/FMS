@@ -19,10 +19,9 @@
 !> @file
 !> @brief unit test for mpp_write and mpp_read
 !> @email gfdl.climate.model.info@noaa.gov
-!> @description Tests mpp_write and mpp_read for 2Ddecomposed reads/writes
-!>  with mixed precision reals
+!> @description Tests mpp_write and mpp_read for reads/writes
+!>  with mixed precision reals on non-mosaic files
 program test
-#include <fms_platform.h>
 
   use platform_mod,    only : r4_kind, r8_kind, i8_kind
   use mpp_mod,         only : mpp_init, mpp_pe, mpp_npes, mpp_root_pe, mpp_error, mpp_sync_self
@@ -300,9 +299,9 @@ program test
   rchk = mpp_chksum(rdata4(is:ie,js:je,:))
   chk  = mpp_chksum( data4(is+ioff:ie+ioff,js+joff:je+joff,:))
   if( rchk == chk ) then
-      if( pe.EQ.mpp_root_pe() )call mpp_error( NOTE, trim(type)//': single-fileset: data comparison are OK.' )
+      if( pe.EQ.mpp_root_pe() )call mpp_error( NOTE, trim(type)//' R4: single-fileset: data comparison are OK.' )
   else
-      call mpp_error( FATAL, 'Checksum error on multi-threaded/single-fileset netCDF read for type ' &
+      call mpp_error( FATAL, 'R4 Checksum error on multi-threaded/single-fileset netCDF read for type ' &
                //trim(type) )
   end if
   call mpp_close(unit)
@@ -332,9 +331,9 @@ program test
   rchk = mpp_chksum(rdata4(is:ie,js:je,:))
   chk  = mpp_chksum( data4(is+ioff:ie+ioff,js+joff:je+joff,:))
   if( rchk == chk ) then
-      if( pe.EQ.mpp_root_pe() )call mpp_error( NOTE, trim(type)//': multi-fileset: data comparison are OK.' )
+      if( pe.EQ.mpp_root_pe() )call mpp_error( NOTE, trim(type)//' R4: multi-fileset: data comparison are OK.' )
   else
-      call mpp_error( FATAL, 'Checksum error on multi-threaded/multi-fileset netCDF read for type ' &
+      call mpp_error( FATAL, 'R4 Checksum error on multi-threaded/multi-fileset netCDF read for type ' &
            //trim(type) )
   end if
   deallocate( atts, axes, vars, tstamp )
@@ -487,9 +486,9 @@ program test
   rchk = mpp_chksum(rdata8(is:ie,js:je,:))
   chk  = mpp_chksum( data8(is+ioff:ie+ioff,js+joff:je+joff,:))
   if( rchk == chk ) then
-      if( pe.EQ.mpp_root_pe() )call mpp_error( NOTE, trim(type)//': single-fileset: data comparison are OK.' )
+      if( pe.EQ.mpp_root_pe() )call mpp_error( NOTE, trim(type)//' R8: single-fileset: data comparison are OK.' )
   else
-      call mpp_error( FATAL, 'Checksum error on multi-threaded/single-fileset netCDF read for type ' &
+      call mpp_error( FATAL, 'R8 Checksum error on multi-threaded/single-fileset netCDF read for type ' &
                //trim(type) )
   end if
 
@@ -520,9 +519,9 @@ program test
   rchk = mpp_chksum(rdata8(is:ie,js:je,:))
   chk  = mpp_chksum( data8(is+ioff:ie+ioff,js+joff:je+joff,:))
   if( rchk == chk ) then
-      if( pe.EQ.mpp_root_pe() )call mpp_error( NOTE, trim(type)//': multi-fileset: data comparison are OK.' )
+      if( pe.EQ.mpp_root_pe() )call mpp_error( NOTE, trim(type)//' R8: multi-fileset: data comparison are OK.' )
   else
-      call mpp_error( FATAL, 'Checksum error on multi-threaded/multi-fileset netCDF read for type ' &
+      call mpp_error( FATAL, 'R8 Checksum error on multi-threaded/multi-fileset netCDF read for type ' &
            //trim(type) )
   end if
 
