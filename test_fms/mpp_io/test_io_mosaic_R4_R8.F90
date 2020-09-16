@@ -28,6 +28,7 @@ program test_io_mosaic_R4_R8
   use mpp_mod,         only : mpp_init, mpp_pe, mpp_npes, mpp_root_pe, mpp_error, mpp_sync_self
   use mpp_mod,         only : FATAL, NOTE, mpp_chksum, MPP_DEBUG, mpp_set_stack_size, MPP_CLOCK_SYNC
   use mpp_mod,         only : mpp_sync, mpp_exit, mpp_clock_begin, mpp_clock_end, mpp_clock_id
+  use mpp_mod,         only : mpp_init_test_full_init
   use mpp_domains_mod, only : mpp_define_domains, mpp_domains_set_stack_size, domain1D, mpp_get_global_domain
   use mpp_domains_mod, only : domain2D, mpp_define_layout, mpp_get_domain_components, mpp_define_mosaic
   use mpp_domains_mod, only : mpp_get_memory_domain, mpp_get_compute_domain, mpp_domains_exit
@@ -79,13 +80,11 @@ program test_io_mosaic_R4_R8
   integer(i8_kind)   :: rchk, chk
   real(r8_kind)      :: doubledata = 0.0
   real               :: realarray(4)
-
-  call mpp_init()
+  integer            :: ierr
+! initialize mpp and read input namelist
+  call mpp_init(test_level=mpp_init_test_full_init)
   pe = mpp_pe()
   npes = mpp_npes()
-#ifdef INTERNAL_FILE_NML
-  read (input_nml_file, test_io_mosaic_nml, iostat=io_status)
-#else
   do
      inquire( unit=unit, opened=opened )
      if( .NOT.opened )exit
@@ -95,12 +94,10 @@ program test_io_mosaic_R4_R8
   open( unit=unit, file='input.nml', iostat=io_status)
   read( unit,test_io_mosaic_nml, iostat=io_status )
   close(unit)
-#endif
 
       if (io_status > 0) then
          call mpp_error(FATAL,'=>test_io_mosaic_R4_R8: Error reading input.nml')
       endif
-
 
   call SYSTEM_CLOCK( count_rate=tks_per_sec )
   if( debug )then
@@ -139,7 +136,7 @@ program test_io_mosaic_R4_R8
 
   call mpp_io_exit()
   call mpp_domains_exit()
-  call mpp_exit()
+  call MPI_FINALIZE(ierr)
 
   contains
 
