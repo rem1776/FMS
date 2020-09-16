@@ -32,6 +32,7 @@ LDADD = ${top_builddir}/libFMS/libFMS.la
 check_PROGRAMS = test_mpp_io \
   test_io_R4_R8              \
   test_io_mosaic_R4_R8
+
 # This is the source code for the test.
 test_mpp_io_SOURCES = test_mpp_io.F90
 test_io_R4_R8_SOURCES = test_io_R4_R8.F90
