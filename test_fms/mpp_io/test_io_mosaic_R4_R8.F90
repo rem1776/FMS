@@ -16,6 +16,12 @@
 !* You should have received a copy of the GNU Lesser General Public
 !* License along with FMS.  If not, see <http://www.gnu.org/licenses/>.
 !***********************************************************************
+!> @file
+!> @author Ryan Mulhall
+!> @brief Unit test for mpp_write/mpp_read on mosaics
+!> @email gfdl.climate.model.info@noaa.gov
+!> @description Performs reads and writes on mosaic files using mpp_write
+!> and mpp_read using 32 and 64 bit reals
 program test_io_mosaic_R4_R8
 
   use platform_mod
@@ -49,7 +55,6 @@ program test_io_mosaic_R4_R8
   logical           :: debug=.FALSE.
   character(len=64) :: file='test_mosaic', iospec='-F cachea'
   integer           :: layout(2) = (/1,1/)
-  !integer           :: ntiles_x=1, ntiles_y=1  ! total number of tiles will be ntiles_x*ntiles_y,
   integer           :: ntiles_x=3, ntiles_y=4  ! total number of tiles will be ntiles_x*ntiles_y,
                                                ! the grid size for each tile will be (nx/ntiles_x, ny/ntiles_y)
                                                ! set ntiles > 1 to test the efficiency of mpp_io.
@@ -62,22 +67,18 @@ program test_io_mosaic_R4_R8
 
   integer        :: pe, npes, io_status
   type(domain2D) :: domain
-
   integer            :: tks_per_sec
   integer            :: i,j,k, unit=7
-  integer            :: id_single_tile_mult_file
-  integer            :: id_mult_tile, id_single_tile_with_group, id_mult_tile_with_group
   logical            :: opened
   character(len=64)  :: varname
-
   real(r8_kind)      :: time8
   real(r4_kind)      :: time4
   type(axistype)     :: x, y, z, t
   type(fieldtype)    :: f
   type(domain1D)     :: xdom, ydom
-  integer(i8_kind) :: rchk, chk
-  real(r8_kind)                  :: doubledata = 0.0
-  real                               :: realarray(4)
+  integer(i8_kind)   :: rchk, chk
+  real(r8_kind)      :: doubledata = 0.0
+  real               :: realarray(4)
 
   call mpp_init()
   pe = mpp_pe()
@@ -116,8 +117,8 @@ program test_io_mosaic_R4_R8
   end if
 
   write( file,'(a,i3.3)' )trim(file), npes
-! set nml variables to test with mosaic tiles
-  io_layout(1) = 1
+! set layouts to test with mosaic tiles
+  io_layout(1) = 3
   io_layout(2) = 2
   layout(1) = 3
   layout(2) = 4
@@ -125,76 +126,16 @@ program test_io_mosaic_R4_R8
   pack_size = size(transfer(doubledata, realarray))
   if( pack_size .NE. 1 .AND. pack_size .NE. 2) call mpp_error(FATAL,'test_io_mosaic_R4_R8: pack_size should be 1 or 2')
 
-  if(ntiles_x == 1 .and. ntiles_y == 1 .and. io_layout(1) == 1 .and. io_layout(2) == 1) then
-     !mpp_error(ERROR, "test_io_mosaic_R4_R8.F90: invalid ntiles value or io_layout")
-  else
-     if(io_layout(1) <1 .OR. io_layout(2) <1) call mpp_error(FATAL, &
-            "program test_io_mosaic_R4_R8: both elements of test_mpp_io_nml variable io_layout must be positive integer")
-     if(ntiles_x <1 .OR. ntiles_y <1) call mpp_error(FATAL, &
-            "program test_io_mosaic_R4_R8: mpp_io_nml variable ntiles_x and ntiles_y must be positive integer")
-     if(mod(nx, ntiles_x) .NE. 0) call mpp_error(FATAL, &
-            "program test_io_mosaic_R4_R8: nx must be divided by ntiles_x")
-     if(mod(ny, ntiles_y) .NE. 0) call mpp_error(FATAL, &
-            "program test_io_mosaic_R4_R8: ny must be divided by ntiles_y")
-     if(mod(npes, ntiles_x*ntiles_y) .NE. 0) call mpp_error(FATAL, &
-            "program test_io_mosaic_R4_R8: npes should be divided by ntiles = ntiles_x*ntiles_y ")
-     if(layout(1) * layout(2) .NE. npes) call mpp_error(FATAL, &
-            "program test_io_mosaic_R4_R8: npes should equal to layout(1)*layout(2)" )
-     if(mod(layout(1), io_layout(1)) .NE. 0 ) call mpp_error(FATAL, &
-            "program test_io_mosaic_R4_R8: layout(1) must be divided by io_layout(1)")
-     if(mod(layout(2), io_layout(2)) .NE. 0 )call mpp_error(FATAL, &
-            "program test_io_mosaic_R4_R8: layout(2) must be divided by io_layout(2)")
-     ! test different mosaic reads with r4
-     id_single_tile_mult_file = mpp_clock_id('Single Tile Multiple File R4', flags=MPP_CLOCK_SYNC)
-     call mpp_clock_begin(id_single_tile_mult_file)
-     call test_netcdf_io_mosaic_R4('Single_tile_mult_file_R4', layout, 1, 1, (/1,1/) )
-     call mpp_clock_end(id_single_tile_mult_file)
-
-     if(io_layout(1) >1 .OR. io_layout(2) > 1) then
-        id_single_tile_with_group = mpp_clock_id('Single Tile With Group R4', flags=MPP_CLOCK_SYNC)
-        call mpp_clock_begin(id_single_tile_with_group)
-        call test_netcdf_io_mosaic_R4('Single_tile_with_group_R4', layout, 1, 1, io_layout)
-        call mpp_clock_end(id_single_tile_with_group)
-     endif
-
-     id_mult_tile  = mpp_clock_id('Multiple Tile R4', flags=MPP_CLOCK_SYNC)
-     call mpp_clock_begin(id_mult_tile)
-     call test_netcdf_io_mosaic_R4('Mult_tile_R4', layout, io_layout(1), io_layout(2), (/1,1/))
-     call mpp_clock_end(id_mult_tile)
-
-     ! TODO
-     if( (io_layout(1) >1 .OR. io_layout(2) > 1) .AND. (ntiles_x >1 .OR. ntiles_y > 1) .AND. .false.) then
-        id_mult_tile_with_group = mpp_clock_id('Multiple Tile With Group R4', flags=MPP_CLOCK_SYNC)
-        call mpp_clock_begin(id_mult_tile_with_group)
-        call test_netcdf_io_mosaic_R4('Mult_tile_with_group_R4', layout, ntiles_x, ntiles_y, io_layout)
-        call mpp_clock_end(id_mult_tile_with_group)
-     endif
-     ! test different mosaic reads with r8
-     id_single_tile_mult_file = mpp_clock_id('Single Tile Multiple File R8', flags=MPP_CLOCK_SYNC)
-     call mpp_clock_begin(id_single_tile_mult_file)
-     call test_netcdf_io_mosaic_R8('Single_tile_mult_file_R8', layout, 1, 1, (/1,1/) )
-     call mpp_clock_end(id_single_tile_mult_file)
-
-     if(io_layout(1) >1 .OR. io_layout(2) > 1) then
-        id_single_tile_with_group = mpp_clock_id('Single Tile With Group R8', flags=MPP_CLOCK_SYNC)
-        call mpp_clock_begin(id_single_tile_with_group)
-        call test_netcdf_io_mosaic_R8('Single_tile_with_group_R8', layout, 1, 1, io_layout)
-        call mpp_clock_end(id_single_tile_with_group)
-     endif
-
-     id_mult_tile  = mpp_clock_id('Multiple Tile R8', flags=MPP_CLOCK_SYNC)
-     call mpp_clock_begin(id_mult_tile)
-     call test_netcdf_io_mosaic_R8('Mult_tile_R8', layout, io_layout(1), io_layout(2), (/1,1/))
-     call mpp_clock_end(id_mult_tile)
-
-     ! TODO
-     if( (io_layout(1) >1 .OR. io_layout(2) > 1) .AND. (ntiles_x >1 .OR. ntiles_y > 1) ) then
-        id_mult_tile_with_group = mpp_clock_id('Multiple Tile With Group R8', flags=MPP_CLOCK_SYNC)
-        call mpp_clock_begin(id_mult_tile_with_group)
-        call test_netcdf_io_mosaic_R8('Mult_tile_with_group_R8', layout, ntiles_x, ntiles_y, io_layout)
-        call mpp_clock_end(id_mult_tile_with_group)
-     endif
-  endif
+  ! test different mosaic reads with r4
+  call test_netcdf_io_mosaic_R4('Single_tile_mult_file_R4', layout, 1, 1, (/1,1/) )
+  call test_netcdf_io_mosaic_R4('Single_tile_with_group_R4', layout, 1, 1, io_layout)
+  call test_netcdf_io_mosaic_R4('Mult_tile_R4', layout, io_layout(1), io_layout(2), (/1,1/))
+  call test_netcdf_io_mosaic_R4('Mult_tile_with_group_R4', layout, ntiles_x, ntiles_y, io_layout)
+  ! test different mosaic reads with r8
+  call test_netcdf_io_mosaic_R8('Single_tile_mult_file_R8', layout, 1, 1, (/1,1/) )
+  call test_netcdf_io_mosaic_R8('Single_tile_with_group_R8', layout, 1, 1, io_layout)
+  call test_netcdf_io_mosaic_R8('Mult_tile_R8', layout, io_layout(1), io_layout(2), (/1,1/))
+  call test_netcdf_io_mosaic_R8('Mult_tile_with_group_R8', layout, ntiles_x, ntiles_y, io_layout)
 
   call mpp_io_exit()
   call mpp_domains_exit()
@@ -220,15 +161,8 @@ program test_io_mosaic_R4_R8
   logical                              :: is_root_pe
   real(r4_kind), dimension(:,:,:), allocatable  :: data, rdata
   type(fieldtype), save                :: vars(1)
-  integer                              :: id_clock_read, id_clock_write
 
-  ! first get number of tiles of this mosaic. when there is one tile,
-  ! the file will be read/write using distributed file.
-  ! when there is more than one tile, single fileset will be used
   npes = mpp_npes()
-
-  id_clock_read  = mpp_clock_id(trim(type)//" readR4", flags=MPP_CLOCK_SYNC)
-  id_clock_write = mpp_clock_id(trim(type)//" writeR4", flags=MPP_CLOCK_SYNC)
 
   ncontacts = 0
   ntiles = ntiles_x*ntiles_y
@@ -273,8 +207,8 @@ program test_io_mosaic_R4_R8
      enddo
   enddo
 
-  !--- netcdf distribute write if ntiles = 1, otherwise single-thread write
-  output_file = type//'_R4'
+  ! open with netcdf distribute write if ntiles = 1, otherwise single-thread write
+  output_file = type
   select case(type)
   case("Single_tile_single_file_R4")
      call mpp_open( unit, output_file, action=MPP_OVERWR, form=MPP_NETCDF, threading=MPP_SINGLE, fileset=MPP_SINGLE )
@@ -288,13 +222,12 @@ program test_io_mosaic_R4_R8
      call mpp_open( unit, output_file, action=MPP_OVERWR, form=MPP_NETCDF, threading=MPP_MULTI, fileset=MPP_MULTI, domain=domain)
   case("Mult_tile_with_group_R4")
      write(output_file, '(a,I4.4)') type//'.tile', my_tile
-     call mpp_define_io_domain(domain, io_layout)
      call mpp_open( unit, output_file, action=MPP_OVERWR, form=MPP_NETCDF, threading=MPP_MULTI, fileset=MPP_MULTI, domain=domain)
 
   case default
      call mpp_error(FATAL, "program test_io_mosaic_R4_R8: invaid value of type="//type)
   end select
-
+  ! write data 
   call mpp_write_meta( unit, x, 'X', 'km', 'X distance', 'X', domain=xdom, data=(/(i-1.,i=1,nlon)/) )
   call mpp_write_meta( unit, y, 'Y', 'km', 'Y distance', 'Y', domain=ydom, data=(/(i-1.,i=1,nlat)/) )
   call mpp_write_meta( unit, z, 'Z', 'km', 'Z distance', 'Z', data=(/(i-1.,i=1,nz)/) )
@@ -303,12 +236,10 @@ program test_io_mosaic_R4_R8
   call mpp_write( unit, x )
   call mpp_write( unit, y )
   call mpp_write( unit, z )
-  call mpp_clock_begin(id_clock_write)
   do i = 0,nt-1
      time4 = i*10.
      call mpp_write( unit, f, domain, data, time4 )
   end do
-  call mpp_clock_end(id_clock_write)
   call mpp_close(unit)
 
   call mpp_sync()               !wait for previous write to complete
@@ -332,11 +263,10 @@ program test_io_mosaic_R4_R8
   call mpp_get_atts(vars(1),name=varname)
 
   if( varname.NE.'Data' )call mpp_error( FATAL, 'File being read is not the expected one.' )
-  call mpp_clock_begin(id_clock_read)
   do i = 0,nt-1
      call mpp_read( unit, vars(1), domain, rdata, 1 )
   enddo
-  call mpp_clock_end(id_clock_read)
+  ! compare read and stored data to validate successful write/read
   rchk = mpp_chksum(rdata)
   chk  = mpp_chksum( data)
   if( pe.EQ.mpp_root_pe() )print '(a,2z18)', trim(type)//' checksum=', rchk, chk
@@ -346,8 +276,6 @@ program test_io_mosaic_R4_R8
       call mpp_error( FATAL, 'Checksum error on netCDF read for type ' &
                //trim(type) )
   end if
-
-!  deallocate( vars)
 
   deallocate( rdata, data)
   call mpp_deallocate_domain(domain)
@@ -371,15 +299,8 @@ program test_io_mosaic_R4_R8
   logical                              :: is_root_pe
   real(r8_kind), dimension(:,:,:), allocatable  :: data, rdata
   type(fieldtype), save                :: vars(1)
-  integer                              :: id_clock_read, id_clock_write
 
-  ! first get number of tiles of this mosaic. when there is one tile,
-  ! the file will be read/write using distributed file.
-  ! when there is more than one tile, single fileset will be used
   npes = mpp_npes()
-
-  id_clock_read  = mpp_clock_id(trim(type)//" readR8", flags=MPP_CLOCK_SYNC)
-  id_clock_write = mpp_clock_id(trim(type)//" writeR8", flags=MPP_CLOCK_SYNC)
 
   ncontacts = 0
   ntiles = ntiles_x*ntiles_y
@@ -424,8 +345,8 @@ program test_io_mosaic_R4_R8
      enddo
   enddo
 
-  !--- netcdf distribute write if ntiles = 1, otherwise single-thread write
-  output_file = type//'_R8'
+  ! open with netcdf distribute write if ntiles = 1, otherwise single-thread write
+  output_file = type
   select case(type)
   case("Single_tile_single_file_R8")
      call mpp_open( unit, output_file, action=MPP_OVERWR, form=MPP_NETCDF, threading=MPP_SINGLE, fileset=MPP_SINGLE )
@@ -439,13 +360,12 @@ program test_io_mosaic_R4_R8
      call mpp_open( unit, output_file, action=MPP_OVERWR, form=MPP_NETCDF, threading=MPP_MULTI, fileset=MPP_MULTI, domain=domain)
   case("Mult_tile_with_group_R8")
      write(output_file, '(a,I4.4)') type//'.tile', my_tile
-     call mpp_define_io_domain(domain, io_layout)
      call mpp_open( unit, output_file, action=MPP_OVERWR, form=MPP_NETCDF, threading=MPP_MULTI, fileset=MPP_MULTI, domain=domain)
 
   case default
      call mpp_error(FATAL, "program test_io_mosaic_R4_R8: invaid value of type="//type)
   end select
-
+  ! write data 
   call mpp_write_meta( unit, x, 'X', 'km', 'X distance', 'X', domain=xdom, data=(/(i-1.,i=1,nlon)/) )
   call mpp_write_meta( unit, y, 'Y', 'km', 'Y distance', 'Y', domain=ydom, data=(/(i-1.,i=1,nlat)/) )
   call mpp_write_meta( unit, z, 'Z', 'km', 'Z distance', 'Z', data=(/(i-1.,i=1,nz)/) )
@@ -454,12 +374,10 @@ program test_io_mosaic_R4_R8
   call mpp_write( unit, x )
   call mpp_write( unit, y )
   call mpp_write( unit, z )
-  call mpp_clock_begin(id_clock_write)
   do i = 0,nt-1
      time8 = i*10.
      call mpp_write( unit, f, domain, data, time8 )
   end do
-  call mpp_clock_end(id_clock_write)
   call mpp_close(unit)
 
   call mpp_sync()               !wait for previous write to complete
@@ -483,11 +401,10 @@ program test_io_mosaic_R4_R8
   call mpp_get_atts(vars(1),name=varname)
 
   if( varname.NE.'Data' )call mpp_error( FATAL, 'File being read is not the expected one.' )
-  call mpp_clock_begin(id_clock_read)
   do i = 0,nt-1
      call mpp_read( unit, vars(1), domain, rdata, 1 )
   enddo
-  call mpp_clock_end(id_clock_read)
+  ! compare read and stored data to validate successful write/read
   rchk = mpp_chksum(rdata)
   chk  = mpp_chksum( data)
   if( pe.EQ.mpp_root_pe() )print '(a,2z18)', trim(type)//' checksum=', rchk, chk
@@ -498,7 +415,6 @@ program test_io_mosaic_R4_R8
                //trim(type) )
   end if
 
-!  deallocate( vars)
 
   deallocate( rdata, data)
   call mpp_deallocate_domain(domain)
