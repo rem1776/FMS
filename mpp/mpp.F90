@@ -609,10 +609,8 @@ private
   interface mpp_max
      module procedure mpp_max_real8_0d
      module procedure mpp_max_real8_1d
-#ifndef no_8byte_integers
      module procedure mpp_max_int8_0d
      module procedure mpp_max_int8_1d
-#endif
      module procedure mpp_max_real4_0d
      module procedure mpp_max_real4_1d
      module procedure mpp_max_int4_0d
@@ -622,10 +620,8 @@ private
   interface mpp_min
      module procedure mpp_min_real8_0d
      module procedure mpp_min_real8_1d
-#ifndef no_8byte_integers
      module procedure mpp_min_int8_0d
      module procedure mpp_min_int8_1d
-#endif
      module procedure mpp_min_real4_0d
      module procedure mpp_min_real4_1d
      module procedure mpp_min_int4_0d
@@ -667,14 +663,12 @@ private
   ! </INTERFACE>
 
   interface mpp_sum
-#ifndef no_8byte_integers
      module procedure mpp_sum_int8
      module procedure mpp_sum_int8_scalar
      module procedure mpp_sum_int8_2d
      module procedure mpp_sum_int8_3d
      module procedure mpp_sum_int8_4d
      module procedure mpp_sum_int8_5d
-#endif
      module procedure mpp_sum_real8
      module procedure mpp_sum_real8_scalar
      module procedure mpp_sum_real8_2d
@@ -712,14 +706,12 @@ private
   end interface
 
   interface mpp_sum_ad
-#ifndef no_8byte_integers
      module procedure mpp_sum_int8_ad
      module procedure mpp_sum_int8_scalar_ad
      module procedure mpp_sum_int8_2d_ad
      module procedure mpp_sum_int8_3d_ad
      module procedure mpp_sum_int8_4d_ad
      module procedure mpp_sum_int8_5d_ad
-#endif
      module procedure mpp_sum_real8_ad
      module procedure mpp_sum_real8_scalar_ad
      module procedure mpp_sum_real8_2d_ad
@@ -920,7 +912,6 @@ private
      module procedure mpp_transmit_cmplx8_4d
      module procedure mpp_transmit_cmplx8_5d
 #endif
-#ifndef no_8byte_integers
      module procedure mpp_transmit_int8
      module procedure mpp_transmit_int8_scalar
      module procedure mpp_transmit_int8_2d
@@ -933,7 +924,6 @@ private
      module procedure mpp_transmit_logical8_3d
      module procedure mpp_transmit_logical8_4d
      module procedure mpp_transmit_logical8_5d
-#endif
 
      module procedure mpp_transmit_real4
      module procedure mpp_transmit_real4_scalar
@@ -978,7 +968,6 @@ private
      module procedure mpp_recv_cmplx8_4d
      module procedure mpp_recv_cmplx8_5d
 #endif
-#ifndef no_8byte_integers
      module procedure mpp_recv_int8
      module procedure mpp_recv_int8_scalar
      module procedure mpp_recv_int8_2d
@@ -991,7 +980,6 @@ private
      module procedure mpp_recv_logical8_3d
      module procedure mpp_recv_logical8_4d
      module procedure mpp_recv_logical8_5d
-#endif
 
      module procedure mpp_recv_real4
      module procedure mpp_recv_real4_scalar
@@ -1036,7 +1024,6 @@ private
      module procedure mpp_send_cmplx8_4d
      module procedure mpp_send_cmplx8_5d
 #endif
-#ifndef no_8byte_integers
      module procedure mpp_send_int8
      module procedure mpp_send_int8_scalar
      module procedure mpp_send_int8_2d
@@ -1049,7 +1036,6 @@ private
      module procedure mpp_send_logical8_3d
      module procedure mpp_send_logical8_4d
      module procedure mpp_send_logical8_5d
-#endif
 
      module procedure mpp_send_real4
      module procedure mpp_send_real4_scalar
@@ -1128,7 +1114,6 @@ private
      module procedure mpp_broadcast_cmplx8_4d
      module procedure mpp_broadcast_cmplx8_5d
 #endif
-#ifndef no_8byte_integers
      module procedure mpp_broadcast_int8
      module procedure mpp_broadcast_int8_scalar
      module procedure mpp_broadcast_int8_2d
@@ -1141,7 +1126,6 @@ private
      module procedure mpp_broadcast_logical8_3d
      module procedure mpp_broadcast_logical8_4d
      module procedure mpp_broadcast_logical8_5d
-#endif
 
      module procedure mpp_broadcast_real4
      module procedure mpp_broadcast_real4_scalar
@@ -1221,7 +1205,6 @@ private
   !   <IN NAME="var" TYPE="MPP_TYPE_"> </IN>
   ! </INTERFACE>
   interface mpp_chksum
-#ifndef no_8byte_integers
      module procedure mpp_chksum_i8_1d
      module procedure mpp_chksum_i8_2d
      module procedure mpp_chksum_i8_3d
@@ -1233,7 +1216,6 @@ private
      module procedure mpp_chksum_i8_4d_rmask
      module procedure mpp_chksum_i8_5d_rmask
 
-#endif
      module procedure mpp_chksum_i4_1d
      module procedure mpp_chksum_i4_2d
      module procedure mpp_chksum_i4_3d

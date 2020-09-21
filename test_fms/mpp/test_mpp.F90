@@ -21,17 +21,16 @@
 #endif
 
 program test   !test various aspects of mpp_mod
-#include <fms_platform.h>
 
 #ifdef sgi_mipspro
   use shmem_interface
 #endif
-
+  use platform_mod
   use mpp_mod, only : mpp_init, mpp_exit, mpp_pe, mpp_npes, mpp_root_pe, stdout
   use mpp_mod, only : mpp_clock_id, mpp_clock_begin, mpp_clock_end, mpp_sync, mpp_malloc
   use mpp_mod, only : mpp_declare_pelist, mpp_set_current_pelist, mpp_set_stack_size
   use mpp_mod, only : mpp_broadcast, mpp_transmit, mpp_sum, mpp_max, mpp_chksum, ALL_PES
-  use mpp_mod, only : mpp_gather, mpp_error, FATAL, mpp_sync_self
+  use mpp_mod, only : mpp_gather, mpp_error, FATAL, mpp_sync_self, NOTE
   use mpp_io_mod, only: mpp_io_init, mpp_flush
 #ifdef use_MPI_GSM
   use mpp_mod, only : mpp_gsm_malloc, mpp_gsm_free
@@ -46,7 +45,7 @@ program test   !test various aspects of mpp_mod
   pointer (locd, d)
 #else
   real, allocatable, dimension(:) :: d
-  integer(LONG_KIND) :: locd
+  integer(i8_kind) :: locd
 #endif
   integer                         :: tick, tick0, ticks_per_sec, id
   integer                         :: pe, npes, root, i, j, k, l, m, n2, istat
@@ -62,6 +61,11 @@ program test   !test various aspects of mpp_mod
   out_unit = stdout()
 
   call SYSTEM_CLOCK( count_rate=ticks_per_sec )
+
+  if( pe.EQ.root ) print *, '------------------> Calling test_mpp_chksum_int <------------------'
+    call test_mpp_chksum_int()
+  if( pe.EQ.root ) print *, '------------------> Finished test_mpp_chksum_int <------------------'
+
   if( pe.EQ.root ) print *, '------------------> Calling test_time_transmit <------------------'
     call test_time_transmit()
   if( pe.EQ.root ) print *, '------------------> Finished test_time_transmit <------------------'
@@ -201,8 +205,37 @@ contains
 
   end subroutine test_mpp_chksum
 
+  subroutine test_mpp_chksum_int
+    integer(i8_kind), allocatable  :: data8(:)
+    integer(i4_kind), allocatable :: data4(:)
+    integer(i8_kind)               :: res4, res8, tres4, tres8
+    real, allocatable, dimension(:)  :: rands
+    integer                          :: i, length
+    !> generate random arrays for both kinds
+    length = 1024
+    allocate(rands(length), data8(length), data4(length))
+    if(pe.EQ.root) call random_number(rands)
+    do i = 1, length 
+      data8(i) = rands(i) * huge(data4(1))
+      data4(i) = rands(i) * huge(data4(1))
+    end do
+    !> calc chksums  
+    res4 = mpp_chksum(data4)
+    res8 = mpp_chksum(data8)
+    !> check results
+    if(res4.NE.res8) then
+      call mpp_error(FATAL, 'Test mpp_chksum_int: mixed precision chksums do not match')
+    else
+      call mpp_error(NOTE, 'Test mpp_chksum_int: mixed precision checksums match')
+    endif
+    !> print results
+    if(pe.EQ.root) print *,res4
+    if(pe.EQ.root) print *,res8
+    deallocate(rands, data8, data4)
+  end subroutine test_mpp_chksum_int
+
   subroutine test_shared_pointers(locd,n)
-    integer(LONG_KIND), intent(in) :: locd
+    integer(i8_kind), intent(in) :: locd
     integer :: n
     real :: dd(n)
     pointer( p, dd )
