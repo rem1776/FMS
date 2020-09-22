@@ -62,10 +62,6 @@ program test   !test various aspects of mpp_mod
 
   call SYSTEM_CLOCK( count_rate=ticks_per_sec )
 
-  if( pe.EQ.root ) print *, '------------------> Calling test_mpp_chksum_int <------------------'
-    call test_mpp_chksum_int()
-  if( pe.EQ.root ) print *, '------------------> Finished test_mpp_chksum_int <------------------'
-
   if( pe.EQ.root ) print *, '------------------> Calling test_time_transmit <------------------'
     call test_time_transmit()
   if( pe.EQ.root ) print *, '------------------> Finished test_time_transmit <------------------'
@@ -78,6 +74,9 @@ program test   !test various aspects of mpp_mod
     call test_mpp_chksum()
   if( pe.EQ.root ) print *, '------------------> Finished test_mpp_chksum <------------------'
 
+  if( pe.EQ.root ) print *, '------------------> Calling test_mpp_chksum_int <------------------'
+    call test_mpp_chksum_int()
+  if( pe.EQ.root ) print *, '------------------> Finished test_mpp_chksum_int <------------------'
 !test of pointer sharing
 #ifdef use_MPI_GSM
       call mpp_gsm_malloc( locd, sizeof(d) )
@@ -206,32 +205,42 @@ contains
   end subroutine test_mpp_chksum
 
   subroutine test_mpp_chksum_int
-    integer(i8_kind), allocatable  :: data8(:)
-    integer(i4_kind), allocatable :: data4(:)
-    integer(i8_kind)               :: res4, res8, tres4, tres8
-    real, allocatable, dimension(:)  :: rands
-    integer                          :: i, length
-    !> generate random arrays for both kinds
+    integer(i8_kind), allocatable  :: data8(:), distData(:),temp(:)
+    integer(i8_kind)               :: res4, res8, resDist
+    integer(i4_kind), allocatable  :: data4(:)
+    real, allocatable              :: rands(:)
+    integer                        :: i, length
+    !> generate random arrays
     length = 1024
-    allocate(rands(length), data8(length), data4(length))
-    if(pe.EQ.root) call random_number(rands)
+    allocate(rands(length), data8(length), data4(length), distData(length))
+    call random_number(rands)
     do i = 1, length 
       data8(i) = rands(i) * huge(data4(1))
       data4(i) = rands(i) * huge(data4(1))
+      distData(i) = rands(i) * huge(distData(1))
     end do
-    !> calc chksums  
+    !>test mixed precision int checksums 
     res4 = mpp_chksum(data4)
     res8 = mpp_chksum(data8)
-    !> check results
     if(res4.NE.res8) then
-      call mpp_error(FATAL, 'Test mpp_chksum_int: mixed precision chksums do not match')
+      call mpp_error(FATAL, 'Test mpp_chksum_int: mixed precision checksums do not match')
     else
       call mpp_error(NOTE, 'Test mpp_chksum_int: mixed precision checksums match')
     endif
-    !> print results
-    if(pe.EQ.root) print *,res4
-    if(pe.EQ.root) print *,res8
-    deallocate(rands, data8, data4)
+    !>test distributed int checksums
+    call mpp_sync()
+    call mpp_transmit( put_data=distData(1), plen=length, to_pe=ALL_PES, &
+                       get_data=distData(1),glen=length, from_pe=root)
+    call mpp_sync_self()
+    allocate(temp(length/npes))
+    temp = distData( pe*(length/npes)+1 : (pe+1)*(length/npes))!> distribute data for pelist
+    resDist = mpp_chksum(distData(1:length), (/pe/))
+    if(resDist.NE.mpp_chksum(temp)) then
+      call mpp_error(FATAL, 'Test mpp_chksum_int: distributed checksums do not match')
+    else
+      call mpp_error(NOTE, 'Test mpp_chksum_int: distributed checksums match')
+    endif
+    deallocate(rands, data8, data4, distData, temp)
   end subroutine test_mpp_chksum_int
 
   subroutine test_shared_pointers(locd,n)
