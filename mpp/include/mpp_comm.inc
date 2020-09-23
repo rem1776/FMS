@@ -27,7 +27,6 @@
 #include <mpp_comm_nocomm.inc>
 #endif
 
-#ifndef no_8byte_integers
 #undef MPP_CHKSUM_INT_
 #define MPP_CHKSUM_INT_ mpp_chksum_i8_1d
 #undef MPP_CHKSUM_INT_RMASK_
@@ -77,7 +76,6 @@
 #undef MPP_RANK_
 #define MPP_RANK_  (:,:,:,:,:)
 #include <mpp_chksum_int.h>
-#endif
 
 #undef MPP_CHKSUM_INT_
 #define MPP_CHKSUM_INT_ mpp_chksum_i4_1d

@@ -851,7 +851,6 @@ end subroutine mpp_deallocate_domainUG
 #define MPP_TYPE_ real(DOUBLE_KIND)
 #include <mpp_global_field_ug.h>
 
-#ifndef no_8byte_integers
 #undef MPP_GLOBAL_FIELD_UG_2D_
 #define MPP_GLOBAL_FIELD_UG_2D_ mpp_global_field2D_ug_i8_2d
 #undef MPP_GLOBAL_FIELD_UG_3D_
@@ -863,7 +862,6 @@ end subroutine mpp_deallocate_domainUG
 #undef MPP_TYPE_
 #define MPP_TYPE_ integer(LONG_KIND)
 #include <mpp_global_field_ug.h>
-#endif
 
 #undef MPP_GLOBAL_FIELD_UG_2D_
 #define MPP_GLOBAL_FIELD_UG_2D_ mpp_global_field2D_ug_r4_2d

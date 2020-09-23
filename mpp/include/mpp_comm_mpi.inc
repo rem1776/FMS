@@ -693,7 +693,6 @@ end subroutine mpp_gsm_free
 #include <mpp_transmit_mpi.h>
 #endif
 
-#ifndef no_8byte_integers
 #undef MPP_TRANSMIT_
 #define MPP_TRANSMIT_ mpp_transmit_int8
 #undef MPP_TRANSMIT_SCALAR_
@@ -749,7 +748,6 @@ end subroutine mpp_gsm_free
 #undef MPI_TYPE_
 #define MPI_TYPE_ MPI_INTEGER8
 #include <mpp_transmit_mpi.h>
-#endif
 
 #undef MPP_TRANSMIT_
 #define MPP_TRANSMIT_ mpp_transmit_int4
@@ -807,7 +805,6 @@ end subroutine mpp_gsm_free
 #define MPI_TYPE_ MPI_INTEGER4
 #include <mpp_transmit_mpi.h>
 
-#ifndef no_8byte_integers
 #undef MPP_TRANSMIT_
 #define MPP_TRANSMIT_ mpp_transmit_logical8
 #undef MPP_TRANSMIT_SCALAR_
@@ -863,7 +860,6 @@ end subroutine mpp_gsm_free
 #undef MPI_TYPE_
 #define MPI_TYPE_ MPI_INTEGER8
 #include <mpp_transmit_mpi.h>
-#endif
 
 #undef MPP_TRANSMIT_
 #define MPP_TRANSMIT_ mpp_transmit_logical4
@@ -954,7 +950,6 @@ end subroutine mpp_gsm_free
 #define MPI_REDUCE_ MPI_MAX
 #include <mpp_reduce_mpi.h>
 
-#ifndef no_8byte_integers
 #undef MPP_REDUCE_0D_
 #define MPP_REDUCE_0D_ mpp_max_int8_0d
 #undef MPP_REDUCE_1D_
@@ -968,7 +963,6 @@ end subroutine mpp_gsm_free
 #undef MPI_REDUCE_
 #define MPI_REDUCE_ MPI_MAX
 #include <mpp_reduce_mpi.h>
-#endif
 
 #undef MPP_REDUCE_0D_
 #define MPP_REDUCE_0D_ mpp_max_int4_0d
@@ -1012,7 +1006,6 @@ end subroutine mpp_gsm_free
 #define MPI_REDUCE_ MPI_MIN
 #include <mpp_reduce_mpi.h>
 
-#ifndef no_8byte_integers
 #undef MPP_REDUCE_0D_
 #define MPP_REDUCE_0D_ mpp_min_int8_0d
 #undef MPP_REDUCE_1D_
@@ -1026,7 +1019,6 @@ end subroutine mpp_gsm_free
 #undef MPI_REDUCE_
 #define MPI_REDUCE_ MPI_MIN
 #include <mpp_reduce_mpi.h>
-#endif
 
 #undef MPP_REDUCE_0D_
 #define MPP_REDUCE_0D_ mpp_min_int4_0d
@@ -1126,7 +1118,6 @@ end subroutine mpp_gsm_free
 #include <mpp_sum_mpi.h>
 #endif
 
-#ifndef no_8byte_integers
 #undef MPP_SUM_
 #define MPP_SUM_ mpp_sum_int8
 #undef MPP_SUM_SCALAR_
@@ -1146,7 +1137,6 @@ end subroutine mpp_gsm_free
 #undef MPP_TYPE_BYTELEN_
 #define MPP_TYPE_BYTELEN_ 8
 #include <mpp_sum_mpi.h>
-#endif
 
 #undef MPP_SUM_
 #define MPP_SUM_ mpp_sum_int4
@@ -1252,7 +1242,6 @@ end subroutine mpp_gsm_free
 #include <mpp_sum_mpi_ad.h>
 #endif
 
-#ifndef no_8byte_integers
 #undef MPP_SUM_AD_
 #define MPP_SUM_AD_ mpp_sum_int8_ad
 #undef MPP_SUM_SCALAR_AD_
@@ -1272,7 +1261,6 @@ end subroutine mpp_gsm_free
 #undef MPP_TYPE_BYTELEN_
 #define MPP_TYPE_BYTELEN_ 8
 #include <mpp_sum_mpi_ad.h>
-#endif
 
 #undef MPP_SUM_AD_
 #define MPP_SUM_AD_ mpp_sum_int4_ad
