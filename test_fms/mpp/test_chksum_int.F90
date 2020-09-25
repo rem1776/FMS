@@ -25,21 +25,21 @@ program test_chksum_int
 
   use platform_mod
   use mpp_mod, only : mpp_init, mpp_exit, mpp_pe, mpp_npes, mpp_root_pe, stdout
-  use mpp_mod, only : mpp_set_stack_size, mpp_sync
+  use mpp_mod, only : mpp_set_stack_size, mpp_sync, mpp_init_test_init_true_only
   use mpp_mod, only : mpp_transmit, mpp_chksum, ALL_PES
   use mpp_mod, only : mpp_error, FATAL, mpp_sync_self, NOTE
   use mpp_io_mod, only: mpp_io_init
 
   implicit none
 
-  integer                        :: pe, npes, root, out_unit
+  integer                        :: pe, npes, root, out_unit, ierr
   integer(i8_kind), allocatable  :: data8(:), distData(:),temp(:)
   integer(i8_kind)               :: res4, res8, resDist
   integer(i4_kind), allocatable  :: data4(:)
   real, allocatable              :: rands(:)
   integer                        :: i, length
 
-  call mpp_init()
+  call mpp_init(mpp_init_test_init_true_only)
   call mpp_io_init()
   call mpp_set_stack_size(3145746)
   pe = mpp_pe()
@@ -79,6 +79,6 @@ program test_chksum_int
   endif
   deallocate(rands, data8, data4, distData, temp)
 
-  call mpp_exit()
+  call MPI_FINALIZE(ierr) 
 
 end program test_chksum_int
