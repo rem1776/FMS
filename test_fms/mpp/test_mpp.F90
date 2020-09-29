@@ -21,7 +21,6 @@
 #endif
 
 program test   !test various aspects of mpp_mod
-#include <fms_platform.h>
 
   use mpp_mod, only : mpp_init, mpp_exit, mpp_pe, mpp_npes, mpp_root_pe, stdout
   use mpp_mod, only : mpp_clock_id, mpp_clock_begin, mpp_clock_end, mpp_sync
@@ -29,13 +28,14 @@ program test   !test various aspects of mpp_mod
   use mpp_mod, only : mpp_broadcast, mpp_transmit, mpp_sum, mpp_max, mpp_chksum, ALL_PES
   use mpp_mod, only : mpp_gather, mpp_error, FATAL, mpp_sync_self
   use mpp_io_mod, only: mpp_io_init, mpp_flush
+  use platform_mod
 
   implicit none
 
   integer, parameter              :: n=1048576
   real, allocatable, dimension(:) :: a, b, c
   real, allocatable, dimension(:) :: d
-  integer(LONG_KIND) :: locd
+  integer(i8_kind) :: locd
   integer                         :: tick, tick0, ticks_per_sec, id
   integer                         :: pe, npes, root, i, j, k, l, m, n2, istat
   integer                         :: out_unit
@@ -181,7 +181,7 @@ contains
   end subroutine test_mpp_chksum
 
   subroutine test_shared_pointers(locd,n)
-    integer(LONG_KIND), intent(in) :: locd
+    integer(i8_kind), intent(in) :: locd
     integer :: n
     real :: dd(n)
     pointer( p, dd )
