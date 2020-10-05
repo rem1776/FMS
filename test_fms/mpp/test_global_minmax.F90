@@ -24,7 +24,7 @@
 program test_global_minmax
 
   use platform_mod
-  use mpp_mod,         only: mpp_init, mpp_exit, mpp_pe, mpp_npes, mpp_root_pe, stdout
+  use mpp_mod,         only: mpp_init, mpp_exit, mpp_pe, mpp_npes, mpp_root_pe
   use mpp_mod,         only: mpp_set_stack_size, mpp_sync, mpp_sync_self
   use mpp_mod,         only: mpp_error, FATAL, NOTE, mpp_send, mpp_recv
   use mpp_io_mod,      only: mpp_io_init
@@ -39,13 +39,13 @@ program test_global_minmax
   implicit none
     
   integer                       :: nx=360, ny=200,length=64
-  integer                       :: id, pe, npes, root, out_unit, i, j
-  integer(i4_kind)              :: maxI4, minI4, tmaxI4, tminI4 ,ierr
-  integer(i8_kind)              :: maxI8, minI8, tmaxI8, tminI8
-  integer(i4_kind), allocatable :: dataI4(:,:), resI4(:)
-  integer(i8_kind), allocatable :: dataI8(:,:), resI8(:)
-  real(i4_kind), allocatable    :: dataR4(:,:), resR4(:)
-  real(i8_kind), allocatable    :: dataR8(:,:), resR8(:) 
+  integer                       :: id, pe, npes, root, i, j
+  integer(i4_kind)              :: maxI4, minI4,ierr
+  integer(i8_kind)              :: maxI8, minI8
+  integer(i4_kind), allocatable :: dataI4(:,:)
+  integer(i8_kind), allocatable :: dataI8(:,:)
+  real(i4_kind), allocatable    :: dataR4(:,:)
+  real(i8_kind), allocatable    :: dataR8(:,:)
   real, allocatable             :: rands(:)
   type(domain2D)                :: domain
   real(r8_kind)                 :: rcoef, maxR8,minR8
@@ -62,8 +62,6 @@ program test_global_minmax
   pe = mpp_pe()
   npes = mpp_npes()
   root = mpp_root_pe()
-  out_unit = stdout()
-
   !> define domains and allocate
   call mpp_define_domains( (/1,length,1,length/), (/4,2/), domain, xhalo=0)
   call mpp_get_compute_domain(domain, isc, iec, jsc, jec)
@@ -143,7 +141,6 @@ program test_global_minmax
   call mpp_sync()
   call mpp_error(NOTE, "test_global_minmax: passed 64-bit real check")
 
-  !> clean up
   deallocate(dataI4, dataI8, dataR4, dataR8, rands)
   call mpp_domains_exit()
   call MPI_FINALIZE(ierr)
@@ -156,7 +153,6 @@ function checkResultInt4(res)
   logical                               :: checkResultInt4
   integer(i4_kind),intent(in)           :: res(2)
   integer(i8_kind),allocatable          :: tres(:)
-
   !> set res to given var and check global max/min with locals
   allocate(tres(2))
   checkResultInt4 = res(2).GE.maxval(dataI4) .and. res(1).LE.minval(dataI4)
@@ -175,14 +171,12 @@ function checkResultInt4(res)
     checkResultInt4 = checkResultInt4 .and. res(1) .EQ. tres(1) .and. res(2) .eq. tres(2)
   end if
   deallocate(tres)
-  return 
 end function checkResultInt4 
 
 function checkResultInt8(res)
   logical                               :: checkResultInt8
   integer(i8_kind),intent(in)           :: res(2)
   integer(i8_kind),allocatable          :: tres(:)
-
   !> set res to given var and check global max/min with locals
   allocate(tres(2))
   checkResultInt8 = res(2).GE.maxval(dataI8) .and. res(1).LE.minval(dataI8)
@@ -200,16 +194,13 @@ function checkResultInt8(res)
     call mpp_recv(tres,2, root)
     checkResultInt8 = checkResultInt8 .and. res(1) .EQ. tres(1) .and. res(2) .eq. tres(2)
   end if
-
   deallocate(tres)
-  return 
 end function checkResultInt8
 
 function checkResultReal4(res)
   logical                            :: checkResultReal4
   real(r4_kind),intent(in)           :: res(2)
   real(r8_kind),allocatable          :: tres(:)
-
   !> set res to given var and check global max/min with locals
   allocate(tres(2))
   checkResultReal4 = res(2).GE.maxval(dataI4) .and. res(1).LE.minval(dataI4)
@@ -227,9 +218,7 @@ function checkResultReal4(res)
     call mpp_recv(tres,2, root)
     checkResultReal4 = checkResultReal4 .and. res(1) .EQ. tres(1) .and. res(2) .eq. tres(2)
   end if
-
   deallocate(tres)
-  return 
 end function checkResultReal4
 
 function checkResultReal8(res)
@@ -253,9 +242,6 @@ function checkResultReal8(res)
     call mpp_recv(tres,2, root)
     checkResultReal8 = checkResultReal8 .and. res(1) .EQ. tres(1) .and. res(2) .eq. tres(2)
   end if
-
   deallocate(tres)
-  return 
 end function checkResultReal8
-
 end program test_global_minmax
