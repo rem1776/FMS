@@ -18,9 +18,9 @@
 !***********************************************************************
 !> @author Ryan Mulhall
 !> @email gfdl.climate.model.info@noaa.gov
-!> @brief Unit test for mpp_global_ max and min 
-!> @description Test of mpp_global_max and mpp_global_min interfaces 
-!> with mixed size integers 
+!> @brief Unit test for mpp_global_ max and min
+!> @description Test of mpp_global_max and mpp_global_min interfaces
+!> with mixed size integers and reals
 program test_global_minmax
 
   use platform_mod
@@ -37,21 +37,22 @@ program test_global_minmax
 
 
   implicit none
-
+    
   integer                       :: nx=360, ny=200,length=64
   integer                       :: id, pe, npes, root, out_unit, i, j
   integer(i4_kind)              :: maxI4, minI4, tmaxI4, tminI4 ,ierr
   integer(i8_kind)              :: maxI8, minI8, tmaxI8, tminI8
-  integer(i4_kind), allocatable :: data4(:,:), resI4(:)
-  integer(i8_kind), allocatable :: data8(:,:), resI8(:)
+  integer(i4_kind), allocatable :: dataI4(:,:), resI4(:)
+  integer(i8_kind), allocatable :: dataI8(:,:), resI8(:)
+  real(i4_kind), allocatable    :: dataR4(:,:), resR4(:)
+  real(i8_kind), allocatable    :: dataR8(:,:), resR8(:) 
   real, allocatable             :: rands(:)
   type(domain2D)                :: domain
-  real                          :: rcoef
+  real(r8_kind)                 :: rcoef, maxR8,minR8
+  real(r4_kind)                 :: maxR4, minR4
   integer                       :: isc, iec, jsc, jec !< data/compute domain indices
   integer                       :: isd, ied, jsd, jed 
-  character(len=32)             :: res4, res8
-  integer(i4_kind)              :: maxInd(2),minInd(2),rminInd(1),rmaxInd(1)
-  !logical                       :: checkResultInt
+  character(len=32)             :: restr
 
   call mpp_init(0)
   call mpp_io_init()
@@ -67,93 +68,194 @@ program test_global_minmax
   call mpp_define_domains( (/1,length,1,length/), (/4,2/), domain, xhalo=0)
   call mpp_get_compute_domain(domain, isc, iec, jsc, jec)
   call mpp_get_data_domain(domain, isd, ied, jsd, jed)
-  allocate(data4(isd:ied, jsd:jed),data8(isd:ied, jsd:jed), rands(length*length))
-
+  allocate(dataI4(isd:ied, jsd:jed),dataI8(isd:ied, jsd:jed), rands(length*length))
+  allocate(dataR4(isd:ied, jsd:jed), dataR8(isd:ied, jsd:jed))
   !> make random arrays
   call random_seed()
   call random_number(rands)
   do i=isc, iec
     do j=jsc, jec
       rcoef = rands(j + i*length) * 2 -1
-      data4(i, j) = rcoef * huge(data4)
-      data8(i, j) = rcoef * huge(data8)
+      dataI4(i, j) = rcoef * huge(dataI4)
+      dataI8(i, j) = rcoef * huge(dataI8)
+      dataR4(i, j) = rcoef * huge(dataR4)
+      dataR8(i, j) = rcoef * huge(dataR8)
     end do
   end do
-
-  !> test 32-bit integer
+  !> get global max and mins from each kind
   call mpp_error(NOTE, "----------Testing 32-bit int mpp_global_max and mpp_global_min----------")
-  call mpp_update_domains(data4, domain)
-  maxI4 = mpp_global_max(domain, data4)
-  minI4 = mpp_global_min(domain, data4)
-  write(res4, *) maxI4
-  call mpp_error(NOTE, "mpp_global_max: " // res4)
-  write(res4, *) minI4
-  call mpp_error(NOTE, "mpp_global_min: " // res4)
+  call mpp_update_domains(dataI4, domain)
+  maxI4 = mpp_global_max(domain, dataI4)
+  minI4 = mpp_global_min(domain, dataI4)
+  write(restr, *) maxI4
+  call mpp_error(NOTE, "mpp_global_max: " // restr)
+  write(restr, *) minI4
+  call mpp_error(NOTE, "mpp_global_min: " // restr)
 
-  !> test 64-bit integer
   call mpp_error(NOTE, "----------Testing 64-bit int mpp_global_max and mpp_global_min----------")
-  call mpp_update_domains(data8, domain)
-  maxI8 = mpp_global_max(domain, data8)
-  minI8 = mpp_global_min(domain, data8)
-  write(res8, *) maxI8
-  call mpp_error(NOTE, "mpp_global_max: " // res8)
-  write(res8, *)  minI8
-  call mpp_error(NOTE, "mpp_global_min: " // res8)
+  call mpp_update_domains(dataI8, domain)
+  maxI8 = mpp_global_max(domain, dataI8)
+  minI8 = mpp_global_min(domain, dataI8)
+  write(restr, *) maxI8
+  call mpp_error(NOTE, "mpp_global_max: " // restr)
+  write(restr, *)  minI8
+  call mpp_error(NOTE, "mpp_global_min: " // restr)
 
+  call mpp_error(NOTE, "----------Testing 32-bit real mpp_global_max and mpp_global_min----------")
+  call mpp_update_domains(dataR4, domain)
+  maxR4 = mpp_global_max(domain, dataR4)
+  minR4 = mpp_global_min(domain, dataR4)
+  write(restr, *) maxR4
+  call mpp_error(NOTE, "mpp_global_max: " // restr)
+  write(restr, *)  minR4
+  call mpp_error(NOTE, "mpp_global_min: " // restr)
+
+  call mpp_error(NOTE, "----------Testing 64-bit real mpp_global_max and mpp_global_min----------")
+  call mpp_update_domains(dataR8, domain)
+  maxR8 = mpp_global_max(domain, dataR8)
+  minR8 = mpp_global_min(domain, dataR8)
+  write(restr, *) maxR8
+  call mpp_error(NOTE, "mpp_global_max: " // restr)
+  write(restr, *)  minR8
+  call mpp_error(NOTE, "mpp_global_min: " // restr)
   !> verify results
-  if(.NOT. checkResultInt(resI4 = (/minI4, maxI4 /) )) then
+  if(.NOT. checkResultInt4((/minI4, maxI4 /))) then
     call mpp_error(FATAL, "test_global_minmax: invalid 32-bit integer results")
   endif
   call mpp_sync()
   call mpp_error(NOTE, "test_global_minmax: passed 32-bit integer check")
 
-  if(.NOT. checkResultInt(resI8 = (/minI8, maxI8/) )) then
-    call mpp_error(FATAL, "test_global_minmax: invalid long integer results")
+  if(.NOT. checkResultInt8((/minI8, maxI8/))) then
+    call mpp_error(FATAL, "test_global_minmax: invalid 64-bit integer results")
   endif
   call mpp_sync()
-  call mpp_error(NOTE, "test_global_minmax: passed long integer check")
+  call mpp_error(NOTE, "test_global_minmax: passed 64-bit integer check")
   
+  if(.NOT. checkResultReal4((/minR4, maxR4/))) then
+    call mpp_error(FATAL, "test_global_minmax: invalid 32-bit real results")
+  endif
+  call mpp_sync()
+  call mpp_error(NOTE, "test_global_minmax: passed 32-bit real check")
+
+  if(.NOT. checkResultReal8((/minR8, maxR8/))) then
+    call mpp_error(FATAL, "test_global_minmax: invalid 64-bit real results")
+  endif
+  call mpp_sync()
+  call mpp_error(NOTE, "test_global_minmax: passed 64-bit real check")
+
   !> clean up
-  deallocate(data4, data8, rands)
+  deallocate(dataI4, dataI8, dataR4, dataR8, rands)
   call mpp_domains_exit()
   call MPI_FINALIZE(ierr)
   
   contains
 
-!> takes either size integer array of min and max and 
-!> returns true for matching results across pe's
-function checkResultInt(resI4, resI8)
-  logical                               :: checkResultInt
-  integer(i8_kind), optional            :: resI8(2)
-  integer(i4_kind), optional            :: resI4(2)
-  integer(i8_kind),allocatable          :: res(:), tres(:)
+!> check functions that take min and max for each kind
+!> true if all pes return the same result and have a lower/higher local max/min 
+function checkResultInt4(res)
+  logical                               :: checkResultInt4
+  integer(i4_kind),intent(in)           :: res(2)
+  integer(i8_kind),allocatable          :: tres(:)
 
   !> set res to given var and check global max/min with locals
   allocate(tres(2))
-  if(present(resI4)) then 
-    res = resI4
-    checkResultInt = res(2).GE.maxval(data4) .and. res(1).LE.minval(data4)
-  else if(present(resI8)) then
-    res =  resI8
-    checkResultInt = res(2).GE.maxval(data8) .and. res(1).LE.minval(data8)
-  else 
-    call mpp_error(FATAL, "test_global_minmax: checkResult called with no parameters")
+  checkResultInt4 = res(2).GE.maxval(dataI4) .and. res(1).LE.minval(dataI4)
+  if(.NOT.checkResultInt4) then
+    return
   end if
-
   !> check that all pes have same results
   if( pe.EQ.root) then
     tres = res
     do i=1, npes-1 
       call mpp_send(tres,2, i)
     end do
-    checkResultInt = .true.
+    checkResultInt4 = .true.
   else
     call mpp_recv(tres,2, root)
-    checkResultInt = checkResultInt .and. res(1) .EQ. tres(1) .and. res(2) .eq. tres(2)
+    checkResultInt4 = checkResultInt4 .and. res(1) .EQ. tres(1) .and. res(2) .eq. tres(2)
+  end if
+  deallocate(tres)
+  return 
+end function checkResultInt4 
+
+function checkResultInt8(res)
+  logical                               :: checkResultInt8
+  integer(i8_kind),intent(in)           :: res(2)
+  integer(i8_kind),allocatable          :: tres(:)
+
+  !> set res to given var and check global max/min with locals
+  allocate(tres(2))
+  checkResultInt8 = res(2).GE.maxval(dataI8) .and. res(1).LE.minval(dataI8)
+  if(.NOT.checkResultInt8) then
+    return  
+  end if
+  !> check that all pes have same results
+  if( pe.EQ.root) then
+    tres = res
+    do i=1, npes-1 
+      call mpp_send(tres,2, i)
+    end do
+    checkResultInt8 = .true.
+  else
+    call mpp_recv(tres,2, root)
+    checkResultInt8 = checkResultInt8 .and. res(1) .EQ. tres(1) .and. res(2) .eq. tres(2)
   end if
 
   deallocate(tres)
   return 
-end function checkResultInt 
+end function checkResultInt8
+
+function checkResultReal4(res)
+  logical                            :: checkResultReal4
+  real(r4_kind),intent(in)           :: res(2)
+  real(r8_kind),allocatable          :: tres(:)
+
+  !> set res to given var and check global max/min with locals
+  allocate(tres(2))
+  checkResultReal4 = res(2).GE.maxval(dataI4) .and. res(1).LE.minval(dataI4)
+  if(.NOT. checkResultReal4) then
+    return
+  end if
+  !> check that all pes have same results
+  if( pe.EQ.root) then
+    tres = res
+    do i=1, npes-1 
+      call mpp_send(tres,2, i)
+    end do
+    checkResultReal4 = .true.
+  else
+    call mpp_recv(tres,2, root)
+    checkResultReal4 = checkResultReal4 .and. res(1) .EQ. tres(1) .and. res(2) .eq. tres(2)
+  end if
+
+  deallocate(tres)
+  return 
+end function checkResultReal4
+
+function checkResultReal8(res)
+  logical                            :: checkResultReal8
+  real(r8_kind),intent(in)            :: res(:)
+  real(r8_kind),allocatable          :: tres(:)
+  !> set res to given var and check global max/min with locals
+  allocate(tres(2))
+  checkResultReal8 = res(2).GE.maxval(dataI8) .and. res(1).LE.minval(dataI8)
+  if(.NOT.checkResultReal8) then
+    return
+  end if
+  !> check that all pes have same results
+  if( pe.EQ.root) then
+    tres = res
+    do i=1, npes-1 
+      call mpp_send(tres,2, i)
+    end do
+    checkResultReal8 = .true.
+  else
+    call mpp_recv(tres,2, root)
+    checkResultReal8 = checkResultReal8 .and. res(1) .EQ. tres(1) .and. res(2) .eq. tres(2)
+  end if
+
+  deallocate(tres)
+  return 
+end function checkResultReal8
 
 end program test_global_minmax
