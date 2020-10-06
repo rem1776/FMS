@@ -71,13 +71,13 @@ program test_global_minmax
   !> make random arrays
   call random_seed()
   call random_number(rands)
-  do i=isc, iec
-    do j=jsc, jec
+  do i=isc, iec-1
+    do j=jsc, jec-1
       rcoef = rands(j + i*length) * 2 -1
       dataI4(i, j) = rcoef * huge(dataI4)
       dataI8(i, j) = rcoef * huge(dataI8)
-      dataR4(i, j) = rcoef * huge(dataR4)
-      dataR8(i, j) = rcoef * huge(dataR8)
+      dataR4(i, j) = rcoef 
+      dataR8(i, j) = rcoef 
     end do
   end do
   !> get global max and mins from each kind
@@ -203,7 +203,7 @@ function checkResultReal4(res)
   real(r8_kind),allocatable          :: tres(:)
   !> set res to given var and check global max/min with locals
   allocate(tres(2))
-  checkResultReal4 = res(2).GE.maxval(dataI4) .and. res(1).LE.minval(dataI4)
+  checkResultReal4 = res(2).GE.maxval(dataR4) .and. res(1).LE.minval(dataR4)
   if(.NOT. checkResultReal4) then
     return
   end if
@@ -223,11 +223,11 @@ end function checkResultReal4
 
 function checkResultReal8(res)
   logical                            :: checkResultReal8
-  real(r8_kind),intent(in)            :: res(:)
+  real(r8_kind),intent(in)           :: res(:)
   real(r8_kind),allocatable          :: tres(:)
   !> set res to given var and check global max/min with locals
   allocate(tres(2))
-  checkResultReal8 = res(2).GE.maxval(dataI8) .and. res(1).LE.minval(dataI8)
+  checkResultReal8 = res(2).GE.maxval(dataR8) .and. res(1).LE.minval(dataR8)
   if(.NOT.checkResultReal8) then
     return
   end if
