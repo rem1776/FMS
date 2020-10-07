@@ -52,7 +52,7 @@ program test_global_minmax
   real(r4_kind)                 :: maxR4, minR4
   integer                       :: isc, iec, jsc, jec !< data/compute domain indices
   integer                       :: isd, ied, jsd, jed 
-  character(len=32)             :: restr
+  character(len=32)             :: strMax, strMin
 
   call mpp_init(0)
   call mpp_io_init()
@@ -80,66 +80,53 @@ program test_global_minmax
       dataR8(i, j) = rcoef 
     end do
   end do
-  !> get global max and mins from each kind
+  !> test global max and mins from each kind
   call mpp_error(NOTE, "----------Testing 32-bit int mpp_global_max and mpp_global_min----------")
   call mpp_update_domains(dataI4, domain)
   maxI4 = mpp_global_max(domain, dataI4)
   minI4 = mpp_global_min(domain, dataI4)
-  write(restr, *) maxI4
-  call mpp_error(NOTE, "mpp_global_max: " // restr)
-  write(restr, *) minI4
-  call mpp_error(NOTE, "mpp_global_min: " // restr)
+  write(strMax, *) maxI4
+  write(strMin, *) minI4
+  if(.NOT. checkResultInt4((/minI4, maxI4 /))) then
+    call mpp_error(FATAL, "test_global_minmax: invalid 32-bit integer results"// &
+                               NEW_LINE('a')//"Max: "//strMax//" Min: "//strMin )
+  endif
+  call mpp_sync()
 
   call mpp_error(NOTE, "----------Testing 64-bit int mpp_global_max and mpp_global_min----------")
   call mpp_update_domains(dataI8, domain)
   maxI8 = mpp_global_max(domain, dataI8)
   minI8 = mpp_global_min(domain, dataI8)
-  write(restr, *) maxI8
-  call mpp_error(NOTE, "mpp_global_max: " // restr)
-  write(restr, *)  minI8
-  call mpp_error(NOTE, "mpp_global_min: " // restr)
+  write(strMax, *) maxI8
+  write(strMin, *) minI8
+  if(.NOT. checkResultInt8((/minI8, maxI8 /))) then
+    call mpp_error(FATAL, "test_global_minmax: invalid 64-bit integer results"// &
+                               NEW_LINE('a')//"Max: "//strMax//" Min: "//strMin )
+  endif
+  call mpp_sync()
 
   call mpp_error(NOTE, "----------Testing 32-bit real mpp_global_max and mpp_global_min----------")
   call mpp_update_domains(dataR4, domain)
   maxR4 = mpp_global_max(domain, dataR4)
   minR4 = mpp_global_min(domain, dataR4)
-  write(restr, *) maxR4
-  call mpp_error(NOTE, "mpp_global_max: " // restr)
-  write(restr, *)  minR4
-  call mpp_error(NOTE, "mpp_global_min: " // restr)
+  write(strMax, *) maxR4
+  write(strMin, *) minR4
+  if(.NOT. checkResultReal4((/minR4, maxR4 /))) then
+    call mpp_error(FATAL, "test_global_minmax: invalid 32-bit real results"// &
+                               NEW_LINE('a')//"Max: "//strMax//" Min: "//strMin )
+  endif
+  call mpp_sync()
 
   call mpp_error(NOTE, "----------Testing 64-bit real mpp_global_max and mpp_global_min----------")
   call mpp_update_domains(dataR8, domain)
   maxR8 = mpp_global_max(domain, dataR8)
   minR8 = mpp_global_min(domain, dataR8)
-  write(restr, *) maxR8
-  call mpp_error(NOTE, "mpp_global_max: " // restr)
-  write(restr, *)  minR8
-  call mpp_error(NOTE, "mpp_global_min: " // restr)
-  !> verify results
-  if(.NOT. checkResultInt4((/minI4, maxI4 /))) then
-    call mpp_error(FATAL, "test_global_minmax: invalid 32-bit integer results")
+  write(strMax, *) maxR8
+  write(strMin, *) minR8
+  if(.NOT. checkResultReal8((/minR8, maxR8 /))) then
+    call mpp_error(FATAL, "test_global_minmax: invalid 64-bit real results"// &
+                               NEW_LINE('a')//"Max: "//strMax//" Min: "//strMin )
   endif
-  call mpp_sync()
-  call mpp_error(NOTE, "test_global_minmax: passed 32-bit integer check")
-
-  if(.NOT. checkResultInt8((/minI8, maxI8/))) then
-    call mpp_error(FATAL, "test_global_minmax: invalid 64-bit integer results")
-  endif
-  call mpp_sync()
-  call mpp_error(NOTE, "test_global_minmax: passed 64-bit integer check")
-  
-  if(.NOT. checkResultReal4((/minR4, maxR4/))) then
-    call mpp_error(FATAL, "test_global_minmax: invalid 32-bit real results")
-  endif
-  call mpp_sync()
-  call mpp_error(NOTE, "test_global_minmax: passed 32-bit real check")
-
-  if(.NOT. checkResultReal8((/minR8, maxR8/))) then
-    call mpp_error(FATAL, "test_global_minmax: invalid 64-bit real results")
-  endif
-  call mpp_sync()
-  call mpp_error(NOTE, "test_global_minmax: passed 64-bit real check")
 
   deallocate(dataI4, dataI8, dataR4, dataR8, rands)
   call mpp_domains_exit()
