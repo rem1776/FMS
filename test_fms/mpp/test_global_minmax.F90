@@ -27,6 +27,7 @@ program test_global_minmax
   use mpp_mod,         only: mpp_init, mpp_exit, mpp_pe, mpp_npes, mpp_root_pe
   use mpp_mod,         only: mpp_set_stack_size, mpp_sync, mpp_sync_self
   use mpp_mod,         only: mpp_error, FATAL, NOTE, mpp_send, mpp_recv
+  use mpp_mod,         only: mpp_init_test_init_true_only
   use mpp_io_mod,      only: mpp_io_init
   use mpp_domains_mod, only: mpp_domains_init, mpp_define_domains, domain2d
   use mpp_domains_mod, only: mpp_define_layout, mpp_domains_set_stack_size
@@ -54,7 +55,7 @@ program test_global_minmax
   integer                       :: isd, ied, jsd, jed 
   character(len=32)             :: strMax, strMin
 
-  call mpp_init(0)
+  call mpp_init(mpp_init_test_init_true_only)
   call mpp_io_init()
   call mpp_domains_init()
   call mpp_set_stack_size(3145746)
