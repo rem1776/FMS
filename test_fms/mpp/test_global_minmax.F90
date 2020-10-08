@@ -74,10 +74,10 @@ program test_global_minmax
   do i=isc, iec-1
     do j=jsc, jec-1
       rcoef = rands(j + i*length) * 2 -1
-      dataI4(i, j) = rcoef * huge(dataI4)
-      dataI8(i, j) = rcoef * huge(dataI8)
-      dataR4(i, j) = rcoef 
-      dataR8(i, j) = rcoef 
+      dataI4(i, j) = int(rcoef * huge(dataI4), kind=i4_kind)
+      dataI8(i, j) = int(rcoef * huge(dataI8), kind=i8_kind)
+      dataR4(i, j) = real(rcoef, kind=r4_kind)
+      dataR8(i, j) = real(rcoef, kind=r8_kind)
     end do
   end do
   !> test global max and mins from each kind
