@@ -38,14 +38,14 @@ program test_global_minmax
 
   implicit none
     
-  integer                       :: nx=360, ny=200,length=64
+  integer                       :: length=64
   integer                       :: id, pe, npes, root, i, j
   integer(i4_kind)              :: maxI4, minI4,ierr
   integer(i8_kind)              :: maxI8, minI8
   integer(i4_kind), allocatable :: dataI4(:,:)
   integer(i8_kind), allocatable :: dataI8(:,:)
-  real(i4_kind), allocatable    :: dataR4(:,:)
-  real(i8_kind), allocatable    :: dataR8(:,:)
+  real(r4_kind), allocatable    :: dataR4(:,:)
+  real(r8_kind), allocatable    :: dataR8(:,:)
   real, allocatable             :: rands(:)
   type(domain2D)                :: domain
   real(r8_kind)                 :: rcoef, maxR8,minR8
@@ -139,7 +139,7 @@ program test_global_minmax
 function checkResultInt4(res)
   logical                               :: checkResultInt4
   integer(i4_kind),intent(in)           :: res(2)
-  integer(i8_kind),allocatable          :: tres(:)
+  integer(i4_kind),allocatable          :: tres(:)
   !> set res to given var and check global max/min with locals
   allocate(tres(2))
   checkResultInt4 = res(2).GE.maxval(dataI4) .and. res(1).LE.minval(dataI4)
@@ -187,7 +187,7 @@ end function checkResultInt8
 function checkResultReal4(res)
   logical                            :: checkResultReal4
   real(r4_kind),intent(in)           :: res(2)
-  real(r8_kind),allocatable          :: tres(:)
+  real(r4_kind),allocatable          :: tres(:)
   !> set res to given var and check global max/min with locals
   allocate(tres(2))
   checkResultReal4 = res(2).GE.maxval(dataR4) .and. res(1).LE.minval(dataR4)
