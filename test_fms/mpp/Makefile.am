@@ -21,9 +21,9 @@
 
 # Find the needed mod and inc files.
 AM_CPPFLAGS = -I${top_srcdir}/include \
-  -I${top_builddir}/mpp \
-  -I${top_builddir}/affinity \
-  -I${top_builddir}/platform
+	-I${top_builddir}/mpp \
+	-I${top_builddir}/affinity \
+	-I${top_builddir}/platform
 
 # Link to the FMS library.
 LDADD = ${top_builddir}/libFMS/libFMS.la
@@ -98,7 +98,6 @@ test_mpp_update_domains_ad_SOURCES=test_mpp_update_domains_ad.F90 compare_data_c
 test_global_minmax_SOURCES=test_global_minmax.F90
 test_chksum_int_SOURCES=test_chksum_int.F90
 
-
 # Run the test programs.
 TESTS = test_mpp_domains2.sh \
   test_global_minmax.sh  \
@@ -130,7 +129,7 @@ TESTS = test_mpp_domains2.sh \
 
 # These files will also be included in the distribution.
 EXTRA_DIST = input_base.nml \
-  test_mpp_domains2.sh \
+	test_mpp_domains2.sh \
   test_mpp_pset2.sh     \
   test_mpp2.sh \
   test_mpp_memutils_mod.sh \
