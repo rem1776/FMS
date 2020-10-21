@@ -23,6 +23,7 @@ module test_mpp_update_domains_int
 
 !  use compare_data_checksums, only : compare_checksums
   use fill_halo
+  use compare_data_checksums_int, only : compare_checksums => compare_checksums_int
   use mpp_mod, only : FATAL, WARNING, MPP_DEBUG, NOTE, MPP_CLOCK_SYNC,MPP_CLOCK_DETAILED
   use mpp_mod, only : mpp_pe, mpp_npes, mpp_root_pe, mpp_error, mpp_sync_self
   use mpp_mod, only : mpp_clock_id, mpp_clock_begin, mpp_clock_end
@@ -63,13 +64,6 @@ module test_mpp_update_domains_int
   integer :: layout_ensemble(2) = (/0,0/)
   integer :: n
   integer :: stdunit = 6
-
-  interface compare_checksums
-    module procedure compare_checksums_2D_i4
-    module procedure compare_checksums_3D_i4
-    module procedure compare_checksums_2D_i8
-    module procedure compare_checksums_3D_i8
-  end interface compare_checksums
 
   public :: test_halo_update_i8, test_halo_update_i4, test_subset_update_i8, test_subset_update_i4
 
@@ -367,169 +361,5 @@ module test_mpp_update_domains_int
    call mpp_set_current_pelist()
 
   end subroutine test_subset_update_i4
-
-  !> compare checksums of 2D 32-bit integer arrays 
-  subroutine compare_checksums_2D_i4( a, b, chk_str )
-    integer(kind=i4_kind), intent(in), dimension(:,:) :: a, b !< 2D arrays to compare
-    character(len=*), intent(in) :: chk_str
-    integer(kind=i8_kind) :: sum1, sum2
-    integer :: i, j
-    integer :: pe
-    !> @note can't call mpp_sync here since there might be different number of tiles on each pe.
-    call mpp_sync_self()
-    pe = mpp_pe()
- 
-    if(size(a,1) .ne. size(b,1) .or. size(a,2) .ne. size(b,2) ) &
-      call mpp_error(FATAL,'compare_checksums_2D_r4: sizes of a and b do not match')
- 
-    do j = 1, size(a,2)
-      do i = 1, size(a,1)
-        if(a(i,j) .ne. b(i,j)) then
-          print*, "a =", a(i,j)
-          print*, "b =", b(i,j)
-          write(*,'(a,i3,a,i3,a,i3,a,f20.9,a,f20.9)')"at the pe ", mpp_pe(), &
-                ", at point (",i,", ", j, "),a=", a(i,j), ",b=", b(i,j)
-          call mpp_error(FATAL, trim(chk_str)//': value mismatch at data point.')
-        endif
-      enddo
-    enddo
- 
-    sum1 = mpp_chksum( a, (/pe/) )
-    sum2 = mpp_chksum( b, (/pe/) )
- 
-    if( sum1.EQ.sum2 )then
-      if( pe.EQ.mpp_root_pe() )call mpp_error( NOTE, trim(chk_str)//': OK.' )
-      !> @note in some cases, even though the checksum agree, the two arrays
-      !! actually are different [e.g.,(1.1,-1.2) with (-1.1,1.2)].
-      !! Thus, we need to check the values point-by-point.
-    else
-      call mpp_error( FATAL, trim(chk_str)//': checksums do not match.' )
-    end if
-   end subroutine compare_checksums_2D_i4
-   
-  !> Compare the checksums of 2 3D 32-bit integer arrays
-  subroutine compare_checksums_3D_i4( a, b, string )
-     integer(kind=i4_kind), intent(in), dimension(:,:,:) :: a, b !< 3D 64-bit real arrays to compare
-     character(len=*), intent(in) :: string
-     integer(kind=i8_kind) :: sum1, sum2
-     integer :: i, j, k
-     integer :: pe
-    ! z1l can not call mpp_sync here since there might be different number of tiles on each pe.
-     call mpp_sync_self()
-     pe = mpp_pe()
- 
-     if(size(a,1) .ne. size(b,1) .or. size(a,2) .ne. size(b,2) .or. size(a,3) .ne. size(b,3) ) &
-       call mpp_error(FATAL,'compare_checkums_3d_r4: sizes of a and b do not match')
- 
-     do k = 1, size(a,3)
-       do j = 1, size(a,2)
-          do i = 1, size(a,1)
-             if(a(i,j,k) .ne. b(i,j,k)) then
-                write(*,'(a,i3,a,i3,a,i3,a,i3,a,f20.9,a,f20.9)') trim(string)//" at pe ", mpp_pe(), &
-                     ", at point (",i,", ", j, ", ", k, "), a = ", a(i,j,k), ", b = ", b(i,j,k)
-                call mpp_error(FATAL, trim(string)//': mismatch in checksums at data point.')
-             endif
-          enddo
-       enddo
-     enddo
- 
-     sum1 = mpp_chksum( a, (/pe/) )
-     sum2 = mpp_chksum( b, (/pe/) )
- 
-     if( sum1.EQ.sum2 )then
-       if( pe.EQ.mpp_root_pe() )call mpp_error( NOTE, trim(string)//': OK.' )
-        !--- in some case, even though checksum agree, the two arrays
-        !    actually are different, like comparing (1.1,-1.2) with (-1.1,1.2)
-        !--- hence we need to check the value point by point.
-     else
-       write(stdunit, *)"sum1 =", sum1, mpp_pe()
-       write(stdunit, *)"sum2 =", sum2, mpp_pe()
-       write(stdunit,'(a,i3,a,i20,a,i20)')" at pe ", mpp_pe(), " sum(a)=", sum1, " sum(b)=", sum2
-       call mpp_error( FATAL, trim(string)//': checksums do not match.' )
-     end if
-  end subroutine compare_checksums_3D_i4
-
-  !> compare checksums of 2D 64-bit integer arrays 
-  subroutine compare_checksums_2D_i8( a, b, chk_str )
-    integer(kind=i8_kind), intent(in), dimension(:,:) :: a, b !< 2D arrays to compare
-    character(len=*), intent(in) :: chk_str
-    integer(kind=i8_kind) :: sum1, sum2
-    integer :: i, j
-    integer :: pe
- 
-    !> @note can't call mpp_sync here since there might be different number of tiles on each pe.
-    call mpp_sync_self()
-    pe = mpp_pe()
- 
-    if(size(a,1) .ne. size(b,1) .or. size(a,2) .ne. size(b,2) ) &
-      call mpp_error(FATAL,'compare_checksums_2d_r8: sizes of a and b do not match')
- 
-    do j = 1, size(a,2)
-      do i = 1, size(a,1)
-        if(a(i,j) .ne. b(i,j)) then
-          print*, "a =", a(i,j)
-          print*, "b =", b(i,j)
-          write(*,'(a,i3,a,i3,a,i3,a,f20.9,a,f20.9)')"at the pe ", mpp_pe(), &
-                ", at point (",i,", ", j, "),a=", a(i,j), ",b=", b(i,j)
-          call mpp_error(FATAL, trim(chk_str)//': value mismatch at data point.')
-        endif
-      enddo
-    enddo
- 
-    sum1 = mpp_chksum( a, (/pe/) )
-    sum2 = mpp_chksum( b, (/pe/) )
- 
-    if( sum1.EQ.sum2 )then
-      if( pe.EQ.mpp_root_pe() )call mpp_error( NOTE, trim(chk_str)//': OK.' )
-      !> @note in some cases, even though the checksum agree, the two arrays
-      !! actually are different [e.g.,(1.1,-1.2) with (-1.1,1.2)].
-      !! Thus, we need to check the values point-by-point.
-    else
-      call mpp_error( FATAL, trim(chk_str)//': checksums do not match.' )
-    end if
-  end subroutine compare_checksums_2D_i8
-   
-  !> Compare the checksums of 2 3D 64-bit integer arrays
-  subroutine compare_checksums_3D_i8( a, b, string )
-     integer(kind=i8_kind), intent(in), dimension(:,:,:) :: a, b !< 3D 64-bit real arrays to compare
-     character(len=*), intent(in) :: string
-     integer(kind=i8_kind) :: sum1, sum2
-     integer :: i, j, k
-     integer :: pe
-    ! z1l can not call mpp_sync here since there might be different number of tiles on each pe.
-     call mpp_sync_self()
-     pe = mpp_pe()
- 
-     if(size(a,1) .ne. size(b,1) .or. size(a,2) .ne. size(b,2) .or. size(a,3) .ne. size(b,3) ) &
-       call mpp_error(FATAL,'compare_checksums_3d_r8: size of a and b does not match')
- 
-     do k = 1, size(a,3)
-       do j = 1, size(a,2)
-          do i = 1, size(a,1)
-             if(a(i,j,k) .ne. b(i,j,k)) then
-                write(*,'(a,i3,a,i3,a,i3,a,i3,a,f20.9,a,f20.9)') trim(string)//" at pe ", mpp_pe(), &
-                     ", at point (",i,", ", j, ", ", k, "), a = ", a(i,j,k), ", b = ", b(i,j,k)
-                call mpp_error(FATAL, trim(string)//': mismatch in checksums at data point.')
-             endif
-          enddo
-       enddo
-     enddo
- 
-     sum1 = mpp_chksum( a, (/pe/) )
-     sum2 = mpp_chksum( b, (/pe/) )
- 
-     if( sum1.EQ.sum2 )then
-       if( pe.EQ.mpp_root_pe() )call mpp_error( NOTE, trim(string)//': OK.' )
-        !--- in some case, even though checksum agree, the two arrays
-        !    actually are different, like comparing (1.1,-1.2) with (-1.1,1.2)
-        !--- hence we need to check the value point by point.
-     else
-       write(stdunit, *)"sum1 =", sum1, mpp_pe()
-       write(stdunit, *)"sum2 =", sum2, mpp_pe()
-       write(stdunit,'(a,i3,a,i20,a,i20)')" at pe ", mpp_pe(), " sum(a)=", sum1, " sum(b)=", sum2
-       call mpp_error( FATAL, trim(string)//': checksums do not match.' )
-     end if
-  end subroutine compare_checksums_3D_i8
-
 
 end module test_mpp_update_domains_int

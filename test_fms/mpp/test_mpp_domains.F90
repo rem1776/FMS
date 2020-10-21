@@ -55,6 +55,7 @@ program test_mpp_domains
   use mpp_domains_mod, only : mpp_get_ug_global_domain, mpp_global_field_ug, mpp_get_tile_id
   use mpp_memutils_mod, only : mpp_memuse_begin, mpp_memuse_end
   use fms_affinity_mod, only : fms_affinity_set
+  use compare_data_checksums
 
 
   implicit none
@@ -2974,7 +2975,7 @@ end subroutine test_halosize_update
     enddo
 
     call mpp_pass_SG_to_UG(UG_domain, a1(:,:,1), x1(:,1))
-    call compare_checksums_2D(x1, x2, type//' SG2UG 2-D compute domain')
+    call compare_checksums(x1, x2, type//' SG2UG 2-D compute domain')
     call mpp_pass_UG_to_SG(UG_domain, x1(:,1), a2(:,:,1))
 
     call compare_checksums(a1(:,:,1:1),a2(:,:,1:1),type//' UG2SG 2-D compute domain')
@@ -3012,7 +3013,7 @@ end subroutine test_halosize_update
     enddo
 
     call mpp_pass_SG_to_UG(UG_domain, a1, x1)
-    call compare_checksums_2D(x1, x2, type//' SG2UG 3-D compute domain')
+    call compare_checksums(x1, x2, type//' SG2UG 3-D compute domain')
     call mpp_pass_UG_to_SG(UG_domain, x1, a2)
 
     call compare_checksums(a1,a2,type//' UG2SG 3-D compute domain')
@@ -3046,7 +3047,7 @@ end subroutine test_halosize_update
     enddo
 
     call mpp_pass_SG_to_UG(UG_domain, a1(:,:,1), x1(:,1))
-    call compare_checksums_2D(x1, x2, type//' SG2UG 2-D data domain')
+    call compare_checksums(x1, x2, type//' SG2UG 2-D data domain')
     call mpp_pass_UG_to_SG(UG_domain, x1(:,1), a2(:,:,1))
 
     call compare_checksums(a1(:,:,1:1),a2(:,:,1:1),type//' UG2SG 2-D data domain')
@@ -3085,7 +3086,7 @@ end subroutine test_halosize_update
     enddo
 
     call mpp_pass_SG_to_UG(UG_domain, a1, x1)
-    call compare_checksums_2D(x1, x2, type//' SG2UG 3-D data domain')
+    call compare_checksums(x1, x2, type//' SG2UG 3-D data domain')
     call mpp_pass_UG_to_SG(UG_domain, x1, a2)
 
     call compare_checksums(a1,a2,type//' UG2SG 3-D data domain')
@@ -3110,11 +3111,11 @@ end subroutine test_halosize_update
     enddo
 
     call mpp_global_field_ug(UG_domain, x1, g2)
-    call compare_checksums_2D(g1,g2,type//' global_field_ug 3-D')
+    call compare_checksums(g1,g2,type//' global_field_ug 3-D')
 
     g2 = 0.0
     call mpp_global_field_ug(UG_domain, x1(:,1), g2(:,1))
-    call compare_checksums_2D(g1(:,1:1),g2(:,1:1),type//' global_field_ug 2-D')
+    call compare_checksums(g1(:,1:1),g2(:,1:1),type//' global_field_ug 2-D')
 
     deallocate(g1,g2,x1)
 
@@ -5902,85 +5903,6 @@ end subroutine test_halosize_update
     return
 
   end subroutine test_modify_domain
-
-  subroutine compare_checksums( a, b, string )
-    real, intent(in), dimension(:,:,:) :: a, b
-    character(len=*), intent(in) :: string
-    integer(LONG_KIND) :: sum1, sum2
-    integer :: i, j, k
-
-    ! z1l can not call mpp_sync here since there might be different number of tiles on each pe.
-    call mpp_sync_self()
-
-    if(size(a,1) .ne. size(b,1) .or. size(a,2) .ne. size(b,2) .or. size(a,3) .ne. size(b,3) ) &
-         call mpp_error(FATAL,'compare_chksum: size of a and b does not match')
-
-    do k = 1, size(a,3)
-       do j = 1, size(a,2)
-          do i = 1, size(a,1)
-             if(a(i,j,k) .ne. b(i,j,k)) then
-                write(*,'(a,i3,a,i3,a,i3,a,i3,a,f20.9,a,f20.9)') trim(string)//" at pe ", mpp_pe(), &
-                     ", at point (",i,", ", j, ", ", k, "), a = ", a(i,j,k), ", b = ", b(i,j,k)
-                call mpp_error(FATAL, trim(string)//': point by point comparison are not OK.')
-             endif
-          enddo
-       enddo
-    enddo
-
-    sum1 = mpp_chksum( a, (/pe/) )
-    sum2 = mpp_chksum( b, (/pe/) )
-
-    if( sum1.EQ.sum2 )then
-        if( pe.EQ.mpp_root_pe() )call mpp_error( NOTE, trim(string)//': OK.' )
-        !--- in some case, even though checksum agree, the two arrays
-        !    actually are different, like comparing (1.1,-1.2) with (-1.1,1.2)
-        !--- hence we need to check the value point by point.
-    else
-        write(stdunit, *)"sum1 =", sum1, mpp_pe()
-        write(stdunit, *)"sum2 =", sum2, mpp_pe()
-        write(stdunit,'(a,i3,a,i20,a,i20)')" at pe ", mpp_pe(), " sum(a)=", sum1, " sum(b)=", sum2
-        call mpp_error( FATAL, trim(string)//': chksums are not OK.' )
-    end if
-  end subroutine compare_checksums
-
-  !###########################################################################
-  subroutine compare_checksums_2D( a, b, string )
-    real, intent(in), dimension(:,:) :: a, b
-    character(len=*), intent(in) :: string
-    integer(LONG_KIND) :: sum1, sum2
-    integer :: i, j
-
-    ! z1l can not call mpp_sync here since there might be different number of tiles on each pe.
-    ! mpp_sync()
-    call mpp_sync_self()
-
-    if(size(a,1) .ne. size(b,1) .or. size(a,2) .ne. size(b,2) ) &
-         call mpp_error(FATAL,'compare_chksum_2D: size of a and b does not match')
-
-    do j = 1, size(a,2)
-       do i = 1, size(a,1)
-          if(a(i,j) .ne. b(i,j)) then
-            print*, "a =", a(i,j)
-            print*, "b =", b(i,j)
-             write(*,'(a,i3,a,i3,a,i3,a,f20.9,a,f20.9)')"at the pe ", mpp_pe(), &
-                  ", at point (",i,", ", j, "),a=", a(i,j), ",b=", b(i,j)
-             call mpp_error(FATAL, trim(string)//': point by point comparison are not OK.')
-          endif
-       enddo
-    enddo
-
-    sum1 = mpp_chksum( a, (/pe/) )
-    sum2 = mpp_chksum( b, (/pe/) )
-
-    if( sum1.EQ.sum2 )then
-        if( pe.EQ.mpp_root_pe() )call mpp_error( NOTE, trim(string)//': OK.' )
-        !--- in some case, even though checksum agree, the two arrays
-        !    actually are different, like comparing (1.1,-1.2) with (-1.1,1.2)
-        !--- hence we need to check the value point by point.
-    else
-        call mpp_error( FATAL, trim(string)//': chksums are not OK.' )
-    end if
-  end subroutine compare_checksums_2D
 
 
   !###########################################################################
