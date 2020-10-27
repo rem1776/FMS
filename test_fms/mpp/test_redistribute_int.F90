@@ -742,28 +742,21 @@ contains
 
   end subroutine define_cubic_mosaic
 
-  !> returns true if arrays are equivalent(as long as test_type is numerical)
+  !> checks if i4 arrays are equal
   function compare_result4(a, b)
     integer(i4_kind), intent(in), dimension(:,:,:)  :: a, b
-    integer(i4_kind), allocatable, dimension(:,:,:) :: temp
-    integer(i4_kind)                                :: zero = 0 !> to compare array difference with type
-    logical                                  :: compare_result4
-
+    logical                                         :: compare_result4
     if(size(a,1).ne.size(b,1) .or. size(a,2).ne.size(b,2) .or. size(a,3).ne.size(b,3)) call &
                         mpp_error(FATAL, "test_mpp_redistribute: comparing different sized arrays")
-    temp = a - b
-    compare_result4 = .not.any(temp.ne.zero)
+    compare_result4 = all(a.eq.b)
   end function compare_result4
 
+  !> checks if i8 arrays are equal
   function compare_result8(a, b)
     integer(i8_kind), intent(in), dimension(:,:,:)  :: a, b
-    integer(i8_kind), allocatable, dimension(:,:,:) :: temp
-    integer(i8_kind)                                :: zero = 0 !> to compare array difference with type
-    logical                                  :: compare_result8
-
+    logical                                         :: compare_result8
     if(size(a,1).ne.size(b,1) .or. size(a,2).ne.size(b,2) .or. size(a,3).ne.size(b,3)) call &
                         mpp_error(FATAL, "test_mpp_redistribute: comparing different sized arrays")
-    temp = a - b
-    compare_result8 = .not.any(temp.ne.zero)
+    compare_result8 = all(a.eq.b)
   end function compare_result8
 end program test_mpp_redistribute
