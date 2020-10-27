@@ -50,8 +50,8 @@ then
 elif [ $nProc -lt 4 ]
 then
     # Need to oversubscribe the MPI
-    run_test test_mpp_redistribute 6 $skip_test "true"
+    run_test test_redistribute_int 6 $skip_test "true"
 fi
 
 touch input.nml
-run_test test_mpp_redistribute 6 $skip_test
+run_test test_redistribute_int 6 $skip_test
