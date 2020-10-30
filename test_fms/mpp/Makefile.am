@@ -169,22 +169,33 @@ EXTRA_DIST = input_base.nml \
   test_redistribute_int.sh \
   test_mpp_update_domains_ad.sh
 
-compare_data_checksums.mod : compare_data_checksums.$(OBJEXT)
-compare_data_checksums_int.mod : compare_data_checksums_int.$(OBJEXT)
-fill_halo.mod : fill_halo.$(OBJEXT)
-test_mpp_update_domains_real.mod : test_mpp_update_domains_real.$(OBJEXT)
-test_mpp_update_domains_int.mod : test_mpp_update_domains_int.$(OBJEXT)
-test_mpp_update_domains_main.mod : test_mpp_update_domains_main.$(OBJEXT)
-test_domains_utility_mod.mod : test_domains_utility_mod.$(OBJEXT)
-test_mpp_update_domains_main.$(OBJEXT) : test_mpp_update_domains_real.mod test_mpp_update_domains_int.mod
-test_mpp_update_domains_real.$(OBJEXT) : fill_halo.mod compare_data_checksums.mod
-test_mpp_update_domains_int.$(OBJEXT) : fill_halo.mod compare_data_checksums_int.mod
-test_update_domains_performance.$(OBJEXT) : compare_data_checksums.mod compare_data_checksums_int.mod
-test_mpp_update_domains_ad.$(OBJEXT) : compare_data_checksums.mod
-test_mpp_domains.$(OBJEXT) : compare_data_checksums.mod test_domains_utility_mod.mod
+# Each mod file depends on the .lo (library object) file.
+compare_data_checksums.mod : compare_data_checksums.lo
+compare_data_checksums_int.mod : compare_data_checksums_int.lo
+fill_halo.mod : fill_halo.lo
+test_mpp_update_domains_real.mod : test_mpp_update_domains_real.lo
+test_mpp_update_domains_int.mod : test_mpp_update_domains_int.lo
+test_domains_utility_mod.mod : test_domains_utility_mod.lo
 
+# Some mods are dependant on other mods in this directory
+test_mpp_update_domains_main.lo : test_mpp_update_domains_real.mod test_mpp_update_domains_int.mod
+test_mpp_update_domains_real.lo : fill_halo.mod compare_data_checksums.mod
+test_mpp_update_domains_int.lo: fill_halo.mod compare_data_checksums_int.mod
+test_update_domains_performance.lo : compare_data_checksums.mod compare_data_checksums_int.mod
+test_mpp_update_domains_ad.lo : compare_data_checksums.mod
+test_mpp_domains.lo : compare_data_checksums.mod test_domains_utility_mod.mod
+
+# Mod files are built and then installed as headers.
+MODFILES = compare_data_checksums.mod \
+	compare_data_checksums_int.mod \
+	fill_halo.mod \
+	test_mpp_update_domains_real.mod \
+	test_mpp_update_domains_int.mod \
+	test_domains_utility_mod.mod
+BUILT_SOURCES = $(MODFILES)
+include_HEADERS = $(MODFILES)
 
 # Clean up
 CLEANFILES = input.nml input_alternative.nml input_blank.nml empty.nml *.out* *.tst* \
-	include_files_mod.mod ascii* test_numb* test_mpp_update_domains*.mod \
-        fill_halo.mod compare_data_checksums.mod test_domains_utility_mod.mod
+	           ascii* test_numb* *.mod
+
