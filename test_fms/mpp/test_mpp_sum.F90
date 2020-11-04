@@ -24,21 +24,21 @@
 !! @description This test program is for testing the mpp_sum interface.
 
 program test_mpp_sum
-#include <fms_platform.h>
 
   use mpp_mod, only : mpp_init, mpp_pe, mpp_npes, mpp_root_pe
   use mpp_mod, only : mpp_sync
   use mpp_mod, only : mpp_set_stack_size, mpp_init_test_requests_allocated
-  use mpp_mod, only : mpp_sum, mpp_exit
+  use mpp_mod, only : mpp_sum
   use mpp_mod, only : mpp_error, FATAL
+  use platform_mod
 
   implicit none
 
-  integer                                      :: n
-  real(FLOAT_KIND), allocatable, dimension(:)  :: a4, b4, c4
-  real(DOUBLE_KIND), allocatable, dimension(:) :: a8, b8, c8
-  integer                                      :: i, pe, npes, root
-  integer, allocatable, dimension(:)           :: pelist
+  integer                                       :: n, ierr
+  real(kind=r4_kind), allocatable, dimension(:) :: a4, b4, c4
+  real(kind=r8_kind), allocatable, dimension(:) :: a8, b8, c8
+  integer                                       :: i, pe, npes, root
+  integer, allocatable, dimension(:)            :: pelist
 
   call mpp_init(mpp_init_test_requests_allocated)
   call mpp_set_stack_size(3145746)
@@ -52,7 +52,7 @@ program test_mpp_sum
     call test_mpp_sum_large()
   if( pe.EQ.root ) print *, '------------------> Finished test_mpp_sum <------------------'
 
-  call mpp_exit()
+  call MPI_FINALIZE(ierr)
 
 contains
 
@@ -62,8 +62,8 @@ contains
   n=1
   allocate( a4(n), a8(n), b4(npes), b8(npes), c4(n), c8(n))
 
-  a4 = real(pe+1, kind=FLOAT_KIND)
-  a8 = real(pe+1, kind=DOUBLE_KIND)
+  a4 = real(pe+1, kind=r4_kind)
+  a8 = real(pe+1, kind=r8_kind)
   call mpp_sync()
   call mpp_sum(a4(1:n),n)
   call mpp_sum(a8(1:n),n)
@@ -86,8 +86,8 @@ contains
   allocate( a4(n), a8(n), b4(npes), b8(npes), c4(n), c8(n))
   allocate( pelist(0:npes-1) )
 
-  a4 = real(pe+1, kind=FLOAT_KIND)
-  a8 = real(pe+1, kind=DOUBLE_KIND)
+  a4 = real(pe+1, kind=r4_kind)
+  a8 = real(pe+1, kind=r8_kind)
   call mpp_sync()
   if (pe .LE. npes-2) then
     pelist = (/(i,i=0,npes-2)/)
