@@ -31,7 +31,7 @@ program test_mpp_sendrecv
 #endif
 
   use mpp_mod, only : mpp_init, mpp_exit, mpp_pe, mpp_npes, mpp_root_pe, stdout
-  use mpp_mod, only : mpp_sync, mpp_malloc
+  use mpp_mod, only : mpp_sync
   use mpp_mod, only : mpp_declare_pelist, mpp_set_current_pelist, mpp_set_stack_size
   use mpp_mod, only : mpp_send, mpp_recv, mpp_error, FATAL
   use mpp_io_mod, only: mpp_io_init, mpp_flush
@@ -39,7 +39,7 @@ program test_mpp_sendrecv
   use platform_mod
 
 #ifdef use_MPI_GSM
-  use mpp_mod, only : mpp_gsm_malloc, mpp_gsm_free
+  use mpp_mod, only : mpp_gsm_free
 #endif
 
   implicit none

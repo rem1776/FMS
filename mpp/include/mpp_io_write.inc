@@ -955,33 +955,36 @@
                 if( KIND(rval).EQ.r8_kind )then
                    call mpp_error( FATAL, &
                         'WRITE_ATTRIBUTE_NETCDF: attempting to write internal NF_INT, currently int32, as double.' )
-                else if( KIND(rval).EQ.FLOAT_KIND )then
+                   error = NF_PUT_ATT_DOUBLE( mpp_file(unit)%ncid, id, name, NF_DOUBLE, size(rval(:)), real(rval, kind=r8_kind))
+                else if( KIND(rval).EQ.r4_kind )then
                    call mpp_error( FATAL, &
                         'WRITE_ATTRIBUTE_NETCDF: attempting to write internal NF_INT, currently int32, as float.' )
+                   error = NF_PUT_ATT_REAL  ( mpp_file(unit)%ncid, id, name, NF_DOUBLE, size(rval(:)), real(rval, kind=r4_kind))
                 end if
+                call netcdf_err( error, mpp_file(unit), string=' Attribute='//name )
              else if( pack.EQ.1 )then
                   if( KIND(rval).EQ.r8_kind )then
-                      error = NF_PUT_ATT_DOUBLE( mpp_file(unit)%ncid, id, name, NF_DOUBLE, size(rval(:)), real(rval,kind=DOUBLE_KIND) )
+                      error = NF_PUT_ATT_DOUBLE( mpp_file(unit)%ncid, id, name, NF_DOUBLE, size(rval(:)), real(rval, kind=r8_kind))
                   else if( KIND(rval).EQ.r4_kind )then
                       call mpp_error( WARNING, &
                            'WRITE_ATTRIBUTE_NETCDF: attempting to write internal 32-bit real as external 64-bit.' )
-                      error = NF_PUT_ATT_REAL  ( mpp_file(unit)%ncid, id, name, NF_DOUBLE, size(rval(:)), real(rval,kind=r4_kind) )
+                      error = NF_PUT_ATT_REAL  ( mpp_file(unit)%ncid, id, name, NF_DOUBLE, size(rval(:)), real(rval, kind=r4_kind))
                   end if
                   call netcdf_err( error, mpp_file(unit), string=' Attribute='//name )
               else if( pack.EQ.2 )then
                   if( KIND(rval).EQ.r8_kind )then
-                      error = NF_PUT_ATT_DOUBLE( mpp_file(unit)%ncid, id, name, NF_FLOAT,  size(rval(:)), real(rval,kind=r8_kind) )
+                      error = NF_PUT_ATT_DOUBLE( mpp_file(unit)%ncid, id, name, NF_FLOAT,  size(rval(:)), real(rval, kind=r8_kind))
                   else if( KIND(rval).EQ.r4_kind )then
-                      error = NF_PUT_ATT_REAL  ( mpp_file(unit)%ncid, id, name, NF_FLOAT,  size(rval(:)), real(rval,kind=r4_kind) )
+                      error = NF_PUT_ATT_REAL  ( mpp_file(unit)%ncid, id, name, NF_FLOAT,  size(rval(:)), real(rval, kind=r4_kind))
                   end if
                   call netcdf_err( error, mpp_file(unit), string=' Attribute='//name )
               else if( pack.EQ.4 )then
                   allocate( rval_i(size(rval(:))) )
                   rval_i = rval
                   if( KIND(rval).EQ.r8_kind )then
-                      error = NF_PUT_ATT_DOUBLE( mpp_file(unit)%ncid, id, name, NF_SHORT,  size(rval_i(:)), rval )
+                      error = NF_PUT_ATT_DOUBLE( mpp_file(unit)%ncid, id, name, NF_SHORT,  size(rval_i(:)), real(rval, kind=r8_kind))
                   else if( KIND(rval).EQ.r4_kind )then
-                      error = NF_PUT_ATT_REAL  ( mpp_file(unit)%ncid, id, name, NF_SHORT,  size(rval_i(:)), rval )
+                      error = NF_PUT_ATT_REAL  ( mpp_file(unit)%ncid, id, name, NF_SHORT,  size(rval_i(:)), real(rval, kind=r4_kind))
                   end if
                   call netcdf_err( error, mpp_file(unit), string=' Attribute='//name )
                   deallocate(rval_i)
@@ -989,9 +992,9 @@
                   allocate( rval_i(size(rval(:))) )
                   rval_i = rval
                   if( KIND(rval).EQ.r8_kind )then
-                      error = NF_PUT_ATT_DOUBLE( mpp_file(unit)%ncid, id, name, NF_BYTE,   size(rval_i(:)), rval )
+                      error = NF_PUT_ATT_DOUBLE( mpp_file(unit)%ncid, id, name, NF_BYTE,   size(rval_i(:)), real(rval, kind=r8_kind))
                   else if( KIND(rval).EQ.r4_kind )then
-                      error = NF_PUT_ATT_REAL  ( mpp_file(unit)%ncid, id, name, NF_BYTE,   size(rval_i(:)), rval )
+                      error = NF_PUT_ATT_REAL  ( mpp_file(unit)%ncid, id, name, NF_BYTE,   size(rval_i(:)), real(rval, kind=r4_kind))
                   end if
                   call netcdf_err( error, mpp_file(unit), string=' Attribute='//name )
                   deallocate(rval_i)
@@ -1001,9 +1004,9 @@
           else
 !default is to write FLOATs (32-bit)
               if( KIND(rval).EQ.r8_kind )then
-                  error = NF_PUT_ATT_DOUBLE( mpp_file(unit)%ncid, id, name, NF_FLOAT,  size(rval(:)), rval )
+                  error = NF_PUT_ATT_DOUBLE( mpp_file(unit)%ncid, id, name, NF_FLOAT,  size(rval(:)), real(rval, kind=r8_kind))
               else if( KIND(rval).EQ.r4_kind )then
-                  error = NF_PUT_ATT_REAL  ( mpp_file(unit)%ncid, id, name, NF_FLOAT,  size(rval(:)), rval )
+                  error = NF_PUT_ATT_REAL  ( mpp_file(unit)%ncid, id, name, NF_FLOAT,  size(rval(:)), real(rval, kind=r4_kind))
               end if
               call netcdf_err( error, mpp_file(unit), string=' Attribute='//name )
           end if
@@ -1646,3 +1649,4 @@
 
       return
     end subroutine fillin_fieldtype
+
