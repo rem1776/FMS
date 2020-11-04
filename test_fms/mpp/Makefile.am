@@ -61,7 +61,8 @@ check_PROGRAMS = test_mpp \
   test_mpp_sendrecv \
   test_global_minmax \
   test_chksum_int   \
-  test_mpp_update_domains_ad
+  test_mpp_update_domains_ad \
+  test_mpp_transmit
 
 # These are the sources for the tests.
 test_mpp_SOURCES = test_mpp.F90
@@ -104,6 +105,8 @@ test_mpp_update_domains_ad_SOURCES=test_mpp_update_domains_ad.F90 compare_data_c
 test_global_minmax_SOURCES=test_global_minmax.F90
 test_chksum_int_SOURCES=test_chksum_int.F90
 test_redistribute_int_SOURCES=test_redistribute_int.F90
+test_mpp_transmit_SOURCES=test_mpp_transmit.F90
+
 
 # Run the test programs.
 TESTS = test_mpp_domains2.sh \
@@ -133,7 +136,8 @@ TESTS = test_mpp_domains2.sh \
   test_minmax.sh \
   test_mpp_sendrecv.sh \
   test_chksum_int.sh  \
-	test_mpp_update_domains_ad.sh
+  test_mpp_update_domains_ad.sh \
+  test_mpp_transmit.sh
 
 # These files will also be included in the distribution.
 EXTRA_DIST = input_base.nml \
@@ -167,7 +171,8 @@ EXTRA_DIST = input_base.nml \
   test_global_minmax.sh \
   test_chksum_int.sh   \
   test_redistribute_int.sh \
-  test_mpp_update_domains_ad.sh
+  test_mpp_update_domains_ad.sh \
+  test_mpp_transmit.sh
 
 # Each mod file depends on the .lo (library object) file.
 compare_data_checksums.mod : compare_data_checksums.lo
