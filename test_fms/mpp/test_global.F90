@@ -34,23 +34,22 @@ program test_global_minmax
   use mpp_domains_mod, only: mpp_get_global_domain, mpp_global_max
   use mpp_domains_mod, only: mpp_global_min, mpp_get_data_domain,mpp_get_compute_domain
   use mpp_domains_mod, only: mpp_domains_exit, mpp_update_domains
-  use mpp_domains_mod, only: mpp_get_domain_shift
-
+  use mpp_domains_mod, only: mpp_get_domain_shift, mpp_global_sum
 
   implicit none
     
   integer                       :: length=64
   integer                       :: id, pe, npes, root, i, j
-  integer(i4_kind)              :: maxI4, minI4,ierr
-  integer(i8_kind)              :: maxI8, minI8
+  integer(i4_kind)              :: maxI4, minI4, ierr, sumI4, randmaxI4= 2048
+  integer(i8_kind)              :: maxI8, minI8, sumI8, randmaxI8= 2048
   integer(i4_kind), allocatable :: dataI4(:,:)
   integer(i8_kind), allocatable :: dataI8(:,:)
   real(r4_kind), allocatable    :: dataR4(:,:)
   real(r8_kind), allocatable    :: dataR8(:,:)
   real, allocatable             :: rands(:)
   type(domain2D)                :: domain
-  real(r8_kind)                 :: rcoef, maxR8,minR8
-  real(r4_kind)                 :: maxR4, minR4
+  real(r8_kind)                 :: rcoef, maxR8, minR8, sumR8
+  real(r4_kind)                 :: maxR4, minR4, sumR4
   integer                       :: isc, iec, jsc, jec !< data/compute domain indices
   integer                       :: isd, ied, jsd, jed 
   character(len=32)             :: strMax, strMin
@@ -75,12 +74,23 @@ program test_global_minmax
   do i=isc, iec-1
     do j=jsc, jec-1
       rcoef = rands(j + i*length) * 2 -1
-      dataI4(i, j) = int(rcoef * huge(dataI4), kind=i4_kind)
-      dataI8(i, j) = int(rcoef * huge(dataI8), kind=i8_kind)
+      dataI4(i, j) = int(rcoef * randmaxI4, kind=i4_kind)
+      dataI8(i, j) = int(rcoef * randmaxI8, kind=i8_kind)
       dataR4(i, j) = real(rcoef, kind=r4_kind)
       dataR8(i, j) = real(rcoef, kind=r8_kind)
     end do
   end do
+
+  !> test global sums
+  call mpp_error(NOTE, "----------Testing 32-bit real mpp_global_sum----------")
+  call mpp_update_domains(dataR4, domain)
+  sumR4 = mpp_global_sum(domain, dataR4)
+  write(strMax,*) sumR4 
+  if(.NOT. checkSumReal4(sumR4)) then
+    call mpp_error(FATAL, "test_global_minmax: invalid 32-bit real sum"// &
+                               NEW_LINE('a')//"Sum: "// strMax )
+  endif
+
   !> test global max and mins from each kind
   call mpp_error(NOTE, "----------Testing 32-bit int mpp_global_max and mpp_global_min----------")
   call mpp_update_domains(dataI4, domain)
@@ -128,6 +138,7 @@ program test_global_minmax
     call mpp_error(FATAL, "test_global_minmax: invalid 64-bit real results"// &
                                NEW_LINE('a')//"Max: "//strMax//" Min: "//strMin )
   endif
+
 
   deallocate(dataI4, dataI8, dataR4, dataR8, rands)
   call mpp_domains_exit()
@@ -232,4 +243,40 @@ function checkResultReal8(res)
   end if
   deallocate(tres)
 end function checkResultReal8
+
+!> sum sums from pes and compares with res 
+function checkSumReal4(res)
+  logical                   :: checkSumReal4
+  real(r4_kind),intent(in)  :: res
+  real(r4_kind),allocatable :: recv
+  real(r4_kind)             :: nsum
+  integer       :: i
+  checkSumReal4 = .true.
+  ! sum local sums
+  allocate(recv)
+  if(pe .eq. root) then
+    print *, res
+    nsum = SUM(dataR4)
+    do i=1, npes
+      call mpp_recv(recv,1, i)
+      nsum = nsum + recv
+    end do
+    print *, "root:", nsum
+    recv = nsum
+    do i=1, npes
+      call mpp_send(recv,1, i)
+    end do
+    !checkSumReal4 = nsum .eq. res
+    !return 
+  else
+    recv = SUM(dataR4)
+    call mpp_send(recv,1, root) 
+    call mpp_recv(recv,1, root)
+    print *, pe, "rsum:", recv
+    !checkSumReal4 = recv .eq. res
+  endif
+  call mpp_sync()
+  deallocate(recv)
+end function checkSumReal4
+
 end program test_global_minmax

@@ -50,8 +50,8 @@ then
 elif [ $nProc -lt 4 ]
 then
     # Need to oversubscribe the MPI
-    run_test test_global_minmax 8 $skip_test "true"
+    run_test test_global 8 $skip_test "true"
 fi
 
 touch input.nml
-run_test test_global_minmax 8 $skip_test
+run_test test_global 8 $skip_test
