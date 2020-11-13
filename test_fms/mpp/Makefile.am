@@ -59,7 +59,7 @@ check_PROGRAMS = test_mpp \
   test_update_domains_performance \
   test_minmax \
   test_mpp_sendrecv \
-  test_global \
+  test_global_arrays \
   test_chksum_int   \
   test_mpp_update_domains_ad \
   test_mpp_transmit
@@ -102,7 +102,7 @@ test_update_domains_performance_SOURCES=test_update_domains_performance.F90 \
                                         compare_data_checksums_int.F90
 test_minmax_SOURCES=test_minmax.F90
 test_mpp_update_domains_ad_SOURCES=test_mpp_update_domains_ad.F90 compare_data_checksums.F90
-test_global_SOURCES=test_global.F90
+test_global_arrays_SOURCES=test_global_arrays.F90
 test_chksum_int_SOURCES=test_chksum_int.F90
 test_redistribute_int_SOURCES=test_redistribute_int.F90
 test_mpp_transmit_SOURCES=test_mpp_transmit.F90
@@ -111,7 +111,7 @@ test_mpp_transmit_SOURCES=test_mpp_transmit.F90
 # Run the test programs.
 TESTS = test_mpp_domains2.sh \
   test_redistribute_int.sh \
-  test_global.sh  \
+  test_global_arrays.sh  \
   test_mpp_pset2.sh \
   test_mpp2.sh \
   test_mpp_memuse \
@@ -168,7 +168,7 @@ EXTRA_DIST = input_base.nml \
   test_update_domains_performance.sh \
   test_minmax.sh \
   test_mpp_sendrecv.sh \
-  test_global.sh \
+  test_global_arrays.sh \
   test_chksum_int.sh   \
   test_redistribute_int.sh \
   test_mpp_update_domains_ad.sh \
