@@ -19,8 +19,8 @@
 !> @author Ryan Mulhall
 !> @email gfdl.climate.model.info@noaa.gov
 !> @brief Unit tests for mpp global max, min, and sum functions
-!> @description Generates a random data set for both size reals and ints
-!> then uses mpp_global_{} and compares with a locally calculated result
+!> @description Generates a random data set for both sizes of reals and ints
+!> then checks routines with local results received from each pe
 program test_global_arrays
 
   use platform_mod
@@ -38,23 +38,23 @@ program test_global_arrays
 
   implicit none
     
-  integer                       :: length=64
+  integer, parameter            :: length=64
   integer                       :: id, pe, npes, root, i, j
   integer(i4_kind)              :: maxI4, minI4, ierr, sumI4
   integer(i8_kind)              :: maxI8, minI8, sumI8
-  integer(i4_kind), allocatable :: dataI4(:,:)
-  integer(i8_kind), allocatable :: dataI8(:,:)
+  integer(i4_kind), allocatable :: dataI4(:,:), dataI4_5d(:,:,:,:,:)
+  integer(i8_kind), allocatable :: dataI8(:,:), dataI8_5d(:,:,:,:,:)
   real(r4_kind), allocatable    :: dataR4(:,:), dataR4_5d(:,:,:,:,:)
   real(r8_kind), allocatable    :: dataR8(:,:), dataR8_5d(:,:,:,:,:)
   real, allocatable             :: rands(:)
   type(domain2D)                :: domain
   real(r8_kind)                 :: rcoef, maxR8, minR8, sumR8
   real(r4_kind)                 :: maxR4, minR4, sumR4
-  integer                       :: isc, iec, jsc, jec !< data/compute domain indices
+  integer                       :: isc, iec, jsc, jec
   integer                       :: isd, ied, jsd, jed 
   character(len=32)             :: strMax, strMin
   integer(i4_kind), parameter   :: randmaxI4 = 2048
-  integer(i8_kind), parameter   :: randmaxI8 = 2048
+  integer(i8_kind), parameter   :: randmaxI8 = 4096
 
   call mpp_init(mpp_init_test_init_true_only)
   call mpp_io_init()
@@ -64,12 +64,14 @@ program test_global_arrays
   pe = mpp_pe()
   npes = mpp_npes()
   root = mpp_root_pe()
+
   !> define domains and allocate
   call mpp_define_domains( (/1,length,1,length/), (/4,2/), domain, xhalo=0)
   call mpp_get_compute_domain(domain, isc, iec, jsc, jec)
   call mpp_get_data_domain(domain, isd, ied, jsd, jed)
   allocate(dataI4(isd:ied, jsd:jed),dataI8(isd:ied, jsd:jed), rands(length*length))
   allocate(dataR4(isd:ied, jsd:jed), dataR8(isd:ied, jsd:jed))
+
   !> make random arrays
   call random_seed()
   call random_number(rands)
@@ -82,27 +84,6 @@ program test_global_arrays
       dataR8(i, j) = real(rcoef, kind=r8_kind)
     end do
   end do
-
-  !> test global sums for both reals
-  call mpp_error(NOTE, "----------Testing 32-bit real mpp_global_sum----------")
-  call mpp_update_domains(dataR4, domain)
-  sumR4 = mpp_global_sum(domain, dataR4)
-  write(strMax,*) sumR4 
-  if(.NOT. checkSumReal4(sumR4)) then
-    call mpp_error(FATAL, "test_global_arrays: invalid 32-bit real sum"// &
-                               NEW_LINE('a')//"Sum: "// strMax )
-  endif
-  call mpp_error(NOTE, "----------Testing 64-bit real mpp_global_sum----------")
-  call mpp_update_domains(dataR8, domain)
-  sumR8 = mpp_global_sum(domain, dataR8)
-  write(strMax,*) sumR8 
-  if(.NOT. checkSumReal8(sumR8)) then
-    call mpp_error(FATAL, "test_global_arrays: invalid 64-bit real sum"// &
-                               NEW_LINE('a')//"Sum: "// strMax )
-  endif
-  !> test with more ranks and compare to old result 
-!TODO
-  !dataR4_5d = transfer(dataR4, )  
 
   !> test global max and mins from each kind
   call mpp_error(NOTE, "----------Testing 32-bit int mpp_global_max and mpp_global_min----------")
@@ -149,8 +130,63 @@ program test_global_arrays
                                NEW_LINE('a')//"Max: "//strMax//" Min: "//strMin )
   endif
 
+  !> test global sums for each kind
+  call mpp_error(NOTE, "----------Testing 32-bit real mpp_global_sum----------")
+  call mpp_update_domains(dataR4, domain)
+  sumR4 = mpp_global_sum(domain, dataR4)
+  write(strMax,*) sumR4 
+  if(.NOT. checkSumReal4(sumR4)) then
+    call mpp_error(FATAL, "test_global_arrays: invalid 32-bit real sum"// &
+                               NEW_LINE('a')//"Sum: "// strMax )
+  endif
+  call mpp_error(NOTE, "----------Testing 64-bit real mpp_global_sum----------")
+  call mpp_update_domains(dataR8, domain)
+  sumR8 = mpp_global_sum(domain, dataR8)
+  write(strMax,*) sumR8 
+  if(.NOT. checkSumReal8(sumR8)) then
+    call mpp_error(FATAL, "test_global_arrays: invalid 64-bit real sum"// &
+                               NEW_LINE('a')//"Sum: "// strMax )
+  endif
+  call mpp_error(NOTE, "----------Testing 32-bit integer mpp_global_sum----------")
+  call mpp_update_domains(dataI4, domain)
+  sumI4 = mpp_global_sum(domain, dataI4)
+  write(strMax,*) sumI4
+  if(.NOT. checkSumInt4(sumI4)) then
+    call mpp_error(FATAL, "test_global_arrays: invalid 32-bit integer sum"// &
+                               NEW_LINE('a')//"Sum: "// strMax )
+  endif
+  call mpp_error(NOTE, "----------Testing 64-bit integer mpp_global_sum----------")
+  call mpp_update_domains(dataI8, domain)
+  sumI8 = mpp_global_sum(domain, dataI8)
+  write(strMax,*) sumI8
+  if(.NOT. checkSumInt8(sumI8)) then
+    call mpp_error(FATAL, "test_global_arrays: invalid 64-bit integer sum"// &
+                               NEW_LINE('a')//"Sum: "// strMax )
+  endif
 
-  deallocate(dataI4, dataI8, dataR4, dataR8, rands)
+  !> copy with more ranks and test sum
+  allocate(dataR4_5d(isc:iec,jsc:jec, 1, 1, 1), dataR8_5d(isc:iec,jsc:jec, 1, 1, 1))
+  allocate(dataI4_5d(isc:iec,jsc:jec, 1, 1, 1), dataI8_5d(isc:iec,jsc:jec, 1, 1, 1))
+  do i=isc, iec-1
+    do j=jsc, jec-1
+      dataR4_5d(i, j, 1, 1, 1) = dataR4(i, j) 
+      dataR8_5d(i, j, 1, 1, 1) = dataR8(i, j) 
+      dataI4_5d(i, j, 1, 1, 1) = dataI4(i, j) 
+      dataI8_5d(i, j, 1, 1, 1) = dataI8(i, j) 
+    end do
+  end do
+  call mpp_sync()
+  call mpp_error(NOTE, "----------Testing 5D real mpp_global_sum----------")
+  if( sumR4 .ne. mpp_global_sum(domain,dataR4_5d) .or. sumR8 .ne. mpp_global_sum(domain,dataR8_5d)) then
+    call mpp_error(FATAL, "test_global_arrays: invalid higher rank results")
+  endif
+  call mpp_sync()
+  call mpp_error(NOTE, "----------Testing 5D integer mpp_global_sum----------")
+  if( sumI4 .ne. mpp_global_sum(domain,dataI4_5d) .or. sumI8 .ne. mpp_global_sum(domain,dataI8_5d)) then
+    call mpp_error(FATAL, "test_global_arrays: invalid higher rank results")
+  endif
+
+  deallocate(dataI4, dataI8, dataR4, dataR8, rands, dataR4_5d, dataR8_5d, dataI4_5d, dataI8_5d)
   call mpp_domains_exit()
   call MPI_FINALIZE(ierr)
   
@@ -161,7 +197,7 @@ function checkResultInt4(res)
   logical                               :: checkResultInt4
   integer(i4_kind),intent(in)           :: res(2)
   integer(i4_kind),allocatable          :: tres(:)
-  !> set res to given var and check global max/min with locals
+
   allocate(tres(2))
   checkResultInt4 = res(2).GE.maxval(dataI4) .and. res(1).LE.minval(dataI4)
   if(.NOT.checkResultInt4) then
@@ -185,7 +221,7 @@ function checkResultInt8(res)
   logical                               :: checkResultInt8
   integer(i8_kind),intent(in)           :: res(2)
   integer(i8_kind),allocatable          :: tres(:)
-  !> set res to given var and check global max/min with locals
+
   allocate(tres(2))
   checkResultInt8 = res(2).GE.maxval(dataI8) .and. res(1).LE.minval(dataI8)
   if(.NOT.checkResultInt8) then
@@ -209,7 +245,7 @@ function checkResultReal4(res)
   logical                            :: checkResultReal4
   real(r4_kind),intent(in)           :: res(2)
   real(r4_kind),allocatable          :: tres(:)
-  !> set res to given var and check global max/min with locals
+
   allocate(tres(2))
   checkResultReal4 = res(2).GE.maxval(dataR4) .and. res(1).LE.minval(dataR4)
   if(.NOT. checkResultReal4) then
@@ -233,7 +269,7 @@ function checkResultReal8(res)
   logical                            :: checkResultReal8
   real(r8_kind),intent(in)           :: res(:)
   real(r8_kind),allocatable          :: tres(:)
-  !> set res to given var and check global max/min with locals
+
   allocate(tres(2))
   checkResultReal8 = res(2).GE.maxval(dataR8) .and. res(1).LE.minval(dataR8)
   if(.NOT.checkResultReal8) then
@@ -253,12 +289,13 @@ function checkResultReal8(res)
   deallocate(tres)
 end function checkResultReal8
 
-!> sum sums from pes and compares with gsum
+!>@brief Sum local sums from pes and compares with gsum
+!>@return True if gsum is the global sum, false otherwise
 function checkSumReal4(gsum)
   logical                   :: checkSumReal4
   real(r4_kind),intent(in)  :: gsum
   real(r4_kind),allocatable :: recv(:) !> pe's local sum at 1, global sum at 2
-  real(r4_kind)             :: lsum, nsum
+  real(r4_kind)             :: nsum
   integer                   :: i
 
   allocate(recv(2))
@@ -275,7 +312,6 @@ function checkSumReal4(gsum)
         return 
       endif
     end do
-    print *, nsum, gsum
     checkSumReal4 = nsum .eq. gsum
   else
     recv(1) = SUM(dataR4)
@@ -286,12 +322,13 @@ function checkSumReal4(gsum)
   deallocate(recv)
 end function checkSumReal4
 
-!> sum sums from pes and compares with gsum
+!>@brief Sum local sums from pes and compares with gsum
+!>@return True if gsum is the global sum, false otherwise
 function checkSumReal8(gsum)
   logical                   :: checkSumReal8
   real(r8_kind),intent(in)  :: gsum
   real(r8_kind),allocatable :: recv(:) !> pe's local sum at 1, global sum at 2
-  real(r8_kind)             :: lsum, nsum
+  real(r8_kind)             :: nsum
   integer                   :: i
 
   allocate(recv(2))
@@ -308,7 +345,6 @@ function checkSumReal8(gsum)
         return 
       endif
     end do
-    print *, nsum, gsum 
     checkSumReal8 = nsum .eq. gsum
   else
     recv(1) = SUM(dataR8)
@@ -319,12 +355,13 @@ function checkSumReal8(gsum)
   deallocate(recv)
 end function checkSumReal8
 
-!> sum sums from pes and compares with gsum
+!>@brief Sum local sums from pes and compares with gsum
+!>@return True if gsum is the global sum, false otherwise
 function checkSumInt4(gsum)
-  logical                     :: checkSumInt4
+  logical                      :: checkSumInt4
   integer(i4_kind),intent(in)  :: gsum
   integer(i4_kind),allocatable :: recv(:) !> pe's local sum at 1, global sum at 2
-  integer(i4_kind)             :: lsum, nsum
+  integer(i4_kind)             :: nsum
   integer                      :: i
 
   allocate(recv(2))
@@ -341,7 +378,6 @@ function checkSumInt4(gsum)
         return 
       endif
     end do
-    print *, nsum, gsum 
     checkSumInt4 = nsum .eq. gsum
   else
     recv(1) = SUM(dataI4)
@@ -352,11 +388,13 @@ function checkSumInt4(gsum)
   deallocate(recv)
 end function checkSumInt4
 
+!>@brief Sum local sums from pes and compares with gsum
+!>@return True if gsum is the global sum, false otherwise
 function checkSumInt8(gsum)
-  logical                     :: checkSumInt8
+  logical                      :: checkSumInt8
   integer(i8_kind),intent(in)  :: gsum
   integer(i8_kind),allocatable :: recv(:) !> pe's local sum at 1, global sum at 2
-  integer(i8_kind)             :: lsum, nsum
+  integer(i8_kind)             :: nsum
   integer                      :: i
 
   allocate(recv(2))
@@ -373,7 +411,6 @@ function checkSumInt8(gsum)
         return 
       endif
     end do
-    print *, nsum, gsum 
     checkSumInt8 = nsum .eq. gsum
   else
     recv(1) = SUM(dataI8)
