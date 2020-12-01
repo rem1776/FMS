@@ -29,7 +29,7 @@
 
 # Copy files for test.
 cp $top_srcdir/test_fms/time_interp/input_base.nml input.nml
-cp -R $top_srcdir/test_fms/time_interp/INPUT INPUT 
+cp -ruf $top_srcdir/test_fms/time_interp/INPUT INPUT 
 
 # Run the test.
 run_test test_time_interp_external 6 $skip_input_tests
