@@ -27,8 +27,9 @@
 # Set common test settings.
 . ../test_common.sh
 
-# Copy file for test.
+# Copy files for tests.
 cp $top_srcdir/test_fms/time_interp/input_base.nml input.nml
-
-# Run the test.
+cp -R $top_srcdir/test_fms/time_interp/INPUT INPUT
+# Run the tests.
 run_test test_time_interp 2
+run_test test_time_interp_ext 6
