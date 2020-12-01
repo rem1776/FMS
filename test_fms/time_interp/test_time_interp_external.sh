@@ -22,13 +22,14 @@
 # This is part of the GFDL FMS package. This is a shell script to
 # execute tests in the test_fms/mpp directory.
 
-# Ed Hartnett 11/29/19
+# Ryan Mulhall 12/1/20 
 
 # Set common test settings.
 . ../test_common.sh
 
-# Copy files for tests.
+# Copy files for test.
 cp $top_srcdir/test_fms/time_interp/input_base.nml input.nml
+cp -R $top_srcdir/test_fms/time_interp/INPUT INPUT 
 
-# Run the tests.
-run_test test_time_interp 2
+# Run the test.
+run_test test_time_interp_external 6 $skip_input_tests

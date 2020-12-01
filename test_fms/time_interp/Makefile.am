@@ -20,7 +20,7 @@
 # This is an automake file for the test_fms/time_interp directory of the FMS
 # package.
 
-# uramirez, Ed Hartnett
+# uramirez, Ed Hartnett, Ryan Mulhall
 
 # Find the fms_mod.mod file.
 AM_CPPFLAGS = -I${top_builddir}/.mod
@@ -43,10 +43,14 @@ test_time_interp_SOURCES = test_time_interp.F90
 test_time_interp_external_SOURCES = test_time_interp_external.F90
 
 # Run the test programs.
-TESTS = test_time_interp2.sh
+TESTS = test_time_interp2.sh test_time_interp_external.sh
 
 # These files will also be included in the distribution.
-EXTRA_DIST = input_base.nml test_time_interp2.sh
+if ENABLE_INPUT_TESTS
+EXTRA_DIST = INPUT/aerosol.climatology.nc input_base.nml test_time_interp2.sh test_time_interp_external.sh
+else
+EXTRA_DIST = input_base.nml test_time_interp2.sh test_time_interp_external.sh
+endif
 
 # Clean up
 CLEANFILES = input.nml *.out*
