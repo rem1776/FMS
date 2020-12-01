@@ -32,4 +32,5 @@ cp $top_srcdir/test_fms/time_interp/input_base.nml input.nml
 cp -R $top_srcdir/test_fms/time_interp/INPUT INPUT
 # Run the tests.
 run_test test_time_interp 2
-run_test test_time_interp_ext 6
+
+run_test test_time_interp_external 6 $skip_input_tests

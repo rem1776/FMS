@@ -272,6 +272,16 @@ else
   AC_MSG_RESULT([no])
 fi
 
+# Check if git-lfs is installed to enable tests with netCDF input files
+# Also checks for an abitrary file size to make sure files were downloaded
+AC_CHECK_PROGS([GIT_LFS], [git-lfs])
+lfsPath="`dirname $0`/test_fms/time_interp/INPUT/aerosol.climatology.nc"
+if test -z "$GIT_LFS" -o  "`stat -c %s $lfsPath`" -lt "500"; then
+  AM_CONDITIONAL([ENABLE_INPUT_TESTS], false)
+else
+  AM_CONDITIONAL([ENABLE_INPUT_TESTS], true)
+fi
+
 #####
 # Create output variables from various
 # shell variables, for use in generating

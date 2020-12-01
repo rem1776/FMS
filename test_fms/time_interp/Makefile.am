@@ -28,6 +28,13 @@ AM_CPPFLAGS = -I${top_builddir}/.mod
 # Link to the FMS library.
 LDADD = ${top_builddir}/libFMS/libFMS.la
 
+# Set env var for tests with input files if present
+if ENABLE_INPUT_TESTS
+TESTS_ENVIRONMENT = skip_input_tests=""
+else
+TESTS_ENVIRONMENT = skip_input_tests="skip"
+endif 
+
 # Build these test programs.
 check_PROGRAMS = test_time_interp test_time_interp_external
 
