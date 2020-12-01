@@ -53,4 +53,4 @@ EXTRA_DIST = input_base.nml test_time_interp2.sh test_time_interp_external.sh
 endif
 
 # Clean up
-CLEANFILES = input.nml *.out*
+CLEANFILES = input.nml *.out* INPUT/*.nc
