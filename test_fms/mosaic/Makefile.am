@@ -28,6 +28,13 @@ AM_CPPFLAGS = -I${top_srcdir}/include -I${top_builddir}/.mod
 # Link to the FMS library.
 LDADD = ${top_builddir}/libFMS/libFMS.la
 
+# Set env var for tests with input files if present
+if ENABLE_INPUT_TESTS
+TESTS_ENVIRONMENT = skip_input_tests=""
+else
+TESTS_ENVIRONMENT = skip_input_tests="skip"
+endif 
+
 # Build this test program.
 check_PROGRAMS = test_mosaic
 
@@ -37,5 +44,9 @@ test_mosaic_SOURCES = test_mosaic.F90
 # Run the test program.
 TESTS = test_mosaic2.sh
 
-# These files are also included in the distribution.
+# These files will also be included in the distribution.
+if ENABLE_INPUT_TESTS
+EXTRA_DIST = test_mosaic2.sh input.nml INPUT/*
+else
 EXTRA_DIST = test_mosaic2.sh input.nml
+endif

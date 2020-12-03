@@ -28,5 +28,9 @@
 . ../test_common.sh
 
 # Copy files for test.
-#cp $top_srcdir/test_fms/mosaic/input_nml input_nml
-run_test test_mosaic 2 skip
+cp $top_srcdir/test_fms/mosaic/input.nml input.nml
+if test "$skip_input_tests" != "skip" ; then
+  cp -rf $top_srcdir/test_fms/mosaic/INPUT INPUT 
+fi
+
+run_test test_mosaic 2 $skip_input_tests
