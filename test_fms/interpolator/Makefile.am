@@ -28,6 +28,13 @@ AM_CPPFLAGS = -I${top_builddir}/.mod
 # Link to the FMS library.
 LDADD = ${top_builddir}/libFMS/libFMS.la
 
+# Set env var for tests with input files if present
+if ENABLE_INPUT_TESTS
+TESTS_ENVIRONMENT = skip_input_tests=""
+else
+TESTS_ENVIRONMENT = skip_input_tests="skip"
+endif
+
 # Build this test program.
 check_PROGRAMS = test_interpolator
 
@@ -38,7 +45,11 @@ test_interpolator_SOURCES = test_interpolator.F90
 TESTS = test_interpolator2.sh
 
 # These files are also included in the distribution.
+if ENABLE_INPUT_TESTS
+EXTRA_DIST = test_interpolator2.sh input_base.nml diag_table_base INPUT/*.nc
+else
 EXTRA_DIST = test_interpolator2.sh input_base.nml diag_table_base
+endif
 
 # Clean up
 CLEANFILES = input.nml diag_table

@@ -31,7 +31,10 @@
 cp $top_srcdir/test_fms/interpolator/input_base.nml input.nml
 cp $top_srcdir/test_fms/interpolator/diag_table_base diag_table
 
+if test "$skip_input_tests" != "skip" ; then
+  cp -ruT $top_srcdir/test_fms/interpolator/INPUT
+fi
 # Test is skipped in bats file.
-run_test test_interpolator 2 skip
+run_test test_interpolator 2 $skip_input_tests 
 
 
