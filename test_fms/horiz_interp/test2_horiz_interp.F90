@@ -16,7 +16,6 @@
 !* You should have received a copy of the GNU Lesser General Public
 !* License along with FMS.  If not, see <http://www.gnu.org/licenses/>.
 !***********************************************************************
-!#ifdef TEST_HORIZ_INTERP
 !z1l: currently only test bilinear interpolation.
 
 program test2_horiz_interp
