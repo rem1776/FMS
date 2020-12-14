@@ -1,3 +1,5 @@
+#!/bin/sh
+
 #***********************************************************************
 #*                   GNU Lesser General Public License
 #*
@@ -17,29 +19,20 @@
 #* License along with FMS.  If not, see <http://www.gnu.org/licenses/>.
 #***********************************************************************
 
-# This is an automake file for the test_fms/horiz_interp directory of
-# the FMS package.
+# This is part of the GFDL FMS package. This is a shell script to
+# execute tests in the test_fms/horiz_interp directory.
 
-# uramirez, Ed Hartnett
+# Ed Hartnett 11/29/19
 
-# Find the needed mod files.
-AM_CPPFLAGS = -I${top_builddir}/.mod
+# Set common test settings.
+. ../test_common.sh
 
-# Link to the FMS library.
-LDADD = ${top_builddir}/libFMS/libFMS.la
+# Copy file for test.
+cp $top_srcdir/test_fms/horiz_interp/input_base.nml input.nml
 
-# Build these test programs.
-check_PROGRAMS = test_horiz_interp test2_horiz_interp
+# Copy over lfs files if enabled
+if test "$skip_input_tests" != "skip"; then
+  cp -ruT $top_srcdir/test_fms/horiz_interp/INPUT INPUT
+fi
 
-# These are the sources for the tests.
-test_horiz_interp_SOURCES = test_horiz_interp.F90
-test2_horiz_interp_SOURCES = test2_horiz_interp.F90
-
-# Run the test programs.
-TESTS = test_horiz_interp.sh test2_horiz_interp.sh
-
-# These files will also be included in the distribution.
-EXTRA_DIST = input_base.nml test_horiz_interp.sh test2_horiz_interp.sh
-
-# Clean up
-CLEANFILES = input.nml *.out*
+run_test test2_horiz_interp 6 $skip_input_tests
