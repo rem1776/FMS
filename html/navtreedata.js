@@ -24,12 +24,52 @@
 */
 var NAVTREE =
 [
-  [ "FMS", "index.html", ]
+  [ "FMS", "index.html", [
+    [ "diurnal_solar Interface", "diurnal_solar.html", null ],
+    [ "daily_mean_solar Interface", "daily_mean_solar.html", null ],
+    [ "get_period Interface", "get_period.html", null ],
+    [ "set_period Interface", "set_period.html", null ],
+    [ "half_day Interface", "half_day.html", null ],
+    [ "interpolator Interface", "interpolator.html", null ],
+    [ "assignment Interface", "assignment.html", null ],
+    [ "interp_weighted_scalar Interface", "interp_weighted_scalar.html", null ],
+    [ "Modules", "modules.html", "modules" ],
+    [ "Module Members", "namespacemembers.html", [
+      [ "All", "namespacemembers.html", null ],
+      [ "Functions/Subroutines", "namespacemembers_func.html", null ],
+      [ "Variables", "namespacemembers_vars.html", null ]
+    ] ],
+    [ "Data Types List", "annotated.html", [
+      [ "Data Types List", "annotated.html", "annotated_dup" ],
+      [ "Data Types", "classes.html", null ],
+      [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
+      [ "Data Fields", "functions.html", [
+        [ "All", "functions.html", "functions_dup" ],
+        [ "Variables", "functions_vars.html", "functions_vars" ]
+      ] ]
+    ] ],
+    [ "Files", "files.html", [
+      [ "File List", "files.html", "files_dup" ],
+      [ "File Members", "globals.html", [
+        [ "All", "globals.html", null ],
+        [ "Functions/Subroutines", "globals_func.html", null ]
+      ] ]
+    ] ],
+    [ "Examples", "examples.html", "examples" ]
+  ] ]
 ];
 
 var NAVTREEINDEX =
 [
-"index.html"
+"Example-example.html",
+"constants_8F90.html#a7aea51f59d8e8ef20e6a20559b93a7f4",
+"diag__data_8F90.html#aa58c7b2d9fecc0aa5b9df88dfec2d272",
+"dir_e4baa7f80acbc9ad07d694f3aacd8c3b.html",
+"functions_h.html",
+"netcdf__io_8F90.html#a7c98eba8503f8f2bb7a7d14cb08ed3e5",
+"structdiag__data__mod_1_1coord__type.html#a70e915ebfc62ee1e98f4bf7e12042262",
+"structinterpolator__mod_1_1interpolate__type.html#a368cb842650be6d3003fd60d3117aee2",
+"test__quicksort_8F90_source.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
