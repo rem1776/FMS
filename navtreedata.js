@@ -25,6 +25,7 @@
 var NAVTREE =
 [
   [ "FMS", "index.html", [
+    [ "Modeling Framework: Flexible Modeling System (FMS)", "index.html", null ],
     [ "diurnal_solar Interface", "diurnal_solar.html", null ],
     [ "daily_mean_solar Interface", "daily_mean_solar.html", null ],
     [ "get_period Interface", "get_period.html", null ],
@@ -66,10 +67,10 @@ var NAVTREEINDEX =
 "diag__data_8F90.html#aa58c7b2d9fecc0aa5b9df88dfec2d272",
 "dir_e4baa7f80acbc9ad07d694f3aacd8c3b.html",
 "functions_h.html",
-"netcdf__io_8F90.html#a7c98eba8503f8f2bb7a7d14cb08ed3e5",
-"structdiag__data__mod_1_1coord__type.html#a70e915ebfc62ee1e98f4bf7e12042262",
-"structinterpolator__mod_1_1interpolate__type.html#a368cb842650be6d3003fd60d3117aee2",
-"test__quicksort_8F90_source.html"
+"netcdf__io_8F90.html#a79565021b08d3aec57325a3aa9b8737a",
+"structdiag__data__mod_1_1coord__type.html#a5cdf8fbc3abe44a2770a766abaaa8785",
+"structinterpolator__mod_1_1interpolate__type.html#a352f1cb336be1e88222989aa64198008",
+"test__peset_8F90_source.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
