@@ -70,8 +70,9 @@ var NAVTREEINDEX4 =
 "gradient__c2l_8c_source.html":[12,0,21,4],
 "gradient__c2l_8h_source.html":[12,0,21,5],
 "grid_8F90_source.html":[12,0,21,6],
-"group__diag__integral__mod.html":[9,0],
-"group__sum__diag__integral__field.html":[9,0,0],
+"group__affinity.html":[9,0],
+"group__diag__integral__mod.html":[9,1],
+"group__sum__diag__integral__field.html":[9,1,0],
 "group__update__pack_8inc_source.html":[12,0,22,0,0],
 "group__update__unpack_8inc_source.html":[12,0,22,0,1],
 "half_day.html":[5],
@@ -248,6 +249,5 @@ var NAVTREEINDEX4 =
 "mpp__global__sum_8h_source.html":[12,0,22,0,43],
 "mpp__global__sum__ad_8h_source.html":[12,0,22,0,44],
 "mpp__global__sum__tl_8h_source.html":[12,0,22,0,45],
-"mpp__group__update_8h_source.html":[12,0,22,0,46],
-"mpp__io_8F90.html":[12,0,22,5]
+"mpp__group__update_8h_source.html":[12,0,22,0,46]
 };

@@ -1,5 +1,6 @@
 var NAVTREEINDEX6 =
 {
+"structblock__control__mod_1_1block__control__type.html#a5ca54023796f63b9ff73e35f6880c91e":[11,0,1,2,12],
 "structblock__control__mod_1_1block__control__type.html#a679c1ba60d73b70c45522adf2525d5e6":[11,0,1,2,14],
 "structblock__control__mod_1_1block__control__type.html#a6c1447cc346fe80d8a89f6b043b1d936":[11,0,1,2,3],
 "structblock__control__mod_1_1block__control__type.html#a99346e5cbe7702b4c3fdf6f89cd6e614":[11,0,1,2,5],
@@ -248,6 +249,5 @@ var NAVTREEINDEX6 =
 "structdiag__data__mod_1_1output__field__type.html#a2269f9dc0857fb7ace166f20b12af5bf":[11,0,3,6,40],
 "structdiag__data__mod_1_1output__field__type.html#a22db843f3e99d584e474ae0b84d30e92":[11,0,3,6,19],
 "structdiag__data__mod_1_1output__field__type.html#a255430c019eb64c96a4608622e5166f8":[11,0,3,6,0],
-"structdiag__data__mod_1_1output__field__type.html#a30849d40567390694201e388329ce391":[11,0,3,6,16],
-"structdiag__data__mod_1_1output__field__type.html#a3311e059f621bc26f2ac251838b0ec59":[11,0,3,6,30]
+"structdiag__data__mod_1_1output__field__type.html#a30849d40567390694201e388329ce391":[11,0,3,6,16]
 };
