@@ -125,7 +125,7 @@ $(document).ready(function(){initNavTree('mpp__efp_8F90_source.html',''); initRe
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keywordtype">public</span> :: mpp_reproducing_sum, mpp_efp_list_sum_across_pes</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keywordtype">public</span> :: mpp_efp_plus, mpp_efp_minus, mpp_efp_to_real, mpp_real_to_efp, mpp_efp_real_diff</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keywordtype">public</span> :: <span class="keyword">operator</span>(+), <span class="keyword">operator</span>(-), <span class="keyword">assignment</span>(=)</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keywordtype">public</span> :: mpp_query_efp_overflow_error, mpp_reset_efp_overlow_error</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keywordtype">public</span> :: mpp_query_efp_overflow_error, mpp_reset_efp_overflow_error</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keywordtype">integer</span>, <span class="keywordtype">parameter</span> :: NUMBIT = 46<span class="comment">  !&lt; number of bits used in the 64-bit signed integer representation.</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keywordtype">integer</span>, <span class="keywordtype">parameter</span> :: NUMINT = 6<span class="comment">   !&lt; The number of long integers to use to represent</span></div>
@@ -655,9 +655,9 @@ $(document).ready(function(){initNavTree('mpp__efp_8F90_source.html',''); initRe
 <div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;  mpp_query_efp_overflow_error = overflow_error</div>
 <div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;<span class="keyword">end function </span>mpp_query_efp_overflow_error</div>
 <div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160; </div>
-<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;<span class="keyword">subroutine </span>mpp_reset_efp_overlow_error()</div>
+<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;<span class="keyword">subroutine </span>mpp_reset_efp_overflow_error()</div>
 <div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;  overflow_error = .false.</div>
-<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;<span class="keyword">end subroutine </span>mpp_reset_efp_overlow_error</div>
+<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;<span class="keyword">end subroutine </span>mpp_reset_efp_overflow_error</div>
 <div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160; </div>
 <div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;<span class="keyword">function </span>mpp_efp_plus(EFP1, EFP2)</div>
 <div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;  <span class="keywordtype">type</span>(mpp_efp_type)             :: mpp_efp_plus</div>

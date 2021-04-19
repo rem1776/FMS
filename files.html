@@ -117,8 +117,8 @@ $(document).ready(function(){initNavTree('files.html',''); initResizable(); });
 <tr id="row_7_2_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="ensemble__manager_8F90_source.html"><span class="icondoc"></span></a><a class="el" href="ensemble__manager_8F90.html" target="_self">ensemble_manager.F90</a></td><td class="desc">Ensemble_manager_mod @email <a href="#" onclick="location.href='mai'+'lto:'+'gfd'+'l.'+'cli'+'ma'+'te.'+'mo'+'del'+'.i'+'nfo'+'@n'+'oaa'+'.g'+'ov'; return false;">gfdl.<span style="display: none;">.nosp@m.</span>clim<span style="display: none;">.nosp@m.</span>ate.m<span style="display: none;">.nosp@m.</span>odel<span style="display: none;">.nosp@m.</span>.info<span style="display: none;">.nosp@m.</span>@noa<span style="display: none;">.nosp@m.</span>a.gov</a> </td></tr>
 <tr id="row_8_" class="even"><td class="entry"><span style="width:0px;display:inline-block;">&#160;</span><span id="arr_8_" class="arrow" onclick="toggleFolder('8_')">&#9660;</span><span id="img_8_" class="iconfopen" onclick="toggleFolder('8_')">&#160;</span><a class="el" href="dir_4f40a9a9eeca16d46796605b549e958f.html" target="_self">data_override</a></td><td class="desc"></td></tr>
 <tr id="row_8_0_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="data__override_8F90_source.html"><span class="icondoc"></span></a><a class="el" href="data__override_8F90.html" target="_self">data_override.F90</a></td><td class="desc">Given a gridname, fieldname and model time this routine will get data in a file whose path is described in a user-provided data_table, do spatial and temporal interpolation if necessary to convert data to model's grid and time </td></tr>
-<tr id="row_8_1_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="get__grid__version__fms2io_8F90_source.html"><span class="icondoc"></span></a><b>get_grid_version_fms2io.F90</b></td><td class="desc"></td></tr>
-<tr id="row_8_2_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="get__grid__version__mpp_8F90_source.html"><span class="icondoc"></span></a><b>get_grid_version_mpp.F90</b></td><td class="desc"></td></tr>
+<tr id="row_8_1_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="get__grid__version__fms2io_8F90_source.html"><span class="icondoc"></span></a><a class="el" href="get__grid__version__fms2io_8F90.html" target="_self">get_grid_version_fms2io.F90</a></td><td class="desc">Fms2_io implementations of grid routines </td></tr>
+<tr id="row_8_2_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="get__grid__version__mpp_8F90_source.html"><span class="icondoc"></span></a><a class="el" href="get__grid__version__mpp_8F90.html" target="_self">get_grid_version_mpp.F90</a></td><td class="desc">Mpp_io implementations of grid routines </td></tr>
 <tr id="row_9_" class="even"><td class="entry"><span style="width:0px;display:inline-block;">&#160;</span><span id="arr_9_" class="arrow" onclick="toggleFolder('9_')">&#9660;</span><span id="img_9_" class="iconfopen" onclick="toggleFolder('9_')">&#160;</span><a class="el" href="dir_e8ff4ce3ab994069f2529075a059570e.html" target="_self">diag_integral</a></td><td class="desc"></td></tr>
 <tr id="row_9_0_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="diag__integral_8F90_source.html"><span class="icondoc"></span></a><a class="el" href="diag__integral_8F90.html" target="_self">diag_integral.F90</a></td><td class="desc">This module computes and outputs global and / or hemispheric physics integrals </td></tr>
 <tr id="row_10_" class="even"><td class="entry"><span style="width:0px;display:inline-block;">&#160;</span><span id="arr_10_" class="arrow" onclick="toggleFolder('10_')">&#9660;</span><span id="img_10_" class="iconfopen" onclick="toggleFolder('10_')">&#160;</span><a class="el" href="dir_3bcd401efd066c65ba4cd49d381fb5da.html" target="_self">diag_manager</a></td><td class="desc"></td></tr>
@@ -316,13 +316,141 @@ $(document).ready(function(){initNavTree('files.html',''); initResizable(); });
 <tr id="row_22_0_83_" class="even"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a href="mpp__write__compressed_8h_source.html"><span class="icondoc"></span></a><b>mpp_write_compressed.h</b></td><td class="desc"></td></tr>
 <tr id="row_22_0_84_"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a href="mpp__write__unlimited__axis_8h_source.html"><span class="icondoc"></span></a><b>mpp_write_unlimited_axis.h</b></td><td class="desc"></td></tr>
 <tr id="row_22_0_85_" class="even"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a href="system__clock_8h_source.html"><span class="icondoc"></span></a><b>system_clock.h</b></td><td class="desc"></td></tr>
-<tr id="row_22_1_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="mpp_8F90_source.html"><span class="icondoc"></span></a><b>mpp.F90</b></td><td class="desc"></td></tr>
-<tr id="row_22_2_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="mpp__data_8F90_source.html"><span class="icondoc"></span></a><b>mpp_data.F90</b></td><td class="desc"></td></tr>
+<tr id="row_22_1_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="mpp_8F90_source.html"><span class="icondoc"></span></a><a class="el" href="mpp_8F90.html" target="_self">mpp.F90</a></td><td class="desc">Generalized communication package for use with shmem and MPI @description  
+ <CONTACT EMAIL="V.Balaji@noaa.gov">
+   V. Balaji
+ </CONTACT>
+ <HISTORY SRC="http://www.gfdl.noaa.gov/fms-cgi-bin/cvsweb.cgi/FMS/"/>
+ <RCSLOG SRC="http://www.gfdl.noaa.gov/~vb/changes_mpp.html"/>
+ <OVERVIEW>
+   <TT>mpp_mod</TT>, is a set of simple calls to provide a uniform interface
+   to different message-passing libraries. It currently can be
+   implemented either in the SGI/Cray native SHMEM library or in the MPI
+   standard. Other libraries (e.g MPI-2, Co-Array Fortran) can be
+   incorporated as the need arises.
+ </OVERVIEW>
+ <DESCRIPTION>
+   The data transfer between a processor and its own memory is based
+   on <TT>load</TT> and <TT>store</TT> operations upon
+   memory. Shared-memory systems (including distributed shared memory
+   systems) have a single address space and any processor can acquire any
+   data within the memory by <TT>load</TT> and
+   <TT>store</TT>. The situation is different for distributed
+   parallel systems. Specialized MPP systems such as the T3E can simulate
+   shared-memory by direct data acquisition from remote memory. But if
+   the parallel code is distributed across a cluster, or across the Net,
+   messages must be sent and received using the protocols for
+   long-distance communication, such as TCP/IP. This requires a
+   `&lsquo;handshaking&rsquo;' between nodes of the distributed system. One can think
+   of the two different methods as involving <TT>put</TT>s or
+   <TT>get</TT>s (e.g the SHMEM library), or in the case of
+   negotiated communication (e.g MPI), <TT>send</TT>s and
+   <TT>recv</TT>s.
+
+   The difference between SHMEM and MPI is that SHMEM uses one-sided
+   communication, which can have very low-latency high-bandwidth
+   implementations on tightly coupled systems. MPI is a standard
+   developed for distributed computing across loosely-coupled systems,
+   and therefore incurs a software penalty for negotiating the
+   communication. It is however an open industry standard whereas SHMEM
+   is a proprietary interface. Besides, the <TT>put</TT>s or
+   <TT>get</TT>s on which it is based cannot currently be implemented in
+   a cluster environment (there are recent announcements from Compaq that
+   occasion hope).
+
+   The message-passing requirements of climate and weather codes can be
+   reduced to a fairly simple minimal set, which is easily implemented in
+   any message-passing API. <TT>mpp_mod</TT> provides this API.
+
+    Features of <TT>mpp_mod</TT> include:
+    <ol>
+     <li> Simple, minimal API, with free access to underlying API for </li>
+       more complicated stuff.<BR/>
+     <li> Design toward typical use in climate/weather CFD codes. </li>
+     <li> Performance to be not significantly lower than any native API. </li>
+    </ol>
+
+   This module is used to develop higher-level calls for <LINK
+   SRC="mpp_domains.html">domain decomposition</LINK> and <LINK
+   SRC="mpp_io.html">parallel I/O</LINK>.
+ <br/> 
+   Parallel computing is initially daunting, but it soon becomes
+   second nature, much the way many of us can now write vector code
+   without much effort. The key insight required while reading and
+   writing parallel code is in arriving at a mental grasp of several
+   independent parallel execution streams through the same code (the SPMD
+   model). Each variable you examine may have different values for each
+   stream, the processor ID being an obvious example. Subroutines and
+   function calls are particularly subtle, since it is not always obvious
+   from looking at a call what synchronization between execution streams
+   it implies. An example of erroneous code would be a global barrier
+   call (see <LINK SRC="#mpp_sync">mpp_sync</LINK> below) placed
+   within a code block that not all PEs will execute, e.g:
+
+   <PRE>
+   if( pe.EQ.0 )call mpp_sync()
+   </PRE>
+
+   Here only PE 0 reaches the barrier, where it will wait
+   indefinitely. While this is a particularly egregious example to
+   illustrate the coding flaw, more subtle versions of the same are
+   among the most common errors in parallel code.
+  <br/>
+   It is therefore important to be conscious of the context of a
+   subroutine or function call, and the implied synchronization. There
+   are certain calls here (e.g <TT>mpp_declare_pelist, mpp_init,
+   mpp_set_stack_size</TT>) which must be called by all
+   PEs. There are others which must be called by a subset of PEs (here
+   called a <TT>pelist</TT>) which must be called by all the PEs in the
+   <TT>pelist</TT> (e.g <TT>mpp_max, mpp_sum, mpp_sync</TT>). Still
+   others imply no synchronization at all. I will make every effort to
+   highlight the context of each call in the MPP modules, so that the
+   implicit synchronization is spelt out.
+ <br/>
+   For performance it is necessary to keep synchronization as limited
+   as the algorithm being implemented will allow. For instance, a single
+   message between two PEs should only imply synchronization across the
+   PEs in question. A <I>global</I> synchronization (or <I>barrier</I>)
+   is likely to be slow, and is best avoided. But codes first
+   parallelized on a Cray T3E tend to have many global syncs, as very
+   fast barriers were implemented there in hardware.
+ <br/>
+   Another reason to use pelists is to run a single program in MPMD
+   mode, where different PE subsets work on different portions of the
+   code. A typical example is to assign an ocean model and atmosphere
+   model to different PE subsets, and couple them concurrently instead of
+   running them serially. The MPP module provides the notion of a
+   <I>current pelist</I>, which is set when a group of PEs branch off
+   into a subset. Subsequent calls that omit the <TT>pelist</TT> optional
+   argument (seen below in many of the individual calls) assume that the
+   implied synchronization is across the current pelist. The calls
+   <TT>mpp_root_pe</TT> and <TT>mpp_npes</TT> also return the values
+   appropriate to the current pelist. The <TT>mpp_set_current_pelist</TT>
+   call is provided to set the current pelist.
+ </DESCRIPTION>
+ <br/>
+ <PUBLIC>
+  F90 is a strictly-typed language, and the syntax pass of the
+  compiler requires matching of type, kind and rank (TKR). Most calls
+  listed here use a generic type, shown here as <TT>MPP_TYPE_</TT>. This
+  is resolved in the pre-processor stage to any of a variety of
+  types. In general the MPP operations work on 4-byte and 8-byte
+  variants of <TT>integer, real, complex, logical</TT> variables, of
+  rank 0 to 5, leading to 48 specific module procedures under the same
+  generic interface. Any of the variables below shown as
+  <TT>MPP_TYPE_</TT> is treated in this way.
+ </PUBLIC>
+</td></tr>
+<tr id="row_22_2_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="mpp__data_8F90_source.html"><span class="icondoc"></span></a><a class="el" href="mpp__data_8F90.html" target="_self">mpp_data.F90</a></td><td class="desc">Module to hold public data types for use in mpp </td></tr>
 <tr id="row_22_3_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="mpp__domains_8F90_source.html"><span class="icondoc"></span></a><b>mpp_domains.F90</b></td><td class="desc"></td></tr>
 <tr id="row_22_4_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="mpp__efp_8F90_source.html"><span class="icondoc"></span></a><b>mpp_efp.F90</b></td><td class="desc"></td></tr>
-<tr id="row_22_5_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="mpp__io_8F90_source.html"><span class="icondoc"></span></a><b>mpp_io.F90</b></td><td class="desc"></td></tr>
+<tr id="row_22_5_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="mpp__io_8F90_source.html"><span class="icondoc"></span></a><a class="el" href="mpp__io_8F90.html" target="_self">mpp_io.F90</a></td><td class="desc"> 
+ <CONTACT EMAIL="vb@gfdl.noaa.gov">
+   V. Balaji<br>
+ </CONTACT>
+</td></tr>
 <tr id="row_22_6_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="mpp__memuse_8c_source.html"><span class="icondoc"></span></a><b>mpp_memuse.c</b></td><td class="desc"></td></tr>
-<tr id="row_22_7_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="mpp__memutils_8F90_source.html"><span class="icondoc"></span></a><b>mpp_memutils.F90</b></td><td class="desc"></td></tr>
+<tr id="row_22_7_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="mpp__memutils_8F90_source.html"><span class="icondoc"></span></a><a class="el" href="mpp__memutils_8F90.html" target="_self">mpp_memutils.F90</a></td><td class="desc">Routines to initialize and report on memory usage during the model run </td></tr>
 <tr id="row_22_8_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="mpp__parameter_8F90_source.html"><span class="icondoc"></span></a><b>mpp_parameter.F90</b></td><td class="desc"></td></tr>
 <tr id="row_22_9_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="mpp__utilities_8F90_source.html"><span class="icondoc"></span></a><b>mpp_utilities.F90</b></td><td class="desc"></td></tr>
 <tr id="row_23_" class="even"><td class="entry"><span style="width:0px;display:inline-block;">&#160;</span><span id="arr_23_" class="arrow" onclick="toggleFolder('23_')">&#9660;</span><span id="img_23_" class="iconfopen" onclick="toggleFolder('23_')">&#160;</span><a class="el" href="dir_c5a52a81292cf9a5167198f4f346d6d9.html" target="_self">platform</a></td><td class="desc"></td></tr>
@@ -459,6 +587,7 @@ $(document).ready(function(){initNavTree('files.html',''); initResizable(); });
 <tr id="row_30_0_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="tracer__manager_8F90_source.html"><span class="icondoc"></span></a><b>tracer_manager.F90</b></td><td class="desc"></td></tr>
 <tr id="row_31_" class="even"><td class="entry"><span style="width:0px;display:inline-block;">&#160;</span><span id="arr_31_" class="arrow" onclick="toggleFolder('31_')">&#9660;</span><span id="img_31_" class="iconfopen" onclick="toggleFolder('31_')">&#160;</span><a class="el" href="dir_df99b0ed0700a64a78f66d9710d5e998.html" target="_self">tridiagonal</a></td><td class="desc"></td></tr>
 <tr id="row_31_0_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="tridiagonal_8F90_source.html"><span class="icondoc"></span></a><b>tridiagonal.F90</b></td><td class="desc"></td></tr>
+<tr id="row_32_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="libFMS_8F90_source.html"><span class="icondoc"></span></a><a class="el" href="libFMS_8F90.html" target="_self">libFMS.F90</a></td><td class="desc"></td></tr>
 </table>
 </div><!-- directory -->
 </div><!-- contents -->

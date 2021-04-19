@@ -96,6 +96,149 @@ $(document).ready(function(){initNavTree('dir_72b96e86e48e5dd402c7a282ec4fcc3a.h
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="subdirs"></a>
 Directories</h2></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="files"></a>
+Files</h2></td></tr>
+<tr class="memitem:mpp_8F90"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mpp_8F90.html">mpp.F90</a> <a href="mpp_8F90_source.html">[code]</a></td></tr>
+<tr class="memdesc:mpp_8F90"><td class="mdescLeft">&#160;</td><td class="mdescRight">a generalized communication package for use with shmem and MPI @description  
+ <CONTACT EMAIL="V.Balaji@noaa.gov">
+   V. Balaji
+ </CONTACT>
+ <HISTORY SRC="http://www.gfdl.noaa.gov/fms-cgi-bin/cvsweb.cgi/FMS/"/>
+ <RCSLOG SRC="http://www.gfdl.noaa.gov/~vb/changes_mpp.html"/>
+ <OVERVIEW>
+   <TT>mpp_mod</TT>, is a set of simple calls to provide a uniform interface
+   to different message-passing libraries. It currently can be
+   implemented either in the SGI/Cray native SHMEM library or in the MPI
+   standard. Other libraries (e.g MPI-2, Co-Array Fortran) can be
+   incorporated as the need arises.
+ </OVERVIEW>
+ <DESCRIPTION>
+   The data transfer between a processor and its own memory is based
+   on <TT>load</TT> and <TT>store</TT> operations upon
+   memory. Shared-memory systems (including distributed shared memory
+   systems) have a single address space and any processor can acquire any
+   data within the memory by <TT>load</TT> and
+   <TT>store</TT>. The situation is different for distributed
+   parallel systems. Specialized MPP systems such as the T3E can simulate
+   shared-memory by direct data acquisition from remote memory. But if
+   the parallel code is distributed across a cluster, or across the Net,
+   messages must be sent and received using the protocols for
+   long-distance communication, such as TCP/IP. This requires a
+   `&lsquo;handshaking&rsquo;' between nodes of the distributed system. One can think
+   of the two different methods as involving <TT>put</TT>s or
+   <TT>get</TT>s (e.g the SHMEM library), or in the case of
+   negotiated communication (e.g MPI), <TT>send</TT>s and
+   <TT>recv</TT>s.
+
+   The difference between SHMEM and MPI is that SHMEM uses one-sided
+   communication, which can have very low-latency high-bandwidth
+   implementations on tightly coupled systems. MPI is a standard
+   developed for distributed computing across loosely-coupled systems,
+   and therefore incurs a software penalty for negotiating the
+   communication. It is however an open industry standard whereas SHMEM
+   is a proprietary interface. Besides, the <TT>put</TT>s or
+   <TT>get</TT>s on which it is based cannot currently be implemented in
+   a cluster environment (there are recent announcements from Compaq that
+   occasion hope).
+
+   The message-passing requirements of climate and weather codes can be
+   reduced to a fairly simple minimal set, which is easily implemented in
+   any message-passing API. <TT>mpp_mod</TT> provides this API.
+
+    Features of <TT>mpp_mod</TT> include:
+    <ol>
+     <li> Simple, minimal API, with free access to underlying API for </li>
+       more complicated stuff.<BR/>
+     <li> Design toward typical use in climate/weather CFD codes. </li>
+     <li> Performance to be not significantly lower than any native API. </li>
+    </ol>
+
+   This module is used to develop higher-level calls for <LINK
+   SRC="mpp_domains.html">domain decomposition</LINK> and <LINK
+   SRC="mpp_io.html">parallel I/O</LINK>.
+ <br/> 
+   Parallel computing is initially daunting, but it soon becomes
+   second nature, much the way many of us can now write vector code
+   without much effort. The key insight required while reading and
+   writing parallel code is in arriving at a mental grasp of several
+   independent parallel execution streams through the same code (the SPMD
+   model). Each variable you examine may have different values for each
+   stream, the processor ID being an obvious example. Subroutines and
+   function calls are particularly subtle, since it is not always obvious
+   from looking at a call what synchronization between execution streams
+   it implies. An example of erroneous code would be a global barrier
+   call (see <LINK SRC="#mpp_sync">mpp_sync</LINK> below) placed
+   within a code block that not all PEs will execute, e.g:
+
+   <PRE>
+   if( pe.EQ.0 )call mpp_sync()
+   </PRE>
+
+   Here only PE 0 reaches the barrier, where it will wait
+   indefinitely. While this is a particularly egregious example to
+   illustrate the coding flaw, more subtle versions of the same are
+   among the most common errors in parallel code.
+  <br/>
+   It is therefore important to be conscious of the context of a
+   subroutine or function call, and the implied synchronization. There
+   are certain calls here (e.g <TT>mpp_declare_pelist, mpp_init,
+   mpp_set_stack_size</TT>) which must be called by all
+   PEs. There are others which must be called by a subset of PEs (here
+   called a <TT>pelist</TT>) which must be called by all the PEs in the
+   <TT>pelist</TT> (e.g <TT>mpp_max, mpp_sum, mpp_sync</TT>). Still
+   others imply no synchronization at all. I will make every effort to
+   highlight the context of each call in the MPP modules, so that the
+   implicit synchronization is spelt out.
+ <br/>
+   For performance it is necessary to keep synchronization as limited
+   as the algorithm being implemented will allow. For instance, a single
+   message between two PEs should only imply synchronization across the
+   PEs in question. A <I>global</I> synchronization (or <I>barrier</I>)
+   is likely to be slow, and is best avoided. But codes first
+   parallelized on a Cray T3E tend to have many global syncs, as very
+   fast barriers were implemented there in hardware.
+ <br/>
+   Another reason to use pelists is to run a single program in MPMD
+   mode, where different PE subsets work on different portions of the
+   code. A typical example is to assign an ocean model and atmosphere
+   model to different PE subsets, and couple them concurrently instead of
+   running them serially. The MPP module provides the notion of a
+   <I>current pelist</I>, which is set when a group of PEs branch off
+   into a subset. Subsequent calls that omit the <TT>pelist</TT> optional
+   argument (seen below in many of the individual calls) assume that the
+   implied synchronization is across the current pelist. The calls
+   <TT>mpp_root_pe</TT> and <TT>mpp_npes</TT> also return the values
+   appropriate to the current pelist. The <TT>mpp_set_current_pelist</TT>
+   call is provided to set the current pelist.
+ </DESCRIPTION>
+ <br/>
+ <PUBLIC>
+  F90 is a strictly-typed language, and the syntax pass of the
+  compiler requires matching of type, kind and rank (TKR). Most calls
+  listed here use a generic type, shown here as <TT>MPP_TYPE_</TT>. This
+  is resolved in the pre-processor stage to any of a variety of
+  types. In general the MPP operations work on 4-byte and 8-byte
+  variants of <TT>integer, real, complex, logical</TT> variables, of
+  rank 0 to 5, leading to 48 specific module procedures under the same
+  generic interface. Any of the variables below shown as
+  <TT>MPP_TYPE_</TT> is treated in this way.
+ </PUBLIC>
+<br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:mpp__data_8F90"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mpp__data_8F90.html">mpp_data.F90</a> <a href="mpp__data_8F90_source.html">[code]</a></td></tr>
+<tr class="memdesc:mpp__data_8F90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Module to hold public data types for use in mpp. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:mpp__io_8F90"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mpp__io_8F90.html">mpp_io.F90</a> <a href="mpp__io_8F90_source.html">[code]</a></td></tr>
+<tr class="memdesc:mpp__io_8F90"><td class="mdescLeft">&#160;</td><td class="mdescRight"> 
+ <CONTACT EMAIL="vb@gfdl.noaa.gov">
+   V. Balaji<br>
+ </CONTACT>
+<br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:mpp__memutils_8F90"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mpp__memutils_8F90.html">mpp_memutils.F90</a> <a href="mpp__memutils_8F90_source.html">[code]</a></td></tr>
+<tr class="memdesc:mpp__memutils_8F90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Routines to initialize and report on memory usage during the model run. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->

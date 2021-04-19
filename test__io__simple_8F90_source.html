@@ -251,28 +251,24 @@ $(document).ready(function(){initNavTree('test__io__simple_8F90_source.html','')
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        <span class="keywordflow">if</span> (varname .ne. <span class="stringliteral">&quot;lon&quot;</span>) stop 31</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        <span class="keywordflow">if</span> (xtype .ne. nf90_double) stop 32</div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        <span class="keywordflow">if</span> (ndims .ne. 1 .or. dimids(1) .ne. 1) stop 33</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        <span class="keywordflow">if</span> (natts .ne. 1) stop 34</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        err = nf90_get_att(ncid, 1, <span class="stringliteral">&quot;domain_decomposition&quot;</span>, domain_decomposition)</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        <span class="keywordflow">if</span> (err .ne. nf90_noerr) stop 35</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;        <span class="keywordflow">if</span> (domain_decomposition(1) .ne. 1 .or. domain_decomposition(2) .ne. 96) stop 36</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        <span class="keywordflow">if</span> (domain_decomposition(3) .ne. 1 .or. domain_decomposition(4) .ne. 96) stop 37</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        err = nf90_get_var(ncid, 1, double_buffer_in)</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        <span class="keywordflow">if</span> (err .ne. nf90_noerr) stop 38</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        <span class="keywordflow">do</span> j = 1, 96</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;           <span class="keywordflow">if</span> (double_buffer_in(j) .ne. j) stop 39</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;<span class="keywordflow">        end do</span></div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        <span class="comment">! Close the file.</span></div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        err = nf90_close(ncid)</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        <span class="keywordflow">if</span> (err .ne. nf90_noerr) stop 90</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;<span class="keywordflow">     endif</span></div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        <span class="keywordflow">if</span> (natts .ne. 0) stop 34</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        err = nf90_get_var(ncid, 1, double_buffer_in)</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        <span class="keywordflow">if</span> (err .ne. nf90_noerr) stop 38</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;        <span class="keywordflow">do</span> j = 1, 96</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;           <span class="keywordflow">if</span> (double_buffer_in(j) .ne. j) stop 39</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="keywordflow">        end do</span></div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160; </div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        <span class="comment">! Close the file.</span></div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        err = nf90_close(ncid)</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        <span class="keywordflow">if</span> (err .ne. nf90_noerr) stop 90</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;<span class="keywordflow">     endif</span></div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160; </div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;     <span class="keyword">call </span>mpi_barrier(mpi_comm_world, err)</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;     <span class="keyword">call </span>mpi_check(err)</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;<span class="keywordflow">  end do</span></div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160; </div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;     <span class="keyword">call </span>mpi_barrier(mpi_comm_world, err)</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;     <span class="keyword">call </span>mpi_check(err)</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<span class="keywordflow">  end do</span></div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160; </div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;  <span class="keyword">call </span>cleanup(test_params)</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="keyword">end program </span>test_io_simple</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;  <span class="keyword">call </span>cleanup(test_params)</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="keyword">end program </span>test_io_simple</div>
 <div class="ttc" id="anamespacenetcdf__io__mod_html"><div class="ttname"><a href="namespacenetcdf__io__mod.html">netcdf_io_mod</a></div><div class="ttdoc">Create a netcdf type, which can be extended to meet our various I/O needs.</div><div class="ttdef"><b>Definition:</b> <a href="netcdf__io_8F90_source.html#l00024">netcdf_io.F90:24</a></div></div>
 <div class="ttc" id="anamespacenetcdf__io__mod_html_ab3d6f987c880c22ac2aefbd53897c2e2"><div class="ttname"><a href="namespacenetcdf__io__mod.html#ab3d6f987c880c22ac2aefbd53897c2e2">netcdf_io_mod::netcdf_io_init</a></div><div class="ttdeci">subroutine, public netcdf_io_init(chksz, header_buffer_val, netcdf_default_format)</div><div class="ttdoc">Accepts the namelist fms2_io_nml variables relevant to netcdf_io_mod.</div><div class="ttdef"><b>Definition:</b> <a href="netcdf__io_8F90_source.html#l00298">netcdf_io.F90:299</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
