@@ -68,6 +68,8 @@ var NAVTREEINDEX4 =
 "gradient__c2l_8h_source.html":[7,0,21,5],
 "grid_8F90_source.html":[7,0,21,6],
 "group__affinity.html":[4,1],
+"group__affinity.html#ga78a042dc1e444c6cb142e03d2c1f5345":[4,1,2],
+"group__affinity.html#gaee9fe9116c8a7ddbdcc6ed836b218755":[4,1,3],
 "group__amip__interp.html":[4,0],
 "group__astronomy.html":[4,2],
 "group__astronomy.html#daily_mean_solar":[4,2,1],
@@ -247,7 +249,5 @@ var NAVTREEINDEX4 =
 "mpp__error__s__s_8h_source.html":[7,0,22,0,35],
 "mpp__gather_8h_source.html":[7,0,22,0,36],
 "mpp__get__boundary_8h_source.html":[7,0,22,0,37],
-"mpp__get__boundary__ad_8h_source.html":[7,0,22,0,38],
-"mpp__global__field_8h_source.html":[7,0,22,0,39],
-"mpp__global__field__ad_8h_source.html":[7,0,22,0,40]
+"mpp__get__boundary__ad_8h_source.html":[7,0,22,0,38]
 };

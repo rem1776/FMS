@@ -1,5 +1,7 @@
 var NAVTREEINDEX7 =
 {
+"structdiag__data__mod_1_1output__field__type.html#a08f957eebd6e3ed72c40b096d9de0a68":[6,0,3,6,8],
+"structdiag__data__mod_1_1output__field__type.html#a1cccbc47cab5259fadb9ba87b6718b75":[6,0,3,6,1],
 "structdiag__data__mod_1_1output__field__type.html#a213828f9467caf25a2e5a57b9de5ca30":[6,0,3,6,3],
 "structdiag__data__mod_1_1output__field__type.html#a2269f9dc0857fb7ace166f20b12af5bf":[6,0,3,6,40],
 "structdiag__data__mod_1_1output__field__type.html#a22db843f3e99d584e474ae0b84d30e92":[6,0,3,6,19],
@@ -247,7 +249,5 @@ var NAVTREEINDEX7 =
 "test__io__mosaic__R4__R8_8F90_source.html":[7,0,26,15,0],
 "test__io__simple_8F90_source.html":[7,0,26,9,16],
 "test__io__with__mask_8F90_source.html":[7,0,26,9,17],
-"test__minmax_8F90_source.html":[7,0,26,14,8],
-"test__monin__obukhov_8F90_source.html":[7,0,26,12,0],
-"test__mosaic_8F90_source.html":[7,0,26,13,0]
+"test__minmax_8F90_source.html":[7,0,26,14,8]
 };
