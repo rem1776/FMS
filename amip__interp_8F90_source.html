@@ -679,7 +679,7 @@ $(document).ready(function(){initNavTree('amip__interp_8F90_source.html',''); in
 <div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;            <span class="keyword">call </span>fms2_io_read_data(fileobj, <span class="stringliteral">&#39;TIME&#39;</span>, timeval)</div>
 <div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;<span class="keywordflow">        endif</span> <span class="comment">!if (use_mpp_io)</span></div>
 <div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;<span class="comment">!!! DEBUG CODE</span></div>
-<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;        <span class="keywordflow">if</span>(debug)</div>
+<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;        <span class="keywordflow">if</span>(debug) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;          <span class="keywordflow">if</span> (mpp_pe() == 0) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;             print *, <span class="stringliteral">&#39;JHC: nrecords = &#39;</span>, nrecords</div>
 <div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;             print *, <span class="stringliteral">&#39;JHC: TIME = &#39;</span>, timeval</div>
@@ -698,7 +698,7 @@ $(document).ready(function(){initNavTree('amip__interp_8F90_source.html',''); in
 <div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160; </div>
 <div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;<span class="keywordflow">        enddo</span></div>
 <div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160; </div>
-<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;        <span class="keywordflow">if</span>(debug)</div>
+<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;        <span class="keywordflow">if</span>(debug) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;          <span class="keywordflow">if</span> (mpp_pe() == 0) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;            print *, <span class="stringliteral">&#39;JHC: k =&#39;</span>, k</div>
 <div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;            print *, <span class="stringliteral">&#39;JHC: ryr(k) rmo(k) rdy(k)&#39;</span>,ryr(k), rmo(k), rdy(k)</div>
@@ -724,7 +724,7 @@ $(document).ready(function(){initNavTree('amip__interp_8F90_source.html',''); in
 <div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;          tempamip = tempamip + tfreeze</div>
 <div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160; </div>
 <div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;<span class="comment">!!! DEBUG CODE</span></div>
-<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;          <span class="keywordflow">if</span>(debug)</div>
+<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;          <span class="keywordflow">if</span>(debug) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;            <span class="keywordflow">if</span> (mpp_pe() == 0) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;              print*, <span class="stringliteral">&#39;JHC: TFREEZE = &#39;</span>, tfreeze</div>
 <div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;              print*, lbound(sst)</div>
@@ -740,7 +740,7 @@ $(document).ready(function(){initNavTree('amip__interp_8F90_source.html',''); in
 <div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160; </div>
 <div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;<span class="keywordflow">     endif</span></div>
 <div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160; </div>
-<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;    <span class="keywordflow">if</span>(debug)</div>
+<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;    <span class="keywordflow">if</span>(debug) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;      <span class="keywordflow">if</span> (mpp_pe() == 400) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;        <span class="keyword">write</span>(*,300)<span class="stringliteral">&#39;JHC: use_daily = T, daily SST: &#39;</span>, sst(1,1),sst(5,5),sst(10,10)</div>
 <div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;        print *,<span class="stringliteral">&#39;JHC: use_daily = T, daily SST: &#39;</span>, sst</div>
@@ -763,7 +763,7 @@ $(document).ready(function(){initNavTree('amip__interp_8F90_source.html',''); in
 <div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;      <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( trim(sst_pert_type) == <span class="stringliteral">&#39;random&#39;</span> ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;          <span class="keyword">call </span>random_seed()</div>
 <div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160; </div>
-<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;       <span class="keywordflow">if</span>(debug)</div>
+<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;       <span class="keywordflow">if</span>(debug) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;         <span class="keywordflow">if</span> (mpp_pe() == 0) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;             print*, <span class="stringliteral">&#39;mobs = &#39;</span>, mobs</div>
 <div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;             print*, <span class="stringliteral">&#39;nobs = &#39;</span>, nobs</div>
