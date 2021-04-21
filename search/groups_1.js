@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['diag_5fintegral_5fmod_1437',['diag_integral_mod',['../group__diag__integral__mod.html',1,'']]]
+  ['block_20control_1465',['Block Control',['../group__block__control.html',1,'']]]
 ];

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['compare_5fdata_5fchecksums_769',['compare_data_checksums',['../namespacecompare__data__checksums.html',1,'']]],
-  ['compare_5fdata_5fchecksums_5fint_770',['compare_data_checksums_int',['../namespacecompare__data__checksums__int.html',1,'']]]
+  ['block_5fcontrol_5fmod_788',['block_control_mod',['../namespaceblock__control__mod.html',1,'']]]
 ];

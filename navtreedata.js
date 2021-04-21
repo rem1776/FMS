@@ -26,11 +26,6 @@ var NAVTREE =
 [
   [ "FMS", "index.html", [
     [ "Modeling Framework: Flexible Modeling System (FMS)", "index.html", null ],
-    [ "diurnal_solar Interface", "diurnal_solar.html", null ],
-    [ "daily_mean_solar Interface", "daily_mean_solar.html", null ],
-    [ "get_period Interface", "get_period.html", null ],
-    [ "set_period Interface", "set_period.html", null ],
-    [ "half_day Interface", "half_day.html", null ],
     [ "interpolator Interface", "interpolator.html", null ],
     [ "assignment Interface", "assignment.html", null ],
     [ "interp_weighted_scalar Interface", "interp_weighted_scalar.html", null ],
@@ -64,14 +59,14 @@ var NAVTREEINDEX =
 [
 "Example-example.html",
 "constants_8F90.html#a7aea51f59d8e8ef20e6a20559b93a7f4",
-"diag__data_8F90.html#aa58c7b2d9fecc0aa5b9df88dfec2d272",
-"dir_e4baa7f80acbc9ad07d694f3aacd8c3b.html",
-"functions_h.html",
-"mpp__io_8F90.html",
-"structblock__control__mod_1_1block__control__type.html#a5ca54023796f63b9ff73e35f6880c91e",
-"structdiag__data__mod_1_1output__field__type.html#a3311e059f621bc26f2ac251838b0ec59",
-"test__mpp__alltoall_8F90.html#a1bf86177d4a912408ad9a532769b43c6",
-"xgrid_8F90.html#ad2acb1003204f610fd3a67ee6e41faa2"
+"diag__data_8F90.html#aa90e712f4dde91f884f68b63bf7ebe19",
+"dir_e541841244919820195777b3825418e7.html",
+"functions_j.html",
+"mpp__global__field__ug_8h_source.html",
+"structblock__control__mod_1_1block__control__type.html#a016770a5dacd9d3a606ff1e7fa509e60",
+"structdiag__data__mod_1_1output__field__type.html#a213828f9467caf25a2e5a57b9de5ca30",
+"test__mpp_8F90_source.html",
+"time__manager_8F90.html#aefd031208df0a94fe6bcf85bff298cdc"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
