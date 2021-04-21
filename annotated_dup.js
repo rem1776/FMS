@@ -48,7 +48,7 @@ var annotated_dup =
     [ "fms_netcdf_unstructured_domain_io_mod", null, [
       [ "fmsnetcdfunstructureddomainfile_t", "structfms__netcdf__unstructured__domain__io__mod_1_1fmsnetcdfunstructureddomainfile__t.html", "structfms__netcdf__unstructured__domain__io__mod_1_1fmsnetcdfunstructureddomainfile__t" ]
     ] ],
-    [ "interpolator_mod", "namespaceinterpolator__mod.html", [
+    [ "interpolator_mod", null, [
       [ "interpolate_type", "structinterpolator__mod_1_1interpolate__type.html", "structinterpolator__mod_1_1interpolate__type" ]
     ] ],
     [ "mpp_efp_mod", "namespacempp__efp__mod.html", [

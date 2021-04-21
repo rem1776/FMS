@@ -11,6 +11,7 @@ var files_dup =
     [ "data_override", "dir_4f40a9a9eeca16d46796605b549e958f.html", "dir_4f40a9a9eeca16d46796605b549e958f" ],
     [ "diag_integral", "dir_e8ff4ce3ab994069f2529075a059570e.html", "dir_e8ff4ce3ab994069f2529075a059570e" ],
     [ "diag_manager", "dir_3bcd401efd066c65ba4cd49d381fb5da.html", "dir_3bcd401efd066c65ba4cd49d381fb5da" ],
+    [ "docs", "dir_49e56c817e5e54854c35e136979f97ca.html", "dir_49e56c817e5e54854c35e136979f97ca" ],
     [ "drifters", "dir_477fe3609f5d22ca8042e79bf129e73c.html", "dir_477fe3609f5d22ca8042e79bf129e73c" ],
     [ "exchange", "dir_18c2db3339033395e94aff555c74038f.html", "dir_18c2db3339033395e94aff555c74038f" ],
     [ "field_manager", "dir_3d406358576426590d9290fa1de425fe.html", "dir_3d406358576426590d9290fa1de425fe" ],

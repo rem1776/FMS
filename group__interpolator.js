@@ -1,6 +1,5 @@
 var group__interpolator =
 [
-    [ "interpolator.F90", "interpolator_8F90.html", null ],
     [ "interpolate_type", "structinterpolator__mod_1_1interpolate__type.html", [
       [ "clim_times", "group__interpolator.html#ga4dd08baef21a0fb34c4935eff15850d9", null ],
       [ "climatological_year", "group__interpolator.html#gae347444ad2a20432382be9214fa66f62", null ],
