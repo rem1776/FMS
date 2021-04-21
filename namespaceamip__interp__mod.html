@@ -33,6 +33,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">FMS
+   &#160;<span id="projectnumber">@VERSION@</span>
    </div>
    <div id="projectbrief">FMS Library</div>
   </td>
@@ -104,16 +105,19 @@ $(document).ready(function(){initNavTree('namespaceamip__interp__mod.html',''); 
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
 <tr class="memitem:ae4985aae40b07468c1b5853c6bf85e56"><td class="memItemLeft" align="right" valign="top"><a id="ae4985aae40b07468c1b5853c6bf85e56"></a>
-subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>get_amip_sst</b> (Time, Interp, sst, err_msg, lon_model, lat_model)</td></tr>
+subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamip__interp__mod.html#ae4985aae40b07468c1b5853c6bf85e56">get_amip_sst</a> (Time, Interp, sst, err_msg, lon_model, lat_model)</td></tr>
+<tr class="memdesc:ae4985aae40b07468c1b5853c6bf85e56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve sst data and amip interpolated data. <br /></td></tr>
 <tr class="separator:ae4985aae40b07468c1b5853c6bf85e56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5f77efe6bfff8ab1bfac97d498559f80"><td class="memItemLeft" align="right" valign="top"><a id="a5f77efe6bfff8ab1bfac97d498559f80"></a>
-subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>get_amip_ice</b> (Time, Interp, ice, err_msg)</td></tr>
+subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamip__interp__mod.html#a5f77efe6bfff8ab1bfac97d498559f80">get_amip_ice</a> (Time, Interp, ice, err_msg)</td></tr>
+<tr class="memdesc:a5f77efe6bfff8ab1bfac97d498559f80"><td class="mdescLeft">&#160;</td><td class="mdescRight">AMIP interpolation for ice. <br /></td></tr>
 <tr class="separator:a5f77efe6bfff8ab1bfac97d498559f80"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6da33323528930f4680012957d27d6db"><td class="memItemLeft" align="right" valign="top"><a id="a6da33323528930f4680012957d27d6db"></a>
 subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>amip_interp_init</b> ()</td></tr>
 <tr class="separator:a6da33323528930f4680012957d27d6db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa680c8750f89c6444c6caf3d93b54cb4"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamip__interp__mod.html#aa680c8750f89c6444c6caf3d93b54cb4">amip_interp_del</a> (Interp)</td></tr>
-<tr class="memdesc:aa680c8750f89c6444c6caf3d93b54cb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call this routine for all amip_interp_type variables created by amip_interp_new.  <a href="namespaceamip__interp__mod.html#aa680c8750f89c6444c6caf3d93b54cb4">More...</a><br /></td></tr>
+<tr class="memitem:aa680c8750f89c6444c6caf3d93b54cb4"><td class="memItemLeft" align="right" valign="top"><a id="aa680c8750f89c6444c6caf3d93b54cb4"></a>
+subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceamip__interp__mod.html#aa680c8750f89c6444c6caf3d93b54cb4">amip_interp_del</a> (Interp)</td></tr>
+<tr class="memdesc:aa680c8750f89c6444c6caf3d93b54cb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees data associated with a amip_interp_type variable. Should be used for any variables initialized via amip_interp_new. <br /></td></tr>
 <tr class="separator:aa680c8750f89c6444c6caf3d93b54cb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
@@ -157,36 +161,7 @@ data set.
 <p>The data sets are read from the following files: </p><pre class="fragment">  amip1           INPUT/amip1_sst.data
   reynolds_io     INPUT/reyoi_sst.data
   reynolds_eof    INPUT/reynolds_sst.data
-</pre> </div><h2 class="groupheader">Function/Subroutine Documentation</h2>
-<a id="aa680c8750f89c6444c6caf3d93b54cb4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa680c8750f89c6444c6caf3d93b54cb4">&#9670;&nbsp;</a></span>amip_interp_del()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine, public amip_interp_mod::amip_interp_del </td>
-          <td>(</td>
-          <td class="paramtype">type (amip_interp_type), intent(inout)&#160;</td>
-          <td class="paramname"><em>Interp</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Call this routine for all amip_interp_type variables created by amip_interp_new. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">interp</td><td>A defined data type variable initialized by amip_interp_new and used when calling get_amip_sst and get_amip_ice. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="amip__interp_8F90_source.html#l01080">1080</a> of file <a class="el" href="amip__interp_8F90_source.html">amip_interp.F90</a>.</p>
-
-</div>
-</div>
-</div><!-- contents -->
+</pre> </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

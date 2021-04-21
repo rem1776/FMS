@@ -2,10 +2,10 @@ var searchData=
 [
   ['fatt_193',['fatt',['../structdiag__data__mod_1_1diag__atttype.html#a4a8080118ca17204f1f85c2a7ddb569f',1,'diag_data_mod::diag_atttype']]],
   ['field_194',['field',['../structcoupler__types__mod_1_1coupler__1d__field__type.html#aeef3cdf6190a9cd434d6c5bbec5f7b95',1,'coupler_types_mod::coupler_1d_field_type::field()'],['../structcoupler__types__mod_1_1coupler__2d__field__type.html#a265dd10eeaea3bf4f98b823740c486e8',1,'coupler_types_mod::coupler_2d_field_type::field()'],['../structcoupler__types__mod_1_1coupler__3d__field__type.html#ae8ee546f610a10ad9489164f3d1eaa34',1,'coupler_types_mod::coupler_3d_field_type::field()']]],
-  ['field_5fname_195',['field_name',['../structinterpolator__mod_1_1interpolate__type.html#a22b2b1956daba4f47eae7bc2ab390bb4',1,'interpolator_mod::interpolate_type']]],
-  ['field_5ftype_196',['field_type',['../structinterpolator__mod_1_1interpolate__type.html#a3bd48ab876c0268c3938c662047555d0',1,'interpolator_mod::interpolate_type']]],
+  ['field_5fname_195',['field_name',['../group__interpolator.html#ga22b2b1956daba4f47eae7bc2ab390bb4',1,'interpolator_mod::interpolate_type']]],
+  ['field_5ftype_196',['field_type',['../group__interpolator.html#ga3bd48ab876c0268c3938c662047555d0',1,'interpolator_mod::interpolate_type']]],
   ['file_5fexists_197',['file_exists',['../fms__io__utils_8F90.html#a54d10377075164c3c5b7ba657c571229',1,'fms_io_utils_mod']]],
-  ['file_5fname_198',['file_name',['../structinterpolator__mod_1_1interpolate__type.html#a3c4cd0ac67e58d1e2903b8e159717885',1,'interpolator_mod::interpolate_type']]],
+  ['file_5fname_198',['file_name',['../group__interpolator.html#ga3c4cd0ac67e58d1e2903b8e159717885',1,'interpolator_mod::interpolate_type']]],
   ['file_5ftype_199',['file_type',['../structdiag__data__mod_1_1file__type.html',1,'diag_data_mod']]],
   ['fileobj_5fne_200',['fileobj_ne',['../structatm__type.html#afc2ff9c072a930736f31e806c5949986',1,'atm_type']]],
   ['fileobj_5fsw_201',['fileobj_sw',['../structatm__type.html#a730d52958d1a36a17f8828143aaf9ff5',1,'atm_type']]],

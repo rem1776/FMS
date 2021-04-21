@@ -1,7 +1,7 @@
 var searchData=
 [
   ['daily_5fmean_5fsolar_20interface_107',['daily_mean_solar Interface',['../group__astronomy.html',1,'']]],
-  ['data_108',['data',['../structinterpolator__mod_1_1interpolate__type.html#a368cb842650be6d3003fd60d3117aee2',1,'interpolator_mod::interpolate_type']]],
+  ['data_108',['data',['../group__interpolator.html#ga368cb842650be6d3003fd60d3117aee2',1,'interpolator_mod::interpolate_type']]],
   ['data_5foverride_2ef90_109',['data_override.F90',['../data__override_8F90.html',1,'']]],
   ['data_5foverride_5finit_110',['data_override_init',['../data__override_8F90.html#a6d2557fc803f0e4cec3a34728079c6c5',1,'data_override_mod']]],
   ['data_5foverride_5funset_5fdomains_111',['data_override_unset_domains',['../data__override_8F90.html#ae6a3ddf1fdbcd12f51b04211c9b406bb',1,'data_override_mod']]],

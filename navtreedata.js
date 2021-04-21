@@ -27,8 +27,6 @@ var NAVTREE =
   [ "FMS", "index.html", [
     [ "Modeling Framework: Flexible Modeling System (FMS)", "index.html", null ],
     [ "interpolator Interface", "interpolator.html", null ],
-    [ "assignment Interface", "assignment.html", null ],
-    [ "interp_weighted_scalar Interface", "interp_weighted_scalar.html", null ],
     [ "Modules", "modules.html", "modules" ],
     [ "Module Members", "namespacemembers.html", [
       [ "All", "namespacemembers.html", null ],
@@ -58,15 +56,16 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "Example-example.html",
-"constants_8F90.html#a7aea51f59d8e8ef20e6a20559b93a7f4",
-"diag__data_8F90.html#aa90e712f4dde91f884f68b63bf7ebe19",
-"dir_e541841244919820195777b3825418e7.html",
-"functions_j.html",
-"mpp__global__field_8h_source.html",
-"structatm__type.html#afc2ff9c072a930736f31e806c5949986",
-"structdiag__data__mod_1_1output__field__type.html#a08f957eebd6e3ed72c40b096d9de0a68",
-"test__monin__obukhov_8F90_source.html",
-"time__manager_8F90.html#ae9dc6f6193f2d1f499fcf7079ea5da60"
+"constants_8F90.html#a7b354479751c56a28c12857455b81147",
+"diag__data_8F90.html#aab6bfb8035a62ecc10afae33b516d123",
+"dir_e8ff4ce3ab994069f2529075a059570e.html",
+"functions_k.html",
+"interpolator_8F90.html#ga710a4e8e854b1465a39e04fb196ce79a",
+"mpp__sum__mpi_8h_source.html",
+"structcoupler__types__mod_1_1coupler__2d__field__type.html#a278df2df362a8d571d5990ed295d0214",
+"structfield__manager__mod_1_1method__type.html#a781981a9bcaabce7bd12fc11cd5b28a8",
+"test__mpp__transmit_8F90.html#a6a28cdfc4f26b6412ee4975ecc1652e9",
+"xgrid_8F90.html#ad37a8b69f57d73acc0d2039fceadb260"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -33,6 +33,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">FMS
+   &#160;<span id="projectnumber">@VERSION@</span>
    </div>
    <div id="projectbrief">FMS Library</div>
   </td>
@@ -109,54 +110,54 @@ Data Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
-<tr class="memitem:a19abcf7938596e9a635bb58a0fe48deb"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceinterpolator__mod.html#a19abcf7938596e9a635bb58a0fe48deb">interpolate_type_eq</a> (Out, In)</td></tr>
-<tr class="memdesc:a19abcf7938596e9a635bb58a0fe48deb"><td class="mdescLeft">&#160;</td><td class="mdescRight">interpolator_type_eq receives the variable In and Out as input and returns Out.  <a href="namespaceinterpolator__mod.html#a19abcf7938596e9a635bb58a0fe48deb">More...</a><br /></td></tr>
-<tr class="separator:a19abcf7938596e9a635bb58a0fe48deb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8613c8850b935b6b95be55b6c250d64a"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceinterpolator__mod.html#a8613c8850b935b6b95be55b6c250d64a">interpolator_init</a> (clim_type, file_name, lonb_mod, latb_mod, data_names, data_out_of_bounds, vert_interp, clim_units, single_year_file)</td></tr>
-<tr class="memdesc:a8613c8850b935b6b95be55b6c250d64a"><td class="mdescLeft">&#160;</td><td class="mdescRight">interpolator_init receives various data as input in order to initialize interpolating.  <a href="namespaceinterpolator__mod.html#a8613c8850b935b6b95be55b6c250d64a">More...</a><br /></td></tr>
-<tr class="separator:a8613c8850b935b6b95be55b6c250d64a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a06df9761d5d17f3a33ad65fc800099d1"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceinterpolator__mod.html#a06df9761d5d17f3a33ad65fc800099d1">init_clim_diag</a> (clim_type, mod_axes, init_time)</td></tr>
-<tr class="memdesc:a06df9761d5d17f3a33ad65fc800099d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">init_clim_diag is a routine to register diagnostic fields for the climatology file. This routine calculates the domain decompostion of the climatology fields for later export through send_data. The ids created here are for column burdens that will diagnose the vertical interpolation routine.  <a href="namespaceinterpolator__mod.html#a06df9761d5d17f3a33ad65fc800099d1">More...</a><br /></td></tr>
-<tr class="separator:a06df9761d5d17f3a33ad65fc800099d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af7a99acaf1d46d5729cf55d4544b685b"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceinterpolator__mod.html#af7a99acaf1d46d5729cf55d4544b685b">obtain_interpolator_time_slices</a> (clim_type, Time)</td></tr>
-<tr class="memdesc:af7a99acaf1d46d5729cf55d4544b685b"><td class="mdescLeft">&#160;</td><td class="mdescRight">obtain_interpolator_time_slices makes sure that the appropriate time slices are available for interpolation on this time step.  <a href="namespaceinterpolator__mod.html#af7a99acaf1d46d5729cf55d4544b685b">More...</a><br /></td></tr>
-<tr class="separator:af7a99acaf1d46d5729cf55d4544b685b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75dd97cee018ee8dfe45361b82c8ed01"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceinterpolator__mod.html#a75dd97cee018ee8dfe45361b82c8ed01">unset_interpolator_time_flag</a> (clim_type)</td></tr>
-<tr class="memdesc:a75dd97cee018ee8dfe45361b82c8ed01"><td class="mdescLeft">&#160;</td><td class="mdescRight">unset_interpolator_time_flag sets a flag in clim_type to false.  <a href="namespaceinterpolator__mod.html#a75dd97cee018ee8dfe45361b82c8ed01">More...</a><br /></td></tr>
-<tr class="separator:a75dd97cee018ee8dfe45361b82c8ed01"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e435e7e9e550fb380f88f362501faa1"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceinterpolator__mod.html#a7e435e7e9e550fb380f88f362501faa1">interpolator_end</a> (clim_type)</td></tr>
-<tr class="memdesc:a7e435e7e9e550fb380f88f362501faa1"><td class="mdescLeft">&#160;</td><td class="mdescRight">interpolator_end receives interpolate data as input and deallocates its memory.  <a href="namespaceinterpolator__mod.html#a7e435e7e9e550fb380f88f362501faa1">More...</a><br /></td></tr>
-<tr class="separator:a7e435e7e9e550fb380f88f362501faa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef3ce832a153de36813a48f14172615d"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceinterpolator__mod.html#aef3ce832a153de36813a48f14172615d">read_data</a> (clim_type, field_name, hdata, nt, i, Time)</td></tr>
-<tr class="memdesc:aef3ce832a153de36813a48f14172615d"><td class="mdescLeft">&#160;</td><td class="mdescRight">read_data receives various climate data as inputs and returns a horizontally interpolated climatology field.  <a href="namespaceinterpolator__mod.html#aef3ce832a153de36813a48f14172615d">More...</a><br /></td></tr>
-<tr class="separator:aef3ce832a153de36813a48f14172615d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a048095c591ef4051abfa1da6ebdbf3d9"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceinterpolator__mod.html#a048095c591ef4051abfa1da6ebdbf3d9">query_interpolator</a> (clim_type, nfields, field_names)</td></tr>
-<tr class="memdesc:a048095c591ef4051abfa1da6ebdbf3d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">query_interpolator receives an interpolate type as input and returns the number of fields and field names.  <a href="namespaceinterpolator__mod.html#a048095c591ef4051abfa1da6ebdbf3d9">More...</a><br /></td></tr>
-<tr class="separator:a048095c591ef4051abfa1da6ebdbf3d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga19abcf7938596e9a635bb58a0fe48deb"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__interpolator.html#ga19abcf7938596e9a635bb58a0fe48deb">interpolate_type_eq</a> (Out, In)</td></tr>
+<tr class="memdesc:ga19abcf7938596e9a635bb58a0fe48deb"><td class="mdescLeft">&#160;</td><td class="mdescRight">interpolator_type_eq receives the variable In and Out as input and returns Out.  <a href="group__interpolator.html#ga19abcf7938596e9a635bb58a0fe48deb">More...</a><br /></td></tr>
+<tr class="separator:ga19abcf7938596e9a635bb58a0fe48deb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8613c8850b935b6b95be55b6c250d64a"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__interpolator.html#ga8613c8850b935b6b95be55b6c250d64a">interpolator_init</a> (clim_type, file_name, lonb_mod, latb_mod, data_names, data_out_of_bounds, vert_interp, clim_units, single_year_file)</td></tr>
+<tr class="memdesc:ga8613c8850b935b6b95be55b6c250d64a"><td class="mdescLeft">&#160;</td><td class="mdescRight">interpolator_init receives various data as input in order to initialize interpolating.  <a href="group__interpolator.html#ga8613c8850b935b6b95be55b6c250d64a">More...</a><br /></td></tr>
+<tr class="separator:ga8613c8850b935b6b95be55b6c250d64a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga06df9761d5d17f3a33ad65fc800099d1"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__interpolator.html#ga06df9761d5d17f3a33ad65fc800099d1">init_clim_diag</a> (clim_type, mod_axes, init_time)</td></tr>
+<tr class="memdesc:ga06df9761d5d17f3a33ad65fc800099d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">init_clim_diag is a routine to register diagnostic fields for the climatology file. This routine calculates the domain decompostion of the climatology fields for later export through send_data. The ids created here are for column burdens that will diagnose the vertical interpolation routine.  <a href="group__interpolator.html#ga06df9761d5d17f3a33ad65fc800099d1">More...</a><br /></td></tr>
+<tr class="separator:ga06df9761d5d17f3a33ad65fc800099d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf7a99acaf1d46d5729cf55d4544b685b"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__interpolator.html#gaf7a99acaf1d46d5729cf55d4544b685b">obtain_interpolator_time_slices</a> (clim_type, Time)</td></tr>
+<tr class="memdesc:gaf7a99acaf1d46d5729cf55d4544b685b"><td class="mdescLeft">&#160;</td><td class="mdescRight">obtain_interpolator_time_slices makes sure that the appropriate time slices are available for interpolation on this time step.  <a href="group__interpolator.html#gaf7a99acaf1d46d5729cf55d4544b685b">More...</a><br /></td></tr>
+<tr class="separator:gaf7a99acaf1d46d5729cf55d4544b685b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga75dd97cee018ee8dfe45361b82c8ed01"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__interpolator.html#ga75dd97cee018ee8dfe45361b82c8ed01">unset_interpolator_time_flag</a> (clim_type)</td></tr>
+<tr class="memdesc:ga75dd97cee018ee8dfe45361b82c8ed01"><td class="mdescLeft">&#160;</td><td class="mdescRight">unset_interpolator_time_flag sets a flag in clim_type to false.  <a href="group__interpolator.html#ga75dd97cee018ee8dfe45361b82c8ed01">More...</a><br /></td></tr>
+<tr class="separator:ga75dd97cee018ee8dfe45361b82c8ed01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7e435e7e9e550fb380f88f362501faa1"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__interpolator.html#ga7e435e7e9e550fb380f88f362501faa1">interpolator_end</a> (clim_type)</td></tr>
+<tr class="memdesc:ga7e435e7e9e550fb380f88f362501faa1"><td class="mdescLeft">&#160;</td><td class="mdescRight">interpolator_end receives interpolate data as input and deallocates its memory.  <a href="group__interpolator.html#ga7e435e7e9e550fb380f88f362501faa1">More...</a><br /></td></tr>
+<tr class="separator:ga7e435e7e9e550fb380f88f362501faa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaef3ce832a153de36813a48f14172615d"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__interpolator.html#gaef3ce832a153de36813a48f14172615d">read_data</a> (clim_type, field_name, hdata, nt, i, Time)</td></tr>
+<tr class="memdesc:gaef3ce832a153de36813a48f14172615d"><td class="mdescLeft">&#160;</td><td class="mdescRight">read_data receives various climate data as inputs and returns a horizontally interpolated climatology field.  <a href="group__interpolator.html#gaef3ce832a153de36813a48f14172615d">More...</a><br /></td></tr>
+<tr class="separator:gaef3ce832a153de36813a48f14172615d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga048095c591ef4051abfa1da6ebdbf3d9"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__interpolator.html#ga048095c591ef4051abfa1da6ebdbf3d9">query_interpolator</a> (clim_type, nfields, field_names)</td></tr>
+<tr class="memdesc:ga048095c591ef4051abfa1da6ebdbf3d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">query_interpolator receives an interpolate type as input and returns the number of fields and field names.  <a href="group__interpolator.html#ga048095c591ef4051abfa1da6ebdbf3d9">More...</a><br /></td></tr>
+<tr class="separator:ga048095c591ef4051abfa1da6ebdbf3d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a2478bde0940afdb5975a61635ece1163"><td class="memItemLeft" align="right" valign="top"><a id="a2478bde0940afdb5975a61635ece1163"></a>
-integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceinterpolator__mod.html#a2478bde0940afdb5975a61635ece1163">ndim</a></td></tr>
-<tr class="memdesc:a2478bde0940afdb5975a61635ece1163"><td class="mdescLeft">&#160;</td><td class="mdescRight">No description. <br /></td></tr>
-<tr class="separator:a2478bde0940afdb5975a61635ece1163"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68021bdaff941d0dca0af2bd238577ff"><td class="memItemLeft" align="right" valign="top"><a id="a68021bdaff941d0dca0af2bd238577ff"></a>
+<tr class="memitem:ga2478bde0940afdb5975a61635ece1163"><td class="memItemLeft" align="right" valign="top">
+integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__interpolator.html#ga2478bde0940afdb5975a61635ece1163">ndim</a></td></tr>
+<tr class="memdesc:ga2478bde0940afdb5975a61635ece1163"><td class="mdescLeft">&#160;</td><td class="mdescRight">No description. <br /></td></tr>
+<tr class="separator:ga2478bde0940afdb5975a61635ece1163"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga68021bdaff941d0dca0af2bd238577ff"><td class="memItemLeft" align="right" valign="top">
 integer, parameter, public&#160;</td><td class="memItemRight" valign="bottom"><b>constant</b> = 1</td></tr>
-<tr class="separator:a68021bdaff941d0dca0af2bd238577ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4dde5fcf3778c18e9803ac1d73a66ef6"><td class="memItemLeft" align="right" valign="top"><a id="a4dde5fcf3778c18e9803ac1d73a66ef6"></a>
-integer, parameter, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceinterpolator__mod.html#a4dde5fcf3778c18e9803ac1d73a66ef6">zero</a> = 2</td></tr>
-<tr class="memdesc:a4dde5fcf3778c18e9803ac1d73a66ef6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flags to indicate what to do when the model surface pressure exceeds the climatology surface pressure level. <br /></td></tr>
-<tr class="separator:a4dde5fcf3778c18e9803ac1d73a66ef6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a12580a82d34b2b06715648e407f55503"><td class="memItemLeft" align="right" valign="top"><a id="a12580a82d34b2b06715648e407f55503"></a>
+<tr class="separator:ga68021bdaff941d0dca0af2bd238577ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4dde5fcf3778c18e9803ac1d73a66ef6"><td class="memItemLeft" align="right" valign="top">
+integer, parameter, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__interpolator.html#ga4dde5fcf3778c18e9803ac1d73a66ef6">zero</a> = 2</td></tr>
+<tr class="memdesc:ga4dde5fcf3778c18e9803ac1d73a66ef6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flags to indicate what to do when the model surface pressure exceeds the climatology surface pressure level. <br /></td></tr>
+<tr class="separator:ga4dde5fcf3778c18e9803ac1d73a66ef6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga12580a82d34b2b06715648e407f55503"><td class="memItemLeft" align="right" valign="top">
 integer, parameter, public&#160;</td><td class="memItemRight" valign="bottom"><b>interp_weighted_p</b> = 10</td></tr>
-<tr class="separator:a12580a82d34b2b06715648e407f55503"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa28d203ad17b54aff243b202e9bf9c4a"><td class="memItemLeft" align="right" valign="top"><a id="aa28d203ad17b54aff243b202e9bf9c4a"></a>
+<tr class="separator:ga12580a82d34b2b06715648e407f55503"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa28d203ad17b54aff243b202e9bf9c4a"><td class="memItemLeft" align="right" valign="top">
 integer, parameter, public&#160;</td><td class="memItemRight" valign="bottom"><b>interp_linear_p</b> = 20</td></tr>
-<tr class="separator:aa28d203ad17b54aff243b202e9bf9c4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab0e08ab332bb853d3ce3814057e86bc5"><td class="memItemLeft" align="right" valign="top"><a id="ab0e08ab332bb853d3ce3814057e86bc5"></a>
-integer, parameter, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceinterpolator__mod.html#ab0e08ab332bb853d3ce3814057e86bc5">interp_log_p</a> = 30</td></tr>
-<tr class="memdesc:ab0e08ab332bb853d3ce3814057e86bc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flags to indicate the type of vertical interpolation. <br /></td></tr>
-<tr class="separator:ab0e08ab332bb853d3ce3814057e86bc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:gaa28d203ad17b54aff243b202e9bf9c4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab0e08ab332bb853d3ce3814057e86bc5"><td class="memItemLeft" align="right" valign="top">
+integer, parameter, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__interpolator.html#gab0e08ab332bb853d3ce3814057e86bc5">interp_log_p</a> = 30</td></tr>
+<tr class="memdesc:gab0e08ab332bb853d3ce3814057e86bc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flags to indicate the type of vertical interpolation. <br /></td></tr>
+<tr class="separator:gab0e08ab332bb853d3ce3814057e86bc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="namespaceinterpolator__mod.html" title="interpolator_mod is a module to interpolate climatology data to model the grid.">interpolator_mod</a> is a module to interpolate climatology data to model the grid. </p>
@@ -184,409 +185,7 @@ integer, parameter, public&#160;</td><td class="memItemRight" valign="bottom"><a
 <tr>
 <td>constants_mod </td><td>grav, PI, SECONDS_PER_DAY  </td></tr>
 </table>
-</div><h2 class="groupheader">Function/Subroutine Documentation</h2>
-<a id="a06df9761d5d17f3a33ad65fc800099d1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a06df9761d5d17f3a33ad65fc800099d1">&#9670;&nbsp;</a></span>init_clim_diag()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine, public interpolator_mod::init_clim_diag </td>
-          <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structinterpolator__mod_1_1interpolate__type.html">interpolate_type</a>), intent(inout)&#160;</td>
-          <td class="paramname"><em>clim_type</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, dimension(:), intent(in)&#160;</td>
-          <td class="paramname"><em>mod_axes</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(time_type), intent(in)&#160;</td>
-          <td class="paramname"><em>init_time</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>init_clim_diag is a routine to register diagnostic fields for the climatology file. This routine calculates the domain decompostion of the climatology fields for later export through send_data. The ids created here are for column burdens that will diagnose the vertical interpolation routine. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">&lt;clim_type&gt;</td><td>The interpolate type containing the names of the fields in the climatology file </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;mod_axes&gt;</td><td>The axes of the model </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;init_time&gt;</td><td>The model initialization time</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">FATAL,init_clim_diag : You must call interpolator_init before calling init_clim_diag</td><td></td></tr>
-    <tr><td class="paramname">FATAL,init_clim_diag : Trying to set up too many diagnostic fields for the climatology data</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="interpolator_8F90_source.html#l01480">1480</a> of file <a class="el" href="interpolator_8F90_source.html">interpolator.F90</a>.</p>
-
-</div>
-</div>
-<a id="a19abcf7938596e9a635bb58a0fe48deb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a19abcf7938596e9a635bb58a0fe48deb">&#9670;&nbsp;</a></span>interpolate_type_eq()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine, public interpolator_mod::interpolate_type_eq </td>
-          <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structinterpolator__mod_1_1interpolate__type.html">interpolate_type</a>), intent(inout)&#160;</td>
-          <td class="paramname"><em>Out</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(<a class="el" href="structinterpolator__mod_1_1interpolate__type.html">interpolate_type</a>), intent(in)&#160;</td>
-          <td class="paramname"><em>In</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>interpolator_type_eq receives the variable In and Out as input and returns Out. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;In&gt;</td><td>No description </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">&lt;Out&gt;</td><td>No description </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">out</td><td>These are fms_io specific </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="interpolator_8F90_source.html#l00410">410</a> of file <a class="el" href="interpolator_8F90_source.html">interpolator.F90</a>.</p>
-
-</div>
-</div>
-<a id="a7e435e7e9e550fb380f88f362501faa1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7e435e7e9e550fb380f88f362501faa1">&#9670;&nbsp;</a></span>interpolator_end()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine, public interpolator_mod::interpolator_end </td>
-          <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structinterpolator__mod_1_1interpolate__type.html">interpolate_type</a>), intent(inout)&#160;</td>
-          <td class="paramname"><em>clim_type</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>interpolator_end receives interpolate data as input and deallocates its memory. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">&lt;clim_type&gt;</td><td>The interpolate type whose components will be deallocated </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="interpolator_8F90_source.html#l03665">3665</a> of file <a class="el" href="interpolator_8F90_source.html">interpolator.F90</a>.</p>
-
-</div>
-</div>
-<a id="a8613c8850b935b6b95be55b6c250d64a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8613c8850b935b6b95be55b6c250d64a">&#9670;&nbsp;</a></span>interpolator_init()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine, public interpolator_mod::interpolator_init </td>
-          <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structinterpolator__mod_1_1interpolate__type.html">interpolate_type</a>), intent(inout)&#160;</td>
-          <td class="paramname"><em>clim_type</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">character(len=*), intent(in)&#160;</td>
-          <td class="paramname"><em>file_name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real, dimension(:,:), intent(in)&#160;</td>
-          <td class="paramname"><em>lonb_mod</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real, dimension(:,:), intent(in)&#160;</td>
-          <td class="paramname"><em>latb_mod</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">character(len=*), dimension(:), intent(in), optional&#160;</td>
-          <td class="paramname"><em>data_names</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, dimension(:), intent(in)&#160;</td>
-          <td class="paramname"><em>data_out_of_bounds</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, dimension(:), intent(in), optional&#160;</td>
-          <td class="paramname"><em>vert_interp</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">character(len=*), dimension(:), intent(out), optional&#160;</td>
-          <td class="paramname"><em>clim_units</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">logical, intent(out), optional&#160;</td>
-          <td class="paramname"><em>single_year_file</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>interpolator_init receives various data as input in order to initialize interpolating. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">&lt;clim_type&gt;</td><td>An interpolate type containing the necessary file and field data to be passed to the interpolator routine </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;file_name&gt;</td><td>Climatology filename </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;lonb_mod&gt;</td><td>The corners of the model grid-box longitudes </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;latb_mod&gt;</td><td>The corners of the model grid_box latitudes </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;data_names&gt;</td><td>OPTIONAL: A list of the names of components within the climatology file which you wish to read </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;data_out_of_bounds&gt;</td><td>A list of the flags that are to be used in determining what to do if the pressure levels in the model go out of bounds from those of the climatology </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;vert_interp&gt;</td><td>OPTIONAL: Flag to determine type of vertical interpolation </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">&lt;clim_units&gt;</td><td>OPTIONAL: A list of the units for the components listed in data_names </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">&lt;single_year_file&gt;</td><td>OPTIONAL: No description </td></tr>
-  </table>
-  </dd>
-</dl>
-<p>if (module_is_initilized)</p>
-
-<p class="definition">Definition at line <a class="el" href="interpolator_8F90_source.html#l00485">485</a> of file <a class="el" href="interpolator_8F90_source.html">interpolator.F90</a>.</p>
-
-</div>
-</div>
-<a id="af7a99acaf1d46d5729cf55d4544b685b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af7a99acaf1d46d5729cf55d4544b685b">&#9670;&nbsp;</a></span>obtain_interpolator_time_slices()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine, public interpolator_mod::obtain_interpolator_time_slices </td>
-          <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structinterpolator__mod_1_1interpolate__type.html">interpolate_type</a>), intent(inout)&#160;</td>
-          <td class="paramname"><em>clim_type</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(time_type), intent(in)&#160;</td>
-          <td class="paramname"><em>Time</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>obtain_interpolator_time_slices makes sure that the appropriate time slices are available for interpolation on this time step. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">&lt;clim_type&gt;</td><td>The interpolate type previously defined by a call to interpolator_init </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;Time&gt;</td><td>The model time that you wish to interpolate to</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">FATAL</td><td>"interpolator_timeslice 1:  file=" </td></tr>
-    <tr><td class="paramname">FATAL</td><td>"interpolator_timeslice 2:  file=" </td></tr>
-    <tr><td class="paramname">FATAL</td><td>"interpolator_timeslice 3:  file=" </td></tr>
-    <tr><td class="paramname">FATAL</td><td>"interpolator_timeslice 4:  file=" </td></tr>
-    <tr><td class="paramname">FATAL</td><td>"interpolator_timeslice 5:  file=" </td></tr>
-    <tr><td class="paramname">FATAL</td><td>"interpolator_timeslice : No data from the previous climatology time but we have the next time. How did this happen?" </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="interpolator_8F90_source.html#l01563">1563</a> of file <a class="el" href="interpolator_8F90_source.html">interpolator.F90</a>.</p>
-
-</div>
-</div>
-<a id="a048095c591ef4051abfa1da6ebdbf3d9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a048095c591ef4051abfa1da6ebdbf3d9">&#9670;&nbsp;</a></span>query_interpolator()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine, public interpolator_mod::query_interpolator </td>
-          <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structinterpolator__mod_1_1interpolate__type.html">interpolate_type</a>), intent(in)&#160;</td>
-          <td class="paramname"><em>clim_type</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(out), optional&#160;</td>
-          <td class="paramname"><em>nfields</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">character(len=*), dimension(:), intent(out), optional&#160;</td>
-          <td class="paramname"><em>field_names</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>query_interpolator receives an interpolate type as input and returns the number of fields and field names. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;clim_type&gt;</td><td>The interpolate type which contains the data </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">&lt;nfields&gt;</td><td>OPTIONAL: No description </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">&lt;field_names&gt;</td><td>OPTIONAL: No description </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="interpolator_8F90_source.html#l03911">3911</a> of file <a class="el" href="interpolator_8F90_source.html">interpolator.F90</a>.</p>
-
-</div>
-</div>
-<a id="aef3ce832a153de36813a48f14172615d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aef3ce832a153de36813a48f14172615d">&#9670;&nbsp;</a></span>read_data()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine, public interpolator_mod::read_data </td>
-          <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structinterpolator__mod_1_1interpolate__type.html">interpolate_type</a>), intent(in)&#160;</td>
-          <td class="paramname"><em>clim_type</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">character(len=*), intent(in)&#160;</td>
-          <td class="paramname"><em>field_name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real, dimension(:,:,:), intent(out)&#160;</td>
-          <td class="paramname"><em>hdata</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)&#160;</td>
-          <td class="paramname"><em>nt</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)&#160;</td>
-          <td class="paramname"><em>i</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(time_type), intent(in), optional&#160;</td>
-          <td class="paramname"><em>Time</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>read_data receives various climate data as inputs and returns a horizontally interpolated climatology field. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;clim_type&gt;</td><td>The interpolate type which contains the data </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;src_field&gt;</td><td>The field type </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;nt&gt;</td><td>The index of the time slice of the climatology that you wish to read </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;i&gt;</td><td>OPTIONAL: The index of the field name that you are trying to read </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;Time&gt;</td><td>OPTIONAL: The model time. Used for diagnostic purposes only </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">&lt;hdata&gt;</td><td>The horizontally interpolated climatology field. This </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="interpolator_8F90_source.html#l03733">3733</a> of file <a class="el" href="interpolator_8F90_source.html">interpolator.F90</a>.</p>
-
-</div>
-</div>
-<a id="a75dd97cee018ee8dfe45361b82c8ed01"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a75dd97cee018ee8dfe45361b82c8ed01">&#9670;&nbsp;</a></span>unset_interpolator_time_flag()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine, public interpolator_mod::unset_interpolator_time_flag </td>
-          <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structinterpolator__mod_1_1interpolate__type.html">interpolate_type</a>), intent(inout)&#160;</td>
-          <td class="paramname"><em>clim_type</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>unset_interpolator_time_flag sets a flag in clim_type to false. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">&lt;clim_type&gt;</td><td>The interpolate type containing the names of the fields in the climatology file </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="interpolator_8F90_source.html#l01864">1864</a> of file <a class="el" href="interpolator_8F90_source.html">interpolator.F90</a>.</p>
-
-</div>
-</div>
-</div><!-- contents -->
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
