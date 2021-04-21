@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['get_5famip_5fice_962',['get_amip_ice',['../namespaceamip__interp__mod.html#a5f77efe6bfff8ab1bfac97d498559f80',1,'amip_interp_mod']]],
-  ['get_5famip_5fsst_963',['get_amip_sst',['../namespaceamip__interp__mod.html#ae4985aae40b07468c1b5853c6bf85e56',1,'amip_interp_mod']]],
+  ['get_5famip_5fice_962',['get_amip_ice',['../group__amip__interp.html#ga5f77efe6bfff8ab1bfac97d498559f80',1,'amip_interp_mod']]],
+  ['get_5famip_5fsst_963',['get_amip_sst',['../group__amip__interp.html#gae4985aae40b07468c1b5853c6bf85e56',1,'amip_interp_mod']]],
   ['get_5fargument_964',['get_argument',['../namespaceargparse.html#afe80e29254f4dc17e1f2f14018b85f12',1,'argparse']]],
   ['get_5faxes_5fshift_965',['get_axes_shift',['../diag__axis_8F90.html#ac7ff72683dd49ef653fbfc74b8ab6026',1,'diag_axis_mod']]],
   ['get_5faxis_5faux_966',['get_axis_aux',['../diag__axis_8F90.html#a9615cb5662e59a10778f2bd8608b8535',1,'diag_axis_mod']]],

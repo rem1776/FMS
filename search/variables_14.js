@@ -6,5 +6,5 @@ var searchData=
   ['use_5fatm_5fpressure_1442',['use_atm_pressure',['../structcoupler__types__mod_1_1coupler__3d__field__type.html#a457ee5e325fe71a4adaefbb0d3775cf6',1,'coupler_types_mod::coupler_3d_field_type::use_atm_pressure()'],['../structcoupler__types__mod_1_1coupler__2d__field__type.html#a457ee5e325fe71a4adaefbb0d3775cf6',1,'coupler_types_mod::coupler_2d_field_type::use_atm_pressure()'],['../structcoupler__types__mod_1_1coupler__1d__field__type.html#a457ee5e325fe71a4adaefbb0d3775cf6',1,'coupler_types_mod::coupler_1d_field_type::use_atm_pressure()']]],
   ['use_5fcmor_1443',['use_cmor',['../diag__data_8F90.html#a3420a40310788729f1afb40d8a6d66e3',1,'diag_data_mod']]],
   ['use_5fmpp_5fio_1444',['use_mpp_io',['../diag__data_8F90.html#a6354efeadfde9254bc8a3c2698bff1a0',1,'diag_data_mod']]],
-  ['use_5fncep_5fsst_1445',['use_ncep_sst',['../namespaceamip__interp__mod.html#aa8eedc1bda43c7a973f0ee345f1703f5',1,'amip_interp_mod']]]
+  ['use_5fncep_5fsst_1445',['use_ncep_sst',['../group__amip__interp.html#gaa8eedc1bda43c7a973f0ee345f1703f5',1,'amip_interp_mod']]]
 ];

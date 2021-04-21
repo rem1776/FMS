@@ -1,7 +1,7 @@
 var searchData=
 [
   ['add_5fargument_873',['add_argument',['../namespaceargparse.html#a446bd247f45bfa2f640156f09a4424de',1,'argparse']]],
-  ['amip_5finterp_5fdel_874',['amip_interp_del',['../namespaceamip__interp__mod.html#aa680c8750f89c6444c6caf3d93b54cb4',1,'amip_interp_mod']]],
+  ['amip_5finterp_5fdel_874',['amip_interp_del',['../group__amip__interp.html#gaa680c8750f89c6444c6caf3d93b54cb4',1,'amip_interp_mod']]],
   ['aof_5fset_5fcoupler_5fflux_875',['aof_set_coupler_flux',['../atmos__ocean__fluxes_8F90.html#a1bd0443a803dd443bd7a4f24dae28e13',1,'atmos_ocean_fluxes_mod']]],
   ['append_5fto_5flist_876',['append_to_list',['../fms__io__utils_8F90.html#ac9a7307571d33a595a3309cb62ed17cd',1,'fms_io_utils_mod']]],
   ['ascii_5fread_877',['ascii_read',['../fms__io__utils_8F90.html#a2e5bf8a20a89497ccda754450467ec54',1,'fms_io_utils_mod']]],

@@ -33,7 +33,6 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">FMS
-   &#160;<span id="projectnumber">@VERSION@</span>
    </div>
    <div id="projectbrief">FMS Library</div>
   </td>
@@ -97,6 +96,9 @@ $(document).ready(function(){initNavTree('affinity_8c.html',''); initResizable()
 <div class="title">affinity.c File Reference<div class="ingroups"><a class="el" href="group__affinity.html">Affinity</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Routines to set and get thread CPU affinity.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
@@ -118,8 +120,9 @@ Functions</h2></td></tr>
 <tr class="separator:a3afc273b2ff17b5c36bcbe39fbcf5363"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><dl class="section author"><dt>Author</dt><dd>@bensonr</dd></dl>
-<p>Routines to set and get thread CPU affinity </p>
+<div class="textblock"><p>Routines to set and get thread CPU affinity. </p>
+<dl class="section author"><dt>Author</dt><dd>@bensonr</dd></dl>
+<p>Get, set, and helper functions for thread CPU affinity to be interfaced in fortran via <a class="el" href="fms__affinity_8F90.html">fms_affinity.F90</a> </p>
 
 <p class="definition">Definition in file <a class="el" href="affinity_8c_source.html">affinity.c</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
@@ -140,7 +143,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Returns this thread's CPU affinity, if bound to a single core, or else -1. </p>
 
-<p class="definition">Definition at line <a class="el" href="affinity_8c_source.html#l00062">62</a> of file <a class="el" href="affinity_8c_source.html">affinity.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="affinity_8c_source.html#l00066">66</a> of file <a class="el" href="affinity_8c_source.html">affinity.c</a>.</p>
 
 </div>
 </div>
@@ -183,7 +186,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Returns this groups CPUSET and also the CPUSET size or -1 (in case of a storage error) </p>
 
-<p class="definition">Definition at line <a class="el" href="affinity_8c_source.html#l00086">86</a> of file <a class="el" href="affinity_8c_source.html">affinity.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="affinity_8c_source.html#l00090">90</a> of file <a class="el" href="affinity_8c_source.html">affinity.c</a>.</p>
 
 </div>
 </div>
@@ -204,7 +207,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Set CPU affinity to one core. </p>
 
-<p class="definition">Definition at line <a class="el" href="affinity_8c_source.html#l00126">126</a> of file <a class="el" href="affinity_8c_source.html">affinity.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="affinity_8c_source.html#l00130">130</a> of file <a class="el" href="affinity_8c_source.html">affinity.c</a>.</p>
 
 </div>
 </div>
