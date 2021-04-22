@@ -27,7 +27,7 @@ var searchData=
   ['fms2_5fio_5frest_5ftype_218',['fms2_io_rest_type',['../structcoupler__types__mod_1_1coupler__3d__field__type.html#a1f58c5ee9bab10e481f1f34596e81d47',1,'coupler_types_mod::coupler_3d_field_type::fms2_io_rest_type()'],['../structcoupler__types__mod_1_1coupler__2d__field__type.html#a1f58c5ee9bab10e481f1f34596e81d47',1,'coupler_types_mod::coupler_2d_field_type::fms2_io_rest_type()']]],
   ['fms_5faffinity_2ef90_219',['fms_affinity.F90',['../fms__affinity_8F90.html',1,'']]],
   ['fms_5faffinity_5finit_220',['fms_affinity_init',['../group__fms__affinity__mod.html#ga78a042dc1e444c6cb142e03d2c1f5345',1,'fms_affinity_mod']]],
-  ['fms_5faffinity_5fmod_221',['Fms_affinity_mod',['../group__fms__affinity__mod.html',1,'']]],
+  ['fms_5faffinity_5fmod_221',['fms_affinity_mod',['../group__fms__affinity__mod.html',1,'']]],
   ['fms_5faffinity_5fset_222',['fms_affinity_set',['../group__fms__affinity__mod.html#gaee9fe9116c8a7ddbdcc6ed836b218755',1,'fms_affinity_mod']]],
   ['fms_5fend_223',['fms_end',['../fms_8F90.html#a46d4a91a0ec6ae17fd2386413dc8c30b',1,'fms_mod']]],
   ['fms_5ferror_5fhandler_224',['fms_error_handler',['../fms_8F90.html#a6695d901d751a75f108c27aa385d9579',1,'fms_mod']]],
