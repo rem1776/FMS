@@ -110,23 +110,23 @@ $(document).ready(function(){initNavTree('fms__affinity_8F90_source.html',''); i
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">!*</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">!* You should have received a copy of the GNU Lesser General Public</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">!* License along with FMS.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">!***********************************************************************</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">!&gt; @file</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">!&gt; File for fms_affinity_mod</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">!&gt; @ingroup affinity</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">!&gt; @brief Fortran API interfaces to set the thread affinity.</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">!! API interfaces to allow setting and getting thread affinity.  The thread affinity get and set</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">!! are managed in the C routines in affinity.c.</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">!!</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">!! @author Rusty Benson</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">!! Contact:</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">!! @link gfdl.climate.model.info@noaa.gov</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">!!</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">!! @ingroup affinity</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="namespacefms__affinity__mod.html">   34</a></span>&#160;<span class="keyword">module</span> <a class="code" href="namespacefms__affinity__mod.html">fms_affinity_mod</a></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">!***********************************************************************</span><span class="comment"></span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">!&gt; @defgroup fms_affinity_mod</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">!&gt; @ingroup affinity </span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">!&gt; @brief Fortran API interfaces to set the thread affinity.</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">!! API interfaces to allow setting and getting thread affinity.  The thread affinity get and set</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">!! are managed in the C routines in affinity.c.</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">!!</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">!! @author Rusty Benson</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">!! Contact:</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">!! @link gfdl.climate.model.info@noaa.gov</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">!&gt; @file</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">!&gt; File for fms_affinity_mod</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">!&gt; @addtogroup fms_affinity_mod</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">!&gt; @{</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">module</span> fms_affinity_mod</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <span class="comment">!--- standard system modules</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  use, <span class="keywordtype">intrinsic</span> :: iso_c_binding, only: c_int, c_bool</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="keywordtype">use </span>omp_lib</div>
@@ -167,7 +167,7 @@ $(document).ready(function(){initNavTree('fms__affinity_8F90_source.html',''); i
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="keywordtype">logical(c_bool)</span>:: debug_cpuset = .false.</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  namelist /fms_affinity_nml/ affinity, strict, debug_affinity, debug_cpuset</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  <span class="keywordtype">public</span> <a class="code" href="namespacefms__affinity__mod.html#a78a042dc1e444c6cb142e03d2c1f5345">fms_affinity_init</a>, fms_affinity_get, <a class="code" href="namespacefms__affinity__mod.html#aee9fe9116c8a7ddbdcc6ed836b218755">fms_affinity_set</a></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  <span class="keywordtype">public</span> <a class="code" href="group__fms__affinity__mod.html#ga78a042dc1e444c6cb142e03d2c1f5345">fms_affinity_init</a>, fms_affinity_get, <a class="code" href="group__fms__affinity__mod.html#gaee9fe9116c8a7ddbdcc6ed836b218755">fms_affinity_set</a></div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  <span class="comment">!---- version number</span></div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <span class="comment">! Include variable &quot;version&quot; to be written to log file.</span></div>
@@ -178,7 +178,7 @@ $(document).ready(function(){initNavTree('fms__affinity_8F90_source.html',''); i
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="keyword">contains</span></div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="comment">  !&gt; Initialization routine for affinity handling</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="namespacefms__affinity__mod.html#a78a042dc1e444c6cb142e03d2c1f5345">   86</a></span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacefms__affinity__mod.html#a78a042dc1e444c6cb142e03d2c1f5345">fms_affinity_init</a>()</div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="group__fms__affinity__mod.html#ga78a042dc1e444c6cb142e03d2c1f5345">   86</a></span>&#160;  <span class="keyword">subroutine </span><a class="code" href="group__fms__affinity__mod.html#ga78a042dc1e444c6cb142e03d2c1f5345">fms_affinity_init</a>()</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="comment">!--- local variables</span></div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordtype">integer</span>:: io_stat</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordtype">integer</span>:: ierr</div>
@@ -201,11 +201,11 @@ $(document).ready(function(){initNavTree('fms__affinity_8F90_source.html',''); i
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    module_is_initialized = .true.</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacefms__affinity__mod.html#a78a042dc1e444c6cb142e03d2c1f5345">fms_affinity_init</a></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="group__fms__affinity__mod.html#ga78a042dc1e444c6cb142e03d2c1f5345">fms_affinity_init</a></div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="comment">  !&gt; Routine to set affinity for a component</span></div>
-<div class="line"><a name="l00113"></a><span class="lineno"><a class="line" href="namespacefms__affinity__mod.html#aee9fe9116c8a7ddbdcc6ed836b218755">  113</a></span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacefms__affinity__mod.html#aee9fe9116c8a7ddbdcc6ed836b218755">fms_affinity_set</a> (component, use_hyper_thread, nthreads)</div>
+<div class="line"><a name="l00113"></a><span class="lineno"><a class="line" href="group__fms__affinity__mod.html#gaee9fe9116c8a7ddbdcc6ed836b218755">  113</a></span>&#160;  <span class="keyword">subroutine </span><a class="code" href="group__fms__affinity__mod.html#gaee9fe9116c8a7ddbdcc6ed836b218755">fms_affinity_set</a> (component, use_hyper_thread, nthreads)</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="comment">!--- interface variables</span></div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keywordtype">character(len=*)</span>,  <span class="keywordtype">intent(in)</span>:: component<span class="comment"> !&lt; Component name</span></div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keywordtype">logical</span>,           <span class="keywordtype">intent(in)</span>:: use_hyper_thread<span class="comment"> !&lt; .TRUE. if using hyperthreads</span></div>
@@ -283,13 +283,12 @@ $(document).ready(function(){initNavTree('fms__affinity_8F90_source.html',''); i
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;<span class="comment">!$  endif</span></div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;<span class="comment">!$OMP END PARALLEL</span></div>
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160; </div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacefms__affinity__mod.html#aee9fe9116c8a7ddbdcc6ed836b218755">fms_affinity_set</a></div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;<span class="keyword">end module </span><a class="code" href="namespacefms__affinity__mod.html">fms_affinity_mod</a></div>
-<div class="ttc" id="aaffinity_8c_html_a3afc273b2ff17b5c36bcbe39fbcf5363"><div class="ttname"><a href="affinity_8c.html#a3afc273b2ff17b5c36bcbe39fbcf5363">set_cpu_affinity</a></div><div class="ttdeci">int set_cpu_affinity(int cpu)</div><div class="ttdef"><b>Definition:</b> <a href="affinity_8c_source.html#l00129">affinity.c:129</a></div></div>
-<div class="ttc" id="aaffinity_8c_html_abb853ef389d19509242503683e9e1dd7"><div class="ttname"><a href="affinity_8c.html#abb853ef389d19509242503683e9e1dd7">get_cpuset</a></div><div class="ttdeci">int get_cpuset(int fsz, int *output, int pe, _Bool debug)</div><div class="ttdef"><b>Definition:</b> <a href="affinity_8c_source.html#l00089">affinity.c:89</a></div></div>
-<div class="ttc" id="anamespacefms__affinity__mod_html"><div class="ttname"><a href="namespacefms__affinity__mod.html">fms_affinity_mod</a></div><div class="ttdoc">Fortran API interfaces to set the thread affinity. API interfaces to allow setting and getting thread...</div><div class="ttdef"><b>Definition:</b> <a href="fms__affinity_8F90_source.html#l00034">fms_affinity.F90:34</a></div></div>
-<div class="ttc" id="anamespacefms__affinity__mod_html_a78a042dc1e444c6cb142e03d2c1f5345"><div class="ttname"><a href="namespacefms__affinity__mod.html#a78a042dc1e444c6cb142e03d2c1f5345">fms_affinity_mod::fms_affinity_init</a></div><div class="ttdeci">subroutine, public fms_affinity_init()</div><div class="ttdoc">Initialization routine for affinity handling.</div><div class="ttdef"><b>Definition:</b> <a href="fms__affinity_8F90_source.html#l00086">fms_affinity.F90:87</a></div></div>
-<div class="ttc" id="anamespacefms__affinity__mod_html_aee9fe9116c8a7ddbdcc6ed836b218755"><div class="ttname"><a href="namespacefms__affinity__mod.html#aee9fe9116c8a7ddbdcc6ed836b218755">fms_affinity_mod::fms_affinity_set</a></div><div class="ttdeci">subroutine, public fms_affinity_set(component, use_hyper_thread, nthreads)</div><div class="ttdoc">Routine to set affinity for a component.</div><div class="ttdef"><b>Definition:</b> <a href="fms__affinity_8F90_source.html#l00113">fms_affinity.F90:114</a></div></div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="group__fms__affinity__mod.html#gaee9fe9116c8a7ddbdcc6ed836b218755">fms_affinity_set</a></div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;<span class="keyword">end module </span>fms_affinity_mod</div>
+<div class="ttc" id="aaffinity_8c_html_a3afc273b2ff17b5c36bcbe39fbcf5363"><div class="ttname"><a href="affinity_8c.html#a3afc273b2ff17b5c36bcbe39fbcf5363">set_cpu_affinity</a></div><div class="ttdeci">int set_cpu_affinity(int cpu)</div><div class="ttdef"><b>Definition:</b> <a href="affinity_8c_source.html#l00131">affinity.c:131</a></div></div>
+<div class="ttc" id="aaffinity_8c_html_abb853ef389d19509242503683e9e1dd7"><div class="ttname"><a href="affinity_8c.html#abb853ef389d19509242503683e9e1dd7">get_cpuset</a></div><div class="ttdeci">int get_cpuset(int fsz, int *output, int pe, _Bool debug)</div><div class="ttdef"><b>Definition:</b> <a href="affinity_8c_source.html#l00091">affinity.c:91</a></div></div>
+<div class="ttc" id="agroup__fms__affinity__mod_html_ga78a042dc1e444c6cb142e03d2c1f5345"><div class="ttname"><a href="group__fms__affinity__mod.html#ga78a042dc1e444c6cb142e03d2c1f5345">fms_affinity_mod::fms_affinity_init</a></div><div class="ttdeci">subroutine, public fms_affinity_init()</div><div class="ttdoc">Initialization routine for affinity handling.</div><div class="ttdef"><b>Definition:</b> <a href="fms__affinity_8F90_source.html#l00086">fms_affinity.F90:87</a></div></div>
+<div class="ttc" id="agroup__fms__affinity__mod_html_gaee9fe9116c8a7ddbdcc6ed836b218755"><div class="ttname"><a href="group__fms__affinity__mod.html#gaee9fe9116c8a7ddbdcc6ed836b218755">fms_affinity_mod::fms_affinity_set</a></div><div class="ttdeci">subroutine, public fms_affinity_set(component, use_hyper_thread, nthreads)</div><div class="ttdoc">Routine to set affinity for a component.</div><div class="ttdef"><b>Definition:</b> <a href="fms__affinity_8F90_source.html#l00113">fms_affinity.F90:114</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
