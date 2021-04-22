@@ -90,67 +90,34 @@ $(document).ready(function(){initNavTree('group__amip__interp.html',''); initRes
 
 <div class="header">
   <div class="summary">
-<a href="#files">Files</a> &#124;
-<a href="#nested-classes">Data Types</a> &#124;
-<a href="#func-members">Functions/Subroutines</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#groups">Modules</a> &#124;
+<a href="#files">Files</a>  </div>
   <div class="headertitle">
 <div class="title">AMIP Interpolator</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Interpolates SST and ice mask data sets over a model grid.  
+<p>Routines for interpolating SST and ice mask data sets over a model grid.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="groups"></a>
+Modules</h2></td></tr>
+<tr class="memitem:group__amip__interp__mod"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__amip__interp__mod.html">amip_interp_mod</a></td></tr>
+<tr class="memdesc:group__amip__interp__mod"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides observed SST and ice mask data sets that have been interpolated onto your model's grid. When using these routines three possible data sets are available: <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="files"></a>
 Files</h2></td></tr>
 <tr class="memitem:amip__interp_8F90"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amip__interp_8F90.html">amip_interp.F90</a></td></tr>
+<tr class="memdesc:amip__interp_8F90"><td class="mdescLeft">&#160;</td><td class="mdescRight">File for amip_interp_mod. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions/Subroutines</h2></td></tr>
-<tr class="memitem:gae4985aae40b07468c1b5853c6bf85e56"><td class="memItemLeft" align="right" valign="top"><a id="gae4985aae40b07468c1b5853c6bf85e56"></a>
-subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__amip__interp.html#gae4985aae40b07468c1b5853c6bf85e56">get_amip_sst</a> (Time, Interp, sst, err_msg, lon_model, lat_model)</td></tr>
-<tr class="memdesc:gae4985aae40b07468c1b5853c6bf85e56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve sst data and amip interpolated data. <br /></td></tr>
-<tr class="separator:gae4985aae40b07468c1b5853c6bf85e56"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5f77efe6bfff8ab1bfac97d498559f80"><td class="memItemLeft" align="right" valign="top"><a id="ga5f77efe6bfff8ab1bfac97d498559f80"></a>
-subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__amip__interp.html#ga5f77efe6bfff8ab1bfac97d498559f80">get_amip_ice</a> (Time, Interp, ice, err_msg)</td></tr>
-<tr class="memdesc:ga5f77efe6bfff8ab1bfac97d498559f80"><td class="mdescLeft">&#160;</td><td class="mdescRight">AMIP interpolation for ice. <br /></td></tr>
-<tr class="separator:ga5f77efe6bfff8ab1bfac97d498559f80"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6da33323528930f4680012957d27d6db"><td class="memItemLeft" align="right" valign="top"><a id="ga6da33323528930f4680012957d27d6db"></a>
-subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>amip_interp_init</b> ()</td></tr>
-<tr class="separator:ga6da33323528930f4680012957d27d6db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa680c8750f89c6444c6caf3d93b54cb4"><td class="memItemLeft" align="right" valign="top"><a id="gaa680c8750f89c6444c6caf3d93b54cb4"></a>
-subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__amip__interp.html#gaa680c8750f89c6444c6caf3d93b54cb4">amip_interp_del</a> (Interp)</td></tr>
-<tr class="memdesc:gaa680c8750f89c6444c6caf3d93b54cb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees data associated with a amip_interp_type variable. Should be used for any variables initialized via amip_interp_new. <br /></td></tr>
-<tr class="separator:gaa680c8750f89c6444c6caf3d93b54cb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:ga9a9631f609f50e2ecfaa38396b9d143b"><td class="memItemLeft" align="right" valign="top"><a id="ga9a9631f609f50e2ecfaa38396b9d143b"></a>
-integer, public&#160;</td><td class="memItemRight" valign="bottom"><b>j_sst</b> = 600</td></tr>
-<tr class="separator:ga9a9631f609f50e2ecfaa38396b9d143b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga63021f1ba4626283f6f058bcc5dfd3d3"><td class="memItemLeft" align="right" valign="top"><a id="ga63021f1ba4626283f6f058bcc5dfd3d3"></a>
-logical, public&#160;</td><td class="memItemRight" valign="bottom"><b>forecast_mode</b> = .false.</td></tr>
-<tr class="separator:ga63021f1ba4626283f6f058bcc5dfd3d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab86c0be9a47ba0d89175105753702f70"><td class="memItemLeft" align="right" valign="top"><a id="gab86c0be9a47ba0d89175105753702f70"></a>
-real, dimension(:,:), allocatable, public&#160;</td><td class="memItemRight" valign="bottom"><b>sst_ncep</b></td></tr>
-<tr class="separator:gab86c0be9a47ba0d89175105753702f70"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga0a88a41790ba6fad200c8cab6ba5b6d0"><td class="memItemLeft" align="right" valign="top"><a id="ga0a88a41790ba6fad200c8cab6ba5b6d0"></a>
-real, dimension(:,:), allocatable, public&#160;</td><td class="memItemRight" valign="bottom"><b>sst_anom</b></td></tr>
-<tr class="separator:ga0a88a41790ba6fad200c8cab6ba5b6d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa8eedc1bda43c7a973f0ee345f1703f5"><td class="memItemLeft" align="right" valign="top"><a id="gaa8eedc1bda43c7a973f0ee345f1703f5"></a>
-logical, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__amip__interp.html#gaa8eedc1bda43c7a973f0ee345f1703f5">use_ncep_sst</a> = .false.</td></tr>
-<tr class="memdesc:gaa8eedc1bda43c7a973f0ee345f1703f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">SJL: During nudging: use_ncep_sst = .T.; no_anom_sst = .T. during forecast: use_ncep_sst = .T.; no_anom_sst = .F. <br /></td></tr>
-<tr class="separator:gaa8eedc1bda43c7a973f0ee345f1703f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:amip__interp_8rey__oi_8txt"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="amip__interp_8rey__oi_8txt.html">amip_interp.rey_oi.txt</a></td></tr>
+<tr class="memdesc:amip__interp_8rey__oi_8txt"><td class="mdescLeft">&#160;</td><td class="mdescRight">Information about optimum interpolation through amip_interp. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Interpolates SST and ice mask data sets over a model grid. </p>
-<p>Routines for interpolating SST and ice mask data sets over a model grid.</p>
-
-
-<h3><a id="md_amip_interp_amip_interp_rey_oi"></a>amip_interp.rey_oi</h3><div class="textblock">/// (This file was edited for the Flexible Modeling System on July 26, 1999)Information for the use of the monthly NMC SST analyzed fieldsThe monthly optimum interpolation (OI) fields are derived by a linear interpolation of the weekly OI fields to daily fields then averaging the daily values over a month. The monthly fields are in the same format and spatial resolution as the weekly fields.The OI sea surface temperature (SST) analysis is produced weekly on a one-degree grid. The analysis uses in situ and satellite SST's plus SST's simulated by sea-ice cover. Before the analysis is computed, the satellite data is adjusted for biases using the method of Reynolds (1988) and Reynolds and Marsico (1993). A description of the OI analysis can be found in Reynolds and Smith (1994). The bias correction improves the large scale accuracy of the OI. Examples of the effect of recent corrections is given by Reynolds (1993).For the more recent period, 1990-present, the in situ data were obtained from radio messages carried on the Global Telecommunication System. The satellite observations were obtained from operational data produced by the National Environmental Satellite, Data and Information Service (NESDIS).During the period 1981-1989, the in situ data were obtained from the Comprehensive Ocean Atmosphere Data Set (COADS) for the 1980s. These data (see Slutz, et al., 1985, and Woodruff, et al., 1993) consist of logbook and radio reports. The satellite data were obtained from analyses of NESDIS data produced at the University of Miami's Rosentiel School of Marine and Atmospheric Sciences.The OI analysis is done over all ocean areas. There is no analysis over land. The land values are filled by a Cressman interpolation to produce a complete grid for possible interpolation.<pre class="fragment">                  REFERENCES
-</pre>Reynolds, R. W., 1988: A real-time global sea surface temperature analysis. J. Climate, 1, 75-86.Reynolds, R. W., 1993: Impact of Mount Pinatubo aerosols on satellite-derived Sea Surface Temperatures. J. Climate, 6, 768-774.Reynolds, R. W. and D. C. Marsico, 1993: An improved real-time global sea surface temperature analysis. J. Climate, 6, 114-119.Reynolds, R. W. and T. M. Smith, 1994: Improved global sea surface temperature analyses using optimum interpolation. J. Climate, 7, 929-948.Slutz, R. J., S. J. Lubker, J. D. Hiscox, S. D. Woodruff, R. L. Jenne, D. H. Joseph, P. M. Steuer, J. D. Elms, 1985: Comprehensive Ocean-Atmosphere Data Set: Release 1. NOAA Environmental Research Laboratory, Boulder, CO, 268 pp.Woodruff, S.D., S. J. Lubker, K. Wolter, S.J. Worley, and J.D. Elms, 1993: Comprehensive Ocean-Atmosphere Data Set (COADS) Release 1a: 1980-1992. Earth System Monitor, Vol. 4, No. 1, September 1993, NOAA.Richard W. Reynolds (INTERNET: <a href="#" onclick="location.href='mai'+'lto:'+'rre'+'yn'+'old'+'s@'+'sun'+'1.'+'wwb'+'.n'+'oaa'+'.g'+'ov'; return false;">rreyn<span style="display: none;">.nosp@m.</span>olds<span style="display: none;">.nosp@m.</span>@sun1<span style="display: none;">.nosp@m.</span>.wwb<span style="display: none;">.nosp@m.</span>.noaa<span style="display: none;">.nosp@m.</span>.gov</a>) Diane C. Stokes (INTERNET: <a href="#" onclick="location.href='mai'+'lto:'+'dst'+'ok'+'es@'+'su'+'n1.'+'ww'+'b.n'+'oa'+'a.g'+'ov'; return false;">dstok<span style="display: none;">.nosp@m.</span>es@s<span style="display: none;">.nosp@m.</span>un1.w<span style="display: none;">.nosp@m.</span>wb.n<span style="display: none;">.nosp@m.</span>oaa.g<span style="display: none;">.nosp@m.</span>ov</a>)Climate Modeling Branch W/NP24 Environmental Modeling Center National Centers for Environmental Prediction World Weather Building, Room 807 5200 Auth Road Camp Springs, MD 20746 USAPHONE: (301) 763-8396 FAX: (301) 763-8125UPDATED: 29 November 1995 </div></div><!-- contents -->
+<p>Routines for interpolating SST and ice mask data sets over a model grid. </p>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

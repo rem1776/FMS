@@ -3,7 +3,7 @@ var annotated_dup =
     [ "argparse", "namespaceargparse.html", [
       [ "parser_t", "structargparse_1_1parser__t.html", "structargparse_1_1parser__t" ]
     ] ],
-    [ "block_control_mod", "namespaceblock__control__mod.html", [
+    [ "block_control_mod", null, [
       [ "ix_type", "structblock__control__mod_1_1ix__type.html", "structblock__control__mod_1_1ix__type" ],
       [ "pk_type", "structblock__control__mod_1_1pk__type.html", "structblock__control__mod_1_1pk__type" ],
       [ "block_control_type", "structblock__control__mod_1_1block__control__type.html", "structblock__control__mod_1_1block__control__type" ]

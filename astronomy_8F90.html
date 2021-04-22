@@ -97,7 +97,7 @@ $(document).ready(function(){initNavTree('astronomy_8F90.html',''); initResizabl
 </div><!--header-->
 <div class="contents">
 
-<p>Provides astronomical variables for use by other modules within fms. The only currently used interface is for determination of astronomical values needed by the shortwave radiation packages.  
+<p>File for astronomy_mod.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;file_version.h&gt;</code><br />
 </div>
@@ -105,35 +105,33 @@ $(document).ready(function(){initNavTree('astronomy_8F90.html',''); initResizabl
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
-<tr class="memitem:ga28a67f4da82725afd9c0051464b8767c"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__astronomy.html#ga28a67f4da82725afd9c0051464b8767c">astronomy_init</a> (latb, lonb)</td></tr>
-<tr class="memdesc:ga28a67f4da82725afd9c0051464b8767c"><td class="mdescLeft">&#160;</td><td class="mdescRight">astronomy_init is the constructor for astronomy_mod.  <a href="group__astronomy.html#ga28a67f4da82725afd9c0051464b8767c">More...</a><br /></td></tr>
+<tr class="memitem:ga28a67f4da82725afd9c0051464b8767c"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__astronomy__mod.html#ga28a67f4da82725afd9c0051464b8767c">astronomy_init</a> (latb, lonb)</td></tr>
+<tr class="memdesc:ga28a67f4da82725afd9c0051464b8767c"><td class="mdescLeft">&#160;</td><td class="mdescRight">astronomy_init is the constructor for astronomy_mod.  <a href="group__astronomy__mod.html#ga28a67f4da82725afd9c0051464b8767c">More...</a><br /></td></tr>
 <tr class="separator:ga28a67f4da82725afd9c0051464b8767c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga58ff2b69c33ae8d00c831b2b049e4573"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__astronomy.html#ga58ff2b69c33ae8d00c831b2b049e4573">set_orbital_parameters</a> (ecc_in, obliq_in, per_in)</td></tr>
-<tr class="memdesc:ga58ff2b69c33ae8d00c831b2b049e4573"><td class="mdescLeft">&#160;</td><td class="mdescRight">set_orbital_parameters saves the input values of eccentricity, obliquity and perihelion time as module variables for use by astronomy_mod.  <a href="group__astronomy.html#ga58ff2b69c33ae8d00c831b2b049e4573">More...</a><br /></td></tr>
+<tr class="memitem:ga58ff2b69c33ae8d00c831b2b049e4573"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__astronomy__mod.html#ga58ff2b69c33ae8d00c831b2b049e4573">set_orbital_parameters</a> (ecc_in, obliq_in, per_in)</td></tr>
+<tr class="memdesc:ga58ff2b69c33ae8d00c831b2b049e4573"><td class="mdescLeft">&#160;</td><td class="mdescRight">set_orbital_parameters saves the input values of eccentricity, obliquity and perihelion time as module variables for use by astronomy_mod.  <a href="group__astronomy__mod.html#ga58ff2b69c33ae8d00c831b2b049e4573">More...</a><br /></td></tr>
 <tr class="separator:ga58ff2b69c33ae8d00c831b2b049e4573"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3878ea3f081f4d89f7f19bd530767897"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__astronomy.html#ga3878ea3f081f4d89f7f19bd530767897">get_orbital_parameters</a> (ecc_out, obliq_out, per_out)</td></tr>
-<tr class="memdesc:ga3878ea3f081f4d89f7f19bd530767897"><td class="mdescLeft">&#160;</td><td class="mdescRight">get_orbital_parameters retrieves the orbital parameters for use by another module.  <a href="group__astronomy.html#ga3878ea3f081f4d89f7f19bd530767897">More...</a><br /></td></tr>
+<tr class="memitem:ga3878ea3f081f4d89f7f19bd530767897"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__astronomy__mod.html#ga3878ea3f081f4d89f7f19bd530767897">get_orbital_parameters</a> (ecc_out, obliq_out, per_out)</td></tr>
+<tr class="memdesc:ga3878ea3f081f4d89f7f19bd530767897"><td class="mdescLeft">&#160;</td><td class="mdescRight">get_orbital_parameters retrieves the orbital parameters for use by another module.  <a href="group__astronomy__mod.html#ga3878ea3f081f4d89f7f19bd530767897">More...</a><br /></td></tr>
 <tr class="separator:ga3878ea3f081f4d89f7f19bd530767897"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga58c5837e3f38565db2c7901d880950f7"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__astronomy.html#ga58c5837e3f38565db2c7901d880950f7">set_ref_date_of_ae</a> (day_in, month_in, year_in, second_in, minute_in, hour_in)</td></tr>
-<tr class="memdesc:ga58c5837e3f38565db2c7901d880950f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">set_ref_date_of_ae provides a means of specifying the reference date of the NH autumnal equinox for a particular year.  <a href="group__astronomy.html#ga58c5837e3f38565db2c7901d880950f7">More...</a><br /></td></tr>
+<tr class="memitem:ga58c5837e3f38565db2c7901d880950f7"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__astronomy__mod.html#ga58c5837e3f38565db2c7901d880950f7">set_ref_date_of_ae</a> (day_in, month_in, year_in, second_in, minute_in, hour_in)</td></tr>
+<tr class="memdesc:ga58c5837e3f38565db2c7901d880950f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">set_ref_date_of_ae provides a means of specifying the reference date of the NH autumnal equinox for a particular year.  <a href="group__astronomy__mod.html#ga58c5837e3f38565db2c7901d880950f7">More...</a><br /></td></tr>
 <tr class="separator:ga58c5837e3f38565db2c7901d880950f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gada396fa1ede7431df75438a6c9d6c771"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__astronomy.html#gada396fa1ede7431df75438a6c9d6c771">get_ref_date_of_ae</a> (day_out, month_out, year_out, second_out, minute_out, hour_out)</td></tr>
-<tr class="memdesc:gada396fa1ede7431df75438a6c9d6c771"><td class="mdescLeft">&#160;</td><td class="mdescRight">get_ref_date_of_ae retrieves the reference date of the autumnal equinox as integer variables.  <a href="group__astronomy.html#gada396fa1ede7431df75438a6c9d6c771">More...</a><br /></td></tr>
+<tr class="memitem:gada396fa1ede7431df75438a6c9d6c771"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__astronomy__mod.html#gada396fa1ede7431df75438a6c9d6c771">get_ref_date_of_ae</a> (day_out, month_out, year_out, second_out, minute_out, hour_out)</td></tr>
+<tr class="memdesc:gada396fa1ede7431df75438a6c9d6c771"><td class="mdescLeft">&#160;</td><td class="mdescRight">get_ref_date_of_ae retrieves the reference date of the autumnal equinox as integer variables.  <a href="group__astronomy__mod.html#gada396fa1ede7431df75438a6c9d6c771">More...</a><br /></td></tr>
 <tr class="separator:gada396fa1ede7431df75438a6c9d6c771"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga1cbb745900e141cfee7e422a2f02caa1"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__astronomy.html#ga1cbb745900e141cfee7e422a2f02caa1">astronomy_end</a></td></tr>
-<tr class="memdesc:ga1cbb745900e141cfee7e422a2f02caa1"><td class="mdescLeft">&#160;</td><td class="mdescRight">astronomy_end is the destructor for astronomy_mod.  <a href="group__astronomy.html#ga1cbb745900e141cfee7e422a2f02caa1">More...</a><br /></td></tr>
+<tr class="memitem:ga1cbb745900e141cfee7e422a2f02caa1"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__astronomy__mod.html#ga1cbb745900e141cfee7e422a2f02caa1">astronomy_end</a></td></tr>
+<tr class="memdesc:ga1cbb745900e141cfee7e422a2f02caa1"><td class="mdescLeft">&#160;</td><td class="mdescRight">astronomy_end is the destructor for astronomy_mod.  <a href="group__astronomy__mod.html#ga1cbb745900e141cfee7e422a2f02caa1">More...</a><br /></td></tr>
 <tr class="separator:ga1cbb745900e141cfee7e422a2f02caa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7fb404a6aa92465cf74a3fd4a5c48d37"><td class="memItemLeft" align="right" valign="top">real function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__astronomy.html#ga7fb404a6aa92465cf74a3fd4a5c48d37">orbital_time</a> (time)</td></tr>
-<tr class="memdesc:ga7fb404a6aa92465cf74a3fd4a5c48d37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Orbital time returns the time (1 year = 2*pi) since autumnal equinox.  <a href="group__astronomy.html#ga7fb404a6aa92465cf74a3fd4a5c48d37">More...</a><br /></td></tr>
+<tr class="memitem:ga7fb404a6aa92465cf74a3fd4a5c48d37"><td class="memItemLeft" align="right" valign="top">real function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__astronomy__mod.html#ga7fb404a6aa92465cf74a3fd4a5c48d37">orbital_time</a> (time)</td></tr>
+<tr class="memdesc:ga7fb404a6aa92465cf74a3fd4a5c48d37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Orbital time returns the time (1 year = 2*pi) since autumnal equinox.  <a href="group__astronomy__mod.html#ga7fb404a6aa92465cf74a3fd4a5c48d37">More...</a><br /></td></tr>
 <tr class="separator:ga7fb404a6aa92465cf74a3fd4a5c48d37"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa2cc4e0964e5251d056c4f05c4a8ddf7"><td class="memItemLeft" align="right" valign="top">real function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__astronomy.html#gaa2cc4e0964e5251d056c4f05c4a8ddf7">universal_time</a> (time)</td></tr>
-<tr class="memdesc:gaa2cc4e0964e5251d056c4f05c4a8ddf7"><td class="mdescLeft">&#160;</td><td class="mdescRight">universal_time returns the time of day at longitude = 0.0 (1 day = 2*pi)  <a href="group__astronomy.html#gaa2cc4e0964e5251d056c4f05c4a8ddf7">More...</a><br /></td></tr>
+<tr class="memitem:gaa2cc4e0964e5251d056c4f05c4a8ddf7"><td class="memItemLeft" align="right" valign="top">real function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__astronomy__mod.html#gaa2cc4e0964e5251d056c4f05c4a8ddf7">universal_time</a> (time)</td></tr>
+<tr class="memdesc:gaa2cc4e0964e5251d056c4f05c4a8ddf7"><td class="mdescLeft">&#160;</td><td class="mdescRight">universal_time returns the time of day at longitude = 0.0 (1 day = 2*pi)  <a href="group__astronomy__mod.html#gaa2cc4e0964e5251d056c4f05c4a8ddf7">More...</a><br /></td></tr>
 <tr class="separator:gaa2cc4e0964e5251d056c4f05c4a8ddf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Provides astronomical variables for use by other modules within fms. The only currently used interface is for determination of astronomical values needed by the shortwave radiation packages. </p>
-<dl class="section author"><dt>Author</dt><dd>Fei Liu</dd></dl>
-<p><a class="el" href="">gfdl.climate.model.info@noaa.gov</a></p>
+<div class="textblock"><p>File for astronomy_mod. </p>
 
 <p class="definition">Definition in file <a class="el" href="astronomy_8F90_source.html">astronomy.F90</a>.</p>
 </div></div><!-- contents -->

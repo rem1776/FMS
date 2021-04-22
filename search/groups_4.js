@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['interpolator_1472',['Interpolator',['../group__interpolator.html',1,'']]]
+  ['exchange_1506',['Exchange',['../group__exchange.html',1,'']]]
 ];
