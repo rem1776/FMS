@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['random_20numbers_1519',['Random Numbers',['../group__random__numbers.html',1,'']]]
+  ['platform_1574',['Platform',['../group__platform.html',1,'']]]
 ];

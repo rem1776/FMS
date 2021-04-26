@@ -33,8 +33,9 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">FMS
+   &#160;<span id="projectnumber">$ver</span>
    </div>
-   <div id="projectbrief">FMS Library</div>
+   <div id="projectbrief">Flexible Modeling System</div>
   </td>
  </tr>
  </tbody>
@@ -94,11 +95,11 @@ $(document).ready(function(){initNavTree('drifters_8F90.html',''); initResizable
 <a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions/Subroutines</a>  </div>
   <div class="headertitle">
-<div class="title">drifters.F90 File Reference</div>  </div>
+<div class="title">drifters.F90 File Reference<div class="ingroups"><a class="el" href="group__drifters.html">Drifters</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>Drifters_mod</code>is a module designed to advect a set of particles, in parallel or sequentially, given an prescribed velocity field.  
+<p>File for <a class="el" href="group__drifters__mod.html">drifters_mod</a>.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;fms_switches.h&quot;</code><br />
 <code>#include &lt;file_version.h&gt;</code><br />
@@ -199,12 +200,7 @@ Functions/Subroutines</h2></td></tr>
 <tr class="separator:af2ba8c08ff285a71fa0879270f0e2096"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><code>Drifters_mod</code>is a module designed to advect a set of particles, in parallel or sequentially, given an prescribed velocity field. </p>
-<dl class="section author"><dt>Author</dt><dd>Alexander Pletzer @email <a href="#" onclick="location.href='mai'+'lto:'+'gfd'+'l.'+'cli'+'ma'+'te.'+'mo'+'del'+'.i'+'nfo'+'@n'+'oaa'+'.g'+'ov'; return false;">gfdl.<span style="display: none;">.nosp@m.</span>clim<span style="display: none;">.nosp@m.</span>ate.m<span style="display: none;">.nosp@m.</span>odel<span style="display: none;">.nosp@m.</span>.info<span style="display: none;">.nosp@m.</span>@noa<span style="display: none;">.nosp@m.</span>a.gov</a></dd></dl>
-<p>Drifters are idealized point particles with positions that evolve in time according to a prescribed velocity field, starting from some initial conditions. Drifters have no mass, no energy, no size, and no friction and therefore have no impact on the dynamics of the underlying system. The only feature that distinguishes a drifter from another is its trajectory. This makes drifters ideal for tracking pollution clouds and probing fields (e.g. temperature, salinity) along ocean currents, to name a few applications. Drifters can mimic real experiments such as the Argo floats <a href="http://www.metoffice.com/research/ocean/argo/ukfloats.html">http://www.metoffice.com/research/ocean/argo/ukfloats.html</a>.</p>
-<p>When run in parallel, on a 2d decomposed domain, <code>drifters_mod</code> will handle all the bookkeeping and communication transparently for the user. This involves adding/removing drifters as they enter/leave a processor element (PE) domain. Note that the number of drifters can vary greatly both between PE domains and within a PE domain in the course of a simulation; the drifters' module will also manage dynamically the memory for the user.</p>
-<p>There are a number of basic assumptions which could make the drifters' module ill-suited for some tasks. First and foremost, it is assumed that the motion of drifters is not erratic but follows deterministic trajectories. Furthermore, drifters should not cross both compute and data domain boundaries within less than a time step. This limitation is imposed by the Runge-Kutta integration scheme, which must be able to complete, within a time step, a trajectory calculation that starts inside the compute domain and ends inside the data domain. Therefore, the drifters, as they are presently modelled, are unlikely to work for very fast objects. This constraint also puts a upper limit to the domain decomposition, although it can often be remedied by increasing the number of ghost nodes.</p>
-<p>Another fundamental assumption is that the (e.g. velocity) fields are structured, on a per PE domain basis. There is no support for locally nested or unstrucured meshes. Meshes need not be smooth and continuous across PE domains, however. </p>
+<div class="textblock"><p>File for <a class="el" href="group__drifters__mod.html">drifters_mod</a>. </p>
 
 <p class="definition">Definition in file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
 </div><h2 class="groupheader">Function/Subroutine Documentation</h2>
@@ -243,7 +239,7 @@ Functions/Subroutines</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="drifters_8F90_source.html#l00372">372</a> of file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="drifters_8F90_source.html#l00318">318</a> of file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
 
 </div>
 </div>
@@ -282,7 +278,7 @@ Functions/Subroutines</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="drifters_8F90_source.html#l00774">774</a> of file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="drifters_8F90_source.html#l00720">720</a> of file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
 
 </div>
 </div>
@@ -335,7 +331,7 @@ Functions/Subroutines</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="drifters_8F90_source.html#l00266">266</a> of file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="drifters_8F90_source.html#l00212">212</a> of file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
 
 </div>
 </div>
@@ -437,7 +433,7 @@ Functions/Subroutines</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="drifters_8F90_source.html#l01160">1160</a> of file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="drifters_8F90_source.html#l01106">1106</a> of file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
 
 </div>
 </div>
@@ -483,7 +479,7 @@ Functions/Subroutines</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="drifters_8F90_source.html#l01275">1275</a> of file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="drifters_8F90_source.html#l01221">1221</a> of file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
 
 </div>
 </div>
@@ -522,7 +518,7 @@ Functions/Subroutines</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="drifters_8F90_source.html#l00734">734</a> of file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="drifters_8F90_source.html#l00680">680</a> of file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
 
 </div>
 </div>
@@ -645,7 +641,7 @@ Functions/Subroutines</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="drifters_8F90_source.html#l00569">569</a> of file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="drifters_8F90_source.html#l00515">515</a> of file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
 
 </div>
 </div>
@@ -705,7 +701,7 @@ Functions/Subroutines</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="drifters_8F90_source.html#l01080">1080</a> of file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="drifters_8F90_source.html#l01026">1026</a> of file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
 
 </div>
 </div>
@@ -751,7 +747,7 @@ Functions/Subroutines</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="drifters_8F90_source.html#l00642">642</a> of file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="drifters_8F90_source.html#l00588">588</a> of file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
 
 </div>
 </div>
@@ -818,7 +814,7 @@ Functions/Subroutines</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="drifters_8F90_source.html#l00975">975</a> of file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="drifters_8F90_source.html#l00921">921</a> of file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
 
 </div>
 </div>
@@ -920,7 +916,7 @@ Functions/Subroutines</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="drifters_8F90_source.html#l00857">857</a> of file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="drifters_8F90_source.html#l00803">803</a> of file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
 
 </div>
 </div>

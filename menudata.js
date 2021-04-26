@@ -90,11 +90,13 @@ var menudata={children:[
 {text:"_",url:"globals.html#index__5F"},
 {text:"c",url:"globals.html#index_c"},
 {text:"g",url:"globals.html#index_g"},
+{text:"q",url:"globals.html#index_q"},
 {text:"s",url:"globals.html#index_s"},
 {text:"t",url:"globals.html#index_t"}]},
 {text:"Functions/Subroutines",url:"globals_func.html",children:[
 {text:"c",url:"globals_func.html#index_c"},
 {text:"g",url:"globals_func.html#index_g"},
+{text:"q",url:"globals_func.html#index_q"},
 {text:"s",url:"globals_func.html#index_s"},
 {text:"t",url:"globals_func.html#index_t"}]},
 {text:"Macros",url:"globals_defs.html"}]}]},

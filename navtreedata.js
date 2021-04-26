@@ -25,11 +25,21 @@
 var NAVTREE =
 [
   [ "FMS", "index.html", [
-    [ "Modeling Framework: Flexible Modeling System (FMS)", "index.html", null ],
-    [ "amip_interp.rey_oi", "md_amip_interp_amip_interp_rey_oi.html", null ],
+    [ "FMS Documentation Homepage", "index.html", null ],
     [ "diurnal_solar Interface", "diurnal_solar.html", null ],
-    [ "CMakeLists", "md_CMakeLists.html", null ],
+    [ "ChangeLog", "md_CHANGELOG.html", null ],
+    [ "Instructions for building FMS with cmake", "md_CMAKE_INSTRUCTIONS.html", null ],
+    [ "Code of Conduct", "md_CODE_OF_CONDUCT.html", null ],
+    [ "Coding Style", "md_CODE_STYLE.html", null ],
+    [ "Contributing To libFMS", "md_CONTRIBUTING.html", null ],
+    [ "The Diagnostic Manager Table", "md_docs_diag_table.html", null ],
+    [ "Drifters", "md_drifters_README.html", null ],
+    [ "libFMS Installation", "md_INSTALL.html", null ],
     [ "interpolator Interface", "interpolator.html", null ],
+    [ "Autotools Build System Documentation", "md_libFMS_BUILD_SYSTEM.html", null ],
+    [ "GNU LESSER GENERAL PUBLIC LICENSE", "md_LICENSE.html", null ],
+    [ "Modeling Framework: Flexible Modeling System (FMS)", "md_README.html", null ],
+    [ "Supported Public Interfaces for FMS", "md_supported_interfaces.html", null ],
     [ "Modules", "modules.html", "modules" ],
     [ "Module Members", "namespacemembers.html", [
       [ "All", "namespacemembers.html", null ],
@@ -59,16 +69,17 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "Example-example.html",
-"constants_8F90.html#a7b354479751c56a28c12857455b81147",
-"diag__data_8F90.html#aab6bfb8035a62ecc10afae33b516d123",
+"constants_8F90.html#ga7aea51f59d8e8ef20e6a20559b93a7f4",
+"diag__data_8F90.html#gaa90e712f4dde91f884f68b63bf7ebe19",
 "dir_e541841244919820195777b3825418e7.html",
 "functions_i.html",
-"group__interpolator.html#gafbce8c1bd5d750a15f3a9db4aeee89f5",
-"mpp__do__update__ad_8h_source.html",
-"structNode.html#ab927965981178aa1fba979a37168db2a",
-"structdiag__data__mod_1_1output__field__type.html#a22db843f3e99d584e474ae0b84d30e92",
-"test__mpp__mem__dump_8F90.html#aa57bcb88878cd14a7fcd75f31f35fb94",
-"xgrid_8F90.html#a2ec0332146de519c430ff4a0d932f8c3"
+"group__coupler__types__mod.html#ga2fc14559b9da2d09fd894f5455b25d1d",
+"group__diag__data__mod.html#ga50b437265ab1a8616e51bff54e6e27e6",
+"group__drifters__input__mod.html#ga7463d5de931507189f4e839f2fd60575",
+"interpolator_8F90.html#gad1eed72fe30df5e4c7e82880c7032715",
+"mpp__write__2Ddecomp_8h_source.html",
+"structnetcdf__io__mod_1_1fmsnetcdffile__t.html#a1e3999a940850b3e8a4781e148a01117",
+"time__manager_8F90.html#a2805ba04b464c0143fe0bdd63065c3b9"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

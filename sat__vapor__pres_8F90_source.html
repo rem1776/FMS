@@ -33,8 +33,9 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">FMS
+   &#160;<span id="projectnumber">$ver</span>
    </div>
-   <div id="projectbrief">FMS Library</div>
+   <div id="projectbrief">Flexible Modeling System</div>
   </td>
  </tr>
  </tbody>
@@ -225,7 +226,7 @@ $(document).ready(function(){initNavTree('sat__vapor__pres_8F90_source.html','')
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="comment">!   Description summarizing public interface.</span></div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="comment">! &lt;/PUBLIC&gt;</span></div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; <span class="keywordtype">use         </span>constants_mod, <span class="keywordtype">only</span>:  tfreeze, rdgas, rvgas, hlv, es0</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; <span class="keywordtype">use         </span>constants_mod, <span class="keywordtype">only</span>:  <a class="code" href="group__constants__mod.html#ga722fa6ded6947c860a32b171bd428926">tfreeze</a>, <a class="code" href="group__constants__mod.html#ga339acc50a5e5f1d7b1526334be846e23">rdgas</a>, <a class="code" href="group__constants__mod.html#ga4f931cf19d83bdbc5fe6837b4249bb57">rvgas</a>, <a class="code" href="group__constants__mod.html#gae1bdc75f134e5ac468aeae16280e465f">hlv</a>, <a class="code" href="group__constants__mod.html#gaea84f20fd703211bdf44a90df49df101">es0</a></div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; <span class="keywordtype">use        </span>fms_mod, <span class="keywordtype">only</span>:  write_version_number, stdout, stdlog, mpp_pe, mpp_root_pe, &amp;</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;                            mpp_error, fatal, fms_error_handler,   &amp;</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;                            error_mesg, check_nml_error</div>
@@ -609,8 +610,8 @@ $(document).ready(function(){initNavTree('sat__vapor__pres_8F90_source.html','')
 <div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;<span class="comment">!-----------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;<span class="comment">!  parameters for use in computing qs and mrs</span></div>
 <div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160; </div>
-<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;<span class="keywordtype"> real</span>, <span class="keywordtype">parameter</span>    :: EPSILO = rdgas/rvgas</div>
-<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;<span class="keywordtype"> real</span>, <span class="keywordtype">parameter</span>    :: ZVIR = rvgas/rdgas - 1.0</div>
+<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;<span class="keywordtype"> real</span>, <span class="keywordtype">parameter</span>    :: EPSILO = <a class="code" href="group__constants__mod.html#ga339acc50a5e5f1d7b1526334be846e23">rdgas</a>/<a class="code" href="group__constants__mod.html#ga4f931cf19d83bdbc5fe6837b4249bb57">rvgas</a></div>
+<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;<span class="keywordtype"> real</span>, <span class="keywordtype">parameter</span>    :: ZVIR = <a class="code" href="group__constants__mod.html#ga4f931cf19d83bdbc5fe6837b4249bb57">rvgas</a>/<a class="code" href="group__constants__mod.html#ga339acc50a5e5f1d7b1526334be846e23">rdgas</a> - 1.0</div>
 <div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160; </div>
 <div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;<span class="comment">!-----------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;<span class="comment">!  parameters for table size and resolution</span></div>
@@ -2422,8 +2423,8 @@ $(document).ready(function(){initNavTree('sat__vapor__pres_8F90_source.html','')
 <div class="line"><a name="l02327"></a><span class="lineno"> 2327</span>&#160;<span class="keywordflow">  endif</span></div>
 <div class="line"><a name="l02328"></a><span class="lineno"> 2328</span>&#160;  nsize = (tcmax-tcmin)*esres+1</div>
 <div class="line"><a name="l02329"></a><span class="lineno"> 2329</span>&#160;  nlim  = nsize-1</div>
-<div class="line"><a name="l02330"></a><span class="lineno"> 2330</span>&#160;  <span class="keyword">call </span>sat_vapor_pres_init_k(nsize, real(tcmin), real(tcmax), tfreeze, hlv, &amp;</div>
-<div class="line"><a name="l02331"></a><span class="lineno"> 2331</span>&#160;                             rvgas, es0, err_msg_local, use_exact_qs, do_simple, &amp;</div>
+<div class="line"><a name="l02330"></a><span class="lineno"> 2330</span>&#160;  <span class="keyword">call </span>sat_vapor_pres_init_k(nsize, real(tcmin), real(tcmax), <a class="code" href="group__constants__mod.html#ga722fa6ded6947c860a32b171bd428926">tfreeze</a>, <a class="code" href="group__constants__mod.html#gae1bdc75f134e5ac468aeae16280e465f">hlv</a>, &amp;</div>
+<div class="line"><a name="l02331"></a><span class="lineno"> 2331</span>&#160;                             <a class="code" href="group__constants__mod.html#ga4f931cf19d83bdbc5fe6837b4249bb57">rvgas</a>, <a class="code" href="group__constants__mod.html#gaea84f20fd703211bdf44a90df49df101">es0</a>, err_msg_local, use_exact_qs, do_simple, &amp;</div>
 <div class="line"><a name="l02332"></a><span class="lineno"> 2332</span>&#160;                             construct_table_wrt_liq, &amp;</div>
 <div class="line"><a name="l02333"></a><span class="lineno"> 2333</span>&#160;                             construct_table_wrt_liq_and_ice, &amp;</div>
 <div class="line"><a name="l02334"></a><span class="lineno"> 2334</span>&#160;                             teps, tmin, dtinv)</div>
@@ -2757,6 +2758,11 @@ $(document).ready(function(){initNavTree('sat__vapor__pres_8F90_source.html','')
 <div class="line"><a name="l02662"></a><span class="lineno"> 2662</span>&#160;<span class="comment">!&lt;/PRE&gt;</span></div>
 <div class="line"><a name="l02663"></a><span class="lineno"> 2663</span>&#160;<span class="comment">!   &lt;/TESTPROGRAM&gt;</span></div>
 <div class="line"><a name="l02664"></a><span class="lineno"> 2664</span>&#160;<span class="comment">! &lt;/INFO&gt;</span></div>
+<div class="ttc" id="agroup__constants__mod_html_ga339acc50a5e5f1d7b1526334be846e23"><div class="ttname"><a href="group__constants__mod.html#ga339acc50a5e5f1d7b1526334be846e23">constants_mod::rdgas</a></div><div class="ttdeci">real, parameter, public rdgas</div><div class="ttdoc">Gas constant for dry air [J/kg/deg].</div><div class="ttdef"><b>Definition:</b> <a href="constants_8F90_source.html#l00108">constants.F90:108</a></div></div>
+<div class="ttc" id="agroup__constants__mod_html_ga4f931cf19d83bdbc5fe6837b4249bb57"><div class="ttname"><a href="group__constants__mod.html#ga4f931cf19d83bdbc5fe6837b4249bb57">constants_mod::rvgas</a></div><div class="ttdeci">real, parameter, public rvgas</div><div class="ttdoc">Gas constant for water vapor [J/kg/deg].</div><div class="ttdef"><b>Definition:</b> <a href="constants_8F90_source.html#l00109">constants.F90:109</a></div></div>
+<div class="ttc" id="agroup__constants__mod_html_ga722fa6ded6947c860a32b171bd428926"><div class="ttname"><a href="group__constants__mod.html#ga722fa6ded6947c860a32b171bd428926">constants_mod::tfreeze</a></div><div class="ttdeci">real, parameter, public tfreeze</div><div class="ttdoc">Freezing temperature of fresh water [K].</div><div class="ttdef"><b>Definition:</b> <a href="constants_8F90_source.html#l00115">constants.F90:115</a></div></div>
+<div class="ttc" id="agroup__constants__mod_html_gae1bdc75f134e5ac468aeae16280e465f"><div class="ttname"><a href="group__constants__mod.html#gae1bdc75f134e5ac468aeae16280e465f">constants_mod::hlv</a></div><div class="ttdeci">real, parameter, public hlv</div><div class="ttdoc">Latent heat of evaporation [J/kg].</div><div class="ttdef"><b>Definition:</b> <a href="constants_8F90_source.html#l00111">constants.F90:111</a></div></div>
+<div class="ttc" id="agroup__constants__mod_html_gaea84f20fd703211bdf44a90df49df101"><div class="ttname"><a href="group__constants__mod.html#gaea84f20fd703211bdf44a90df49df101">constants_mod::es0</a></div><div class="ttdeci">real, parameter, public es0</div><div class="ttdoc">Humidity factor. Controls the humidity content of the atmosphere through the Saturation Vapour Pressu...</div><div class="ttdef"><b>Definition:</b> <a href="constants_8F90_source.html#l00127">constants.F90:127</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

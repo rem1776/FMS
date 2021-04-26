@@ -33,8 +33,9 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">FMS
+   &#160;<span id="projectnumber">$ver</span>
    </div>
-   <div id="projectbrief">FMS Library</div>
+   <div id="projectbrief">Flexible Modeling System</div>
   </td>
  </tr>
  </tbody>
@@ -117,7 +118,7 @@ $(document).ready(function(){initNavTree('test__time__manager_8F90_source.html',
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; <span class="keywordtype">use          </span>mpp_mod, <span class="keywordtype">only</span>: input_nml_file, mpp_error, note, fatal</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; <span class="keywordtype">use          </span>fms_mod, <span class="keywordtype">only</span>: fms_init, fms_end, stderr</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; <span class="keywordtype">use          </span>fms_mod, <span class="keywordtype">only</span>: open_namelist_file, check_nml_error, close_file, open_file</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; <span class="keywordtype">use    </span>constants_mod, <span class="keywordtype">only</span>: constants_init, rseconds_per_day=&gt;seconds_per_day</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; <span class="keywordtype">use    </span>constants_mod, <span class="keywordtype">only</span>: <a class="code" href="group__constants__mod.html#ga213b4811b66047b6054d2b853f0e265c">constants_init</a>, rseconds_per_day=&gt;<a class="code" href="group__constants__mod.html#ga41b907cfe1f072d57b937529f0c8334a">seconds_per_day</a></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; <span class="keywordtype">use       </span>fms_io_mod, <span class="keywordtype">only</span>: fms_io_exit</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; <span class="keywordtype">use </span>time_manager_mod, <span class="keywordtype">only</span>: time_type, set_date, get_date, set_time, set_calendar_type, real_to_time_type</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; <span class="keywordtype">use </span>time_manager_mod, <span class="keywordtype">only</span>: length_of_year, leap_year, days_in_month, days_in_year, print_time</div>
@@ -152,7 +153,7 @@ $(document).ready(function(){initNavTree('test__time__manager_8F90_source.html',
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                       test17,test18,test19</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; <span class="keyword">call </span>fms_init</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; <span class="keyword">call </span>constants_init</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; <span class="keyword">call </span><a class="code" href="group__constants__mod.html#ga213b4811b66047b6054d2b853f0e265c">constants_init</a></div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">#ifdef INTERNAL_FILE_NML</span></div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor"></span>   <span class="keyword">read</span> (input_nml_file, test_nml, iostat=io)</div>
@@ -704,6 +705,8 @@ $(document).ready(function(){initNavTree('test__time__manager_8F90_source.html',
 <div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160; <span class="keyword">call </span>fms_io_exit</div>
 <div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160; <span class="keyword">call </span>fms_end</div>
 <div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160; <span class="keyword">end program </span>test_time_manager</div>
+<div class="ttc" id="agroup__constants__mod_html_ga213b4811b66047b6054d2b853f0e265c"><div class="ttname"><a href="group__constants__mod.html#ga213b4811b66047b6054d2b853f0e265c">constants_mod::constants_init</a></div><div class="ttdeci">subroutine, public constants_init</div><div class="ttdoc">dummy routine.</div><div class="ttdef"><b>Definition:</b> <a href="constants_8F90_source.html#l00171">constants.F90:172</a></div></div>
+<div class="ttc" id="agroup__constants__mod_html_ga41b907cfe1f072d57b937529f0c8334a"><div class="ttname"><a href="group__constants__mod.html#ga41b907cfe1f072d57b937529f0c8334a">constants_mod::seconds_per_day</a></div><div class="ttdeci">real, parameter, public seconds_per_day</div><div class="ttdoc">Seconds in a day [s].</div><div class="ttdef"><b>Definition:</b> <a href="constants_8F90_source.html#l00147">constants.F90:147</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -33,8 +33,9 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">FMS
+   &#160;<span id="projectnumber">$ver</span>
    </div>
-   <div id="projectbrief">FMS Library</div>
+   <div id="projectbrief">Flexible Modeling System</div>
   </td>
  </tr>
  </tbody>
@@ -93,11 +94,11 @@ $(document).ready(function(){initNavTree('data__override_8F90.html',''); initRes
 <a href="#nested-classes">Data Types</a> &#124;
 <a href="#func-members">Functions/Subroutines</a>  </div>
   <div class="headertitle">
-<div class="title">data_override.F90 File Reference</div>  </div>
+<div class="title">data_override.F90 File Reference<div class="ingroups"><a class="el" href="group__data__override.html">Data Override</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Given a gridname, fieldname and model time this routine will get data in a file whose path is described in a user-provided data_table, do spatial and temporal interpolation if necessary to convert data to model's grid and time.  
+<p>File for <a class="el" href="group__data__override__mod.html">data_override_mod</a>.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;file_version.h&gt;</code><br />
 </div>
@@ -113,14 +114,7 @@ Functions/Subroutines</h2></td></tr>
 <tr class="separator:ae6a3ddf1fdbcd12f51b04211c9b406bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Given a gridname, fieldname and model time this routine will get data in a file whose path is described in a user-provided data_table, do spatial and temporal interpolation if necessary to convert data to model's grid and time. </p>
-<dl class="section author"><dt>Author</dt><dd>Z. Liang, M.J. Harrison, M. Winton</dd></dl>
-<p>Given a gridname, fieldname and model time this routine will get data in a file whose path is described in a user-provided data_table, do spatial and temporal interpolation if necessary to convert data to model's grid and time.</p>
-<p>Before using data_override a data_table must be created with the following entries: gridname, fieldname_code, fieldname_file, file_name, ongrid, factor.</p>
-<p>More explainations about data_table entries can be found in the source code (defining data_type)</p>
-<p>If user wants to override fieldname_code with a const, set fieldname_file in data_table = "" and factor = const</p>
-<p>If user wants to override fieldname_code with data from a file, set fieldname_file = name in the netCDF data file, factor then will be for unit conversion (=1 if no conversion required)</p>
-<p>A field can be overriden globally (by default) or users can specify one or two regions in which data_override will take place, field values outside the region will not be affected. </p>
+<div class="textblock"><p>File for <a class="el" href="group__data__override__mod.html">data_override_mod</a>. </p>
 
 <p class="definition">Definition in file <a class="el" href="data__override_8F90_source.html">data_override.F90</a>.</p>
 </div><h2 class="groupheader">Function/Subroutine Documentation</h2>
@@ -173,7 +167,7 @@ Functions/Subroutines</h2></td></tr>
 <p>data_override_init can be called more than once, in one call the user can pass up to 4 domains of component models, at least one domain must be present in any call</p>
 <p>Data_table is initialized here with default values. Users should provide "real" values that will override the default values. Real values can be given using data_table, each line of data_table contains one data_entry. Items of data_entry are comma separated. </p>
 
-<p class="definition">Definition at line <a class="el" href="data__override_8F90_source.html#l00191">191</a> of file <a class="el" href="data__override_8F90_source.html">data_override.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="data__override_8F90_source.html#l00198">198</a> of file <a class="el" href="data__override_8F90_source.html">data_override.F90</a>.</p>
 
 </div>
 </div>
@@ -224,7 +218,7 @@ Functions/Subroutines</h2></td></tr>
 <p>Unset domains that had previously been set for use by data_override. </p>
 <p>This subroutine deallocates any data override domains that have been set. </p>
 
-<p class="definition">Definition at line <a class="el" href="data__override_8F90_source.html#l00565">565</a> of file <a class="el" href="data__override_8F90_source.html">data_override.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="data__override_8F90_source.html#l00572">572</a> of file <a class="el" href="data__override_8F90_source.html">data_override.F90</a>.</p>
 
 </div>
 </div>

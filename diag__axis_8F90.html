@@ -33,8 +33,9 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">FMS
+   &#160;<span id="projectnumber">$ver</span>
    </div>
-   <div id="projectbrief">FMS Library</div>
+   <div id="projectbrief">Flexible Modeling System</div>
   </td>
  </tr>
  </tbody>
@@ -94,11 +95,11 @@ $(document).ready(function(){initNavTree('diag__axis_8F90.html',''); initResizab
 <a href="#func-members">Functions/Subroutines</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
-<div class="title">diag_axis.F90 File Reference</div>  </div>
+<div class="title">diag_axis.F90 File Reference<div class="ingroups"><a class="el" href="group__diag__manager.html">Diag Manager</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>is an integral part of diag_manager_mod. It helps to create axis IDs that are used in register_diag_field.  
+<p>File for <a class="el" href="group__diag__axis__mod.html">Diag_axis_mod</a>.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;file_version.h&gt;</code><br />
 </div>
@@ -106,916 +107,85 @@ $(document).ready(function(){initNavTree('diag__axis_8F90.html',''); initResizab
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
-<tr class="memitem:a3fa1e1fa08e659ea16bc9035588fe5f5"><td class="memItemLeft" align="right" valign="top">integer function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="diag__axis_8F90.html#a3fa1e1fa08e659ea16bc9035588fe5f5">diag_axis_init</a> (name, DATA, units, cart_name, long_name, direction, set_name, edges, Domain, Domain2, DomainU, aux, req, tile_count, domain_position)</td></tr>
-<tr class="memdesc:a3fa1e1fa08e659ea16bc9035588fe5f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the axis, and return the axis ID.  <a href="diag__axis_8F90.html#a3fa1e1fa08e659ea16bc9035588fe5f5">More...</a><br /></td></tr>
-<tr class="separator:a3fa1e1fa08e659ea16bc9035588fe5f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af06fec781ceaa707f63966f35814c52b"><td class="memItemLeft" align="right" valign="top">integer function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="diag__axis_8F90.html#af06fec781ceaa707f63966f35814c52b">diag_subaxes_init</a> (axis, subdata, start_indx, end_indx, domain_2d)</td></tr>
-<tr class="memdesc:af06fec781ceaa707f63966f35814c52b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a subaxis on a parent axis.  <a href="diag__axis_8F90.html#af06fec781ceaa707f63966f35814c52b">More...</a><br /></td></tr>
-<tr class="separator:af06fec781ceaa707f63966f35814c52b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6778e97ce6cc976a4766a4f978013376"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="diag__axis_8F90.html#a6778e97ce6cc976a4766a4f978013376">get_diag_axis</a> (id, name, units, long_name, cart_name, direction, edges, Domain, DomainU, DATA, num_attributes, attributes, domain_position)</td></tr>
-<tr class="memdesc:a6778e97ce6cc976a4766a4f978013376"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return information about the axis with index ID.  <a href="diag__axis_8F90.html#a6778e97ce6cc976a4766a4f978013376">More...</a><br /></td></tr>
-<tr class="separator:a6778e97ce6cc976a4766a4f978013376"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a439d202181dc2584f338b35381124bc9"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="diag__axis_8F90.html#a439d202181dc2584f338b35381124bc9">get_diag_axis_cart</a> (id, cart_name)</td></tr>
-<tr class="memdesc:a439d202181dc2584f338b35381124bc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the axis cartesian.  <a href="diag__axis_8F90.html#a439d202181dc2584f338b35381124bc9">More...</a><br /></td></tr>
-<tr class="separator:a439d202181dc2584f338b35381124bc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa407ee1754c289606c1e3528e132d5e8"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="diag__axis_8F90.html#aa407ee1754c289606c1e3528e132d5e8">get_diag_axis_data</a> (id, DATA)</td></tr>
-<tr class="memdesc:aa407ee1754c289606c1e3528e132d5e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the axis data.  <a href="diag__axis_8F90.html#aa407ee1754c289606c1e3528e132d5e8">More...</a><br /></td></tr>
-<tr class="separator:aa407ee1754c289606c1e3528e132d5e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a687ad43a9f0e6223ad754a9a3fed5b0c"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="diag__axis_8F90.html#a687ad43a9f0e6223ad754a9a3fed5b0c">get_diag_axis_name</a> (id, name)</td></tr>
-<tr class="memdesc:a687ad43a9f0e6223ad754a9a3fed5b0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the short name of the axis.  <a href="diag__axis_8F90.html#a687ad43a9f0e6223ad754a9a3fed5b0c">More...</a><br /></td></tr>
-<tr class="separator:a687ad43a9f0e6223ad754a9a3fed5b0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae7cc7f544e4dde3908484c69f45de108"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="diag__axis_8F90.html#ae7cc7f544e4dde3908484c69f45de108">get_diag_axis_domain_name</a> (id, name)</td></tr>
-<tr class="memdesc:ae7cc7f544e4dde3908484c69f45de108"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the name of the axis' domain.  <a href="diag__axis_8F90.html#ae7cc7f544e4dde3908484c69f45de108">More...</a><br /></td></tr>
-<tr class="separator:ae7cc7f544e4dde3908484c69f45de108"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a27a28cd8826b3c31c4522bf2b83d1e"><td class="memItemLeft" align="right" valign="top">integer function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="diag__axis_8F90.html#a2a27a28cd8826b3c31c4522bf2b83d1e">get_axis_length</a> (id)</td></tr>
-<tr class="memdesc:a2a27a28cd8826b3c31c4522bf2b83d1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the length of the axis.  <a href="diag__axis_8F90.html#a2a27a28cd8826b3c31c4522bf2b83d1e">More...</a><br /></td></tr>
-<tr class="separator:a2a27a28cd8826b3c31c4522bf2b83d1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9615cb5662e59a10778f2bd8608b8535"><td class="memItemLeft" align="right" valign="top">character(len=128) function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="diag__axis_8F90.html#a9615cb5662e59a10778f2bd8608b8535">get_axis_aux</a> (id)</td></tr>
-<tr class="memdesc:a9615cb5662e59a10778f2bd8608b8535"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the auxiliary name for the axis.  <a href="diag__axis_8F90.html#a9615cb5662e59a10778f2bd8608b8535">More...</a><br /></td></tr>
-<tr class="separator:a9615cb5662e59a10778f2bd8608b8535"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e206fcfc8fae156041c9e73b0abfe4a"><td class="memItemLeft" align="right" valign="top">character(len=128) function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="diag__axis_8F90.html#a7e206fcfc8fae156041c9e73b0abfe4a">get_axis_reqfld</a> (id)</td></tr>
-<tr class="memdesc:a7e206fcfc8fae156041c9e73b0abfe4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the required field names for the axis.  <a href="diag__axis_8F90.html#a7e206fcfc8fae156041c9e73b0abfe4a">More...</a><br /></td></tr>
-<tr class="separator:a7e206fcfc8fae156041c9e73b0abfe4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d2debfdc147a34e88c24d5435f145ab"><td class="memItemLeft" align="right" valign="top">integer function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="diag__axis_8F90.html#a5d2debfdc147a34e88c24d5435f145ab">get_axis_global_length</a> (id)</td></tr>
-<tr class="memdesc:a5d2debfdc147a34e88c24d5435f145ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the global length of the axis.  <a href="diag__axis_8F90.html#a5d2debfdc147a34e88c24d5435f145ab">More...</a><br /></td></tr>
-<tr class="separator:a5d2debfdc147a34e88c24d5435f145ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a89e9669ae212e861223da2c9036ae5fc"><td class="memItemLeft" align="right" valign="top">integer function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="diag__axis_8F90.html#a89e9669ae212e861223da2c9036ae5fc">get_tile_count</a> (ids)</td></tr>
-<tr class="memdesc:a89e9669ae212e861223da2c9036ae5fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the tile count for the axis.  <a href="diag__axis_8F90.html#a89e9669ae212e861223da2c9036ae5fc">More...</a><br /></td></tr>
-<tr class="separator:a89e9669ae212e861223da2c9036ae5fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeed28de0d52325d817dc3f8caff2932f"><td class="memItemLeft" align="right" valign="top">type(domain1d) function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="diag__axis_8F90.html#aeed28de0d52325d817dc3f8caff2932f">get_domain1d</a> (id)</td></tr>
-<tr class="memdesc:aeed28de0d52325d817dc3f8caff2932f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrun the 1D domain for the axis ID given.  <a href="diag__axis_8F90.html#aeed28de0d52325d817dc3f8caff2932f">More...</a><br /></td></tr>
-<tr class="separator:aeed28de0d52325d817dc3f8caff2932f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5e5c270e61942c47611a48ae758c0f4c"><td class="memItemLeft" align="right" valign="top">type(domain2d) function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="diag__axis_8F90.html#a5e5c270e61942c47611a48ae758c0f4c">get_domain2d</a> (ids)</td></tr>
-<tr class="memdesc:a5e5c270e61942c47611a48ae758c0f4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the 2D domain for the axis IDs given.  <a href="diag__axis_8F90.html#a5e5c270e61942c47611a48ae758c0f4c">More...</a><br /></td></tr>
-<tr class="separator:a5e5c270e61942c47611a48ae758c0f4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e662b343114e500df7ca182ecf73e58"><td class="memItemLeft" align="right" valign="top">type(domainug) function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="diag__axis_8F90.html#a6e662b343114e500df7ca182ecf73e58">get_domainug</a> (id)</td></tr>
-<tr class="memdesc:a6e662b343114e500df7ca182ecf73e58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrun the 1D domain for the axis ID given.  <a href="diag__axis_8F90.html#a6e662b343114e500df7ca182ecf73e58">More...</a><br /></td></tr>
-<tr class="separator:a6e662b343114e500df7ca182ecf73e58"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a241aaf31afd11ff2c6ffbfc746487f0f"><td class="memItemLeft" align="right" valign="top">integer(i4_kind) function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="diag__axis_8F90.html#a241aaf31afd11ff2c6ffbfc746487f0f">axis_compatible_check</a> (id, varname)</td></tr>
-<tr class="memdesc:a241aaf31afd11ff2c6ffbfc746487f0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the axes are compatible.  <a href="diag__axis_8F90.html#a241aaf31afd11ff2c6ffbfc746487f0f">More...</a><br /></td></tr>
-<tr class="separator:a241aaf31afd11ff2c6ffbfc746487f0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac7ff72683dd49ef653fbfc74b8ab6026"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="diag__axis_8F90.html#ac7ff72683dd49ef653fbfc74b8ab6026">get_axes_shift</a> (ids, ishift, jshift)</td></tr>
-<tr class="memdesc:ac7ff72683dd49ef653fbfc74b8ab6026"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the value of the shift for the axis IDs given.  <a href="diag__axis_8F90.html#ac7ff72683dd49ef653fbfc74b8ab6026">More...</a><br /></td></tr>
-<tr class="separator:ac7ff72683dd49ef653fbfc74b8ab6026"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a47b0c5979b4ef414bda573fbd60cc80c"><td class="memItemLeft" align="right" valign="top">integer function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="diag__axis_8F90.html#a47b0c5979b4ef414bda573fbd60cc80c">get_axis_num</a> (axis_name, set_name)</td></tr>
-<tr class="memdesc:a47b0c5979b4ef414bda573fbd60cc80c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns index into axis table corresponding to a given axis name.  <a href="diag__axis_8F90.html#a47b0c5979b4ef414bda573fbd60cc80c">More...</a><br /></td></tr>
-<tr class="separator:a47b0c5979b4ef414bda573fbd60cc80c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac03680db8c3e54bc0547b4d68668e791"><td class="memItemLeft" align="right" valign="top">logical function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="diag__axis_8F90.html#ac03680db8c3e54bc0547b4d68668e791">axis_is_compressed</a> (id)</td></tr>
-<tr class="memdesc:ac03680db8c3e54bc0547b4d68668e791"><td class="mdescLeft">&#160;</td><td class="mdescRight">given an axis, returns TRUE if the axis uses compression-by-gathering: that is, if this is an axis for fields on unstructured grid  <a href="diag__axis_8F90.html#ac03680db8c3e54bc0547b4d68668e791">More...</a><br /></td></tr>
-<tr class="separator:ac03680db8c3e54bc0547b4d68668e791"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a02f0e4d5cf25f995a9a877a74faf7cfb"><td class="memItemLeft" align="right" valign="top"><a id="a02f0e4d5cf25f995a9a877a74faf7cfb"></a>
-subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="diag__axis_8F90.html#a02f0e4d5cf25f995a9a877a74faf7cfb">get_compressed_axes_ids</a> (id, r)</td></tr>
-<tr class="memdesc:a02f0e4d5cf25f995a9a877a74faf7cfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">given an index of compressed-by-gathering axis, return an array of axes used in compression. It is a fatal error to call it on axis that is not compressed <br /></td></tr>
-<tr class="separator:a02f0e4d5cf25f995a9a877a74faf7cfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3fa1e1fa08e659ea16bc9035588fe5f5"><td class="memItemLeft" align="right" valign="top">integer function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__axis__mod.html#ga3fa1e1fa08e659ea16bc9035588fe5f5">diag_axis_init</a> (name, DATA, units, cart_name, long_name, direction, set_name, edges, Domain, Domain2, DomainU, aux, req, tile_count, domain_position)</td></tr>
+<tr class="memdesc:ga3fa1e1fa08e659ea16bc9035588fe5f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the axis, and return the axis ID.  <a href="group__diag__axis__mod.html#ga3fa1e1fa08e659ea16bc9035588fe5f5">More...</a><br /></td></tr>
+<tr class="separator:ga3fa1e1fa08e659ea16bc9035588fe5f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf06fec781ceaa707f63966f35814c52b"><td class="memItemLeft" align="right" valign="top">integer function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__axis__mod.html#gaf06fec781ceaa707f63966f35814c52b">diag_subaxes_init</a> (axis, subdata, start_indx, end_indx, domain_2d)</td></tr>
+<tr class="memdesc:gaf06fec781ceaa707f63966f35814c52b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a subaxis on a parent axis.  <a href="group__diag__axis__mod.html#gaf06fec781ceaa707f63966f35814c52b">More...</a><br /></td></tr>
+<tr class="separator:gaf06fec781ceaa707f63966f35814c52b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6778e97ce6cc976a4766a4f978013376"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__axis__mod.html#ga6778e97ce6cc976a4766a4f978013376">get_diag_axis</a> (id, name, units, long_name, cart_name, direction, edges, Domain, DomainU, DATA, num_attributes, attributes, domain_position)</td></tr>
+<tr class="memdesc:ga6778e97ce6cc976a4766a4f978013376"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return information about the axis with index ID.  <a href="group__diag__axis__mod.html#ga6778e97ce6cc976a4766a4f978013376">More...</a><br /></td></tr>
+<tr class="separator:ga6778e97ce6cc976a4766a4f978013376"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga439d202181dc2584f338b35381124bc9"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__axis__mod.html#ga439d202181dc2584f338b35381124bc9">get_diag_axis_cart</a> (id, cart_name)</td></tr>
+<tr class="memdesc:ga439d202181dc2584f338b35381124bc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the axis cartesian.  <a href="group__diag__axis__mod.html#ga439d202181dc2584f338b35381124bc9">More...</a><br /></td></tr>
+<tr class="separator:ga439d202181dc2584f338b35381124bc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa407ee1754c289606c1e3528e132d5e8"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__axis__mod.html#gaa407ee1754c289606c1e3528e132d5e8">get_diag_axis_data</a> (id, DATA)</td></tr>
+<tr class="memdesc:gaa407ee1754c289606c1e3528e132d5e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the axis data.  <a href="group__diag__axis__mod.html#gaa407ee1754c289606c1e3528e132d5e8">More...</a><br /></td></tr>
+<tr class="separator:gaa407ee1754c289606c1e3528e132d5e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga687ad43a9f0e6223ad754a9a3fed5b0c"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__axis__mod.html#ga687ad43a9f0e6223ad754a9a3fed5b0c">get_diag_axis_name</a> (id, name)</td></tr>
+<tr class="memdesc:ga687ad43a9f0e6223ad754a9a3fed5b0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the short name of the axis.  <a href="group__diag__axis__mod.html#ga687ad43a9f0e6223ad754a9a3fed5b0c">More...</a><br /></td></tr>
+<tr class="separator:ga687ad43a9f0e6223ad754a9a3fed5b0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae7cc7f544e4dde3908484c69f45de108"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__axis__mod.html#gae7cc7f544e4dde3908484c69f45de108">get_diag_axis_domain_name</a> (id, name)</td></tr>
+<tr class="memdesc:gae7cc7f544e4dde3908484c69f45de108"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the name of the axis' domain.  <a href="group__diag__axis__mod.html#gae7cc7f544e4dde3908484c69f45de108">More...</a><br /></td></tr>
+<tr class="separator:gae7cc7f544e4dde3908484c69f45de108"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2a27a28cd8826b3c31c4522bf2b83d1e"><td class="memItemLeft" align="right" valign="top">integer function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__axis__mod.html#ga2a27a28cd8826b3c31c4522bf2b83d1e">get_axis_length</a> (id)</td></tr>
+<tr class="memdesc:ga2a27a28cd8826b3c31c4522bf2b83d1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the length of the axis.  <a href="group__diag__axis__mod.html#ga2a27a28cd8826b3c31c4522bf2b83d1e">More...</a><br /></td></tr>
+<tr class="separator:ga2a27a28cd8826b3c31c4522bf2b83d1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9615cb5662e59a10778f2bd8608b8535"><td class="memItemLeft" align="right" valign="top">character(len=128) function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__axis__mod.html#ga9615cb5662e59a10778f2bd8608b8535">get_axis_aux</a> (id)</td></tr>
+<tr class="memdesc:ga9615cb5662e59a10778f2bd8608b8535"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the auxiliary name for the axis.  <a href="group__diag__axis__mod.html#ga9615cb5662e59a10778f2bd8608b8535">More...</a><br /></td></tr>
+<tr class="separator:ga9615cb5662e59a10778f2bd8608b8535"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7e206fcfc8fae156041c9e73b0abfe4a"><td class="memItemLeft" align="right" valign="top">character(len=128) function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__axis__mod.html#ga7e206fcfc8fae156041c9e73b0abfe4a">get_axis_reqfld</a> (id)</td></tr>
+<tr class="memdesc:ga7e206fcfc8fae156041c9e73b0abfe4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the required field names for the axis.  <a href="group__diag__axis__mod.html#ga7e206fcfc8fae156041c9e73b0abfe4a">More...</a><br /></td></tr>
+<tr class="separator:ga7e206fcfc8fae156041c9e73b0abfe4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5d2debfdc147a34e88c24d5435f145ab"><td class="memItemLeft" align="right" valign="top">integer function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__axis__mod.html#ga5d2debfdc147a34e88c24d5435f145ab">get_axis_global_length</a> (id)</td></tr>
+<tr class="memdesc:ga5d2debfdc147a34e88c24d5435f145ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the global length of the axis.  <a href="group__diag__axis__mod.html#ga5d2debfdc147a34e88c24d5435f145ab">More...</a><br /></td></tr>
+<tr class="separator:ga5d2debfdc147a34e88c24d5435f145ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga89e9669ae212e861223da2c9036ae5fc"><td class="memItemLeft" align="right" valign="top">integer function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__axis__mod.html#ga89e9669ae212e861223da2c9036ae5fc">get_tile_count</a> (ids)</td></tr>
+<tr class="memdesc:ga89e9669ae212e861223da2c9036ae5fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the tile count for the axis.  <a href="group__diag__axis__mod.html#ga89e9669ae212e861223da2c9036ae5fc">More...</a><br /></td></tr>
+<tr class="separator:ga89e9669ae212e861223da2c9036ae5fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaeed28de0d52325d817dc3f8caff2932f"><td class="memItemLeft" align="right" valign="top">type(domain1d) function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__axis__mod.html#gaeed28de0d52325d817dc3f8caff2932f">get_domain1d</a> (id)</td></tr>
+<tr class="memdesc:gaeed28de0d52325d817dc3f8caff2932f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrun the 1D domain for the axis ID given.  <a href="group__diag__axis__mod.html#gaeed28de0d52325d817dc3f8caff2932f">More...</a><br /></td></tr>
+<tr class="separator:gaeed28de0d52325d817dc3f8caff2932f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5e5c270e61942c47611a48ae758c0f4c"><td class="memItemLeft" align="right" valign="top">type(domain2d) function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__axis__mod.html#ga5e5c270e61942c47611a48ae758c0f4c">get_domain2d</a> (ids)</td></tr>
+<tr class="memdesc:ga5e5c270e61942c47611a48ae758c0f4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the 2D domain for the axis IDs given.  <a href="group__diag__axis__mod.html#ga5e5c270e61942c47611a48ae758c0f4c">More...</a><br /></td></tr>
+<tr class="separator:ga5e5c270e61942c47611a48ae758c0f4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6e662b343114e500df7ca182ecf73e58"><td class="memItemLeft" align="right" valign="top">type(domainug) function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__axis__mod.html#ga6e662b343114e500df7ca182ecf73e58">get_domainug</a> (id)</td></tr>
+<tr class="memdesc:ga6e662b343114e500df7ca182ecf73e58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrun the 1D domain for the axis ID given.  <a href="group__diag__axis__mod.html#ga6e662b343114e500df7ca182ecf73e58">More...</a><br /></td></tr>
+<tr class="separator:ga6e662b343114e500df7ca182ecf73e58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga241aaf31afd11ff2c6ffbfc746487f0f"><td class="memItemLeft" align="right" valign="top">integer(i4_kind) function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__axis__mod.html#ga241aaf31afd11ff2c6ffbfc746487f0f">axis_compatible_check</a> (id, varname)</td></tr>
+<tr class="memdesc:ga241aaf31afd11ff2c6ffbfc746487f0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the axes are compatible.  <a href="group__diag__axis__mod.html#ga241aaf31afd11ff2c6ffbfc746487f0f">More...</a><br /></td></tr>
+<tr class="separator:ga241aaf31afd11ff2c6ffbfc746487f0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac7ff72683dd49ef653fbfc74b8ab6026"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__axis__mod.html#gac7ff72683dd49ef653fbfc74b8ab6026">get_axes_shift</a> (ids, ishift, jshift)</td></tr>
+<tr class="memdesc:gac7ff72683dd49ef653fbfc74b8ab6026"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the value of the shift for the axis IDs given.  <a href="group__diag__axis__mod.html#gac7ff72683dd49ef653fbfc74b8ab6026">More...</a><br /></td></tr>
+<tr class="separator:gac7ff72683dd49ef653fbfc74b8ab6026"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga47b0c5979b4ef414bda573fbd60cc80c"><td class="memItemLeft" align="right" valign="top">integer function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__axis__mod.html#ga47b0c5979b4ef414bda573fbd60cc80c">get_axis_num</a> (axis_name, set_name)</td></tr>
+<tr class="memdesc:ga47b0c5979b4ef414bda573fbd60cc80c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns index into axis table corresponding to a given axis name.  <a href="group__diag__axis__mod.html#ga47b0c5979b4ef414bda573fbd60cc80c">More...</a><br /></td></tr>
+<tr class="separator:ga47b0c5979b4ef414bda573fbd60cc80c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac03680db8c3e54bc0547b4d68668e791"><td class="memItemLeft" align="right" valign="top">logical function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__axis__mod.html#gac03680db8c3e54bc0547b4d68668e791">axis_is_compressed</a> (id)</td></tr>
+<tr class="memdesc:gac03680db8c3e54bc0547b4d68668e791"><td class="mdescLeft">&#160;</td><td class="mdescRight">given an axis, returns TRUE if the axis uses compression-by-gathering: that is, if this is an axis for fields on unstructured grid  <a href="group__diag__axis__mod.html#gac03680db8c3e54bc0547b4d68668e791">More...</a><br /></td></tr>
+<tr class="separator:gac03680db8c3e54bc0547b4d68668e791"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga02f0e4d5cf25f995a9a877a74faf7cfb"><td class="memItemLeft" align="right" valign="top">
+subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__axis__mod.html#ga02f0e4d5cf25f995a9a877a74faf7cfb">get_compressed_axes_ids</a> (id, r)</td></tr>
+<tr class="memdesc:ga02f0e4d5cf25f995a9a877a74faf7cfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">given an index of compressed-by-gathering axis, return an array of axes used in compression. It is a fatal error to call it on axis that is not compressed <br /></td></tr>
+<tr class="separator:ga02f0e4d5cf25f995a9a877a74faf7cfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a1255316d6d8462ddbdbfbdceb50a185f"><td class="memItemLeft" align="right" valign="top"><a id="a1255316d6d8462ddbdbfbdceb50a185f"></a>
 integer(i4_kind), parameter, public&#160;</td><td class="memItemRight" valign="bottom"><b>diag_axis_nodomain</b> = 0</td></tr>
 <tr class="separator:a1255316d6d8462ddbdbfbdceb50a185f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa811f1d7090446833dadbbca84f7d8cb"><td class="memItemLeft" align="right" valign="top"><a id="aa811f1d7090446833dadbbca84f7d8cb"></a>
+<tr class="memitem:gaa811f1d7090446833dadbbca84f7d8cb"><td class="memItemLeft" align="right" valign="top">
 integer(i4_kind), parameter, public&#160;</td><td class="memItemRight" valign="bottom"><b>diag_axis_2ddomain</b> = 1</td></tr>
-<tr class="separator:aa811f1d7090446833dadbbca84f7d8cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adb5e4d3bb7b063cbf144a5c79e16cd06"><td class="memItemLeft" align="right" valign="top"><a id="adb5e4d3bb7b063cbf144a5c79e16cd06"></a>
+<tr class="separator:gaa811f1d7090446833dadbbca84f7d8cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadb5e4d3bb7b063cbf144a5c79e16cd06"><td class="memItemLeft" align="right" valign="top">
 integer(i4_kind), parameter, public&#160;</td><td class="memItemRight" valign="bottom"><b>diag_axis_ugdomain</b> = 2</td></tr>
-<tr class="separator:adb5e4d3bb7b063cbf144a5c79e16cd06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:gadb5e4d3bb7b063cbf144a5c79e16cd06"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>is an integral part of diag_manager_mod. It helps to create axis IDs that are used in register_diag_field. </p>
-<dl class="section author"><dt>Author</dt><dd>Seth Underwood @email <a href="#" onclick="location.href='mai'+'lto:'+'gfd'+'l.'+'cli'+'ma'+'te.'+'mo'+'del'+'.i'+'nfo'+'@n'+'oaa'+'.g'+'ov'; return false;">gfdl.<span style="display: none;">.nosp@m.</span>clim<span style="display: none;">.nosp@m.</span>ate.m<span style="display: none;">.nosp@m.</span>odel<span style="display: none;">.nosp@m.</span>.info<span style="display: none;">.nosp@m.</span>@noa<span style="display: none;">.nosp@m.</span>a.gov</a> @description Users first create axis ID by calling diag_axis_init, then use this axis ID in register_diag_field. </dd></dl>
+<div class="textblock"><p>File for <a class="el" href="group__diag__axis__mod.html">Diag_axis_mod</a>. </p>
 
 <p class="definition">Definition in file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
-</div><h2 class="groupheader">Function/Subroutine Documentation</h2>
-<a id="a241aaf31afd11ff2c6ffbfc746487f0f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a241aaf31afd11ff2c6ffbfc746487f0f">&#9670;&nbsp;</a></span>axis_compatible_check()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">integer(i4_kind) function, public diag_axis_mod::axis_compatible_check </td>
-          <td>(</td>
-          <td class="paramtype">integer, dimension(:), intent(in)&#160;</td>
-          <td class="paramname"><em>id</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">character(*), intent(in), optional&#160;</td>
-          <td class="paramname"><em>varname</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Checks if the axes are compatible. </p>
-<dl class="section return"><dt>Returns</dt><dd>integer domain_type </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td>The array of axis IDs </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">varname</td><td>The name of the variable </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>DIAG_AXIS_NODOMAIN = no domain. DIAG_AXIS_2DDOMAIN = structured domain. DIAG_AXIS_UGDOMAIN = unstructured domain. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l00721">721</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
-
-</div>
-</div>
-<a id="ac03680db8c3e54bc0547b4d68668e791"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac03680db8c3e54bc0547b4d68668e791">&#9670;&nbsp;</a></span>axis_is_compressed()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">logical function, public diag_axis_mod::axis_is_compressed </td>
-          <td>(</td>
-          <td class="paramtype">integer, intent(in)&#160;</td>
-          <td class="paramname"><em>id</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>given an axis, returns TRUE if the axis uses compression-by-gathering: that is, if this is an axis for fields on unstructured grid </p>
-<dl class="section return"><dt>Returns</dt><dd>logical whether or not the axis uses compression-by-gathering </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l01225">1225</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
-
-</div>
-</div>
-<a id="a3fa1e1fa08e659ea16bc9035588fe5f5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3fa1e1fa08e659ea16bc9035588fe5f5">&#9670;&nbsp;</a></span>diag_axis_init()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">integer function, public diag_axis_mod::diag_axis_init </td>
-          <td>(</td>
-          <td class="paramtype">character(len=*), intent(in)&#160;</td>
-          <td class="paramname"><em>name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real, dimension(:), intent(in)&#160;</td>
-          <td class="paramname"><em>DATA</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">character(len=*), intent(in)&#160;</td>
-          <td class="paramname"><em>units</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">character(len=*), intent(in)&#160;</td>
-          <td class="paramname"><em>cart_name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">character(len=*), intent(in), optional&#160;</td>
-          <td class="paramname"><em>long_name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in), optional&#160;</td>
-          <td class="paramname"><em>direction</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">character(len=*), intent(in), optional&#160;</td>
-          <td class="paramname"><em>set_name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in), optional&#160;</td>
-          <td class="paramname"><em>edges</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(domain1d), intent(in), optional&#160;</td>
-          <td class="paramname"><em>Domain</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(domain2d), intent(in), optional&#160;</td>
-          <td class="paramname"><em>Domain2</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(domainug), intent(in), optional&#160;</td>
-          <td class="paramname"><em>DomainU</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">character(len=*), intent(in), optional&#160;</td>
-          <td class="paramname"><em>aux</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">character(len=*), intent(in), optional&#160;</td>
-          <td class="paramname"><em>req</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in), optional&#160;</td>
-          <td class="paramname"><em>tile_count</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in), optional&#160;</td>
-          <td class="paramname"><em>domain_position</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Initialize the axis, and return the axis ID. </p>
-<dl class="section return"><dt>Returns</dt><dd>integer axis ID @description <code>diag_axis_init</code> initializes an axis and returns the axis ID that is to be used with <code>register_diag_field</code>. This function also increments the axis counter and fills in the axes </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>Short name for axis </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>Array of coordinate values </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">units</td><td>Units for the axis </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cart_name</td><td>Cartesian axis ("X", "Y", "Z", "T") </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">long_name</td><td>Long name for the axis. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">direction</td><td>Indicates the direction of the axis </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">edges</td><td>Axis ID for the previously defined "edges axis" </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">aux</td><td>Auxiliary name, can only be <code>geolon_t</code> or <code>geolat_t</code> </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">req</td><td>Required field names. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l00129">129</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
-
-</div>
-</div>
-<a id="af06fec781ceaa707f63966f35814c52b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af06fec781ceaa707f63966f35814c52b">&#9670;&nbsp;</a></span>diag_subaxes_init()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">integer function, public diag_axis_mod::diag_subaxes_init </td>
-          <td>(</td>
-          <td class="paramtype">integer, intent(in)&#160;</td>
-          <td class="paramname"><em>axis</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real, dimension(:), intent(in)&#160;</td>
-          <td class="paramname"><em>subdata</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)&#160;</td>
-          <td class="paramname"><em>start_indx</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)&#160;</td>
-          <td class="paramname"><em>end_indx</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(domain2d), intent(in), optional&#160;</td>
-          <td class="paramname"><em>domain_2d</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Create a subaxis on a parent axis. </p>
-<dl class="section return"><dt>Returns</dt><dd>Integer ID of the corresponding subaxis. @description Given the ID of a parent axis, create a subaxis and fill it with data, and return the ID of the corresponding subaxis.</dd></dl>
-<p>The subaxis is defined on the parent axis from <code>start_indx</code> to <code>end_indx</code>. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">axis</td><td>ID of the parent axis </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">subdata</td><td>Data of the subaxis </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">start_indx</td><td>Start index of the subaxis </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">end_indx</td><td>End index of the subaxis </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l00383">383</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
-
-</div>
-</div>
-<a id="ac7ff72683dd49ef653fbfc74b8ab6026"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac7ff72683dd49ef653fbfc74b8ab6026">&#9670;&nbsp;</a></span>get_axes_shift()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine, public diag_axis_mod::get_axes_shift </td>
-          <td>(</td>
-          <td class="paramtype">integer, dimension(:), intent(in)&#160;</td>
-          <td class="paramname"><em>ids</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(out)&#160;</td>
-          <td class="paramname"><em>ishift</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(out)&#160;</td>
-          <td class="paramname"><em>jshift</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Return the value of the shift for the axis IDs given. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">ishift</td><td>X shift value. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">jshift</td><td>Y shift value. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l00799">799</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
-
-</div>
-</div>
-<a id="a9615cb5662e59a10778f2bd8608b8535"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9615cb5662e59a10778f2bd8608b8535">&#9670;&nbsp;</a></span>get_axis_aux()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">character(len=128) function, public diag_axis_mod::get_axis_aux </td>
-          <td>(</td>
-          <td class="paramtype">integer, intent(in)&#160;</td>
-          <td class="paramname"><em>id</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Return the auxiliary name for the axis. </p>
-<dl class="section return"><dt>Returns</dt><dd>auxiliary name for the axis </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td>Axis ID </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l00614">614</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
-
-</div>
-</div>
-<a id="a5d2debfdc147a34e88c24d5435f145ab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5d2debfdc147a34e88c24d5435f145ab">&#9670;&nbsp;</a></span>get_axis_global_length()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">integer function, public diag_axis_mod::get_axis_global_length </td>
-          <td>(</td>
-          <td class="paramtype">integer, intent(in)&#160;</td>
-          <td class="paramname"><em>id</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Return the global length of the axis. </p>
-<dl class="section return"><dt>Returns</dt><dd>global length of the axis </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td>Axis ID </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l00632">632</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
-
-</div>
-</div>
-<a id="a2a27a28cd8826b3c31c4522bf2b83d1e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2a27a28cd8826b3c31c4522bf2b83d1e">&#9670;&nbsp;</a></span>get_axis_length()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">integer function, public diag_axis_mod::get_axis_length </td>
-          <td>(</td>
-          <td class="paramtype">integer, intent(in)&#160;</td>
-          <td class="paramname"><em>id</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Return the length of the axis. </p>
-<dl class="section return"><dt>Returns</dt><dd>length of axis as an integer </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td>Axis ID </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l00598">598</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
-
-</div>
-</div>
-<a id="a47b0c5979b4ef414bda573fbd60cc80c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a47b0c5979b4ef414bda573fbd60cc80c">&#9670;&nbsp;</a></span>get_axis_num()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">integer function, public diag_axis_mod::get_axis_num </td>
-          <td>(</td>
-          <td class="paramtype">character(len=*), intent(in)&#160;</td>
-          <td class="paramname"><em>axis_name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">character(len=*), intent(in), optional&#160;</td>
-          <td class="paramname"><em>set_name</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Returns index into axis table corresponding to a given axis name. </p>
-<dl class="section return"><dt>Returns</dt><dd>Returns index into axis table corresponding to a given axis name. </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">axis_name</td><td>Axis name </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">set_name</td><td>Set name </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l00823">823</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
-
-</div>
-</div>
-<a id="a7e206fcfc8fae156041c9e73b0abfe4a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7e206fcfc8fae156041c9e73b0abfe4a">&#9670;&nbsp;</a></span>get_axis_reqfld()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">character(len=128) function, public diag_axis_mod::get_axis_reqfld </td>
-          <td>(</td>
-          <td class="paramtype">integer, intent(in)&#160;</td>
-          <td class="paramname"><em>id</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Return the required field names for the axis. </p>
-<dl class="section return"><dt>Returns</dt><dd>required field names for the axis </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td>Axis ID </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l00623">623</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
-
-</div>
-</div>
-<a id="a6778e97ce6cc976a4766a4f978013376"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6778e97ce6cc976a4766a4f978013376">&#9670;&nbsp;</a></span>get_diag_axis()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine, public diag_axis_mod::get_diag_axis </td>
-          <td>(</td>
-          <td class="paramtype">integer, intent(in)&#160;</td>
-          <td class="paramname"><em>id</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">character(len=*), intent(out)&#160;</td>
-          <td class="paramname"><em>name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">character(len=*), intent(out)&#160;</td>
-          <td class="paramname"><em>units</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">character(len=*), intent(out)&#160;</td>
-          <td class="paramname"><em>long_name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">character(len=*), intent(out)&#160;</td>
-          <td class="paramname"><em>cart_name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(out)&#160;</td>
-          <td class="paramname"><em>direction</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(out)&#160;</td>
-          <td class="paramname"><em>edges</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(domain1d), intent(out)&#160;</td>
-          <td class="paramname"><em>Domain</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(domainug), intent(out)&#160;</td>
-          <td class="paramname"><em>DomainU</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real, dimension(:), intent(out)&#160;</td>
-          <td class="paramname"><em>DATA</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(out), optional&#160;</td>
-          <td class="paramname"><em>num_attributes</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(<a class="el" href="structdiag__data__mod_1_1diag__atttype.html">diag_atttype</a>), dimension(:), intent(out), optional, allocatable&#160;</td>
-          <td class="paramname"><em>attributes</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(out), optional&#160;</td>
-          <td class="paramname"><em>domain_position</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Return information about the axis with index ID. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td>Axis ID </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">direction</td><td>Direction of data. (See <code>diag_axis_init</code> for a description of allowed values) </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">edges</td><td>Axis ID for the previously defined "edges axis". </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">data</td><td>Array of coordinate values for this axis. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l00467">467</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
-
-</div>
-</div>
-<a id="a439d202181dc2584f338b35381124bc9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a439d202181dc2584f338b35381124bc9">&#9670;&nbsp;</a></span>get_diag_axis_cart()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine, public diag_axis_mod::get_diag_axis_cart </td>
-          <td>(</td>
-          <td class="paramtype">integer, intent(in)&#160;</td>
-          <td class="paramname"><em>id</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">character(len=*), intent(out)&#160;</td>
-          <td class="paramname"><em>cart_name</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Return the axis cartesian. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td>Axis ID </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">cart_name</td><td>Cartesian axis </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l00556">556</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
-
-</div>
-</div>
-<a id="aa407ee1754c289606c1e3528e132d5e8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa407ee1754c289606c1e3528e132d5e8">&#9670;&nbsp;</a></span>get_diag_axis_data()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine, public diag_axis_mod::get_diag_axis_data </td>
-          <td>(</td>
-          <td class="paramtype">integer, intent(in)&#160;</td>
-          <td class="paramname"><em>id</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real, dimension(:), intent(out)&#160;</td>
-          <td class="paramname"><em>DATA</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Return the axis data. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td>Axis ID </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">data</td><td>Axis data </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l00565">565</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
-
-</div>
-</div>
-<a id="ae7cc7f544e4dde3908484c69f45de108"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae7cc7f544e4dde3908484c69f45de108">&#9670;&nbsp;</a></span>get_diag_axis_domain_name()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine, public diag_axis_mod::get_diag_axis_domain_name </td>
-          <td>(</td>
-          <td class="paramtype">integer, intent(in)&#160;</td>
-          <td class="paramname"><em>id</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">character(len=*), intent(out)&#160;</td>
-          <td class="paramname"><em>name</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Return the name of the axis' domain. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td>Axis ID </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">name</td><td>Axis' domain name </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l00588">588</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
-
-</div>
-</div>
-<a id="a687ad43a9f0e6223ad754a9a3fed5b0c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a687ad43a9f0e6223ad754a9a3fed5b0c">&#9670;&nbsp;</a></span>get_diag_axis_name()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine, public diag_axis_mod::get_diag_axis_name </td>
-          <td>(</td>
-          <td class="paramtype">integer, intent(in)&#160;</td>
-          <td class="paramname"><em>id</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">character(len=*), intent(out)&#160;</td>
-          <td class="paramname"><em>name</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Return the short name of the axis. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td>Axis ID </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">name</td><td>Axis short name </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l00579">579</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
-
-</div>
-</div>
-<a id="aeed28de0d52325d817dc3f8caff2932f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeed28de0d52325d817dc3f8caff2932f">&#9670;&nbsp;</a></span>get_domain1d()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">type(domain1d) function, public diag_axis_mod::get_domain1d </td>
-          <td>(</td>
-          <td class="paramtype">integer, intent(in)&#160;</td>
-          <td class="paramname"><em>id</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Retrun the 1D domain for the axis ID given. </p>
-<dl class="section return"><dt>Returns</dt><dd>1D domain for the axis ID given </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td>Axis ID </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l00668">668</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
-
-</div>
-</div>
-<a id="a5e5c270e61942c47611a48ae758c0f4c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5e5c270e61942c47611a48ae758c0f4c">&#9670;&nbsp;</a></span>get_domain2d()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">type(domain2d) function, public diag_axis_mod::get_domain2d </td>
-          <td>(</td>
-          <td class="paramtype">integer, dimension(:), intent(in)&#160;</td>
-          <td class="paramname"><em>ids</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Return the 2D domain for the axis IDs given. </p>
-<dl class="section return"><dt>Returns</dt><dd>2D domain for the axis IDs given </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">ids</td><td>Axis IDs. Possible dimensions: 1 &lt;= <code>size(ids(:))</code> &lt;= 4. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l00681">681</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
-
-</div>
-</div>
-<a id="a6e662b343114e500df7ca182ecf73e58"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6e662b343114e500df7ca182ecf73e58">&#9670;&nbsp;</a></span>get_domainug()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">type(domainug) function, public diag_axis_mod::get_domainug </td>
-          <td>(</td>
-          <td class="paramtype">integer, intent(in)&#160;</td>
-          <td class="paramname"><em>id</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Retrun the 1D domain for the axis ID given. </p>
-<dl class="section return"><dt>Returns</dt><dd>1D domain for the axis ID given </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td>Axis ID </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l00707">707</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
-
-</div>
-</div>
-<a id="a89e9669ae212e861223da2c9036ae5fc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a89e9669ae212e861223da2c9036ae5fc">&#9670;&nbsp;</a></span>get_tile_count()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">integer function, public diag_axis_mod::get_tile_count </td>
-          <td>(</td>
-          <td class="paramtype">integer, dimension(:), intent(in)&#160;</td>
-          <td class="paramname"><em>ids</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Return the tile count for the axis. </p>
-<dl class="section return"><dt>Returns</dt><dd>tile count for the axis </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">ids</td><td>Axis IDs. Possible dimensions: 1 &lt;= <code>size(ids(:))</code> &lt;= 4. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l00641">641</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
-
-</div>
-</div>
-</div><!-- contents -->
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

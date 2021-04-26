@@ -10,5 +10,5 @@ var dir_477fe3609f5d22ca8042e79bf129e73c =
     [ "drifters_push.h", "drifters__push_8h_source.html", null ],
     [ "drifters_set_field.h", "drifters__set__field_8h_source.html", null ],
     [ "fms_switches.h", "fms__switches_8h_source.html", null ],
-    [ "quicksort.F90", "quicksort_8F90_source.html", null ]
+    [ "quicksort.F90", "quicksort_8F90.html", "quicksort_8F90" ]
 ];

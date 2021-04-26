@@ -33,8 +33,9 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">FMS
+   &#160;<span id="projectnumber">$ver</span>
    </div>
-   <div id="projectbrief">FMS Library</div>
+   <div id="projectbrief">Flexible Modeling System</div>
   </td>
  </tr>
  </tbody>
@@ -92,11 +93,11 @@ $(document).ready(function(){initNavTree('column__diagnostics_8F90.html',''); in
   <div class="summary">
 <a href="#func-members">Functions/Subroutines</a>  </div>
   <div class="headertitle">
-<div class="title">column_diagnostics.F90 File Reference</div>  </div>
+<div class="title">column_diagnostics.F90 File Reference<div class="ingroups"><a class="el" href="group__column__diagnostics.html">Column Diagnostics</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Module to locate and mark desired diagnostic columns @email <a href="#" onclick="location.href='mai'+'lto:'+'gfd'+'l.'+'cli'+'ma'+'te.'+'mo'+'del'+'.i'+'nfo'+'@n'+'oaa'+'.g'+'ov'; return false;">gfdl.<span style="display: none;">.nosp@m.</span>clim<span style="display: none;">.nosp@m.</span>ate.m<span style="display: none;">.nosp@m.</span>odel<span style="display: none;">.nosp@m.</span>.info<span style="display: none;">.nosp@m.</span>@noa<span style="display: none;">.nosp@m.</span>a.gov</a>.  
+<p>File for <a class="el" href="group__column__diagnostics__mod.html">column_diagnostics_mod</a>.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;file_version.h&gt;</code><br />
 </div>
@@ -104,263 +105,25 @@ $(document).ready(function(){initNavTree('column__diagnostics_8F90.html',''); in
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
-<tr class="memitem:a916fb41aaa96a7d093b9b5816ab71871"><td class="memItemLeft" align="right" valign="top"><a id="a916fb41aaa96a7d093b9b5816ab71871"></a>
-subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="column__diagnostics_8F90.html#a916fb41aaa96a7d093b9b5816ab71871">column_diagnostics_init</a></td></tr>
-<tr class="memdesc:a916fb41aaa96a7d093b9b5816ab71871"><td class="mdescLeft">&#160;</td><td class="mdescRight">column_diagnostics_init is the constructor for column_diagnostics_mod. <br /></td></tr>
-<tr class="separator:a916fb41aaa96a7d093b9b5816ab71871"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad33e83bff932cc780959c2ddc213c7bf"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="column__diagnostics_8F90.html#ad33e83bff932cc780959c2ddc213c7bf">initialize_diagnostic_columns</a> (module, num_diag_pts_latlon, num_diag_pts_ij, global_i, global_j, global_lat_latlon, global_lon_latlon, lonb_in, latb_in, do_column_diagnostics, diag_lon, diag_lat, diag_i, diag_j, diag_units)</td></tr>
-<tr class="memdesc:ad33e83bff932cc780959c2ddc213c7bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">initialize_diagnostic_columns returns the (i, j, lat, lon) coord- inates of any diagnostic columns that are located on the current processor.  <a href="column__diagnostics_8F90.html#ad33e83bff932cc780959c2ddc213c7bf">More...</a><br /></td></tr>
-<tr class="separator:ad33e83bff932cc780959c2ddc213c7bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae3f4221fd348b66979b7edeb28835db2"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="column__diagnostics_8F90.html#ae3f4221fd348b66979b7edeb28835db2">column_diagnostics_header</a> (module, diag_unit, Time, nn, diag_lon, diag_lat, diag_i, diag_j)</td></tr>
-<tr class="memdesc:ae3f4221fd348b66979b7edeb28835db2"><td class="mdescLeft">&#160;</td><td class="mdescRight">column_diagnostics_header writes out information concerning time and location of following data into the column_diagnostics output file.  <a href="column__diagnostics_8F90.html#ae3f4221fd348b66979b7edeb28835db2">More...</a><br /></td></tr>
-<tr class="separator:ae3f4221fd348b66979b7edeb28835db2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad930e5f73349a15f08ece50731696334"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="column__diagnostics_8F90.html#ad930e5f73349a15f08ece50731696334">close_column_diagnostics_units</a> (diag_units)</td></tr>
-<tr class="memdesc:ad930e5f73349a15f08ece50731696334"><td class="mdescLeft">&#160;</td><td class="mdescRight">close_column_diagnostics_units closes any open column_diagnostics files associated with the calling module.  <a href="column__diagnostics_8F90.html#ad930e5f73349a15f08ece50731696334">More...</a><br /></td></tr>
-<tr class="separator:ad930e5f73349a15f08ece50731696334"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga916fb41aaa96a7d093b9b5816ab71871"><td class="memItemLeft" align="right" valign="top">
+subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__diagnostics__mod.html#ga916fb41aaa96a7d093b9b5816ab71871">column_diagnostics_init</a></td></tr>
+<tr class="memdesc:ga916fb41aaa96a7d093b9b5816ab71871"><td class="mdescLeft">&#160;</td><td class="mdescRight">column_diagnostics_init is the constructor for column_diagnostics_mod. <br /></td></tr>
+<tr class="separator:ga916fb41aaa96a7d093b9b5816ab71871"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad33e83bff932cc780959c2ddc213c7bf"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__diagnostics__mod.html#gad33e83bff932cc780959c2ddc213c7bf">initialize_diagnostic_columns</a> (module, num_diag_pts_latlon, num_diag_pts_ij, global_i, global_j, global_lat_latlon, global_lon_latlon, lonb_in, latb_in, do_column_diagnostics, diag_lon, diag_lat, diag_i, diag_j, diag_units)</td></tr>
+<tr class="memdesc:gad33e83bff932cc780959c2ddc213c7bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">initialize_diagnostic_columns returns the (i, j, lat, lon) coord- inates of any diagnostic columns that are located on the current processor.  <a href="group__column__diagnostics__mod.html#gad33e83bff932cc780959c2ddc213c7bf">More...</a><br /></td></tr>
+<tr class="separator:gad33e83bff932cc780959c2ddc213c7bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae3f4221fd348b66979b7edeb28835db2"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__diagnostics__mod.html#gae3f4221fd348b66979b7edeb28835db2">column_diagnostics_header</a> (module, diag_unit, Time, nn, diag_lon, diag_lat, diag_i, diag_j)</td></tr>
+<tr class="memdesc:gae3f4221fd348b66979b7edeb28835db2"><td class="mdescLeft">&#160;</td><td class="mdescRight">column_diagnostics_header writes out information concerning time and location of following data into the column_diagnostics output file.  <a href="group__column__diagnostics__mod.html#gae3f4221fd348b66979b7edeb28835db2">More...</a><br /></td></tr>
+<tr class="separator:gae3f4221fd348b66979b7edeb28835db2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad930e5f73349a15f08ece50731696334"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__diagnostics__mod.html#gad930e5f73349a15f08ece50731696334">close_column_diagnostics_units</a> (diag_units)</td></tr>
+<tr class="memdesc:gad930e5f73349a15f08ece50731696334"><td class="mdescLeft">&#160;</td><td class="mdescRight">close_column_diagnostics_units closes any open column_diagnostics files associated with the calling module.  <a href="group__column__diagnostics__mod.html#gad930e5f73349a15f08ece50731696334">More...</a><br /></td></tr>
+<tr class="separator:gad930e5f73349a15f08ece50731696334"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Module to locate and mark desired diagnostic columns @email <a href="#" onclick="location.href='mai'+'lto:'+'gfd'+'l.'+'cli'+'ma'+'te.'+'mo'+'del'+'.i'+'nfo'+'@n'+'oaa'+'.g'+'ov'; return false;">gfdl.<span style="display: none;">.nosp@m.</span>clim<span style="display: none;">.nosp@m.</span>ate.m<span style="display: none;">.nosp@m.</span>odel<span style="display: none;">.nosp@m.</span>.info<span style="display: none;">.nosp@m.</span>@noa<span style="display: none;">.nosp@m.</span>a.gov</a>. </p>
+<div class="textblock"><p>File for <a class="el" href="group__column__diagnostics__mod.html">column_diagnostics_mod</a>. </p>
 
 <p class="definition">Definition in file <a class="el" href="column__diagnostics_8F90_source.html">column_diagnostics.F90</a>.</p>
-</div><h2 class="groupheader">Function/Subroutine Documentation</h2>
-<a id="ad930e5f73349a15f08ece50731696334"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad930e5f73349a15f08ece50731696334">&#9670;&nbsp;</a></span>close_column_diagnostics_units()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine, public column_diagnostics_mod::close_column_diagnostics_units </td>
-          <td>(</td>
-          <td class="paramtype">integer, dimension(:), intent(in)&#160;</td>
-          <td class="paramname"><em>diag_units</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>close_column_diagnostics_units closes any open column_diagnostics files associated with the calling module. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">diag_units</td><td>array of column diagnostic unit numbers </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="column__diagnostics_8F90_source.html#l00554">554</a> of file <a class="el" href="column__diagnostics_8F90_source.html">column_diagnostics.F90</a>.</p>
-
-</div>
-</div>
-<a id="ae3f4221fd348b66979b7edeb28835db2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae3f4221fd348b66979b7edeb28835db2">&#9670;&nbsp;</a></span>column_diagnostics_header()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine, public column_diagnostics_mod::column_diagnostics_header </td>
-          <td>(</td>
-          <td class="paramtype">character(len=*), intent(in)&#160;</td>
-          <td class="paramname"><em>module</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)&#160;</td>
-          <td class="paramname"><em>diag_unit</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(time_type), intent(in)&#160;</td>
-          <td class="paramname"><em>Time</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)&#160;</td>
-          <td class="paramname"><em>nn</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real, dimension(:), intent(in)&#160;</td>
-          <td class="paramname"><em>diag_lon</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real, dimension(:), intent(in)&#160;</td>
-          <td class="paramname"><em>diag_lat</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, dimension(:), intent(in)&#160;</td>
-          <td class="paramname"><em>diag_i</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, dimension(:), intent(in)&#160;</td>
-          <td class="paramname"><em>diag_j</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>column_diagnostics_header writes out information concerning time and location of following data into the column_diagnostics output file. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">module</td><td>module name calling this subroutine </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">time</td><td>current model time [ time_type ] </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">diag_unit</td><td>unit number for column_diagnostics output </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">nn</td><td>index of diagnostic column currently active </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">diag_lon</td><td>longitude of current diagnostic column [ degrees ] </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">diag_lat</td><td>latitude of current diagnostic column [ degrees ] </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">diag_i</td><td>i coordinate of current diagnostic column </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">diag_j</td><td>j coordinate of current diagnostic column </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="column__diagnostics_8F90_source.html#l00452">452</a> of file <a class="el" href="column__diagnostics_8F90_source.html">column_diagnostics.F90</a>.</p>
-
-</div>
-</div>
-<a id="ad33e83bff932cc780959c2ddc213c7bf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad33e83bff932cc780959c2ddc213c7bf">&#9670;&nbsp;</a></span>initialize_diagnostic_columns()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine, public column_diagnostics_mod::initialize_diagnostic_columns </td>
-          <td>(</td>
-          <td class="paramtype">character(len=*), intent(in)&#160;</td>
-          <td class="paramname"><em>module</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)&#160;</td>
-          <td class="paramname"><em>num_diag_pts_latlon</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)&#160;</td>
-          <td class="paramname"><em>num_diag_pts_ij</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, dimension(:), intent(in)&#160;</td>
-          <td class="paramname"><em>global_i</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, dimension(:), intent(in)&#160;</td>
-          <td class="paramname"><em>global_j</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real, dimension(:), intent(in)&#160;</td>
-          <td class="paramname"><em>global_lat_latlon</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real, dimension(:), intent(in)&#160;</td>
-          <td class="paramname"><em>global_lon_latlon</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real, dimension(:,:), intent(in)&#160;</td>
-          <td class="paramname"><em>lonb_in</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real, dimension(:,:), intent(in)&#160;</td>
-          <td class="paramname"><em>latb_in</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">logical, dimension(:,:), intent(out)&#160;</td>
-          <td class="paramname"><em>do_column_diagnostics</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real, dimension(:), intent(out)&#160;</td>
-          <td class="paramname"><em>diag_lon</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real, dimension(:), intent(out)&#160;</td>
-          <td class="paramname"><em>diag_lat</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, dimension(:), intent(inout)&#160;</td>
-          <td class="paramname"><em>diag_i</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, dimension(:), intent(inout)&#160;</td>
-          <td class="paramname"><em>diag_j</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, dimension(:), intent(out)&#160;</td>
-          <td class="paramname"><em>diag_units</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>initialize_diagnostic_columns returns the (i, j, lat, lon) coord- inates of any diagnostic columns that are located on the current processor. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">module</td><td>module calling this subroutine </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">num_diag_pts_latlon</td><td>number of diagnostic columns specified by lat-lon coordinates </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">num_diag_pts_ij</td><td>number of diagnostic columns specified by global (i,j) coordinates </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">global_i</td><td>specified global i coordinates </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">global_j</td><td>specified global j coordinates </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">global_lat_latlon</td><td>specified global lat coordinates </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">global_lon_latlon</td><td>specified global lon coordinates </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">do_column_diagnostics</td><td>is a diagnostic column in this jrow ? </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">diag_i</td><td>processor i indices of diagnstic columns </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">diag_j</td><td>processor j indices of diagnstic columns </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">diag_lat</td><td>latitudes of diagnostic columns [ degrees ] </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">diag_lon</td><td>longitudes of diagnostic columns [ degrees ] </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">diag_units</td><td>unit number for each diagnostic column </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="column__diagnostics_8F90_source.html#l00175">175</a> of file <a class="el" href="column__diagnostics_8F90_source.html">column_diagnostics.F90</a>.</p>
-
-</div>
-</div>
-</div><!-- contents -->
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

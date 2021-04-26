@@ -33,8 +33,9 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">FMS
+   &#160;<span id="projectnumber">$ver</span>
    </div>
-   <div id="projectbrief">FMS Library</div>
+   <div id="projectbrief">Flexible Modeling System</div>
   </td>
  </tr>
  </tbody>
@@ -90,9 +91,11 @@ $(document).ready(function(){initNavTree('group__diag__integral__mod.html',''); 
 
 <div class="header">
   <div class="summary">
-<a href="#groups">Modules</a>  </div>
+<a href="#groups">Modules</a> &#124;
+<a href="#nested-classes">Data Types</a> &#124;
+<a href="#func-members">Functions/Subroutines</a>  </div>
   <div class="headertitle">
-<div class="title">diag_integral_mod</div>  </div>
+<div class="title">diag_integral_mod<div class="ingroups"><a class="el" href="group__diag__integral.html">Diag Integral</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -104,25 +107,23 @@ Modules</h2></td></tr>
 <tr class="memitem:group__sum__diag__integral__field"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__sum__diag__integral__field.html">sum_diag_integral_field</a></td></tr>
 <tr class="memdesc:group__sum__diag__integral__field"><td class="mdescLeft">&#160;</td><td class="mdescRight">This interface can be called in any one of three ways: <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions/Subroutines</h2></td></tr>
+<tr class="memitem:gab1a4d0d7413b96f1c242cd1a1991db42"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__integral__mod.html#gab1a4d0d7413b96f1c242cd1a1991db42">diag_integral_init</a> (Time_init, Time, blon, blat, area_in)</td></tr>
+<tr class="separator:gab1a4d0d7413b96f1c242cd1a1991db42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga38c31ccb17c6433d4228180ea57ac312"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__integral__mod.html#ga38c31ccb17c6433d4228180ea57ac312">diag_integral_field_init</a> (name, format)</td></tr>
+<tr class="separator:ga38c31ccb17c6433d4228180ea57ac312"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga35d0f233eb80cf6dc9745665491f13bb"><td class="memItemLeft" align="right" valign="top"><a id="ga35d0f233eb80cf6dc9745665491f13bb"></a>
+subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>diag_integral_output</b> (Time)</td></tr>
+<tr class="separator:ga35d0f233eb80cf6dc9745665491f13bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae242cb7883e5522984b902a09680fce8"><td class="memItemLeft" align="right" valign="top"><a id="gae242cb7883e5522984b902a09680fce8"></a>
+subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>diag_integral_end</b> (Time)</td></tr>
+<tr class="separator:gae242cb7883e5522984b902a09680fce8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>This module computes and outputs global and / or hemispheric physics integrals. </p>
 <dl class="section author"><dt>Author</dt><dd>Fei Liu <a href="#" onclick="location.href='mai'+'lto:'+'Fei'+'.L'+'iu@'+'no'+'aa.'+'go'+'v'; return false;">Fei.L<span style="display: none;">.nosp@m.</span>iu@n<span style="display: none;">.nosp@m.</span>oaa.g<span style="display: none;">.nosp@m.</span>ov</a></dd></dl>
-<p><b> Modules Included: </b></p>
-<table class="doxtable">
-<tr>
-<th>Module Name  </th><th>Included Values   </th></tr>
-<tr>
-<td>time_manager_mod  </td><td>time_type, get_time, set_time, time_manager_init, operator(+), operator(-), operator(==), operator(&gt;=), operator(/=)   </td></tr>
-<tr>
-<td>mpp_mod  </td><td>input_nml_file &lt;\td&gt;  </td></tr>
-<tr>
-<td>fms_mod  </td><td>open_file, file_exist, error_mesg, open_namelist_file, check_nml_error, fms_init, mpp_pe, mpp_root_pe, FATAL, write_version_number, stdlog   </td></tr>
-<tr>
-<td>constants_mod  </td><td>radius, constants_init   </td></tr>
-<tr>
-<td>mpp_mod  </td><td>mpp_sum, mpp_init   </td></tr>
-</table>
 <p><b> Public Interfaces: </b></p>
 <ul>
 <li>sum_diag_integral_field</li>
@@ -152,6 +153,101 @@ Modules</h2></td></tr>
 <li>format_text_init</li>
 <li>format_data_init </li>
 </ul>
+<h2 class="groupheader">Function/Subroutine Documentation</h2>
+<a id="ga38c31ccb17c6433d4228180ea57ac312"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga38c31ccb17c6433d4228180ea57ac312">&#9670;&nbsp;</a></span>diag_integral_field_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine, public diag_integral_mod::diag_integral_field_init </td>
+          <td>(</td>
+          <td class="paramtype">character(len=*), intent(in)&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in)&#160;</td>
+          <td class="paramname"><em>format</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>Name of the field to be integrated</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">format</td><td>Output format of the field to be integrated </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="diag__integral_8F90_source.html#l00464">464</a> of file <a class="el" href="diag__integral_8F90_source.html">diag_integral.F90</a>.</p>
+
+</div>
+</div>
+<a id="gab1a4d0d7413b96f1c242cd1a1991db42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab1a4d0d7413b96f1c242cd1a1991db42">&#9670;&nbsp;</a></span>diag_integral_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine, public diag_integral_mod::diag_integral_init </td>
+          <td>(</td>
+          <td class="paramtype">type (time_type), intent(in), optional&#160;</td>
+          <td class="paramname"><em>Time_init</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type (time_type), intent(in), optional&#160;</td>
+          <td class="paramname"><em>Time</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:,:), intent(in), optional&#160;</td>
+          <td class="paramname"><em>blon</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:,:), intent(in), optional&#160;</td>
+          <td class="paramname"><em>blat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:,:), intent(in), optional&#160;</td>
+          <td class="paramname"><em>area_in</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">time_init</td><td>Initial time to start the integral</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">time</td><td>current time</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">blon</td><td>array of model latitudes at cell boundaries [radians]</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">blat</td><td>array of model longitudes at cell boundaries [radians] </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="diag__integral_8F90_source.html#l00312">312</a> of file <a class="el" href="diag__integral_8F90_source.html">diag_integral.F90</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -33,8 +33,9 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">FMS
+   &#160;<span id="projectnumber">$ver</span>
    </div>
-   <div id="projectbrief">FMS Library</div>
+   <div id="projectbrief">Flexible Modeling System</div>
   </td>
  </tr>
  </tbody>
@@ -2581,19 +2582,19 @@ $(document).ready(function(){initNavTree('create__xgrid_8c_source.html',''); ini
 <div class="line"><a name="l02486"></a><span class="lineno"> 2486</span>&#160;<span class="comment">*******************************************************************************/</span></div>
 <div class="line"><a name="l02487"></a><span class="lineno"> 2487</span>&#160;<span class="keywordtype">double</span> grid_box_radius(<span class="keyword">const</span> <span class="keywordtype">double</span> *x, <span class="keyword">const</span> <span class="keywordtype">double</span> *y, <span class="keyword">const</span> <span class="keywordtype">double</span> *z, <span class="keywordtype">int</span> n)</div>
 <div class="line"><a name="l02488"></a><span class="lineno"> 2488</span>&#160;{</div>
-<div class="line"><a name="l02489"></a><span class="lineno"> 2489</span>&#160;  <span class="keywordtype">double</span> <a class="code" href="constants_8F90.html#a4a9bc4832415870f8640fd6d3f81e346">radius</a>;</div>
+<div class="line"><a name="l02489"></a><span class="lineno"> 2489</span>&#160;  <span class="keywordtype">double</span> <a class="code" href="group__constants__mod.html#ga4a9bc4832415870f8640fd6d3f81e346">radius</a>;</div>
 <div class="line"><a name="l02490"></a><span class="lineno"> 2490</span>&#160;  <span class="keywordtype">int</span> i, j;</div>
 <div class="line"><a name="l02491"></a><span class="lineno"> 2491</span>&#160; </div>
-<div class="line"><a name="l02492"></a><span class="lineno"> 2492</span>&#160;  <a class="code" href="constants_8F90.html#a4a9bc4832415870f8640fd6d3f81e346">radius</a> = 0;</div>
+<div class="line"><a name="l02492"></a><span class="lineno"> 2492</span>&#160;  <a class="code" href="group__constants__mod.html#ga4a9bc4832415870f8640fd6d3f81e346">radius</a> = 0;</div>
 <div class="line"><a name="l02493"></a><span class="lineno"> 2493</span>&#160;  <span class="keywordflow">for</span>(i=0; i&lt;n-1; i++) {</div>
 <div class="line"><a name="l02494"></a><span class="lineno"> 2494</span>&#160;    <span class="keywordflow">for</span>(j=i+1; j&lt;n; j++) {</div>
-<div class="line"><a name="l02495"></a><span class="lineno"> 2495</span>&#160;      <a class="code" href="constants_8F90.html#a4a9bc4832415870f8640fd6d3f81e346">radius</a> = max(radius, pow(x[i]-x[j],2.)+pow(y[i]-y[j],2.)+pow(z[i]-z[j],2.));</div>
+<div class="line"><a name="l02495"></a><span class="lineno"> 2495</span>&#160;      <a class="code" href="group__constants__mod.html#ga4a9bc4832415870f8640fd6d3f81e346">radius</a> = max(<a class="code" href="group__constants__mod.html#ga4a9bc4832415870f8640fd6d3f81e346">radius</a>, pow(x[i]-x[j],2.)+pow(y[i]-y[j],2.)+pow(z[i]-z[j],2.));</div>
 <div class="line"><a name="l02496"></a><span class="lineno"> 2496</span>&#160;    }</div>
 <div class="line"><a name="l02497"></a><span class="lineno"> 2497</span>&#160;  }</div>
 <div class="line"><a name="l02498"></a><span class="lineno"> 2498</span>&#160; </div>
-<div class="line"><a name="l02499"></a><span class="lineno"> 2499</span>&#160;  <a class="code" href="constants_8F90.html#a4a9bc4832415870f8640fd6d3f81e346">radius</a> = sqrt(radius);</div>
+<div class="line"><a name="l02499"></a><span class="lineno"> 2499</span>&#160;  <a class="code" href="group__constants__mod.html#ga4a9bc4832415870f8640fd6d3f81e346">radius</a> = sqrt(<a class="code" href="group__constants__mod.html#ga4a9bc4832415870f8640fd6d3f81e346">radius</a>);</div>
 <div class="line"><a name="l02500"></a><span class="lineno"> 2500</span>&#160; </div>
-<div class="line"><a name="l02501"></a><span class="lineno"> 2501</span>&#160;  <span class="keywordflow">return</span> (radius);</div>
+<div class="line"><a name="l02501"></a><span class="lineno"> 2501</span>&#160;  <span class="keywordflow">return</span> (<a class="code" href="group__constants__mod.html#ga4a9bc4832415870f8640fd6d3f81e346">radius</a>);</div>
 <div class="line"><a name="l02502"></a><span class="lineno"> 2502</span>&#160; </div>
 <div class="line"><a name="l02503"></a><span class="lineno"> 2503</span>&#160;} <span class="comment">/* grid_box_radius */</span></div>
 <div class="line"><a name="l02504"></a><span class="lineno"> 2504</span>&#160; </div>
@@ -3177,7 +3178,7 @@ $(document).ready(function(){initNavTree('create__xgrid_8c_source.html',''); ini
 <div class="line"><a name="l03082"></a><span class="lineno"> 3082</span>&#160; </div>
 <div class="line"><a name="l03083"></a><span class="lineno"> 3083</span>&#160; </div>
 <div class="line"><a name="l03084"></a><span class="lineno"> 3084</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aconstants_8F90_html_a4a9bc4832415870f8640fd6d3f81e346"><div class="ttname"><a href="constants_8F90.html#a4a9bc4832415870f8640fd6d3f81e346">constants_mod::radius</a></div><div class="ttdeci">real, parameter, public radius</div><div class="ttdoc">Radius of the Earth [m].</div><div class="ttdef"><b>Definition:</b> <a href="constants_8F90_source.html#l00078">constants.F90:78</a></div></div>
+<div class="ttc" id="agroup__constants__mod_html_ga4a9bc4832415870f8640fd6d3f81e346"><div class="ttname"><a href="group__constants__mod.html#ga4a9bc4832415870f8640fd6d3f81e346">constants_mod::radius</a></div><div class="ttdeci">real, parameter, public radius</div><div class="ttdoc">Radius of the Earth [m].</div><div class="ttdef"><b>Definition:</b> <a href="constants_8F90_source.html#l00103">constants.F90:103</a></div></div>
 <div class="ttc" id="astructNode_html"><div class="ttname"><a href="structNode.html">Node</a></div><div class="ttdef"><b>Definition:</b> <a href="mosaic__util_8h_source.html#l00036">mosaic_util.h:36</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

@@ -33,8 +33,9 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">FMS
+   &#160;<span id="projectnumber">$ver</span>
    </div>
-   <div id="projectbrief">FMS Library</div>
+   <div id="projectbrief">Flexible Modeling System</div>
   </td>
  </tr>
  </tbody>
@@ -183,10 +184,10 @@ $(document).ready(function(){initNavTree('test__drifters__comm_8F90_source.html'
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  <span class="comment">! set up drifters&#39; communicator</span></div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  <span class="keyword">call </span>drifters_comm_new(drfts_com)</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  <span class="keyword">call </span>drifters_comm_set_domain(drfts_com, domain, x, y, 0,0)</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  <span class="keyword">call </span><a class="code" href="group__drifters__comm__mod.html#gac59ff2590c95134ec28fe03e33094fa9">drifters_comm_set_domain</a>(drfts_com, domain, x, y, 0,0)</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  <span class="comment">! repeated calls just for the fun of it</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  <span class="keyword">call </span>drifters_comm_set_domain(drfts_com, domain, x, y, 0,0)</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  <span class="keyword">call </span>drifters_comm_set_domain(drfts_com, domain, x, y, 0,0)</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  <span class="keyword">call </span><a class="code" href="group__drifters__comm__mod.html#gac59ff2590c95134ec28fe03e33094fa9">drifters_comm_set_domain</a>(drfts_com, domain, x, y, 0,0)</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  <span class="keyword">call </span><a class="code" href="group__drifters__comm__mod.html#gac59ff2590c95134ec28fe03e33094fa9">drifters_comm_set_domain</a>(drfts_com, domain, x, y, 0,0)</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  <span class="comment">! create drifters</span></div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  <span class="keyword">call </span>drifters_core_new(drfts, nd, npmax, ermsg)</div>
@@ -221,7 +222,7 @@ $(document).ready(function(){initNavTree('test__drifters__comm_8F90_source.html'
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;     positions(:,1:drfts%np) = xmin + &amp;</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;          &amp; modulo(drfts%positions(:,1:drfts%np) + dt*velocity(:,1:drfts%np)-xmin, xmax-xmin)</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;     <span class="comment">! this will redistribute the drifters and update the positions</span></div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;     <span class="keyword">call </span>drifters_comm_update(drfts_com, drfts, positions(:,1:drfts%np))</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;     <span class="keyword">call </span><a class="code" href="group__drifters__comm__mod.html#ga62f10c09f77f8dbc0c1e94978f7ccddc">drifters_comm_update</a>(drfts_com, drfts, positions(:,1:drfts%np))</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;     <span class="keywordflow">if</span>(drfts%np &gt; 0) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        <span class="keywordflow">do</span> i=1,drfts%np</div>
@@ -244,6 +245,8 @@ $(document).ready(function(){initNavTree('test__drifters__comm_8F90_source.html'
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;  <span class="keyword">call </span>mpp_exit</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="keyword">end program </span>test_drifters_comm</div>
+<div class="ttc" id="agroup__drifters__comm__mod_html_ga62f10c09f77f8dbc0c1e94978f7ccddc"><div class="ttname"><a href="group__drifters__comm__mod.html#ga62f10c09f77f8dbc0c1e94978f7ccddc">drifters_comm_mod::drifters_comm_update</a></div><div class="ttdeci">subroutine, public drifters_comm_update(self, drfts, new_positions, comm, remove, max_add_remove)</div><div class="ttdef"><b>Definition:</b> <a href="drifters__comm_8F90_source.html#l00330">drifters_comm.F90:332</a></div></div>
+<div class="ttc" id="agroup__drifters__comm__mod_html_gac59ff2590c95134ec28fe03e33094fa9"><div class="ttname"><a href="group__drifters__comm__mod.html#gac59ff2590c95134ec28fe03e33094fa9">drifters_comm_mod::drifters_comm_set_domain</a></div><div class="ttdeci">subroutine, public drifters_comm_set_domain(self, domain, x, y, backoff_x, backoff_y)</div><div class="ttdoc">Set boundaries of domain and compute neighbors. This method can be called multiple times; the data do...</div><div class="ttdef"><b>Definition:</b> <a href="drifters__comm_8F90_source.html#l00236">drifters_comm.F90:237</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

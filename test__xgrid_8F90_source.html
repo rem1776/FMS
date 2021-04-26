@@ -33,8 +33,9 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">FMS
+   &#160;<span id="projectnumber">$ver</span>
    </div>
-   <div id="projectbrief">FMS Library</div>
+   <div id="projectbrief">Flexible Modeling System</div>
   </td>
  </tr>
  </tbody>
@@ -130,17 +131,17 @@ $(document).ready(function(){initNavTree('test__xgrid_8F90_source.html',''); ini
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <span class="keywordtype">use </span>fms2_io_mod,     <span class="keywordtype">only</span> : fmsnetcdfdomainfile_t, fmsnetcdffile_t, open_file, close_file</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="keywordtype">use </span>fms2_io_mod,     <span class="keywordtype">only</span> : read_data, write_data, variable_exists, get_dimension_size</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="keywordtype">use </span>fms2_io_mod,     <span class="keywordtype">only</span> : get_variable_size</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keywordtype">use </span>constants_mod,   <span class="keywordtype">only</span> : deg_to_rad</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <span class="keywordtype">use </span>xgrid_mod,       <span class="keywordtype">only</span> : xgrid_init, setup_xmap, put_to_xgrid, get_from_xgrid</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="keywordtype">use </span>xgrid_mod,       <span class="keywordtype">only</span> : xmap_type, xgrid_count, grid_box_type, second_order</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="keywordtype">use </span>xgrid_mod,       <span class="keywordtype">only</span> : get_xmap_grid_area, set_frac_area</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keywordtype">use </span>constants_mod,   <span class="keywordtype">only</span> : <a class="code" href="group__constants__mod.html#gae0fda99f7e05cd201a9947c6718cb1c0">deg_to_rad</a></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <span class="keywordtype">use </span>xgrid_mod,       <span class="keywordtype">only</span> : <a class="code" href="group__xgrid__mod.html#gaed7666b9fdf6c25272786857c6bb13ca">xgrid_init</a>, <a class="code" href="group__xgrid__mod.html#gab2e13403e9c0f5cab3548f86fbf55127">setup_xmap</a>, put_to_xgrid, get_from_xgrid</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="keywordtype">use </span>xgrid_mod,       <span class="keywordtype">only</span> : xmap_type, <a class="code" href="group__xgrid__mod.html#ga0165e4d85c2583255e8a82c345fa4912">xgrid_count</a>, grid_box_type, second_order</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="keywordtype">use </span>xgrid_mod,       <span class="keywordtype">only</span> : <a class="code" href="group__xgrid__mod.html#gafdf2e079aab38266765c40c596790757">get_xmap_grid_area</a>, set_frac_area</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keywordtype">use </span>xgrid_mod,       <span class="keywordtype">only</span> : get_from_xgrid_ug, put_to_xgrid_ug</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="keywordtype">use </span>mosaic2_mod,     <span class="keywordtype">only</span> : get_mosaic_ntiles, get_mosaic_grid_sizes</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keywordtype">use </span>mosaic2_mod,     <span class="keywordtype">only</span> : get_mosaic_ncontacts, get_mosaic_contact, get_mosaic_tile_grid</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keywordtype">use </span>grid_mod,        <span class="keywordtype">only</span> : get_grid_comp_area</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="keywordtype">use </span>gradient_mod,    <span class="keywordtype">only</span> : calc_cubic_grid_info</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <span class="keywordtype">use </span>ensemble_manager_mod, <span class="keywordtype">only</span> : ensemble_manager_init, ensemble_pelist_setup</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="keywordtype">use </span>ensemble_manager_mod, <span class="keywordtype">only</span> : get_ensemble_size</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <span class="keywordtype">use </span>ensemble_manager_mod, <span class="keywordtype">only</span> : <a class="code" href="group__ensemble__manager__mod.html#gacdbbf5369191eab58e691d63639ee1b1">ensemble_manager_init</a>, <a class="code" href="group__ensemble__manager__mod.html#ga978f35356297a1a43c77c2467bdcbfc9">ensemble_pelist_setup</a></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="keywordtype">use </span>ensemble_manager_mod, <span class="keywordtype">only</span> : <a class="code" href="group__ensemble__manager__mod.html#ga2ba619f4454819b2fe6412ddba2e47c1">get_ensemble_size</a></div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="keywordtype">use </span>platform_mod</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keywordtype">implicit none</span></div>
@@ -239,7 +240,7 @@ $(document).ready(function(){initNavTree('test__xgrid_8F90_source.html',''); ini
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;  ierr = check_nml_error(io, <span class="stringliteral">&#39;xgrid_test_nml&#39;</span>)</div>
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; </div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;  <span class="comment">!--- get ensemble size</span></div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;  ens_siz = get_ensemble_size()</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;  ens_siz = <a class="code" href="group__ensemble__manager__mod.html#ga2ba619f4454819b2fe6412ddba2e47c1">get_ensemble_size</a>()</div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;  ensemble_size = ens_siz(1)</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;  npes = ens_siz(2)</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
@@ -554,14 +555,14 @@ $(document).ready(function(){initNavTree('test__xgrid_8F90_source.html',''); ini
 <div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;        xt = 0; yt = 0;</div>
 <div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;        <span class="keywordflow">do</span> j = jsc_atm, jec_atm</div>
 <div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;           <span class="keywordflow">do</span> i = isc_atm, iec_atm</div>
-<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;              xt(i,j) = tmpx(2*i, 2*j)*deg_to_rad</div>
-<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;              yt(i,j) = tmpy(2*i, 2*j)*deg_to_rad</div>
+<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;              xt(i,j) = tmpx(2*i, 2*j)*<a class="code" href="group__constants__mod.html#gae0fda99f7e05cd201a9947c6718cb1c0">deg_to_rad</a></div>
+<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;              yt(i,j) = tmpy(2*i, 2*j)*<a class="code" href="group__constants__mod.html#gae0fda99f7e05cd201a9947c6718cb1c0">deg_to_rad</a></div>
 <div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;<span class="keywordflow">           end do</span></div>
 <div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;<span class="keywordflow">        end do</span></div>
 <div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;        <span class="keywordflow">do</span> j = jsc_atm, jed_atm</div>
 <div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;           <span class="keywordflow">do</span> i = isc_atm, ied_atm</div>
-<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;              xc(i,j) = tmpx(2*i-1, 2*j-1)*deg_to_rad</div>
-<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;              yc(i,j) = tmpy(2*i-1, 2*j-1)*deg_to_rad</div>
+<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;              xc(i,j) = tmpx(2*i-1, 2*j-1)*<a class="code" href="group__constants__mod.html#gae0fda99f7e05cd201a9947c6718cb1c0">deg_to_rad</a></div>
+<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;              yc(i,j) = tmpy(2*i-1, 2*j-1)*<a class="code" href="group__constants__mod.html#gae0fda99f7e05cd201a9947c6718cb1c0">deg_to_rad</a></div>
 <div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;<span class="keywordflow">           end do</span></div>
 <div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;<span class="keywordflow">        end do</span></div>
 <div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;        <span class="keyword">call </span>mpp_update_domains(xt, atm_domain)</div>
@@ -1135,6 +1136,14 @@ $(document).ready(function(){initNavTree('test__xgrid_8F90_source.html',''); ini
 <div class="line"><a name="l01040"></a><span class="lineno"> 1040</span>&#160;  <span class="keyword">end subroutine </span>compare_chksum</div>
 <div class="line"><a name="l01041"></a><span class="lineno"> 1041</span>&#160; </div>
 <div class="line"><a name="l01042"></a><span class="lineno"> 1042</span>&#160;<span class="keyword">end program </span>xgrid_test</div>
+<div class="ttc" id="agroup__constants__mod_html_gae0fda99f7e05cd201a9947c6718cb1c0"><div class="ttname"><a href="group__constants__mod.html#gae0fda99f7e05cd201a9947c6718cb1c0">constants_mod::deg_to_rad</a></div><div class="ttdeci">real, parameter, public deg_to_rad</div><div class="ttdoc">Radians per degree [rad/deg].</div><div class="ttdef"><b>Definition:</b> <a href="constants_8F90_source.html#l00151">constants.F90:151</a></div></div>
+<div class="ttc" id="agroup__ensemble__manager__mod_html_ga2ba619f4454819b2fe6412ddba2e47c1"><div class="ttname"><a href="group__ensemble__manager__mod.html#ga2ba619f4454819b2fe6412ddba2e47c1">ensemble_manager_mod::get_ensemble_size</a></div><div class="ttdeci">integer function, dimension(6), public get_ensemble_size()</div><div class="ttdoc">Returns ensemble size integer array.</div><div class="ttdef"><b>Definition:</b> <a href="ensemble__manager_8F90_source.html#l00114">ensemble_manager.F90:115</a></div></div>
+<div class="ttc" id="agroup__ensemble__manager__mod_html_ga978f35356297a1a43c77c2467bdcbfc9"><div class="ttname"><a href="group__ensemble__manager__mod.html#ga978f35356297a1a43c77c2467bdcbfc9">ensemble_manager_mod::ensemble_pelist_setup</a></div><div class="ttdeci">subroutine, public ensemble_pelist_setup(concurrent, atmos_npes, ocean_npes, land_npes, ice_npes, Atm_pelist, Ocean_pelist, Land_pelist, Ice_pelist)</div><div class="ttdoc">ensemble_pelist_setup</div><div class="ttdef"><b>Definition:</b> <a href="ensemble__manager_8F90_source.html#l00235">ensemble_manager.F90:237</a></div></div>
+<div class="ttc" id="agroup__ensemble__manager__mod_html_gacdbbf5369191eab58e691d63639ee1b1"><div class="ttname"><a href="group__ensemble__manager__mod.html#gacdbbf5369191eab58e691d63639ee1b1">ensemble_manager_mod::ensemble_manager_init</a></div><div class="ttdeci">subroutine, public ensemble_manager_init()</div><div class="ttdoc">ensemble_manager_init</div><div class="ttdef"><b>Definition:</b> <a href="ensemble__manager_8F90_source.html#l00077">ensemble_manager.F90:78</a></div></div>
+<div class="ttc" id="agroup__xgrid__mod_html_ga0165e4d85c2583255e8a82c345fa4912"><div class="ttname"><a href="group__xgrid__mod.html#ga0165e4d85c2583255e8a82c345fa4912">xgrid_mod::xgrid_count</a></div><div class="ttdeci">integer function, public xgrid_count(xmap)</div><div class="ttdoc">Returns current size of exchange grid variables.</div><div class="ttdef"><b>Definition:</b> <a href="xgrid_8F90_source.html#l03283">xgrid.F90:3284</a></div></div>
+<div class="ttc" id="agroup__xgrid__mod_html_gab2e13403e9c0f5cab3548f86fbf55127"><div class="ttname"><a href="group__xgrid__mod.html#gab2e13403e9c0f5cab3548f86fbf55127">xgrid_mod::setup_xmap</a></div><div class="ttdeci">subroutine, public setup_xmap(xmap, grid_ids, grid_domains, grid_file, atm_grid, lnd_ug_domain)</div><div class="ttdoc">Sets up exchange grid connectivity using grid specification file and processor domain decomposition.</div><div class="ttdef"><b>Definition:</b> <a href="xgrid_8F90_source.html#l01621">xgrid.F90:1622</a></div></div>
+<div class="ttc" id="agroup__xgrid__mod_html_gaed7666b9fdf6c25272786857c6bb13ca"><div class="ttname"><a href="group__xgrid__mod.html#gaed7666b9fdf6c25272786857c6bb13ca">xgrid_mod::xgrid_init</a></div><div class="ttdeci">subroutine, public xgrid_init(remap_method)</div><div class="ttdoc">Initialize the xgrid_mod.</div><div class="ttdef"><b>Definition:</b> <a href="xgrid_8F90_source.html#l00566">xgrid.F90:567</a></div></div>
+<div class="ttc" id="agroup__xgrid__mod_html_gafdf2e079aab38266765c40c596790757"><div class="ttname"><a href="group__xgrid__mod.html#gafdf2e079aab38266765c40c596790757">xgrid_mod::get_xmap_grid_area</a></div><div class="ttdeci">subroutine, public get_xmap_grid_area(id, xmap, area)</div><div class="ttdoc">This routine is used to get the grid area of component model with id.</div><div class="ttdef"><b>Definition:</b> <a href="xgrid_8F90_source.html#l04491">xgrid.F90:4492</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

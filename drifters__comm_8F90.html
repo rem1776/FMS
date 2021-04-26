@@ -33,8 +33,9 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">FMS
+   &#160;<span id="projectnumber">$ver</span>
    </div>
-   <div id="projectbrief">FMS Library</div>
+   <div id="projectbrief">Flexible Modeling System</div>
   </td>
  </tr>
  </tbody>
@@ -94,11 +95,11 @@ $(document).ready(function(){initNavTree('drifters__comm_8F90.html',''); initRes
 <a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions/Subroutines</a>  </div>
   <div class="headertitle">
-<div class="title">drifters_comm.F90 File Reference</div>  </div>
+<div class="title">drifters_comm.F90 File Reference<div class="ingroups"><a class="el" href="group__drifters.html">Drifters</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>@email <a href="#" onclick="location.href='mai'+'lto:'+'gfd'+'l.'+'cli'+'ma'+'te.'+'mo'+'del'+'.i'+'nfo'+'@n'+'oaa'+'.g'+'ov'; return false;">gfdl.<span style="display: none;">.nosp@m.</span>clim<span style="display: none;">.nosp@m.</span>ate.m<span style="display: none;">.nosp@m.</span>odel<span style="display: none;">.nosp@m.</span>.info<span style="display: none;">.nosp@m.</span>@noa<span style="display: none;">.nosp@m.</span>a.gov</a>  
+<p>File for <a class="el" href="group__drifters__comm__mod.html">drifters_comm_mod</a>.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;fms_switches.h&quot;</code><br />
 </div>
@@ -115,236 +116,29 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
-<tr class="memitem:ad6202f68705009bf80d213c0a1e13074"><td class="memItemLeft" align="right" valign="top"><a id="ad6202f68705009bf80d213c0a1e13074"></a>
+<tr class="memitem:gad6202f68705009bf80d213c0a1e13074"><td class="memItemLeft" align="right" valign="top">
 subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>drifters_comm_new</b> (self)</td></tr>
-<tr class="separator:ad6202f68705009bf80d213c0a1e13074"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae835675113b952770f1ba84467beeda1"><td class="memItemLeft" align="right" valign="top"><a id="ae835675113b952770f1ba84467beeda1"></a>
+<tr class="separator:gad6202f68705009bf80d213c0a1e13074"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae835675113b952770f1ba84467beeda1"><td class="memItemLeft" align="right" valign="top">
 subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>drifters_comm_del</b> (self)</td></tr>
-<tr class="separator:ae835675113b952770f1ba84467beeda1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4db4d3ab76ee5c6ae039183dc198c9c6"><td class="memItemLeft" align="right" valign="top"><a id="a4db4d3ab76ee5c6ae039183dc198c9c6"></a>
-subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="drifters__comm_8F90.html#a4db4d3ab76ee5c6ae039183dc198c9c6">drifters_comm_set_pe_neighbors</a> (self, domain)</td></tr>
-<tr class="memdesc:a4db4d3ab76ee5c6ae039183dc198c9c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set neighboring pe numbers. <br /></td></tr>
-<tr class="separator:a4db4d3ab76ee5c6ae039183dc198c9c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac59ff2590c95134ec28fe03e33094fa9"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="drifters__comm_8F90.html#ac59ff2590c95134ec28fe03e33094fa9">drifters_comm_set_domain</a> (self, domain, x, y, backoff_x, backoff_y)</td></tr>
-<tr class="memdesc:ac59ff2590c95134ec28fe03e33094fa9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set boundaries of domain and compute neighbors. This method can be called multiple times; the data domain will just be the intersection (overlap) of all domains (e.g domain_u, domain_v, etc).  <a href="drifters__comm_8F90.html#ac59ff2590c95134ec28fe03e33094fa9">More...</a><br /></td></tr>
-<tr class="separator:ac59ff2590c95134ec28fe03e33094fa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a62f10c09f77f8dbc0c1e94978f7ccddc"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="drifters__comm_8F90.html#a62f10c09f77f8dbc0c1e94978f7ccddc">drifters_comm_update</a> (self, drfts, new_positions, comm, remove, max_add_remove)</td></tr>
-<tr class="separator:a62f10c09f77f8dbc0c1e94978f7ccddc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a21b3baf8e94bded2623c05a77d4f1c13"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="drifters__comm_8F90.html#a21b3baf8e94bded2623c05a77d4f1c13">drifters_comm_gather</a> (self, drfts, dinp, lons, lats, do_save_lonlat, filename, root, mycomm)</td></tr>
-<tr class="separator:a21b3baf8e94bded2623c05a77d4f1c13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:gae835675113b952770f1ba84467beeda1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4db4d3ab76ee5c6ae039183dc198c9c6"><td class="memItemLeft" align="right" valign="top">
+subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__drifters__comm__mod.html#ga4db4d3ab76ee5c6ae039183dc198c9c6">drifters_comm_set_pe_neighbors</a> (self, domain)</td></tr>
+<tr class="memdesc:ga4db4d3ab76ee5c6ae039183dc198c9c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set neighboring pe numbers. <br /></td></tr>
+<tr class="separator:ga4db4d3ab76ee5c6ae039183dc198c9c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac59ff2590c95134ec28fe03e33094fa9"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__drifters__comm__mod.html#gac59ff2590c95134ec28fe03e33094fa9">drifters_comm_set_domain</a> (self, domain, x, y, backoff_x, backoff_y)</td></tr>
+<tr class="memdesc:gac59ff2590c95134ec28fe03e33094fa9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set boundaries of domain and compute neighbors. This method can be called multiple times; the data domain will just be the intersection (overlap) of all domains (e.g domain_u, domain_v, etc).  <a href="group__drifters__comm__mod.html#gac59ff2590c95134ec28fe03e33094fa9">More...</a><br /></td></tr>
+<tr class="separator:gac59ff2590c95134ec28fe03e33094fa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga62f10c09f77f8dbc0c1e94978f7ccddc"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__drifters__comm__mod.html#ga62f10c09f77f8dbc0c1e94978f7ccddc">drifters_comm_update</a> (self, drfts, new_positions, comm, remove, max_add_remove)</td></tr>
+<tr class="separator:ga62f10c09f77f8dbc0c1e94978f7ccddc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga21b3baf8e94bded2623c05a77d4f1c13"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__drifters__comm__mod.html#ga21b3baf8e94bded2623c05a77d4f1c13">drifters_comm_gather</a> (self, drfts, dinp, lons, lats, do_save_lonlat, filename, root, mycomm)</td></tr>
+<tr class="separator:ga21b3baf8e94bded2623c05a77d4f1c13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>@email <a href="#" onclick="location.href='mai'+'lto:'+'gfd'+'l.'+'cli'+'ma'+'te.'+'mo'+'del'+'.i'+'nfo'+'@n'+'oaa'+'.g'+'ov'; return false;">gfdl.<span style="display: none;">.nosp@m.</span>clim<span style="display: none;">.nosp@m.</span>ate.m<span style="display: none;">.nosp@m.</span>odel<span style="display: none;">.nosp@m.</span>.info<span style="display: none;">.nosp@m.</span>@noa<span style="display: none;">.nosp@m.</span>a.gov</a> </p>
+<div class="textblock"><p>File for <a class="el" href="group__drifters__comm__mod.html">drifters_comm_mod</a>. </p>
 
 <p class="definition">Definition in file <a class="el" href="drifters__comm_8F90_source.html">drifters_comm.F90</a>.</p>
-</div><h2 class="groupheader">Function/Subroutine Documentation</h2>
-<a id="a21b3baf8e94bded2623c05a77d4f1c13"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a21b3baf8e94bded2623c05a77d4f1c13">&#9670;&nbsp;</a></span>drifters_comm_gather()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine, public drifters_comm_mod::drifters_comm_gather </td>
-          <td>(</td>
-          <td class="paramtype">type(drifters_comm_type)&#160;</td>
-          <td class="paramname"><em>self</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(drifters_core_type)&#160;</td>
-          <td class="paramname"><em>drfts</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(drifters_input_type)&#160;</td>
-          <td class="paramname"><em>dinp</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real, dimension(:), intent(in)&#160;</td>
-          <td class="paramname"><em>lons</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real, dimension(:), intent(in)&#160;</td>
-          <td class="paramname"><em>lats</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">logical, intent(in)&#160;</td>
-          <td class="paramname"><em>do_save_lonlat</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">character(len=*), intent(in)&#160;</td>
-          <td class="paramname"><em>filename</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in), optional&#160;</td>
-          <td class="paramname"><em>root</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in), optional&#160;</td>
-          <td class="paramname"><em>mycomm</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">root</td><td>root pe</td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">mycomm</td><td>MPI communicator </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="drifters__comm_8F90_source.html#l00593">593</a> of file <a class="el" href="drifters__comm_8F90_source.html">drifters_comm.F90</a>.</p>
-
-</div>
-</div>
-<a id="ac59ff2590c95134ec28fe03e33094fa9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac59ff2590c95134ec28fe03e33094fa9">&#9670;&nbsp;</a></span>drifters_comm_set_domain()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine, public drifters_comm_mod::drifters_comm_set_domain </td>
-          <td>(</td>
-          <td class="paramtype">type(drifters_comm_type)&#160;</td>
-          <td class="paramname"><em>self</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(inout)&#160;</td>
-          <td class="paramname"><em>domain</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real, dimension(:), intent(in)&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real, dimension(:), intent(in)&#160;</td>
-          <td class="paramname"><em>y</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)&#160;</td>
-          <td class="paramname"><em>backoff_x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)&#160;</td>
-          <td class="paramname"><em>backoff_y</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Set boundaries of domain and compute neighbors. This method can be called multiple times; the data domain will just be the intersection (overlap) of all domains (e.g domain_u, domain_v, etc). </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>global axes </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">y</td><td>global axes </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">backoff_x</td><td>&gt;=0, data domain is reduced by "backoff_x,y" indices in x, resp. y </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">backoff_y</td><td>&gt;=0, data domain is reduced by "backoff_x,y" indices in x, resp. y </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="drifters__comm_8F90_source.html#l00228">228</a> of file <a class="el" href="drifters__comm_8F90_source.html">drifters_comm.F90</a>.</p>
-
-</div>
-</div>
-<a id="a62f10c09f77f8dbc0c1e94978f7ccddc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a62f10c09f77f8dbc0c1e94978f7ccddc">&#9670;&nbsp;</a></span>drifters_comm_update()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine, public drifters_comm_mod::drifters_comm_update </td>
-          <td>(</td>
-          <td class="paramtype">type(drifters_comm_type)&#160;</td>
-          <td class="paramname"><em>self</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(drifters_core_type)&#160;</td>
-          <td class="paramname"><em>drfts</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real, dimension(:,:), intent(inout)&#160;</td>
-          <td class="paramname"><em>new_positions</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in), optional&#160;</td>
-          <td class="paramname"><em>comm</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">logical, dimension(:), intent(in), optional&#160;</td>
-          <td class="paramname"><em>remove</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in), optional&#160;</td>
-          <td class="paramname"><em>max_add_remove</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">comm</td><td>MPI communicator</td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">remove</td><td>Set to True for particles that should be removed</td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">max_add_remove</td><td>max no of particles to add/remove </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="drifters__comm_8F90_source.html#l00322">322</a> of file <a class="el" href="drifters__comm_8F90_source.html">drifters_comm.F90</a>.</p>
-
-</div>
-</div>
-</div><!-- contents -->
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

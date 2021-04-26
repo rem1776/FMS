@@ -33,8 +33,9 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">FMS
+   &#160;<span id="projectnumber">$ver</span>
    </div>
-   <div id="projectbrief">FMS Library</div>
+   <div id="projectbrief">Flexible Modeling System</div>
   </td>
  </tr>
  </tbody>
@@ -140,7 +141,7 @@ $(document).ready(function(){initNavTree('test__diag__manager__time_8F90_source.
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">call </span>fms_init</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">call </span>set_calendar_type(julian)</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">call </span>diag_manager_init</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">call </span><a class="code" href="group__diag__manager__mod.html#gab78722b306c31534a1b7870aaef28c6c">diag_manager_init</a></div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;nlon = 20</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;nlat = 20</div>
@@ -188,10 +189,12 @@ $(document).ready(function(){initNavTree('test__diag__manager__time_8F90_source.
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="keywordflow">if</span>(id_sst &gt; 0) used = send_data(id_sst, sst, time)</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="keywordflow">enddo</span></div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="keyword">call </span>diag_manager_end(time)</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="keyword">call </span><a class="code" href="group__diag__manager__mod.html#gae363283d453e40d48d70f583c1e58b5f">diag_manager_end</a>(time)</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="keyword">call </span>fms_end</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="keyword">end program </span>test_diag_manager_time</div>
+<div class="ttc" id="agroup__diag__manager__mod_html_gab78722b306c31534a1b7870aaef28c6c"><div class="ttname"><a href="group__diag__manager__mod.html#gab78722b306c31534a1b7870aaef28c6c">diag_manager_mod::diag_manager_init</a></div><div class="ttdeci">subroutine, public diag_manager_init(diag_model_subset, time_init, err_msg)</div><div class="ttdoc">Initialize Diagnostics Manager.</div><div class="ttdef"><b>Definition:</b> <a href="diag__manager_8F90_source.html#l03809">diag_manager.F90:3810</a></div></div>
+<div class="ttc" id="agroup__diag__manager__mod_html_gae363283d453e40d48d70f583c1e58b5f"><div class="ttname"><a href="group__diag__manager__mod.html#gae363283d453e40d48d70f583c1e58b5f">diag_manager_mod::diag_manager_end</a></div><div class="ttdeci">subroutine, public diag_manager_end(time)</div><div class="ttdoc">Flushes diagnostic buffers where necessary. Close diagnostics files. A warning will be issued here if...</div><div class="ttdef"><b>Definition:</b> <a href="diag__manager_8F90_source.html#l03698">diag_manager.F90:3699</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

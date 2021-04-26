@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['half_5fday_20interface_1533',['half_day Interface',['../group__astronomy__mod.html',1,'']]]
+  ['get_5fperiod_20interface_1596',['get_period Interface',['../group__astronomy__mod.html',1,'']]],
+  ['gnu_20lesser_20general_20public_20license_1597',['GNU LESSER GENERAL PUBLIC LICENSE',['../md_LICENSE.html',1,'']]]
 ];
