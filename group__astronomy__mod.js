@@ -1,5 +1,6 @@
 var group__astronomy__mod =
 [
+    [ "diurnal_solar Interface", "group__astronomy__mod.html#diurnal_solar", null ],
     [ "daily_mean_solar Interface", "group__astronomy__mod.html#daily_mean_solar", null ],
     [ "get_period Interface", "group__astronomy__mod.html#get_period", null ],
     [ "set_period Interface", "group__astronomy__mod.html#set_period", null ],

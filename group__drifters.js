@@ -13,5 +13,6 @@ var group__drifters =
     [ "drifters_core.F90", "drifters__core_8F90.html", null ],
     [ "drifters_input.F90", "drifters__input_8F90.html", null ],
     [ "drifters_io.F90", "drifters__io_8F90.html", null ],
-    [ "quicksort.F90", "quicksort_8F90.html", null ]
+    [ "quicksort.F90", "quicksort_8F90.html", null ],
+    [ "README", "group__drifters.html#md_drifters_README", null ]
 ];
