@@ -11,5 +11,6 @@ var group__diag__manager =
     [ "diag_grid.F90", "diag__grid_8F90.html", null ],
     [ "diag_manager.F90", "diag__manager_8F90.html", null ],
     [ "diag_table.F90", "diag__table_8F90.html", null ],
-    [ "diag_util.F90", "diag__util_8F90.html", null ]
+    [ "diag_util.F90", "diag__util_8F90.html", null ],
+    [ "diag_table", "group__diag__manager.html#md_docs_diag_table", null ]
 ];

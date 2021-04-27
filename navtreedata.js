@@ -26,9 +26,8 @@ var NAVTREE =
 [
   [ "FMS", "index.html", [
     [ "FMS Documentation Homepage", "index.html", null ],
-    [ "The Diagnostic Manager Table", "md_docs_diag_table.html", null ],
     [ "interpolator Interface", "interpolator.html", null ],
-    [ "Autotools Build System Documentation", "md_libFMS_BUILD_SYSTEM.html", null ],
+    [ "README", "md_README.html", null ],
     [ "Modules", "modules.html", "modules" ],
     [ "Module Members", "namespacemembers.html", [
       [ "All", "namespacemembers.html", null ],
@@ -64,11 +63,11 @@ var NAVTREEINDEX =
 "functions_j.html",
 "group__coupler__types__mod.html#ga27f470ec770c4cae53cd21508b4d16d6",
 "group__diag__data__mod.html#ga4e55e46ddabfc989cd3ab17b4a893ce6",
-"group__drifters__input__mod.html",
-"interpolator_8F90.html#gaaf15437a1b7aac6edeb5856cfa1a2f3c",
-"mpp__utilities_8F90_source.html",
-"structnetcdf__io__mod_1_1fmsnetcdffile__t.html",
-"time__manager_8F90.html#a15429b4b71ac03e1f528ca91f724e0f2"
+"group__drifters__core__mod.html#ga50a2687071f49e5f40ce1441f797c55a",
+"interpolator_8F90.html#gaa719bb9b17a2b5742dc7a799f94b4dfa",
+"mpp__util__nocomm_8inc_source.html",
+"structmpp__efp__mod_1_1mpp__efp__type.html#a6c25c084f68c502e3535012935a23b96",
+"time__manager_8F90.html#a1479e62dcf63419f83ba7dbe33e0f03a"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -140,7 +140,61 @@ Files</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-</div><!-- contents -->
+
+
+<h3><a id="md_docs_diag_table"></a>diag_table</h3><div class="textblock"><h1>The Diagnostic Manager Table</h1>
+The <em>diagnostics table</em> (<code>diag_table</code>) allows users to specify output fields and sampling rates at run time. The <code>diag_table</code> file consists of comma-separated ASCII values. The <code>diag_table</code> has three sections: <b>Global</b>, <b>File</b>, and <b>Field</b> sections. The <b>Global</b> section must be the first two lines of the file, whereas the <b>File</b> and <b>Field</b> sections can be inter mixed to allow the file to be organized as desired. Comments can be added to the <code>diag_table</code> file by using the hash symbol (<code>#</code>) as the first character in the line.All errors in the <code>diag_table</code> will throw a FMS <code>FATAL</code> error. The <a href="https://github.com/NOAA-GFDL/FRE-NCtools">FRE NCtools suite</a> contains the utility, <code>diag_table_chk</code> to check the <code>diag_table</code> for errors. A brief usage statement can be obtained by running <code>diag_table_chk --help</code>, and a more in-depth description of the command and options can be viewed with the command <code>perldoc diag_table_chk</code>.<h2>Global Section</h2>
+The first two lines of the <code>diag_table</code> must contain a <em>title</em> #and the <em>base date</em> of the experiment respectively. The <em>title</em> must be a Fortran <code>CHARACTER</code> string. The <em>base date</em> is the reference time used for the #time units, and must be greater than or equal to the model start time. The #_base date_ consists of six space-separated integers in the following format.<div class="fragment"><div class="line">year month day hour minute second</div>
+</div><!-- fragment --><h2>File Section</h2>
+File lines contain 6 required and 5 optional fields (optional fields are surrounded with square brackets ([]). File lines can be intermixed with the field lines, but the file must be defined before any fields that are to be written to the file. File lines have the following format:<br  />
+<div class="fragment"><div class="line">&quot;file_name&quot;, output_freq, &quot;output_freq_units&quot;, file_format, &quot;time_axis_units&quot;, &quot;time_axis_name&quot; [, new_file_freq, &quot;new_file_freq_units&quot;[, &quot;start_time&quot;[, file_duration, &quot;file_duration_units&quot;]]]</div>
+</div><!-- fragment -->with the following descriptions and Fortran types.<h4><code>CHARACTER(len=128) :: file_name</code></h4>
+Output file name without the trailing <code>.nc</code>.A single file description can produce multiple files using special time string suffix keywords. This time string will append the time strings to the base file name each time a new file is opened. They syntax for the time string suffix keywords are <code>%#tt</code> Where <code>#</code> is a mandatory single digit number specifying the width of the field, and <code>tt</code> can be as follows:<code>yr</code> &ndash; Years\ <code>mo</code> &ndash; Months\ <code>dy</code> &ndash; Days\ <code>hr</code> &ndash; Hours\ <code>mi</code> &ndash; Minutes\ <code>sc</code> &ndash; SecondsThus, a file name of <code>file2_yr_dy%1yr%3dy</code> will have a base file name of <code>file2_yr_dy_1_001</code> if the file is created on year 1 day 1 of the model run. **_NOTE:_** The time suffix keywords must be used if the optional fields <code>new_file_freq</code> and <code>new_file_freq_units</code> are used, otherwise a FMS <code>FATAL</code> error will occur.<h4><code>INTEGER :: output_freq</code></h4>
+How often to write fields to file.<code>&gt; 0</code> &ndash; Output frequency in <code>output_freq_units</code>.\ <code>= 0</code> &ndash; Output frequency every time set. (<code>output_freq_units</code> is ignored.)\ <code>=-1</code> &ndash; Output at end of run only. (<code>output_freq_units</code> is ignored.)<h4><code>CHARACTER(len=10) :: output_freq_units</code></h4>
+Time units for output.The time units can be one of: <code>years</code>, <code>months</code>, <code>days</code>, <code>minutes</code>, <code>hours</code>, or <code>seconds</code>.<h4><code>INTEGER :: file_format</code></h4>
+Output file format.Currently only the <em>netCDF</em> (value of <code>1</code>) file format is supported.<h4><code>CHARACTER(len=10) :: time_axis_units</code></h4>
+Time units for the output file time axis.The time units can be one of: <code>years</code>, <code>months</code>, <code>days</code>, <code>minutes</code>, <code>hours</code>, or <code>seconds</code>.<h4><code>CHARACTER(len=128) :: time_axis_name</code></h4>
+Axis name for the output file time axis.The character sting must contain the case insensitive string <code>"time"</code>.<h4><code>INTEGER, OPTIONAL :: new_file_freq</code></h4>
+Frequency for closing the existing file, and creating a new file in <code>new_file_freq_units</code>.<h4><code>CHARACTER(len=10), OPTIONAL :: new_file_freq_units</code></h4>
+Time units for creating a new file. Can be either <code>years</code>, <code>months</code>, <code>days</code>, <code>minutes</code>, <code>hours</code>, or <code>seconds</code>. **_NOTE:_** If the <code>new_file_freq</code> field is present, then this field must also be present.<h4><code>CHARACTER(len=25), OPTIONAL :: start_time</code></h4>
+Time to start the file for the first time. The format of this string is the same as the <em>global date</em>. **_NOTE:_** The <code>new_file_freq</code> and the <code>new_file_freq_units</code> fields must be present to use this field.<h4><code>INTEGER, OPTIONAL :: file_duration</code></h4>
+How long file should receive data after start time in <code>file_duration_units</code>. This optional field can only be used if the <code>start_time</code> field is present. If this field is absent, then the file duration will be equal to the frequency for creating new files. **_NOTE:_** The <code>file_duration_units</code> field must also be present if this field is present.<h4><code>CHARACTER(len=10), OPTIONAL :: file_duration_units</code></h4>
+File duration units.Units an be one of <code>years</code>, <code>months</code>, <code>days</code>, <code>minutes</code>, <code>hours</code>, or <code>seconds</code>. **_NOTE:_** If the <code>file_duration</code> field is present, then this field must also be present.<h2>Field Section</h2>
+Field lines contain 8 fields. Field lines can be intermixed with file lines. Fields line can contain fields that are not written to any files. The file name for these fields is <code>null</code>.Field lines have the following format:<div class="fragment"><div class="line">&quot;module_name&quot;, &quot;field_name&quot;, &quot;output_name&quot;, &quot;file_name&quot;, &quot;time_sampling&quot;, &quot;reduction_method&quot;, &quot;regional_section&quot;, packing</div>
+</div><!-- fragment -->with the following descriptions.<h4><code>CHARACTER(len=128) :: module_name</code></h4>
+Module that contains the <code>field_name</code> variable. (e.g. <code>atmos_mod</code>, <code>land_mod</code>)<h4><code>CHARACTER(len=128) :: field_name</code></h4>
+Module variable name that has data to be written to file.<h4><code>CHARACTER(len=128) :: output_name</code></h4>
+Name of the field as written in <code>file_name</code>.<h4><code>CHARACTER(len=128) :: file_name</code></h4>
+Name of the file where the field is to be written. **_Note:_** The file <code>file_name</code> must be defined first.<h4><code>CHARACTER(len=50) :: time_sampling</code></h4>
+Currently not used. Please use the string <code>"all"</code>.<h4><code>CHARACTER(len=50) :: reduction_method</code></h4>
+The data reduction method to perform prior to writing data to disk. Valid options are (redundant names are separated with commas):<h5><code>.TRUE.</code>, <code>"average"</code>, <code>"avg"</code>, <code>"mean"</code></h5>
+Average from the last time written to the current time.<h5><code>.FALSE.</code>, <code>"none"</code></h5>
+No reduction performed. Write current time step value only.<h5><code>"rms"</code></h5>
+Calculate the root mean square from the last time written to the current time.<h5><code>"pow##"</code></h5>
+Calculate the mean of the power <code>##</code> from the last time written to the current time.<h5><code>"min"</code></h5>
+Minimum value from last write to current time.<h5><code>"max"</code></h5>
+Maximum value from last write to current time.<h5><code>"diurnal##"</code></h5>
+<code>##</code> diurnal averages<h4><code>CHARACTER(len=50) :: regional_section</code></h4>
+Bounds of the regional section to capture. A value of <code>none</code> indicates a global region. The regional section has the following format:<div class="fragment"><div class="line">lat_min, lat_max, lon_min, lon_max, vert_min, vert_max</div>
+</div><!-- fragment -->Use <code>vert_min = -1</code> and <code>vert_max = -1</code> to get the entire vertical axis. **_Note:<em>** Currently, the defined region _MUST</em> be confined to a single tile.<h4><code>INTEGER :: packing</code></h4>
+Fortran number <code>KIND</code> of the data written. Valid values:<code>= 1</code> &ndash; double precision\ <code>= 2</code> &ndash; float\ <code>= 4</code> &ndash; packed 16-bit integers\ <code>= 8</code> &ndash; packed 1-byte (not tested).<h2>Sample Diagnostic Manager Table</h2>
+<div class="fragment"><div class="line">&quot;diag manager test&quot;</div>
+<div class="line">1999 1 1 0 0 0</div>
+<div class="line"># End the Global Section</div>
+<div class="line"> </div>
+<div class="line"># Output Files</div>
+<div class="line">&quot;10_days&quot;,             10, &quot;days&quot;, 1, &quot;hours&quot;, &quot;Time&quot;</div>
+<div class="line">&quot;file1_hr%hr3&quot;,         5, &quot;days&quot;, 1, &quot;hours&quot;, &quot;Time&quot;, 15, &quot;days&quot;</div>
+<div class="line">&quot;file2_yr_dy%yr1%dy3&quot;,  5, &quot;days&quot;, 1, &quot;hours&quot;, &quot;Time&quot;, 10, &quot;days&quot;, &quot;1 1 7 0 0 0&quot;</div>
+<div class="line">&quot;file3_yr_dy%yr1%dy3&quot;,  5, &quot;days&quot;, 1, &quot;hours&quot;, &quot;Time&quot;, 20, &quot;days&quot;, &quot;1 1 7 0 0 0&quot;, 5, &quot;years&quot;</div>
+<div class="line"> </div>
+<div class="line"># Output Variable</div>
+<div class="line">&quot;ice_mod&quot;, &quot;ice&quot;, &quot;ice&quot;, &quot;10_days&quot;, &quot;all&quot;, .false., &quot;none&quot;, 2</div>
+<div class="line"> </div>
+<div class="line"># File and Field</div>
+<div class="line">temp_local, 1, &quot;days&quot;, 1, &quot;hours&quot;, &quot;Time&quot;</div>
+<div class="line">&quot;ocean_mod&quot;, &quot;temp&quot;, &quot;temp&quot;, &quot;temp_local&quot;, &quot;all&quot;, .FALSE., &quot;5 259.5 -59.5 59.5 1 1&quot;, 2</div>
+</div><!-- fragment --> </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

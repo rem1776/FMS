@@ -439,7 +439,7 @@ $(document).ready(function(){initNavTree('mpp__io__read_8inc_source.html',''); i
 <div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;         axsiz(:) = field%size(:)</div>
 <div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;         if(len(data) &lt; field%size(1) ) call mpp_error(FATAL, &amp;</div>
 <div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;                <span class="stringliteral">&#39;mpp_io(mpp_read_text): the first dimension size is greater than data length&#39;</span>)</div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;         select case( field%<a class="code" href="group__interpolator.html#ga2478bde0940afdb5975a61635ece1163">ndim</a>)</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;         select case( field%<a class="code" href="group__interpolator__mod.html#ga2478bde0940afdb5975a61635ece1163">ndim</a>)</div>
 <div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;         case(1)</div>
 <div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;            if(lev .NE. 1) call mpp_error(FATAL,<span class="stringliteral">&#39;mpp_io(mpp_read_text): level should be 1 when ndim is 1&#39;</span>)</div>
 <div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;         case(2)</div>
@@ -457,7 +457,7 @@ $(document).ready(function(){initNavTree('mpp__io__read_8inc_source.html',''); i
 <div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160; </div>
 <div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;          select case (field%type)</div>
 <div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;             case(NF_CHAR)</div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;                if(field%<a class="code" href="group__interpolator.html#ga2478bde0940afdb5975a61635ece1163">ndim</a>==1) then</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;                if(field%<a class="code" href="group__interpolator__mod.html#ga2478bde0940afdb5975a61635ece1163">ndim</a>==1) then</div>
 <div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;                   error = NF_GET_VAR_TEXT(mpp_file(unit)%ncid, field%id, text)</div>
 <div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;                else</div>
 <div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;                   error = NF_GET_VARA_TEXT(mpp_file(unit)%ncid, field%id, start, axsiz, text)</div>
@@ -518,7 +518,7 @@ $(document).ready(function(){initNavTree('mpp__io__read_8inc_source.html',''); i
 <div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;      integer, intent(in) :: unit</div>
 <div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;      logical, intent(in), optional :: read_time ! read_time is set to false when file action is appending or writing.</div>
 <div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;                                                 ! This is temporary fix for MOM6 reopen_file issue.</div>
-<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;      integer         :: ncid,<a class="code" href="group__interpolator.html#ga2478bde0940afdb5975a61635ece1163">ndim</a>,nvar_total,natt,recdim,nv,nvar,len</div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;      integer         :: ncid,<a class="code" href="group__interpolator__mod.html#ga2478bde0940afdb5975a61635ece1163">ndim</a>,nvar_total,natt,recdim,nv,nvar,len</div>
 <div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;      integer :: error, i, j, istat, check_exist</div>
 <div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;      integer         :: type, nvdims, nvatts, dimid</div>
 <div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;      integer, allocatable, dimension(:) :: dimids</div>
@@ -540,11 +540,11 @@ $(document).ready(function(){initNavTree('mpp__io__read_8inc_source.html',''); i
 <div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160; </div>
 <div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;      if( mpp_file(unit)%format.EQ.MPP_NETCDF )then</div>
 <div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;        ncid = mpp_file(unit)%ncid</div>
-<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;        error = NF_INQ(ncid,<a class="code" href="group__interpolator.html#ga2478bde0940afdb5975a61635ece1163">ndim</a>, nvar_total,&amp;</div>
+<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;        error = NF_INQ(ncid,<a class="code" href="group__interpolator__mod.html#ga2478bde0940afdb5975a61635ece1163">ndim</a>, nvar_total,&amp;</div>
 <div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;                      natt, recdim);call netcdf_err( error, mpp_file(unit) )</div>
 <div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160; </div>
 <div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160; </div>
-<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;        mpp_file(unit)%<a class="code" href="group__interpolator.html#ga2478bde0940afdb5975a61635ece1163">ndim</a> = <a class="code" href="group__interpolator.html#ga2478bde0940afdb5975a61635ece1163">ndim</a></div>
+<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;        mpp_file(unit)%<a class="code" href="group__interpolator__mod.html#ga2478bde0940afdb5975a61635ece1163">ndim</a> = <a class="code" href="group__interpolator__mod.html#ga2478bde0940afdb5975a61635ece1163">ndim</a></div>
 <div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;        mpp_file(unit)%natt = natt</div>
 <div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;        mpp_file(unit)%recdimid = recdim</div>
 <div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;!</div>
@@ -557,19 +557,19 @@ $(document).ready(function(){initNavTree('mpp__io__read_8inc_source.html',''); i
 <div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;           error = NF_INQ_VARID( ncid, unlimname, mpp_file(unit)%<span class="keywordtype">id</span> )</div>
 <div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;           call netcdf_err( error, mpp_file(unit), <span class="keywordtype">string</span>=<span class="stringliteral">&#39;Field=&#39;</span><span class="comment">//unlimname )</span></div>
 <div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;        <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;           mpp_file(unit)%time_level = -1 ! <span class="keyword">set</span> to <a class="code" href="group__interpolator.html#ga4dde5fcf3778c18e9803ac1d73a66ef6">zero</a> so mpp_get_info returns ntime=0 <span class="keywordflow">if</span> no time axis present</div>
+<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;           mpp_file(unit)%time_level = -1 ! <span class="keyword">set</span> to <a class="code" href="group__interpolator__mod.html#ga4dde5fcf3778c18e9803ac1d73a66ef6">zero</a> so mpp_get_info returns ntime=0 <span class="keywordflow">if</span> no time axis present</div>
 <div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;        endif</div>
 <div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160; </div>
 <div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;        allocate(mpp_file(unit)%Att(natt))</div>
-<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;        allocate(dimids(<a class="code" href="group__interpolator.html#ga2478bde0940afdb5975a61635ece1163">ndim</a>))</div>
-<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;        allocate(mpp_file(unit)%Axis(<a class="code" href="group__interpolator.html#ga2478bde0940afdb5975a61635ece1163">ndim</a>))</div>
+<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;        allocate(dimids(<a class="code" href="group__interpolator__mod.html#ga2478bde0940afdb5975a61635ece1163">ndim</a>))</div>
+<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;        allocate(mpp_file(unit)%Axis(<a class="code" href="group__interpolator__mod.html#ga2478bde0940afdb5975a61635ece1163">ndim</a>))</div>
 <div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160; </div>
 <div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;!</div>
 <div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;! initialize fieldtype and axis type</div>
 <div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;!</div>
 <div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160; </div>
 <div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160; </div>
-<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;        <span class="keywordflow">do</span> i=1,<a class="code" href="group__interpolator.html#ga2478bde0940afdb5975a61635ece1163">ndim</a></div>
+<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;        <span class="keywordflow">do</span> i=1,<a class="code" href="group__interpolator__mod.html#ga2478bde0940afdb5975a61635ece1163">ndim</a></div>
 <div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;           mpp_file(unit)%Axis(i) = default_axis</div>
 <div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;        enddo</div>
 <div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160; </div>
@@ -684,7 +684,7 @@ $(document).ready(function(){initNavTree('mpp__io__read_8inc_source.html',''); i
 <div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;!</div>
 <div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;! assign dimension name and length</div>
 <div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;!</div>
-<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;        do i=1,<a class="code" href="group__interpolator.html#ga2478bde0940afdb5975a61635ece1163">ndim</a></div>
+<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;        do i=1,<a class="code" href="group__interpolator__mod.html#ga2478bde0940afdb5975a61635ece1163">ndim</a></div>
 <div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;           error = NF_INQ_DIM(ncid,i,name,len);call netcdf_err( error, mpp_file(unit) )</div>
 <div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;           mpp_file(unit)%Axis(i)%name = name</div>
 <div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;           mpp_file(unit)%Axis(i)%len = len</div>
@@ -694,7 +694,7 @@ $(document).ready(function(){initNavTree('mpp__io__read_8inc_source.html',''); i
 <div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;        do i=1, nvar_total</div>
 <div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;           error=NF_INQ_VAR(ncid,i,name,type,nvdims,dimids,nvatts);call netcdf_err( error, mpp_file(unit) )</div>
 <div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;           isdim=.false.</div>
-<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;           do j=1,<a class="code" href="group__interpolator.html#ga2478bde0940afdb5975a61635ece1163">ndim</a></div>
+<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;           do j=1,<a class="code" href="group__interpolator__mod.html#ga2478bde0940afdb5975a61635ece1163">ndim</a></div>
 <div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;              if( trim(lowercase(name)).EQ.trim(lowercase(mpp_file(unit)%Axis(j)%name)) )isdim=.true.</div>
 <div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;           enddo</div>
 <div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;           if (.not.isdim) nvar=nvar+1</div>
@@ -712,7 +712,7 @@ $(document).ready(function(){initNavTree('mpp__io__read_8inc_source.html',''); i
 <div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;        do i=1, nvar_total</div>
 <div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;           error=NF_INQ_VAR(ncid,i,name,type,nvdims,dimids,nvatts);call netcdf_err( error, mpp_file(unit) )</div>
 <div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;           isdim=.false.</div>
-<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;           do j=1,<a class="code" href="group__interpolator.html#ga2478bde0940afdb5975a61635ece1163">ndim</a></div>
+<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;           do j=1,<a class="code" href="group__interpolator__mod.html#ga2478bde0940afdb5975a61635ece1163">ndim</a></div>
 <div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;              if( trim(lowercase(name)).EQ.trim(lowercase(mpp_file(unit)%Axis(j)%name)) )isdim=.true.</div>
 <div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;           enddo</div>
 <div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160; </div>
@@ -987,7 +987,7 @@ $(document).ready(function(){initNavTree('mpp__io__read_8inc_source.html',''); i
 <div class="line"><a name="l00892"></a><span class="lineno">  892</span>&#160;        enddo</div>
 <div class="line"><a name="l00893"></a><span class="lineno">  893</span>&#160; </div>
 <div class="line"><a name="l00894"></a><span class="lineno">  894</span>&#160;        ! assign axis bounds</div>
-<div class="line"><a name="l00895"></a><span class="lineno">  895</span>&#160;        do j = 1, mpp_file(unit)%<a class="code" href="group__interpolator.html#ga2478bde0940afdb5975a61635ece1163">ndim</a></div>
+<div class="line"><a name="l00895"></a><span class="lineno">  895</span>&#160;        do j = 1, mpp_file(unit)%<a class="code" href="group__interpolator__mod.html#ga2478bde0940afdb5975a61635ece1163">ndim</a></div>
 <div class="line"><a name="l00896"></a><span class="lineno">  896</span>&#160;           if(.not. associated(mpp_file(unit)%Axis(j)%data)) cycle</div>
 <div class="line"><a name="l00897"></a><span class="lineno">  897</span>&#160;           len = size(mpp_file(unit)%Axis(j)%data(:))</div>
 <div class="line"><a name="l00898"></a><span class="lineno">  898</span>&#160;           allocate(mpp_file(unit)%Axis(j)%data_bounds(len+1))</div>
@@ -1005,7 +1005,7 @@ $(document).ready(function(){initNavTree('mpp__io__read_8inc_source.html',''); i
 <div class="line"><a name="l00910"></a><span class="lineno">  910</span>&#160;           !-- loop through all the fields to locate bounds_name</div>
 <div class="line"><a name="l00911"></a><span class="lineno">  911</span>&#160;           if( found_bounds ) then</div>
 <div class="line"><a name="l00912"></a><span class="lineno">  912</span>&#160;              found_bounds = .false.</div>
-<div class="line"><a name="l00913"></a><span class="lineno">  913</span>&#160;              do i = 1, mpp_file(unit)%<a class="code" href="group__interpolator.html#ga2478bde0940afdb5975a61635ece1163">ndim</a></div>
+<div class="line"><a name="l00913"></a><span class="lineno">  913</span>&#160;              do i = 1, mpp_file(unit)%<a class="code" href="group__interpolator__mod.html#ga2478bde0940afdb5975a61635ece1163">ndim</a></div>
 <div class="line"><a name="l00914"></a><span class="lineno">  914</span>&#160;                 if(.not. associated(mpp_file(unit)%Axis(i)%data)) cycle</div>
 <div class="line"><a name="l00915"></a><span class="lineno">  915</span>&#160;                 if(trim(mpp_file(unit)%Axis(i)%name) == trim(bounds_name)) then</div>
 <div class="line"><a name="l00916"></a><span class="lineno">  916</span>&#160;                    found_bounds = .true.</div>
@@ -1093,7 +1093,7 @@ $(document).ready(function(){initNavTree('mpp__io__read_8inc_source.html',''); i
 <div class="line"><a name="l00998"></a><span class="lineno">  998</span>&#160;! is this a dimension variable?</div>
 <div class="line"><a name="l00999"></a><span class="lineno">  999</span>&#160;!</div>
 <div class="line"><a name="l01000"></a><span class="lineno"> 1000</span>&#160;           isdim=.false.</div>
-<div class="line"><a name="l01001"></a><span class="lineno"> 1001</span>&#160;           do j=1,<a class="code" href="group__interpolator.html#ga2478bde0940afdb5975a61635ece1163">ndim</a></div>
+<div class="line"><a name="l01001"></a><span class="lineno"> 1001</span>&#160;           do j=1,<a class="code" href="group__interpolator__mod.html#ga2478bde0940afdb5975a61635ece1163">ndim</a></div>
 <div class="line"><a name="l01002"></a><span class="lineno"> 1002</span>&#160;              if( trim(lowercase(name)).EQ.trim(lowercase(mpp_file(unit)%Axis(j)%name)) )isdim=.true.</div>
 <div class="line"><a name="l01003"></a><span class="lineno"> 1003</span>&#160;           enddo</div>
 <div class="line"><a name="l01004"></a><span class="lineno"> 1004</span>&#160; </div>
@@ -1120,7 +1120,7 @@ $(document).ready(function(){initNavTree('mpp__io__read_8inc_source.html',''); i
 <div class="line"><a name="l01025"></a><span class="lineno"> 1025</span>&#160;                   call mpp_error( FATAL, &#39;Invalid variable type in NetCDF file&#39; )</div>
 <div class="line"><a name="l01026"></a><span class="lineno"> 1026</span>&#160;             end select</div>
 <div class="line"><a name="l01027"></a><span class="lineno"> 1027</span>&#160;! assign dimension ids</div>
-<div class="line"><a name="l01028"></a><span class="lineno"> 1028</span>&#160;              mpp_file(unit)%Var(nv)%<a class="code" href="group__interpolator.html#ga2478bde0940afdb5975a61635ece1163">ndim</a> = nvdims</div>
+<div class="line"><a name="l01028"></a><span class="lineno"> 1028</span>&#160;              mpp_file(unit)%Var(nv)%<a class="code" href="group__interpolator__mod.html#ga2478bde0940afdb5975a61635ece1163">ndim</a> = nvdims</div>
 <div class="line"><a name="l01029"></a><span class="lineno"> 1029</span>&#160;              allocate(mpp_file(unit)%Var(nv)%axes(nvdims))</div>
 <div class="line"><a name="l01030"></a><span class="lineno"> 1030</span>&#160;              do j=1,nvdims</div>
 <div class="line"><a name="l01031"></a><span class="lineno"> 1031</span>&#160;                 mpp_file(unit)%Var(nv)%axes(j) = mpp_file(unit)%Axis(dimids(j))</div>
@@ -1379,8 +1379,8 @@ $(document).ready(function(){initNavTree('mpp__io__read_8inc_source.html',''); i
 <div class="line"><a name="l01284"></a><span class="lineno"> 1284</span>&#160;    end subroutine mpp_get_tavg_info</div>
 <div class="line"><a name="l01285"></a><span class="lineno"> 1285</span>&#160; </div>
 <div class="line"><a name="l01286"></a><span class="lineno"> 1286</span>&#160;!#######################################################################</div>
-<div class="ttc" id="agroup__interpolator_html_ga2478bde0940afdb5975a61635ece1163"><div class="ttname"><a href="group__interpolator.html#ga2478bde0940afdb5975a61635ece1163">interpolator_mod::ndim</a></div><div class="ttdeci">integer ndim</div><div class="ttdoc">No description.</div><div class="ttdef"><b>Definition:</b> <a href="interpolator_8F90_source.html#l00268">interpolator.F90:268</a></div></div>
-<div class="ttc" id="agroup__interpolator_html_ga4dde5fcf3778c18e9803ac1d73a66ef6"><div class="ttname"><a href="group__interpolator.html#ga4dde5fcf3778c18e9803ac1d73a66ef6">interpolator_mod::zero</a></div><div class="ttdeci">integer, parameter, public zero</div><div class="ttdoc">Flags to indicate what to do when the model surface pressure exceeds the climatology surface pressure...</div><div class="ttdef"><b>Definition:</b> <a href="interpolator_8F90_source.html#l00311">interpolator.F90:311</a></div></div>
+<div class="ttc" id="agroup__interpolator__mod_html_ga2478bde0940afdb5975a61635ece1163"><div class="ttname"><a href="group__interpolator__mod.html#ga2478bde0940afdb5975a61635ece1163">interpolator_mod::ndim</a></div><div class="ttdeci">integer ndim</div><div class="ttdoc">No description.</div><div class="ttdef"><b>Definition:</b> <a href="interpolator_8F90_source.html#l00271">interpolator.F90:271</a></div></div>
+<div class="ttc" id="agroup__interpolator__mod_html_ga4dde5fcf3778c18e9803ac1d73a66ef6"><div class="ttname"><a href="group__interpolator__mod.html#ga4dde5fcf3778c18e9803ac1d73a66ef6">interpolator_mod::zero</a></div><div class="ttdeci">integer, parameter, public zero</div><div class="ttdoc">Flags to indicate what to do when the model surface pressure exceeds the climatology surface pressure...</div><div class="ttdef"><b>Definition:</b> <a href="interpolator_8F90_source.html#l00314">interpolator.F90:314</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
