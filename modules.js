@@ -17,7 +17,7 @@ var modules =
     [ "FMS utilities", "group__fms.html", null ],
     [ "FMS2 IO", "group__fms2__io.html", "group__fms2__io" ],
     [ "Field Manager", "group__field__manager.html", "group__field__manager" ],
-    [ "Horizontal Interpolator", "group__horiz__interp.html", null ],
+    [ "Horizontal Interpolator", "group__horiz__interp.html", "group__horiz__interp" ],
     [ "Interpolator", "group__interpolator.html", "group__interpolator" ],
     [ "MPP", "group__mpp.html", "group__mpp" ],
     [ "Memory Utilities", "group__memutils.html", null ],
@@ -33,5 +33,7 @@ var modules =
     [ "Tracer Manager", "group__tracer__manager.html", null ],
     [ "Tridiagonal", "group__tridiagonal.html", null ],
     [ "diag_output_mod", "group__diag__output__mod.html", "group__diag__output__mod" ],
-    [ "fms_io_utils_mod", "group__fms__io__utils__mod.html", "group__fms__io__utils__mod" ]
+    [ "fms_io_utils_mod", "group__fms__io__utils__mod.html", "group__fms__io__utils__mod" ],
+    [ "horiz_interp_spherical_mod", "group__horiz__interp__spherical__mod.html", null ],
+    [ "mem", "group__memutils__mod.html", null ]
 ];

@@ -93,31 +93,31 @@ $(document).ready(function(){initNavTree('memutils_8F90_source.html',''); initRe
 <div class="title">memutils.F90</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="memutils_8F90.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">!&gt; \file</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">!! \brief Module to expose the memory printing API</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">!! \author V. Balaji</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">!! \email gfdl.climate.model.info@noaa.gov</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">!***********************************************************************</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">!!                   GNU Lesser General Public License</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">!!</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">!! This file is part of the GFDL Flexible Modeling System (FMS).</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">!!</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">!! \section LICENSE</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">!!</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">!***********************************************************************</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">!!                   GNU Lesser General Public License</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">!! FMS is free software: you can redistribute it and/or modify it under</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">!! the terms of the GNU Lesser General Public License as published by</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">!! the Free Software Foundation, either version 3 of the License, or (at</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">!! your option) any later version.</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">!!</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">!! This file is part of the GFDL Flexible Modeling System (FMS).</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">!!</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">!! FMS is free software: you can redistribute it and/or modify it under</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">!! the terms of the GNU Lesser General Public License as published by</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">!! the Free Software Foundation, either version 3 of the License, or (at</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">!! your option) any later version.</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">!!</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">!! FMS is distributed in the hope that it will be useful, but WITHOUT</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">!! ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">!! FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">!! for more details.</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">!!</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">!! You should have received a copy of the GNU Lesser General Public</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">!! License along with FMS.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">!***********************************************************************</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">!! FMS is distributed in the hope that it will be useful, but WITHOUT</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">!! ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">!! FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">!! for more details.</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">!!</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">!! You should have received a copy of the GNU Lesser General Public</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">!! License along with FMS.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">!***********************************************************************</span><span class="comment"></span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">!&gt; @defgroup memutils_mod mem </span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">!! \brief Module to expose the memory printing API</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">!! \author V. Balaji</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">!! \email gfdl.climate.model.info@noaa.gov</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">!!</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">!! \section LICENSE</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">!!</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">!!</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">!! \section DESCRIPTION</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">!!</span></div>
@@ -134,7 +134,7 @@ $(document).ready(function(){initNavTree('memutils_8F90_source.html',''); initRe
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="keywordtype">implicit none</span></div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="memutils_8F90.html#abfdd1551a310edc0a1bc2d2e8f3d2efe">   42</a></span>&#160;  <span class="keywordtype">logical</span> :: memutils_initialized=.false. <span class="comment">!&lt; Indicate if module has been initialized.</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keywordtype">logical</span> :: memutils_initialized=.false. <span class="comment">!&lt; Indicate if module has been initialized.</span></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="keywordtype">logical</span>, <span class="keywordtype">private</span> :: print_memory_usage=.false. <span class="comment">!&lt; Default behavior of print_memuse_stats()</span></div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keywordtype">public</span> :: memutils_init</div>
@@ -148,7 +148,7 @@ $(document).ready(function(){initNavTree('memutils_8F90_source.html',''); initRe
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">  !! module variables when called.  This configures if print_memuse_stats() should</span></div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">  !! print the memory statistics when called.  memutils_init, at present, can</span></div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">  !! be called multiple times, and potentially change the behavior of print_memuse_stats().</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="memutils_8F90.html#a2389796d387861f09a060ae7c645aed2">   56</a></span>&#160;  <span class="keyword">subroutine </span>memutils_init(print_flag)</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="keyword">subroutine </span>memutils_init(print_flag)</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">logical</span>, <span class="keywordtype">optional</span> :: print_flag<span class="comment"> !&lt; Indicate if memory statistics should be printed by default</span></div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordflow">if</span> ( <span class="keyword">PRESENT</span>(print_flag) ) print_memory_usage = print_flag</div>
@@ -164,7 +164,7 @@ $(document).ready(function(){initNavTree('memutils_8F90_source.html',''); initRe
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment">!! default behavior can be modified passing in the optional `always` (logical)</span></div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment">!! parameter.  If `always.eqv..TRUE.`, print_memuse_stats() will print the memory</span></div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">!! statistics.</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="memutils_8F90.html#a3333e249d12f33dbf81cccac0edd9860">   72</a></span>&#160;  <span class="keyword">subroutine </span>print_memuse_stats( text, unit, always )</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="keyword">subroutine </span>print_memuse_stats( text, unit, always )</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: text<span class="comment"> !&lt; Text to be printed before the memory statistics</span></div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">integer</span>, <span class="keywordtype">intent(in)</span>, <span class="keywordtype">optional</span> :: unit<span class="comment"> !&lt; Fortran file unit to where memory statistics should be recorded</span></div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">logical</span>, <span class="keywordtype">intent(in)</span>, <span class="keywordtype">optional</span> :: always<span class="comment"> !&lt; If `.TRUE.`, force memory statistics to be printed</span></div>
@@ -184,7 +184,7 @@ $(document).ready(function(){initNavTree('memutils_8F90_source.html',''); initRe
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_3c4ba7b3d94ce5a61bffb16b6f71d20e.html">memutils</a></li><li class="navelem"><a class="el" href="memutils_8F90.html">memutils.F90</a></li>
+    <li class="navelem"><a class="el" href="dir_3c4ba7b3d94ce5a61bffb16b6f71d20e.html">memutils</a></li><li class="navelem"><b>memutils.F90</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

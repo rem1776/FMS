@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>FMS: Mpp_domains_mod</title>
+<title>FMS: mpp_domains_mod</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -93,7 +93,7 @@ $(document).ready(function(){initNavTree('group__mpp__domains__mod.html',''); in
 <a href="#nested-classes">Data Types</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
-<div class="title">Mpp_domains_mod<div class="ingroups"><a class="el" href="group__mpp.html">MPP</a></div></div>  </div>
+<div class="title">mpp_domains_mod<div class="ingroups"><a class="el" href="group__mpp.html">MPP</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -115,7 +115,7 @@ type(domainug), save, public&#160;</td><td class="memItemRight" valign="bottom">
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Domain decomposition and domain update for message-passing codes. </p>
 <dl class="section author"><dt>Author</dt><dd>V. Balaji SGI/GFDL Princeton University</dd></dl>
-<p>A set of simple calls for domain decomposition and domain updates on rectilinear grids. It requires the module <a class="el" href="mpp_8F90.html" title="File for Mpp_mod.">mpp.F90</a>, upon which it is built. Scalable implementations of finite-difference codes are generally based on decomposing the model domain into subdomains that are distributed among processors. These domains will then be obliged to exchange data at their boundaries if data dependencies are merely nearest-neighbour, or may need to acquire information from the global domain if there are extended data dependencies, as in the spectral transform. The domain decomposition is a key operation in the development of parallel codes.<br  />
+<p>A set of simple calls for domain decomposition and domain updates on rectilinear grids. It requires the module <a class="el" href="mpp_8F90.html" title="File for mpp_mod.">mpp.F90</a>, upon which it is built. Scalable implementations of finite-difference codes are generally based on decomposing the model domain into subdomains that are distributed among processors. These domains will then be obliged to exchange data at their boundaries if data dependencies are merely nearest-neighbour, or may need to acquire information from the global domain if there are extended data dependencies, as in the spectral transform. The domain decomposition is a key operation in the development of parallel codes.<br  />
 <br  />
  mpp_domains_mod provides a domain decomposition and domain update API for rectilinear grids, built on top of the mpp_mod API for message passing. Features of mpp_domains_mod include:<br  />
 <br  />

@@ -26,16 +26,14 @@ var NAVTREE =
 [
   [ "FMS", "index.html", [
     [ "FMS Documentation Homepage", "index.html", null ],
-    [ "ChangeLog", "md_CHANGELOG.html", null ],
     [ "Instructions for building FMS with cmake", "md_CMAKE_INSTRUCTIONS.html", null ],
     [ "Code of Conduct", "md_CODE_OF_CONDUCT.html", null ],
-    [ "Coding Style", "md_CODE_STYLE.html", null ],
-    [ "Contributing To libFMS", "md_CONTRIBUTING.html", null ],
     [ "libFMS Installation", "md_INSTALL.html", null ],
     [ "BUILD_SYSTEM", "md_libFMS_BUILD_SYSTEM.html", null ],
-    [ "GNU LESSER GENERAL PUBLIC LICENSE", "md_LICENSE.html", null ],
     [ "README", "md_README.html", null ],
+    [ "General Project Information", "readme.html", null ],
     [ "supported_interfaces", "md_supported_interfaces.html", null ],
+    [ "Supported Interfaces", "supported_interfaces.html", null ],
     [ "Modules", "modules.html", "modules" ],
     [ "Module Members", "namespacemembers.html", [
       [ "All", "namespacemembers.html", null ],
@@ -73,11 +71,12 @@ var NAVTREEINDEX =
 "group__coupler__types__mod.html#gaa9479414bfd55e7e83d97706e321d235",
 "group__diag__data__mod.html#gaa59328ee0a9848737237b32bda53c19f",
 "group__fms__netcdf__domain__io__mod.html#gaa31d4c0413543bc019258235ba00ba2d",
-"interpolator_8F90.html#gac3ca9de401cf09ffba68bd1c8a58f949",
-"mpp__efp_8F90.html#ga10ad802b9b18b53988493d3b9e8412a0",
-"mpp__utilities_8F90.html",
-"structnetcdf__io__mod_1_1fmsnetcdffile__t.html#ae480bdfe3f53b226b95befc71681507b",
-"time__manager_8F90.html#a40ba58ef6e1c86616e5f8d7e8ebefca3"
+"horiz__interp__spherical_8F90.html#ad5ec021db648247e2e825340a2d3fd59",
+"mpp__domains_8F90.html#ga378bb977b70865a4ebfea2c5fe0a1a3d",
+"mpp__parameter_8F90.html#ga9ad4c476f59de0ca1f6a8cc40b8f6f54",
+"structblock__control__mod_1_1ix__type.html",
+"test__mpp__transmit_8F90.html#a1a2ad697e231b79e42f5899e730d15a5",
+"xgrid_8F90.html#gabadeea9de74fb4182c1230e3c9b3917e"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
