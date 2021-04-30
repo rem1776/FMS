@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['write_5frestart_5fbc_1247',['write_restart_bc',['../namespacenetcdf__io__mod.html#abbd8acbfa809fb1e4320b6919113f9ae',1,'netcdf_io_mod']]],
-  ['write_5fstatic_1248',['write_static',['../group__diag__util__mod.html#ga31af7562230aee6a21bdee017a51b6d7',1,'diag_util_mod']]]
+  ['variable_5fatt_5fexists_1284',['variable_att_exists',['../namespacenetcdf__io__mod.html#a881ad796d4e2724a2fe4203f2544d849',1,'netcdf_io_mod']]],
+  ['variable_5fexists_1285',['variable_exists',['../namespacenetcdf__io__mod.html#af56b551fffa2261529f7ace59915ce00',1,'netcdf_io_mod']]]
 ];

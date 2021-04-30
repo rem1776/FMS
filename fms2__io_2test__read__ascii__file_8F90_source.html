@@ -121,7 +121,7 @@ $(document).ready(function(){initNavTree('fms2__io_2test__read__ascii__file_8F90
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <span class="keywordtype">use </span>mpp_mod, <span class="keywordtype">only</span> : mpp_init</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <span class="keywordtype">use </span>mpp_mod, <span class="keywordtype">only</span> : mpp_error, fatal, note</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <span class="keywordtype">use </span>fms2_io_mod, <span class="keywordtype">only</span> : fms2_io_init, ascii_read</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <span class="keywordtype">use </span>fms2_io_mod, <span class="keywordtype">only</span> : <a class="code" href="group__fms2__io__mod.html#gab2efb88539d9a05da43d95a501ed7e4c">fms2_io_init</a>, ascii_read</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="keywordtype">character(len=:)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">allocatable</span> :: test_array<span class="comment"> !&lt; Content array</span></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="keywordtype">character(len=256)</span> :: filename<span class="comment"> !&lt; Name of ascii file to be read</span></div>
@@ -133,7 +133,7 @@ $(document).ready(function(){initNavTree('fms2__io_2test__read__ascii__file_8F90
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keywordtype">integer</span> :: ierr<span class="comment"> !&lt; used by MPI_FINALIZE</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="keyword">call </span>mpp_init()</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="keyword">call </span>fms2_io_init()</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="keyword">call </span><a class="code" href="group__fms2__io__mod.html#gab2efb88539d9a05da43d95a501ed7e4c">fms2_io_init</a>()</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  filename = <span class="stringliteral">&quot;ascii_test1&quot;</span></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="keyword">call </span>ascii_read(filename, test_array)</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keyword">read</span>(test_array(1), *) stat</div>
@@ -144,6 +144,7 @@ $(document).ready(function(){initNavTree('fms2__io_2test__read__ascii__file_8F90
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="keywordflow">if</span> (trim(line)//<span class="stringliteral">&quot;wut&quot;</span> /= <span class="stringliteral">&quot;forlendulawut&quot;</span>) <span class="keyword">call </span>mpp_error(fatal, <span class="stringliteral">&quot;test_read_ascii: failed to read string&quot;</span>)</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <span class="keyword">call </span>mpi_finalize(ierr)</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">end program </span>test_read_ascii_file</div>
+<div class="ttc" id="agroup__fms2__io__mod_html_gab2efb88539d9a05da43d95a501ed7e4c"><div class="ttname"><a href="group__fms2__io__mod.html#gab2efb88539d9a05da43d95a501ed7e4c">fms2_io_mod::fms2_io_init</a></div><div class="ttdeci">subroutine, public fms2_io_init()</div><div class="ttdoc">Reads the fms2_io_nml.</div><div class="ttdef"><b>Definition:</b> <a href="fms2__io_8F90_source.html#l00247">fms2_io.F90:248</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

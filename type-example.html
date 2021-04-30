@@ -93,21 +93,12 @@ $(document).ready(function(){initNavTree('type-example.html',''); initResizable(
 <div class="title">type</div>  </div>
 </div><!--header-->
 <div class="contents">
-<p>Domain decomposition and domain update for message-passing codes </p><dl class="section author"><dt>Author</dt><dd>V. Balaji SGI/GFDL Princeton University @detailed mpp_domains_mod is a set of simple calls for domain decomposition and domain updates on rectilinear grids. It requires the module <a class="el" href="mpp_8F90.html" title="a generalized communication package for use with shmem and MPI @description    &lt;CONTACT EMAIL=&quot;V....">mpp.F90</a>, upon which it is built. Scalable implementations of finite-difference codes are generally based on decomposing the model domain into subdomains that are distributed among processors. These domains will then be obliged to exchange data at their boundaries if data dependencies are merely nearest-neighbour, or may need to acquire information from the global domain if there are extended data dependencies, as in the spectral transform. The domain decomposition is a key operation in the development of parallel codes.<br  />
-<br  />
- mpp_domains_mod provides a domain decomposition and domain update API for rectilinear grids, built on top of the mpp_mod API for message passing. Features of mpp_domains_mod include:<br  />
-<br  />
- Simple, minimal API, with free access to underlying API for more complicated stuff.<br  />
-<br  />
- Design toward typical use in climate/weather CFD codes.<br  />
- </dd></dl>
-<dl class="section user"><dt>[Domains]</dt><dd>It is assumed that domain decomposition will mainly be in 2 horizontal dimensions, which will in general be the two fastest-varying indices. There is a separate implementation of 1D decomposition on the fastest-varying index, and 1D decomposition on the second index, treated as a special case of 2D decomposition, is also possible. We define domain as the grid associated with a <em>task</em>. We define the compute domain as the set of gridpoints that are computed by a task, and the data domain as the set of points that are required by the task for the calculation. There can in general be more than 1 task per PE, though often the number of domains is the same as the processor count. We define the global domain as the global computational domain of the entire model (i.e, the same as the computational domain if run on a single processor). 2D domains are defined using a derived type domain2D, constructed as follows (see comments in code for more details). , public :: domain_axis_spec<br  />
+<p>, public :: domain_axis_spec<br  />
  private<br  />
  integer :: begin, end, size, max_size<br  />
  logical :: is_global<br  />
  end type domain_axis_spec<br  />
- <div class="fragment"> </div><!-- fragment --> </dd></dl>
-</div><!-- contents -->
+ </p><div class="fragment"> </div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

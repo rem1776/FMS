@@ -110,7 +110,7 @@ Data Types</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
 <tr class="memitem:ga19abcf7938596e9a635bb58a0fe48deb"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__interpolator__mod.html#ga19abcf7938596e9a635bb58a0fe48deb">interpolate_type_eq</a> (Out, In)</td></tr>
-<tr class="memdesc:ga19abcf7938596e9a635bb58a0fe48deb"><td class="mdescLeft">&#160;</td><td class="mdescRight">interpolator_type_eq receives the variable In and Out as input and returns Out.  <a href="group__interpolator__mod.html#ga19abcf7938596e9a635bb58a0fe48deb">More...</a><br /></td></tr>
+<tr class="memdesc:ga19abcf7938596e9a635bb58a0fe48deb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assignment overload routine for <a class="el" href="structinterpolator__mod_1_1interpolate__type.html" title="Redundant climatology data between fields.">interpolate_type</a>, to be used through the assignment interface.  <a href="group__interpolator__mod.html#ga19abcf7938596e9a635bb58a0fe48deb">More...</a><br /></td></tr>
 <tr class="separator:ga19abcf7938596e9a635bb58a0fe48deb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga8613c8850b935b6b95be55b6c250d64a"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__interpolator__mod.html#ga8613c8850b935b6b95be55b6c250d64a">interpolator_init</a> (clim_type, file_name, lonb_mod, latb_mod, data_names, data_out_of_bounds, vert_interp, clim_units, single_year_file)</td></tr>
 <tr class="memdesc:ga8613c8850b935b6b95be55b6c250d64a"><td class="mdescLeft">&#160;</td><td class="mdescRight">interpolator_init receives various data as input in order to initialize interpolating.  <a href="group__interpolator__mod.html#ga8613c8850b935b6b95be55b6c250d64a">More...</a><br /></td></tr>
@@ -326,23 +326,39 @@ integer, parameter, public&#160;</td><td class="memItemRight" valign="bottom"><a
 <dl class="section author"><dt>Author</dt><dd>William Cooke <a href="#" onclick="location.href='mai'+'lto:'+'Wil'+'li'+'am.'+'Co'+'oke'+'@n'+'oaa'+'.g'+'ov'; return false;">Willi<span style="display: none;">.nosp@m.</span>am.C<span style="display: none;">.nosp@m.</span>ooke@<span style="display: none;">.nosp@m.</span>noaa<span style="display: none;">.nosp@m.</span>.gov</a> </dd></dl>
 
 
-<h3><a id="assignment"></a>assignment Interface</h3><div class="textblock"><dl class="params"><dt>Parameters</dt><dd>
+<h3><a id="interpolator"></a>interpolator Interface</h3><div class="textblock">Example usage:<div class="fragment"><div class="line"><span class="keyword">call </span>interpolator (sulfate, model_time, p_half, model_data, name, is, js, clim_units)</div>
+<div class="line"><span class="keyword">call </span>interpolator (o3, model_time, p_half, model_data, <span class="stringliteral">&quot;ozone&quot;</span>, is, js)</div>
+</div><!-- fragment -->The first option is used to generate sulfate models.The sulfate data is set by </p><div class="fragment"><div class="line"><span class="keywordtype">type</span>(interpolate_type), <span class="keywordtype">intent(inout)</span> :: sulfate</div>
+</div><!-- fragment --><p> The name of the model is set by </p><div class="fragment"><div class="line"><span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: name</div>
+</div><!-- fragment --><p> The units used in this model are outputted to </p><div class="fragment"><div class="line"><span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(out)</span>, <span class="keywordtype">optional</span> :: clim_units</div>
+</div><!-- fragment -->The second option is generate ozone models.The ozone data is set by </p><div class="fragment"><div class="line"><span class="keywordtype">type</span>(interpolate_type), <span class="keywordtype">intent(inout)</span> :: o3</div>
+</div><!-- fragment -->Both of these options use the following variables in the model.The time used in the model is set by<div class="fragment"><div class="line"><span class="keywordtype">type</span>(time_type), <span class="keywordtype">intent(in)</span> :: model_time</div>
+</div><!-- fragment --><p> The model pressure field is set by </p><div class="fragment"><div class="line"><span class="keywordtype">real</span>, <span class="keywordtype">intent(in)</span>, <span class="keywordtype">dimension(:,:,:)</span> :: p_half</div>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;In&gt;</td><td>No description </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">&lt;Out&gt;</td><td>No description </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">&lt;clim_type&gt;</td><td>The interpolate type previously defined by a call to interpolator_init </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;field_name&gt;</td><td>The name of a field that you wish to interpolate </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;Time&gt;</td><td>The model time that you wish to interpolate to </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;phalf&gt;</td><td>The half level model pressure field </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;is&gt;</td><td>Index for the physics window </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;js&gt;</td><td>Index for the physics window </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">&lt;interp_data&gt;</td><td>The model fields with the interpolated climatology data </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">&lt;clim_units&gt;</td><td>The units of field_name </td></tr>
   </table>
   </dd>
 </dl>
 </div>
 
-<h3><a id="interp_weighted_scalar"></a>interp_weighted_scalar Interface</h3><div class="textblock"><div class="fragment"><div class="line"><span class="keyword">call </span>interp_weighted_scalar (pclim, phalf(ilon,j,:),hinterp_data(ilon,j,:,:),interp_data(ilon,j,:,:))</div>
+<h3><a id="assignment"></a>assignment Interface</h3><div class="textblock">Assignment override interface for interpolate type </div>
+
+<h3><a id="interp_weighted_scalar"></a>interp_weighted_scalar Interface</h3><div class="textblock">Example usage:<div class="fragment"><div class="line"><span class="keyword">call </span>interp_weighted_scalar (pclim, phalf(ilon,j,:),hinterp_data(ilon,j,:,:),interp_data(ilon,j,:,:))</div>
 <div class="line"><span class="keyword">call </span>interp_weighted_scalar (pclim, phalf(ilon,j,:),hinterp_data(ilon,j,:),interp_data(ilon,j,:))</div>
 </div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;grdin&gt;</td><td>No description </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;grdout&gt;</td><td>No description </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;datin&gt;</td><td>No description </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">&lt;datout&gt;</td><td>No description </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;grdin&gt;</td><td>Input grid </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;grdout&gt;</td><td>Output grid </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;datin&gt;</td><td>Input data </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">&lt;datout&gt;</td><td>Output data </td></tr>
   </table>
   </dd>
 </dl>
@@ -396,7 +412,7 @@ integer, parameter, public&#160;</td><td class="memItemRight" valign="bottom"><a
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="interpolator_8F90_source.html#l01429">1429</a> of file <a class="el" href="interpolator_8F90_source.html">interpolator.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="interpolator_8F90_source.html#l01422">1422</a> of file <a class="el" href="interpolator_8F90_source.html">interpolator.F90</a>.</p>
 
 </div>
 </div>
@@ -426,17 +442,15 @@ integer, parameter, public&#160;</td><td class="memItemRight" valign="bottom"><a
       </table>
 </div><div class="memdoc">
 
-<p>interpolator_type_eq receives the variable In and Out as input and returns Out. </p>
+<p>Assignment overload routine for <a class="el" href="structinterpolator__mod_1_1interpolate__type.html" title="Redundant climatology data between fields.">interpolate_type</a>, to be used through the assignment interface. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;In&gt;</td><td>No description </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">&lt;Out&gt;</td><td>No description </td></tr>
     <tr><td class="paramdir">[in,out]</td><td class="paramname">out</td><td>These are fms_io specific </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="interpolator_8F90_source.html#l00359">359</a> of file <a class="el" href="interpolator_8F90_source.html">interpolator.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="interpolator_8F90_source.html#l00352">352</a> of file <a class="el" href="interpolator_8F90_source.html">interpolator.F90</a>.</p>
 
 </div>
 </div>
@@ -464,7 +478,7 @@ integer, parameter, public&#160;</td><td class="memItemRight" valign="bottom"><a
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="interpolator_8F90_source.html#l03614">3614</a> of file <a class="el" href="interpolator_8F90_source.html">interpolator.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="interpolator_8F90_source.html#l03607">3607</a> of file <a class="el" href="interpolator_8F90_source.html">interpolator.F90</a>.</p>
 
 </div>
 </div>
@@ -553,7 +567,7 @@ integer, parameter, public&#160;</td><td class="memItemRight" valign="bottom"><a
 </dl>
 <p>if (module_is_initilized)</p>
 
-<p class="definition">Definition at line <a class="el" href="interpolator_8F90_source.html#l00434">434</a> of file <a class="el" href="interpolator_8F90_source.html">interpolator.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="interpolator_8F90_source.html#l00427">427</a> of file <a class="el" href="interpolator_8F90_source.html">interpolator.F90</a>.</p>
 
 </div>
 </div>
@@ -603,7 +617,7 @@ integer, parameter, public&#160;</td><td class="memItemRight" valign="bottom"><a
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="interpolator_8F90_source.html#l01512">1512</a> of file <a class="el" href="interpolator_8F90_source.html">interpolator.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="interpolator_8F90_source.html#l01505">1505</a> of file <a class="el" href="interpolator_8F90_source.html">interpolator.F90</a>.</p>
 
 </div>
 </div>
@@ -649,7 +663,7 @@ integer, parameter, public&#160;</td><td class="memItemRight" valign="bottom"><a
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="interpolator_8F90_source.html#l03860">3860</a> of file <a class="el" href="interpolator_8F90_source.html">interpolator.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="interpolator_8F90_source.html#l03853">3853</a> of file <a class="el" href="interpolator_8F90_source.html">interpolator.F90</a>.</p>
 
 </div>
 </div>
@@ -716,7 +730,7 @@ integer, parameter, public&#160;</td><td class="memItemRight" valign="bottom"><a
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="interpolator_8F90_source.html#l03682">3682</a> of file <a class="el" href="interpolator_8F90_source.html">interpolator.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="interpolator_8F90_source.html#l03675">3675</a> of file <a class="el" href="interpolator_8F90_source.html">interpolator.F90</a>.</p>
 
 </div>
 </div>
@@ -744,7 +758,7 @@ integer, parameter, public&#160;</td><td class="memItemRight" valign="bottom"><a
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="interpolator_8F90_source.html#l01813">1813</a> of file <a class="el" href="interpolator_8F90_source.html">interpolator.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="interpolator_8F90_source.html#l01806">1806</a> of file <a class="el" href="interpolator_8F90_source.html">interpolator.F90</a>.</p>
 
 </div>
 </div>
@@ -764,7 +778,7 @@ integer, parameter, public&#160;</td><td class="memItemRight" valign="bottom"><a
 <p>No description. </p>
 <p>These are fms_io specific </p>
 
-<p class="definition">Definition at line <a class="el" href="interpolator_8F90_source.html#l00262">262</a> of file <a class="el" href="interpolator_8F90_source.html">interpolator.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="interpolator_8F90_source.html#l00261">261</a> of file <a class="el" href="interpolator_8F90_source.html">interpolator.F90</a>.</p>
 
 </div>
 </div>

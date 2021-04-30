@@ -41,7 +41,7 @@ var annotated_dup =
       [ "method_type_very_short", "structfield__manager__mod_1_1method__type__very__short.html", "structfield__manager__mod_1_1method__type__very__short" ],
       [ "fm_list_iter_type", "structfield__manager__mod_1_1fm__list__iter__type.html", "structfield__manager__mod_1_1fm__list__iter__type" ]
     ] ],
-    [ "fms_netcdf_domain_io_mod", "namespacefms__netcdf__domain__io__mod.html", [
+    [ "fms_netcdf_domain_io_mod", null, [
       [ "fmsnetcdfdomainfile_t", "structfms__netcdf__domain__io__mod_1_1fmsnetcdfdomainfile__t.html", "structfms__netcdf__domain__io__mod_1_1fmsnetcdfdomainfile__t" ],
       [ "compute_global_checksum", "interfacefms__netcdf__domain__io__mod_1_1compute__global__checksum.html", null ]
     ] ],
@@ -51,7 +51,7 @@ var annotated_dup =
     [ "interpolator_mod", null, [
       [ "interpolate_type", "structinterpolator__mod_1_1interpolate__type.html", "structinterpolator__mod_1_1interpolate__type" ]
     ] ],
-    [ "mpp_efp_mod", "namespacempp__efp__mod.html", [
+    [ "mpp_efp_mod", null, [
       [ "mpp_efp_type", "structmpp__efp__mod_1_1mpp__efp__type.html", "structmpp__efp__mod_1_1mpp__efp__type" ],
       [ "operator(+)", "interfacempp__efp__mod_1_1operator_07_09_08.html", null ]
     ] ],

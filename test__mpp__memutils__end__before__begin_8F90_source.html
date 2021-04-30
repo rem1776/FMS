@@ -125,15 +125,17 @@ $(document).ready(function(){initNavTree('test__mpp__memutils__end__before__begi
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &quot;../../include/fms_platform.h&quot;</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor"></span> </div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="keywordtype">use </span>mpp_mod, <span class="keywordtype">only</span> : mpp_init, mpp_exit</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keywordtype">use </span>mpp_memutils_mod, <span class="keywordtype">only</span>: mpp_memuse_begin, mpp_memuse_end</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keywordtype">use </span>mpp_memutils_mod, <span class="keywordtype">only</span>: <a class="code" href="group__mpp__memutils__mod.html#ga3c5834bfffa897af09be279c225279a2">mpp_memuse_begin</a>, <a class="code" href="group__mpp__memutils__mod.html#ga3c26d4cff3ed9302d05ffd12ded42f76">mpp_memuse_end</a></div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keywordtype">implicit none</span></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keywordtype">  real</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">allocatable</span> :: ralloc_mem</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keyword">call </span>mpp_init()</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <span class="keyword">call </span>mpp_memuse_end(<span class="stringliteral">&quot;Test mpp_memuse_mod, mpp_memuse_end called before mpp_memuse_begin&quot;</span>)</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <span class="keyword">call </span><a class="code" href="group__mpp__memutils__mod.html#ga3c26d4cff3ed9302d05ffd12ded42f76">mpp_memuse_end</a>(<span class="stringliteral">&quot;Test mpp_memuse_mod, mpp_memuse_end called before mpp_memuse_begin&quot;</span>)</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="keyword">call </span>mpp_exit()</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">end program </span>test_mpp_memutils_init_end</div>
+<div class="ttc" id="agroup__mpp__memutils__mod_html_ga3c26d4cff3ed9302d05ffd12ded42f76"><div class="ttname"><a href="group__mpp__memutils__mod.html#ga3c26d4cff3ed9302d05ffd12ded42f76">mpp_memutils_mod::mpp_memuse_end</a></div><div class="ttdeci">subroutine, public mpp_memuse_end(text, unit)</div><div class="ttdoc">End the memory collection, and report on total memory used during the execution of the model run.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__memutils_8F90_source.html#l00059">mpp_memutils.F90:60</a></div></div>
+<div class="ttc" id="agroup__mpp__memutils__mod_html_ga3c5834bfffa897af09be279c225279a2"><div class="ttname"><a href="group__mpp__memutils__mod.html#ga3c5834bfffa897af09be279c225279a2">mpp_memutils_mod::mpp_memuse_begin</a></div><div class="ttdeci">subroutine, public mpp_memuse_begin</div><div class="ttdoc">Initialize the memory module, and record the initial memory use.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__memutils_8F90_source.html#l00047">mpp_memutils.F90:48</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

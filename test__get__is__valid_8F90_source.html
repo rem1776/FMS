@@ -116,7 +116,7 @@ $(document).ready(function(){initNavTree('test__get__is__valid_8F90_source.html'
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">program</span> test_get_is_valid</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keywordtype">use   </span>fms2_io_mod, <span class="keywordtype">only</span>: fms2_io_init, open_file, fmsnetcdffile_t, valid_t, &amp;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keywordtype">use   </span>fms2_io_mod, <span class="keywordtype">only</span>: <a class="code" href="group__fms2__io__mod.html#gab2efb88539d9a05da43d95a501ed7e4c">fms2_io_init</a>, open_file, fmsnetcdffile_t, valid_t, &amp;</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                         close_file, is_valid, get_valid</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keywordtype">use   </span>mpp_mod    , <span class="keywordtype">only</span>: mpp_init, mpp_exit, mpp_npes, mpp_get_current_pelist, &amp;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                         mpp_root_pe, mpp_pe, fatal, mpp_error, mpp_sync</div>
@@ -136,7 +136,7 @@ $(document).ready(function(){initNavTree('test__get__is__valid_8F90_source.html'
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keywordtype">integer</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">allocatable</span> :: pes<span class="comment"> !&gt; Current pelist</span></div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">call </span>mpp_init()</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">call </span>fms2_io_init()</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">call </span><a class="code" href="group__fms2__io__mod.html#gab2efb88539d9a05da43d95a501ed7e4c">fms2_io_init</a>()</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">allocate</span>(pes(mpp_npes()))</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">call </span>mpp_get_current_pelist(pes)</div>
@@ -195,6 +195,7 @@ $(document).ready(function(){initNavTree('test__get__is__valid_8F90_source.html'
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="keyword">call </span>mpp_exit()</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="keyword">end program </span>test_get_is_valid</div>
+<div class="ttc" id="agroup__fms2__io__mod_html_gab2efb88539d9a05da43d95a501ed7e4c"><div class="ttname"><a href="group__fms2__io__mod.html#gab2efb88539d9a05da43d95a501ed7e4c">fms2_io_mod::fms2_io_init</a></div><div class="ttdeci">subroutine, public fms2_io_init()</div><div class="ttdoc">Reads the fms2_io_nml.</div><div class="ttdef"><b>Definition:</b> <a href="fms2__io_8F90_source.html#l00247">fms2_io.F90:248</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

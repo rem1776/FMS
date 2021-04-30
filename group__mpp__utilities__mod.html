@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>FMS: interpolator Interface</title>
+<title>FMS: Mpp_utilities_mod</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -70,7 +70,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('interpolator.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('group__mpp__utilities__mod.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -88,38 +88,26 @@ $(document).ready(function(){initNavTree('interpolator.html',''); initResizable(
 </iframe>
 </div>
 
-<div class="PageDoc"><div class="header">
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Functions/Subroutines</a>  </div>
   <div class="headertitle">
-<div class="title">interpolator Interface </div>  </div>
+<div class="title">Mpp_utilities_mod<div class="ingroups"><a class="el" href="group__mpp.html">MPP</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><div class="fragment"><div class="line"><span class="keyword">call </span>interpolator (sulfate, model_time, p_half, model_data, name, is, js, clim_units)</div>
-<div class="line"><span class="keyword">call </span>interpolator (o3, model_time, p_half, model_data, <span class="stringliteral">&quot;ozone&quot;</span>, is, js)</div>
-</div><!-- fragment --><p>The first option is used to generate sulfate models.</p>
-<p>The sulfate data is set by </p><div class="fragment"><div class="line"><span class="keywordtype">type</span>(interpolate_type), <span class="keywordtype">intent(inout)</span> :: sulfate</div>
-</div><!-- fragment --><p> The name of the model is set by </p><div class="fragment"><div class="line"><span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: name</div>
-</div><!-- fragment --><p> The units used in this model are outputted to </p><div class="fragment"><div class="line"><span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(out)</span>, <span class="keywordtype">optional</span> :: clim_units</div>
-</div><!-- fragment --><p>The second option is generate ozone models.</p>
-<p>The ozone data is set by </p><div class="fragment"><div class="line"><span class="keywordtype">type</span>(interpolate_type), <span class="keywordtype">intent(inout)</span> :: o3</div>
-</div><!-- fragment --><p>Both of these options use the following variables in the model.</p>
-<p>The time used in the model is set by</p>
-<div class="fragment"><div class="line"><span class="keywordtype">type</span>(time_type), <span class="keywordtype">intent(in)</span> :: model_time</div>
-</div><!-- fragment --><p> The model pressure field is set by </p><div class="fragment"><div class="line"><span class="keywordtype">real</span>, <span class="keywordtype">intent(in)</span>, <span class="keywordtype">dimension(:,:,:)</span> :: p_half</div>
-</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">&lt;clim_type&gt;</td><td>The interpolate type previously defined by a call to interpolator_init </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;field_name&gt;</td><td>The name of a field that you wish to interpolate </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;Time&gt;</td><td>The model time that you wish to interpolate to </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;phalf&gt;</td><td>The half level model pressure field </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;is&gt;</td><td>Index for the physics window </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;js&gt;</td><td>Index for the physics window </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">&lt;interp_data&gt;</td><td>The model fields with the interpolated climatology data </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">&lt;clim_units&gt;</td><td>The units of field_name </td></tr>
-  </table>
-  </dd>
-</dl>
-</div></div><!-- contents -->
-</div><!-- PageDoc -->
+
+<p>Module for utiltity routines to be used in <a class="el" href="group__mpp.html">MPP</a> modules Currently only holds one routine for finding global min and max.  
+<a href="#details">More...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions/Subroutines</h2></td></tr>
+<tr class="memitem:ga5f88f3c6659113ea3366589552a0fb87"><td class="memItemLeft" align="right" valign="top"><a id="ga5f88f3c6659113ea3366589552a0fb87"></a>
+subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_array_global_min_max</b> (in_array, tmask, isd, jsd, isc, iec, jsc, jec, nk, g_min, g_max, geo_x, geo_y, geo_z, xgmin, ygmin, zgmin, xgmax, ygmax, zgmax)</td></tr>
+<tr class="separator:ga5f88f3c6659113ea3366589552a0fb87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<p>Module for utiltity routines to be used in <a class="el" href="group__mpp.html">MPP</a> modules Currently only holds one routine for finding global min and max. </p>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

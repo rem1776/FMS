@@ -44,6 +44,7 @@ var group__interpolator__mod =
       [ "vert_interp", "group__interpolator__mod.html#gaa561a86db0a2aefee6b39786ea91636c", null ],
       [ "vertical_indices", "group__interpolator__mod.html#gaf56a04972cb1b681ce857e9906fd9560", null ]
     ] ],
+    [ "interpolator Interface", "group__interpolator__mod.html#interpolator", null ],
     [ "assignment Interface", "group__interpolator__mod.html#assignment", null ],
     [ "interp_weighted_scalar Interface", "group__interpolator__mod.html#interp_weighted_scalar", null ],
     [ "init_clim_diag", "group__interpolator__mod.html#ga06df9761d5d17f3a33ad65fc800099d1", null ],
