@@ -27,12 +27,10 @@ var NAVTREE =
   [ "FMS", "index.html", [
     [ "FMS Documentation Homepage", "index.html", null ],
     [ "CMAKE_INSTRUCTIONS", "md_CMAKE_INSTRUCTIONS.html", null ],
-    [ "diag_table", "md_docs_diag_table.html", null ],
-    [ "README", "md_drifters_README.html", null ],
+    [ "Building and Installation", "build.html", null ],
     [ "INSTALL", "md_INSTALL.html", null ],
     [ "BUILD_SYSTEM", "md_libFMS_BUILD_SYSTEM.html", null ],
-    [ "General Project Information", "readme.html", null ],
-    [ "supported_interfaces", "md_supported_interfaces.html", null ],
+    [ "README", "md_README.html", null ],
     [ "Modules", "modules.html", "modules" ],
     [ "Module Members", "namespacemembers.html", [
       [ "All", "namespacemembers.html", null ],
@@ -62,23 +60,23 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "Example-example.html",
-"constants_8F90.html#ga339acc50a5e5f1d7b1526334be846e23",
-"diag__data_8F90.html#ga6ee6aed09e47efdff74a34b521adbd10",
-"dir_72b96e86e48e5dd402c7a282ec4fcc3a.html",
-"files.html",
-"fms__io_8F90.html#gab8fd756b68ad9b77881808424d26cfad",
-"grid_8F90.html#gad9a6735e725f189f0bf80eae1e40130f",
-"group__coupler__types__mod.html#ga68a73407cc4e29d4f65cb3700758fec0",
-"group__diag__data__mod.html#ga9b2ea47156de93fd8439e52ea449b942",
-"group__fms__netcdf__domain__io__mod.html#ga57fcb120b3d6f6c9ab45914c9f6ad930",
-"horiz__interp__conserve_8F90.html#afd9cc753d9a541287dad520889eb44d8",
-"mosaic_8F90.html#gad1433095b0086ee21c4476545fd9c456",
-"mpp__group__update_8h_source.html",
-"netcdf__io_8F90.html#a4d83279b40e7059eb8413353e58a3d4b",
-"stock__constants_8F90.html#gaa3670eb950f5c8a76f1bb822c4874084",
-"test__mpp__root__pe_8F90.html",
-"time__manager_8F90.html#ga7cd4532f00e5dee5fa8ea45296c85675",
-"xgrid_8F90.html#gad49659b5e2fc7b1013c03f5e5fc7b828"
+"constants_8F90.html#ga29edb91d4131b7e047c641cf1cb1610e",
+"diag__data_8F90.html#ga6ec388213c7b8c8e27dbe583ce10dea9",
+"dir_704313a43d420a79da235c7f66d3c941.html",
+"file__version_8h_source.html",
+"fms__io_8F90.html#gab7ca15dc41b0f2bee7922d732a6cbabb",
+"grid_8F90.html#gad6b177f9b512d22b123e7036bd65af4c",
+"group__coupler__types__mod.html#ga5f9a30581ca97cd18f2f5be83fcaa735",
+"group__diag__data__mod.html#ga8b9dcb95e523a43b0b34108c0e80f95d",
+"group__fms__io__utils__mod.html#gaf84858127441447c6dbfafbb581116e4",
+"horiz__interp__bicubic_8F90.html#gadba056c70686efe3ab531c36e8dbd5f9",
+"mosaic2_8F90.html#ga221df32f6bbbde1fa538e81b2d6e5b64",
+"mpp__efp_8F90.html#ga4bd112321a2bb8918ec4818ecc32089f",
+"mpp_global_max-example.html",
+"sat__vapor__pres__k_8F90.html#gad90fced89119faa8809a90fde87d61d7",
+"test__mpp__broadcast_8F90.html#afc8f8434e877ade8137b94660f39d2ba",
+"time__manager_8F90.html#ga2b9c941f38e33eba67ee151fe3bd8ee6",
+"xgrid_8F90.html#ga811ad4662ab1d522cbec5c85ab144af2"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

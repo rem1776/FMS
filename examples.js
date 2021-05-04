@@ -1,5 +1,6 @@
 var examples =
 [
+    [ "mpp_chksum", "mpp_chksum-example.html", null ],
     [ "type", "type-example.html", null ],
     [ "call", "call-example.html", null ],
     [ "The", "The-example.html", null ],

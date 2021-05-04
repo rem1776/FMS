@@ -95,6 +95,8 @@ $(document).ready(function(){initNavTree('The-example.html',''); initResizable()
 <div class="contents">
 <p>2D version is just an extension of this syntax to two dimensions. The 2D version of the above should generally be used in codes, including 1D-decomposed ones, if there is a possibility of future evolution toward 2D decomposition. The arguments are similar to the 1D case, except that now we have optional arguments flags, halo, extent and maskmap along two axes.</p>
 <p>flags can now take an additional possible value to fold one or more edges. This is done by using flags <em>FOLD_WEST_EDGE</em>, <em>FOLD_EAST_EDGE</em>, <em>FOLD_SOUTH_EDGE</em> or <em>FOLD_NORTH_EDGE</em>. When a fold exists (e.g cylindrical domain), vector fields reverse sign upon crossing the fold. This parity reversal is performed only in the vector version of mpp_update_domains. In addition, shift operations may need to be applied to vector fields on staggered grids, also described in the vector interface to mpp_update_domains.</p>
+<p><code>name</code> is the name associated with the decomposition, e.g <code>'Ocean model'</code>. If this argument is present, <code>mpp_define_domains</code> will print the domain decomposition generated to <code>stdlog</code>.</p>
+<p>Examples:</p>
 <div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

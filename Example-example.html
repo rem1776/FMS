@@ -93,7 +93,7 @@ $(document).ready(function(){initNavTree('Example-example.html',''); initResizab
 <div class="title">Example</div>  </div>
 </div><!--header-->
 <div class="contents">
-<p>Interface to start halo updates @detailed \empp_start_update_domains is used to start a halo update of a domain-decomposed array on each PE. \eMPP_TYPE_ can be of type \ecomplex, \einteger, \elogical or \ereal; of 4-byte or 8-byte kind; of rank up to 5. The vector version (with two input data fields) is only present for \ereal types.<br  />
+<p>Interface to start halo updates \empp_start_update_domains is used to start a halo update of a domain-decomposed array on each PE. \eMPP_TYPE_ can be of type \ecomplex, \einteger, \elogical or \ereal; of 4-byte or 8-byte kind; of rank up to 5. The vector version (with two input data fields) is only present for \ereal types.<br  />
 <br  />
  \empp_start_update_domains must be paired together with \empp_complete_update_domains. In \empp_start_update_domains, a buffer will be pre-post to receive (non-blocking) the data and data on computational domain will be packed and sent (non-blocking send) to other processor. In \empp_complete_update_domains, buffer will be unpacked to fill the halo and mpp_sync_self will be called to to ensure communication safe at the last call of mpp_complete_update_domains.<br  />
 <br  />

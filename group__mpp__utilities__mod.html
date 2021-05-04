@@ -92,21 +92,165 @@ $(document).ready(function(){initNavTree('group__mpp__utilities__mod.html',''); 
   <div class="summary">
 <a href="#func-members">Functions/Subroutines</a>  </div>
   <div class="headertitle">
-<div class="title">mpp_utilities_mod</div>  </div>
+<div class="title">mpp_utilities_mod<div class="ingroups"><a class="el" href="group__mpp.html">MPP</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Module for utiltity routines to be used in <a class="el" href="dir_72b96e86e48e5dd402c7a282ec4fcc3a.html">mpp</a> modules Currently only holds one routine for finding global min and max.  
+<p>Module for utiltity routines to be used in <a class="el" href="group__mpp.html">MPP</a> modules Currently only holds one routine for finding global min and max.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
-<tr class="memitem:ga5f88f3c6659113ea3366589552a0fb87"><td class="memItemLeft" align="right" valign="top"><a id="ga5f88f3c6659113ea3366589552a0fb87"></a>
-subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_array_global_min_max</b> (in_array, tmask, isd, jsd, isc, iec, jsc, jec, nk, g_min, g_max, geo_x, geo_y, geo_z, xgmin, ygmin, zgmin, xgmax, ygmax, zgmax)</td></tr>
+<tr class="memitem:ga5f88f3c6659113ea3366589552a0fb87"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mpp__utilities__mod.html#ga5f88f3c6659113ea3366589552a0fb87">mpp_array_global_min_max</a> (in_array, tmask, isd, jsd, isc, iec, jsc, jec, nk, g_min, g_max, geo_x, geo_y, geo_z, xgmin, ygmin, zgmin, xgmax, ygmax, zgmax)</td></tr>
+<tr class="memdesc:ga5f88f3c6659113ea3366589552a0fb87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute and return the global min and max of an array and the corresponding lat-lon-depth locations . This algorithm works only for an input array that has a unique global max and min location. This is assured by introducing a factor that distinguishes the values of extrema at each processor.  <a href="group__mpp__utilities__mod.html#ga5f88f3c6659113ea3366589552a0fb87">More...</a><br /></td></tr>
 <tr class="separator:ga5f88f3c6659113ea3366589552a0fb87"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Module for utiltity routines to be used in <a class="el" href="dir_72b96e86e48e5dd402c7a282ec4fcc3a.html">mpp</a> modules Currently only holds one routine for finding global min and max. </p>
+<p>Module for utiltity routines to be used in <a class="el" href="group__mpp.html">MPP</a> modules Currently only holds one routine for finding global min and max. </p>
+<h2 class="groupheader">Function/Subroutine Documentation</h2>
+<a id="ga5f88f3c6659113ea3366589552a0fb87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5f88f3c6659113ea3366589552a0fb87">&#9670;&nbsp;</a></span>mpp_array_global_min_max()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine, public mpp_utilities_mod::mpp_array_global_min_max </td>
+          <td>(</td>
+          <td class="paramtype">real, dimension(isd:,jsd:,:), intent(in)&#160;</td>
+          <td class="paramname"><em>in_array</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(isd:,jsd:,:), intent(in)&#160;</td>
+          <td class="paramname"><em>tmask</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)&#160;</td>
+          <td class="paramname"><em>isd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)&#160;</td>
+          <td class="paramname"><em>jsd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)&#160;</td>
+          <td class="paramname"><em>isc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)&#160;</td>
+          <td class="paramname"><em>iec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)&#160;</td>
+          <td class="paramname"><em>jsc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)&#160;</td>
+          <td class="paramname"><em>jec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)&#160;</td>
+          <td class="paramname"><em>nk</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, intent(out)&#160;</td>
+          <td class="paramname"><em>g_min</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, intent(out)&#160;</td>
+          <td class="paramname"><em>g_max</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(isd:,jsd:), intent(in)&#160;</td>
+          <td class="paramname"><em>geo_x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(isd:,jsd:), intent(in)&#160;</td>
+          <td class="paramname"><em>geo_y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:), intent(in)&#160;</td>
+          <td class="paramname"><em>geo_z</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, intent(out)&#160;</td>
+          <td class="paramname"><em>xgmin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, intent(out)&#160;</td>
+          <td class="paramname"><em>ygmin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, intent(out)&#160;</td>
+          <td class="paramname"><em>zgmin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, intent(out)&#160;</td>
+          <td class="paramname"><em>xgmax</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, intent(out)&#160;</td>
+          <td class="paramname"><em>ygmax</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, intent(out)&#160;</td>
+          <td class="paramname"><em>zgmax</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compute and return the global min and max of an array and the corresponding lat-lon-depth locations . This algorithm works only for an input array that has a unique global max and min location. This is assured by introducing a factor that distinguishes the values of extrema at each processor. </p>
+<p>Vectorized using maxloc() and minloc() intrinsic functions by <a href="#" onclick="location.href='mai'+'lto:'+'Rus'+'se'+'ll.'+'Fi'+'edl'+'er'+'@cs'+'ir'+'o.a'+'u'; return false;">Russe<span style="display: none;">.nosp@m.</span>ll.F<span style="display: none;">.nosp@m.</span>iedle<span style="display: none;">.nosp@m.</span>r@cs<span style="display: none;">.nosp@m.</span>iro.a<span style="display: none;">.nosp@m.</span>u</a> (May 2005).</p>
+<p>Modified by <a href="#" onclick="location.href='mai'+'lto:'+'Zhi'+'.L'+'ian'+'g@'+'noa'+'a.'+'gov'; return false;">Zhi.L<span style="display: none;">.nosp@m.</span>iang<span style="display: none;">.nosp@m.</span>@noaa<span style="display: none;">.nosp@m.</span>.gov</a> (July 2005)</p>
+<p>Modified by <a href="#" onclick="location.href='mai'+'lto:'+'Nik'+'i.'+'Zad'+'eh'+'@no'+'aa'+'.go'+'v'; return false;">Niki.<span style="display: none;">.nosp@m.</span>Zade<span style="display: none;">.nosp@m.</span>h@noa<span style="display: none;">.nosp@m.</span>a.go<span style="display: none;">.nosp@m.</span>v</a> (Feb. 2009) </p>
+
+<p class="definition">Definition at line <a class="el" href="mpp__utilities_8F90_source.html#l00054">54</a> of file <a class="el" href="mpp__utilities_8F90_source.html">mpp_utilities.F90</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
