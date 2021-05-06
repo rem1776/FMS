@@ -121,6 +121,10 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:gae80e64e737312192624678ecd590acd6"><td class="memItemLeft" align="right" valign="top">logical function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms__mod.html#gae80e64e737312192624678ecd590acd6">monotonic_array</a> (array, direction)</td></tr>
 <tr class="memdesc:gae80e64e737312192624678ecd590acd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines if a real input array has monotonically increasing or decreasing values.  <a href="group__fms__mod.html#gae80e64e737312192624678ecd590acd6">More...</a><br /></td></tr>
 <tr class="separator:gae80e64e737312192624678ecd590acd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0c093df98a75dbd9e0f3add67aa6c23a"><td class="memItemLeft" align="right" valign="top"><a id="ga0c093df98a75dbd9e0f3add67aa6c23a"></a>
+subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms__mod.html#ga0c093df98a75dbd9e0f3add67aa6c23a">write_version_number</a> (version, tag, unit)</td></tr>
+<tr class="memdesc:ga0c093df98a75dbd9e0f3add67aa6c23a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints to the log file (or a specified unit) the version id string and tag name. <br /></td></tr>
+<tr class="separator:ga0c093df98a75dbd9e0f3add67aa6c23a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -179,7 +183,7 @@ logical, public&#160;</td><td class="memItemRight" valign="bottom"><b>print_memo
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="fms_8F90_source.html#l00699">699</a> of file <a class="el" href="fms_8F90_source.html">fms.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="fms_8F90_source.html#l00711">711</a> of file <a class="el" href="fms_8F90_source.html">fms.F90</a>.</p>
 
 </div>
 </div>
@@ -225,7 +229,7 @@ logical, public&#160;</td><td class="memItemRight" valign="bottom"><b>print_memo
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="fms_8F90_source.html#l00554">554</a> of file <a class="el" href="fms_8F90_source.html">fms.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="fms_8F90_source.html#l00566">566</a> of file <a class="el" href="fms_8F90_source.html">fms.F90</a>.</p>
 
 </div>
 </div>
@@ -272,7 +276,7 @@ logical, public&#160;</td><td class="memItemRight" valign="bottom"><b>print_memo
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="fms_8F90_source.html#l00606">606</a> of file <a class="el" href="fms_8F90_source.html">fms.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="fms_8F90_source.html#l00618">618</a> of file <a class="el" href="fms_8F90_source.html">fms.F90</a>.</p>
 
 </div>
 </div>
@@ -295,7 +299,7 @@ logical, public&#160;</td><td class="memItemRight" valign="bottom"><b>print_memo
 <p>Initializes the FMS module and also calls the initialization routines for all modules in the MPP package. Will be called automatically if the user does not call it. </p>
 <p>Initialization routine for the fms module. It also calls initialization routines for the mpp, mpp_domains, and mpp_io modules. Although this routine will be called automatically by other fms_mod routines, users should explicitly call fms_init. If this routine is called more than once it will return silently. There are no arguments. </p>
 
-<p class="definition">Definition at line <a class="el" href="fms_8F90_source.html#l00361">361</a> of file <a class="el" href="fms_8F90_source.html">fms.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="fms_8F90_source.html#l00365">365</a> of file <a class="el" href="fms_8F90_source.html">fms.F90</a>.</p>
 
 </div>
 </div>
@@ -341,7 +345,7 @@ logical, public&#160;</td><td class="memItemRight" valign="bottom"><b>print_memo
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>If the input array of real values either increases or decreases monotonically then TRUE is returned, otherwise FALSE is returned. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="fms_8F90_source.html#l00945">945</a> of file <a class="el" href="fms_8F90_source.html">fms.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="fms_8F90_source.html#l00957">957</a> of file <a class="el" href="fms_8F90_source.html">fms.F90</a>.</p>
 
 </div>
 </div>
@@ -389,7 +393,7 @@ logical, public&#160;</td><td class="memItemRight" valign="bottom"><b>print_memo
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>If an exact match was found then TRUE is returned, otherwise FALSE is returned. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="fms_8F90_source.html#l00883">883</a> of file <a class="el" href="fms_8F90_source.html">fms.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="fms_8F90_source.html#l00895">895</a> of file <a class="el" href="fms_8F90_source.html">fms.F90</a>.</p>
 
 </div>
 </div>

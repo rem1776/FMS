@@ -159,7 +159,7 @@ $(document).ready(function(){initNavTree('interpolator_8F90_source.html',''); in
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keywordtype">use </span>diag_manager_mod,  <span class="keywordtype">only</span> : <a class="code" href="group__diag__manager__mod.html#gab78722b306c31534a1b7870aaef28c6c">diag_manager_init</a>, <a class="code" href="group__diag__manager__mod.html#ga6f8f390263ec70bb5a7c281b95b37c5a">get_base_time</a>, &amp;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                              register_diag_field, send_data, &amp;</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                              diag_axis_init</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keywordtype">use </span>fms_mod,           <span class="keywordtype">only</span> : lowercase, write_version_number, &amp;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keywordtype">use </span>fms_mod,           <span class="keywordtype">only</span> : lowercase, <a class="code" href="group__fms__mod.html#ga0c093df98a75dbd9e0f3add67aa6c23a">write_version_number</a>, &amp;</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                              <a class="code" href="group__fms__mod.html#gabaf667e53627cfaceb48057e827b7b5e">fms_init</a>, &amp;</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                              mpp_root_pe, stdlog, &amp;</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                              <a class="code" href="group__fms__mod.html#ga05e7686befc1e49d2be9bdb81d479a76">check_nml_error</a></div>
@@ -181,7 +181,7 @@ $(document).ready(function(){initNavTree('interpolator_8F90_source.html',''); in
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="keywordtype">use </span>time_manager_mod,  <span class="keywordtype">only</span> : time_type,   &amp;</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                              set_time,    &amp;</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                              set_date,    &amp;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                              get_date,    &amp;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                              <a class="code" href="group__time__manager__mod.html#ga6c708ea801247812b41b305ee5aeea13">get_date</a>,    &amp;</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                              get_calendar_type, &amp;</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                              julian, noleap, &amp;</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                              get_date_julian, set_date_no_leap, &amp;</div>
@@ -1656,18 +1656,18 @@ $(document).ready(function(){initNavTree('interpolator_8F90_source.html',''); in
 <div class="line"><a name="l01561"></a><span class="lineno"> 1561</span>&#160; </div>
 <div class="line"><a name="l01562"></a><span class="lineno"> 1562</span>&#160;      <span class="comment">! We need to get the previous months data for the climatology year before</span></div>
 <div class="line"><a name="l01563"></a><span class="lineno"> 1563</span>&#160;      <span class="comment">! and after the model year.</span></div>
-<div class="line"><a name="l01564"></a><span class="lineno"> 1564</span>&#160;        <span class="keyword">call </span>get_date(time, modyear, modmonth, modday, modhour, modminute, modsecond)</div>
-<div class="line"><a name="l01565"></a><span class="lineno"> 1565</span>&#160;        <span class="keyword">call </span>get_date(clim_type%time_slice(taum), climyear, climmonth, climday, climhour, climminute, climsecond)</div>
+<div class="line"><a name="l01564"></a><span class="lineno"> 1564</span>&#160;        <span class="keyword">call </span><a class="code" href="group__time__manager__mod.html#ga6c708ea801247812b41b305ee5aeea13">get_date</a>(time, modyear, modmonth, modday, modhour, modminute, modsecond)</div>
+<div class="line"><a name="l01565"></a><span class="lineno"> 1565</span>&#160;        <span class="keyword">call </span><a class="code" href="group__time__manager__mod.html#ga6c708ea801247812b41b305ee5aeea13">get_date</a>(clim_type%time_slice(taum), climyear, climmonth, climday, climhour, climminute, climsecond)</div>
 <div class="line"><a name="l01566"></a><span class="lineno"> 1566</span>&#160; </div>
 <div class="line"><a name="l01567"></a><span class="lineno"> 1567</span>&#160;        climatology = 1</div>
 <div class="line"><a name="l01568"></a><span class="lineno"> 1568</span>&#160;        <span class="keywordflow">do</span> m = 1, <span class="keyword">size</span>(clim_type%clim_times(:,:),2)</div>
 <div class="line"><a name="l01569"></a><span class="lineno"> 1569</span>&#160;          <span class="comment">!Assume here that a climatology is for 1 year and consists of 12 months starting in January.</span></div>
-<div class="line"><a name="l01570"></a><span class="lineno"> 1570</span>&#160;          <span class="keyword">call </span>get_date(clim_type%clim_times(1,m), year1, month1, day, hour, minute, second)</div>
+<div class="line"><a name="l01570"></a><span class="lineno"> 1570</span>&#160;          <span class="keyword">call </span><a class="code" href="group__time__manager__mod.html#ga6c708ea801247812b41b305ee5aeea13">get_date</a>(clim_type%clim_times(1,m), year1, month1, day, hour, minute, second)</div>
 <div class="line"><a name="l01571"></a><span class="lineno"> 1571</span>&#160;          <span class="keywordflow">if</span> (year1 == climyear) climatology = m</div>
 <div class="line"><a name="l01572"></a><span class="lineno"> 1572</span>&#160;<span class="keywordflow">        enddo</span></div>
 <div class="line"><a name="l01573"></a><span class="lineno"> 1573</span>&#160;        <span class="keywordflow">do</span> m = 1,12</div>
 <div class="line"><a name="l01574"></a><span class="lineno"> 1574</span>&#160;          <span class="comment">!Find which month we are trying to look at and set clim_date[mp] to the dates spanning that.</span></div>
-<div class="line"><a name="l01575"></a><span class="lineno"> 1575</span>&#160;          <span class="keyword">call </span>get_date(clim_type%clim_times(m,climatology), year1, month1, day, hour, minute, second)</div>
+<div class="line"><a name="l01575"></a><span class="lineno"> 1575</span>&#160;          <span class="keyword">call </span><a class="code" href="group__time__manager__mod.html#ga6c708ea801247812b41b305ee5aeea13">get_date</a>(clim_type%clim_times(m,climatology), year1, month1, day, hour, minute, second)</div>
 <div class="line"><a name="l01576"></a><span class="lineno"> 1576</span>&#160;          <span class="keywordflow">if</span> ( month1 == modmonth ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l01577"></a><span class="lineno"> 1577</span>&#160;<span class="comment">!RSHBUGFX   if ( modday &lt;= day ) then</span></div>
 <div class="line"><a name="l01578"></a><span class="lineno"> 1578</span>&#160;            <span class="keywordflow">if</span> ( modday &lt;  day ) <span class="keywordflow">then</span></div>
@@ -1684,7 +1684,7 @@ $(document).ready(function(){initNavTree('interpolator_8F90_source.html',''); in
 <div class="line"><a name="l01589"></a><span class="lineno"> 1589</span>&#160;        <span class="keywordflow">else</span></div>
 <div class="line"><a name="l01590"></a><span class="lineno"> 1590</span>&#160;          yearm = modyear</div>
 <div class="line"><a name="l01591"></a><span class="lineno"> 1591</span>&#160;<span class="keywordflow">        endif</span></div>
-<div class="line"><a name="l01592"></a><span class="lineno"> 1592</span>&#160;          <span class="keyword">call </span>get_date(clim_type%time_slice(indexm+(climatology-1)*12), &amp;</div>
+<div class="line"><a name="l01592"></a><span class="lineno"> 1592</span>&#160;          <span class="keyword">call </span><a class="code" href="group__time__manager__mod.html#ga6c708ea801247812b41b305ee5aeea13">get_date</a>(clim_type%time_slice(indexm+(climatology-1)*12), &amp;</div>
 <div class="line"><a name="l01593"></a><span class="lineno"> 1593</span>&#160;                        climyear, climmonth, climday, climhour, climminute, climsecond)</div>
 <div class="line"><a name="l01594"></a><span class="lineno"> 1594</span>&#160;          month(1) = set_date(yearm, indexm, climday, climhour, climminute, climsecond)</div>
 <div class="line"><a name="l01595"></a><span class="lineno"> 1595</span>&#160;        <span class="keywordflow">if</span> ( indexp == 13 ) <span class="keywordflow">then</span></div>
@@ -1693,7 +1693,7 @@ $(document).ready(function(){initNavTree('interpolator_8F90_source.html',''); in
 <div class="line"><a name="l01598"></a><span class="lineno"> 1598</span>&#160;        <span class="keywordflow">else</span></div>
 <div class="line"><a name="l01599"></a><span class="lineno"> 1599</span>&#160;          yearp = modyear</div>
 <div class="line"><a name="l01600"></a><span class="lineno"> 1600</span>&#160;<span class="keywordflow">        endif</span></div>
-<div class="line"><a name="l01601"></a><span class="lineno"> 1601</span>&#160;          <span class="keyword">call </span>get_date(clim_type%time_slice(indexp+(climatology-1)*12), &amp;</div>
+<div class="line"><a name="l01601"></a><span class="lineno"> 1601</span>&#160;          <span class="keyword">call </span><a class="code" href="group__time__manager__mod.html#ga6c708ea801247812b41b305ee5aeea13">get_date</a>(clim_type%time_slice(indexp+(climatology-1)*12), &amp;</div>
 <div class="line"><a name="l01602"></a><span class="lineno"> 1602</span>&#160;                        climyear, climmonth, climday, climhour, climminute, climsecond)</div>
 <div class="line"><a name="l01603"></a><span class="lineno"> 1603</span>&#160;          month(2) = set_date(yearp, indexp, climday, climhour, climminute, climsecond)</div>
 <div class="line"><a name="l01604"></a><span class="lineno"> 1604</span>&#160; </div>
@@ -1707,7 +1707,7 @@ $(document).ready(function(){initNavTree('interpolator_8F90_source.html',''); in
 <div class="line"><a name="l01612"></a><span class="lineno"> 1612</span>&#160; </div>
 <div class="line"><a name="l01613"></a><span class="lineno"> 1613</span>&#160;        month(1) = clim_type%time_slice(indexm+(climatology-1)*12)</div>
 <div class="line"><a name="l01614"></a><span class="lineno"> 1614</span>&#160;        month(2) = clim_type%time_slice(indexm+climatology*12)</div>
-<div class="line"><a name="l01615"></a><span class="lineno"> 1615</span>&#160;        <span class="keyword">call </span>get_date(month(1), climyear, climmonth, climday, climhour, climminute, climsecond)</div>
+<div class="line"><a name="l01615"></a><span class="lineno"> 1615</span>&#160;        <span class="keyword">call </span><a class="code" href="group__time__manager__mod.html#ga6c708ea801247812b41b305ee5aeea13">get_date</a>(month(1), climyear, climmonth, climday, climhour, climminute, climsecond)</div>
 <div class="line"><a name="l01616"></a><span class="lineno"> 1616</span>&#160;        t_prev = set_date(yearm, climmonth, climday, climhour, climminute, climsecond)</div>
 <div class="line"><a name="l01617"></a><span class="lineno"> 1617</span>&#160;        <span class="keyword">call </span>time_interp(t_prev, month, clim_type%tweight1, taum, taup, err_msg=err_msg ) <span class="comment">!tweight1 is the time weight between the climatology years.</span></div>
 <div class="line"><a name="l01618"></a><span class="lineno"> 1618</span>&#160;        <span class="keywordflow">if</span> ( .not. retain_cm3_bug ) <span class="keywordflow">then</span></div>
@@ -1719,7 +1719,7 @@ $(document).ready(function(){initNavTree('interpolator_8F90_source.html',''); in
 <div class="line"><a name="l01624"></a><span class="lineno"> 1624</span>&#160; </div>
 <div class="line"><a name="l01625"></a><span class="lineno"> 1625</span>&#160;        month(1) = clim_type%time_slice(indexp+(climatology-1)*12)</div>
 <div class="line"><a name="l01626"></a><span class="lineno"> 1626</span>&#160;        month(2) = clim_type%time_slice(indexp+climatology*12)</div>
-<div class="line"><a name="l01627"></a><span class="lineno"> 1627</span>&#160;        <span class="keyword">call </span>get_date(month(1), climyear, climmonth, climday, climhour, climminute, climsecond)</div>
+<div class="line"><a name="l01627"></a><span class="lineno"> 1627</span>&#160;        <span class="keyword">call </span><a class="code" href="group__time__manager__mod.html#ga6c708ea801247812b41b305ee5aeea13">get_date</a>(month(1), climyear, climmonth, climday, climhour, climminute, climsecond)</div>
 <div class="line"><a name="l01628"></a><span class="lineno"> 1628</span>&#160;        t_next = set_date(yearp, climmonth, climday, climhour, climminute, climsecond)</div>
 <div class="line"><a name="l01629"></a><span class="lineno"> 1629</span>&#160;        <span class="keyword">call </span>time_interp(t_next, month, clim_type%tweight2, taum, taup, err_msg=err_msg ) <span class="comment">!tweight1 is the time weight between the climatology years.</span></div>
 <div class="line"><a name="l01630"></a><span class="lineno"> 1630</span>&#160;        <span class="keywordflow">if</span> ( .not. retain_cm3_bug ) <span class="keywordflow">then</span></div>
@@ -2077,18 +2077,18 @@ $(document).ready(function(){initNavTree('interpolator_8F90_source.html',''); in
 <div class="line"><a name="l01982"></a><span class="lineno"> 1982</span>&#160; </div>
 <div class="line"><a name="l01983"></a><span class="lineno"> 1983</span>&#160;      <span class="comment">! We need to get the previous months data for the climatology year before</span></div>
 <div class="line"><a name="l01984"></a><span class="lineno"> 1984</span>&#160;      <span class="comment">! and after the model year.</span></div>
-<div class="line"><a name="l01985"></a><span class="lineno"> 1985</span>&#160;        <span class="keyword">call </span>get_date(time, modyear, modmonth, modday, modhour, modminute, modsecond)</div>
-<div class="line"><a name="l01986"></a><span class="lineno"> 1986</span>&#160;        <span class="keyword">call </span>get_date(clim_type%time_slice(taum), climyear, climmonth, climday, climhour, climminute, climsecond)</div>
+<div class="line"><a name="l01985"></a><span class="lineno"> 1985</span>&#160;        <span class="keyword">call </span><a class="code" href="group__time__manager__mod.html#ga6c708ea801247812b41b305ee5aeea13">get_date</a>(time, modyear, modmonth, modday, modhour, modminute, modsecond)</div>
+<div class="line"><a name="l01986"></a><span class="lineno"> 1986</span>&#160;        <span class="keyword">call </span><a class="code" href="group__time__manager__mod.html#ga6c708ea801247812b41b305ee5aeea13">get_date</a>(clim_type%time_slice(taum), climyear, climmonth, climday, climhour, climminute, climsecond)</div>
 <div class="line"><a name="l01987"></a><span class="lineno"> 1987</span>&#160; </div>
 <div class="line"><a name="l01988"></a><span class="lineno"> 1988</span>&#160;        climatology = 1</div>
 <div class="line"><a name="l01989"></a><span class="lineno"> 1989</span>&#160;        <span class="keywordflow">do</span> m = 1, <span class="keyword">size</span>(clim_type%clim_times(:,:),2)</div>
 <div class="line"><a name="l01990"></a><span class="lineno"> 1990</span>&#160;          <span class="comment">!Assume here that a climatology is for 1 year and consists of 12 months starting in January.</span></div>
-<div class="line"><a name="l01991"></a><span class="lineno"> 1991</span>&#160;          <span class="keyword">call </span>get_date(clim_type%clim_times(1,m), year1, month1, day, hour, minute, second)</div>
+<div class="line"><a name="l01991"></a><span class="lineno"> 1991</span>&#160;          <span class="keyword">call </span><a class="code" href="group__time__manager__mod.html#ga6c708ea801247812b41b305ee5aeea13">get_date</a>(clim_type%clim_times(1,m), year1, month1, day, hour, minute, second)</div>
 <div class="line"><a name="l01992"></a><span class="lineno"> 1992</span>&#160;          <span class="keywordflow">if</span> (year1 == climyear) climatology = m</div>
 <div class="line"><a name="l01993"></a><span class="lineno"> 1993</span>&#160;<span class="keywordflow">        enddo</span></div>
 <div class="line"><a name="l01994"></a><span class="lineno"> 1994</span>&#160;        <span class="keywordflow">do</span> m = 1,12</div>
 <div class="line"><a name="l01995"></a><span class="lineno"> 1995</span>&#160;          <span class="comment">!Find which month we are trying to look at and set clim_date[mp] to the dates spanning that.</span></div>
-<div class="line"><a name="l01996"></a><span class="lineno"> 1996</span>&#160;          <span class="keyword">call </span>get_date(clim_type%clim_times(m,climatology), year1, month1, day, hour, minute, second)</div>
+<div class="line"><a name="l01996"></a><span class="lineno"> 1996</span>&#160;          <span class="keyword">call </span><a class="code" href="group__time__manager__mod.html#ga6c708ea801247812b41b305ee5aeea13">get_date</a>(clim_type%clim_times(m,climatology), year1, month1, day, hour, minute, second)</div>
 <div class="line"><a name="l01997"></a><span class="lineno"> 1997</span>&#160;          <span class="keywordflow">if</span> ( month1 == modmonth ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l01998"></a><span class="lineno"> 1998</span>&#160;<span class="comment">!RSHBUGFX   if ( modday &lt;= day ) then</span></div>
 <div class="line"><a name="l01999"></a><span class="lineno"> 1999</span>&#160;            <span class="keywordflow">if</span> ( modday &lt;  day ) <span class="keywordflow">then</span></div>
@@ -2105,7 +2105,7 @@ $(document).ready(function(){initNavTree('interpolator_8F90_source.html',''); in
 <div class="line"><a name="l02010"></a><span class="lineno"> 2010</span>&#160;        <span class="keywordflow">else</span></div>
 <div class="line"><a name="l02011"></a><span class="lineno"> 2011</span>&#160;          yearm = modyear</div>
 <div class="line"><a name="l02012"></a><span class="lineno"> 2012</span>&#160;<span class="keywordflow">        endif</span></div>
-<div class="line"><a name="l02013"></a><span class="lineno"> 2013</span>&#160;          <span class="keyword">call </span>get_date(clim_type%time_slice(indexm+(climatology-1)*12), &amp;</div>
+<div class="line"><a name="l02013"></a><span class="lineno"> 2013</span>&#160;          <span class="keyword">call </span><a class="code" href="group__time__manager__mod.html#ga6c708ea801247812b41b305ee5aeea13">get_date</a>(clim_type%time_slice(indexm+(climatology-1)*12), &amp;</div>
 <div class="line"><a name="l02014"></a><span class="lineno"> 2014</span>&#160;                        climyear, climmonth, climday, climhour, climminute, climsecond)</div>
 <div class="line"><a name="l02015"></a><span class="lineno"> 2015</span>&#160;          month(1) = set_date(yearm, indexm, climday, climhour, climminute, climsecond)</div>
 <div class="line"><a name="l02016"></a><span class="lineno"> 2016</span>&#160;        <span class="keywordflow">if</span> ( indexp == 13 ) <span class="keywordflow">then</span></div>
@@ -2114,7 +2114,7 @@ $(document).ready(function(){initNavTree('interpolator_8F90_source.html',''); in
 <div class="line"><a name="l02019"></a><span class="lineno"> 2019</span>&#160;        <span class="keywordflow">else</span></div>
 <div class="line"><a name="l02020"></a><span class="lineno"> 2020</span>&#160;          yearp = modyear</div>
 <div class="line"><a name="l02021"></a><span class="lineno"> 2021</span>&#160;<span class="keywordflow">        endif</span></div>
-<div class="line"><a name="l02022"></a><span class="lineno"> 2022</span>&#160;          <span class="keyword">call </span>get_date(clim_type%time_slice(indexp+(climatology-1)*12), &amp;</div>
+<div class="line"><a name="l02022"></a><span class="lineno"> 2022</span>&#160;          <span class="keyword">call </span><a class="code" href="group__time__manager__mod.html#ga6c708ea801247812b41b305ee5aeea13">get_date</a>(clim_type%time_slice(indexp+(climatology-1)*12), &amp;</div>
 <div class="line"><a name="l02023"></a><span class="lineno"> 2023</span>&#160;                        climyear, climmonth, climday, climhour, climminute, climsecond)</div>
 <div class="line"><a name="l02024"></a><span class="lineno"> 2024</span>&#160;          month(2) = set_date(yearp, indexp, climday, climhour, climminute, climsecond)</div>
 <div class="line"><a name="l02025"></a><span class="lineno"> 2025</span>&#160; </div>
@@ -2128,7 +2128,7 @@ $(document).ready(function(){initNavTree('interpolator_8F90_source.html',''); in
 <div class="line"><a name="l02033"></a><span class="lineno"> 2033</span>&#160; </div>
 <div class="line"><a name="l02034"></a><span class="lineno"> 2034</span>&#160;        month(1) = clim_type%time_slice(indexm+(climatology-1)*12)</div>
 <div class="line"><a name="l02035"></a><span class="lineno"> 2035</span>&#160;        month(2) = clim_type%time_slice(indexm+climatology*12)</div>
-<div class="line"><a name="l02036"></a><span class="lineno"> 2036</span>&#160;        <span class="keyword">call </span>get_date(month(1), climyear, climmonth, climday, climhour, climminute, climsecond)</div>
+<div class="line"><a name="l02036"></a><span class="lineno"> 2036</span>&#160;        <span class="keyword">call </span><a class="code" href="group__time__manager__mod.html#ga6c708ea801247812b41b305ee5aeea13">get_date</a>(month(1), climyear, climmonth, climday, climhour, climminute, climsecond)</div>
 <div class="line"><a name="l02037"></a><span class="lineno"> 2037</span>&#160;        t_prev = set_date(yearm, climmonth, climday, climhour, climminute, climsecond)</div>
 <div class="line"><a name="l02038"></a><span class="lineno"> 2038</span>&#160;        <span class="keyword">call </span>time_interp(t_prev, month, clim_type%tweight1, taum, taup, err_msg=err_msg ) <span class="comment">!tweight1 is the time weight between the climatology years.</span></div>
 <div class="line"><a name="l02039"></a><span class="lineno"> 2039</span>&#160;        <span class="keywordflow">if</span> ( .not. retain_cm3_bug ) <span class="keywordflow">then</span></div>
@@ -2139,7 +2139,7 @@ $(document).ready(function(){initNavTree('interpolator_8F90_source.html',''); in
 <div class="line"><a name="l02044"></a><span class="lineno"> 2044</span>&#160;<span class="keywordflow">        endif</span></div>
 <div class="line"><a name="l02045"></a><span class="lineno"> 2045</span>&#160;        month(1) = clim_type%time_slice(indexp+(climatology-1)*12)</div>
 <div class="line"><a name="l02046"></a><span class="lineno"> 2046</span>&#160;        month(2) = clim_type%time_slice(indexp+climatology*12)</div>
-<div class="line"><a name="l02047"></a><span class="lineno"> 2047</span>&#160;        <span class="keyword">call </span>get_date(month(1), climyear, climmonth, climday, climhour, climminute, climsecond)</div>
+<div class="line"><a name="l02047"></a><span class="lineno"> 2047</span>&#160;        <span class="keyword">call </span><a class="code" href="group__time__manager__mod.html#ga6c708ea801247812b41b305ee5aeea13">get_date</a>(month(1), climyear, climmonth, climday, climhour, climminute, climsecond)</div>
 <div class="line"><a name="l02048"></a><span class="lineno"> 2048</span>&#160;        t_next = set_date(yearp, climmonth, climday, climhour, climminute, climsecond)</div>
 <div class="line"><a name="l02049"></a><span class="lineno"> 2049</span>&#160;        <span class="keyword">call </span>time_interp(t_next, month, clim_type%tweight2, taum, taup, err_msg=err_msg ) <span class="comment">!tweight1 is the time weight between the climatology years.</span></div>
 <div class="line"><a name="l02050"></a><span class="lineno"> 2050</span>&#160;        <span class="keywordflow">if</span> ( .not. retain_cm3_bug ) <span class="keywordflow">then</span></div>
@@ -2583,18 +2583,18 @@ $(document).ready(function(){initNavTree('interpolator_8F90_source.html',''); in
 <div class="line"><a name="l02488"></a><span class="lineno"> 2488</span>&#160; </div>
 <div class="line"><a name="l02489"></a><span class="lineno"> 2489</span>&#160;      <span class="comment">! We need to get the previous months data for the climatology year before</span></div>
 <div class="line"><a name="l02490"></a><span class="lineno"> 2490</span>&#160;      <span class="comment">! and after the model year.</span></div>
-<div class="line"><a name="l02491"></a><span class="lineno"> 2491</span>&#160;        <span class="keyword">call </span>get_date(time, modyear, modmonth, modday, modhour, modminute, modsecond)</div>
-<div class="line"><a name="l02492"></a><span class="lineno"> 2492</span>&#160;        <span class="keyword">call </span>get_date(clim_type%time_slice(taum), climyear, climmonth, climday, climhour, climminute, climsecond)</div>
+<div class="line"><a name="l02491"></a><span class="lineno"> 2491</span>&#160;        <span class="keyword">call </span><a class="code" href="group__time__manager__mod.html#ga6c708ea801247812b41b305ee5aeea13">get_date</a>(time, modyear, modmonth, modday, modhour, modminute, modsecond)</div>
+<div class="line"><a name="l02492"></a><span class="lineno"> 2492</span>&#160;        <span class="keyword">call </span><a class="code" href="group__time__manager__mod.html#ga6c708ea801247812b41b305ee5aeea13">get_date</a>(clim_type%time_slice(taum), climyear, climmonth, climday, climhour, climminute, climsecond)</div>
 <div class="line"><a name="l02493"></a><span class="lineno"> 2493</span>&#160; </div>
 <div class="line"><a name="l02494"></a><span class="lineno"> 2494</span>&#160;        climatology = 1</div>
 <div class="line"><a name="l02495"></a><span class="lineno"> 2495</span>&#160;        <span class="keywordflow">do</span> m = 1, <span class="keyword">size</span>(clim_type%clim_times(:,:),2)</div>
 <div class="line"><a name="l02496"></a><span class="lineno"> 2496</span>&#160;          <span class="comment">!Assume here that a climatology is for 1 year and consists of 12 months starting in January.</span></div>
-<div class="line"><a name="l02497"></a><span class="lineno"> 2497</span>&#160;          <span class="keyword">call </span>get_date(clim_type%clim_times(1,m), year1, month1, day, hour, minute, second)</div>
+<div class="line"><a name="l02497"></a><span class="lineno"> 2497</span>&#160;          <span class="keyword">call </span><a class="code" href="group__time__manager__mod.html#ga6c708ea801247812b41b305ee5aeea13">get_date</a>(clim_type%clim_times(1,m), year1, month1, day, hour, minute, second)</div>
 <div class="line"><a name="l02498"></a><span class="lineno"> 2498</span>&#160;          <span class="keywordflow">if</span> (year1 == climyear) climatology = m</div>
 <div class="line"><a name="l02499"></a><span class="lineno"> 2499</span>&#160;<span class="keywordflow">        enddo</span></div>
 <div class="line"><a name="l02500"></a><span class="lineno"> 2500</span>&#160;        <span class="keywordflow">do</span> m = 1,12</div>
 <div class="line"><a name="l02501"></a><span class="lineno"> 2501</span>&#160;          <span class="comment">!Find which month we are trying to look at and set clim_date[mp] to the dates spanning that.</span></div>
-<div class="line"><a name="l02502"></a><span class="lineno"> 2502</span>&#160;          <span class="keyword">call </span>get_date(clim_type%clim_times(m,climatology), year1, month1, day, hour, minute, second)</div>
+<div class="line"><a name="l02502"></a><span class="lineno"> 2502</span>&#160;          <span class="keyword">call </span><a class="code" href="group__time__manager__mod.html#ga6c708ea801247812b41b305ee5aeea13">get_date</a>(clim_type%clim_times(m,climatology), year1, month1, day, hour, minute, second)</div>
 <div class="line"><a name="l02503"></a><span class="lineno"> 2503</span>&#160;          <span class="keywordflow">if</span> ( month1 == modmonth ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l02504"></a><span class="lineno"> 2504</span>&#160;<span class="comment">!RSHBUGFX   if ( modday &lt;= day ) then</span></div>
 <div class="line"><a name="l02505"></a><span class="lineno"> 2505</span>&#160;            <span class="keywordflow">if</span> ( modday &lt;  day ) <span class="keywordflow">then</span></div>
@@ -2611,7 +2611,7 @@ $(document).ready(function(){initNavTree('interpolator_8F90_source.html',''); in
 <div class="line"><a name="l02516"></a><span class="lineno"> 2516</span>&#160;        <span class="keywordflow">else</span></div>
 <div class="line"><a name="l02517"></a><span class="lineno"> 2517</span>&#160;          yearm = modyear</div>
 <div class="line"><a name="l02518"></a><span class="lineno"> 2518</span>&#160;<span class="keywordflow">        endif</span></div>
-<div class="line"><a name="l02519"></a><span class="lineno"> 2519</span>&#160;        <span class="keyword">call </span>get_date(clim_type%time_slice(indexm+(climatology-1)*12), &amp;</div>
+<div class="line"><a name="l02519"></a><span class="lineno"> 2519</span>&#160;        <span class="keyword">call </span><a class="code" href="group__time__manager__mod.html#ga6c708ea801247812b41b305ee5aeea13">get_date</a>(clim_type%time_slice(indexm+(climatology-1)*12), &amp;</div>
 <div class="line"><a name="l02520"></a><span class="lineno"> 2520</span>&#160;                      climyear, climmonth, climday, climhour, climminute, climsecond)</div>
 <div class="line"><a name="l02521"></a><span class="lineno"> 2521</span>&#160;        month(1) = set_date(yearm, indexm, climday, climhour, climminute, climsecond)</div>
 <div class="line"><a name="l02522"></a><span class="lineno"> 2522</span>&#160;        <span class="keywordflow">if</span> ( indexp == 13 ) <span class="keywordflow">then</span></div>
@@ -2620,7 +2620,7 @@ $(document).ready(function(){initNavTree('interpolator_8F90_source.html',''); in
 <div class="line"><a name="l02525"></a><span class="lineno"> 2525</span>&#160;        <span class="keywordflow">else</span></div>
 <div class="line"><a name="l02526"></a><span class="lineno"> 2526</span>&#160;          yearp = modyear</div>
 <div class="line"><a name="l02527"></a><span class="lineno"> 2527</span>&#160;<span class="keywordflow">        endif</span></div>
-<div class="line"><a name="l02528"></a><span class="lineno"> 2528</span>&#160;        <span class="keyword">call </span>get_date(clim_type%time_slice(indexp+(climatology-1)*12), &amp;</div>
+<div class="line"><a name="l02528"></a><span class="lineno"> 2528</span>&#160;        <span class="keyword">call </span><a class="code" href="group__time__manager__mod.html#ga6c708ea801247812b41b305ee5aeea13">get_date</a>(clim_type%time_slice(indexp+(climatology-1)*12), &amp;</div>
 <div class="line"><a name="l02529"></a><span class="lineno"> 2529</span>&#160;                      climyear, climmonth, climday, climhour, climminute, climsecond)</div>
 <div class="line"><a name="l02530"></a><span class="lineno"> 2530</span>&#160;        month(2) = set_date(yearp, indexp, climday, climhour, climminute, climsecond)</div>
 <div class="line"><a name="l02531"></a><span class="lineno"> 2531</span>&#160; </div>
@@ -2634,7 +2634,7 @@ $(document).ready(function(){initNavTree('interpolator_8F90_source.html',''); in
 <div class="line"><a name="l02539"></a><span class="lineno"> 2539</span>&#160; </div>
 <div class="line"><a name="l02540"></a><span class="lineno"> 2540</span>&#160;        month(1) = clim_type%time_slice(indexm+(climatology-1)*12)</div>
 <div class="line"><a name="l02541"></a><span class="lineno"> 2541</span>&#160;        month(2) = clim_type%time_slice(indexm+climatology*12)</div>
-<div class="line"><a name="l02542"></a><span class="lineno"> 2542</span>&#160;        <span class="keyword">call </span>get_date(month(1), climyear, climmonth, climday, climhour, climminute, climsecond)</div>
+<div class="line"><a name="l02542"></a><span class="lineno"> 2542</span>&#160;        <span class="keyword">call </span><a class="code" href="group__time__manager__mod.html#ga6c708ea801247812b41b305ee5aeea13">get_date</a>(month(1), climyear, climmonth, climday, climhour, climminute, climsecond)</div>
 <div class="line"><a name="l02543"></a><span class="lineno"> 2543</span>&#160;        t_prev = set_date(yearm, climmonth, climday, climhour, climminute, climsecond)</div>
 <div class="line"><a name="l02544"></a><span class="lineno"> 2544</span>&#160;        <span class="keyword">call </span>time_interp(t_prev, month, clim_type%tweight1, taum, taup, err_msg=err_msg ) <span class="comment">!tweight1 is the time weight between the climatology years.</span></div>
 <div class="line"><a name="l02545"></a><span class="lineno"> 2545</span>&#160;        <span class="keywordflow">if</span> ( .not. retain_cm3_bug ) <span class="keywordflow">then</span></div>
@@ -2646,7 +2646,7 @@ $(document).ready(function(){initNavTree('interpolator_8F90_source.html',''); in
 <div class="line"><a name="l02551"></a><span class="lineno"> 2551</span>&#160; </div>
 <div class="line"><a name="l02552"></a><span class="lineno"> 2552</span>&#160;        month(1) = clim_type%time_slice(indexp+(climatology-1)*12)</div>
 <div class="line"><a name="l02553"></a><span class="lineno"> 2553</span>&#160;        month(2) = clim_type%time_slice(indexp+climatology*12)</div>
-<div class="line"><a name="l02554"></a><span class="lineno"> 2554</span>&#160;        <span class="keyword">call </span>get_date(month(1), climyear, climmonth, climday, climhour, climminute, climsecond)</div>
+<div class="line"><a name="l02554"></a><span class="lineno"> 2554</span>&#160;        <span class="keyword">call </span><a class="code" href="group__time__manager__mod.html#ga6c708ea801247812b41b305ee5aeea13">get_date</a>(month(1), climyear, climmonth, climday, climhour, climminute, climsecond)</div>
 <div class="line"><a name="l02555"></a><span class="lineno"> 2555</span>&#160;        t_next = set_date(yearp, climmonth, climday, climhour, climminute, climsecond)</div>
 <div class="line"><a name="l02556"></a><span class="lineno"> 2556</span>&#160;        <span class="keyword">call </span>time_interp(t_next, month, clim_type%tweight2, taum, taup, err_msg=err_msg ) <span class="comment">!tweight1 is the time weight between the climatology years.</span></div>
 <div class="line"><a name="l02557"></a><span class="lineno"> 2557</span>&#160;        <span class="keywordflow">if</span> ( .not. retain_cm3_bug ) <span class="keywordflow">then</span></div>
@@ -3063,18 +3063,18 @@ $(document).ready(function(){initNavTree('interpolator_8F90_source.html',''); in
 <div class="line"><a name="l02968"></a><span class="lineno"> 2968</span>&#160; </div>
 <div class="line"><a name="l02969"></a><span class="lineno"> 2969</span>&#160;      <span class="comment">! We need to get the previous months data for the climatology year before</span></div>
 <div class="line"><a name="l02970"></a><span class="lineno"> 2970</span>&#160;      <span class="comment">! and after the model year.</span></div>
-<div class="line"><a name="l02971"></a><span class="lineno"> 2971</span>&#160;        <span class="keyword">call </span>get_date(time, modyear, modmonth, modday, modhour, modminute, modsecond)</div>
-<div class="line"><a name="l02972"></a><span class="lineno"> 2972</span>&#160;        <span class="keyword">call </span>get_date(clim_type%time_slice(taum), climyear, climmonth, climday, climhour, climminute, climsecond)</div>
+<div class="line"><a name="l02971"></a><span class="lineno"> 2971</span>&#160;        <span class="keyword">call </span><a class="code" href="group__time__manager__mod.html#ga6c708ea801247812b41b305ee5aeea13">get_date</a>(time, modyear, modmonth, modday, modhour, modminute, modsecond)</div>
+<div class="line"><a name="l02972"></a><span class="lineno"> 2972</span>&#160;        <span class="keyword">call </span><a class="code" href="group__time__manager__mod.html#ga6c708ea801247812b41b305ee5aeea13">get_date</a>(clim_type%time_slice(taum), climyear, climmonth, climday, climhour, climminute, climsecond)</div>
 <div class="line"><a name="l02973"></a><span class="lineno"> 2973</span>&#160; </div>
 <div class="line"><a name="l02974"></a><span class="lineno"> 2974</span>&#160;        climatology = 1</div>
 <div class="line"><a name="l02975"></a><span class="lineno"> 2975</span>&#160;        <span class="keywordflow">do</span> m = 1, <span class="keyword">size</span>(clim_type%clim_times(:,:),2)</div>
 <div class="line"><a name="l02976"></a><span class="lineno"> 2976</span>&#160;          <span class="comment">!Assume here that a climatology is for 1 year and consists of 12 months starting in January.</span></div>
-<div class="line"><a name="l02977"></a><span class="lineno"> 2977</span>&#160;          <span class="keyword">call </span>get_date(clim_type%clim_times(1,m), year1, month1, day, hour, minute, second)</div>
+<div class="line"><a name="l02977"></a><span class="lineno"> 2977</span>&#160;          <span class="keyword">call </span><a class="code" href="group__time__manager__mod.html#ga6c708ea801247812b41b305ee5aeea13">get_date</a>(clim_type%clim_times(1,m), year1, month1, day, hour, minute, second)</div>
 <div class="line"><a name="l02978"></a><span class="lineno"> 2978</span>&#160;          <span class="keywordflow">if</span> (year1 == climyear) climatology = m</div>
 <div class="line"><a name="l02979"></a><span class="lineno"> 2979</span>&#160;<span class="keywordflow">        enddo</span></div>
 <div class="line"><a name="l02980"></a><span class="lineno"> 2980</span>&#160;        <span class="keywordflow">do</span> m = 1,12</div>
 <div class="line"><a name="l02981"></a><span class="lineno"> 2981</span>&#160;          <span class="comment">!Find which month we are trying to look at and set clim_date[mp] to the dates spanning that.</span></div>
-<div class="line"><a name="l02982"></a><span class="lineno"> 2982</span>&#160;          <span class="keyword">call </span>get_date(clim_type%clim_times(m,climatology), year1, month1, day, hour, minute, second)</div>
+<div class="line"><a name="l02982"></a><span class="lineno"> 2982</span>&#160;          <span class="keyword">call </span><a class="code" href="group__time__manager__mod.html#ga6c708ea801247812b41b305ee5aeea13">get_date</a>(clim_type%clim_times(m,climatology), year1, month1, day, hour, minute, second)</div>
 <div class="line"><a name="l02983"></a><span class="lineno"> 2983</span>&#160;          <span class="keywordflow">if</span> ( month1 == modmonth ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l02984"></a><span class="lineno"> 2984</span>&#160;<span class="comment">!RSHBUGFX   if ( modday &lt;= day ) then</span></div>
 <div class="line"><a name="l02985"></a><span class="lineno"> 2985</span>&#160;            <span class="keywordflow">if</span> ( modday &lt;  day ) <span class="keywordflow">then</span></div>
@@ -3091,7 +3091,7 @@ $(document).ready(function(){initNavTree('interpolator_8F90_source.html',''); in
 <div class="line"><a name="l02996"></a><span class="lineno"> 2996</span>&#160;        <span class="keywordflow">else</span></div>
 <div class="line"><a name="l02997"></a><span class="lineno"> 2997</span>&#160;          yearm = modyear</div>
 <div class="line"><a name="l02998"></a><span class="lineno"> 2998</span>&#160;<span class="keywordflow">        endif</span></div>
-<div class="line"><a name="l02999"></a><span class="lineno"> 2999</span>&#160;        <span class="keyword">call </span>get_date(clim_type%time_slice(indexm+(climatology-1)*12), &amp;</div>
+<div class="line"><a name="l02999"></a><span class="lineno"> 2999</span>&#160;        <span class="keyword">call </span><a class="code" href="group__time__manager__mod.html#ga6c708ea801247812b41b305ee5aeea13">get_date</a>(clim_type%time_slice(indexm+(climatology-1)*12), &amp;</div>
 <div class="line"><a name="l03000"></a><span class="lineno"> 3000</span>&#160;                      climyear, climmonth, climday, climhour, climminute, climsecond)</div>
 <div class="line"><a name="l03001"></a><span class="lineno"> 3001</span>&#160;        month(1) = set_date(yearm, indexm, climday, climhour, climminute, climsecond)</div>
 <div class="line"><a name="l03002"></a><span class="lineno"> 3002</span>&#160;        <span class="keywordflow">if</span> ( indexp == 13 ) <span class="keywordflow">then</span></div>
@@ -3100,7 +3100,7 @@ $(document).ready(function(){initNavTree('interpolator_8F90_source.html',''); in
 <div class="line"><a name="l03005"></a><span class="lineno"> 3005</span>&#160;        <span class="keywordflow">else</span></div>
 <div class="line"><a name="l03006"></a><span class="lineno"> 3006</span>&#160;          yearp = modyear</div>
 <div class="line"><a name="l03007"></a><span class="lineno"> 3007</span>&#160;<span class="keywordflow">        endif</span></div>
-<div class="line"><a name="l03008"></a><span class="lineno"> 3008</span>&#160;        <span class="keyword">call </span>get_date(clim_type%time_slice(indexp+(climatology-1)*12), &amp;</div>
+<div class="line"><a name="l03008"></a><span class="lineno"> 3008</span>&#160;        <span class="keyword">call </span><a class="code" href="group__time__manager__mod.html#ga6c708ea801247812b41b305ee5aeea13">get_date</a>(clim_type%time_slice(indexp+(climatology-1)*12), &amp;</div>
 <div class="line"><a name="l03009"></a><span class="lineno"> 3009</span>&#160;                      climyear, climmonth, climday, climhour, climminute, climsecond)</div>
 <div class="line"><a name="l03010"></a><span class="lineno"> 3010</span>&#160;        month(2) = set_date(yearp, indexp, climday, climhour, climminute, climsecond)</div>
 <div class="line"><a name="l03011"></a><span class="lineno"> 3011</span>&#160; </div>
@@ -3114,7 +3114,7 @@ $(document).ready(function(){initNavTree('interpolator_8F90_source.html',''); in
 <div class="line"><a name="l03019"></a><span class="lineno"> 3019</span>&#160; </div>
 <div class="line"><a name="l03020"></a><span class="lineno"> 3020</span>&#160;        month(1) = clim_type%time_slice(indexm+(climatology-1)*12)</div>
 <div class="line"><a name="l03021"></a><span class="lineno"> 3021</span>&#160;        month(2) = clim_type%time_slice(indexm+climatology*12)</div>
-<div class="line"><a name="l03022"></a><span class="lineno"> 3022</span>&#160;        <span class="keyword">call </span>get_date(month(1), climyear, climmonth, climday, climhour, climminute, climsecond)</div>
+<div class="line"><a name="l03022"></a><span class="lineno"> 3022</span>&#160;        <span class="keyword">call </span><a class="code" href="group__time__manager__mod.html#ga6c708ea801247812b41b305ee5aeea13">get_date</a>(month(1), climyear, climmonth, climday, climhour, climminute, climsecond)</div>
 <div class="line"><a name="l03023"></a><span class="lineno"> 3023</span>&#160;        t_prev = set_date(yearm, climmonth, climday, climhour, climminute, climsecond)</div>
 <div class="line"><a name="l03024"></a><span class="lineno"> 3024</span>&#160;        <span class="keyword">call </span>time_interp(t_prev, month, clim_type%tweight1, taum, taup, err_msg=err_msg ) <span class="comment">!tweight1 is the time weight between the climatology years.</span></div>
 <div class="line"><a name="l03025"></a><span class="lineno"> 3025</span>&#160;        <span class="keywordflow">if</span> ( .not. retain_cm3_bug ) <span class="keywordflow">then</span></div>
@@ -3126,7 +3126,7 @@ $(document).ready(function(){initNavTree('interpolator_8F90_source.html',''); in
 <div class="line"><a name="l03031"></a><span class="lineno"> 3031</span>&#160; </div>
 <div class="line"><a name="l03032"></a><span class="lineno"> 3032</span>&#160;        month(1) = clim_type%time_slice(indexp+(climatology-1)*12)</div>
 <div class="line"><a name="l03033"></a><span class="lineno"> 3033</span>&#160;        month(2) = clim_type%time_slice(indexp+climatology*12)</div>
-<div class="line"><a name="l03034"></a><span class="lineno"> 3034</span>&#160;        <span class="keyword">call </span>get_date(month(1), climyear, climmonth, climday, climhour, climminute, climsecond)</div>
+<div class="line"><a name="l03034"></a><span class="lineno"> 3034</span>&#160;        <span class="keyword">call </span><a class="code" href="group__time__manager__mod.html#ga6c708ea801247812b41b305ee5aeea13">get_date</a>(month(1), climyear, climmonth, climday, climhour, climminute, climsecond)</div>
 <div class="line"><a name="l03035"></a><span class="lineno"> 3035</span>&#160;        t_next = set_date(yearp, climmonth, climday, climhour, climminute, climsecond)</div>
 <div class="line"><a name="l03036"></a><span class="lineno"> 3036</span>&#160;        <span class="keyword">call </span>time_interp(t_next, month, clim_type%tweight2, taum, taup, err_msg=err_msg ) <span class="comment">!tweight1 is the time weight between the climatology years.</span></div>
 <div class="line"><a name="l03037"></a><span class="lineno"> 3037</span>&#160;        <span class="keywordflow">if</span> ( .not. retain_cm3_bug ) <span class="keywordflow">then</span></div>
@@ -5015,8 +5015,9 @@ $(document).ready(function(){initNavTree('interpolator_8F90_source.html',''); in
 <div class="ttc" id="agroup__constants__mod_html_gae2af4ff21f32d2de6bae418ee1cd5a0f"><div class="ttname"><a href="group__constants__mod.html#gae2af4ff21f32d2de6bae418ee1cd5a0f">constants_mod::grav</a></div><div class="ttdeci">real, parameter, public grav</div><div class="ttdoc">Acceleration due to gravity [m/s^2].</div><div class="ttdef"><b>Definition:</b> <a href="constants_8F90_source.html#l00106">constants.F90:106</a></div></div>
 <div class="ttc" id="agroup__diag__manager__mod_html_ga6f8f390263ec70bb5a7c281b95b37c5a"><div class="ttname"><a href="group__diag__manager__mod.html#ga6f8f390263ec70bb5a7c281b95b37c5a">diag_manager_mod::get_base_time</a></div><div class="ttdeci">type(time_type) function, public get_base_time()</div><div class="ttdoc">Return base time for diagnostics.</div><div class="ttdef"><b>Definition:</b> <a href="diag__manager_8F90_source.html#l03999">diag_manager.F90:4000</a></div></div>
 <div class="ttc" id="agroup__diag__manager__mod_html_gab78722b306c31534a1b7870aaef28c6c"><div class="ttname"><a href="group__diag__manager__mod.html#gab78722b306c31534a1b7870aaef28c6c">diag_manager_mod::diag_manager_init</a></div><div class="ttdeci">subroutine, public diag_manager_init(diag_model_subset, time_init, err_msg)</div><div class="ttdoc">Initialize Diagnostics Manager.</div><div class="ttdef"><b>Definition:</b> <a href="diag__manager_8F90_source.html#l03808">diag_manager.F90:3809</a></div></div>
-<div class="ttc" id="agroup__fms__mod_html_ga05e7686befc1e49d2be9bdb81d479a76"><div class="ttname"><a href="group__fms__mod.html#ga05e7686befc1e49d2be9bdb81d479a76">fms_mod::check_nml_error</a></div><div class="ttdeci">integer function, public check_nml_error(IOSTAT, NML_NAME)</div><div class="ttdoc">Checks the iostat argument that is returned after reading a namelist and determines if the error code...</div><div class="ttdef"><b>Definition:</b> <a href="fms_8F90_source.html#l00699">fms.F90:700</a></div></div>
-<div class="ttc" id="agroup__fms__mod_html_gabaf667e53627cfaceb48057e827b7b5e"><div class="ttname"><a href="group__fms__mod.html#gabaf667e53627cfaceb48057e827b7b5e">fms_mod::fms_init</a></div><div class="ttdeci">subroutine, public fms_init(localcomm)</div><div class="ttdoc">Initializes the FMS module and also calls the initialization routines for all modules in the MPP pack...</div><div class="ttdef"><b>Definition:</b> <a href="fms_8F90_source.html#l00361">fms.F90:362</a></div></div>
+<div class="ttc" id="agroup__fms__mod_html_ga05e7686befc1e49d2be9bdb81d479a76"><div class="ttname"><a href="group__fms__mod.html#ga05e7686befc1e49d2be9bdb81d479a76">fms_mod::check_nml_error</a></div><div class="ttdeci">integer function, public check_nml_error(IOSTAT, NML_NAME)</div><div class="ttdoc">Checks the iostat argument that is returned after reading a namelist and determines if the error code...</div><div class="ttdef"><b>Definition:</b> <a href="fms_8F90_source.html#l00711">fms.F90:712</a></div></div>
+<div class="ttc" id="agroup__fms__mod_html_ga0c093df98a75dbd9e0f3add67aa6c23a"><div class="ttname"><a href="group__fms__mod.html#ga0c093df98a75dbd9e0f3add67aa6c23a">fms_mod::write_version_number</a></div><div class="ttdeci">subroutine, public write_version_number(version, tag, unit)</div><div class="ttdoc">Prints to the log file (or a specified unit) the version id string and tag name.</div><div class="ttdef"><b>Definition:</b> <a href="fms_8F90_source.html#l01024">fms.F90:1025</a></div></div>
+<div class="ttc" id="agroup__fms__mod_html_gabaf667e53627cfaceb48057e827b7b5e"><div class="ttname"><a href="group__fms__mod.html#gabaf667e53627cfaceb48057e827b7b5e">fms_mod::fms_init</a></div><div class="ttdeci">subroutine, public fms_init(localcomm)</div><div class="ttdoc">Initializes the FMS module and also calls the initialization routines for all modules in the MPP pack...</div><div class="ttdef"><b>Definition:</b> <a href="fms_8F90_source.html#l00365">fms.F90:366</a></div></div>
 <div class="ttc" id="agroup__interpolator__mod_html_ga048095c591ef4051abfa1da6ebdbf3d9"><div class="ttname"><a href="group__interpolator__mod.html#ga048095c591ef4051abfa1da6ebdbf3d9">interpolator_mod::query_interpolator</a></div><div class="ttdeci">subroutine, public query_interpolator(clim_type, nfields, field_names)</div><div class="ttdoc">query_interpolator receives an interpolate type as input and returns the number of fields and field n...</div><div class="ttdef"><b>Definition:</b> <a href="interpolator_8F90_source.html#l03853">interpolator.F90:3854</a></div></div>
 <div class="ttc" id="agroup__interpolator__mod_html_ga06df9761d5d17f3a33ad65fc800099d1"><div class="ttname"><a href="group__interpolator__mod.html#ga06df9761d5d17f3a33ad65fc800099d1">interpolator_mod::init_clim_diag</a></div><div class="ttdeci">subroutine, public init_clim_diag(clim_type, mod_axes, init_time)</div><div class="ttdoc">init_clim_diag is a routine to register diagnostic fields for the climatology file....</div><div class="ttdef"><b>Definition:</b> <a href="interpolator_8F90_source.html#l01422">interpolator.F90:1423</a></div></div>
 <div class="ttc" id="agroup__interpolator__mod_html_ga19abcf7938596e9a635bb58a0fe48deb"><div class="ttname"><a href="group__interpolator__mod.html#ga19abcf7938596e9a635bb58a0fe48deb">interpolator_mod::interpolate_type_eq</a></div><div class="ttdeci">subroutine, public interpolate_type_eq(Out, In)</div><div class="ttdoc">Assignment overload routine for interpolate_type, to be used through the assignment interface.</div><div class="ttdef"><b>Definition:</b> <a href="interpolator_8F90_source.html#l00352">interpolator.F90:353</a></div></div>
@@ -5028,6 +5029,7 @@ $(document).ready(function(){initNavTree('interpolator_8F90_source.html',''); in
 <div class="ttc" id="agroup__interpolator__mod_html_gab0e08ab332bb853d3ce3814057e86bc5"><div class="ttname"><a href="group__interpolator__mod.html#gab0e08ab332bb853d3ce3814057e86bc5">interpolator_mod::interp_log_p</a></div><div class="ttdeci">integer, parameter, public interp_log_p</div><div class="ttdoc">Flags to indicate the type of vertical interpolation.</div><div class="ttdef"><b>Definition:</b> <a href="interpolator_8F90_source.html#l00317">interpolator.F90:317</a></div></div>
 <div class="ttc" id="agroup__interpolator__mod_html_gaef3ce832a153de36813a48f14172615d"><div class="ttname"><a href="group__interpolator__mod.html#gaef3ce832a153de36813a48f14172615d">interpolator_mod::read_data</a></div><div class="ttdeci">subroutine, public read_data(clim_type, field_name, hdata, nt, i, Time)</div><div class="ttdoc">read_data receives various climate data as inputs and returns a horizontally interpolated climatology...</div><div class="ttdef"><b>Definition:</b> <a href="interpolator_8F90_source.html#l03675">interpolator.F90:3676</a></div></div>
 <div class="ttc" id="agroup__interpolator__mod_html_gaf7a99acaf1d46d5729cf55d4544b685b"><div class="ttname"><a href="group__interpolator__mod.html#gaf7a99acaf1d46d5729cf55d4544b685b">interpolator_mod::obtain_interpolator_time_slices</a></div><div class="ttdeci">subroutine, public obtain_interpolator_time_slices(clim_type, Time)</div><div class="ttdoc">obtain_interpolator_time_slices makes sure that the appropriate time slices are available for interpo...</div><div class="ttdef"><b>Definition:</b> <a href="interpolator_8F90_source.html#l01505">interpolator.F90:1506</a></div></div>
+<div class="ttc" id="agroup__time__manager__mod_html_ga6c708ea801247812b41b305ee5aeea13"><div class="ttname"><a href="group__time__manager__mod.html#ga6c708ea801247812b41b305ee5aeea13">time_manager_mod::get_date</a></div><div class="ttdeci">subroutine, public get_date(time, year, month, day, hour, minute, second, tick, err_msg, old_method)</div><div class="ttdoc">Gets the date for different calendar types. The added optional argument old_method allows user to cho...</div><div class="ttdef"><b>Definition:</b> <a href="time__manager_8F90_source.html#l01681">time_manager.F90:1682</a></div></div>
 <div class="ttc" id="astructinterpolator__mod_1_1interpolate__type_html"><div class="ttname"><a href="structinterpolator__mod_1_1interpolate__type.html">interpolator_mod::interpolate_type</a></div><div class="ttdoc">Redundant climatology data between fields.</div><div class="ttdef"><b>Definition:</b> <a href="interpolator_8F90_source.html#l00213">interpolator.F90:213</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

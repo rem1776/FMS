@@ -102,10 +102,13 @@ $(document).ready(function(){initNavTree('group__cloud__interpolator__mod.html',
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
 <tr class="memitem:ga035d02894977cb133b94c1fe728c9ecd"><td class="memItemLeft" align="right" valign="top">pure subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cloud__interpolator__mod.html#ga035d02894977cb133b94c1fe728c9ecd">cld_ntrp_expand_index</a> (Ic, ie, ier)</td></tr>
+<tr class="memdesc:ga035d02894977cb133b94c1fe728c9ecd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get expanded list of indices from contracted index.  <a href="group__cloud__interpolator__mod.html#ga035d02894977cb133b94c1fe728c9ecd">More...</a><br /></td></tr>
 <tr class="separator:ga035d02894977cb133b94c1fe728c9ecd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga13fe43768673af55734b7499e6faa50b"><td class="memItemLeft" align="right" valign="top">pure subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cloud__interpolator__mod.html#ga13fe43768673af55734b7499e6faa50b">cld_ntrp_contract_indices</a> (ie, Ic, ier)</td></tr>
+<tr class="memdesc:ga13fe43768673af55734b7499e6faa50b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contract list of indices to an single integer.  <a href="group__cloud__interpolator__mod.html#ga13fe43768673af55734b7499e6faa50b">More...</a><br /></td></tr>
 <tr class="separator:ga13fe43768673af55734b7499e6faa50b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga544591c80f628d74dbb9c5c2479368de"><td class="memItemLeft" align="right" valign="top">pure subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cloud__interpolator__mod.html#ga544591c80f628d74dbb9c5c2479368de">cld_ntrp_linear_cell_interp</a> (fvals, ts, f, ier)</td></tr>
+<tr class="memdesc:ga544591c80f628d74dbb9c5c2479368de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cloud interpolation for linear cells.  <a href="group__cloud__interpolator__mod.html#ga544591c80f628d74dbb9c5c2479368de">More...</a><br /></td></tr>
 <tr class="separator:ga544591c80f628d74dbb9c5c2479368de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga535a9271b6d47d6f756c2cbeef913ac0"><td class="memItemLeft" align="right" valign="top">pure subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cloud__interpolator__mod.html#ga535a9271b6d47d6f756c2cbeef913ac0">cld_ntrp_locate_cell</a> (axis, x, index, ier)</td></tr>
 <tr class="separator:ga535a9271b6d47d6f756c2cbeef913ac0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -146,16 +149,18 @@ Functions/Subroutines</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Contract list of indices to an single integer. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">ie</td><td>expanded list of indices</td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">ic</td><td>contacted index</td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">ier</td><td>error flag (0=ok) </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">ie(:)</td><td>expanded list of indices </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">Ic</td><td>contracted index </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">ier</td><td>error flag, non zero if operation unsuccessful </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="cloud__interpolator_8F90_source.html#l00070">70</a> of file <a class="el" href="cloud__interpolator_8F90_source.html">cloud_interpolator.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cloud__interpolator_8F90_source.html#l00077">77</a> of file <a class="el" href="cloud__interpolator_8F90_source.html">cloud_interpolator.F90</a>.</p>
 
 </div>
 </div>
@@ -190,16 +195,18 @@ Functions/Subroutines</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Get expanded list of indices from contracted index. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">ic</td><td>contacted index</td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">ie</td><td>expanded list of indices</td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">ier</td><td>error flag (0=ok) </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">Ic</td><td>contracted index </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">ie(:)</td><td>expanded list of indices </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">ier</td><td>error flag, non zero if operation unsuccessful </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="cloud__interpolator_8F90_source.html#l00046">46</a> of file <a class="el" href="cloud__interpolator_8F90_source.html">cloud_interpolator.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cloud__interpolator_8F90_source.html#l00050">50</a> of file <a class="el" href="cloud__interpolator_8F90_source.html">cloud_interpolator.F90</a>.</p>
 
 </div>
 </div>
@@ -257,7 +264,7 @@ Functions/Subroutines</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="cloud__interpolator_8F90_source.html#l00238">238</a> of file <a class="el" href="cloud__interpolator_8F90_source.html">cloud_interpolator.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cloud__interpolator_8F90_source.html#l00250">250</a> of file <a class="el" href="cloud__interpolator_8F90_source.html">cloud_interpolator.F90</a>.</p>
 
 </div>
 </div>
@@ -298,17 +305,19 @@ Functions/Subroutines</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Cloud interpolation for linear cells. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">fvals</td><td>values at the cell nodes</td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">ts</td><td>normalized [0,1]^nd cell coordinates</td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">f</td><td>interpolated value</td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">ier</td><td>error flag (0=ok) </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">fvals</td><td>values at the cell nodes </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">ts</td><td>normalized [0,1]^nd cell coordinates </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">interpolated</td><td>value </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">error</td><td>flag, non zero if unsucessful </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="cloud__interpolator_8F90_source.html#l00093">93</a> of file <a class="el" href="cloud__interpolator_8F90_source.html">cloud_interpolator.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cloud__interpolator_8F90_source.html#l00105">105</a> of file <a class="el" href="cloud__interpolator_8F90_source.html">cloud_interpolator.F90</a>.</p>
 
 </div>
 </div>
@@ -358,7 +367,7 @@ Functions/Subroutines</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="cloud__interpolator_8F90_source.html#l00124">124</a> of file <a class="el" href="cloud__interpolator_8F90_source.html">cloud_interpolator.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cloud__interpolator_8F90_source.html#l00136">136</a> of file <a class="el" href="cloud__interpolator_8F90_source.html">cloud_interpolator.F90</a>.</p>
 
 </div>
 </div>

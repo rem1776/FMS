@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>FMS: CMAKE_INSTRUCTIONS</title>
+<title>FMS: Building with Autotools</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -70,7 +70,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('md_CMAKE_INSTRUCTIONS.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('autotools.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -90,56 +90,71 @@ $(document).ready(function(){initNavTree('md_CMAKE_INSTRUCTIONS.html',''); initR
 
 <div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">CMAKE_INSTRUCTIONS </div>  </div>
+<div class="title">Building with Autotools </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1>Instructions for building FMS with cmake</h1>
-<h2>1. Environment Variables</h2>
-<h3>For GNU compilers on Linux with the bash shell:</h3>
-<div class="fragment"><div class="line">export FC=mpifort</div>
-<div class="line">export CC=mpicc</div>
-</div><!-- fragment --><h3>For Intel Compilers on Linux with the bash shell:</h3>
-<div class="fragment"><div class="line">export FC=mpiifort</div>
-<div class="line">export CC=mpiicc</div>
-</div><!-- fragment --><h3>NetCDF is provided via the <code>nc-config</code> command:</h3>
-<div class="fragment"><div class="line">export NetCDF_ROOT=`nc-config --prefix`</div>
-</div><!-- fragment --><h2>2. Build and install FMS with CMake</h2>
-<p><code>&lt;prefix&gt;</code> is the full install directory for FMS provided by user</p>
-<div class="fragment"><div class="line">cd FMS</div>
-<div class="line">mkdir -p build &amp;&amp; cd build</div>
-<div class="line">cmake -DCMAKE_INSTALL_PREFIX=&lt;prefix&gt; ..</div>
-<div class="line">make -j4</div>
-<div class="line">make install</div>
-</div><!-- fragment --><h3>User configurable options:</h3>
-<p>By default, FMS is built without <code>OpenMP</code> and in <code>single precision (r4)</code></p>
-<p>The following build options are available: </p><div class="fragment"><div class="line">-DOPENMP   &quot;Build FMS with OpenMP support&quot; DEFAULT: OFF</div>
-<div class="line">-D32BIT    &quot;Build 32-bit (r4) FMS library&quot; DEFAULT: ON</div>
-<div class="line">-D64BIT    &quot;Build 64-bit (r8) FMS library&quot; DEFAULT: OFF</div>
-<div class="line"> </div>
-<div class="line">-DINTERNAL_FILE_NML     &quot;Enable compiler definition -DINTERNAL_FILE_NML&quot;     DEFAULT: ON</div>
-<div class="line">-DENABLE_QUAD_PRECISION &quot;Enable compiler definition -DENABLE_QUAD_PRECISION&quot; DEFAULT: ON</div>
-<div class="line">-DGFS_PHYS              &quot;Enable compiler definition -DGFS_PHYS&quot;              DEFAULT:OFF</div>
-<div class="line">-DLARGEFILE             &quot;Enable compiler definition -Duse_LARGEFILE&quot;         DEFAULT:OFF</div>
-</div><!-- fragment --><h2>3. Installation structure</h2>
-<p>When the above command finishes, the <code>&lt;prefix&gt;</code> will have an <code>include_r4</code> and a <code>lib</code> directory. The <code>lib</code> directory will have these files:</p>
-<div class="fragment"><div class="line">libfms_r4.a</div>
-<div class="line">cmake/fms/fms-targets.cmake</div>
-<div class="line">cmake/fms/fms-targets-release.cmake</div>
-<div class="line">cmake/fms/fms-config.cmake</div>
-<div class="line">cmake/fms/fms-config-version.cmake</div>
-</div><!-- fragment --><h2>4. Using FMS in your application</h2>
-<p>FMS built with <code>cmake</code> provides transient targets with its package configuration. To be able to look for FMS in your application, set the following environment variable: </p><div class="fragment"><div class="line">export FMS_ROOT=&lt;prefix&gt;</div>
-</div><!-- fragment --><p> where <code>&lt;prefix&gt;</code> is the full path to FMS installation.</p>
-<p>To find FMS in your application <code>CMakeLists.txt</code>:</p>
-<div class="fragment"><div class="line">find_package(FMS)</div>
-</div><!-- fragment --><p>To link your application with FMS library: </p><div class="fragment"><div class="line">target_link_libraries(appName FMS::fms_r4)</div>
-</div><!-- fragment --><p>If your application does not provide a means to locate the NetCDF installation via cmake, this may help: </p><div class="fragment"><div class="line">-DCMAKE_MODULE_PATH=&lt;FMS_SRC_DIR&gt;/cmake</div>
-</div><!-- fragment --> </div></div><!-- contents -->
+<div class="textblock"><h1>Autotools Build System Documentation</h1>
+<p>This document describes the autotools-based build system for FMS.</p>
+<h2>Introduction to Autotools</h2>
+<p>Autoconf, automake, and libtool and the GNU/Linux standard build tools. When building a package based on autotools, the user does something like:</p>
+<p>./configure &amp;&amp; make check install</p>
+<p>The configure step queries the system about many things, and contructs makefiles.</p>
+<p>The make step uses the generated Makefiles to build, test, and install the software.</p>
+<p>Standard environment variables and configure options can be used to control many aspects of the build. Custom configure options can easily be added to support additional needs.</p>
+<h3>Caution Concerning Generated Files</h3>
+<p>Autotools creates many generated files, which should not be edited or checked into the repository. Simply ignore them. Do not try to edit generated Makefiles, do not move or rename any of the shell scripts that autoreconf puts in place to let autotools work. These files have been added to .gitignore and should never be added to the repo.</p>
+<h1>How to Build FMS</h1>
+<p>Previously, everyone built FMS by checking out code from git. However, with the new build system, only those who want to contribute to the code base need check out the code from git.</p>
+<h2>As an FMS Developer</h2>
+<p>All FMS developers will need a reasobably reacent version of tools autoconf, automake, and libtool. These are available on package management systems. (Ex. yum install automake autoconf libtool).</p>
+<p>The process of building FMS from the repo is:</p>
+<ol type="1">
+<li>Clone repo and cd into repo directory.</li>
+<li>Run autoreconf -i to build the developer build system.</li>
+<li>Run ./configure to configure.</li>
+<li>Run make to build.</li>
+</ol>
+<h2>As an FMS User</h2>
+<p>Users start with a tarball, not the git repo. They do not have to have any of the autotools installed. Thier build process is:</p>
+<ol type="1">
+<li>Unpack the tarball and cd into the directory.</li>
+<li>Run ./configure &ndash;prefix=/my/installdir</li>
+<li>Run make install</li>
+</ol>
+<h2>Precious Flags for configure</h2>
+<p>Some environment variables are important to the autotools build system, these are known as "precious" variables. One example is CC, which should be set to the C compiler.</p>
+<p>It's common to set some precious vars before the build. Commonly used ones include:</p><ul>
+<li>CC the C compiler</li>
+<li>FC the Fortran compiler</li>
+<li>CPPFLAGS C (and Fortran) pre-processor flags</li>
+<li>FCFLAGS Fortran compiler flags</li>
+<li>LDFLAGS Linker flags</li>
+</ul>
+<h2>Standard Configure Options</h2>
+<p>The configure script has some standard options, including:</p><ul>
+<li>&ndash;prefix allows user to specify install directory</li>
+<li>&ndash;disable-shared disables building of shared library</li>
+<li>&ndash;help prints message showing all options</li>
+</ul>
+<h2>FMS Configure Options</h2>
+<p>Currently there are not FMS specific configure options, but probably we will add some.</p>
+<h2>Standard Make Targets</h2>
+<p>Some of the useful make targets include:</p><ul>
+<li>make or make all - build code</li>
+<li>make install - build code (as needed) and install</li>
+<li>make check - build code (as needed) and run tests</li>
+<li>make clean - clean back build</li>
+<li>make distclean - clean configure output and build</li>
+<li>make dist - create a tarball for distribution</li>
+<li>make distcheck - create a tarball, unpack it, build and run tests, then then clean it. </li>
+</ul>
+</div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
+    <li class="navelem"><a class="el" href="build.html">Building and Installation</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

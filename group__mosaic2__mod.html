@@ -126,15 +126,70 @@ subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>calc_mo
 subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>calc_mosaic_grid_great_circle_area</b> (lon, lat, area)</td></tr>
 <tr class="separator:ga888c0ca0883ce6f00915b6756ad34833"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga42b8655b71c2f2dade87f542a60a2783"><td class="memItemLeft" align="right" valign="top"><a id="ga42b8655b71c2f2dade87f542a60a2783"></a>
-logical function, public&#160;</td><td class="memItemRight" valign="bottom"><b>is_inside_polygon</b> (lon1, lat1, lon2, lat2)</td></tr>
+logical function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mosaic2__mod.html#ga42b8655b71c2f2dade87f542a60a2783">is_inside_polygon</a> (lon1, lat1, lon2, lat2)</td></tr>
+<tr class="memdesc:ga42b8655b71c2f2dade87f542a60a2783"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function check if a point (lon1,lat1) is inside a polygon (lon2(:), lat2(:)) lon1, lat1, lon2, lat2 are in radians. <br /></td></tr>
 <tr class="separator:ga42b8655b71c2f2dade87f542a60a2783"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga8dfe682ca88da8a6e7d31d8bfb304fe7"><td class="memItemLeft" align="right" valign="top"><a id="ga8dfe682ca88da8a6e7d31d8bfb304fe7"></a>
-subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>get_mosaic_tile_grid</b> (grid_file, fileobj, domain, tile_count)</td></tr>
+<tr class="memitem:ga8dfe682ca88da8a6e7d31d8bfb304fe7"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mosaic2__mod.html#ga8dfe682ca88da8a6e7d31d8bfb304fe7">get_mosaic_tile_grid</a> (grid_file, fileobj, domain, tile_count)</td></tr>
+<tr class="memdesc:ga8dfe682ca88da8a6e7d31d8bfb304fe7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the name of a mosaic tile grid file.  <a href="group__mosaic2__mod.html#ga8dfe682ca88da8a6e7d31d8bfb304fe7">More...</a><br /></td></tr>
 <tr class="separator:ga8dfe682ca88da8a6e7d31d8bfb304fe7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Implements some utility routines to read mosaic information. </p>
 <dl class="section author"><dt>Author</dt><dd>Zhi Liang Implements some utility routines to read mosaic information. The information includes number of tiles and contacts in the mosaic, mosaic grid resolution of each tile, mosaic contact information, mosaic exchange grid information. Each routine will call a C-version routine to get these information. </dd></dl>
+<h2 class="groupheader">Function/Subroutine Documentation</h2>
+<a id="ga8dfe682ca88da8a6e7d31d8bfb304fe7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8dfe682ca88da8a6e7d31d8bfb304fe7">&#9670;&nbsp;</a></span>get_mosaic_tile_grid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine, public mosaic2_mod::get_mosaic_tile_grid </td>
+          <td>(</td>
+          <td class="paramtype">character(len=*), intent(out)&#160;</td>
+          <td class="paramname"><em>grid_file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structnetcdf__io__mod_1_1fmsnetcdffile__t.html">fmsnetcdffile_t</a>), intent(in)&#160;</td>
+          <td class="paramname"><em>fileobj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(domain2d), intent(in)&#160;</td>
+          <td class="paramname"><em>domain</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>tile_count</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the name of a mosaic tile grid file. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">grid_file</td><td>name of grid file </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">fileobj</td><td>mosaic file object </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">domain</td><td>current domain </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">tile_count</td><td>optional count of tiles </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="mosaic2_8F90_source.html#l00529">529</a> of file <a class="el" href="mosaic2_8F90_source.html">mosaic2.F90</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -124,7 +124,7 @@ $(document).ready(function(){initNavTree('horiz__interp__bicubic_8F90_source.htm
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">module</span> horiz_interp_bicubic_mod</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="keywordtype">use </span>mpp_mod,               <span class="keywordtype">only</span>: mpp_error, fatal, stdout, mpp_pe, mpp_root_pe</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="keywordtype">use </span>fms_mod,               <span class="keywordtype">only</span>: write_version_number</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="keywordtype">use </span>fms_mod,               <span class="keywordtype">only</span>: <a class="code" href="group__fms__mod.html#ga0c093df98a75dbd9e0f3add67aa6c23a">write_version_number</a></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keywordtype">use </span>horiz_interp_type_mod, <span class="keywordtype">only</span>: horiz_interp_type</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keywordtype">use </span>constants_mod,         <span class="keywordtype">only</span>: <a class="code" href="group__constants__mod.html#gadc909cc70e4e20bc99fc3d3c53125808">pi</a></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
@@ -207,7 +207,7 @@ $(document).ready(function(){initNavTree('horiz__interp__bicubic_8F90_source.htm
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  <span class="keyword">subroutine </span>horiz_interp_bicubic_init</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;     <span class="keywordflow">if</span>(module_is_initialized) <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;     <span class="keyword">call </span>write_version_number(<span class="stringliteral">&quot;HORIZ_INTERP_BICUBIC_MOD&quot;</span>, version)</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;     <span class="keyword">call </span><a class="code" href="group__fms__mod.html#ga0c093df98a75dbd9e0f3add67aa6c23a">write_version_number</a>(<span class="stringliteral">&quot;HORIZ_INTERP_BICUBIC_MOD&quot;</span>, version)</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;     module_is_initialized = .true.</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;     tpi = 2.0*<a class="code" href="group__constants__mod.html#gadc909cc70e4e20bc99fc3d3c53125808">pi</a></div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
@@ -877,6 +877,7 @@ $(document).ready(function(){initNavTree('horiz__interp__bicubic_8F90_source.htm
 <div class="line"><a name="l00782"></a><span class="lineno">  782</span>&#160;<span class="comment">!&gt; @}</span></div>
 <div class="line"><a name="l00783"></a><span class="lineno">  783</span>&#160;<span class="comment">! close documentation</span></div>
 <div class="ttc" id="agroup__constants__mod_html_gadc909cc70e4e20bc99fc3d3c53125808"><div class="ttname"><a href="group__constants__mod.html#gadc909cc70e4e20bc99fc3d3c53125808">constants_mod::pi</a></div><div class="ttdeci">real, parameter, public pi</div><div class="ttdoc">Ratio of circle circumference to diameter [N/A].</div><div class="ttdef"><b>Definition:</b> <a href="constants_8F90_source.html#l00104">constants.F90:104</a></div></div>
+<div class="ttc" id="agroup__fms__mod_html_ga0c093df98a75dbd9e0f3add67aa6c23a"><div class="ttname"><a href="group__fms__mod.html#ga0c093df98a75dbd9e0f3add67aa6c23a">fms_mod::write_version_number</a></div><div class="ttdeci">subroutine, public write_version_number(version, tag, unit)</div><div class="ttdoc">Prints to the log file (or a specified unit) the version id string and tag name.</div><div class="ttdef"><b>Definition:</b> <a href="fms_8F90_source.html#l01024">fms.F90:1025</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

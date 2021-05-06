@@ -89,28 +89,26 @@ $(document).ready(function(){initNavTree('libFMS_8F90.html',''); initResizable()
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
-<div class="title">libFMS.F90 File Reference<div class="ingroups"><a class="el" href="group__libfms.html">FMS Global Module</a></div></div>  </div>
+<div class="title">libFMS.F90 File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Imports all supported FMS modules so that any public interfaces, variables or routines can be used via this module. Excludes mpp_io modules and routines. Overloaded type operators/assignments cannot be imported individually (ie. <code>use fms, only: OPERATOR(*)</code> includes any defined '*' operators within FMS).  
+<p>File for <a class="el" href="group__FMS.html">FMS</a>.  
 <a href="#details">More...</a></p>
 
 <p><a href="libFMS_8F90_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a78824f53fc8d0ce5d75fb1a342527030"><td class="memItemLeft" align="right" valign="top"><a id="a78824f53fc8d0ce5d75fb1a342527030"></a>
+character(len= *), parameter, public&#160;</td><td class="memItemRight" valign="bottom"><b>version_fms</b> = version</td></tr>
+<tr class="separator:a78824f53fc8d0ce5d75fb1a342527030"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Imports all supported FMS modules so that any public interfaces, variables or routines can be used via this module. Excludes mpp_io modules and routines. Overloaded type operators/assignments cannot be imported individually (ie. <code>use fms, only: OPERATOR(*)</code> includes any defined '*' operators within FMS). </p>
-<dl class="section date"><dt>Date</dt><dd>2/2021</dd></dl>
-<p>Remappings due to conflicts: </p><pre class="fragment">      get_mosaic_tile_grid from mosaic2(fms2_io) =&gt; mosaic2_get_mosaic_tile_grid
-
-      read_data from interpolator_mod(fms2_io)   =&gt; interpolator_read_data
-
-      ZERO from interpolator_mod(mpp_parameter)  =&gt; INTERPOLATOR_ZERO
-</pre><p> Not in this module: </p><pre class="fragment">                axis_utils_mod, fms_io_mod, time_interp_external_mod
-                get_grid_version_mpp_mod, mpp_io_mod, mosaic_mod,
-                fms_mod(partial, old io excluded), drifters modules
-</pre><p> A full list of supported interfaces and public types intended for use via this module is provided in the ../../supported_interfaces.md "supported_interfaces.md" file.</p>
-<p>File for <a class="el" href="group__FMS.html">FMS</a> Global Module </p>
+<div class="textblock"><p>File for <a class="el" href="group__FMS.html">FMS</a>. </p>
 
 <p class="definition">Definition in file <a class="el" href="libFMS_8F90_source.html">libFMS.F90</a>.</p>
 </div></div><!-- contents -->

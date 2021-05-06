@@ -87,7 +87,6 @@ var menudata={children:[
 {text:"File List",url:"files.html"},
 {text:"File Members",url:"globals.html",children:[
 {text:"All",url:"globals.html",children:[
-{text:"_",url:"globals.html#index__5F"},
 {text:"c",url:"globals.html#index_c"},
 {text:"g",url:"globals.html#index_g"},
 {text:"q",url:"globals.html#index_q"},
@@ -98,6 +97,5 @@ var menudata={children:[
 {text:"g",url:"globals_func.html#index_g"},
 {text:"q",url:"globals_func.html#index_q"},
 {text:"s",url:"globals_func.html#index_s"},
-{text:"t",url:"globals_func.html#index_t"}]},
-{text:"Macros",url:"globals_defs.html"}]}]},
+{text:"t",url:"globals_func.html#index_t"}]}]}]},
 {text:"Examples",url:"examples.html"}]}

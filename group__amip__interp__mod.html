@@ -112,11 +112,12 @@ subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="
 <tr class="memdesc:ga5f77efe6bfff8ab1bfac97d498559f80"><td class="mdescLeft">&#160;</td><td class="mdescRight">AMIP interpolation for ice. <br /></td></tr>
 <tr class="separator:ga5f77efe6bfff8ab1bfac97d498559f80"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6da33323528930f4680012957d27d6db"><td class="memItemLeft" align="right" valign="top"><a id="ga6da33323528930f4680012957d27d6db"></a>
-subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>amip_interp_init</b> ()</td></tr>
+subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__amip__interp__mod.html#ga6da33323528930f4680012957d27d6db">amip_interp_init</a> ()</td></tr>
+<tr class="memdesc:ga6da33323528930f4680012957d27d6db"><td class="mdescLeft">&#160;</td><td class="mdescRight">initialize <a class="el" href="group__amip__interp__mod.html">amip_interp_mod</a> for use <br /></td></tr>
 <tr class="separator:ga6da33323528930f4680012957d27d6db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa680c8750f89c6444c6caf3d93b54cb4"><td class="memItemLeft" align="right" valign="top"><a id="gaa680c8750f89c6444c6caf3d93b54cb4"></a>
-subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__amip__interp__mod.html#gaa680c8750f89c6444c6caf3d93b54cb4">amip_interp_del</a> (Interp)</td></tr>
-<tr class="memdesc:gaa680c8750f89c6444c6caf3d93b54cb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees data associated with a amip_interp_type variable. Should be used for any variables initialized via amip_interp_new. <br /></td></tr>
+<tr class="memitem:gaa680c8750f89c6444c6caf3d93b54cb4"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__amip__interp__mod.html#gaa680c8750f89c6444c6caf3d93b54cb4">amip_interp_del</a> (Interp)</td></tr>
+<tr class="memdesc:gaa680c8750f89c6444c6caf3d93b54cb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees data associated with a amip_interp_type variable. Should be used for any variables initialized via <a class="el" href="group__amip__interp__mod.html">amip_interp_new Interface <br  />
+</a>.  <a href="group__amip__interp__mod.html#gaa680c8750f89c6444c6caf3d93b54cb4">More...</a><br /></td></tr>
 <tr class="separator:gaa680c8750f89c6444c6caf3d93b54cb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
@@ -159,6 +160,59 @@ data set.
   reynolds_eof    INPUT/reynolds_sst.data
 </pre> <dl class="section author"><dt>Author</dt><dd>Bruce Wyman</dd></dl>
 <p><a class="el" href="">gfdl.climate.model.info@noaa.gov</a></p>
+
+
+<h3><a id="amip_interp_new"></a>amip_interp_new Interface        &lt;br&gt;</h3><div class="textblock">Function that initializes data needed for the horizontal interpolation between the sst grid and model grid. The returned variable of type amip_interp_type is needed when calling get_amip_sst and get_amip_ice.<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+</div>
+
+<h3><a id="amip_interp_nml"></a>amip_interp_nml</h3><div class="textblock">&lt;DATA NAME="data_set" TYPE="character(len=24)" DEFAULT="data_set = 'amip1'"&gt; Name/type of SST data that will be used. <br  />
+ Possible values (case-insensitive) are: <br  />
+ 1) amip1<br  />
+ 2) reynolds_eof<br  />
+ 3) reynolds_oi<br  />
+ See the &lt;LINK SRC="amip_interp.html#DATA SETS"&gt;data set &lt;/LINK&gt;section for more on these data. &lt;/DATA&gt; &lt;DATA NAME="date_out_of_range" TYPE="character(len=16)" DEFAULT="date_out_of_range = 'fail'"&gt; Controls the use of climatological monthly mean data when the requested date falls outside the range of the data set.<br  />
+ Possible values are:<pre>
+   fail      - program will fail if requested date is prior
+               to or after the data set period.
+   initclimo - program uses climatological requested data is
+               prior to data set period and will fail if
+               requested date is after data set period.
+   climo     - program uses climatological data anytime.
+    </pre><p> &lt;/DATA&gt; &lt;DATA NAME="tice_crit" TYPE="real" DEFAULT="tice_crit = -1.80"&gt; Freezing point of sea water in degC or degK. &lt;/DATA&gt; &lt;DATA NAME="verbose" TYPE="integer" DEFAULT="verbose = 0"&gt; Controls printed output, 0 &lt;= verbose &lt;= 3 &lt;/DATA&gt; -&mdash; additional parameters for controlling zonal prescribed sst -&mdash; -&mdash; these parameters only have an effect when use_zonal=.true. -&mdash; &lt;DATA NAME="use_zonal" TYPE="logical" DEFAULT=".false."&gt; Flag to selected zonal sst or data set. &lt;/DATA&gt; &lt;DATA NAME="teq" TYPE="real" DEFAULT="teq=305."&gt; sst at the equator. &lt;/DATA&gt; &lt;DATA NAME="tdif" TYPE="real" DEFAULT="tdif=50."&gt; Equator to pole sst difference. &lt;/DATA&gt; &lt;DATA NAME="tann" TYPE="real" DEFAULT="tann=20."&gt; Amplitude of annual cycle. &lt;/DATA&gt; &lt;DATA NAME="tlag" TYPE="real" DEFAULT="tlag=0.875"&gt; Offset for time of year (for annual cycle). &lt;/DATA&gt; &lt;DATA NAME="amip_date" TYPE="integer(3)" DEFAULT="/-1,-1,-1/"&gt; Single calendar date in integer "(year,month,day)" format that is used only if set with year&gt;0, month&gt;0, day&gt;0. If used, model calendar date is replaced by this date, but model time of day is still used to determine ice/sst. Used for repeating-single-day (rsd) experiments. &lt;/DATA&gt; &lt;DATA NAME="sst_pert" TYPE="real" DEFAULT="sst_pert=0."&gt; Temperature perturbation in degrees Kelvin added onto the SST. The perturbation is globally-uniform (even near sea-ice). It is only used when abs(sst_pert) &gt; 1.e-4. SST perturbation runs may be useful in accessing model sensitivities. &lt;/DATA&gt; </div><h2 class="groupheader">Function/Subroutine Documentation</h2>
+<a id="gaa680c8750f89c6444c6caf3d93b54cb4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa680c8750f89c6444c6caf3d93b54cb4">&#9670;&nbsp;</a></span>amip_interp_del()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine, public amip_interp_mod::amip_interp_del </td>
+          <td>(</td>
+          <td class="paramtype">type (amip_interp_type), intent(inout)&#160;</td>
+          <td class="paramname"><em>Interp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Frees data associated with a amip_interp_type variable. Should be used for any variables initialized via <a class="el" href="group__amip__interp__mod.html">amip_interp_new Interface <br  />
+</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Interp</td><td>A defined data type variable initialized by amip_interp_new and used when calling get_amip_sst and get_amip_ice. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="amip__interp_8F90_source.html#l01076">1076</a> of file <a class="el" href="amip__interp_8F90_source.html">amip_interp.F90</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

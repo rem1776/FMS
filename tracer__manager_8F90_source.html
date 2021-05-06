@@ -149,7 +149,7 @@ $(document).ready(function(){initNavTree('tracer__manager_8F90_source.html','');
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                              note,               &amp;</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                              stdlog</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keywordtype">use           </span>fms_mod, <span class="keywordtype">only</span> : lowercase,          &amp;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                              write_version_number</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                              <a class="code" href="group__fms__mod.html#ga0c093df98a75dbd9e0f3add67aa6c23a">write_version_number</a></div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keywordtype">use </span>field_manager_mod, <span class="keywordtype">only</span> : field_manager_init, &amp;</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                              get_field_info,     &amp;</div>
@@ -265,7 +265,7 @@ $(document).ready(function(){initNavTree('tracer__manager_8F90_source.html','');
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;  <span class="keywordflow">if</span>(module_is_initialized) <span class="keywordflow">return</span></div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;  module_is_initialized = .true.</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160; </div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;  <span class="keyword">call </span>write_version_number (<span class="stringliteral">&quot;TRACER_MANAGER_MOD&quot;</span>, version)</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;  <span class="keyword">call </span><a class="code" href="group__fms__mod.html#ga0c093df98a75dbd9e0f3add67aa6c23a">write_version_number</a> (<span class="stringliteral">&quot;TRACER_MANAGER_MOD&quot;</span>, version)</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;  <span class="keyword">call </span>field_manager_init()</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;  tracer_array = notracer</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;  <span class="keywordflow">do</span> model=1,num_models</div>
@@ -1659,6 +1659,7 @@ $(document).ready(function(){initNavTree('tracer__manager_8F90_source.html','');
 <div class="line"><a name="l01564"></a><span class="lineno"> 1564</span>&#160;<span class="keyword">end module </span>tracer_manager_mod<span class="comment"></span></div>
 <div class="line"><a name="l01565"></a><span class="lineno"> 1565</span>&#160;<span class="comment">!&gt; @}</span></div>
 <div class="line"><a name="l01566"></a><span class="lineno"> 1566</span>&#160;<span class="comment">! close documentation grouping</span></div>
+<div class="ttc" id="agroup__fms__mod_html_ga0c093df98a75dbd9e0f3add67aa6c23a"><div class="ttname"><a href="group__fms__mod.html#ga0c093df98a75dbd9e0f3add67aa6c23a">fms_mod::write_version_number</a></div><div class="ttdeci">subroutine, public write_version_number(version, tag, unit)</div><div class="ttdoc">Prints to the log file (or a specified unit) the version id string and tag name.</div><div class="ttdef"><b>Definition:</b> <a href="fms_8F90_source.html#l01024">fms.F90:1025</a></div></div>
 <div class="ttc" id="astructfield__manager__mod_1_1method__type_html"><div class="ttname"><a href="structfield__manager__mod_1_1method__type.html">field_manager_mod::method_type</a></div><div class="ttdef"><b>Definition:</b> <a href="field__manager_8F90_source.html#l00345">field_manager.F90:345</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

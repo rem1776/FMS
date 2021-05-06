@@ -153,36 +153,47 @@ $(document).ready(function(){initNavTree('test__file__appendix_8F90_source.html'
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keywordflow">if</span> (trim(buf) .ne. <span class="stringliteral">&quot;nestfile.nest01.tile1.nc&quot;</span>) &amp;</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keyword">call </span>mpp_error(fatal, <span class="stringliteral">&quot;get_instance_filename does not add the filename appendix before the .tile&quot;</span>)</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">!&lt; Call open_file to check if the filename_appendix was appended to the file created</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keywordflow">if</span> (open_file(fileobj, <span class="stringliteral">&quot;nestfile.nc&quot;</span>, <span class="stringliteral">&quot;overwrite&quot;</span>, is_restart=.true.)) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keyword">call </span>close_file(fileobj)</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keywordflow">else</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keyword">call </span>mpp_error(fatal, <span class="stringliteral">&quot;Error opening nestfile.nc&quot;</span>)</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keywordflow">end if</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keyword">inquire</span>(file=<span class="stringliteral">&quot;nestfile.res.nest01.nc&quot;</span>, exist=test_passed)</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keywordflow">if</span> (.not. test_passed) <span class="keyword">call </span>mpp_error(fatal, <span class="stringliteral">&quot;Error creating nestfile.res.nest01.nc&quot;</span>)</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">!&lt; Call nullify_filename_appendix and check if the filename_appendix was removed</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keyword">call </span>nullify_filename_appendix()</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keyword">call </span>get_filename_appendix(buf)</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keywordflow">if</span> (trim(buf) .ne. <span class="stringliteral">&quot;&quot;</span>) <span class="keyword">call </span>mpp_error(fatal, <span class="stringliteral">&quot;get_filename_appendix was not removed&quot;</span>)</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment">!&lt; Call open file again and check if the expected file: &quot;nestfile.res.nc&quot; was created</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keywordflow">if</span> (open_file(fileobj, <span class="stringliteral">&quot;nestfile.nc&quot;</span>, <span class="stringliteral">&quot;overwrite&quot;</span>, is_restart=.true.)) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keyword">call </span>close_file(fileobj)</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="keywordflow">else</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keyword">call </span>mpp_error(fatal, <span class="stringliteral">&quot;Error opening nestfile.nc&quot;</span>)</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="keywordflow">end if</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;test_passed = .false.</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="keyword">inquire</span>(file=<span class="stringliteral">&quot;nestfile.res.nc&quot;</span>, exist=test_passed)</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keywordflow">if</span> (.not. test_passed) <span class="keyword">call </span>mpp_error(fatal, <span class="stringliteral">&quot;Error creating nestfile.res.nc&quot;</span>)</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">!&lt; Call get_instance_filename where the string send in has the pe number in the end</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keyword">call </span>get_instance_filename(<span class="stringliteral">&quot;nestfile.nc.0001&quot;</span>, buf)</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keywordflow">if</span> (trim(buf) .ne. <span class="stringliteral">&quot;nestfile.nest01.nc.0001&quot;</span>) &amp;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keyword">call </span>mpp_error(fatal, trim(buf)//<span class="stringliteral">&quot;: get_instance_filename does not add the filename appendix before the .nc&quot;</span>)</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">!&lt; Call get_instance_filename where the string send in has the pe number in the</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment">!end</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keyword">call </span>get_instance_filename(<span class="stringliteral">&quot;nestfile.tile1.nc.0001&quot;</span>, buf)</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keywordflow">if</span> (trim(buf) .ne. <span class="stringliteral">&quot;nestfile.nest01.tile1.nc.0001&quot;</span>) &amp;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keyword">call </span>mpp_error(fatal, trim(buf)//<span class="stringliteral">&quot;: get_instance_filename does not add the filename appendix before the tile&quot;</span>)</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment">!&lt; Call open_file to check if the filename_appendix was appended to the file created</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keywordflow">if</span> (open_file(fileobj, <span class="stringliteral">&quot;nestfile.nc&quot;</span>, <span class="stringliteral">&quot;overwrite&quot;</span>, is_restart=.true.)) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keyword">call </span>close_file(fileobj)</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="keywordflow">else</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keyword">call </span>mpp_error(fatal, <span class="stringliteral">&quot;Error opening nestfile.nc&quot;</span>)</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keywordflow">end if</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="keyword">inquire</span>(file=<span class="stringliteral">&quot;nestfile.res.nest01.nc&quot;</span>, exist=test_passed)</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keywordflow">if</span> (.not. test_passed) <span class="keyword">call </span>mpp_error(fatal, <span class="stringliteral">&quot;Error creating nestfile.res.nest01.nc&quot;</span>)</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment">!&lt; Call nullify_filename_appendix and check if the filename_appendix was removed</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="keyword">call </span>nullify_filename_appendix()</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="keyword">call </span>get_filename_appendix(buf)</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keywordflow">if</span> (trim(buf) .ne. <span class="stringliteral">&quot;&quot;</span>) <span class="keyword">call </span>mpp_error(fatal, <span class="stringliteral">&quot;get_filename_appendix was not removed&quot;</span>)</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keyword">call </span>mpp_exit()</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="keyword">end program </span>test_file_appendix</div>
-<div class="ttc" id="agroup__fms2__io__mod_html_gab2efb88539d9a05da43d95a501ed7e4c"><div class="ttname"><a href="group__fms2__io__mod.html#gab2efb88539d9a05da43d95a501ed7e4c">fms2_io_mod::fms2_io_init</a></div><div class="ttdeci">subroutine, public fms2_io_init()</div><div class="ttdoc">Reads the fms2_io_nml.</div><div class="ttdef"><b>Definition:</b> <a href="fms2__io_8F90_source.html#l00247">fms2_io.F90:248</a></div></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment">!&lt; Call open file again and check if the expected file: &quot;nestfile.res.nc&quot; was created</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="keywordflow">if</span> (open_file(fileobj, <span class="stringliteral">&quot;nestfile.nc&quot;</span>, <span class="stringliteral">&quot;overwrite&quot;</span>, is_restart=.true.)) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keyword">call </span>close_file(fileobj)</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="keywordflow">else</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keyword">call </span>mpp_error(fatal, <span class="stringliteral">&quot;Error opening nestfile.nc&quot;</span>)</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="keywordflow">end if</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;test_passed = .false.</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="keyword">inquire</span>(file=<span class="stringliteral">&quot;nestfile.res.nc&quot;</span>, exist=test_passed)</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="keywordflow">if</span> (.not. test_passed) <span class="keyword">call </span>mpp_error(fatal, <span class="stringliteral">&quot;Error creating nestfile.res.nc&quot;</span>)</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="keyword">call </span>mpp_exit()</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="keyword">end program </span>test_file_appendix</div>
+<div class="ttc" id="agroup__fms2__io__mod_html_gab2efb88539d9a05da43d95a501ed7e4c"><div class="ttname"><a href="group__fms2__io__mod.html#gab2efb88539d9a05da43d95a501ed7e4c">fms2_io_mod::fms2_io_init</a></div><div class="ttdeci">subroutine, public fms2_io_init()</div><div class="ttdoc">Reads the fms2_io_nml.</div><div class="ttdef"><b>Definition:</b> <a href="fms2__io_8F90_source.html#l00248">fms2_io.F90:249</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

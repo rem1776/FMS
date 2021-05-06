@@ -26,11 +26,8 @@ var NAVTREE =
 [
   [ "FMS", "index.html", [
     [ "FMS Documentation Homepage", "index.html", null ],
-    [ "CMAKE_INSTRUCTIONS", "md_CMAKE_INSTRUCTIONS.html", null ],
-    [ "Building and Installation", "build.html", null ],
-    [ "INSTALL", "md_INSTALL.html", null ],
-    [ "BUILD_SYSTEM", "md_libFMS_BUILD_SYSTEM.html", null ],
-    [ "README", "md_README.html", null ],
+    [ "Building and Installation", "build.html", "build" ],
+    [ "General Project Information", "rm.html", null ],
     [ "Modules", "modules.html", "modules" ],
     [ "Module Members", "namespacemembers.html", [
       [ "All", "namespacemembers.html", null ],
@@ -49,8 +46,7 @@ var NAVTREE =
       [ "File List", "files.html", "files_dup" ],
       [ "File Members", "globals.html", [
         [ "All", "globals.html", null ],
-        [ "Functions/Subroutines", "globals_func.html", null ],
-        [ "Macros", "globals_defs.html", null ]
+        [ "Functions/Subroutines", "globals_func.html", null ]
       ] ]
     ] ],
     [ "Examples", "examples.html", "examples" ]
@@ -60,23 +56,23 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "Example-example.html",
-"constants_8F90.html#ga29edb91d4131b7e047c641cf1cb1610e",
-"diag__data_8F90.html#ga6ec388213c7b8c8e27dbe583ce10dea9",
-"dir_704313a43d420a79da235c7f66d3c941.html",
-"file__version_8h_source.html",
-"fms__io_8F90.html#gab7ca15dc41b0f2bee7922d732a6cbabb",
-"grid_8F90.html#gad6b177f9b512d22b123e7036bd65af4c",
-"group__coupler__types__mod.html#ga5f9a30581ca97cd18f2f5be83fcaa735",
-"group__diag__data__mod.html#ga8b9dcb95e523a43b0b34108c0e80f95d",
-"group__fms__io__utils__mod.html#gaf84858127441447c6dbfafbb581116e4",
-"horiz__interp__bicubic_8F90.html#gadba056c70686efe3ab531c36e8dbd5f9",
-"mosaic2_8F90.html#ga221df32f6bbbde1fa538e81b2d6e5b64",
-"mpp__efp_8F90.html#ga4bd112321a2bb8918ec4818ecc32089f",
-"mpp_global_max-example.html",
-"sat__vapor__pres__k_8F90.html#gad90fced89119faa8809a90fde87d61d7",
-"test__mpp__broadcast_8F90.html#afc8f8434e877ade8137b94660f39d2ba",
-"time__manager_8F90.html#ga2b9c941f38e33eba67ee151fe3bd8ee6",
-"xgrid_8F90.html#ga811ad4662ab1d522cbec5c85ab144af2"
+"constants_8F90.html#ga1e008f5f53cf65c10bdaac113bec69ae",
+"diag__data_8F90.html#ga6a09a7de11e1ffdd03019ab16dd9501e",
+"dir_648f2155bf2b67b9e241e3eaa8c1be5b.html",
+"field__manager_8F90.html#gaf63779fc7541583d72aaeb629e71bcf7",
+"fms__io_8F90.html#gaaaec9c1ee0682a09fc29ccb3e2e2e2e8",
+"grid_8F90.html#ga26dcb5aebc5762fbb869507cd96d4c6e",
+"group__coupler__types__mod.html#ga4c56102d3921a15c9335b80c0f646e39",
+"group__diag__data__mod.html#ga70e915ebfc62ee1e98f4bf7e12042262",
+"group__fms__affinity__mod.html#ga78a042dc1e444c6cb142e03d2c1f5345",
+"horiz__interp_8F90.html#a2cd8cfca80ebf2277d3912df7584dc63",
+"monin__obukhov_8F90.html#gad8e944fbf6087b7c43f0984c41e5f2af",
+"mpp__domains_8F90.html#gad00369cd2859f0bfc164b7691fa1871b",
+"mpp__read__2Ddecomp_8h_source.html",
+"sat__vapor__pres__k_8F90.html#ga489b4a82d2e9a234cf3b2c6d102bdb40",
+"test__io__with__mask_8F90_source.html",
+"time__interp__external_8F90.html#ga7f486caf77ed2cd7fbf5c68e22a28788",
+"xgrid_8F90.html#ga1c48c67b0a28c2599230b4e1b348ad63"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

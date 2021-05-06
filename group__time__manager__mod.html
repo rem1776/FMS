@@ -125,7 +125,8 @@ logical function, public&#160;</td><td class="memItemRight" valign="bottom"><b>i
 logical function, public&#160;</td><td class="memItemRight" valign="bottom"><b>repeat_alarm</b> (time, alarm_frequency, alarm_length)</td></tr>
 <tr class="separator:gaba77face96aefbbb2c754b5830938793"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae4ed023b8077a6f14fffb764d642e55a"><td class="memItemLeft" align="right" valign="top"><a id="gae4ed023b8077a6f14fffb764d642e55a"></a>
-subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>set_calendar_type</b> (type, err_msg)</td></tr>
+subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__time__manager__mod.html#gae4ed023b8077a6f14fffb764d642e55a">set_calendar_type</a> (type, err_msg)</td></tr>
+<tr class="memdesc:gae4ed023b8077a6f14fffb764d642e55a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets calendar_type. The arrays coded_date and days_this_month used for the Gregorian calendar are assigned in this subroutine. The arrays and this component of the subroutine has been kept in order to be used by the original/old get_date_gregorian and set_date_gregorian which are now called get_date_gregorian_old and set_date_gregorian_old. The get/set_date_gregorian_old subroutines have been kept in order to test the new get/set_date_gregorian. The new get/set_date_gregorian do not utilize the coded_date and days_this_month arrays. As done in the get/set_date_gregorian_old, in the new routines, negative years and the proleptic Gregorian calendar are not used; and the discontinuity of days in October 1582 (when the Gregorian calendar was adopted by select groups in Europe) is not taken into account. <br /></td></tr>
 <tr class="separator:gae4ed023b8077a6f14fffb764d642e55a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad4d5cb71942ebf3f1bb9d4a29a6d9a04"><td class="memItemLeft" align="right" valign="top"><a id="gad4d5cb71942ebf3f1bb9d4a29a6d9a04"></a>
 integer function, public&#160;</td><td class="memItemRight" valign="bottom"><b>get_calendar_type</b> ()</td></tr>
@@ -136,9 +137,9 @@ subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>set_tic
 <tr class="memitem:ga07edc2aeb8850b3371e504f83d0285d1"><td class="memItemLeft" align="right" valign="top"><a id="ga07edc2aeb8850b3371e504f83d0285d1"></a>
 integer function, public&#160;</td><td class="memItemRight" valign="bottom"><b>get_ticks_per_second</b> ()</td></tr>
 <tr class="separator:ga07edc2aeb8850b3371e504f83d0285d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga42ca904e0ef4d8cd59deab75ea8bc048"><td class="memItemLeft" align="right" valign="top"><a id="ga42ca904e0ef4d8cd59deab75ea8bc048"></a>
-subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>get_date</b> (time, year, month, day, hour, minute, second, tick, err_msg)</td></tr>
-<tr class="separator:ga42ca904e0ef4d8cd59deab75ea8bc048"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6c708ea801247812b41b305ee5aeea13"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__time__manager__mod.html#ga6c708ea801247812b41b305ee5aeea13">get_date</a> (time, year, month, day, hour, minute, second, tick, err_msg, old_method)</td></tr>
+<tr class="memdesc:ga6c708ea801247812b41b305ee5aeea13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the date for different calendar types. The added optional argument old_method allows user to choose either the new or old version of get_date_gregorian. The variable old_method is only useful if the calendar type is Gregorian.  <a href="group__time__manager__mod.html#ga6c708ea801247812b41b305ee5aeea13">More...</a><br /></td></tr>
+<tr class="separator:ga6c708ea801247812b41b305ee5aeea13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga3aa4943a023df517bc3cbc3403a152f7"><td class="memItemLeft" align="right" valign="top"><a id="ga3aa4943a023df517bc3cbc3403a152f7"></a>
 subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>get_date_julian</b> (time, year, month, day, hour, minute, second)</td></tr>
 <tr class="separator:ga3aa4943a023df517bc3cbc3403a152f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -225,6 +226,92 @@ integer, parameter, public&#160;</td><td class="memItemRight" valign="bottom"><b
 <p>The module defines a type that can be used to represent discrete times (accurate to one second) and to map these times into dates using a variety of calendars. A time is mapped to a date by representing the time with respect to an arbitrary base date (refer to <b>NOTES</b> section for the &lt;LINK SRC="#base date"&gt;base date&lt;/LINK&gt; setting).</p>
 <p>The time_manager provides a single defined type, time_type, which is used to store time and date quantities. A time_type is a positive definite quantity that represents an interval of time. It can be most easily thought of as representing the number of seconds in some time interval. A time interval can be mapped to a date under a given calendar definition by using it to represent the time that has passed since some base date. A number of interfaces are provided to operate on time_type variables and their associated calendars. Time intervals can be as large as n days where n is the largest number represented by the default integer type on a compiler. This is typically considerably greater than 10 million years (assuming 32 bit integer representation) which is likely to be adequate for most applications. The description of the interfaces is separated into two sections. The first deals with operations on time intervals while the second deals with operations that convert time intervals to dates for a given calendar. </p>
 <h2 class="groupheader">Function/Subroutine Documentation</h2>
+<a id="ga6c708ea801247812b41b305ee5aeea13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6c708ea801247812b41b305ee5aeea13">&#9670;&nbsp;</a></span>get_date()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine, public time_manager_mod::get_date </td>
+          <td>(</td>
+          <td class="paramtype">type(time_type), intent(in)&#160;</td>
+          <td class="paramname"><em>time</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(out)&#160;</td>
+          <td class="paramname"><em>year</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(out)&#160;</td>
+          <td class="paramname"><em>month</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(out)&#160;</td>
+          <td class="paramname"><em>day</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(out)&#160;</td>
+          <td class="paramname"><em>hour</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(out)&#160;</td>
+          <td class="paramname"><em>minute</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(out)&#160;</td>
+          <td class="paramname"><em>second</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(out), optional&#160;</td>
+          <td class="paramname"><em>tick</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(out), optional&#160;</td>
+          <td class="paramname"><em>err_msg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, intent(in), optional&#160;</td>
+          <td class="paramname"><em>old_method</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the date for different calendar types. The added optional argument old_method allows user to choose either the new or old version of get_date_gregorian. The variable old_method is only useful if the calendar type is Gregorian. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">old_method</td><td>option to choose betw the new and old ver of get_date_gregorian subroutine. When .true., call get_date_gregorian_old to retrieve the date from the array coded_date. When .false., call get_date_gregorian to compute the date on the fly. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="time__manager_8F90_source.html#l01681">1681</a> of file <a class="el" href="time__manager_8F90_source.html">time_manager.F90</a>.</p>
+
+</div>
+</div>
 <a id="gafff6475f8827e27cedfca66a1396e6ab"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gafff6475f8827e27cedfca66a1396e6ab">&#9670;&nbsp;</a></span>real_to_time_type()</h2>
 
@@ -303,7 +390,7 @@ integer, parameter, public&#160;</td><td class="memItemRight" valign="bottom"><b
 <p>Allocate the string</p>
 <p>Write the integer to the string</p>
 
-<p class="definition">Definition at line <a class="el" href="time__manager_8F90_source.html#l03310">3310</a> of file <a class="el" href="time__manager_8F90_source.html">time_manager.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="time__manager_8F90_source.html#l03537">3537</a> of file <a class="el" href="time__manager_8F90_source.html">time_manager.F90</a>.</p>
 
 </div>
 </div>
