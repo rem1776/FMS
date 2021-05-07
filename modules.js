@@ -32,7 +32,6 @@ var modules =
     [ "Topography", "group__topography.html", "group__topography" ],
     [ "Tracer Manager", "group__tracer__manager.html", "group__tracer__manager" ],
     [ "Tridiagonal", "group__tridiagonal.html", "group__tridiagonal" ],
-    [ "diag_output_mod", "group__diag__output__mod.html", "group__diag__output__mod" ],
     [ "fms_io_utils_mod", "group__fms__io__utils__mod.html", "group__fms__io__utils__mod" ],
     [ "horiz_interp_spherical_mod", "group__horiz__interp__spherical__mod.html", null ],
     [ "memutils_mod", "group__memutils__mod.html", null ],
