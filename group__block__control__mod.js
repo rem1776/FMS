@@ -23,6 +23,8 @@ var group__block__control__mod =
       [ "nx_block", "group__block__control__mod.html#gac8e2bdf161fde4e4bbb65ec3d474d9e6", null ],
       [ "ny_block", "group__block__control__mod.html#ga4b25955e7e5544c51497533e00015746", null ]
     ] ],
+    [ "define_blocks", "group__block__control__mod.html#gaf9b25442e22bc46f0d247a7acff71516", null ],
+    [ "define_blocks_packed", "group__block__control__mod.html#ga21fb0963e6ded8c790c9b47346221415", null ],
     [ "blkno", "group__block__control__mod.html#ga9da7a70ca7d9359a637256ce246b079f", null ],
     [ "blksz", "group__block__control__mod.html#ga498f2a7116034dd717063c9f928e463d", null ],
     [ "ibs", "group__block__control__mod.html#ga6c1447cc346fe80d8a89f6b043b1d936", null ],

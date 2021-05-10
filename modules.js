@@ -20,7 +20,7 @@ var modules =
     [ "Horizontal Interpolator", "group__horiz__interp.html", "group__horiz__interp" ],
     [ "Interpolator", "group__interpolator.html", "group__interpolator" ],
     [ "MPP", "group__mpp.html", "group__mpp" ],
-    [ "Memory Utilities", "group__memutils.html", null ],
+    [ "Memory Utilities", "group__memutils.html", "group__memutils" ],
     [ "Monin Obukhov", "group__monin__obukhov.html", "group__monin__obukhov" ],
     [ "Mosaic", "group__mosaic.html", "group__mosaic" ],
     [ "Platform", "group__platform.html", "group__platform" ],
@@ -33,7 +33,5 @@ var modules =
     [ "Tracer Manager", "group__tracer__manager.html", "group__tracer__manager" ],
     [ "Tridiagonal", "group__tridiagonal.html", "group__tridiagonal" ],
     [ "fms_io_utils_mod", "group__fms__io__utils__mod.html", "group__fms__io__utils__mod" ],
-    [ "horiz_interp_spherical_mod", "group__horiz__interp__spherical__mod.html", null ],
-    [ "memutils_mod", "group__memutils__mod.html", null ],
     [ "sat_vapor_pres_mod", "group__sat__vapor__pres__mod.html", null ]
 ];
