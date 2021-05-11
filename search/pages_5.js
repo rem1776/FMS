@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['half_5fday_20interface_1777',['half_day Interface',['../group__astronomy__mod.html',1,'']]]
+  ['get_5fperiod_20interface_1831',['get_period Interface',['../group__astronomy__mod.html',1,'']]],
+  ['general_20project_20information_1832',['General Project Information',['../rm.html',1,'']]]
 ];

@@ -16,6 +16,7 @@ var modules =
     [ "FMS Global Module", "group__libfms.html", "group__libfms" ],
     [ "FMS utilities", "group__fms.html", "group__fms" ],
     [ "FMS2 IO", "group__fms2__io.html", "group__fms2__io" ],
+    [ "FMSconstants", "group__fmsconstants.html", null ],
     [ "Field Manager", "group__field__manager.html", "group__field__manager" ],
     [ "Horizontal Interpolator", "group__horiz__interp.html", "group__horiz__interp" ],
     [ "Interpolator", "group__interpolator.html", "group__interpolator" ],
@@ -31,7 +32,5 @@ var modules =
     [ "Time Manager", "group__time__manager.html", "group__time__manager" ],
     [ "Topography", "group__topography.html", "group__topography" ],
     [ "Tracer Manager", "group__tracer__manager.html", "group__tracer__manager" ],
-    [ "Tridiagonal", "group__tridiagonal.html", "group__tridiagonal" ],
-    [ "fms_io_utils_mod", "group__fms__io__utils__mod.html", "group__fms__io__utils__mod" ],
-    [ "sat_vapor_pres_mod", "group__sat__vapor__pres__mod.html", null ]
+    [ "Tridiagonal", "group__tridiagonal.html", "group__tridiagonal" ]
 ];

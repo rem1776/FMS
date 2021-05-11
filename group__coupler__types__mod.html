@@ -573,7 +573,39 @@ integer, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el"
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>This module contains type declarations for the coupler. </p>
 <dl class="section author"><dt>Author</dt><dd>Richard Slater, John Dunne </dd></dl>
-<h2 class="groupheader">Function/Subroutine Documentation</h2>
+
+
+<h3><a id="coupler_type_copy"></a>coupler_type_copy Interface</h3><div class="textblock">This is the interface to spawn one coupler_bc_type into another and then register diagnostics associated with the new type. </div>
+
+<h3><a id="coupler_type_spawn"></a>coupler_type_spawn Interface</h3><div class="textblock">This is the interface to spawn one coupler_bc_type into another. </div>
+
+<h3><a id="coupler_type_copy_data"></a>coupler_type_copy_data Interface</h3><div class="textblock">This is the interface to copy the field data from one coupler_bc_type to another of the same rank, size and decomposition. </div>
+
+<h3><a id="coupler_type_redistribute_data"></a>coupler_type_redistribute_data Interface</h3><div class="textblock">This is the interface to redistribute the field data from one coupler_bc_type to another of the same rank and global size, but a different decomposition. </div>
+
+<h3><a id="coupler_type_rescale_data"></a>coupler_type_rescale_data Interface</h3><div class="textblock">This is the interface to rescale the field data in a coupler_bc_type. </div>
+
+<h3><a id="coupler_type_increment_data"></a>coupler_type_increment_data Interface</h3><div class="textblock">This is the interface to increment the field data from one coupler_bc_type with the data from another. Both must have the same horizontal size and decomposition, but a 2d type may be incremented by a 2d or 3d type </div>
+
+<h3><a id="coupler_type_extract_data"></a>coupler_type_extract_data Interface</h3><div class="textblock">This is the interface to extract a field in a coupler_bc_type into an array. </div>
+
+<h3><a id="coupler_type_set_data"></a>coupler_type_set_data Interface</h3><div class="textblock">This is the interface to set a field in a coupler_bc_type from an array. </div>
+
+<h3><a id="coupler_type_set_diags"></a>coupler_type_set_diags Interface</h3><div class="textblock">This is the interface to set diagnostics for the arrays in a coupler_bc_type. </div>
+
+<h3><a id="coupler_type_write_chksums"></a>coupler_type_write_chksums Interface</h3><div class="textblock">This is the interface to write out checksums for the elements of a coupler_bc_type. </div>
+
+<h3><a id="coupler_type_send_data"></a>coupler_type_send_data Interface</h3><div class="textblock">This is the interface to write out diagnostics of the arrays in a coupler_bc_type. </div>
+
+<h3><a id="coupler_type_data_override"></a>coupler_type_data_override Interface</h3><div class="textblock">This is the interface to override the values of the arrays in a coupler_bc_type. </div>
+
+<h3><a id="coupler_type_register_restarts"></a>coupler_type_register_restarts Interface</h3><div class="textblock">This is the interface to register the fields in a coupler_bc_type to be saved in restart files. </div>
+
+<h3><a id="coupler_type_restore_state"></a>coupler_type_restore_state Interface</h3><div class="textblock">This is the interface to read in the fields in a coupler_bc_type that have been saved in restart files. </div>
+
+<h3><a id="coupler_type_initialized"></a>coupler_type_initialized Interface</h3><div class="textblock">This function interface indicates whether a coupler_bc_type has been initialized. </div>
+
+<h3><a id="coupler_type_destructor"></a>coupler_type_destructor Interface</h3><div class="textblock">This is the interface to deallocate any data associated with a coupler_bc_type. </div><h2 class="groupheader">Function/Subroutine Documentation</h2>
 <a id="gaea3fb588562145e5f2653c4b7140d1f7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gaea3fb588562145e5f2653c4b7140d1f7">&#9670;&nbsp;</a></span>coupler_type_copy_1d_2d()</h2>
 
@@ -671,7 +703,7 @@ integer, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el"
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="coupler__types_8F90_source.html#l00338">338</a> of file <a class="el" href="coupler__types_8F90_source.html">coupler_types.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="coupler__types_8F90_source.html#l00354">354</a> of file <a class="el" href="coupler__types_8F90_source.html">coupler_types.F90</a>.</p>
 
 </div>
 </div>
@@ -779,7 +811,7 @@ integer, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el"
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="coupler__types_8F90_source.html#l00373">373</a> of file <a class="el" href="coupler__types_8F90_source.html">coupler_types.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="coupler__types_8F90_source.html#l00389">389</a> of file <a class="el" href="coupler__types_8F90_source.html">coupler_types.F90</a>.</p>
 
 </div>
 </div>

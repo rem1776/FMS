@@ -178,7 +178,9 @@ integer(i4_kind), parameter, public&#160;</td><td class="memItemRight" valign="b
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>is an integral part of diag_manager_mod. It helps to create axis IDs that are used in register_diag_field. </p>
 <dl class="section author"><dt>Author</dt><dd>Seth Underwood Users first create axis ID by calling diag_axis_init, then use this axis ID in register_diag_field. </dd></dl>
-<h2 class="groupheader">Function/Subroutine Documentation</h2>
+
+
+<h3><a id="diag_axis_add_attribute"></a>diag_axis_add_attribute Interface</h3><div class="textblock">Add a attribute to the diag axis Add an arbitrary attribute and value to the diagnostic axis. Any number of attributes can be added to a given axis. All attribute addition must be done before first <code>send_data</code> call.If a real or integer attribute is already defined, a FATAL error will be called. If a character attribute is already defined, then it will be prepended to the existing attribute value. Example usage: call diag_axis_add_attribute(diag_axis_id, att_name, att_value) </div><h2 class="groupheader">Function/Subroutine Documentation</h2>
 <a id="ga241aaf31afd11ff2c6ffbfc746487f0f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga241aaf31afd11ff2c6ffbfc746487f0f">&#9670;&nbsp;</a></span>axis_compatible_check()</h2>
 
@@ -216,7 +218,7 @@ integer(i4_kind), parameter, public&#160;</td><td class="memItemRight" valign="b
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>DIAG_AXIS_NODOMAIN = no domain. DIAG_AXIS_2DDOMAIN = structured domain. DIAG_AXIS_UGDOMAIN = unstructured domain. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l00727">727</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l00719">719</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
 
 </div>
 </div>
@@ -239,7 +241,7 @@ integer(i4_kind), parameter, public&#160;</td><td class="memItemRight" valign="b
 <p>given an axis, returns TRUE if the axis uses compression-by-gathering: that is, if this is an axis for fields on unstructured grid </p>
 <dl class="section return"><dt>Returns</dt><dd>logical whether or not the axis uses compression-by-gathering </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l01231">1231</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l01223">1223</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
 
 </div>
 </div>
@@ -364,7 +366,7 @@ integer(i4_kind), parameter, public&#160;</td><td class="memItemRight" valign="b
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l00136">136</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l00128">128</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
 
 </div>
 </div>
@@ -424,7 +426,7 @@ integer(i4_kind), parameter, public&#160;</td><td class="memItemRight" valign="b
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l00389">389</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l00381">381</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
 
 </div>
 </div>
@@ -469,7 +471,7 @@ integer(i4_kind), parameter, public&#160;</td><td class="memItemRight" valign="b
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l00805">805</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l00797">797</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
 
 </div>
 </div>
@@ -498,7 +500,7 @@ integer(i4_kind), parameter, public&#160;</td><td class="memItemRight" valign="b
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l00620">620</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l00612">612</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
 
 </div>
 </div>
@@ -527,7 +529,7 @@ integer(i4_kind), parameter, public&#160;</td><td class="memItemRight" valign="b
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l00638">638</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l00630">630</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
 
 </div>
 </div>
@@ -556,7 +558,7 @@ integer(i4_kind), parameter, public&#160;</td><td class="memItemRight" valign="b
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l00604">604</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l00596">596</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
 
 </div>
 </div>
@@ -596,7 +598,7 @@ integer(i4_kind), parameter, public&#160;</td><td class="memItemRight" valign="b
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l00829">829</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l00821">821</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
 
 </div>
 </div>
@@ -625,7 +627,7 @@ integer(i4_kind), parameter, public&#160;</td><td class="memItemRight" valign="b
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l00629">629</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l00621">621</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
 
 </div>
 </div>
@@ -732,7 +734,7 @@ integer(i4_kind), parameter, public&#160;</td><td class="memItemRight" valign="b
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l00474">474</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l00466">466</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
 
 </div>
 </div>
@@ -771,7 +773,7 @@ integer(i4_kind), parameter, public&#160;</td><td class="memItemRight" valign="b
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l00562">562</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l00554">554</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
 
 </div>
 </div>
@@ -810,7 +812,7 @@ integer(i4_kind), parameter, public&#160;</td><td class="memItemRight" valign="b
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l00571">571</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l00563">563</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
 
 </div>
 </div>
@@ -849,7 +851,7 @@ integer(i4_kind), parameter, public&#160;</td><td class="memItemRight" valign="b
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l00594">594</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l00586">586</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
 
 </div>
 </div>
@@ -888,7 +890,7 @@ integer(i4_kind), parameter, public&#160;</td><td class="memItemRight" valign="b
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l00585">585</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l00577">577</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
 
 </div>
 </div>
@@ -917,7 +919,7 @@ integer(i4_kind), parameter, public&#160;</td><td class="memItemRight" valign="b
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l00674">674</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l00666">666</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
 
 </div>
 </div>
@@ -946,7 +948,7 @@ integer(i4_kind), parameter, public&#160;</td><td class="memItemRight" valign="b
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l00687">687</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l00679">679</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
 
 </div>
 </div>
@@ -975,7 +977,7 @@ integer(i4_kind), parameter, public&#160;</td><td class="memItemRight" valign="b
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l00713">713</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l00705">705</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
 
 </div>
 </div>
@@ -1004,7 +1006,7 @@ integer(i4_kind), parameter, public&#160;</td><td class="memItemRight" valign="b
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l00647">647</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l00639">639</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
 
 </div>
 </div>

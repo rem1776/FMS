@@ -116,7 +116,7 @@ subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="
 <tr class="memdesc:ga6da33323528930f4680012957d27d6db"><td class="mdescLeft">&#160;</td><td class="mdescRight">initialize <a class="el" href="group__amip__interp__mod.html">amip_interp_mod</a> for use <br /></td></tr>
 <tr class="separator:ga6da33323528930f4680012957d27d6db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaa680c8750f89c6444c6caf3d93b54cb4"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__amip__interp__mod.html#gaa680c8750f89c6444c6caf3d93b54cb4">amip_interp_del</a> (Interp)</td></tr>
-<tr class="memdesc:gaa680c8750f89c6444c6caf3d93b54cb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees data associated with a amip_interp_type variable. Should be used for any variables initialized via amip_interp_new.  <a href="group__amip__interp__mod.html#gaa680c8750f89c6444c6caf3d93b54cb4">More...</a><br /></td></tr>
+<tr class="memdesc:gaa680c8750f89c6444c6caf3d93b54cb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees data associated with a amip_interp_type variable. Should be used for any variables initialized via <a class="el" href="group__amip__interp__mod.html">amip_interp_new Interface</a>.  <a href="group__amip__interp__mod.html#gaa680c8750f89c6444c6caf3d93b54cb4">More...</a><br /></td></tr>
 <tr class="separator:gaa680c8750f89c6444c6caf3d93b54cb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
@@ -159,6 +159,29 @@ data set.
   reynolds_eof    INPUT/reynolds_sst.data
 </pre> 
 
+<h3><a id="amip_interp_new"></a>amip_interp_new Interface</h3><div class="textblock">Initializes data needed for the horizontal interpolation between the sst grid and model grid. The returned variable of type amip_interp_type is needed when calling get_amip_sst and get_amip_ice.<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">the value of the namelist parameter DATA_SET being used is not allowed</td><td>Check the value of namelist variable DATA_SET.</td></tr>
+    <tr><td class="paramname">FATAL</td><td>requested input data set does not exist The data set requested is valid but the data does not exist in the INPUT subdirectory. You may have requested amip2 data which has not been officially set up. See the section on DATA SETS to properly set the data up.</td></tr>
+    <tr><td class="paramname">FATAL</td><td>use_climo mismatch The namelist variable date_out_of_range = 'fail' and the amip_interp_new argument use_climo = true. This combination is not allowed.</td></tr>
+    <tr><td class="paramname">FATAL</td><td>use_annual(climo) mismatch The namelist variable date_out_of_range = 'fail' and the amip_interp_new argument use_annual = true. This combination is not allowed. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lon</td><td>Longitude in radians of the model's grid box edges (1d lat/lon grid case) or at grid box mid-point (2d case for arbitrary grids). </td></tr>
+    <tr><td class="paramname">lat</td><td>Latitude in radians of the model's grid box edges (1d lat/lon grid case) or at grid box mid-point (2d case for arbitrary grids). </td></tr>
+    <tr><td class="paramname">mask</td><td>A mask for the model grid. </td></tr>
+    <tr><td class="paramname">use_climo</td><td>Flag the specifies that monthly mean climatological values will be used. </td></tr>
+    <tr><td class="paramname">use_annual</td><td>Flag the specifies that the annual mean climatological will be used. If both use_annual = use_climo = true, then use_annual = true will be used. </td></tr>
+    <tr><td class="paramname">interp_method</td><td>specify the horiz_interp scheme. = "conservative" means conservative scheme, = "bilinear" means bilinear interpolation.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Interp A defined data type variable needed when calling get_amip_sst and get_amip_ice.</dd></dl>
+<p>Interp = amip_interp_new ( lon, lat, mask, use_climo, use_annual, interp_method )This function may be called to initialize multiple variables of type amip_interp_type. However, there currently is no call to release the storage used by this variable.The size of input augment mask must be a function of the size of input augments lon and lat. The first and second dimensions of mask must equal (size(lon,1)-1, size(lat,2)-1). </div>
+
 <h3><a id="amip_interp_nml"></a>amip_interp Namelist</h3><div class="textblock"></div><h2 class="groupheader">Function/Subroutine Documentation</h2>
 <a id="gaa680c8750f89c6444c6caf3d93b54cb4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gaa680c8750f89c6444c6caf3d93b54cb4">&#9670;&nbsp;</a></span>amip_interp_del()</h2>
@@ -176,7 +199,7 @@ data set.
       </table>
 </div><div class="memdoc">
 
-<p>Frees data associated with a amip_interp_type variable. Should be used for any variables initialized via amip_interp_new. </p>
+<p>Frees data associated with a amip_interp_type variable. Should be used for any variables initialized via <a class="el" href="group__amip__interp__mod.html">amip_interp_new Interface</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in,out]</td><td class="paramname">Interp</td><td>A defined data type variable initialized by amip_interp_new and used when calling get_amip_sst and get_amip_ice. </td></tr>
@@ -184,7 +207,7 @@ data set.
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="amip__interp_8F90_source.html#l01072">1072</a> of file <a class="el" href="amip__interp_8F90_source.html">amip_interp.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="amip__interp_8F90_source.html#l01065">1065</a> of file <a class="el" href="amip__interp_8F90_source.html">amip_interp.F90</a>.</p>
 
 </div>
 </div>
@@ -241,7 +264,7 @@ data set.
 <p>Retrieve sst data and amip interpolated data. </p>
 <p>These are fms_io specific</p>
 
-<p class="definition">Definition at line <a class="el" href="amip__interp_8F90_source.html#l00370">370</a> of file <a class="el" href="amip__interp_8F90_source.html">amip_interp.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="amip__interp_8F90_source.html#l00363">363</a> of file <a class="el" href="amip__interp_8F90_source.html">amip_interp.F90</a>.</p>
 
 </div>
 </div>

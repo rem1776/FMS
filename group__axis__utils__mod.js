@@ -1,5 +1,6 @@
 var group__axis__utils__mod =
 [
+    [ "interp_1d Interface", "group__axis__utils__mod.html#interp_1d", null ],
     [ "frac_index", "group__axis__utils__mod.html#ga501df9f40778ebcfee3caf5cd3740e0d", null ],
     [ "get_axis_bounds", "group__axis__utils__mod.html#gaf2d607b6a8526083a52fba72e56954d4", null ],
     [ "get_axis_cart", "group__axis__utils__mod.html#gac51ddecdfb07b1ea6ef7ff738016825b", null ],
