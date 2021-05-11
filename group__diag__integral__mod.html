@@ -148,7 +148,26 @@ Functions/Subroutines</h2></td></tr>
 <li>format_text_init</li>
 <li>format_data_init </li>
 </ul>
-<h2 class="groupheader">Function/Subroutine Documentation</h2>
+
+
+<h3><a id="sum_diag_integral_field"></a>sum_diag_integral_field Interface</h3><div class="textblock">This interface can be called in any one of three ways:<div class="fragment"><div class="line"><span class="keyword">call </span>sum_diag_integral_field (name, <span class="keyword">data</span>, is, js)</div>
+<div class="line"><span class="keyword">call </span>sum_diag_integral_field (name, <span class="keyword">data</span>, wt, is, js)</div>
+<div class="line"><span class="keyword">call </span>sum_diag_integral_field (name, <span class="keyword">data</span>, is, ie, js, je)</div>
+</div><!-- fragment -->in the first option above, <code>data</code> may be either </p><div class="fragment"><div class="line"><span class="keywordtype">real</span>, <span class="keywordtype">intent(in)</span> :: data(:,:)   <span class="comment">![ sum_field_2d ]</span></div>
+<div class="line"><span class="keywordtype">real</span>, <span class="keywordtype">intent(in)</span> :: data(:,:,:) ![ sum_field_3d ]</div>
+</div><!-- fragment --><b> Parameters: </b><div class="fragment"><div class="line"><span class="keywordtype">character(len=*)</span>,  <span class="keywordtype">intent(in)</span> :: name</div>
+<div class="line"><span class="keywordtype">real</span>,              <span class="keywordtype">intent(in)</span> :: wt(:,:,:)</div>
+<div class="line"><span class="keywordtype">integer</span>, <span class="keywordtype">optional</span>, <span class="keywordtype">intent(in)</span> :: is, ie, js, je</div>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;name&gt;</td><td>name associated with integral </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;data&gt;</td><td>field of integrands to be summed over </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;wt&gt;</td><td>vertical weighting factor to be applied to integrands when summing </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;is,ie,js,je&gt;</td><td>starting/ending i,j indices over which summation is to occur </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><h2 class="groupheader">Function/Subroutine Documentation</h2>
 <a id="gae242cb7883e5522984b902a09680fce8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gae242cb7883e5522984b902a09680fce8">&#9670;&nbsp;</a></span>diag_integral_end()</h2>
 
@@ -177,7 +196,7 @@ Functions/Subroutines</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__integral_8F90_source.html#l00958">958</a> of file <a class="el" href="diag__integral_8F90_source.html">diag_integral.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__integral_8F90_source.html#l00959">959</a> of file <a class="el" href="diag__integral_8F90_source.html">diag_integral.F90</a>.</p>
 
 </div>
 </div>
@@ -222,7 +241,7 @@ Functions/Subroutines</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__integral_8F90_source.html#l00459">459</a> of file <a class="el" href="diag__integral_8F90_source.html">diag_integral.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__integral_8F90_source.html#l00460">460</a> of file <a class="el" href="diag__integral_8F90_source.html">diag_integral.F90</a>.</p>
 
 </div>
 </div>
@@ -290,7 +309,7 @@ Functions/Subroutines</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__integral_8F90_source.html#l00309">309</a> of file <a class="el" href="diag__integral_8F90_source.html">diag_integral.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__integral_8F90_source.html#l00310">310</a> of file <a class="el" href="diag__integral_8F90_source.html">diag_integral.F90</a>.</p>
 
 </div>
 </div>
@@ -322,7 +341,7 @@ Functions/Subroutines</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__integral_8F90_source.html#l00912">912</a> of file <a class="el" href="diag__integral_8F90_source.html">diag_integral.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__integral_8F90_source.html#l00913">913</a> of file <a class="el" href="diag__integral_8F90_source.html">diag_integral.F90</a>.</p>
 
 </div>
 </div>

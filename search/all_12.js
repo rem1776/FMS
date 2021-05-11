@@ -40,6 +40,6 @@ var searchData=
   ['string_5fcompare_732',['string_compare',['../group__fms__io__utils__mod.html#ga903b8517432214a95f6c4abc57756fac',1,'fms_io_utils_mod']]],
   ['string_5fcopy_733',['string_copy',['../group__fms__io__utils__mod.html#ga54969ab10f27be5137288c2edc6fc5c3',1,'fms_io_utils_mod']]],
   ['subaxes_734',['subaxes',['../group__diag__data__mod.html#gaa59328ee0a9848737237b32bda53c19f',1,'diag_data_mod::diag_grid']]],
-  ['sum_5fdiag_5fintegral_5ffield_20interface_735',['sum_diag_integral_field Interface',['../sum_diag_integral_field.html',1,'']]],
+  ['sum_5fdiag_5fintegral_5ffield_20interface_735',['sum_diag_integral_field Interface',['../group__diag__integral__mod.html',1,'']]],
   ['sync_5ffile_5ftimes_736',['sync_file_times',['../group__diag__util__mod.html#ga8173f2ae692d8b1cef9f1bca76ad8910',1,'diag_util_mod']]]
 ];

@@ -133,6 +133,39 @@ Functions/Subroutines</h2></td></tr>
 <dl class="section author"><dt>Author</dt><dd>Fei Liu </dd></dl>
 
 
+<h3><a id="diurnal_solar"></a>diurnal_solar Interface</h3><div class="textblock"><div class="fragment"><div class="line"><span class="keyword">call </span>diurnal_solar (lat, lon, time, cosz, fracday, rrsun, dt_time)</div>
+<div class="line"><span class="keyword">call </span>diurnal_solar (lat, lon, gmt, time_since_ae, cosz, fracday, rrsun, dt)</div>
+</div><!-- fragment -->The first option (used in conjunction with time_manager_mod) generates the real variables gmt and time_since_ae from the time_type input, and then calls diurnal_solar with these real inputs.The time of day is set by </p><div class="fragment"><div class="line"><span class="keywordtype">real</span>, <span class="keywordtype">intent(in)</span> :: gmt</div>
+</div><!-- fragment -->The time of year is set by </p><div class="fragment"><div class="line"><span class="keywordtype">real</span>, <span class="keywordtype">intent(in)</span> :: time_since_ae</div>
+</div><!-- fragment -->with time_type input, both of these are extracted from </p><div class="fragment"><div class="line"><span class="keywordtype">type</span>(time_type), <span class="keywordtype">intent(in)</span> :: time</div>
+</div><!-- fragment -->Separate routines exist within this interface for scalar, 1D or 2D input and output fields:<div class="fragment"><div class="line"><span class="keywordtype">real</span>, <span class="keywordtype">intent(in)</span>, <span class="keywordtype">dimension(:,:)</span> :: lat, lon</div>
+<div class="line"><span class="keywordtype">real</span>, <span class="keywordtype">intent(in)</span>, <span class="keywordtype">dimension(:)</span>   :: lat, lon</div>
+<div class="line"><span class="keywordtype">real</span>, <span class="keywordtype">intent(in)</span>                 :: lat, lon</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">real</span>, <span class="keywordtype">intent(out)</span>, <span class="keywordtype">dimension(:,:)</span> :: cosz, fracday</div>
+<div class="line"><span class="keywordtype">real</span>, <span class="keywordtype">intent(out)</span>, <span class="keywordtype">dimension(:)</span>   :: cosz, fracday</div>
+<div class="line"><span class="keywordtype">real</span>, <span class="keywordtype">intent(out)</span>                 :: cosz, fracday</div>
+</div><!-- fragment -->One may also average the output fields over the time interval between gmt and gmt + dt by including the optional argument dt (or dt_time). dt is measured in radians and must be less than pi (1/2 day). This average is computed analytically, and should be exact except for the fact that changes in earth-sun distance over the time interval dt are ignored. In the context of a diurnal GCM, this option should always be employed to insure that the total flux at the top of the atmosphere is not modified by time truncation error.<div class="fragment"><div class="line"><span class="keywordtype">real</span>, <span class="keywordtype">intent(in)</span>, <span class="keywordtype">optional</span> :: dt</div>
+<div class="line"><span class="keywordtype">type</span>(time_type), <span class="keywordtype">optional</span> :: dt_time</div>
+</div><!-- fragment -->(see test.90 for examples of the use of these types)<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;lat&gt;</td><td>Latitudes of model grid points [radians] </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;lon&gt;</td><td>Longitudes of model grid points [radians] </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;gmt&gt;</td><td>Time of day at longitude 0.0; midnight = 0.0, one day = 2 * pi [radians] </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;time_since_ae&gt;</td><td>Time of year; autumnal equinox = 0.0, one year = 2 * pi [radians] </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;time&gt;</td><td>Time at which astronomical values are desired (time_type variable) [seconds, days] </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">&lt;cosz&gt;</td><td>Cosine of solar zenith angle, set to zero when entire period is in darkness [dimensionless] </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">&lt;fracday&gt;</td><td>Daylight fraction of time interval [dimensionless] </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">&lt;rrsun&gt;</td><td>Earth-Sun distance (r) relative to semi-major axis of orbital ellipse (a):(a/r)**2 [dimensionless] </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;dt&gt;</td><td>OPTIONAL: Time interval after gmt over which the astronomical variables are to be averaged. this produces averaged output rather than instantaneous. [radians], (1 day = 2 * pi) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;dt_time&gt;</td><td>OPTIONAL: Time interval after gmt over which the astronomical variables are to be averaged. this produces averaged output rather than instantaneous. time_type, [days, seconds] </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;allow_negative_cosz&gt;</td><td>Allow negative values for cosz? </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">&lt;half_day_out&gt;</td><td>half_day_out </td></tr>
+  </table>
+  </dd>
+</dl>
+</div>
+
 <h3><a id="daily_mean_solar"></a>daily_mean_solar Interface</h3><div class="textblock"><div class="fragment"><div class="line"><span class="keyword">call </span>daily_mean_solar (lat, time, cosz, fracday, rrsun)</div>
 <div class="line"><span class="keyword">call </span>daily_mean_solar (lat, time_since_ae, cosz, fracday, rrsun)</div>
 <div class="line"><span class="keyword">call </span>daily_mean_solar (lat, time, cosz, solar)</div>
@@ -235,7 +268,7 @@ Functions/Subroutines</h2></td></tr>
 <p>deallocate module variables.</p>
 <p>mark the module as uninitialized.</p>
 
-<p class="definition">Definition at line <a class="el" href="astronomy_8F90_source.html#l01956">1956</a> of file <a class="el" href="astronomy_8F90_source.html">astronomy.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="astronomy_8F90_source.html#l01957">1957</a> of file <a class="el" href="astronomy_8F90_source.html">astronomy.F90</a>.</p>
 
 </div>
 </div>
@@ -292,7 +325,7 @@ Functions/Subroutines</h2></td></tr>
 <p>If annual mean radiation is desired, then latb will be present. allocate arrays to hold the needed astronomical factors. define the total number of points that the processor is responsible for.</p>
 <p>Mark the module as initialized.</p>
 
-<p class="definition">Definition at line <a class="el" href="astronomy_8F90_source.html#l00398">398</a> of file <a class="el" href="astronomy_8F90_source.html">astronomy.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="astronomy_8F90_source.html#l00399">399</a> of file <a class="el" href="astronomy_8F90_source.html">astronomy.F90</a>.</p>
 
 </div>
 </div>
@@ -344,7 +377,7 @@ Functions/Subroutines</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="astronomy_8F90_source.html#l00659">659</a> of file <a class="el" href="astronomy_8F90_source.html">astronomy.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="astronomy_8F90_source.html#l00660">660</a> of file <a class="el" href="astronomy_8F90_source.html">astronomy.F90</a>.</p>
 
 </div>
 </div>
@@ -417,7 +450,7 @@ Functions/Subroutines</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="astronomy_8F90_source.html#l00761">761</a> of file <a class="el" href="astronomy_8F90_source.html">astronomy.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="astronomy_8F90_source.html#l00762">762</a> of file <a class="el" href="astronomy_8F90_source.html">astronomy.F90</a>.</p>
 
 </div>
 </div>
@@ -445,7 +478,7 @@ Functions/Subroutines</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="astronomy_8F90_source.html#l02206">2206</a> of file <a class="el" href="astronomy_8F90_source.html">astronomy.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="astronomy_8F90_source.html#l02207">2207</a> of file <a class="el" href="astronomy_8F90_source.html">astronomy.F90</a>.</p>
 
 </div>
 </div>
@@ -500,7 +533,7 @@ Functions/Subroutines</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="astronomy_8F90_source.html#l00610">610</a> of file <a class="el" href="astronomy_8F90_source.html">astronomy.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="astronomy_8F90_source.html#l00611">611</a> of file <a class="el" href="astronomy_8F90_source.html">astronomy.F90</a>.</p>
 
 </div>
 </div>
@@ -574,7 +607,7 @@ Functions/Subroutines</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="astronomy_8F90_source.html#l00710">710</a> of file <a class="el" href="astronomy_8F90_source.html">astronomy.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="astronomy_8F90_source.html#l00711">711</a> of file <a class="el" href="astronomy_8F90_source.html">astronomy.F90</a>.</p>
 
 </div>
 </div>
@@ -602,7 +635,7 @@ Functions/Subroutines</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="astronomy_8F90_source.html#l02221">2221</a> of file <a class="el" href="astronomy_8F90_source.html">astronomy.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="astronomy_8F90_source.html#l02222">2222</a> of file <a class="el" href="astronomy_8F90_source.html">astronomy.F90</a>.</p>
 
 </div>
 </div>

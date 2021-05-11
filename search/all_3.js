@@ -63,7 +63,7 @@ var searchData=
   ['dimension_5fexists_204',['dimension_exists',['../namespacenetcdf__io__mod.html#a7f8565a27ff47353809360e47f94a0b2',1,'netcdf_io_mod']]],
   ['dimi_205',['dimi',['../group__diag__grid__mod.html#ga49a0ec2c2044680c58ef6bc811e3ac74',1,'diag_grid_mod::diag_global_grid_type']]],
   ['dimj_206',['dimj',['../group__diag__grid__mod.html#gae989844e19d85097cd5a13b83a73b890',1,'diag_grid_mod::diag_global_grid_type']]],
-  ['diurnal_5fsolar_20interface_207',['diurnal_solar Interface',['../diurnal_solar.html',1,'']]],
+  ['diurnal_5fsolar_20interface_207',['diurnal_solar Interface',['../group__astronomy__mod.html',1,'']]],
   ['domain_208',['domain',['../group__fms__netcdf__domain__io__mod.html#ga44cfff2babb687954ffc79c677a82a4d',1,'fms_netcdf_domain_io_mod::fmsnetcdfdomainfile_t::domain()'],['../structfms__netcdf__unstructured__domain__io__mod_1_1fmsnetcdfunstructureddomainfile__t.html#ace8345d99aa02df9bfbc7de0d0c33dd7',1,'fms_netcdf_unstructured_domain_io_mod::fmsnetcdfunstructureddomainfile_t::domain()'],['../structatm__type.html#a44cfff2babb687954ffc79c677a82a4d',1,'atm_type::domain()']]],
   ['domain_5fposition_209',['domain_position',['../group__diag__data__mod.html#gae9061724a98b8477616f83bc6ed20d06',1,'diag_data_mod::diag_axis_type']]],
   ['domain_5ftile_5ffilepath_5fmangle_210',['domain_tile_filepath_mangle',['../group__fms__io__utils__mod.html#gaf84858127441447c6dbfafbb581116e4',1,'fms_io_utils_mod']]],

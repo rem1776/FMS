@@ -98,7 +98,7 @@ $(document).ready(function(){initNavTree('group__mersennetwister__mod.html','');
 </div><!--header-->
 <div class="contents">
 
-<p>Fortran-95 implementation of the Mersenne Twister 19937, following the C implementation described below adapted cosmetically by making the names more general. Users must declare one or more variables of type randomNumberSequence in the calling procedure which are then initialized using a required seed. If the variable is not initialized the random numbers will all be 0. For example: program testRandoms use RandomNumbers type(randomNumberSequence) :: randomNumbers integer :: i.  
+<p>Fortran-95 implementation of the Mersenne Twister 19937 algorithm.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -117,7 +117,9 @@ subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>finaliz
 <tr class="separator:gacd20bb34da7118ea50176786367cf936"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Fortran-95 implementation of the Mersenne Twister 19937, following the C implementation described below adapted cosmetically by making the names more general. Users must declare one or more variables of type randomNumberSequence in the calling procedure which are then initialized using a required seed. If the variable is not initialized the random numbers will all be 0. For example: program testRandoms use RandomNumbers type(randomNumberSequence) :: randomNumbers integer :: i. </p>
+<p>Fortran-95 implementation of the Mersenne Twister 19937 algorithm. </p>
+<dl class="section author"><dt>Author</dt><dd>Robert Pincus</dd></dl>
+<p>Users must declare one or more variables of type randomNumberSequence in the calling procedure which are then initialized using a required seed. If the variable is not initialized the random numbers will all be 0. For example: program testRandoms use RandomNumbers type(randomNumberSequence) :: randomNumbers integer :: i</p>
 <p>randomNumbers = new_RandomNumberSequence(seed = 100) do i = 1, 10 print ('(f12.10, 2x)'), getRandomReal(randomNumbers) end do end program testRandoms</p>
 <p>Fortran-95 implementation by Robert Pincus NOAA-CIRES Climate Diagnostics Center Boulder, CO 80305 email: <a href="#" onclick="location.href='mai'+'lto:'+'Rob'+'er'+'t.P'+'in'+'cus'+'@c'+'olo'+'ra'+'do.'+'ed'+'u'; return false;">Rober<span style="display: none;">.nosp@m.</span>t.Pi<span style="display: none;">.nosp@m.</span>ncus@<span style="display: none;">.nosp@m.</span>colo<span style="display: none;">.nosp@m.</span>rado.<span style="display: none;">.nosp@m.</span>edu</a></p>
 <h2>This documentation in the original C program reads: </h2>
