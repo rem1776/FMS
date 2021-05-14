@@ -102,8 +102,8 @@ $(document).ready(function(){initNavTree('group__mosaic2__mod.html',''); initRes
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
-<tr class="memitem:ga19cdd650f600c0f3e8ef2a1de4550364"><td class="memItemLeft" align="right" valign="top"><a id="ga19cdd650f600c0f3e8ef2a1de4550364"></a>
-integer function, public&#160;</td><td class="memItemRight" valign="bottom"><b>get_mosaic_xgrid_size</b> (fileobj)</td></tr>
+<tr class="memitem:ga19cdd650f600c0f3e8ef2a1de4550364"><td class="memItemLeft" align="right" valign="top">integer function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mosaic2__mod.html#ga19cdd650f600c0f3e8ef2a1de4550364">get_mosaic_xgrid_size</a> (fileobj)</td></tr>
+<tr class="memdesc:ga19cdd650f600c0f3e8ef2a1de4550364"><td class="mdescLeft">&#160;</td><td class="mdescRight">return exchange grid size of mosaic xgrid file.  <a href="group__mosaic2__mod.html#ga19cdd650f600c0f3e8ef2a1de4550364">More...</a><br /></td></tr>
 <tr class="separator:ga19cdd650f600c0f3e8ef2a1de4550364"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga97b91c95ac89b122e30722ce40dc0616"><td class="memItemLeft" align="right" valign="top"><a id="ga97b91c95ac89b122e30722ce40dc0616"></a>
 subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>get_mosaic_xgrid</b> (fileobj, i1, j1, i2, j2, area, ibegin, iend)</td></tr>
@@ -136,7 +136,8 @@ logical function, public&#160;</td><td class="memItemRight" valign="bottom"><a c
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Implements some utility routines to read mosaic information. </p>
-<dl class="section author"><dt>Author</dt><dd>Zhi Liang Implements some utility routines to read mosaic information. The information includes number of tiles and contacts in the mosaic, mosaic grid resolution of each tile, mosaic contact information, mosaic exchange grid information. Each routine will call a C-version routine to get these information. </dd></dl>
+<dl class="section author"><dt>Author</dt><dd>Zhi Liang</dd></dl>
+<p>Implements some utility routines to read mosaic information. The information includes number of tiles and contacts in the mosaic, mosaic grid resolution of each tile, mosaic contact information, mosaic exchange grid information. Each routine will call a C-version routine to get these information. </p>
 <h2 class="groupheader">Function/Subroutine Documentation</h2>
 <a id="ga8dfe682ca88da8a6e7d31d8bfb304fe7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga8dfe682ca88da8a6e7d31d8bfb304fe7">&#9670;&nbsp;</a></span>get_mosaic_tile_grid()</h2>
@@ -187,7 +188,30 @@ logical function, public&#160;</td><td class="memItemRight" valign="bottom"><a c
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="mosaic2_8F90_source.html#l00530">530</a> of file <a class="el" href="mosaic2_8F90_source.html">mosaic2.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mosaic2_8F90_source.html#l00529">529</a> of file <a class="el" href="mosaic2_8F90_source.html">mosaic2.F90</a>.</p>
+
+</div>
+</div>
+<a id="ga19cdd650f600c0f3e8ef2a1de4550364"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga19cdd650f600c0f3e8ef2a1de4550364">&#9670;&nbsp;</a></span>get_mosaic_xgrid_size()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer function, public mosaic2_mod::get_mosaic_xgrid_size </td>
+          <td>(</td>
+          <td class="paramtype">type(fmsnetcdffile_t), intent(in)&#160;</td>
+          <td class="paramname"><em>fileobj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>return exchange grid size of mosaic xgrid file. </p>
+<p>Example usage: nxgrid = get_mosaic_xgrid_size(xgrid_file) </p>
+
+<p class="definition">Definition at line <a class="el" href="mosaic2_8F90_source.html#l00099">99</a> of file <a class="el" href="mosaic2_8F90_source.html">mosaic2.F90</a>.</p>
 
 </div>
 </div>

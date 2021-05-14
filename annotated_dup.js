@@ -53,7 +53,11 @@ var annotated_dup =
       [ "mpp_efp_type", "structmpp__efp__mod_1_1mpp__efp__type.html", "structmpp__efp__mod_1_1mpp__efp__type" ],
       [ "operator(+)", "interfacempp__efp__mod_1_1operator_07_09_08.html", null ]
     ] ],
-    [ "netcdf_io_mod", "namespacenetcdf__io__mod.html", "namespacenetcdf__io__mod" ],
+    [ "netcdf_io_mod", null, [
+      [ "fmsnetcdffile_t", "structnetcdf__io__mod_1_1fmsnetcdffile__t.html", "structnetcdf__io__mod_1_1fmsnetcdffile__t" ],
+      [ "netcdf_add_restart_variable", "interfacenetcdf__io__mod_1_1netcdf__add__restart__variable.html", null ],
+      [ "valid_t", "structnetcdf__io__mod_1_1valid__t.html", "structnetcdf__io__mod_1_1valid__t" ]
+    ] ],
     [ "stock_constants_mod", null, [
       [ "stock_type", "structstock__constants__mod_1_1stock__type.html", "structstock__constants__mod_1_1stock__type" ]
     ] ],

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>FMS: Global</title>
+<title>FMS: time_interp Interface</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -71,7 +71,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('Global-example.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('time_interp.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -89,15 +89,14 @@ $(document).ready(function(){initNavTree('Global-example.html',''); initResizabl
 </iframe>
 </div>
 
-<div class="header">
+<div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">Global</div>  </div>
+<div class="title">time_interp Interface </div>  </div>
 </div><!--header-->
 <div class="contents">
-<p>max/min of domain-decomposed arrays. @detailed <em>mpp_global_max</em> is used to get the maximum value of a domain-decomposed array on each PE. <em>MPP_TYPE_can</em> be of type <em>integer</em> or <em>real</em>; of 4-byte or 8-byte kind; of rank up to 5. The dimension of <em>locus</em> must equal the rank of <em>field</em>.<br  />
-<br  />
- All PEs in a domain decomposition must call <em>mpp_global_max</em>, and each will have the result upon exit. The function <em>mpp_global_min</em>, with an identical syntax. is also available.</p>
-<div class="fragment"></div><!-- fragment --> </div><!-- contents -->
+<div class="textblock"><p>Returns a weight and dates or indices for interpolating between two dates. The interface fraction_of_year is provided for backward compatibility with the previous version. </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

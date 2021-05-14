@@ -121,7 +121,7 @@ $(document).ready(function(){initNavTree('test__io__simple_8F90_source.html','')
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  use, <span class="keywordtype">intrinsic</span> :: iso_fortran_env, only : error_unit, output_unit</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keywordtype">use </span>mpi</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <span class="keywordtype">use </span>fms2_io_mod</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespacenetcdf__io__mod.html">netcdf_io_mod</a></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <span class="keywordtype">use </span>netcdf_io_mod</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <span class="keywordtype">use </span>mpp_domains_mod</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="keywordtype">use </span>mpp_mod</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="keywordtype">use </span>setup</div>
@@ -200,7 +200,7 @@ $(document).ready(function(){initNavTree('test__io__simple_8F90_source.html','')
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  <span class="keyword">call </span>mpp_get_compute_domain(io_domain, xbegin=isc_east, xend=iec_east, xsize=nx_east, position=east)</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  <span class="keyword">call </span>mpp_get_compute_domain(io_domain, ybegin=jsc_north, yend=jec_north, ysize=ny_north, position=north)</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;  <span class="keyword">call </span><a class="code" href="namespacenetcdf__io__mod.html#ab3d6f987c880c22ac2aefbd53897c2e2">netcdf_io_init</a>(ncchksz, header_buffer_val, netcdf_default_format)</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;  <span class="keyword">call </span><a class="code" href="group__netcdf__io__mod.html#gab3d6f987c880c22ac2aefbd53897c2e2">netcdf_io_init</a>(ncchksz, header_buffer_val, netcdf_default_format)</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  <span class="keywordflow">do</span> i = 1, 3</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;     <span class="keyword">write</span>(testfile,<span class="stringliteral">&#39;(a,a,a)&#39;</span>) <span class="stringliteral">&#39;test_io_simple_&#39;</span>, trim(my_format(i)), <span class="stringliteral">&#39;.nc&#39;</span></div>
@@ -272,8 +272,7 @@ $(document).ready(function(){initNavTree('test__io__simple_8F90_source.html','')
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="keyword">end program </span>test_io_simple</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="anamespacenetcdf__io__mod_html"><div class="ttname"><a href="namespacenetcdf__io__mod.html">netcdf_io_mod</a></div><div class="ttdoc">Create a netcdf type, which can be extended to meet our various I/O needs.</div><div class="ttdef"><b>Definition:</b> <a href="netcdf__io_8F90_source.html#l00024">netcdf_io.F90:24</a></div></div>
-<div class="ttc" id="anamespacenetcdf__io__mod_html_ab3d6f987c880c22ac2aefbd53897c2e2"><div class="ttname"><a href="namespacenetcdf__io__mod.html#ab3d6f987c880c22ac2aefbd53897c2e2">netcdf_io_mod::netcdf_io_init</a></div><div class="ttdeci">subroutine, public netcdf_io_init(chksz, header_buffer_val, netcdf_default_format)</div><div class="ttdoc">Accepts the namelist fms2_io_nml variables relevant to netcdf_io_mod.</div><div class="ttdef"><b>Definition:</b> <a href="netcdf__io_8F90_source.html#l00305">netcdf_io.F90:305</a></div></div>
+<div class="ttc" id="agroup__netcdf__io__mod_html_gab3d6f987c880c22ac2aefbd53897c2e2"><div class="ttname"><a href="group__netcdf__io__mod.html#gab3d6f987c880c22ac2aefbd53897c2e2">netcdf_io_mod::netcdf_io_init</a></div><div class="ttdeci">subroutine, public netcdf_io_init(chksz, header_buffer_val, netcdf_default_format)</div><div class="ttdoc">Accepts the namelist fms2_io_nml variables relevant to netcdf_io_mod.</div><div class="ttdef"><b>Definition:</b> <a href="netcdf__io_8F90_source.html#l00311">netcdf_io.F90:311</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
