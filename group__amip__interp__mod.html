@@ -140,35 +140,23 @@ logical, public&#160;</td><td class="memItemRight" valign="bottom"><b>use_ncep_s
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Provides observed SST and ice mask data sets that have been interpolated onto your model's grid. </p>
 <dl class="section author"><dt>Author</dt><dd>Bruce Wyman</dd></dl>
-<p>When using these routines three possible data sets are available: </p><pre class="fragment">1)  AMIP \link http://www-pcmdi.llnl.gov/amip \endlink from Jan 1979 to Jan 1989 (2 deg x 2 deg)
-2)  Reynolds OI \link amip_interp.rey_oi.txt \endlink from Nov 1981 to Jan 1999 (1 deg x 1 deg)
-3)  Reynolds EOF \link ftp://podaac.jpl.nasa.gov/pub/sea_surface_temperature/reynolds/rsst/doc/rsst.html \endlink from Jan 1950 to Dec 1998 (2 deg x 2 deg)
-
-All original data are observed monthly means. This module
-interpolates linearly in time between pairs of monthly means.
-Horizontal interpolation is done using the horiz_interp module.
-
-When a requested date falls outside the range of dates available
-a namelist option allows for use of the climatological monthly
-mean values which are computed from all of the data in a particular
-data set.
-</pre><p> Dataset Name = AMIP 1 from Jan 1979 to Jan 1989 (2 deg x 2 deg). Dataset Name = Reynolds OI from Nov 1981 to Jan 1999 (1 deg x 1 deg) The analysis uses in situ and satellite SST's plus SST's simulated by sea-ice cover. Dataset Name = Reynold's EOF from Jan 1950 to Dec 1998 (2 deg x 2 deg) NCEP Reynolds Historical Reconstructed Sea Surface Temperature The analysis uses both in-situ SSTs and satellite derived SSTs from the NOAA Advanced Very High Resolution Radiometer. In-situ data is used from 1950 to 1981, while both AVHRR derived satellite SSTs and in-situ data are used from 1981 to the end of 1998.</p>
+<p>When using these routines three possible data sets are available:</p>
+<p>1) AMIP <a class="el" href="">http://www-pcmdi.llnl.gov/amip</a> from Jan 1979 to Jan 1989 (2 deg x 2 deg) 2) Reynolds OI <a class="el" href="">amip_interp.rey_oi.txt</a> from Nov 1981 to Jan 1999 (1 deg x 1 deg) 3) Reynolds EOF <a class="el" href="">ftp://podaac.jpl.nasa.gov/pub/sea_surface_temperature/reynolds/rsst/doc/rsst.html</a> from Jan 1950 to Dec 1998 (2 deg x 2 deg)</p>
+<p>All original data are observed monthly means. This module interpolates linearly in time between pairs of monthly means. Horizontal interpolation is done using the horiz_interp module.</p>
+<p>When a requested date falls outside the range of dates available a namelist option allows for use of the climatological monthly mean values which are computed from all of the data in a particular data set. AMIP 1:<br  />
+ from Jan 1979 to Jan 1989 (2 deg x 2 deg).<br  />
+ Reynolds OI:<br  />
+ from Nov 1981 to Jan 1999 (1 deg x 1 deg)<br  />
+ The analysis uses in situ and satellite SST's plus SST's simulated by sea-ice cover. Reynold's EOF:<br  />
+ from Jan 1950 to Dec 1998 (2 deg x 2 deg)<br  />
+ NCEP Reynolds Historical Reconstructed Sea Surface Temperature The analysis uses both in-situ SSTs and satellite derived SSTs from the NOAA Advanced Very High Resolution Radiometer. In-situ data is used from 1950 to 1981, while both AVHRR derived satellite SSTs and in-situ data are used from 1981 to the end of 1998.</p>
 <p>Note: The data set used by this module have been reformatted as 32-bit IEEE. The data values are packed into 16-bit integers.</p>
 <p>The data sets are read from the following files: </p><pre class="fragment">  amip1           INPUT/amip1_sst.data
   reynolds_io     INPUT/reyoi_sst.data
   reynolds_eof    INPUT/reynolds_sst.data
 </pre> 
 
-<h3><a id="amip_interp_new"></a>amip_interp_new Interface</h3><div class="textblock">Initializes data needed for the horizontal interpolation between the sst grid and model grid. The returned variable of type amip_interp_type is needed when calling get_amip_sst and get_amip_ice.<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">the value of the namelist parameter DATA_SET being used is not allowed</td><td>Check the value of namelist variable DATA_SET.</td></tr>
-    <tr><td class="paramname">FATAL</td><td>requested input data set does not exist The data set requested is valid but the data does not exist in the INPUT subdirectory. You may have requested amip2 data which has not been officially set up. See the section on DATA SETS to properly set the data up.</td></tr>
-    <tr><td class="paramname">FATAL</td><td>use_climo mismatch The namelist variable date_out_of_range = 'fail' and the amip_interp_new argument use_climo = true. This combination is not allowed.</td></tr>
-    <tr><td class="paramname">FATAL</td><td>use_annual(climo) mismatch The namelist variable date_out_of_range = 'fail' and the amip_interp_new argument use_annual = true. This combination is not allowed. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
+<h3><a id="amip_interp_new"></a>amip_interp_new Interface</h3><div class="textblock">Initializes data needed for the horizontal interpolation between the sst grid and model grid. The returned variable of type amip_interp_type is needed when calling get_amip_sst and get_amip_ice.<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">lon</td><td>Longitude in radians of the model's grid box edges (1d lat/lon grid case) or at grid box mid-point (2d case for arbitrary grids). </td></tr>
     <tr><td class="paramname">lat</td><td>Latitude in radians of the model's grid box edges (1d lat/lon grid case) or at grid box mid-point (2d case for arbitrary grids). </td></tr>
@@ -180,9 +168,18 @@ data set.
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Interp A defined data type variable needed when calling get_amip_sst and get_amip_ice.</dd></dl>
-<p>Interp = amip_interp_new ( lon, lat, mask, use_climo, use_annual, interp_method )This function may be called to initialize multiple variables of type amip_interp_type. However, there currently is no call to release the storage used by this variable.The size of input augment mask must be a function of the size of input augments lon and lat. The first and second dimensions of mask must equal (size(lon,1)-1, size(lat,2)-1). </div>
+<p>Interp = amip_interp_new ( lon, lat, mask, use_climo, use_annual, interp_method )This function may be called to initialize multiple variables of type amip_interp_type. However, there currently is no call to release the storage used by this variable.The size of input augment mask must be a function of the size of input augments lon and lat. The first and second dimensions of mask must equal (size(lon,1)-1, size(lat,2)-1).<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">FATAL: the value of the namelist parameter DATA_SET being used is not allowed</td><td>Check the value of namelist variable DATA_SET.</td></tr>
+    <tr><td class="paramname">FATAL: requested input data set does not exist</td><td>The data set requested is valid but the data does not exist in the INPUT subdirectory. You may have requested amip2 data which has not been officially set up. See the section on DATA SETS to properly set the data up.</td></tr>
+    <tr><td class="paramname">FATAL: use_climo mismatch</td><td>The namelist variable date_out_of_range = 'fail' and the amip_interp_new argument use_climo = true. This combination is not allowed.</td></tr>
+    <tr><td class="paramname">FATAL: use_annual(climo) mismatch</td><td>The namelist variable date_out_of_range = 'fail' and the amip_interp_new argument use_annual = true. This combination is not allowed. </td></tr>
+  </table>
+  </dd>
+</dl>
+</div>
 
-<h3><a id="amip_interp_nml"></a>amip_interp Namelist</h3><div class="textblock"></div><h2 class="groupheader">Function/Subroutine Documentation</h2>
+<h3><a id="amip_interp_nml"></a>amip_interp Namelist</h3><div class="textblock">Namelist documentation for <a class="el" href="group__amip__interp__mod.html">amip_interp_mod</a> </div><h2 class="groupheader">Function/Subroutine Documentation</h2>
 <a id="gaa680c8750f89c6444c6caf3d93b54cb4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gaa680c8750f89c6444c6caf3d93b54cb4">&#9670;&nbsp;</a></span>amip_interp_del()</h2>
 
@@ -207,7 +204,7 @@ data set.
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="amip__interp_8F90_source.html#l01065">1065</a> of file <a class="el" href="amip__interp_8F90_source.html">amip_interp.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="amip__interp_8F90_source.html#l01067">1067</a> of file <a class="el" href="amip__interp_8F90_source.html">amip_interp.F90</a>.</p>
 
 </div>
 </div>
@@ -264,7 +261,7 @@ data set.
 <p>Retrieve sst data and amip interpolated data. </p>
 <p>These are fms_io specific</p>
 
-<p class="definition">Definition at line <a class="el" href="amip__interp_8F90_source.html#l00363">363</a> of file <a class="el" href="amip__interp_8F90_source.html">amip_interp.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="amip__interp_8F90_source.html#l00365">365</a> of file <a class="el" href="amip__interp_8F90_source.html">amip_interp.F90</a>.</p>
 
 </div>
 </div>
