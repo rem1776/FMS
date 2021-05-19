@@ -216,9 +216,11 @@ integer, parameter, public&#160;</td><td class="memItemRight" valign="bottom"><b
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>A software package that provides a set of simple interfaces for modelers to perform computations related to time and dates. The changes between the lima revision and this revision are more extensive that all those between antwerp and lima. A brief description of these changes follows. </p>
-<p><a class="el" href="">1) Added option to set the smallest time increment to something less than one second. This is controlled by calling the pubic subroutine set_ticks_per_second.  2) Gregorian calendar fixed.  3) Optional error flag added to calling arguments of public routines. This allows the using routine to terminate the program. It is likely that more diagnostic information is available from the user than from time_manager alone. If the error flag is present then it is the responsibility of the using routine to test it and add additional information to the error message.  4) Removed the restriction that time increments be positive in routines that increment or decrement time and date. The option to prohibit negative increments can be turned on via optional argument.  5) subroutine set_date_c modified to handle strings that include only hours or only hours and minutes. This complies with CF convensions.  6) Made calendar specific routines private. They are not used, and should not be used, by any using code.  7) Error messages made more informative.  The module defines a type that can be used to represent discrete times (accurate to one second) and to map these times into dates using a variety of calendars. A time is mapped to a date by representing the time with respect to an arbitrary base date (refer to <b>NOTES</b> section for the </a>base date&lt;/LINK&gt; setting).</p>
-<p>The time_manager provides a single defined type, time_type, which is used to store time and date quantities. A time_type is a positive definite quantity that represents an interval of time. It can be most easily thought of as representing the number of seconds in some time interval. A time interval can be mapped to a date under a given calendar definition by using it to represent the time that has passed since some base date. A number of interfaces are provided to operate on time_type variables and their associated calendars. Time intervals can be as large as n days where n is the largest number represented by the default integer type on a compiler. This is typically considerably greater than 10 million years (assuming 32 bit integer representation) which is likely to be adequate for most applications. The description of the interfaces is separated into two sections. The first deals with operations on time intervals while the second deals with operations that convert time intervals to dates for a given calendar. </p>
-<h2 class="groupheader">Function/Subroutine Documentation</h2>
+<p><a class="el" href="">Added option to set the smallest time increment to something less than one second. This is controlled by calling the pubic subroutine set_ticks_per_second. Gregorian calendar fixed. Optional error flag added to calling arguments of public routines. This allows the using routine to terminate the program. It is likely that more diagnostic information is available from the user than from time_manager alone. If the error flag is present then it is the responsibility of the using routine to test it and add additional information to the error message. Removed the restriction that time increments be positive in routines that increment or decrement time and date. The option to prohibit negative increments can be turned on via optional argument. subroutine set_date_c modified to handle strings that include only hours or only hours and minutes. This complies with CF convensions. Made calendar specific routines private. They are not used, and should not be used, by any using code. Error messages made more informative.  The module defines a type that can be used to represent discrete times (accurate to one second) and to map these times into dates using a variety of calendars. A time is mapped to a date by representing the time with respect to an arbitrary base date (refer to <b>NOTES</b> section for the base date setting).  The time_manager provides a single defined type, time_type, which is used to store time and date quantities. A time_type is a positive definite quantity that represents an interval of time. It can be most easily thought of as representing the number of seconds in some time interval. A time interval can be mapped to a date under a given calendar definition by using it to represent the time that has passed since some base date. A number of interfaces are provided to operate on time_type variables and their associated calendars. Time intervals can be as large as n days where n is the largest number represented by the default integer type on a compiler. This is typically considerably greater than 10 million years (assuming 32 bit integer representation) which is likely to be adequate for most applications. The description of the interfaces is separated into two sections. The first deals with operations on time intervals while the second deals with operations that convert time intervals to dates for a given calendar.  The smallest increment of time is referred to as a tick. A tick cannot be larger than 1 second, which also is the default. The number of ticks per second is set via pubic subroutine set_ticks_per_second. For example, ticks_per_second = 1000 will set the tick to one millisecond. </a></p>
+
+
+<h3><a id="set_time"></a>set_time Interface</h3><div class="textblock">Given some number of seconds and days, returns the corresponding time_type.Given some number of seconds and days, returns the corresponding time_type. set_time has two forms; one accepts integer input, the other a character string. For the first form, there are no restrictions on the range of the inputs, except that the result must be positive time. e.g. days=-1, seconds=86401 is acceptable. For the second form, days and seconds must both be positive. <br  />
+Example usage: set_time(seconds, days, ticks, err_msg) set_time(time_string, err_msg, allow_rounding) </div><h2 class="groupheader">Function/Subroutine Documentation</h2>
 <a id="ga6c708ea801247812b41b305ee5aeea13"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga6c708ea801247812b41b305ee5aeea13">&#9670;&nbsp;</a></span>get_date()</h2>
 
@@ -301,7 +303,7 @@ integer, parameter, public&#160;</td><td class="memItemRight" valign="bottom"><b
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="time__manager_8F90_source.html#l01682">1682</a> of file <a class="el" href="time__manager_8F90_source.html">time_manager.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="time__manager_8F90_source.html#l01697">1697</a> of file <a class="el" href="time__manager_8F90_source.html">time_manager.F90</a>.</p>
 
 </div>
 </div>
@@ -341,7 +343,7 @@ integer, parameter, public&#160;</td><td class="memItemRight" valign="bottom"><b
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="time__manager_8F90_source.html#l01269">1269</a> of file <a class="el" href="time__manager_8F90_source.html">time_manager.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="time__manager_8F90_source.html#l01284">1284</a> of file <a class="el" href="time__manager_8F90_source.html">time_manager.F90</a>.</p>
 
 </div>
 </div>
@@ -383,7 +385,7 @@ integer, parameter, public&#160;</td><td class="memItemRight" valign="bottom"><b
 <p>Allocate the string</p>
 <p>Write the integer to the string</p>
 
-<p class="definition">Definition at line <a class="el" href="time__manager_8F90_source.html#l03538">3538</a> of file <a class="el" href="time__manager_8F90_source.html">time_manager.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="time__manager_8F90_source.html#l03553">3553</a> of file <a class="el" href="time__manager_8F90_source.html">time_manager.F90</a>.</p>
 
 </div>
 </div>

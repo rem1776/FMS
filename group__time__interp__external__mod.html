@@ -107,8 +107,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:gad1f56b2c9b092accb0039bb950c7c815"><td class="memItemLeft" align="right" valign="top"><a id="gad1f56b2c9b092accb0039bb950c7c815"></a>
 subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>time_interp_external_init</b> ()</td></tr>
 <tr class="separator:gad1f56b2c9b092accb0039bb950c7c815"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga8057518b04011a1abc54f798ad71ce33"><td class="memItemLeft" align="right" valign="top"><a id="ga8057518b04011a1abc54f798ad71ce33"></a>
-integer function, public&#160;</td><td class="memItemRight" valign="bottom"><b>init_external_field</b> (file, fieldname, format, threading, domain, desired_units, verbose, axis_centers, axis_sizes, override, correct_leap_year_inconsistency, permit_calendar_conversion, use_comp_domain, ierr, nwindows, ignore_axis_atts)</td></tr>
+<tr class="memitem:ga8057518b04011a1abc54f798ad71ce33"><td class="memItemLeft" align="right" valign="top">integer function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__time__interp__external__mod.html#ga8057518b04011a1abc54f798ad71ce33">init_external_field</a> (file, fieldname, format, threading, domain, desired_units, verbose, axis_centers, axis_sizes, override, correct_leap_year_inconsistency, permit_calendar_conversion, use_comp_domain, ierr, nwindows, ignore_axis_atts)</td></tr>
+<tr class="memdesc:ga8057518b04011a1abc54f798ad71ce33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize an external field. Buffer "num_io_buffers" (default=2) in memory to reduce memory allocations. distributed reads are supported using the optional "domain" flag. Units conversion via the optional "desired_units" flag using udunits_mod.  <a href="group__time__interp__external__mod.html#ga8057518b04011a1abc54f798ad71ce33">More...</a><br /></td></tr>
 <tr class="separator:ga8057518b04011a1abc54f798ad71ce33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaff9ef57fdcc28ffa97d2539c13ed23cd"><td class="memItemLeft" align="right" valign="top"><a id="gaff9ef57fdcc28ffa97d2539c13ed23cd"></a>
 subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>reset_src_data_region</b> (index, is, ie, js, je)</td></tr>
@@ -164,7 +164,139 @@ integer, parameter, public&#160;</td><td class="memItemRight" valign="bottom"><b
   </table>
   </dd>
 </dl>
-<p>Contains: time_interp_external_0d time_interp_external_2d time_interp_external_3d </div></div><!-- contents -->
+<p>Contains: time_interp_external_0d time_interp_external_2d time_interp_external_3d </div><h2 class="groupheader">Function/Subroutine Documentation</h2>
+<a id="ga8057518b04011a1abc54f798ad71ce33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8057518b04011a1abc54f798ad71ce33">&#9670;&nbsp;</a></span>init_external_field()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer function, public time_interp_external_mod::init_external_field </td>
+          <td>(</td>
+          <td class="paramtype">character(len=*), intent(in)&#160;</td>
+          <td class="paramname"><em>file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in)&#160;</td>
+          <td class="paramname"><em>fieldname</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>format</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>threading</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(domain2d), intent(in), optional&#160;</td>
+          <td class="paramname"><em>domain</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in), optional&#160;</td>
+          <td class="paramname"><em>desired_units</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, intent(in), optional&#160;</td>
+          <td class="paramname"><em>verbose</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(axistype), dimension(4), intent(inout), optional&#160;</td>
+          <td class="paramname"><em>axis_centers</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(4), intent(inout), optional&#160;</td>
+          <td class="paramname"><em>axis_sizes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, intent(in), optional&#160;</td>
+          <td class="paramname"><em>override</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, intent(in), optional&#160;</td>
+          <td class="paramname"><em>correct_leap_year_inconsistency</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, intent(in), optional&#160;</td>
+          <td class="paramname"><em>permit_calendar_conversion</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, intent(in), optional&#160;</td>
+          <td class="paramname"><em>use_comp_domain</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(out), optional&#160;</td>
+          <td class="paramname"><em>ierr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>nwindows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, optional&#160;</td>
+          <td class="paramname"><em>ignore_axis_atts</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialize an external field. Buffer "num_io_buffers" (default=2) in memory to reduce memory allocations. distributed reads are supported using the optional "domain" flag. Units conversion via the optional "desired_units" flag using udunits_mod. </p>
+<dl class="section return"><dt>Returns</dt><dd>integer id of field for future calls to time_interp_external. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">file</td><td>filename </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">fieldname</td><td>fieldname (in file) </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">format</td><td>mpp_io flag for format of file(optional). Currently only "MPP_NETCDF" supported </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">threading</td><td>mpp_io flag for threading (optional). "MPP_SINGLE" means root pe reads global field and distributes to other PEs. "MPP_MULTI" means all PEs read data </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">domain</td><td>domain flag (optional) </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">desired_units</td><td>Target units for data (optional), e.g. convert from deg_K to deg_C. Failure to convert using udunits will result in failure of this module. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">verbose</td><td>verbose flag for debugging (optional). </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">axis_names</td><td>List of axis names (optional). </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">axis_sizes</td><td>array of axis lengths ordered X-Y-Z-T (optional). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="time__interp__external_8F90_source.html#l00276">276</a> of file <a class="el" href="time__interp__external_8F90_source.html">time_interp_external.F90</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

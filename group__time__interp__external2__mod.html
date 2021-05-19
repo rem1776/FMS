@@ -99,7 +99,7 @@ $(document).ready(function(){initNavTree('group__time__interp__external2__mod.ht
 </div><!--header-->
 <div class="contents">
 
-<p>Perform I/O and time interpolation of external fields (contained in a file).  
+<p>Perform I/O and time interpolation of external fields (contained in a file), using fms2_io.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -149,10 +149,23 @@ integer, parameter, public&#160;</td><td class="memItemRight" valign="bottom"><b
 <tr class="separator:ga11b62c4ab8f0c349665b3ad42bb233b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Perform I/O and time interpolation of external fields (contained in a file). </p>
-<dl class="section author"><dt>Author</dt><dd>M.J. Harrison Perform I/O and time interpolation for external fields. Uses udunits library to calculate calendar dates and convert units. Allows for reading data decomposed across model horizontal grid using optional domain2d argument</dd></dl>
+<p>Perform I/O and time interpolation of external fields (contained in a file), using fms2_io. </p>
+<dl class="section author"><dt>Author</dt><dd>M.J. Harrison</dd></dl>
+<p>Perform I/O and time interpolation for external fields. Uses udunits library to calculate calendar dates and convert units. Allows for reading data decomposed across model horizontal grid using optional domain2d argument</p>
 <p>data are defined over data domain for domain2d data (halo values are NOT updated by this module) </p>
-<h2 class="groupheader">Function/Subroutine Documentation</h2>
+
+
+<h3><a id="time_interp_external2"></a>time_interp_external Interface</h3><div class="textblock">Provide data from external file interpolated to current model time. Data may be local to current processor or global, depending on "init_external_field" flags.<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">index</td><td>index of external field from previous call to init_external_field </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">time</td><td>target time for data </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">data</td><td>global or local data array </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">interp</td><td>time_interp_external defined interpolation method (optional). Currently this module only supports LINEAR_TIME_INTERP. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">verbose</td><td>verbose flag for debugging (optional). </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><h2 class="groupheader">Function/Subroutine Documentation</h2>
 <a id="gad888791a2a1fe6807fc76dd4b966c175"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gad888791a2a1fe6807fc76dd4b966c175">&#9670;&nbsp;</a></span>init_external_field()</h2>
 
@@ -276,7 +289,7 @@ integer, parameter, public&#160;</td><td class="memItemRight" valign="bottom"><b
 </dl>
 <p>If this is an ongrid case, set is[e]js[e]data to be equal to the compute domain. This is what it is used to allocate space for the data!</p>
 
-<p class="definition">Definition at line <a class="el" href="time__interp__external2_8F90_source.html#l00259">259</a> of file <a class="el" href="time__interp__external2_8F90_source.html">time_interp_external2.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="time__interp__external2_8F90_source.html#l00258">258</a> of file <a class="el" href="time__interp__external2_8F90_source.html">time_interp_external2.F90</a>.</p>
 
 </div>
 </div>

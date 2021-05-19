@@ -94,11 +94,7 @@ $(document).ready(function(){initNavTree('call-example.html',''); initResizable(
 <div class="title">call</div>  </div>
 </div><!--header-->
 <div class="contents">
-<p>mpp_define_domains( (/1,100/), 10, domain, &amp; flags=GLOBAL_DATA_DOMAIN+CYCLIC_GLOBAL_DOMAIN, halo=2 ) defines 10 compute domains spanning the range [1,100] of the global domain. The compute domains are non-overlapping blocks of 10. All the data domains are global, and with a halo of 2 span the range [-1:102]. And since the global domain has been declared to be cyclic, domain(9)next =&gt; domain(0) and domain(0)prev =&gt; domain(9). A field is allocated on the data domain, and computations proceed on the compute domain. A call to mpp_update_domains would fill in the values in the halo region:<br  />
-<br  />
- call mpp_get_data_domain( domain, isd, ied ) !returns -1 and 102 call mpp_get_compute_domain( domain, is, ie ) !returns (1,10) on PE 0 ... allocate( a(isd:ied) ) do i = is,ie a(i) = &lt;perform computations&gt; end do call mpp_update_domains( a, domain )<br  />
-<br  />
- The call to mpp_update_domainsfills in the regions outside the compute domain. Since the global domain is cyclic, the values at <em>i=</em>(-1,0) are the same as at <em>i=</em>(99,100); and <em>i=</em>(101,102) are the same as <em>i=</em>(1,2).</p>
+<p>Get the index of the data passed from coarse grid to fine grid. @detailed Get the index of the data passed from coarse grid to fine grid. mpp_get_C2F_index(nest_domain, is_fine, ie_fine, js_fine, je_fine, is_coarse, ie_coarse, js_coarse, je_coarse, dir, nest_level, position)</p>
 <div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

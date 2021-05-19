@@ -94,74 +94,74 @@ $(document).ready(function(){initNavTree('parse_8inc_source.html',''); initResiz
 <div class="title">parse.inc</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;!***********************************************************************</div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;!*                   GNU Lesser General Public License</div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;!*</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;!* This file is part of the GFDL Flexible Modeling System (FMS).</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;!*</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;!* FMS is free software: you can redistribute it and/or modify it under</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;!* the terms of the GNU Lesser General Public License as published by</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;!* the Free Software Foundation, either version 3 of the License, or (at</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;!* your option) any later version.</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;!*</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;!* FMS is distributed in the hope that it will be useful, but WITHOUT</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;!* ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;!* FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;!* <span class="keywordflow">for</span> more details.</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;!*</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;!* You should have received a copy of the GNU Lesser General Public</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;!* License along with FMS.  If not, see &lt;http:<span class="comment">//www.gnu.org/licenses/&gt;.</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;!***********************************************************************</div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">!***********************************************************************</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">!*                   GNU Lesser General Public License</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">!*</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">!* This file is part of the GFDL Flexible Modeling System (FMS).</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">!*</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">!* FMS is free software: you can redistribute it and/or modify it under</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">!* the terms of the GNU Lesser General Public License as published by</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">!* the Free Software Foundation, either version 3 of the License, or (at</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">!* your option) any later version.</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">!*</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">!* FMS is distributed in the hope that it will be useful, but WITHOUT</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">!* ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">!* FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">!* for more details.</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">!*</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">!* You should have received a copy of the GNU Lesser General Public</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">!* License along with FMS.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">!***********************************************************************</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  character(*), parameter :: SPACE = <span class="charliteral">&#39; &#39;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  character(*), parameter :: DELIM = SPACE<span class="comment">//&#39;,&#39;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  integer :: parse</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  integer :: is, ie, id, k</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  integer :: ts, last, i</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <span class="keywordtype">character(*)</span>, <span class="keywordtype">parameter</span> :: SPACE = <span class="stringliteral">&#39; &#39;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <span class="keywordtype">character(*)</span>, <span class="keywordtype">parameter</span> :: DELIM = space//<span class="stringliteral">&#39;,&#39;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="keywordtype">integer</span> :: parse</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="keywordtype">integer</span> :: is, ie, id, k</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <span class="keywordtype">integer</span> :: ts, last, i</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  parse = 0; ts = 1; last=len_trim(text)</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <span class="keywordflow">do</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    i=scan(text(ts:last),<span class="charliteral">&#39;=&#39;</span>) ! location of the next equal sign in the input test</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    i=scan(text(ts:last),<span class="stringliteral">&#39;=&#39;</span>) <span class="comment">! location of the next equal sign in the input test</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordflow">if</span> (i == 0) <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    ! find the last non-space character before the equal sign</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="comment">! find the last non-space character before the equal sign</span></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordflow">do</span> ie = ts+i-2,ts,-1</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;       <span class="keywordflow">if</span> (scan(text(ie:ie),SPACE)==0) exit</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    enddo</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    ! find the last delimeter preceding spaces and equal sign</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;       <span class="keywordflow">if</span> (scan(text(ie:ie),space)==0) <span class="keywordflow">exit</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keywordflow">    enddo</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="comment">! find the last delimeter preceding spaces and equal sign</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordflow">do</span> is = ie,ts,-1</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;       <span class="keywordflow">if</span> (scan(text(is:is),DELIM)&gt;0) exit</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    enddo</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordflow">if</span> (trim(label)==text(is+1:ie)) exit ! from outer loop: found the label</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    ! <span class="keywordflow">for</span> the next iteration of the loop</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    ts = ts+i+1 ! shift the beginning of the line</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  enddo</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;       <span class="keywordflow">if</span> (scan(text(is:is),delim)&gt;0) <span class="keywordflow">exit</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keywordflow">    enddo</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordflow">if</span> (trim(label)==text(is+1:ie)) <span class="keywordflow">exit</span> <span class="comment">! from outer loop: found the label</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="comment">! for the next iteration of the loop</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    ts = ts+i+1 <span class="comment">! shift the beginning of the line</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keywordflow">  enddo</span></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  is = ts+i</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keywordflow">do</span> k = 1, size(values(:))</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keywordflow">do</span> k = 1, <span class="keyword">size</span>(values(:))</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;   ! position of ending pointer</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;     <span class="keywordtype">id</span> = scan( text(is:last), <span class="charliteral">&#39;,&#39;</span> )</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;     if (<span class="keywordtype">id</span> == 0) then</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;         ie = last     ! no trailing comma, use end of text <span class="keywordtype">string</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;     else</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;         ie = is+<span class="keywordtype">id</span>-2</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;     endif</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;   <span class="comment">! position of ending pointer</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;     id = scan( text(is:last), <span class="stringliteral">&#39;,&#39;</span> )</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;     <span class="keywordflow">if</span> (id == 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;         ie = last     <span class="comment">! no trailing comma, use end of text string</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;     <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;         ie = is+id-2</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keywordflow">     endif</span></div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;   ! decode value</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;   ! print *, &#39;k,is,ie,<span class="keywordtype">id</span>,last=&#39;,k,is,ie,<span class="keywordtype">id</span>,last</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;   ! print *, &#39;DECODE: &#39;, text(is:ie)</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;     read ( text(is:ie), *, err=99, end=99 ) values(k)</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;     parse = parse+1   ! parse is the number of values decoded</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;   <span class="comment">! decode value</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;   <span class="comment">! print *, &#39;k,is,ie,id,last=&#39;,k,is,ie,id,last</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;   <span class="comment">! print *, &#39;DECODE: &#39;, text(is:ie)</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;     <span class="keyword">read</span> ( text(is:ie), *, err=99, <span class="keyword">end</span>=99 ) values(k)</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;     parse = parse+1   <span class="comment">! parse is the number of values decoded</span></div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;     if (ie == last) exit  ! end of text <span class="keywordtype">string</span> ... DONE</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;     is = is+<span class="keywordtype">id</span>            ! move starting pointer after &quot;,&quot;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;     if (is  &gt; last) exit  ! end of text <span class="keywordtype">string</span> ... DONE</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  enddo</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  return</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;     <span class="keywordflow">if</span> (ie == last) <span class="keywordflow">exit</span>  <span class="comment">! end of text string ... DONE</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;     is = is+id            <span class="comment">! move starting pointer after &quot;,&quot;</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;     <span class="keywordflow">if</span> (is  &gt; last) <span class="keywordflow">exit</span>  <span class="comment">! end of text string ... DONE</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keywordflow">  enddo</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="keywordflow">return</span></div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;99 continue</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;   call mpp_error (FATAL,&#39;in parse, error decoding &quot;&#39;<span class="comment">//trim(label)//&#39;&quot; in text &quot;&#39;//text//&#39;&quot;&#39;)</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;99 <span class="keywordflow">continue</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;   <span class="keyword">call </span>mpp_error (fatal,<span class="stringliteral">&#39;in parse, error decoding &quot;&#39;</span>//trim(label)//<span class="stringliteral">&#39;&quot; in text &quot;&#39;</span>//text//<span class="stringliteral">&#39;&quot;&#39;</span>)</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

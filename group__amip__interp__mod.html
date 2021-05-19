@@ -143,11 +143,15 @@ logical, public&#160;</td><td class="memItemRight" valign="bottom"><b>use_ncep_s
 <p>When using these routines three possible data sets are available:</p>
 <p>1) AMIP <a class="el" href="">http://www-pcmdi.llnl.gov/amip</a> from Jan 1979 to Jan 1989 (2 deg x 2 deg) 2) Reynolds OI <a class="el" href="">amip_interp.rey_oi.txt</a> from Nov 1981 to Jan 1999 (1 deg x 1 deg) 3) Reynolds EOF <a class="el" href="">ftp://podaac.jpl.nasa.gov/pub/sea_surface_temperature/reynolds/rsst/doc/rsst.html</a> from Jan 1950 to Dec 1998 (2 deg x 2 deg)</p>
 <p>All original data are observed monthly means. This module interpolates linearly in time between pairs of monthly means. Horizontal interpolation is done using the horiz_interp module.</p>
-<p>When a requested date falls outside the range of dates available a namelist option allows for use of the climatological monthly mean values which are computed from all of the data in a particular data set. AMIP 1:<br  />
+<p>When a requested date falls outside the range of dates available a namelist option allows for use of the climatological monthly mean values which are computed from all of the data in a particular data set. <br  />
+ AMIP 1:<br  />
  from Jan 1979 to Jan 1989 (2 deg x 2 deg).<br  />
+<br  />
  Reynolds OI:<br  />
  from Nov 1981 to Jan 1999 (1 deg x 1 deg)<br  />
- The analysis uses in situ and satellite SST's plus SST's simulated by sea-ice cover. Reynold's EOF:<br  />
+ The analysis uses in situ and satellite SST's plus SST's simulated by sea-ice cover.<br  />
+<br  />
+ Reynold's EOF:<br  />
  from Jan 1950 to Dec 1998 (2 deg x 2 deg)<br  />
  NCEP Reynolds Historical Reconstructed Sea Surface Temperature The analysis uses both in-situ SSTs and satellite derived SSTs from the NOAA Advanced Very High Resolution Radiometer. In-situ data is used from 1950 to 1981, while both AVHRR derived satellite SSTs and in-situ data are used from 1981 to the end of 1998.</p>
 <p>Note: The data set used by this module have been reformatted as 32-bit IEEE. The data values are packed into 16-bit integers.</p>

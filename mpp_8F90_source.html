@@ -120,7 +120,7 @@ $(document).ready(function(){initNavTree('mpp_8F90_source.html',''); initResizab
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">!</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">!-----------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">!&gt; @defgroup mpp_mod mpp_mod </span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">!&gt; @defgroup mpp_mod mpp_mod</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">!&gt; @ingroup mpp</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">!&gt; @brief A set of simple calls to provide a uniform interface</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">!! to different message-passing libraries. It currently can be</span></div>
@@ -173,7 +173,7 @@ $(document).ready(function(){initNavTree('mpp_8F90_source.html',''); initResizab
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="comment">!!   This module is used to develop higher-level calls for &lt;LINK</span></div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="comment">!!   SRC=&quot;mpp_domains.html&quot;&gt;domain decomposition&lt;/LINK&gt; and &lt;LINK</span></div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment">!!   SRC=&quot;mpp_io.html&quot;&gt;parallel I/O&lt;/LINK&gt;.</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment">!! &lt;br/&gt; </span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment">!! &lt;br/&gt;</span></div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">!!   Parallel computing is initially daunting, but it soon becomes</span></div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment">!!   second nature, much the way many of us can now write vector code</span></div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment">!!   without much effort. The key insight required while reading and</span></div>
@@ -581,7 +581,7 @@ $(document).ready(function(){initNavTree('mpp_8F90_source.html',''); initResizab
 <div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;<span class="comment">  !! appropriate point in the code where all PEs are known to be present.</span></div>
 <div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;<span class="comment">  !!        @verbose call mpp_set_stack_size(n)</span></div>
 <div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;<span class="comment">  !!</span></div>
-<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;  <span class="keywordtype">public</span> :: mpp_set_stack_size </div>
+<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;  <span class="keywordtype">public</span> :: mpp_set_stack_size</div>
 <div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;  <span class="comment">! from mpp_util.h</span></div>
 <div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160; </div>
 <div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;<span class="comment">!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</span></div>
@@ -594,7 +594,7 @@ $(document).ready(function(){initNavTree('mpp_8F90_source.html',''); initResizab
 <div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;<span class="comment">  !&gt; @param[in] field A field of any numerical or logical type</span></div>
 <div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;<span class="comment">  !&gt; @param[in] array_of_subsizes Integer array of subsizes</span></div>
 <div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;<span class="comment">  !&gt; @param[in] array_of_starts Integer array of starts</span></div>
-<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;<span class="comment">  !&gt; @param[out] dtype_out Output variable for created @ref mpp_type </span></div>
+<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;<span class="comment">  !&gt; @param[out] dtype_out Output variable for created @ref mpp_type</span></div>
 <div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;  <span class="keyword">interface</span> mpp_type_create</div>
 <div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;      <span class="keyword">module procedure</span> mpp_type_create_int4</div>
 <div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;      <span class="keyword">module procedure</span> mpp_type_create_int8</div>
@@ -787,7 +787,7 @@ $(document).ready(function(){initNavTree('mpp_8F90_source.html',''); initResizab
 <div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;     <span class="keyword">module procedure</span> mpp_gather_pelist_real8_3d</div>
 <div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;  <span class="keyword">end interface</span></div>
 <div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;<span class="comment">  !&gt; @brief Scatter information to the given pelist </span></div>
+<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;<span class="comment">  !&gt; @brief Scatter information to the given pelist</span></div>
 <div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;  <span class="keyword">interface</span> mpp_scatter</div>
 <div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;     <span class="keyword">module procedure</span> mpp_scatter_pelist_int4_2d</div>
 <div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;     <span class="keyword">module procedure</span> mpp_scatter_pelist_int4_3d</div>
@@ -1221,7 +1221,7 @@ $(document).ready(function(){initNavTree('mpp_8F90_source.html',''); initResizab
 <div class="line"><a name="l01125"></a><span class="lineno"> 1125</span>&#160;<span class="comment">  !! &lt;TT&gt;pelist&lt;/TT&gt;, or the current pelist if &lt;TT&gt;pelist&lt;/TT&gt; is absent.</span></div>
 <div class="line"><a name="l01126"></a><span class="lineno"> 1126</span>&#160;<span class="comment">  !! @example            mpp_chksum( var, pelist )</span></div>
 <div class="line"><a name="l01127"></a><span class="lineno"> 1127</span>&#160;<span class="comment">  !! @param var Data to calculate checksum of</span></div>
-<div class="line"><a name="l01128"></a><span class="lineno"> 1128</span>&#160;<span class="comment">  !! @param pelist Optional list of PE&#39;s to include in checksum calculation if not using </span></div>
+<div class="line"><a name="l01128"></a><span class="lineno"> 1128</span>&#160;<span class="comment">  !! @param pelist Optional list of PE&#39;s to include in checksum calculation if not using</span></div>
 <div class="line"><a name="l01129"></a><span class="lineno"> 1129</span>&#160;<span class="comment">  !! current pelist</span></div>
 <div class="line"><a name="l01130"></a><span class="lineno"> 1130</span>&#160;<span class="comment">  !! @return Parallel checksum of var across given or implicit pelist</span></div>
 <div class="line"><a name="l01131"></a><span class="lineno"> 1131</span>&#160;  <span class="keyword">interface</span> mpp_chksum</div>

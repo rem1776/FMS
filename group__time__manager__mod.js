@@ -1,5 +1,6 @@
 var group__time__manager__mod =
 [
+    [ "set_time Interface", "group__time__manager__mod.html#set_time", null ],
     [ "get_date", "group__time__manager__mod.html#ga6c708ea801247812b41b305ee5aeea13", null ],
     [ "real_to_time_type", "group__time__manager__mod.html#gafff6475f8827e27cedfca66a1396e6ab", null ],
     [ "set_calendar_type", "group__time__manager__mod.html#gae4ed023b8077a6f14fffb764d642e55a", null ],
