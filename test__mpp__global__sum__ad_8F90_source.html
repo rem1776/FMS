@@ -120,14 +120,14 @@ $(document).ready(function(){initNavTree('test__mpp__global__sum__ad_8F90_source
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">program</span> test_mpp_global_sum_ad</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keywordtype">use </span>mpp_mod,         <span class="keywordtype">only</span> : fatal, mpp_debug</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <span class="keywordtype">use </span>mpp_mod,         <span class="keywordtype">only</span> : mpp_pe, mpp_npes, mpp_root_pe, mpp_error, mpp_sum</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <span class="keywordtype">use </span>mpp_mod,         <span class="keywordtype">only</span> : mpp_init, stdout, stderr</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <span class="keywordtype">use </span>mpp_mod,         <span class="keywordtype">only</span> : <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>, <a class="code" href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>, mpp_root_pe, mpp_error, mpp_sum</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <span class="keywordtype">use </span>mpp_mod,         <span class="keywordtype">only</span> : mpp_init, <a class="code" href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a>, <a class="code" href="mpp__util_8inc.html#a285ef180624257148d85af894928844b">stderr</a></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <span class="keywordtype">use </span>mpp_mod,         <span class="keywordtype">only</span> : mpp_get_current_pelist, mpp_broadcast</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="keywordtype">use </span>mpp_mod,         <span class="keywordtype">only</span> : mpp_init_test_requests_allocated</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="keywordtype">use </span>mpp_domains_mod, <span class="keywordtype">only</span> : bitwise_exact_sum</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="keywordtype">use </span>mpp_domains_mod, <span class="keywordtype">only</span> : cyclic_global_domain</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keywordtype">use </span>mpp_domains_mod, <span class="keywordtype">only</span> : domain2d</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keywordtype">use </span>mpp_domains_mod, <span class="keywordtype">only</span> : mpp_get_data_domain, mpp_domains_set_stack_size</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keywordtype">use </span>mpp_domains_mod, <span class="keywordtype">only</span> : mpp_get_data_domain, <a class="code" href="mpp__domains__util_8inc.html#ae1f3c0c5c574686aac6c1595b1ca0b66">mpp_domains_set_stack_size</a></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <span class="keywordtype">use </span>mpp_domains_mod, <span class="keywordtype">only</span> : mpp_global_sum</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="keywordtype">use </span>mpp_domains_mod, <span class="keywordtype">only</span> : mpp_domains_init, mpp_domains_exit, mpp_broadcast_domain</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="keywordtype">use </span>mpp_domains_mod, <span class="keywordtype">only</span> : mpp_update_domains, mpp_check_field</div>
@@ -148,10 +148,10 @@ $(document).ready(function(){initNavTree('test__mpp__global__sum__ad_8F90_source
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="keyword">call </span>mpp_init(test_level=mpp_init_test_requests_allocated)</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="keyword">call </span>mpp_domains_init(mpp_debug)</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="keyword">call </span>mpp_io_init()</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <span class="keyword">call </span>mpp_domains_set_stack_size(stackmax)</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <span class="keyword">call </span><a class="code" href="mpp__domains__util_8inc.html#ae1f3c0c5c574686aac6c1595b1ca0b66">mpp_domains_set_stack_size</a>(stackmax)</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  pe = mpp_pe()</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  npes = mpp_npes()</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  pe = <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  npes = <a class="code" href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>()</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <span class="keyword">call </span>test_global_sum_ad_r4( <span class="stringliteral">&#39;Simple&#39;</span>)</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <span class="keyword">call </span>test_global_sum_ad_r4( <span class="stringliteral">&#39;Cyclic symmetry center&#39;</span>)</div>
@@ -238,7 +238,7 @@ $(document).ready(function(){initNavTree('test__mpp__global__sum__ad_8F90_source
 <div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <span class="keyword">call </span>mpp_sum( gsum_ad_save )</div>
 <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <span class="keyword">call </span>mpp_sum( gsum_ad_save_bit )</div>
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; </div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    pe = mpp_pe()</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    pe = <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()</div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <span class="keywordflow">if</span>( pe.EQ.mpp_root_pe() ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;      <span class="keywordflow">if</span> (abs((gsum_ad_save-gsum_tl_save)/gsum_tl_save).lt.1e-7) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        print*, <span class="stringliteral">&quot;2D arrays Passed Adjoint Dot Test: mpp_global_sum_ad_r4&quot;</span></div>
@@ -299,7 +299,7 @@ $(document).ready(function(){initNavTree('test__mpp__global__sum__ad_8F90_source
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    <span class="keyword">call </span>mpp_sum( gsum_ad_save )</div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    <span class="keyword">call </span>mpp_sum( gsum_ad_save_bit )</div>
 <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160; </div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    pe = mpp_pe()</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    pe = <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()</div>
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    <span class="keywordflow">if</span>( pe.EQ.mpp_root_pe() ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;      <span class="keywordflow">if</span> (abs((gsum_ad_save-gsum_tl_save)/gsum_tl_save).lt.1e-7) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        print*, <span class="stringliteral">&quot;3D arrays Passed Adjoint Dot Test: mpp_global_sum_ad_r4&quot;</span></div>
@@ -361,7 +361,7 @@ $(document).ready(function(){initNavTree('test__mpp__global__sum__ad_8F90_source
 <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    <span class="keyword">call </span>mpp_sum( gsum_ad_save )</div>
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    <span class="keyword">call </span>mpp_sum( gsum_ad_save_bit )</div>
 <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160; </div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    pe = mpp_pe()</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    pe = <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()</div>
 <div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    <span class="keywordflow">if</span>( pe.EQ.mpp_root_pe() ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;      <span class="keywordflow">if</span> (abs((gsum_ad_save-gsum_tl_save)/gsum_tl_save).lt.1e-7) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;        print*, <span class="stringliteral">&quot;4d arrays Passed Adjoint Dot Test: mpp_global_sum_ad_r4&quot;</span></div>
@@ -423,7 +423,7 @@ $(document).ready(function(){initNavTree('test__mpp__global__sum__ad_8F90_source
 <div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    <span class="keyword">call </span>mpp_sum( gsum_ad_save )</div>
 <div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    <span class="keyword">call </span>mpp_sum( gsum_ad_save_bit )</div>
 <div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160; </div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    pe = mpp_pe()</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    pe = <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()</div>
 <div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    <span class="keywordflow">if</span>( pe.EQ.mpp_root_pe() ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;      <span class="keywordflow">if</span> (abs((gsum_ad_save-gsum_tl_save)/gsum_tl_save).lt.1e-7) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;        print*, <span class="stringliteral">&quot;5d arrays Passed Adjoint Dot Test: mpp_global_sum_ad_r4&quot;</span></div>
@@ -505,7 +505,7 @@ $(document).ready(function(){initNavTree('test__mpp__global__sum__ad_8F90_source
 <div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;    <span class="keyword">call </span>mpp_sum( gsum_ad_save )</div>
 <div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;    <span class="keyword">call </span>mpp_sum( gsum_ad_save_bit )</div>
 <div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160; </div>
-<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;    pe = mpp_pe()</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;    pe = <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()</div>
 <div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;    <span class="keywordflow">if</span>( pe.EQ.mpp_root_pe() ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;      <span class="keywordflow">if</span> (abs((gsum_ad_save-gsum_tl_save)/gsum_tl_save).lt.1e-7) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;        print*, <span class="stringliteral">&quot;2D arrays Passed Adjoint Dot Test: mpp_global_sum_ad_r8&quot;</span></div>
@@ -566,7 +566,7 @@ $(document).ready(function(){initNavTree('test__mpp__global__sum__ad_8F90_source
 <div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;    <span class="keyword">call </span>mpp_sum( gsum_ad_save )</div>
 <div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;    <span class="keyword">call </span>mpp_sum( gsum_ad_save_bit )</div>
 <div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160; </div>
-<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;    pe = mpp_pe()</div>
+<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;    pe = <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()</div>
 <div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;    <span class="keywordflow">if</span>( pe.EQ.mpp_root_pe() ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;      <span class="keywordflow">if</span> (abs((gsum_ad_save-gsum_tl_save)/gsum_tl_save).lt.1e-7) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;        print*, <span class="stringliteral">&quot;3D arrays Passed Adjoint Dot Test: mpp_global_sum_ad_r8&quot;</span></div>
@@ -628,7 +628,7 @@ $(document).ready(function(){initNavTree('test__mpp__global__sum__ad_8F90_source
 <div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;    <span class="keyword">call </span>mpp_sum( gsum_ad_save )</div>
 <div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;    <span class="keyword">call </span>mpp_sum( gsum_ad_save_bit )</div>
 <div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160; </div>
-<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;    pe = mpp_pe()</div>
+<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;    pe = <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()</div>
 <div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;    <span class="keywordflow">if</span>( pe.EQ.mpp_root_pe() ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;      <span class="keywordflow">if</span> (abs((gsum_ad_save-gsum_tl_save)/gsum_tl_save).lt.1e-7) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;        print*, <span class="stringliteral">&quot;4d arrays Passed Adjoint Dot Test: mpp_global_sum_ad_r8&quot;</span></div>
@@ -691,7 +691,7 @@ $(document).ready(function(){initNavTree('test__mpp__global__sum__ad_8F90_source
 <div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;    <span class="keyword">call </span>mpp_sum( gsum_ad_save )</div>
 <div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;    <span class="keyword">call </span>mpp_sum( gsum_ad_save_bit )</div>
 <div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160; </div>
-<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;    pe = mpp_pe()</div>
+<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;    pe = <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()</div>
 <div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;    <span class="keywordflow">if</span>( pe.EQ.mpp_root_pe() ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;      <span class="keywordflow">if</span> (abs((gsum_ad_save-gsum_tl_save)/gsum_tl_save).lt.1e-7) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;        print*, <span class="stringliteral">&quot;5d arrays Passed Adjoint Dot Test: mpp_global_sum_ad_r8&quot;</span></div>
@@ -762,7 +762,7 @@ $(document).ready(function(){initNavTree('test__mpp__global__sum__ad_8F90_source
 <div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;    <span class="comment">! sum across the pes</span></div>
 <div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;    <span class="keyword">call </span>mpp_sum( gsum_ad_save )</div>
 <div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160; </div>
-<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;    pe = mpp_pe()</div>
+<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;    pe = <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()</div>
 <div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;    <span class="keywordflow">if</span>( pe.EQ.mpp_root_pe() ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;      <span class="keywordflow">if</span> (gsum_ad_save .eq. gsum_tl_save) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;        print*, <span class="stringliteral">&quot;2D arrays Passed Adjoint Dot Test: mpp_global_sum_ad_i4&quot;</span></div>
@@ -808,7 +808,7 @@ $(document).ready(function(){initNavTree('test__mpp__global__sum__ad_8F90_source
 <div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;    <span class="comment">! sum across the pes</span></div>
 <div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;    <span class="keyword">call </span>mpp_sum( gsum_ad_save )</div>
 <div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160; </div>
-<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;    pe = mpp_pe()</div>
+<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;    pe = <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()</div>
 <div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;    <span class="keywordflow">if</span>( pe.EQ.mpp_root_pe() ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;      <span class="keywordflow">if</span> (gsum_ad_save .eq. gsum_tl_save) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;        print*, <span class="stringliteral">&quot;3D arrays Passed Adjoint Dot Test: mpp_global_sum_ad_i4&quot;</span></div>
@@ -854,7 +854,7 @@ $(document).ready(function(){initNavTree('test__mpp__global__sum__ad_8F90_source
 <div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;    <span class="comment">! sum across the pes</span></div>
 <div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;    <span class="keyword">call </span>mpp_sum( gsum_ad_save )</div>
 <div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160; </div>
-<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;    pe = mpp_pe()</div>
+<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;    pe = <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()</div>
 <div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;    <span class="keywordflow">if</span>( pe.EQ.mpp_root_pe() ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;      <span class="keywordflow">if</span> (gsum_ad_save .eq. gsum_tl_save) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;        print*, <span class="stringliteral">&quot;4d arrays Passed Adjoint Dot Test: mpp_global_sum_ad_i4&quot;</span></div>
@@ -900,7 +900,7 @@ $(document).ready(function(){initNavTree('test__mpp__global__sum__ad_8F90_source
 <div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160;    <span class="comment">! sum across the pes</span></div>
 <div class="line"><a name="l00805"></a><span class="lineno">  805</span>&#160;    <span class="keyword">call </span>mpp_sum( gsum_ad_save )</div>
 <div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160; </div>
-<div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160;    pe = mpp_pe()</div>
+<div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160;    pe = <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()</div>
 <div class="line"><a name="l00808"></a><span class="lineno">  808</span>&#160;    <span class="keywordflow">if</span>( pe.EQ.mpp_root_pe() ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00809"></a><span class="lineno">  809</span>&#160;      <span class="keywordflow">if</span> (gsum_ad_save .eq. gsum_tl_save) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00810"></a><span class="lineno">  810</span>&#160;        print*, <span class="stringliteral">&quot;5d arrays Passed Adjoint Dot Test: mpp_global_sum_ad_i4&quot;</span></div>
@@ -967,7 +967,7 @@ $(document).ready(function(){initNavTree('test__mpp__global__sum__ad_8F90_source
 <div class="line"><a name="l00871"></a><span class="lineno">  871</span>&#160;    <span class="comment">! sum across the pes</span></div>
 <div class="line"><a name="l00872"></a><span class="lineno">  872</span>&#160;    <span class="keyword">call </span>mpp_sum( gsum_ad_save )</div>
 <div class="line"><a name="l00873"></a><span class="lineno">  873</span>&#160; </div>
-<div class="line"><a name="l00874"></a><span class="lineno">  874</span>&#160;    pe = mpp_pe()</div>
+<div class="line"><a name="l00874"></a><span class="lineno">  874</span>&#160;    pe = <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()</div>
 <div class="line"><a name="l00875"></a><span class="lineno">  875</span>&#160;    <span class="keywordflow">if</span>( pe.EQ.mpp_root_pe() ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00876"></a><span class="lineno">  876</span>&#160;      <span class="keywordflow">if</span> (gsum_ad_save .eq. gsum_tl_save) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00877"></a><span class="lineno">  877</span>&#160;        print*, <span class="stringliteral">&quot;2D arrays Passed Adjoint Dot Test: mpp_global_sum_ad_i8&quot;</span></div>
@@ -1013,7 +1013,7 @@ $(document).ready(function(){initNavTree('test__mpp__global__sum__ad_8F90_source
 <div class="line"><a name="l00917"></a><span class="lineno">  917</span>&#160;    <span class="comment">! sum across the pes</span></div>
 <div class="line"><a name="l00918"></a><span class="lineno">  918</span>&#160;    <span class="keyword">call </span>mpp_sum( gsum_ad_save )</div>
 <div class="line"><a name="l00919"></a><span class="lineno">  919</span>&#160; </div>
-<div class="line"><a name="l00920"></a><span class="lineno">  920</span>&#160;    pe = mpp_pe()</div>
+<div class="line"><a name="l00920"></a><span class="lineno">  920</span>&#160;    pe = <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()</div>
 <div class="line"><a name="l00921"></a><span class="lineno">  921</span>&#160;    <span class="keywordflow">if</span>( pe.EQ.mpp_root_pe() ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00922"></a><span class="lineno">  922</span>&#160;      <span class="keywordflow">if</span> (gsum_ad_save .eq. gsum_tl_save) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00923"></a><span class="lineno">  923</span>&#160;        print*, <span class="stringliteral">&quot;3D arrays Passed Adjoint Dot Test: mpp_global_sum_ad_i8&quot;</span></div>
@@ -1059,7 +1059,7 @@ $(document).ready(function(){initNavTree('test__mpp__global__sum__ad_8F90_source
 <div class="line"><a name="l00963"></a><span class="lineno">  963</span>&#160;    <span class="comment">! sum across the pes</span></div>
 <div class="line"><a name="l00964"></a><span class="lineno">  964</span>&#160;    <span class="keyword">call </span>mpp_sum( gsum_ad_save )</div>
 <div class="line"><a name="l00965"></a><span class="lineno">  965</span>&#160; </div>
-<div class="line"><a name="l00966"></a><span class="lineno">  966</span>&#160;    pe = mpp_pe()</div>
+<div class="line"><a name="l00966"></a><span class="lineno">  966</span>&#160;    pe = <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()</div>
 <div class="line"><a name="l00967"></a><span class="lineno">  967</span>&#160;    <span class="keywordflow">if</span>( pe.EQ.mpp_root_pe() ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00968"></a><span class="lineno">  968</span>&#160;      <span class="keywordflow">if</span> (gsum_ad_save .eq. gsum_tl_save) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00969"></a><span class="lineno">  969</span>&#160;        print*, <span class="stringliteral">&quot;4d arrays Passed Adjoint Dot Test: mpp_global_sum_ad_i8&quot;</span></div>
@@ -1105,7 +1105,7 @@ $(document).ready(function(){initNavTree('test__mpp__global__sum__ad_8F90_source
 <div class="line"><a name="l01009"></a><span class="lineno"> 1009</span>&#160;    <span class="comment">! sum across the pes</span></div>
 <div class="line"><a name="l01010"></a><span class="lineno"> 1010</span>&#160;    <span class="keyword">call </span>mpp_sum( gsum_ad_save )</div>
 <div class="line"><a name="l01011"></a><span class="lineno"> 1011</span>&#160; </div>
-<div class="line"><a name="l01012"></a><span class="lineno"> 1012</span>&#160;    pe = mpp_pe()</div>
+<div class="line"><a name="l01012"></a><span class="lineno"> 1012</span>&#160;    pe = <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()</div>
 <div class="line"><a name="l01013"></a><span class="lineno"> 1013</span>&#160;    <span class="keywordflow">if</span>( pe.EQ.mpp_root_pe() ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l01014"></a><span class="lineno"> 1014</span>&#160;      <span class="keywordflow">if</span> (gsum_ad_save .eq. gsum_tl_save) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l01015"></a><span class="lineno"> 1015</span>&#160;        print*, <span class="stringliteral">&quot;5d arrays Passed Adjoint Dot Test: mpp_global_sum_ad_i8&quot;</span></div>
@@ -1138,6 +1138,11 @@ $(document).ready(function(){initNavTree('test__mpp__global__sum__ad_8F90_source
 <div class="line"><a name="l01042"></a><span class="lineno"> 1042</span>&#160;<span class="keyword">end program </span>test_mpp_global_sum_ad</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="ampp__util_8inc_html_a172901d39c9b0cf14aa83b1e94fdf21b"><div class="ttname"><a href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a></div><div class="ttdeci">integer function stdout()</div><div class="ttdoc">This function returns the current standard fortran unit numbers for output.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00065">mpp_util.inc:65</a></div></div>
+<div class="ttc" id="ampp__domains__util_8inc_html_ae1f3c0c5c574686aac6c1595b1ca0b66"><div class="ttname"><a href="mpp__domains__util_8inc.html#ae1f3c0c5c574686aac6c1595b1ca0b66">mpp_domains_set_stack_size</a></div><div class="ttdeci">subroutine mpp_domains_set_stack_size(n)</div><div class="ttdoc">Set user stack size.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__util_8inc_source.html#l00052">mpp_domains_util.inc:52</a></div></div>
+<div class="ttc" id="ampp__util_8inc_html_a285ef180624257148d85af894928844b"><div class="ttname"><a href="mpp__util_8inc.html#a285ef180624257148d85af894928844b">stderr</a></div><div class="ttdeci">integer function stderr()</div><div class="ttdoc">This function returns the current standard fortran unit numbers for error messages.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00085">mpp_util.inc:85</a></div></div>
+<div class="ttc" id="ampp__util_8inc_html_abf546cd336d5c539e445fb884f98ab6b"><div class="ttname"><a href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a></div><div class="ttdeci">integer function mpp_npes()</div><div class="ttdoc">Returns processor count for current pelist.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00467">mpp_util.inc:467</a></div></div>
+<div class="ttc" id="ampp__util_8inc_html_acfeba7de56f9dd6000b3fd78f9d56c50"><div class="ttname"><a href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a></div><div class="ttdeci">integer function mpp_pe()</div><div class="ttdoc">Returns processor ID. This returns the unique ID associated with a PE. This number runs between 0 and...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00442">mpp_util.inc:442</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

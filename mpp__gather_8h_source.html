@@ -130,7 +130,7 @@ $(document).ready(function(){initNavTree('mpp__gather_8h_source.html',''); initR
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;      allocate(pelist2(nproc))</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;      pelist2 = pelist</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;   else</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;      nproc = mpp_npes()</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;      nproc = <a class="code" href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>()</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;      allocate(pelist2(nproc))</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;      pelist2 = (/ (l, l=root_pe, nproc-1+root_pe) /)</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;   endif</div>
@@ -150,8 +150,8 @@ $(document).ready(function(){initNavTree('mpp__gather_8h_source.html',''); initR
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;      call mpp_send(sbuf(1), plen=cnt, to_pe=op_root, tag=COMM_TAG_1)</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;   endif</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;   call mpp_sync_self(check=EVENT_RECV)</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;   call mpp_sync_self()</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;   call <a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=EVENT_RECV)</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;   call <a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>()</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;   deallocate(pelist2)</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;end subroutine MPP_GATHER_1D_</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
@@ -172,7 +172,7 @@ $(document).ready(function(){initNavTree('mpp__gather_8h_source.html',''); initR
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;      allocate(pelist2(nproc))</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;      pelist2 = pelist</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;   else</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;      nproc = mpp_npes()</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;      nproc = <a class="code" href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>()</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;      allocate(pelist2(nproc))</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;      pelist2 = (/ (l, l=0+root_pe, nproc-1+root_pe) /)</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;   endif</div>
@@ -195,8 +195,8 @@ $(document).ready(function(){initNavTree('mpp__gather_8h_source.html',''); initR
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;       call mpp_send(sbuf(1),plen=ssize,to_pe=op_root,tag=COMM_TAG_2) !avoid ranks with no data</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;   endif</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;   call mpp_sync_self(check=EVENT_RECV)</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;   call mpp_sync_self()</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;   call <a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=EVENT_RECV)</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;   call <a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>()</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;   deallocate(pelist2)</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;end subroutine MPP_GATHER_1DV_</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
@@ -241,10 +241,10 @@ $(document).ready(function(){initNavTree('mpp__gather_8h_source.html',''); initR
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;   endtype array3D</div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;   type(array3d), dimension(:), allocatable :: temp</div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;   if (.not.ANY(mpp_pe().eq.pelist(:))) return</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;   if (.not.ANY(<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>().eq.pelist(:))) return</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; </div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;   if (is_root_pe) then</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;     root_pe = mpp_pe()</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;     root_pe = <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()</div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;     root_pe_test = 999</div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;     if (.not.ANY(pelist(:).eq.root_pe)) call mpp_error(FATAL, &amp;</div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;                <span class="stringliteral">&quot;fms_io(mpp_gather_pelist): root_pe not a member of pelist&quot;</span>)</div>
@@ -258,7 +258,7 @@ $(document).ready(function(){initNavTree('mpp__gather_8h_source.html',''); initR
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;                <span class="stringliteral">&quot;fms_io(mpp_gather_pelist): root_pe not specified or not a member of the pelist&quot;</span>)</div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;! need to make sure only one root_pe has been specified</div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;   call mpp_sum(root_pe, pelist)</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;   if ((is_root_pe) .and. (mpp_pe().ne.root_pe)) call mpp_error(FATAL, &amp;</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;   if ((is_root_pe) .and. (<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>().ne.root_pe)) call mpp_error(FATAL, &amp;</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;                <span class="stringliteral">&quot;fms_io(mpp_gather_pelist): too many root_pes specified&quot;</span>)</div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160; </div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160; </div>
@@ -283,7 +283,7 @@ $(document).ready(function(){initNavTree('mpp__gather_8h_source.html',''); initR
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;         call mpp_recv(gind(:,i:i), 4, pelist(i), .FALSE., COMM_TAG_1)</div>
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;       endif</div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;     enddo</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;     call mpp_sync_self(check=EVENT_RECV)</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;     call <a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=EVENT_RECV)</div>
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;     gind(1,:)=gind(1,:)+ioff</div>
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;     gind(2,:)=gind(2,:)+ioff</div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;     gind(3,:)=gind(3,:)+joff</div>
@@ -331,15 +331,18 @@ $(document).ready(function(){initNavTree('mpp__gather_8h_source.html',''); initR
 <div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;<span class="stringliteral">!    non root_pe&#39;</span>s send data to root_pe</div>
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;     msgsize = (my_ind(2)-my_ind(1)+1) * (my_ind(4)-my_ind(3)+1) * nk</div>
 <div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;     call mpp_send(array_seg, msgsize, root_pe, COMM_TAG_2)</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;     call mpp_sync_self(check=EVENT_SEND)</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;     call <a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=EVENT_SEND)</div>
 <div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;   endif</div>
 <div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160; </div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;   call mpp_sync_self()</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;   call <a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>()</div>
 <div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;   return</div>
 <div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160; </div>
 <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;end subroutine MPP_GATHER_PELIST_3D_</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="ampp__util__mpi_8inc_html_a09e69243d8c67e6a6e6e4fd9e93d0870"><div class="ttname"><a href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a></div><div class="ttdeci">subroutine mpp_sync_self(pelist, check, request, msg_size, msg_type)</div><div class="ttdoc">This is to check if current PE's outstanding puts are complete but we can't use shmem_fence because w...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util__mpi_8inc_source.html#l00169">mpp_util_mpi.inc:169</a></div></div>
+<div class="ttc" id="ampp__util_8inc_html_abf546cd336d5c539e445fb884f98ab6b"><div class="ttname"><a href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a></div><div class="ttdeci">integer function mpp_npes()</div><div class="ttdoc">Returns processor count for current pelist.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00467">mpp_util.inc:467</a></div></div>
+<div class="ttc" id="ampp__util_8inc_html_acfeba7de56f9dd6000b3fd78f9d56c50"><div class="ttname"><a href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a></div><div class="ttdeci">integer function mpp_pe()</div><div class="ttdoc">Returns processor ID. This returns the unique ID associated with a PE. This number runs between 0 and...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00442">mpp_util.inc:442</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

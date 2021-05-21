@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>FMS: Below</title>
+<title>FMS: File Members</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -71,7 +71,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('Below-example.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('globals_func_f.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -89,47 +89,15 @@ $(document).ready(function(){initNavTree('Below-example.html',''); initResizable
 </iframe>
 </div>
 
-<div class="header">
-  <div class="headertitle">
-<div class="title">Below</div>  </div>
-</div><!--header-->
 <div class="contents">
-<p>Set up a domain to pass data between aligned coarse and fine grid of nested model. @detailed Set up a domain to pass data between aligned coarse and fine grid of a nested model. Supports multiple and telescoping nests. A telescoping nest is defined as a nest within a nest. Nest domains may span multiple tiles, but cannot contain a coarse-grid, cube corner. Concurrent nesting is the only supported mechanism, i.e. coarse and fine grid are on individual, non-overlapping, processor lists. Coarse and fine grid domain need to be defined before calling mpp_define_nest_domains. An mpp_broadcast is needed to broadcast both fine and coarse grid domain onto all processors.<br  />
-<br  />
- mpp_update_nest_coarse is used to pass data from fine grid to coarse grid computing domain. mpp_update_nest_fine is used to pass data from coarse grid to fine grid halo. You may call mpp_get_C2F_index before calling mpp_update_nest_fine to get the index for passing data from coarse to fine. You may call mpp_get_F2C_index before calling mpp_update_nest_coarse to get the index for passing data from coarse to fine. </p><dl class="section note"><dt>Note</dt><dd>: The following tests for nesting of regular lat-lon grids upon a cubed-sphere grid are done in test_mpp_domains:<br  />
- a) a first-level nest spanning multiple cubed-sphere faces (tiles 1, 2, &amp; 4)<br  />
- b) a first-level nest wholly contained within tile 3<br  />
- c) a second-level nest contained within the nest mentioned in a)<br  />
- Tests are done for data at T, E, C, N-cell center.<br  />
- is an example to pass data between fine and coarse grid (More details on how to use the nesting domain update are available in routine test_update_nest_domain of <a class="el" href="test__mpp__domains_8F90_source.html">test_fms/mpp/test_mpp_domains.F90</a>.<br  />
-<br  />
- if( concurrent ) then<br  />
- call mpp_broadcast_domain(domain_fine)<br  />
- call mpp_broadcast_domain(domain_coarse)<br  />
- endif <br  />
- <br  />
- call mpp_define_nest_domains (nest_domain, domain, num_nest, nest_level(1:num_nest), &amp;<br  />
- tile_fine(1:num_nest), tile_coarse(1:num_nest), &amp;<br  />
- istart_coarse(1:num_nest), icount_coarse(1:num_nest), &amp;<br  />
- jstart_coarse(1:num_nest), jcount_coarse(1:num_nest), &amp;<br  />
- npes_nest_tile, x_refine(1:num_nest), y_refine(1:num_nest), &amp;<br  />
- extra_halo=extra_halo, name="nest_domain")<br  />
-<br  />
- call mpp_get_C2F_index(nest_domain, isw_f, iew_f, jsw_f, jew_f, isw_c, iew_c, jsw_c, jew_c, WEST, level)<br  />
- call mpp_get_C2F_index(nest_domain, ise_f, iee_f, jse_f, jee_f, ise_c, iee_c, jse_c, jee_c, EAST, level)<br  />
- call mpp_get_C2F_index(nest_domain, iss_f, ies_f, jss_f, jes_f, iss_c, ies_c, jss_c, jes_c, SOUTH, level)<br  />
- call mpp_get_C2F_index(nest_domain, isn_f, ien_f, jsn_f, jen_f, isn_c, ien_c, jsn_c, jen_c, NORTH, level)<br  />
-<br  />
- allocate(wbuffer(isw_c:iew_c, jsw_c:jew_c,nz))<br  />
- allocate(ebuffer(ise_c:iee_c, jse_c:jee_c,nz))<br  />
- allocate(sbuffer(iss_c:ies_c, jss_c:jes_c,nz))<br  />
- allocate(nbuffer(isn_c:ien_c, jsn_c:jen_c,nz))<br  />
- call mpp_update_nest_fine(x, nest_domain, wbuffer, sbuffer, ebuffer, nbuffer)<br  />
-<br  />
- call mpp_get_F2C_index(nest_domain, is_c, ie_c, js_c, je_c, is_f, ie_f, js_f, je_f, nest_level=level)<br  />
- allocate(buffer (is_f:ie_f, js_f:je_f,nz))<br  />
- call mpp_update_nest_coarse(x, nest_domain, buffer)</dd></dl>
-<div class="fragment"></div><!-- fragment --> </div><!-- contents -->
+&#160;
+
+<h3><a id="index_f"></a>- f -</h3><ul>
+<li>fillin_fieldtype()
+: <a class="el" href="mpp__io__write_8inc.html#ac5c019b9e111a608d620cc2d28326475">mpp_io_write.inc</a>
+</li>
+</ul>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

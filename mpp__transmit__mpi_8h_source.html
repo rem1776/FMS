@@ -135,7 +135,7 @@ $(document).ready(function(){initNavTree('mpp__transmit__mpi_8h_source.html','')
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;!ideally we would not pass length, but <span class="keyword">this</span> f77-style call performs better (arrays passed by address, not descriptor)</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;!further, <span class="keyword">this</span> permits &lt;length&gt; contiguous words from an array of any rank to be passed (avoiding f90 rank conformance check)</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;!caller is responsible <span class="keywordflow">for</span> completion checks (mpp_sync_self) before and after</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;!caller is responsible <span class="keywordflow">for</span> completion checks (<a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>) before and after</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;      integer, intent(in) :: put_len, to_pe, get_len, from_pe</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;      MPP_TYPE_, intent(in)  :: put_data(*)</div>
@@ -170,7 +170,7 @@ $(document).ready(function(){initNavTree('mpp__transmit__mpi_8h_source.html','')
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;          if( debug .and. (current_clock.NE.0) )call SYSTEM_CLOCK(start_tick)</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;!z1l: truly non-blocking send.</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;!          if( request(to_pe).NE.MPI_REQUEST_NULL )then !only one message from pe-&gt;to_pe in queue</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;!              if( debug )write( stderr(),* )<span class="stringliteral">&#39;PE waiting for sending&#39;</span>, pe, to_pe</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;!              if( debug )write( <a class="code" href="mpp__util_8inc.html#a285ef180624257148d85af894928844b">stderr</a>(),* )<span class="stringliteral">&#39;PE waiting for sending&#39;</span>, pe, to_pe</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;!              call MPI_WAIT( request(to_pe), stat, error )</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;!          end if</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;          if(present(send_request)) then</div>
@@ -268,7 +268,7 @@ $(document).ready(function(){initNavTree('mpp__transmit__mpi_8h_source.html','')
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;      integer :: n, i, from_rank, stdout_unit</div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;      if( .NOT.module_is_initialized )call mpp_error( FATAL, <span class="stringliteral">&#39;MPP_BROADCAST: You must first call mpp_init.&#39;</span> )</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;      n = get_peset(pelist); <span class="keywordflow">if</span>( peset(n)%count.EQ.1 )<span class="keywordflow">return</span></div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;      n = <a class="code" href="mpp__util__mpi_8inc.html#a948898490a7d1d09fc1043dac561514d">get_peset</a>(pelist); <span class="keywordflow">if</span>( peset(n)%count.EQ.1 )<span class="keywordflow">return</span></div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160; </div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;      <span class="keywordflow">if</span>( debug )then</div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;          call SYSTEM_CLOCK(tick)</div>
@@ -281,21 +281,26 @@ $(document).ready(function(){initNavTree('mpp__transmit__mpi_8h_source.html','')
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160; </div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;      if( debug .and. (current_clock.NE.0) )call SYSTEM_CLOCK(start_tick)</div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160; ! find the rank of from_pe in the pelist.</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;      do i = 1, mpp_npes()</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;      do i = 1, <a class="code" href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>()</div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;         if(peset(n)%list(i) == from_pe) then</div>
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;             from_rank = i - 1</div>
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;             exit</div>
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;         endif</div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;      enddo</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;      if( mpp_npes().GT.1 )call MPI_BCAST( data, length, MPI_TYPE_, from_rank, peset(n)%<span class="keywordtype">id</span>, error )</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;      if( <a class="code" href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>().GT.1 )call MPI_BCAST( data, length, MPI_TYPE_, from_rank, peset(n)%<span class="keywordtype">id</span>, error )</div>
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;      if( debug .and. (current_clock.NE.0) )call increment_current_clock( EVENT_BROADCAST, length*MPP_TYPE_BYTELEN_ )</div>
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;      return</div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    end subroutine MPP_BROADCAST_</div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160; </div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;!<span class="preprocessor">####################################################################################</span></div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;<span class="preprocessor">#include &lt;mpp_transmit.inc&gt;</span></div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="mpp__transmit_8inc.html">mpp_transmit.inc</a>&gt;</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="ampp__transmit_8inc_html"><div class="ttname"><a href="mpp__transmit_8inc.html">mpp_transmit.inc</a></div><div class="ttdoc">Routines for data transmission between PE's.</div></div>
+<div class="ttc" id="ampp__util__mpi_8inc_html_a09e69243d8c67e6a6e6e4fd9e93d0870"><div class="ttname"><a href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a></div><div class="ttdeci">subroutine mpp_sync_self(pelist, check, request, msg_size, msg_type)</div><div class="ttdoc">This is to check if current PE's outstanding puts are complete but we can't use shmem_fence because w...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util__mpi_8inc_source.html#l00169">mpp_util_mpi.inc:169</a></div></div>
+<div class="ttc" id="ampp__util__mpi_8inc_html_a948898490a7d1d09fc1043dac561514d"><div class="ttname"><a href="mpp__util__mpi_8inc.html#a948898490a7d1d09fc1043dac561514d">get_peset</a></div><div class="ttdeci">integer function get_peset(pelist)</div><div class="ttdoc">Makes a PE set out of a PE list. A PE list is an ordered list of PEs a PE set is a triad (start,...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util__mpi_8inc_source.html#l00091">mpp_util_mpi.inc:91</a></div></div>
+<div class="ttc" id="ampp__util_8inc_html_a285ef180624257148d85af894928844b"><div class="ttname"><a href="mpp__util_8inc.html#a285ef180624257148d85af894928844b">stderr</a></div><div class="ttdeci">integer function stderr()</div><div class="ttdoc">This function returns the current standard fortran unit numbers for error messages.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00085">mpp_util.inc:85</a></div></div>
+<div class="ttc" id="ampp__util_8inc_html_abf546cd336d5c539e445fb884f98ab6b"><div class="ttname"><a href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a></div><div class="ttdeci">integer function mpp_npes()</div><div class="ttdoc">Returns processor count for current pelist.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00467">mpp_util.inc:467</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

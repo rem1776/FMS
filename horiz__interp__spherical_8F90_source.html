@@ -128,8 +128,8 @@ $(document).ready(function(){initNavTree('horiz__interp__spherical_8F90_source.h
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">!&gt; @{</span></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">module</span> horiz_interp_spherical_mod</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <span class="keywordtype">use </span>mpp_mod,               <span class="keywordtype">only</span> : mpp_error, fatal, warning, stdout</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="keywordtype">use </span>mpp_mod,               <span class="keywordtype">only</span> : mpp_root_pe, mpp_pe</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <span class="keywordtype">use </span>mpp_mod,               <span class="keywordtype">only</span> : mpp_error, fatal, warning, <a class="code" href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="keywordtype">use </span>mpp_mod,               <span class="keywordtype">only</span> : mpp_root_pe, <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="keywordtype">use </span>mpp_mod,               <span class="keywordtype">only</span> : input_nml_file</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keywordtype">use </span>fms_mod,               <span class="keywordtype">only</span> : <a class="code" href="group__fms__mod.html#ga0c093df98a75dbd9e0f3add67aa6c23a">write_version_number</a></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <span class="keywordtype">use </span>fms_mod,               <span class="keywordtype">only</span> : <a class="code" href="group__fms__mod.html#ga05e7686befc1e49d2be9bdb81d479a76">check_nml_error</a></div>
@@ -281,7 +281,7 @@ $(document).ready(function(){initNavTree('horiz__interp__spherical_8F90_source.h
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160; </div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <span class="comment">!--------------------------------------------------------------</span></div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160; </div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    pe      = mpp_pe()</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    pe      = <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()</div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    root_pe = mpp_root_pe()</div>
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160; </div>
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    tpi = 2.0*<a class="code" href="group__constants__mod.html#gadc909cc70e4e20bc99fc3d3c53125808">pi</a>; hpi = 0.5*<a class="code" href="group__constants__mod.html#gadc909cc70e4e20bc99fc3d3c53125808">pi</a></div>
@@ -616,7 +616,7 @@ $(document).ready(function(){initNavTree('horiz__interp__spherical_8F90_source.h
 <div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;          num_found = interp%num_found(m,n)</div>
 <div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160; </div>
 <div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;          <span class="keywordflow">if</span> (num_found &gt; num_nbrs_default) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;            print*,<span class="stringliteral">&#39;pe=&#39;</span>,mpp_pe(),<span class="stringliteral">&#39;num_found=&#39;</span>,num_found</div>
+<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;            print*,<span class="stringliteral">&#39;pe=&#39;</span>,<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>(),<span class="stringliteral">&#39;num_found=&#39;</span>,num_found</div>
 <div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;            num_found = num_nbrs_default</div>
 <div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;<span class="keywordflow">          end if</span></div>
 <div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160; </div>
@@ -1098,8 +1098,10 @@ $(document).ready(function(){initNavTree('horiz__interp__spherical_8F90_source.h
 <div class="line"><a name="l01002"></a><span class="lineno"> 1002</span>&#160;<span class="comment">! close documentation grouping</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="ampp__util_8inc_html_a172901d39c9b0cf14aa83b1e94fdf21b"><div class="ttname"><a href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a></div><div class="ttdeci">integer function stdout()</div><div class="ttdoc">This function returns the current standard fortran unit numbers for output.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00065">mpp_util.inc:65</a></div></div>
 <div class="ttc" id="agroup__fms__mod_html_ga05e7686befc1e49d2be9bdb81d479a76"><div class="ttname"><a href="group__fms__mod.html#ga05e7686befc1e49d2be9bdb81d479a76">fms_mod::check_nml_error</a></div><div class="ttdeci">integer function, public check_nml_error(IOSTAT, NML_NAME)</div><div class="ttdoc">Checks the iostat argument that is returned after reading a namelist and determines if the error code...</div><div class="ttdef"><b>Definition:</b> <a href="fms_8F90_source.html#l00712">fms.F90:712</a></div></div>
 <div class="ttc" id="agroup__constants__mod_html_gadc909cc70e4e20bc99fc3d3c53125808"><div class="ttname"><a href="group__constants__mod.html#gadc909cc70e4e20bc99fc3d3c53125808">constants_mod::pi</a></div><div class="ttdeci">real, parameter, public pi</div><div class="ttdoc">Ratio of circle circumference to diameter [N/A].</div><div class="ttdef"><b>Definition:</b> <a href="constants_8F90_source.html#l00104">constants.F90:104</a></div></div>
+<div class="ttc" id="ampp__util_8inc_html_acfeba7de56f9dd6000b3fd78f9d56c50"><div class="ttname"><a href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a></div><div class="ttdeci">integer function mpp_pe()</div><div class="ttdoc">Returns processor ID. This returns the unique ID associated with a PE. This number runs between 0 and...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00442">mpp_util.inc:442</a></div></div>
 <div class="ttc" id="agroup__fms__mod_html_ga0c093df98a75dbd9e0f3add67aa6c23a"><div class="ttname"><a href="group__fms__mod.html#ga0c093df98a75dbd9e0f3add67aa6c23a">fms_mod::write_version_number</a></div><div class="ttdeci">subroutine, public write_version_number(version, tag, unit)</div><div class="ttdoc">Prints to the log file (or a specified unit) the version id string and tag name.</div><div class="ttdef"><b>Definition:</b> <a href="fms_8F90_source.html#l01025">fms.F90:1025</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

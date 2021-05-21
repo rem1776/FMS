@@ -149,7 +149,7 @@ $(document).ready(function(){initNavTree('create__land__domain_8inc_source.html'
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="keyword">call </span>mpp_get_compute_domain(atmos_domain, isc, iec, jsc, jec)</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="keyword">call </span>mpp_get_data_domain(atmos_domain, isd, ied, jsd, jed)</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <span class="keyword">allocate</span>(npts_tile(ntiles))</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="keywordflow">if</span> (mpp_pe() .eq. mpp_root_pe()) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() .eq. mpp_root_pe()) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keyword">allocate</span>(lmask(nx, ny, ntiles))</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    lmask = .false.</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordflow">do</span> n = 1, ntiles</div>
@@ -166,10 +166,10 @@ $(document).ready(function(){initNavTree('create__land__domain_8inc_source.html'
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    ntotal_land = sum(npts_tile)</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keyword">allocate</span>(grid_index(ntotal_land))</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    l = 0</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keyword">allocate</span>(isl(0:mpp_npes()-1))</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keyword">allocate</span>(iel(0:mpp_npes()-1))</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keyword">allocate</span>(jsl(0:mpp_npes()-1))</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keyword">allocate</span>(jel(0:mpp_npes()-1))</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keyword">allocate</span>(isl(0:<a class="code" href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>()-1))</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keyword">allocate</span>(iel(0:<a class="code" href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>()-1))</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keyword">allocate</span>(jsl(0:<a class="code" href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>()-1))</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keyword">allocate</span>(jel(0:<a class="code" href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>()-1))</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keyword">call </span>mpp_get_compute_domains(atmos_domain, xbegin=isl, xend=iel, ybegin=jsl, yend=jel)</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordflow">do</span> n = 1, ntiles</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;      <span class="keywordflow">do</span> j = 1, ny</div>
@@ -188,7 +188,7 @@ $(document).ready(function(){initNavTree('create__land__domain_8inc_source.html'
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keyword">deallocate</span>(jel)</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="keywordflow">  endif</span></div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  <span class="keyword">call </span>mpp_broadcast(npts_tile, ntiles, mpp_root_pe())</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  <span class="keywordflow">if</span> (mpp_pe() .ne. mpp_root_pe()) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() .ne. mpp_root_pe()) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    ntotal_land = sum(npts_tile)</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keyword">allocate</span>(grid_index(ntotal_land))</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="keywordflow">  endif</span></div>
@@ -196,13 +196,15 @@ $(document).ready(function(){initNavTree('create__land__domain_8inc_source.html'
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  <span class="keyword">allocate</span>(ntiles_grid(ntotal_land))</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  ntiles_grid = 1</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  <span class="keyword">call </span>mpp_define_unstruct_domain(land_domain, atmos_domain, npts_tile, ntiles_grid, &amp;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                                  mpp_npes(), npes_group, grid_index, name=<span class="stringliteral">&quot;Unstructured domain&quot;</span>)</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                                  <a class="code" href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>(), npes_group, grid_index, name=<span class="stringliteral">&quot;Unstructured domain&quot;</span>)</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  <span class="keyword">deallocate</span>(npts_tile)</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  <span class="keyword">deallocate</span>(grid_index)</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  <span class="keyword">deallocate</span>(ntiles_grid)</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="keyword">end subroutine </span>create_land_domain</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="ampp__util_8inc_html_abf546cd336d5c539e445fb884f98ab6b"><div class="ttname"><a href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a></div><div class="ttdeci">integer function mpp_npes()</div><div class="ttdoc">Returns processor count for current pelist.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00467">mpp_util.inc:467</a></div></div>
+<div class="ttc" id="ampp__util_8inc_html_acfeba7de56f9dd6000b3fd78f9d56c50"><div class="ttname"><a href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a></div><div class="ttdeci">integer function mpp_pe()</div><div class="ttdoc">Returns processor ID. This returns the unique ID associated with a PE. This number runs between 0 and...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00442">mpp_util.inc:442</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

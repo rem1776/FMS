@@ -119,8 +119,8 @@ $(document).ready(function(){initNavTree('test__mpp__pe_8F90_source.html',''); i
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">!! less than 0, then an error is thrown.</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">program</span> test_mpp_p5</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; <span class="keywordtype">use </span>mpp_mod, <span class="keywordtype">only</span> : mpp_init, mpp_init_test_peset_allocated, mpp_pe, mpp_npes, &amp;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                     stderr, stdout, mpp_error, fatal</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; <span class="keywordtype">use </span>mpp_mod, <span class="keywordtype">only</span> : mpp_init, mpp_init_test_peset_allocated, <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>, <a class="code" href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>, &amp;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                     <a class="code" href="mpp__util_8inc.html#a285ef180624257148d85af894928844b">stderr</a>, <a class="code" href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a>, mpp_error, fatal</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; <span class="keywordtype">implicit none</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; <span class="keywordtype">integer</span> :: ierr</div>
@@ -133,9 +133,9 @@ $(document).ready(function(){initNavTree('test__mpp__pe_8F90_source.html',''); i
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="keyword">call </span>mpp_init(test_level=mpp_init_test_peset_allocated)</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">!&gt; Get the total number of PEs</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; total_pes = mpp_npes()<span class="comment"></span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; total_pes = <a class="code" href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>()<span class="comment"></span></div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">!&gt; Get the PE number</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; my_mpp_pe = mpp_pe()<span class="comment"></span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; my_mpp_pe = <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()<span class="comment"></span></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">!&gt; Check that the PE number is between 0 and npes-1</span></div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; <span class="keywordflow">if</span> (my_mpp_pe &lt; 0) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;     <span class="keyword">call </span>mpp_error(fatal, <span class="stringliteral">&quot;The PE number is less than 0&quot;</span>)</div>
@@ -147,6 +147,10 @@ $(document).ready(function(){initNavTree('test__mpp__pe_8F90_source.html',''); i
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">end program </span>test_mpp_p5</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="ampp__util_8inc_html_a172901d39c9b0cf14aa83b1e94fdf21b"><div class="ttname"><a href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a></div><div class="ttdeci">integer function stdout()</div><div class="ttdoc">This function returns the current standard fortran unit numbers for output.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00065">mpp_util.inc:65</a></div></div>
+<div class="ttc" id="ampp__util_8inc_html_a285ef180624257148d85af894928844b"><div class="ttname"><a href="mpp__util_8inc.html#a285ef180624257148d85af894928844b">stderr</a></div><div class="ttdeci">integer function stderr()</div><div class="ttdoc">This function returns the current standard fortran unit numbers for error messages.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00085">mpp_util.inc:85</a></div></div>
+<div class="ttc" id="ampp__util_8inc_html_abf546cd336d5c539e445fb884f98ab6b"><div class="ttname"><a href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a></div><div class="ttdeci">integer function mpp_npes()</div><div class="ttdoc">Returns processor count for current pelist.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00467">mpp_util.inc:467</a></div></div>
+<div class="ttc" id="ampp__util_8inc_html_acfeba7de56f9dd6000b3fd78f9d56c50"><div class="ttname"><a href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a></div><div class="ttdeci">integer function mpp_pe()</div><div class="ttdoc">Returns processor ID. This returns the unique ID associated with a PE. This number runs between 0 and...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00442">mpp_util.inc:442</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

@@ -195,7 +195,7 @@ $(document).ready(function(){initNavTree('mpp__unstruct__pass__data_8h_source.ht
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;     end if</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  end do</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  call mpp_sync_self(check=EVENT_RECV)</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  call <a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=EVENT_RECV)</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  !--- unpack the buffer</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  buffer_pos = 0</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  do m = 1, UG_domain%SG2UG%nrecv</div>
@@ -210,7 +210,7 @@ $(document).ready(function(){initNavTree('mpp__unstruct__pass__data_8h_source.ht
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;     buffer_pos = pos</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  enddo</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  call mpp_sync_self( )</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  call <a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>( )</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;end SUBROUTINE mpp_pass_SG_to_UG_3D_</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
@@ -298,7 +298,7 @@ $(document).ready(function(){initNavTree('mpp__unstruct__pass__data_8h_source.ht
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;     end if</div>
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;  end do</div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160; </div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;  call mpp_sync_self(check=EVENT_RECV)</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;  call <a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=EVENT_RECV)</div>
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;  !--- unpack the buffer</div>
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;  buffer_pos = 0</div>
 <div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;  do m = 1, UG_domain%UG2SG%nrecv</div>
@@ -314,11 +314,12 @@ $(document).ready(function(){initNavTree('mpp__unstruct__pass__data_8h_source.ht
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;     buffer_pos = pos</div>
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;  enddo</div>
 <div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160; </div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;  call mpp_sync_self( )</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;  call <a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>( )</div>
 <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160; </div>
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;end SUBROUTINE mpp_pass_UG_to_SG_3D_</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="ampp__util__mpi_8inc_html_a09e69243d8c67e6a6e6e4fd9e93d0870"><div class="ttname"><a href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a></div><div class="ttdeci">subroutine mpp_sync_self(pelist, check, request, msg_size, msg_type)</div><div class="ttdoc">This is to check if current PE's outstanding puts are complete but we can't use shmem_fence because w...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util__mpi_8inc_source.html#l00169">mpp_util_mpi.inc:169</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

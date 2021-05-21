@@ -128,7 +128,7 @@ $(document).ready(function(){initNavTree('mosaic_8F90_source.html',''); initResi
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">!&gt; @{</span></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">module</span> mosaic_mod</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keywordtype">use </span>mpp_mod,    <span class="keywordtype">only</span> : mpp_error, fatal, mpp_pe, mpp_root_pe</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keywordtype">use </span>mpp_mod,    <span class="keywordtype">only</span> : mpp_error, fatal, <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>, mpp_root_pe</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keywordtype">use </span>mpp_io_mod, <span class="keywordtype">only</span> : mpp_multi</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keywordtype">use </span>fms_io_mod, <span class="keywordtype">only</span> : dimension_size, field_exist, read_data, read_compressed</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keywordtype">use </span>constants_mod, <span class="keywordtype">only</span> : <a class="code" href="group__constants__mod.html#gadc909cc70e4e20bc99fc3d3c53125808">pi</a>, <a class="code" href="group__constants__mod.html#ga4a9bc4832415870f8640fd6d3f81e346">radius</a></div>
@@ -490,7 +490,7 @@ $(document).ready(function(){initNavTree('mosaic_8F90_source.html',''); initResi
 <div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;      <span class="keyword">call </span>read_data(mosaic_file, <span class="stringliteral">&quot;contact_index&quot;</span>, contacts, level=n)</div>
 <div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;      nstr = parse_string(contacts, <span class="stringliteral">&quot;:,&quot;</span>, strlist)</div>
 <div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;      <span class="keywordflow">if</span>(nstr .NE. 8) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;        <span class="keywordflow">if</span>(mpp_pe()==mpp_root_pe()) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;        <span class="keywordflow">if</span>(<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()==mpp_root_pe()) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;          print*, <span class="stringliteral">&quot;nstr is &quot;</span>, nstr</div>
 <div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;          print*, <span class="stringliteral">&quot;contacts is &quot;</span>, contacts</div>
 <div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;          <span class="keywordflow">do</span> m = 1, nstr</div>
@@ -738,6 +738,7 @@ $(document).ready(function(){initNavTree('mosaic_8F90_source.html',''); initResi
 </div><!-- doc-content -->
 <div class="ttc" id="agroup__constants__mod_html_ga4a9bc4832415870f8640fd6d3f81e346"><div class="ttname"><a href="group__constants__mod.html#ga4a9bc4832415870f8640fd6d3f81e346">constants_mod::radius</a></div><div class="ttdeci">real, parameter, public radius</div><div class="ttdoc">Radius of the Earth [m].</div><div class="ttdef"><b>Definition:</b> <a href="constants_8F90_source.html#l00102">constants.F90:102</a></div></div>
 <div class="ttc" id="agroup__constants__mod_html_gadc909cc70e4e20bc99fc3d3c53125808"><div class="ttname"><a href="group__constants__mod.html#gadc909cc70e4e20bc99fc3d3c53125808">constants_mod::pi</a></div><div class="ttdeci">real, parameter, public pi</div><div class="ttdoc">Ratio of circle circumference to diameter [N/A].</div><div class="ttdef"><b>Definition:</b> <a href="constants_8F90_source.html#l00104">constants.F90:104</a></div></div>
+<div class="ttc" id="ampp__util_8inc_html_acfeba7de56f9dd6000b3fd78f9d56c50"><div class="ttname"><a href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a></div><div class="ttdeci">integer function mpp_pe()</div><div class="ttdoc">Returns processor ID. This returns the unique ID associated with a PE. This number runs between 0 and...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00442">mpp_util.inc:442</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

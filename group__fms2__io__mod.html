@@ -98,7 +98,7 @@ $(document).ready(function(){initNavTree('group__fms2__io__mod.html',''); initRe
 </div><!--header-->
 <div class="contents">
 
-<p>Public API for fms2 I/O interfaces and routines.  
+<p>An updated library for parallel IO to replace <a class="el" href="group__mpp__io__mod.html">mpp_io_mod</a>. This module contains the public API for fms2 I/O interfaces and routines defined throughout this directory.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -108,69 +108,180 @@ Functions/Subroutines</h2></td></tr>
 <tr class="separator:gab2efb88539d9a05da43d95a501ed7e4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Public API for fms2 I/O interfaces and routines. </p>
+<p>An updated library for parallel IO to replace <a class="el" href="group__mpp__io__mod.html">mpp_io_mod</a>. This module contains the public API for fms2 I/O interfaces and routines defined throughout this directory. </p>
 <p>Provides public interfaces for routines within <a class="el" href="group__fms2__io.html">FMS2 IO</a>. Interfaces and example usages are listed below, see individual routine documentation for more specific argument information. </p>
 
 
 <h3><a id="open_file"></a>open_file Interface</h3><div class="textblock">Opens a given netcdf or domain file.<br  />
 Example usage: </p><pre class="fragment">         io_success = open_file(fileobj, "filename", "write")
 </pre>Opens a netcdf file of type fmsnetcdffile_t at the given file path string. File mode is set to one of "read"/"write"/"overwrite"/"append" </p><pre class="fragment">         io_success = open_file(fileobj, "filename", "overwrite", domain)
-</pre>Opens a domain netcdf file of type fmsnetcdfdomainfile_t or fmsnetcdfunstructureddomainfile_t at the given file path name and 2D or unstructured domain.Contains the following routines: <br  />
+</pre>Opens a domain netcdf file of type fmsnetcdfdomainfile_t or</p><ul>
+<li>fmsnetcdfunstructureddomainfile_t at the given file path name and 2D or unstructured domain.</li>
+</ul>
+Contains the following routines: <br  />
  netcdf_file_open_wrap open_domain_file open_unstructured_domain_file </div>
 
 <h3><a id="open_virtual_file"></a>open_virtual_file Interface</h3><div class="textblock">Creates a diskless netcdf or domain file<dl class="section return"><dt>Returns</dt><dd>true if successful, false otherwise</dd></dl>
 <p><br  />
 Example usage: </p><pre class="fragment">         io_success = open_virtual_file(fileobj, "filename", pelist)
 </pre>Opens a virtual file through fmsnetcdffile_t at an optional file path and pelist </p><pre class="fragment">         io_success = open_virtual_file(fileobj, domain, "filename")
-</pre>Opens a virtual domain file through fmsnetcdfdomainfile_t or fmsnetcdfunstructureddomainfile_t for a given 2D domain at an optional path <br  />
+</pre>Opens a virtual domain file through fmsnetcdfdomainfile_t or</p><ul>
+<li>fmsnetcdfunstructureddomainfile_t for a given 2D domain at an optional path <br  />
+</li>
+</ul>
 Contains the following routines <br  />
- create_diskless_netcdf_file_wrap create_diskless_domain_file create_diskless_unstructured_domain_file </div>
+</p><ul>
+<li>create_diskless_netcdf_file_wrap</li>
+<li>create_diskless_domain_file</li>
+<li>create_diskless_unstructured_domain_file </li>
+</ul>
+</div>
 
-<h3><a id="close_file"></a>close_file Interface</h3><div class="textblock">Close a netcdf or domain file opened with <a class="el" href="group__fms2__io__mod.html">open_file Interface</a> or <a class="el" href="group__fms2__io__mod.html">open_virtual_file Interface</a><br  />
+<h3><a id="close_file"></a>close_file Interface</h3><div class="textblock">Close a netcdf or domain file opened with <a class="el" href="group__fms2__io__mod.html">open_file Interface</a> or<ul>
+<li><a class="el" href="group__fms2__io__mod.html">open_virtual_file Interface</a></li>
+</ul>
+<br  />
 Example usage: </p><pre class="fragment">         call close_file(fileobj)
 </pre>Closes any given fileobj opened via <a class="el" href="group__fms2__io__mod.html">open_file Interface</a> or <a class="el" href="group__fms2__io__mod.html">open_virtual_file Interface</a> <br  />
 Contains the following routines <br  />
- netcdf_file_close_wrap close_domain_file close_unstructured_domain_file </div>
+</p><ul>
+<li>netcdf_file_close_wrap</li>
+<li>close_domain_file</li>
+<li>close_unstructured_domain_file </li>
+</ul>
+</div>
 
 <h3><a id="register_axis"></a>register_axis Interface</h3><div class="textblock">Add a dimension to a given file<br  />
 Example usage: </p><pre class="fragment">         call register_axis(fileobj, "lon", "x")
 </pre>Adds a dimension named "lon" associated with the x axis of the 2D domain file. For unstructured domains no x or y axis character is provided. </p><pre class="fragment">         call register_axis(fileobj, "lon", n)
-</pre>Adds a dimension named "lon" with length n to a given netcdf fileContains the following routines netcdf_add_dimension register_compressed_dimension register_domain_decomposed_dimension register_unstructured_dimension </div>
+</pre>Adds a dimension named "lon" with length n to a given netcdf fileContains the following routines</p><ul>
+<li>netcdf_add_dimension</li>
+<li>register_compressed_dimension</li>
+<li>register_domain_decomposed_dimension</li>
+<li>register_unstructured_dimension </li>
+</ul>
+</div>
 
 <h3><a id="register_field"></a>register_field Interface</h3><div class="textblock">Defines a new field within the given file <br  />
 Example usage:<pre class="fragment">         call register_field(fileobj, "lon", "double", (/"lon"/) )
-</pre>Adds a double variable named "lon" to the given file, corresponding to the list of dimension names (which must be previously defined in the fileobj). The size of dimension name list provided is the amount of ranks for the created field, scalar if list not provided.Contains the following routines netcdf_add_variable_wrap register_domain_variable register_unstructured_domain_variable </div>
+</pre>Adds a double variable named "lon" to the given file, corresponding to the list of dimension names (which must be previously defined in the fileobj). The size of dimension name list provided is the amount of ranks for the created field, scalar if list not provided.Contains the following routines</p><ul>
+<li>netcdf_add_variable_wrap</li>
+<li>register_domain_variable</li>
+<li>register_unstructured_domain_variable </li>
+</ul>
+</div>
 
 <h3><a id="register_restart_field"></a>register_restart_field Interface</h3><div class="textblock">Similar to <a class="el" href="group__fms2__io__mod.html">register_field Interface</a>, but occupies the field with data for restarts <br  />
 Example usage:<pre class="fragment">         call register_restart_field(fileobj, "temperature", data_ptr, (/"lon", "time"/) )
-</pre>Creates a restart variable and sets it to the values from data_ptr, corresponding to the list of dimension names. Rank of data_ptr must equal the amount of corresponding dimensions.Contains the following routines <a class="el" href="netcdf__add__restart__variable_8inc.html#a06d12dfb8f09f3ca259363d01c886fad">netcdf_add_restart_variable_0d_wrap</a> <a class="el" href="netcdf__add__restart__variable_8inc.html#ae7fd172a8f8f4da0f5f61589c3048672">netcdf_add_restart_variable_1d_wrap</a> <a class="el" href="netcdf__add__restart__variable_8inc.html#a88a48ddd4b9a6b6d68d005d120aa044a">netcdf_add_restart_variable_2d_wrap</a> <a class="el" href="netcdf__add__restart__variable_8inc.html#ad23261b340ae061f496615f7d7851e76">netcdf_add_restart_variable_3d_wrap</a> <a class="el" href="netcdf__add__restart__variable_8inc.html#a87c0514108b180d7166640dec2914e79">netcdf_add_restart_variable_4d_wrap</a> <a class="el" href="netcdf__add__restart__variable_8inc.html#a28e3ccf61905328499cdac95d4497082">netcdf_add_restart_variable_5d_wrap</a> <a class="el" href="register__domain__restart__variable_8inc.html#a14aba95e34e1c98393d1fed0e08ff689">register_domain_restart_variable_0d</a> <a class="el" href="register__domain__restart__variable_8inc.html#a5f968e0bd278c1ea7e077081208a26d2">register_domain_restart_variable_1d</a> <a class="el" href="register__domain__restart__variable_8inc.html#a8f72ed2489b65ae5b433e9e34fde39c8">register_domain_restart_variable_2d</a> <a class="el" href="register__domain__restart__variable_8inc.html#a2030ef923b348211991352c416db4070">register_domain_restart_variable_3d</a> <a class="el" href="register__domain__restart__variable_8inc.html#ab26bd5f7df46a54ee07d45e92f5aba63">register_domain_restart_variable_4d</a> <a class="el" href="register__domain__restart__variable_8inc.html#ad4026649f1cc2168d33377708dd2f76b">register_domain_restart_variable_5d</a> <a class="el" href="register__unstructured__domain__restart__variable_8inc.html#ac79b63f72791dac980e90dff401f4a38">register_unstructured_domain_restart_variable_0d</a> <a class="el" href="register__unstructured__domain__restart__variable_8inc.html#a56a636cf068adf2c2c71f1eaed8b50d0">register_unstructured_domain_restart_variable_1d</a> <a class="el" href="register__unstructured__domain__restart__variable_8inc.html#aa2bdc6cabaf20dd2a8076eb6dac85e16">register_unstructured_domain_restart_variable_2d</a> <a class="el" href="register__unstructured__domain__restart__variable_8inc.html#a850e356cec53bee8c0618f46ed006aeb">register_unstructured_domain_restart_variable_3d</a> <a class="el" href="register__unstructured__domain__restart__variable_8inc.html#a048557eee1c09aeff816e2ab81e8c8b1">register_unstructured_domain_restart_variable_4d</a> <a class="el" href="register__unstructured__domain__restart__variable_8inc.html#a5ece7b641bf5db216a12a1bfdac745d6">register_unstructured_domain_restart_variable_5d</a> <a class="el" href="netcdf__add__restart__variable_8inc.html#af0de21b157b27c976a496e0d053fb0e9">register_restart_region_2d</a> <a class="el" href="netcdf__add__restart__variable_8inc.html#a7a848edf630c7e5f7a0859849efa5d27">register_restart_region_3d</a> </div>
+</pre>Creates a restart variable and sets it to the values from data_ptr, corresponding to the list of dimension names. Rank of data_ptr must equal the amount of corresponding dimensions.Contains the following routines</p><ul>
+<li><a class="el" href="netcdf__add__restart__variable_8inc.html#a06d12dfb8f09f3ca259363d01c886fad">netcdf_add_restart_variable_0d_wrap</a></li>
+<li><a class="el" href="netcdf__add__restart__variable_8inc.html#ae7fd172a8f8f4da0f5f61589c3048672">netcdf_add_restart_variable_1d_wrap</a></li>
+<li><a class="el" href="netcdf__add__restart__variable_8inc.html#a88a48ddd4b9a6b6d68d005d120aa044a">netcdf_add_restart_variable_2d_wrap</a></li>
+<li><a class="el" href="netcdf__add__restart__variable_8inc.html#ad23261b340ae061f496615f7d7851e76">netcdf_add_restart_variable_3d_wrap</a></li>
+<li><a class="el" href="netcdf__add__restart__variable_8inc.html#a87c0514108b180d7166640dec2914e79">netcdf_add_restart_variable_4d_wrap</a></li>
+<li><a class="el" href="netcdf__add__restart__variable_8inc.html#a28e3ccf61905328499cdac95d4497082">netcdf_add_restart_variable_5d_wrap</a></li>
+<li><a class="el" href="register__domain__restart__variable_8inc.html#a14aba95e34e1c98393d1fed0e08ff689">register_domain_restart_variable_0d</a></li>
+<li><a class="el" href="register__domain__restart__variable_8inc.html#a5f968e0bd278c1ea7e077081208a26d2">register_domain_restart_variable_1d</a></li>
+<li><a class="el" href="register__domain__restart__variable_8inc.html#a8f72ed2489b65ae5b433e9e34fde39c8">register_domain_restart_variable_2d</a></li>
+<li><a class="el" href="register__domain__restart__variable_8inc.html#a2030ef923b348211991352c416db4070">register_domain_restart_variable_3d</a></li>
+<li><a class="el" href="register__domain__restart__variable_8inc.html#ab26bd5f7df46a54ee07d45e92f5aba63">register_domain_restart_variable_4d</a></li>
+<li><a class="el" href="register__domain__restart__variable_8inc.html#ad4026649f1cc2168d33377708dd2f76b">register_domain_restart_variable_5d</a></li>
+<li><a class="el" href="register__unstructured__domain__restart__variable_8inc.html#ac79b63f72791dac980e90dff401f4a38">register_unstructured_domain_restart_variable_0d</a></li>
+<li><a class="el" href="register__unstructured__domain__restart__variable_8inc.html#a56a636cf068adf2c2c71f1eaed8b50d0">register_unstructured_domain_restart_variable_1d</a></li>
+<li><a class="el" href="register__unstructured__domain__restart__variable_8inc.html#aa2bdc6cabaf20dd2a8076eb6dac85e16">register_unstructured_domain_restart_variable_2d</a></li>
+<li><a class="el" href="register__unstructured__domain__restart__variable_8inc.html#a850e356cec53bee8c0618f46ed006aeb">register_unstructured_domain_restart_variable_3d</a></li>
+<li><a class="el" href="register__unstructured__domain__restart__variable_8inc.html#a048557eee1c09aeff816e2ab81e8c8b1">register_unstructured_domain_restart_variable_4d</a></li>
+<li><a class="el" href="register__unstructured__domain__restart__variable_8inc.html#a5ece7b641bf5db216a12a1bfdac745d6">register_unstructured_domain_restart_variable_5d</a></li>
+<li><a class="el" href="netcdf__add__restart__variable_8inc.html#af0de21b157b27c976a496e0d053fb0e9">register_restart_region_2d</a></li>
+<li><a class="el" href="netcdf__add__restart__variable_8inc.html#a7a848edf630c7e5f7a0859849efa5d27">register_restart_region_3d</a> </li>
+</ul>
+</div>
 
 <h3><a id="write_data"></a>write_data Interface</h3><div class="textblock">Write data to a defined field within a file <br  />
 Example usage:<pre class="fragment">         call write_data(fileobj, "lon", data)
-</pre>Write the value(s) in data to the field named "lon"Contains the following routines <a class="el" href="compressed__write_8inc.html#a4e17a109b16f1b0989654cdceb1d6587">compressed_write_0d_wrap</a> <a class="el" href="compressed__write_8inc.html#a0326e0dee8e43c01c7c88c28ed27936a">compressed_write_1d_wrap</a> <a class="el" href="compressed__write_8inc.html#a7e238d0d9af000d6a6ead42b23d66068">compressed_write_2d_wrap</a> <a class="el" href="compressed__write_8inc.html#ad68926bac45a9efeacc252870ba8356f">compressed_write_3d_wrap</a> <a class="el" href="compressed__write_8inc.html#a86ef83a25711def0650dbe4a307100cf">compressed_write_4d_wrap</a> <a class="el" href="compressed__write_8inc.html#a1d428457f2ddc55e6ab2141bcdb799f0">compressed_write_5d_wrap</a> <a class="el" href="domain__write_8inc.html#a8be344419c84ad080a94baf2ec140689">domain_write_0d</a> <a class="el" href="domain__write_8inc.html#a58e37ba07bf0b390e40202c3fa8e3c99">domain_write_1d</a> <a class="el" href="domain__write_8inc.html#a9d0c062fd46e3d6ad13e4fbca6d32b5c">domain_write_2d</a> <a class="el" href="domain__write_8inc.html#a3364c0bdbd92a2acb4fe1651d8900924">domain_write_3d</a> <a class="el" href="domain__write_8inc.html#a49dafd6294b8ecf1d6543462a9a75435">domain_write_4d</a> <a class="el" href="domain__write_8inc.html#a6f4a82d59156a41e49b3258dce564484">domain_write_5d</a> <a class="el" href="unstructured__domain__write_8inc.html#a72c3477d33efc2e8462ff354bada11bb">unstructured_domain_write_0d</a> <a class="el" href="unstructured__domain__write_8inc.html#ada15a55c252bae3b4a77a993ccc00aaa">unstructured_domain_write_1d</a> <a class="el" href="unstructured__domain__write_8inc.html#a0158283c350685688b388c1247c74e4a">unstructured_domain_write_2d</a> <a class="el" href="unstructured__domain__write_8inc.html#a491251a1d73294bd8fc1690783ed873b">unstructured_domain_write_3d</a> <a class="el" href="unstructured__domain__write_8inc.html#a7bcc4ef8e6ca2361837d3aecdd70bfd9">unstructured_domain_write_4d</a> <a class="el" href="unstructured__domain__write_8inc.html#ae9193bb10afee1aacf676f5730dfa59e">unstructured_domain_write_5d</a> </div>
+</pre>Write the value(s) in data to the field named "lon"Contains the following routines</p><ul>
+<li><a class="el" href="compressed__write_8inc.html#a4e17a109b16f1b0989654cdceb1d6587">compressed_write_0d_wrap</a></li>
+<li><a class="el" href="compressed__write_8inc.html#a0326e0dee8e43c01c7c88c28ed27936a">compressed_write_1d_wrap</a></li>
+<li><a class="el" href="compressed__write_8inc.html#a7e238d0d9af000d6a6ead42b23d66068">compressed_write_2d_wrap</a></li>
+<li><a class="el" href="compressed__write_8inc.html#ad68926bac45a9efeacc252870ba8356f">compressed_write_3d_wrap</a></li>
+<li><a class="el" href="compressed__write_8inc.html#a86ef83a25711def0650dbe4a307100cf">compressed_write_4d_wrap</a></li>
+<li><a class="el" href="compressed__write_8inc.html#a1d428457f2ddc55e6ab2141bcdb799f0">compressed_write_5d_wrap</a></li>
+<li><a class="el" href="domain__write_8inc.html#a8be344419c84ad080a94baf2ec140689">domain_write_0d</a></li>
+<li><a class="el" href="domain__write_8inc.html#a58e37ba07bf0b390e40202c3fa8e3c99">domain_write_1d</a></li>
+<li><a class="el" href="domain__write_8inc.html#a9d0c062fd46e3d6ad13e4fbca6d32b5c">domain_write_2d</a></li>
+<li><a class="el" href="domain__write_8inc.html#a3364c0bdbd92a2acb4fe1651d8900924">domain_write_3d</a></li>
+<li><a class="el" href="domain__write_8inc.html#a49dafd6294b8ecf1d6543462a9a75435">domain_write_4d</a></li>
+<li><a class="el" href="domain__write_8inc.html#a6f4a82d59156a41e49b3258dce564484">domain_write_5d</a></li>
+<li><a class="el" href="unstructured__domain__write_8inc.html#a72c3477d33efc2e8462ff354bada11bb">unstructured_domain_write_0d</a></li>
+<li><a class="el" href="unstructured__domain__write_8inc.html#ada15a55c252bae3b4a77a993ccc00aaa">unstructured_domain_write_1d</a></li>
+<li><a class="el" href="unstructured__domain__write_8inc.html#a0158283c350685688b388c1247c74e4a">unstructured_domain_write_2d</a></li>
+<li><a class="el" href="unstructured__domain__write_8inc.html#a491251a1d73294bd8fc1690783ed873b">unstructured_domain_write_3d</a></li>
+<li><a class="el" href="unstructured__domain__write_8inc.html#a7bcc4ef8e6ca2361837d3aecdd70bfd9">unstructured_domain_write_4d</a></li>
+<li><a class="el" href="unstructured__domain__write_8inc.html#ae9193bb10afee1aacf676f5730dfa59e">unstructured_domain_write_5d</a> </li>
+</ul>
+</div>
 
 <h3><a id="read_data"></a>read_data Interface</h3><div class="textblock">Read data from a defined field in a file<br  />
 Example usage: </p><pre class="fragment">         call read_data(fileobj, "lat", data)
 </pre>Read the values for the field "lat" from the file and write them onto data <br  />
-Contains the following routines <a class="el" href="compressed__read_8inc.html#a3628d0c71f1136ec7970df3f1c9717cf">compressed_read_0d</a> <br  />
- <a class="el" href="compressed__read_8inc.html#a4e1a1a36d87cbd10b1cf8ea5ef32b3fe">compressed_read_1d</a> <br  />
- <a class="el" href="compressed__read_8inc.html#a531447a7c5dbf4712cfb36ff0c0ef6d0">compressed_read_2d</a> <br  />
- <a class="el" href="compressed__read_8inc.html#a420a58318801bd6bbb814d9f338edad4">compressed_read_3d</a> <br  />
- <a class="el" href="compressed__read_8inc.html#a9981bedcd9e0ff5eb1cc7a80df93bca6">compressed_read_4d</a> <br  />
- <a class="el" href="compressed__read_8inc.html#a3f8f517e73a2a8cff77f855fb75ca957">compressed_read_5d</a> <br  />
- <a class="el" href="domain__read_8inc.html#a2b3ace3c8197fe3c10c4542d22eb3e52">domain_read_0d</a> <a class="el" href="domain__read_8inc.html#ab23fa1f4760ccdf384890c293e187854">domain_read_1d</a> <a class="el" href="domain__read_8inc.html#adfb3990c47a612b195c65935e374dd87">domain_read_2d</a> <a class="el" href="domain__read_8inc.html#aa00033fd60c5e3fc2a21d77e9de60c5e">domain_read_3d</a> <a class="el" href="domain__read_8inc.html#ae23552b57e4f58bd3ed938dd0f967fe7">domain_read_4d</a> <a class="el" href="domain__read_8inc.html#aeeab4f13a263036f8e6e0eb539bd2106">domain_read_5d</a> <a class="el" href="unstructured__domain__read_8inc.html#a74fa974dcdf54067f5e5fca7398f3165">unstructured_domain_read_0d</a> <a class="el" href="unstructured__domain__read_8inc.html#af9324c7dd7313fbc70032a18b57162e2">unstructured_domain_read_1d</a> <a class="el" href="unstructured__domain__read_8inc.html#aa2b3d5b924f68b85863b3789d2e2fb0a">unstructured_domain_read_2d</a> <a class="el" href="unstructured__domain__read_8inc.html#a3ee6d0fa0a6c2b4d7063d23eda77bcef">unstructured_domain_read_3d</a> <a class="el" href="unstructured__domain__read_8inc.html#a0028ca353c1480ff45a30f409cebbb22">unstructured_domain_read_4d</a> <a class="el" href="unstructured__domain__read_8inc.html#a96e1c2ff2bb6d1fc6035cb4eed2c8c73">unstructured_domain_read_5d</a> </div>
+Contains the following routines</p><ul>
+<li><a class="el" href="compressed__read_8inc.html#a3628d0c71f1136ec7970df3f1c9717cf">compressed_read_0d</a> <br  />
+</li>
+<li><a class="el" href="compressed__read_8inc.html#a4e1a1a36d87cbd10b1cf8ea5ef32b3fe">compressed_read_1d</a> <br  />
+</li>
+<li><a class="el" href="compressed__read_8inc.html#a531447a7c5dbf4712cfb36ff0c0ef6d0">compressed_read_2d</a> <br  />
+</li>
+<li><a class="el" href="compressed__read_8inc.html#a420a58318801bd6bbb814d9f338edad4">compressed_read_3d</a> <br  />
+</li>
+<li><a class="el" href="compressed__read_8inc.html#a9981bedcd9e0ff5eb1cc7a80df93bca6">compressed_read_4d</a> <br  />
+</li>
+<li><a class="el" href="compressed__read_8inc.html#a3f8f517e73a2a8cff77f855fb75ca957">compressed_read_5d</a> <br  />
+</li>
+<li><a class="el" href="domain__read_8inc.html#a2b3ace3c8197fe3c10c4542d22eb3e52">domain_read_0d</a></li>
+<li><a class="el" href="domain__read_8inc.html#ab23fa1f4760ccdf384890c293e187854">domain_read_1d</a></li>
+<li><a class="el" href="domain__read_8inc.html#adfb3990c47a612b195c65935e374dd87">domain_read_2d</a></li>
+<li><a class="el" href="domain__read_8inc.html#aa00033fd60c5e3fc2a21d77e9de60c5e">domain_read_3d</a></li>
+<li><a class="el" href="domain__read_8inc.html#ae23552b57e4f58bd3ed938dd0f967fe7">domain_read_4d</a></li>
+<li><a class="el" href="domain__read_8inc.html#aeeab4f13a263036f8e6e0eb539bd2106">domain_read_5d</a></li>
+<li><a class="el" href="unstructured__domain__read_8inc.html#a74fa974dcdf54067f5e5fca7398f3165">unstructured_domain_read_0d</a></li>
+<li><a class="el" href="unstructured__domain__read_8inc.html#af9324c7dd7313fbc70032a18b57162e2">unstructured_domain_read_1d</a></li>
+<li><a class="el" href="unstructured__domain__read_8inc.html#aa2b3d5b924f68b85863b3789d2e2fb0a">unstructured_domain_read_2d</a></li>
+<li><a class="el" href="unstructured__domain__read_8inc.html#a3ee6d0fa0a6c2b4d7063d23eda77bcef">unstructured_domain_read_3d</a></li>
+<li><a class="el" href="unstructured__domain__read_8inc.html#a0028ca353c1480ff45a30f409cebbb22">unstructured_domain_read_4d</a></li>
+<li><a class="el" href="unstructured__domain__read_8inc.html#a96e1c2ff2bb6d1fc6035cb4eed2c8c73">unstructured_domain_read_5d</a> </li>
+</ul>
+</div>
 
 <h3><a id="write_restart"></a>write_restart Interface</h3><div class="textblock">Writes all restart fields registered within a given restart file <br  />
 Example usage:<pre class="fragment">         call write_restart(fileobj)
-</pre>Writes previously registered restart fields to the given restart fileContains the following routines netcdf_save_restart_wrap save_domain_restart unstructured_write_restart </div>
+</pre>Writes previously registered restart fields to the given restart fileContains the following routines</p><ul>
+<li>netcdf_save_restart_wrap</li>
+<li>save_domain_restart</li>
+<li>unstructured_write_restart </li>
+</ul>
+</div>
 
 <h3><a id="write_new_restart"></a>write_new_restart Interface</h3><div class="textblock">Writes all restart fields in a given restart file to a new restart file <br  />
 Example usage:<pre class="fragment">         call write_new_restart(fileobj, timestamp="tstring", filename="new_restartfilename")
-</pre>Creates a new restart file, with the provided timestamp and filename, out of the registered restart fields in the given restart file.Contains the following routines </div>
+</pre>Creates a new restart file, with the provided timestamp and filename, out of the registered restart fields in the given restart file.Contains the following routines</p><ul>
+<li>netcdf_save_restart_wrap2</li>
+<li>save_domain_restart_wrap</li>
+<li>unstructured_write_restart_wrap </li>
+</ul>
+</div>
 
-<h3><a id="read_restart"></a>read_restart Interface</h3><div class="textblock">Contains the following routines </div>
+<h3><a id="read_restart"></a>read_restart Interface</h3><div class="textblock">Reads in restart variables from a given file <br  />
+Example usage: call read_restart(fileobj) Reads registered restart variables from fileobj Contains the following routines:<ul>
+<li>netcdf_restart_state</li>
+<li>restore_domain_state </li>
+</ul>
+</div>
 
-<h3><a id="read_new_restart"></a>read_new_restart Interface</h3><div class="textblock">Contains the following routines </div><h2 class="groupheader">Function/Subroutine Documentation</h2>
+<h3><a id="read_new_restart"></a>read_new_restart Interface</h3><div class="textblock">Read registered restarts from a new file Contains the following routines<ul>
+<li>netcdf_restore_state_wrap</li>
+<li>restore_domain_state_wrap </li>
+</ul>
+</div><h2 class="groupheader">Function/Subroutine Documentation</h2>
 <a id="gab2efb88539d9a05da43d95a501ed7e4c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gab2efb88539d9a05da43d95a501ed7e4c">&#9670;&nbsp;</a></span>fms2_io_init()</h2>
 
@@ -190,7 +301,7 @@ Example usage:<pre class="fragment">         call write_new_restart(fileobj, tim
 <p>Send the namelist variables to their respective modules</p>
 <p>Mark the fms2_io as initialized</p>
 
-<p class="definition">Definition at line <a class="el" href="fms2__io_8F90_source.html#l00447">447</a> of file <a class="el" href="fms2__io_8F90_source.html">fms2_io.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="fms2__io_8F90_source.html#l00455">455</a> of file <a class="el" href="fms2__io_8F90_source.html">fms2_io.F90</a>.</p>
 
 </div>
 </div>

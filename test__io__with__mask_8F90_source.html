@@ -121,9 +121,9 @@ $(document).ready(function(){initNavTree('test__io__with__mask_8F90_source.html'
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">!! the domain contains a mask table. For this case the masked data should</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">!! not be read.</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keywordtype">use   </span>mpp_domains_mod, <span class="keywordtype">only</span>: mpp_domains_set_stack_size, mpp_define_domains, mpp_define_io_domain, &amp;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keywordtype">use   </span>mpp_domains_mod, <span class="keywordtype">only</span>: <a class="code" href="mpp__domains__util_8inc.html#ae1f3c0c5c574686aac6c1595b1ca0b66">mpp_domains_set_stack_size</a>, mpp_define_domains, <a class="code" href="mpp__domains__define_8inc.html#a7ac8ee98767fbab41bf6e8ba0ba4ec73">mpp_define_io_domain</a>, &amp;</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                             mpp_get_compute_domain,domain2d</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keywordtype">use   </span>mpp_mod,         <span class="keywordtype">only</span>: mpp_pe, mpp_root_pe, mpp_error, fatal</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keywordtype">use   </span>mpp_mod,         <span class="keywordtype">only</span>: <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>, mpp_root_pe, mpp_error, fatal</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keywordtype">use   </span>fms2_io_mod,     <span class="keywordtype">only</span>: open_file, register_axis, register_variable_attribute, close_file, &amp;</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                             fmsnetcdfdomainfile_t, write_data, register_field, read_data, &amp;</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                             parse_mask_table</div>
@@ -165,9 +165,9 @@ $(document).ready(function(){initNavTree('test__io__with__mask_8F90_source.html'
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keyword">call </span>parse_mask_table(<span class="stringliteral">&quot;the_mask&quot;</span>, parsed_mask, <span class="stringliteral">&#39;test_io_with_mask&#39;</span>)</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">!&lt; Create a domain nlonXnlat with mask</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keyword">call </span>mpp_domains_set_stack_size(17280000)</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keyword">call </span><a class="code" href="mpp__domains__util_8inc.html#ae1f3c0c5c574686aac6c1595b1ca0b66">mpp_domains_set_stack_size</a>(17280000)</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keyword">call </span>mpp_define_domains( (/1,nlon,1,nlat/), layout, domain, name=<span class="stringliteral">&#39;test_io_with_mask&#39;</span>, maskmap=parsed_mask)</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keyword">call </span>mpp_define_io_domain(domain, (/1,1/))</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keyword">call </span><a class="code" href="mpp__domains__define_8inc.html#a7ac8ee98767fbab41bf6e8ba0ba4ec73">mpp_define_io_domain</a>(domain, (/1,1/))</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="keyword">call </span>mpp_get_compute_domain(domain, is, ie, js, je)</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="comment">!&lt; Set up the data</span></div>
@@ -204,7 +204,7 @@ $(document).ready(function(){initNavTree('test__io__with__mask_8F90_source.html'
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="keywordflow">endif</span></div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="comment">!&lt; Read the file back to check if it was done right!</span></div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="keywordflow">if</span> (mpp_pe() .eq. mpp_root_pe()) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="keywordflow">if</span> (<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() .eq. mpp_root_pe()) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;   err = nf90_open(<span class="stringliteral">&quot;test_io_with_mask.nc&quot;</span>, nf90_nowrite, ncid)</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;   <span class="keywordflow">if</span> (err .ne. nf90_noerr) <span class="keyword">call </span>mpp_error(fatal, <span class="stringliteral">&quot;test_io_with_mask: error opening the file for reading&quot;</span>)</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
@@ -269,6 +269,9 @@ $(document).ready(function(){initNavTree('test__io__with__mask_8F90_source.html'
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="agroup__fms__mod_html_gabaf667e53627cfaceb48057e827b7b5e"><div class="ttname"><a href="group__fms__mod.html#gabaf667e53627cfaceb48057e827b7b5e">fms_mod::fms_init</a></div><div class="ttdeci">subroutine, public fms_init(localcomm)</div><div class="ttdoc">Initializes the FMS module and also calls the initialization routines for all modules in the MPP pack...</div><div class="ttdef"><b>Definition:</b> <a href="fms_8F90_source.html#l00366">fms.F90:366</a></div></div>
+<div class="ttc" id="ampp__domains__util_8inc_html_ae1f3c0c5c574686aac6c1595b1ca0b66"><div class="ttname"><a href="mpp__domains__util_8inc.html#ae1f3c0c5c574686aac6c1595b1ca0b66">mpp_domains_set_stack_size</a></div><div class="ttdeci">subroutine mpp_domains_set_stack_size(n)</div><div class="ttdoc">Set user stack size.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__util_8inc_source.html#l00052">mpp_domains_util.inc:52</a></div></div>
+<div class="ttc" id="ampp__domains__define_8inc_html_a7ac8ee98767fbab41bf6e8ba0ba4ec73"><div class="ttname"><a href="mpp__domains__define_8inc.html#a7ac8ee98767fbab41bf6e8ba0ba4ec73">mpp_define_io_domain</a></div><div class="ttdeci">subroutine mpp_define_io_domain(domain, io_layout)</div><div class="ttdoc">define the IO domain.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__define_8inc_source.html#l00465">mpp_domains_define.inc:465</a></div></div>
+<div class="ttc" id="ampp__util_8inc_html_acfeba7de56f9dd6000b3fd78f9d56c50"><div class="ttname"><a href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a></div><div class="ttdeci">integer function mpp_pe()</div><div class="ttdoc">Returns processor ID. This returns the unique ID associated with a PE. This number runs between 0 and...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00442">mpp_util.inc:442</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

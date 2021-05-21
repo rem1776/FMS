@@ -183,14 +183,14 @@ $(document).ready(function(){initNavTree('test__atmosphere__io_8F90_source.html'
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment">!Initialize.</span></div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="keyword">call </span>init(test_params, ntiles)</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="keyword">call </span>create_cubed_sphere_domain(test_params, domain, (/1, 1/))</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="keyword">call </span>create_cubed_sphere_domain(test_params, domain2, (/1, mpp_npes()/ntiles/))</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="keyword">call </span>create_cubed_sphere_domain(test_params, domain2, (/1, <a class="code" href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>()/ntiles/))</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="keyword">call </span>mpi_barrier(mpi_comm_world, err)</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="keyword">call </span>mpi_check(err)</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="keyword">call </span>random_seed()</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="keyword">call </span><a class="code" href="group__fms2__io__mod.html#gab2efb88539d9a05da43d95a501ed7e4c">fms2_io_init</a>()</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="keywordflow">if</span> (test_params%debug) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  <span class="keywordflow">if</span> (mpp_pe() .eq. 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() .eq. 0) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keyword">write</span>(error_unit,<span class="stringliteral">&#39;(/a)&#39;</span>) &amp;</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;      <span class="stringliteral">&quot;Running atmosphere (6-tile domain decomposed) restart file test ... &quot;</span></div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="keywordflow">  endif</span></div>
@@ -445,13 +445,13 @@ $(document).ready(function(){initNavTree('test__atmosphere__io_8F90_source.html'
 <div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;<span class="comment">!Store checksums for non-domain-decomposed/non-restart variables since they are not</span></div>
 <div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;<span class="comment">!currently written to the output file.</span></div>
 <div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;<span class="comment">!if (fileobj%is_root) then</span></div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;  var9_chksum = mpp_chksum(var9, pelist=(/mpp_pe()/))</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;  var9_chksum = mpp_chksum(var9, pelist=(/<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()/))</div>
 <div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;<span class="comment">!endif</span></div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;var5_chksum = mpp_chksum(var5, pelist=(/mpp_pe()/))</div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;var6_chksum = mpp_chksum(var6, pelist=(/mpp_pe()/))</div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;var7_chksum = mpp_chksum(var7, pelist=(/mpp_pe()/))</div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;var8_chksum = mpp_chksum(var8, pelist=(/mpp_pe()/))</div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;var10_chksum = mpp_chksum(var10, pelist=(/mpp_pe()/))</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;var5_chksum = mpp_chksum(var5, pelist=(/<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()/))</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;var6_chksum = mpp_chksum(var6, pelist=(/<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()/))</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;var7_chksum = mpp_chksum(var7, pelist=(/<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()/))</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;var8_chksum = mpp_chksum(var8, pelist=(/<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()/))</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;var10_chksum = mpp_chksum(var10, pelist=(/<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()/))</div>
 <div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;<span class="comment">!var11_chksum = mpp_chksum(var11(isc-isd+1:isc-isd+1+nx, jsc-jsd+1:jsc-jsd+1+ny, :), pelist=(/mpp_pe()/))</span></div>
 <div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160; </div>
 <div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;<span class="comment">!Close the file.</span></div>
@@ -538,7 +538,7 @@ $(document).ready(function(){initNavTree('test__atmosphere__io_8F90_source.html'
 <div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;<span class="keyword">call </span>get_variable_size(fileobj, <span class="stringliteral">&quot;var10&quot;</span>, dim_sizes, broadcast=.true.)</div>
 <div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;<span class="keyword">allocate</span>(var10(nx, ny))</div>
 <div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;<span class="keyword">call </span>read_data(fileobj, <span class="stringliteral">&quot;var10&quot;</span>, var10, unlim_dim_level=nt)</div>
-<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;chksum = mpp_chksum(var10, pelist=(/mpp_pe()/))</div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;chksum = mpp_chksum(var10, pelist=(/<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()/))</div>
 <div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;<span class="keywordflow">if</span> (chksum .ne. var10_chksum) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;  <span class="keyword">call </span>mpp_error(fatal, <span class="stringliteral">&quot;checksum for var10 does not match.&quot;</span>)</div>
 <div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;<span class="keywordflow">endif</span></div>
@@ -585,28 +585,28 @@ $(document).ready(function(){initNavTree('test__atmosphere__io_8F90_source.html'
 <div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;<span class="keyword">call </span>read_restart(fileobj, unlim_dim_level=nt)</div>
 <div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160; </div>
 <div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160; </div>
-<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;chksum = mpp_chksum(var5, pelist=(/mpp_pe()/))</div>
+<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;chksum = mpp_chksum(var5, pelist=(/<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()/))</div>
 <div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;<span class="keywordflow">if</span> (chksum .ne. var5_chksum) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;  <span class="keyword">call </span>mpp_error(fatal, <span class="stringliteral">&quot;checksum for var 5 does not match.&quot;</span>)</div>
 <div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;<span class="keywordflow">else</span></div>
 <div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;  <span class="keyword">call </span>mpp_error(warning, <span class="stringliteral">&quot;checksum for var 5 does match.&quot;</span>)</div>
 <div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;<span class="keywordflow">endif</span></div>
 <div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160; </div>
-<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;chksum = mpp_chksum(var6, pelist=(/mpp_pe()/))</div>
+<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;chksum = mpp_chksum(var6, pelist=(/<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()/))</div>
 <div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;<span class="keywordflow">if</span> (chksum .ne. var6_chksum) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;  <span class="keyword">call </span>mpp_error(fatal, <span class="stringliteral">&quot;checksum for var 6 does not match.&quot;</span>)</div>
 <div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;<span class="keywordflow">else</span></div>
 <div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;  <span class="keyword">call </span>mpp_error(warning, <span class="stringliteral">&quot;checksum for var 6 does match.&quot;</span>)</div>
 <div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;<span class="keywordflow">endif</span></div>
 <div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160; </div>
-<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;chksum = mpp_chksum(var7, pelist=(/mpp_pe()/))</div>
+<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;chksum = mpp_chksum(var7, pelist=(/<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()/))</div>
 <div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;<span class="keywordflow">if</span> (chksum .ne. var7_chksum) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;  <span class="keyword">call </span>mpp_error(fatal, <span class="stringliteral">&quot;checksum for var 7 does not match.&quot;</span>)</div>
 <div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;<span class="keywordflow">else</span></div>
 <div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;  <span class="keyword">call </span>mpp_error(warning, <span class="stringliteral">&quot;checksum for var 7 does match.&quot;</span>)</div>
 <div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;<span class="keywordflow">endif</span></div>
 <div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160; </div>
-<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;chksum = mpp_chksum(var8, pelist=(/mpp_pe()/))</div>
+<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;chksum = mpp_chksum(var8, pelist=(/<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()/))</div>
 <div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;<span class="keywordflow">if</span> (chksum .ne. var8_chksum) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;  <span class="keyword">call </span>mpp_error(fatal, <span class="stringliteral">&quot;checksum for var 8 does not match.&quot;</span>)</div>
 <div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;<span class="keywordflow">else</span></div>
@@ -630,7 +630,7 @@ $(document).ready(function(){initNavTree('test__atmosphere__io_8F90_source.html'
 <div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;<span class="keyword">call </span>mpi_check(err)</div>
 <div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160; </div>
 <div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;<span class="comment">!Clean up.</span></div>
-<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;<span class="keywordflow">if</span> (mpp_pe() .eq. 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;<span class="keywordflow">if</span> (<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() .eq. 0) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;  <span class="keyword">write</span>(output_unit,<span class="stringliteral">&#39;(a/)&#39;</span>) &amp;</div>
 <div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;    <span class="stringliteral">&quot;Atmosphere (6-tile domain decomposed) file test ... &quot;</span> &amp;</div>
 <div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;    //trim(green)//<span class="stringliteral">&quot;passed.&quot;</span>//trim(color_end)</div>
@@ -701,7 +701,9 @@ $(document).ready(function(){initNavTree('test__atmosphere__io_8F90_source.html'
 <div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;<span class="keyword">end program </span>test_atmosphere_io</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="agroup__fms2__io__mod_html_gab2efb88539d9a05da43d95a501ed7e4c"><div class="ttname"><a href="group__fms2__io__mod.html#gab2efb88539d9a05da43d95a501ed7e4c">fms2_io_mod::fms2_io_init</a></div><div class="ttdeci">subroutine, public fms2_io_init()</div><div class="ttdoc">Reads the fms2_io_nml.</div><div class="ttdef"><b>Definition:</b> <a href="fms2__io_8F90_source.html#l00447">fms2_io.F90:447</a></div></div>
+<div class="ttc" id="agroup__fms2__io__mod_html_gab2efb88539d9a05da43d95a501ed7e4c"><div class="ttname"><a href="group__fms2__io__mod.html#gab2efb88539d9a05da43d95a501ed7e4c">fms2_io_mod::fms2_io_init</a></div><div class="ttdeci">subroutine, public fms2_io_init()</div><div class="ttdoc">Reads the fms2_io_nml.</div><div class="ttdef"><b>Definition:</b> <a href="fms2__io_8F90_source.html#l00455">fms2_io.F90:455</a></div></div>
+<div class="ttc" id="ampp__util_8inc_html_abf546cd336d5c539e445fb884f98ab6b"><div class="ttname"><a href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a></div><div class="ttdeci">integer function mpp_npes()</div><div class="ttdoc">Returns processor count for current pelist.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00467">mpp_util.inc:467</a></div></div>
+<div class="ttc" id="ampp__util_8inc_html_acfeba7de56f9dd6000b3fd78f9d56c50"><div class="ttname"><a href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a></div><div class="ttdeci">integer function mpp_pe()</div><div class="ttdoc">Returns processor ID. This returns the unique ID associated with a PE. This number runs between 0 and...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00442">mpp_util.inc:442</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

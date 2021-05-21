@@ -184,7 +184,7 @@ $(document).ready(function(){initNavTree('test__io__simple_8F90_source.html','')
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  <span class="keyword">call </span>init(test_params, ntiles)</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  <span class="keyword">call </span>create_cubed_sphere_domain(test_params, domain, (/1, 1/))</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  <span class="keywordflow">if</span> (mpp_pe() .eq. mpp_root_pe()) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() .eq. mpp_root_pe()) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;     <span class="keyword">write</span>(error_unit,<span class="stringliteral">&#39;(/a)&#39;</span>) <span class="stringliteral">&quot;Running simple IO test ... &quot;</span></div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="keywordflow">  endif</span></div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  <span class="keyword">call </span>mpi_barrier(mpi_comm_world, err)</div>
@@ -227,7 +227,7 @@ $(document).ready(function(){initNavTree('test__io__simple_8F90_source.html','')
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;     <span class="keyword">call </span>mpi_check(err)</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;     <span class="comment">! Check for expected netcdf file.</span></div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;     <span class="keywordflow">if</span> (mpp_pe() .eq. mpp_root_pe()) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;     <span class="keywordflow">if</span> (<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() .eq. mpp_root_pe()) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        <span class="keyword">write</span>(testfile,<span class="stringliteral">&#39;(a,a,a)&#39;</span>) <span class="stringliteral">&#39;test_io_simple_&#39;</span>, trim(my_format(i)), <span class="stringliteral">&#39;.tile1.nc&#39;</span></div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        err = nf90_open(testfile, nf90_nowrite, ncid)</div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        <span class="keywordflow">if</span> (err .ne. nf90_noerr) stop 2</div>
@@ -273,6 +273,7 @@ $(document).ready(function(){initNavTree('test__io__simple_8F90_source.html','')
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="agroup__netcdf__io__mod_html_gab3d6f987c880c22ac2aefbd53897c2e2"><div class="ttname"><a href="group__netcdf__io__mod.html#gab3d6f987c880c22ac2aefbd53897c2e2">netcdf_io_mod::netcdf_io_init</a></div><div class="ttdeci">subroutine, public netcdf_io_init(chksz, header_buffer_val, netcdf_default_format)</div><div class="ttdoc">Accepts the namelist fms2_io_nml variables relevant to netcdf_io_mod.</div><div class="ttdef"><b>Definition:</b> <a href="netcdf__io_8F90_source.html#l00311">netcdf_io.F90:311</a></div></div>
+<div class="ttc" id="ampp__util_8inc_html_acfeba7de56f9dd6000b3fd78f9d56c50"><div class="ttname"><a href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a></div><div class="ttdeci">integer function mpp_pe()</div><div class="ttdoc">Returns processor ID. This returns the unique ID associated with a PE. This number runs between 0 and...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00442">mpp_util.inc:442</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

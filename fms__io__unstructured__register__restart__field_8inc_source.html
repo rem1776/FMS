@@ -174,7 +174,7 @@ $(document).ready(function(){initNavTree('fms__io__unstructured__register__resta
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keyword">call </span>mpp_gather((/fdata_0d/), &amp;</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                    fdata_per_rank, &amp;</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                    pelist)</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordflow">if</span> (mpp_pe() .eq. pelist(1)) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() .eq. pelist(1)) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordflow">if</span> (maxval(fdata_per_rank) .ne. fdata_0d .or. &amp;</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            minval(fdata_per_rank) .ne. fdata_0d) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
@@ -1100,7 +1100,7 @@ $(document).ready(function(){initNavTree('fms__io__unstructured__register__resta
 <div class="line"><a name="l01004"></a><span class="lineno"> 1004</span>&#160;    <span class="keyword">call </span>mpp_gather((/fdata_0d/), &amp;</div>
 <div class="line"><a name="l01005"></a><span class="lineno"> 1005</span>&#160;                    fdata_per_rank, &amp;</div>
 <div class="line"><a name="l01006"></a><span class="lineno"> 1006</span>&#160;                    pelist)</div>
-<div class="line"><a name="l01007"></a><span class="lineno"> 1007</span>&#160;    <span class="keywordflow">if</span> (mpp_pe() .eq. pelist(1)) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l01007"></a><span class="lineno"> 1007</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() .eq. pelist(1)) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l01008"></a><span class="lineno"> 1008</span>&#160;        <span class="keywordflow">if</span> (maxval(fdata_per_rank) .ne. fdata_0d .or. &amp;</div>
 <div class="line"><a name="l01009"></a><span class="lineno"> 1009</span>&#160;            minval(fdata_per_rank) .ne. fdata_0d) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l01010"></a><span class="lineno"> 1010</span>&#160;            <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
@@ -1429,6 +1429,7 @@ $(document).ready(function(){initNavTree('fms__io__unstructured__register__resta
 <div class="line"><a name="l01333"></a><span class="lineno"> 1333</span>&#160;<span class="comment">!----------</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="ampp__util_8inc_html_acfeba7de56f9dd6000b3fd78f9d56c50"><div class="ttname"><a href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a></div><div class="ttdeci">integer function mpp_pe()</div><div class="ttdoc">Returns processor ID. This returns the unique ID associated with a PE. This number runs between 0 and...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00442">mpp_util.inc:442</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

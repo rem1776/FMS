@@ -279,10 +279,10 @@ $(document).ready(function(){initNavTree('field__manager_8F90_source.html',''); 
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;                       fatal,       &amp;</div>
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;                       note,        &amp;</div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;                       warning,     &amp;</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;                       mpp_pe,      &amp;</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;                       <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>,      &amp;</div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;                       mpp_root_pe, &amp;</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;                       stdlog,      &amp;</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;                       stdout,      &amp;</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;                       <a class="code" href="mpp__util_8inc.html#a8e5518df9532bae0241f53ab542294a2">stdlog</a>,      &amp;</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;                       <a class="code" href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a>,      &amp;</div>
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;                       get_unit</div>
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="keywordtype">use </span>mpp_io_mod, <span class="keywordtype">only</span> : mpp_io_init</div>
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;<span class="keywordtype">use    </span>fms_mod, <span class="keywordtype">only</span> : lowercase,   &amp;</div>
@@ -760,7 +760,7 @@ $(document).ready(function(){initNavTree('field__manager_8F90_source.html',''); 
 <div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;<span class="comment">!   &lt;ERROR MSG=&quot;No field table available, so no fields are being registered.&quot; STATUS=&quot;NOTE&quot;&gt;</span></div>
 <div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;<span class="comment">!      The field table does not exist.</span></div>
 <div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;<span class="comment">!   &lt;/ERROR&gt;</span></div>
-<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;  <span class="keywordflow">if</span> (mpp_pe() == mpp_root_pe()) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe()) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;    <span class="keywordflow">if</span> (verb .gt. verb_level_warn) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;      <span class="keyword">call </span>mpp_error(note, trim(warn_header)//                       &amp;</div>
 <div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;         <span class="stringliteral">&#39;No field table (&#39;</span>//trim(tbl_name)//<span class="stringliteral">&#39;) available, so no fields are being registered.&#39;</span>)</div>
@@ -775,7 +775,7 @@ $(document).ready(function(){initNavTree('field__manager_8F90_source.html',''); 
 <div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;<span class="keywordflow">if</span>(io_status/=0) <span class="keyword">call </span>mpp_error(fatal, <span class="stringliteral">&#39;field_manager_mod: Error in opening file &#39;</span>//trim(tbl_name))</div>
 <div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;<span class="comment">!write_version_number should precede all writes to stdlog from field_manager</span></div>
 <div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;<span class="keyword">call </span><a class="code" href="group__fms__mod.html#ga0c093df98a75dbd9e0f3add67aa6c23a">write_version_number</a>(<span class="stringliteral">&quot;FIELD_MANAGER_MOD&quot;</span>, version)</div>
-<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;log_unit = stdlog()</div>
+<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;log_unit = <a class="code" href="mpp__util_8inc.html#a8e5518df9532bae0241f53ab542294a2">stdlog</a>()</div>
 <div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;<span class="keywordflow">do</span> <span class="keywordflow">while</span> (.true.)</div>
 <div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;   <span class="keyword">read</span>(iunit,<span class="stringliteral">&#39;(a)&#39;</span>,<span class="keyword">end</span>=89,err=99) record</div>
 <div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;   <span class="keyword">write</span>( log_unit,<span class="stringliteral">&#39;(a)&#39;</span> )record</div>
@@ -833,7 +833,7 @@ $(document).ready(function(){initNavTree('field__manager_8F90_source.html',''); 
 <div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160; </div>
 <div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;   list_name = list_sep//trim(text_names%mod_name)//list_sep//trim(text_names%fld_type)//&amp;</div>
 <div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;               list_sep//trim(text_names%fld_name)</div>
-<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;   <span class="keywordflow">if</span> (mpp_pe() == mpp_root_pe() ) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;   <span class="keywordflow">if</span> (<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe() ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;     <span class="keywordflow">if</span> (verb .gt. verb_level_note) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;<span class="comment">!   &lt;ERROR MSG=&quot;Creating list name = list_name.&quot; STATUS=&quot;NOTE&quot;&gt;</span></div>
 <div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;<span class="comment">!      A field is being created called list_name.</span></div>
@@ -1086,7 +1086,7 @@ $(document).ready(function(){initNavTree('field__manager_8F90_source.html',''); 
 <div class="line"><a name="l00990"></a><span class="lineno">  990</span>&#160;<span class="comment">!     &lt;ERROR MSG=&quot;Field with identical name and model name duplicate found, skipping&quot; STATUS=&quot;NOTE&quot;&gt;</span></div>
 <div class="line"><a name="l00991"></a><span class="lineno">  991</span>&#160;<span class="comment">!       The name of the field and the model name are identical. Skipping that field.</span></div>
 <div class="line"><a name="l00992"></a><span class="lineno">  992</span>&#160;<span class="comment">!     &lt;/ERROR&gt;</span></div>
-<div class="line"><a name="l00993"></a><span class="lineno">  993</span>&#160;      <span class="keywordflow">if</span> (mpp_pe() == 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00993"></a><span class="lineno">  993</span>&#160;      <span class="keywordflow">if</span> (<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == 0) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00994"></a><span class="lineno">  994</span>&#160;         <span class="keywordflow">if</span> (verb .gt. verb_level_warn) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00995"></a><span class="lineno">  995</span>&#160;           <span class="keyword">call </span>mpp_error(warning, trim(warn_header)//                              &amp;</div>
 <div class="line"><a name="l00996"></a><span class="lineno">  996</span>&#160;                <span class="stringliteral">&#39;Field with identical name and model name duplicate found, skipping&#39;</span>)</div>
@@ -1135,7 +1135,7 @@ $(document).ready(function(){initNavTree('field__manager_8F90_source.html',''); 
 <div class="line"><a name="l01039"></a><span class="lineno"> 1039</span>&#160;  <span class="keywordflow">if</span> ( fields(i)%field_type == fields(num_fields)%field_type .and. &amp;</div>
 <div class="line"><a name="l01040"></a><span class="lineno"> 1040</span>&#160;       fields(i)%model      == fields(num_fields)%model      .and. &amp;</div>
 <div class="line"><a name="l01041"></a><span class="lineno"> 1041</span>&#160;       fields(i)%field_name == fields(num_fields)%field_name ) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l01042"></a><span class="lineno"> 1042</span>&#160;    <span class="keywordflow">if</span> (mpp_pe() .eq. mpp_root_pe()) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l01042"></a><span class="lineno"> 1042</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() .eq. mpp_root_pe()) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l01043"></a><span class="lineno"> 1043</span>&#160;      <span class="keyword">call </span>mpp_error(warning,<span class="stringliteral">&#39;Error in field_manager_mod. Duplicate field name: Field type=&#39;</span>//trim(fields(i)%field_type)// &amp;</div>
 <div class="line"><a name="l01044"></a><span class="lineno"> 1044</span>&#160;         <span class="stringliteral">&#39;,  Model=&#39;</span>//trim(model_names(fields(i)%model))// &amp;</div>
 <div class="line"><a name="l01045"></a><span class="lineno"> 1045</span>&#160;         <span class="stringliteral">&#39;,  Duplicated name=&#39;</span>//trim(fields(i)%field_name))</div>
@@ -1389,9 +1389,9 @@ $(document).ready(function(){initNavTree('field__manager_8F90_source.html',''); 
 <div class="line"><a name="l01293"></a><span class="lineno"> 1293</span>&#160; </div>
 <div class="line"><a name="l01294"></a><span class="lineno"> 1294</span>&#160;<span class="keywordflow">  end select</span></div>
 <div class="line"><a name="l01295"></a><span class="lineno"> 1295</span>&#160; </div>
-<div class="line"><a name="l01296"></a><span class="lineno"> 1296</span>&#160;  <span class="keywordflow">if</span> (mpp_pe() == mpp_root_pe() ) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l01296"></a><span class="lineno"> 1296</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe() ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l01297"></a><span class="lineno"> 1297</span>&#160;    <span class="keywordflow">if</span> (verb .gt. verb_level_note) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l01298"></a><span class="lineno"> 1298</span>&#160;      out_unit = stdout()</div>
+<div class="line"><a name="l01298"></a><span class="lineno"> 1298</span>&#160;      out_unit = <a class="code" href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a>()</div>
 <div class="line"><a name="l01299"></a><span class="lineno"> 1299</span>&#160;      <span class="keyword">write</span> (out_unit,*) trim(note_header), <span class="stringliteral">&#39;Creating new value = &#39;</span>, trim(method_name), <span class="stringliteral">&#39; &#39;</span>, trim(val_name)</div>
 <div class="line"><a name="l01300"></a><span class="lineno"> 1300</span>&#160;<span class="keywordflow">    endif</span></div>
 <div class="line"><a name="l01301"></a><span class="lineno"> 1301</span>&#160;<span class="keywordflow">  endif</span></div>
@@ -1427,10 +1427,10 @@ $(document).ready(function(){initNavTree('field__manager_8F90_source.html',''); 
 <div class="line"><a name="l01331"></a><span class="lineno"> 1331</span>&#160;<span class="keywordtype">integer</span> :: unit</div>
 <div class="line"><a name="l01332"></a><span class="lineno"> 1332</span>&#160; </div>
 <div class="line"><a name="l01333"></a><span class="lineno"> 1333</span>&#160;<span class="keyword">call </span>write_version_number(<span class="stringliteral">&quot;FIELD_MANAGER_MOD&quot;</span>, version)</div>
-<div class="line"><a name="l01334"></a><span class="lineno"> 1334</span>&#160;<span class="keywordflow">if</span> ( mpp_pe() == mpp_root_pe() ) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l01335"></a><span class="lineno"> 1335</span>&#160;   unit = stdlog()</div>
+<div class="line"><a name="l01334"></a><span class="lineno"> 1334</span>&#160;<span class="keywordflow">if</span> ( <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe() ) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l01335"></a><span class="lineno"> 1335</span>&#160;   unit = <a class="code" href="mpp__util_8inc.html#a8e5518df9532bae0241f53ab542294a2">stdlog</a>()</div>
 <div class="line"><a name="l01336"></a><span class="lineno"> 1336</span>&#160;   <span class="keyword">write</span> (unit,<span class="stringliteral">&#39;(/,(a))&#39;</span>) trim(note_header), <span class="stringliteral">&#39;Exiting field_manager, have a nice day ...&#39;</span></div>
-<div class="line"><a name="l01337"></a><span class="lineno"> 1337</span>&#160;   unit = stdout()</div>
+<div class="line"><a name="l01337"></a><span class="lineno"> 1337</span>&#160;   unit = <a class="code" href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a>()</div>
 <div class="line"><a name="l01338"></a><span class="lineno"> 1338</span>&#160;   <span class="keyword">write</span> (unit,<span class="stringliteral">&#39;(/,(a))&#39;</span>) trim(note_header), <span class="stringliteral">&#39;Exiting field_manager, have a nice day ...&#39;</span></div>
 <div class="line"><a name="l01339"></a><span class="lineno"> 1339</span>&#160;<span class="keywordflow">endif</span></div>
 <div class="line"><a name="l01340"></a><span class="lineno"> 1340</span>&#160; </div>
@@ -1884,7 +1884,7 @@ $(document).ready(function(){initNavTree('field__manager_8F90_source.html',''); 
 <div class="line"><a name="l01788"></a><span class="lineno"> 1788</span>&#160;<span class="comment">!</span></div>
 <div class="line"><a name="l01789"></a><span class="lineno"> 1789</span>&#160;<span class="comment">!        Check for fatal errors which should never arise</span></div>
 <div class="line"><a name="l01790"></a><span class="lineno"> 1790</span>&#160;<span class="comment">!</span></div>
-<div class="line"><a name="l01791"></a><span class="lineno"> 1791</span>&#160;out_unit = stdout()</div>
+<div class="line"><a name="l01791"></a><span class="lineno"> 1791</span>&#160;out_unit = <a class="code" href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a>()</div>
 <div class="line"><a name="l01792"></a><span class="lineno"> 1792</span>&#160;<span class="keywordflow">if</span> (.not. <span class="keyword">associated</span>(parent_p)) <span class="keywordflow">then</span>  <span class="comment">!{</span></div>
 <div class="line"><a name="l01793"></a><span class="lineno"> 1793</span>&#160; </div>
 <div class="line"><a name="l01794"></a><span class="lineno"> 1794</span>&#160;  <span class="keywordflow">if</span> (verb .gt. verb_level_warn) <span class="keywordflow">then</span>  <span class="comment">!{</span></div>
@@ -2454,7 +2454,7 @@ $(document).ready(function(){initNavTree('field__manager_8F90_source.html',''); 
 <div class="line"><a name="l02358"></a><span class="lineno"> 2358</span>&#160;<span class="keywordtype">type</span> (field_def), <span class="keywordtype">pointer</span>, <span class="keywordtype">save</span>  :: this_list_p</div>
 <div class="line"><a name="l02359"></a><span class="lineno"> 2359</span>&#160; </div>
 <div class="line"><a name="l02360"></a><span class="lineno"> 2360</span>&#160; </div>
-<div class="line"><a name="l02361"></a><span class="lineno"> 2361</span>&#160;out_unit = stdout()</div>
+<div class="line"><a name="l02361"></a><span class="lineno"> 2361</span>&#160;out_unit = <a class="code" href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a>()</div>
 <div class="line"><a name="l02362"></a><span class="lineno"> 2362</span>&#160;<span class="keyword">nullify</span>(list_p)</div>
 <div class="line"><a name="l02363"></a><span class="lineno"> 2363</span>&#160;<span class="comment">!</span></div>
 <div class="line"><a name="l02364"></a><span class="lineno"> 2364</span>&#160;<span class="comment">!        If the path is empty, then return the relative list</span></div>
@@ -2676,7 +2676,7 @@ $(document).ready(function(){initNavTree('field__manager_8F90_source.html',''); 
 <div class="line"><a name="l02580"></a><span class="lineno"> 2580</span>&#160;<span class="keywordflow">if</span> (.not. module_is_initialized) <span class="keywordflow">then</span>  <span class="comment">!{</span></div>
 <div class="line"><a name="l02581"></a><span class="lineno"> 2581</span>&#160;  <span class="keyword">call </span>initialize</div>
 <div class="line"><a name="l02582"></a><span class="lineno"> 2582</span>&#160;<span class="keywordflow">endif</span>  <span class="comment">!}</span></div>
-<div class="line"><a name="l02583"></a><span class="lineno"> 2583</span>&#160;out_unit = stdout()</div>
+<div class="line"><a name="l02583"></a><span class="lineno"> 2583</span>&#160;out_unit = <a class="code" href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a>()</div>
 <div class="line"><a name="l02584"></a><span class="lineno"> 2584</span>&#160;<span class="comment">!</span></div>
 <div class="line"><a name="l02585"></a><span class="lineno"> 2585</span>&#160;<span class="comment">!        Must supply a field field name</span></div>
 <div class="line"><a name="l02586"></a><span class="lineno"> 2586</span>&#160;<span class="comment">!</span></div>
@@ -2780,7 +2780,7 @@ $(document).ready(function(){initNavTree('field__manager_8F90_source.html',''); 
 <div class="line"><a name="l02684"></a><span class="lineno"> 2684</span>&#160;  <span class="keywordflow">if</span> (<span class="keyword">present</span>(unit)) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l02685"></a><span class="lineno"> 2685</span>&#160;     out_unit = unit</div>
 <div class="line"><a name="l02686"></a><span class="lineno"> 2686</span>&#160;  <span class="keywordflow">else</span></div>
-<div class="line"><a name="l02687"></a><span class="lineno"> 2687</span>&#160;     out_unit = stdout()</div>
+<div class="line"><a name="l02687"></a><span class="lineno"> 2687</span>&#160;     out_unit = <a class="code" href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a>()</div>
 <div class="line"><a name="l02688"></a><span class="lineno"> 2688</span>&#160;<span class="keywordflow">  endif</span></div>
 <div class="line"><a name="l02689"></a><span class="lineno"> 2689</span>&#160; </div>
 <div class="line"><a name="l02690"></a><span class="lineno"> 2690</span>&#160;  recursive_t = .false.</div>
@@ -2913,7 +2913,7 @@ $(document).ready(function(){initNavTree('field__manager_8F90_source.html',''); 
 <div class="line"><a name="l02817"></a><span class="lineno"> 2817</span>&#160;<span class="keywordtype">type</span> (field_def), <span class="keywordtype">pointer</span>, <span class="keywordtype">save</span> :: temp_field_p</div>
 <div class="line"><a name="l02818"></a><span class="lineno"> 2818</span>&#160;<span class="keywordtype">integer</span>                         :: out_unit</div>
 <div class="line"><a name="l02819"></a><span class="lineno"> 2819</span>&#160; </div>
-<div class="line"><a name="l02820"></a><span class="lineno"> 2820</span>&#160;out_unit = stdout()</div>
+<div class="line"><a name="l02820"></a><span class="lineno"> 2820</span>&#160;out_unit = <a class="code" href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a>()</div>
 <div class="line"><a name="l02821"></a><span class="lineno"> 2821</span>&#160;<span class="comment">!</span></div>
 <div class="line"><a name="l02822"></a><span class="lineno"> 2822</span>&#160;<span class="comment">!        Initialize the field manager if needed</span></div>
 <div class="line"><a name="l02823"></a><span class="lineno"> 2823</span>&#160;<span class="comment">!</span></div>
@@ -3081,7 +3081,7 @@ $(document).ready(function(){initNavTree('field__manager_8F90_source.html',''); 
 <div class="line"><a name="l02985"></a><span class="lineno"> 2985</span>&#160;<span class="keywordtype">type</span> (field_def), <span class="keywordtype">pointer</span>, <span class="keywordtype">save</span> :: temp_field_p</div>
 <div class="line"><a name="l02986"></a><span class="lineno"> 2986</span>&#160;<span class="keywordtype">integer</span>                         :: out_unit</div>
 <div class="line"><a name="l02987"></a><span class="lineno"> 2987</span>&#160; </div>
-<div class="line"><a name="l02988"></a><span class="lineno"> 2988</span>&#160;out_unit = stdout()</div>
+<div class="line"><a name="l02988"></a><span class="lineno"> 2988</span>&#160;out_unit = <a class="code" href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a>()</div>
 <div class="line"><a name="l02989"></a><span class="lineno"> 2989</span>&#160;<span class="comment">!</span></div>
 <div class="line"><a name="l02990"></a><span class="lineno"> 2990</span>&#160;<span class="comment">!        Initialize the field manager if needed</span></div>
 <div class="line"><a name="l02991"></a><span class="lineno"> 2991</span>&#160;<span class="comment">!</span></div>
@@ -3174,7 +3174,7 @@ $(document).ready(function(){initNavTree('field__manager_8F90_source.html',''); 
 <div class="line"><a name="l03078"></a><span class="lineno"> 3078</span>&#160;<span class="keywordtype">type</span> (field_def), <span class="keywordtype">pointer</span>, <span class="keywordtype">save</span> :: temp_field_p</div>
 <div class="line"><a name="l03079"></a><span class="lineno"> 3079</span>&#160;<span class="keywordtype">integer</span>                         :: out_unit</div>
 <div class="line"><a name="l03080"></a><span class="lineno"> 3080</span>&#160; </div>
-<div class="line"><a name="l03081"></a><span class="lineno"> 3081</span>&#160;out_unit = stdout()</div>
+<div class="line"><a name="l03081"></a><span class="lineno"> 3081</span>&#160;out_unit = <a class="code" href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a>()</div>
 <div class="line"><a name="l03082"></a><span class="lineno"> 3082</span>&#160;<span class="comment">!</span></div>
 <div class="line"><a name="l03083"></a><span class="lineno"> 3083</span>&#160;<span class="comment">!        Initialize the field manager if needed</span></div>
 <div class="line"><a name="l03084"></a><span class="lineno"> 3084</span>&#160;<span class="comment">!</span></div>
@@ -3273,7 +3273,7 @@ $(document).ready(function(){initNavTree('field__manager_8F90_source.html',''); 
 <div class="line"><a name="l03177"></a><span class="lineno"> 3177</span>&#160;<span class="keywordtype">type</span> (field_def), <span class="keywordtype">pointer</span>, <span class="keywordtype">save</span> :: temp_field_p</div>
 <div class="line"><a name="l03178"></a><span class="lineno"> 3178</span>&#160;<span class="keywordtype">integer</span>                         :: out_unit</div>
 <div class="line"><a name="l03179"></a><span class="lineno"> 3179</span>&#160; </div>
-<div class="line"><a name="l03180"></a><span class="lineno"> 3180</span>&#160;out_unit = stdout()</div>
+<div class="line"><a name="l03180"></a><span class="lineno"> 3180</span>&#160;out_unit = <a class="code" href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a>()</div>
 <div class="line"><a name="l03181"></a><span class="lineno"> 3181</span>&#160;<span class="comment">!</span></div>
 <div class="line"><a name="l03182"></a><span class="lineno"> 3182</span>&#160;<span class="comment">!        Initialize the field manager if needed</span></div>
 <div class="line"><a name="l03183"></a><span class="lineno"> 3183</span>&#160;<span class="comment">!</span></div>
@@ -3396,7 +3396,7 @@ $(document).ready(function(){initNavTree('field__manager_8F90_source.html',''); 
 <div class="line"><a name="l03300"></a><span class="lineno"> 3300</span>&#160;<span class="keywordtype">type</span> (field_def), <span class="keywordtype">pointer</span>, <span class="keywordtype">save</span> :: temp_field_p</div>
 <div class="line"><a name="l03301"></a><span class="lineno"> 3301</span>&#160;<span class="keywordtype">integer</span>                         :: out_unit</div>
 <div class="line"><a name="l03302"></a><span class="lineno"> 3302</span>&#160; </div>
-<div class="line"><a name="l03303"></a><span class="lineno"> 3303</span>&#160;out_unit = stdout()</div>
+<div class="line"><a name="l03303"></a><span class="lineno"> 3303</span>&#160;out_unit = <a class="code" href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a>()</div>
 <div class="line"><a name="l03304"></a><span class="lineno"> 3304</span>&#160;<span class="comment">!</span></div>
 <div class="line"><a name="l03305"></a><span class="lineno"> 3305</span>&#160;<span class="comment">!        Initialize the field manager if needed</span></div>
 <div class="line"><a name="l03306"></a><span class="lineno"> 3306</span>&#160;<span class="comment">!</span></div>
@@ -3522,7 +3522,7 @@ $(document).ready(function(){initNavTree('field__manager_8F90_source.html',''); 
 <div class="line"><a name="l03426"></a><span class="lineno"> 3426</span>&#160;<span class="keywordtype">type</span> (field_def), <span class="keywordtype">pointer</span>, <span class="keywordtype">save</span> :: temp_field_p</div>
 <div class="line"><a name="l03427"></a><span class="lineno"> 3427</span>&#160;<span class="keywordtype">integer</span>                         :: out_unit</div>
 <div class="line"><a name="l03428"></a><span class="lineno"> 3428</span>&#160; </div>
-<div class="line"><a name="l03429"></a><span class="lineno"> 3429</span>&#160;out_unit = stdout()</div>
+<div class="line"><a name="l03429"></a><span class="lineno"> 3429</span>&#160;out_unit = <a class="code" href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a>()</div>
 <div class="line"><a name="l03430"></a><span class="lineno"> 3430</span>&#160;<span class="comment">!</span></div>
 <div class="line"><a name="l03431"></a><span class="lineno"> 3431</span>&#160;<span class="comment">!        Initialize the field manager if needed</span></div>
 <div class="line"><a name="l03432"></a><span class="lineno"> 3432</span>&#160;<span class="comment">!</span></div>
@@ -3651,7 +3651,7 @@ $(document).ready(function(){initNavTree('field__manager_8F90_source.html',''); 
 <div class="line"><a name="l03555"></a><span class="lineno"> 3555</span>&#160;<span class="keywordtype">type</span> (field_def), <span class="keywordtype">pointer</span>, <span class="keywordtype">save</span> :: temp_field_p</div>
 <div class="line"><a name="l03556"></a><span class="lineno"> 3556</span>&#160;<span class="keywordtype">integer</span>                         :: out_unit</div>
 <div class="line"><a name="l03557"></a><span class="lineno"> 3557</span>&#160; </div>
-<div class="line"><a name="l03558"></a><span class="lineno"> 3558</span>&#160;out_unit = stdout()</div>
+<div class="line"><a name="l03558"></a><span class="lineno"> 3558</span>&#160;out_unit = <a class="code" href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a>()</div>
 <div class="line"><a name="l03559"></a><span class="lineno"> 3559</span>&#160;<span class="comment">!</span></div>
 <div class="line"><a name="l03560"></a><span class="lineno"> 3560</span>&#160;<span class="comment">!        Initialize the field manager if needed</span></div>
 <div class="line"><a name="l03561"></a><span class="lineno"> 3561</span>&#160;<span class="comment">!</span></div>
@@ -3816,7 +3816,7 @@ $(document).ready(function(){initNavTree('field__manager_8F90_source.html',''); 
 <div class="line"><a name="l03720"></a><span class="lineno"> 3720</span>&#160;<span class="keywordtype">type</span> (field_def), <span class="keywordtype">pointer</span>, <span class="keywordtype">save</span>    :: temp_p</div>
 <div class="line"><a name="l03721"></a><span class="lineno"> 3721</span>&#160;<span class="keywordtype">integer</span>                            :: out_unit</div>
 <div class="line"><a name="l03722"></a><span class="lineno"> 3722</span>&#160; </div>
-<div class="line"><a name="l03723"></a><span class="lineno"> 3723</span>&#160;out_unit = stdout()</div>
+<div class="line"><a name="l03723"></a><span class="lineno"> 3723</span>&#160;out_unit = <a class="code" href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a>()</div>
 <div class="line"><a name="l03724"></a><span class="lineno"> 3724</span>&#160; </div>
 <div class="line"><a name="l03725"></a><span class="lineno"> 3725</span>&#160;<span class="keyword">nullify</span>(return_p)</div>
 <div class="line"><a name="l03726"></a><span class="lineno"> 3726</span>&#160;<span class="comment">!</span></div>
@@ -4014,7 +4014,7 @@ $(document).ready(function(){initNavTree('field__manager_8F90_source.html',''); 
 <div class="line"><a name="l03918"></a><span class="lineno"> 3918</span>&#160;<span class="keywordtype">type</span> (field_def), <span class="keywordtype">pointer</span>, <span class="keywordtype">save</span> :: temp_list_p</div>
 <div class="line"><a name="l03919"></a><span class="lineno"> 3919</span>&#160;<span class="keywordtype">integer</span>                         :: out_unit</div>
 <div class="line"><a name="l03920"></a><span class="lineno"> 3920</span>&#160; </div>
-<div class="line"><a name="l03921"></a><span class="lineno"> 3921</span>&#160;out_unit = stdout()</div>
+<div class="line"><a name="l03921"></a><span class="lineno"> 3921</span>&#160;out_unit = <a class="code" href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a>()</div>
 <div class="line"><a name="l03922"></a><span class="lineno"> 3922</span>&#160;<span class="comment">!</span></div>
 <div class="line"><a name="l03923"></a><span class="lineno"> 3923</span>&#160;<span class="comment">!        Initialize the field manager if needed</span></div>
 <div class="line"><a name="l03924"></a><span class="lineno"> 3924</span>&#160;<span class="comment">!</span></div>
@@ -4198,7 +4198,7 @@ $(document).ready(function(){initNavTree('field__manager_8F90_source.html',''); 
 <div class="line"><a name="l04102"></a><span class="lineno"> 4102</span>&#160;<span class="keywordtype">type</span> (field_def), <span class="keywordtype">pointer</span>, <span class="keywordtype">save</span>  :: temp_list_p</div>
 <div class="line"><a name="l04103"></a><span class="lineno"> 4103</span>&#160;<span class="keywordtype">integer</span>                         :: out_unit</div>
 <div class="line"><a name="l04104"></a><span class="lineno"> 4104</span>&#160; </div>
-<div class="line"><a name="l04105"></a><span class="lineno"> 4105</span>&#160;out_unit = stdout()</div>
+<div class="line"><a name="l04105"></a><span class="lineno"> 4105</span>&#160;out_unit = <a class="code" href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a>()</div>
 <div class="line"><a name="l04106"></a><span class="lineno"> 4106</span>&#160;<span class="comment">!</span></div>
 <div class="line"><a name="l04107"></a><span class="lineno"> 4107</span>&#160;<span class="comment">!        Initialize the field manager if needed</span></div>
 <div class="line"><a name="l04108"></a><span class="lineno"> 4108</span>&#160;<span class="comment">!</span></div>
@@ -4353,7 +4353,7 @@ $(document).ready(function(){initNavTree('field__manager_8F90_source.html',''); 
 <div class="line"><a name="l04257"></a><span class="lineno"> 4257</span>&#160;<span class="keywordtype">type</span> (field_def), <span class="keywordtype">pointer</span>, <span class="keywordtype">save</span>  :: temp_field_p</div>
 <div class="line"><a name="l04258"></a><span class="lineno"> 4258</span>&#160;<span class="keywordtype">integer</span>                          :: out_unit</div>
 <div class="line"><a name="l04259"></a><span class="lineno"> 4259</span>&#160; </div>
-<div class="line"><a name="l04260"></a><span class="lineno"> 4260</span>&#160;out_unit = stdout()</div>
+<div class="line"><a name="l04260"></a><span class="lineno"> 4260</span>&#160;out_unit = <a class="code" href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a>()</div>
 <div class="line"><a name="l04261"></a><span class="lineno"> 4261</span>&#160;<span class="comment">!</span></div>
 <div class="line"><a name="l04262"></a><span class="lineno"> 4262</span>&#160;<span class="comment">!        Initialize the field manager if needed</span></div>
 <div class="line"><a name="l04263"></a><span class="lineno"> 4263</span>&#160;<span class="comment">!</span></div>
@@ -4588,7 +4588,7 @@ $(document).ready(function(){initNavTree('field__manager_8F90_source.html',''); 
 <div class="line"><a name="l04492"></a><span class="lineno"> 4492</span>&#160;<span class="keywordtype">type</span> (field_def),      <span class="keywordtype">pointer</span>, <span class="keywordtype">save</span> :: temp_field_p</div>
 <div class="line"><a name="l04493"></a><span class="lineno"> 4493</span>&#160;<span class="keywordtype">integer</span>                              :: out_unit</div>
 <div class="line"><a name="l04494"></a><span class="lineno"> 4494</span>&#160; </div>
-<div class="line"><a name="l04495"></a><span class="lineno"> 4495</span>&#160;out_unit = stdout()</div>
+<div class="line"><a name="l04495"></a><span class="lineno"> 4495</span>&#160;out_unit = <a class="code" href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a>()</div>
 <div class="line"><a name="l04496"></a><span class="lineno"> 4496</span>&#160;<span class="comment">!</span></div>
 <div class="line"><a name="l04497"></a><span class="lineno"> 4497</span>&#160;<span class="comment">!        Initialize the field manager if needed</span></div>
 <div class="line"><a name="l04498"></a><span class="lineno"> 4498</span>&#160;<span class="comment">!</span></div>
@@ -4824,7 +4824,7 @@ $(document).ready(function(){initNavTree('field__manager_8F90_source.html',''); 
 <div class="line"><a name="l04728"></a><span class="lineno"> 4728</span>&#160;<span class="keywordtype">type</span> (field_def), <span class="keywordtype">pointer</span>, <span class="keywordtype">save</span>  :: temp_field_p</div>
 <div class="line"><a name="l04729"></a><span class="lineno"> 4729</span>&#160;<span class="keywordtype">integer</span>                          :: out_unit</div>
 <div class="line"><a name="l04730"></a><span class="lineno"> 4730</span>&#160; </div>
-<div class="line"><a name="l04731"></a><span class="lineno"> 4731</span>&#160;out_unit = stdout()</div>
+<div class="line"><a name="l04731"></a><span class="lineno"> 4731</span>&#160;out_unit = <a class="code" href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a>()</div>
 <div class="line"><a name="l04732"></a><span class="lineno"> 4732</span>&#160;<span class="comment">!</span></div>
 <div class="line"><a name="l04733"></a><span class="lineno"> 4733</span>&#160;<span class="comment">!        Initialize the field manager if needed</span></div>
 <div class="line"><a name="l04734"></a><span class="lineno"> 4734</span>&#160;<span class="comment">!</span></div>
@@ -5059,7 +5059,7 @@ $(document).ready(function(){initNavTree('field__manager_8F90_source.html',''); 
 <div class="line"><a name="l04963"></a><span class="lineno"> 4963</span>&#160;<span class="keywordtype">type</span> (field_def),                     <span class="keywordtype">save</span>, <span class="keywordtype">pointer</span> :: temp_field_p</div>
 <div class="line"><a name="l04964"></a><span class="lineno"> 4964</span>&#160;<span class="keywordtype">integer</span>                         :: out_unit</div>
 <div class="line"><a name="l04965"></a><span class="lineno"> 4965</span>&#160; </div>
-<div class="line"><a name="l04966"></a><span class="lineno"> 4966</span>&#160;out_unit = stdout()</div>
+<div class="line"><a name="l04966"></a><span class="lineno"> 4966</span>&#160;out_unit = <a class="code" href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a>()</div>
 <div class="line"><a name="l04967"></a><span class="lineno"> 4967</span>&#160;<span class="comment">!</span></div>
 <div class="line"><a name="l04968"></a><span class="lineno"> 4968</span>&#160;<span class="comment">!        Initialize the field manager if needed</span></div>
 <div class="line"><a name="l04969"></a><span class="lineno"> 4969</span>&#160;<span class="comment">!</span></div>
@@ -5614,7 +5614,7 @@ $(document).ready(function(){initNavTree('field__manager_8F90_source.html',''); 
 <div class="line"><a name="l05518"></a><span class="lineno"> 5518</span>&#160;<span class="keywordtype">type</span> (field_def), <span class="keywordtype">pointer</span>, <span class="keywordtype">save</span> :: dummy_p</div>
 <div class="line"><a name="l05519"></a><span class="lineno"> 5519</span>&#160;<span class="keywordtype">integer</span>                         :: out_unit</div>
 <div class="line"><a name="l05520"></a><span class="lineno"> 5520</span>&#160; </div>
-<div class="line"><a name="l05521"></a><span class="lineno"> 5521</span>&#160;out_unit = stdout()</div>
+<div class="line"><a name="l05521"></a><span class="lineno"> 5521</span>&#160;out_unit = <a class="code" href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a>()</div>
 <div class="line"><a name="l05522"></a><span class="lineno"> 5522</span>&#160;<span class="comment">!</span></div>
 <div class="line"><a name="l05523"></a><span class="lineno"> 5523</span>&#160;<span class="comment">!        Check to see whether there is already a list with</span></div>
 <div class="line"><a name="l05524"></a><span class="lineno"> 5524</span>&#160;<span class="comment">!        this name, and if so, return an error as list names</span></div>
@@ -5722,7 +5722,7 @@ $(document).ready(function(){initNavTree('field__manager_8F90_source.html',''); 
 <div class="line"><a name="l05626"></a><span class="lineno"> 5626</span>&#160;<span class="keywordtype">type</span> (field_def), <span class="keywordtype">pointer</span>, <span class="keywordtype">save</span> :: this_field_p</div>
 <div class="line"><a name="l05627"></a><span class="lineno"> 5627</span>&#160;<span class="keywordtype">integer</span>                         :: out_unit</div>
 <div class="line"><a name="l05628"></a><span class="lineno"> 5628</span>&#160; </div>
-<div class="line"><a name="l05629"></a><span class="lineno"> 5629</span>&#160;  out_unit = stdout()</div>
+<div class="line"><a name="l05629"></a><span class="lineno"> 5629</span>&#160;  out_unit = <a class="code" href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a>()</div>
 <div class="line"><a name="l05630"></a><span class="lineno"> 5630</span>&#160;  success     = .false.</div>
 <div class="line"><a name="l05631"></a><span class="lineno"> 5631</span>&#160;  recursive_t = .true.</div>
 <div class="line"><a name="l05632"></a><span class="lineno"> 5632</span>&#160;  method_name = <span class="stringliteral">&quot; &quot;</span></div>
@@ -5831,7 +5831,7 @@ $(document).ready(function(){initNavTree('field__manager_8F90_source.html',''); 
 <div class="line"><a name="l05735"></a><span class="lineno"> 5735</span>&#160;<span class="keywordtype">type</span> (field_def), <span class="keywordtype">pointer</span> :: this_field_p</div>
 <div class="line"><a name="l05736"></a><span class="lineno"> 5736</span>&#160;<span class="keywordtype">integer</span>                         :: out_unit</div>
 <div class="line"><a name="l05737"></a><span class="lineno"> 5737</span>&#160; </div>
-<div class="line"><a name="l05738"></a><span class="lineno"> 5738</span>&#160;out_unit = stdout()</div>
+<div class="line"><a name="l05738"></a><span class="lineno"> 5738</span>&#160;out_unit = <a class="code" href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a>()</div>
 <div class="line"><a name="l05739"></a><span class="lineno"> 5739</span>&#160; </div>
 <div class="line"><a name="l05740"></a><span class="lineno"> 5740</span>&#160;<span class="comment">!  Check for a valid list</span></div>
 <div class="line"><a name="l05741"></a><span class="lineno"> 5741</span>&#160;<span class="keywordflow">if</span> (.not. <span class="keyword">associated</span>(list_p)) <span class="keywordflow">then</span></div>
@@ -5987,7 +5987,7 @@ $(document).ready(function(){initNavTree('field__manager_8F90_source.html',''); 
 <div class="line"><a name="l05891"></a><span class="lineno"> 5891</span>&#160;<span class="keywordtype">type</span> (field_def), <span class="keywordtype">pointer</span>, <span class="keywordtype">save</span>                            :: temp_list_p</div>
 <div class="line"><a name="l05892"></a><span class="lineno"> 5892</span>&#160;<span class="keywordtype">integer</span>                                                    :: out_unit</div>
 <div class="line"><a name="l05893"></a><span class="lineno"> 5893</span>&#160; </div>
-<div class="line"><a name="l05894"></a><span class="lineno"> 5894</span>&#160;out_unit = stdout()</div>
+<div class="line"><a name="l05894"></a><span class="lineno"> 5894</span>&#160;out_unit = <a class="code" href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a>()</div>
 <div class="line"><a name="l05895"></a><span class="lineno"> 5895</span>&#160; </div>
 <div class="line"><a name="l05896"></a><span class="lineno"> 5896</span>&#160; </div>
 <div class="line"><a name="l05897"></a><span class="lineno"> 5897</span>&#160;num_meth= 1</div>
@@ -6132,7 +6132,7 @@ $(document).ready(function(){initNavTree('field__manager_8F90_source.html',''); 
 <div class="line"><a name="l06036"></a><span class="lineno"> 6036</span>&#160;<span class="keywordtype">type</span> (field_def), <span class="keywordtype">pointer</span>, <span class="keywordtype">save</span> :: temp_list_p</div>
 <div class="line"><a name="l06037"></a><span class="lineno"> 6037</span>&#160;<span class="keywordtype">integer</span>                         :: out_unit</div>
 <div class="line"><a name="l06038"></a><span class="lineno"> 6038</span>&#160; </div>
-<div class="line"><a name="l06039"></a><span class="lineno"> 6039</span>&#160;out_unit = stdout()</div>
+<div class="line"><a name="l06039"></a><span class="lineno"> 6039</span>&#160;out_unit = <a class="code" href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a>()</div>
 <div class="line"><a name="l06040"></a><span class="lineno"> 6040</span>&#160;num_meth= 1</div>
 <div class="line"><a name="l06041"></a><span class="lineno"> 6041</span>&#160;<span class="comment">!</span></div>
 <div class="line"><a name="l06042"></a><span class="lineno"> 6042</span>&#160;<span class="comment">!        Check whether to do things recursively</span></div>
@@ -6248,7 +6248,7 @@ $(document).ready(function(){initNavTree('field__manager_8F90_source.html',''); 
 <div class="line"><a name="l06152"></a><span class="lineno"> 6152</span>&#160;<span class="keywordtype">type</span> (field_def), <span class="keywordtype">pointer</span>, <span class="keywordtype">save</span> :: this_field_p</div>
 <div class="line"><a name="l06153"></a><span class="lineno"> 6153</span>&#160;<span class="keywordtype">integer</span>                         :: out_unit</div>
 <div class="line"><a name="l06154"></a><span class="lineno"> 6154</span>&#160; </div>
-<div class="line"><a name="l06155"></a><span class="lineno"> 6155</span>&#160;out_unit = stdout()</div>
+<div class="line"><a name="l06155"></a><span class="lineno"> 6155</span>&#160;out_unit = <a class="code" href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a>()</div>
 <div class="line"><a name="l06156"></a><span class="lineno"> 6156</span>&#160;<span class="comment">!</span></div>
 <div class="line"><a name="l06157"></a><span class="lineno"> 6157</span>&#160;<span class="comment">!        Check for a valid list</span></div>
 <div class="line"><a name="l06158"></a><span class="lineno"> 6158</span>&#160;<span class="comment">!</span></div>
@@ -6387,7 +6387,7 @@ $(document).ready(function(){initNavTree('field__manager_8F90_source.html',''); 
 <div class="line"><a name="l06291"></a><span class="lineno"> 6291</span>&#160;<span class="comment">!+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span></div>
 <div class="line"><a name="l06292"></a><span class="lineno"> 6292</span>&#160;<span class="keywordtype">integer</span>                         :: out_unit</div>
 <div class="line"><a name="l06293"></a><span class="lineno"> 6293</span>&#160; </div>
-<div class="line"><a name="l06294"></a><span class="lineno"> 6294</span>&#160;out_unit = stdout()</div>
+<div class="line"><a name="l06294"></a><span class="lineno"> 6294</span>&#160;out_unit = <a class="code" href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a>()</div>
 <div class="line"><a name="l06295"></a><span class="lineno"> 6295</span>&#160; </div>
 <div class="line"><a name="l06296"></a><span class="lineno"> 6296</span>&#160;<span class="comment">!</span></div>
 <div class="line"><a name="l06297"></a><span class="lineno"> 6297</span>&#160;<span class="comment">!       Check whether an argument has been given</span></div>
@@ -6427,9 +6427,12 @@ $(document).ready(function(){initNavTree('field__manager_8F90_source.html',''); 
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="astructfield__manager__mod_1_1method__type__very__short_html"><div class="ttname"><a href="structfield__manager__mod_1_1method__type__very__short.html">field_manager_mod::method_type_very_short</a></div><div class="ttdef"><b>Definition:</b> <a href="field__manager_8F90_source.html#l00397">field_manager.F90:397</a></div></div>
+<div class="ttc" id="ampp__util_8inc_html_a172901d39c9b0cf14aa83b1e94fdf21b"><div class="ttname"><a href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a></div><div class="ttdeci">integer function stdout()</div><div class="ttdoc">This function returns the current standard fortran unit numbers for output.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00065">mpp_util.inc:65</a></div></div>
 <div class="ttc" id="astructfield__manager__mod_1_1method__type__short_html"><div class="ttname"><a href="structfield__manager__mod_1_1method__type__short.html">field_manager_mod::method_type_short</a></div><div class="ttdef"><b>Definition:</b> <a href="field__manager_8F90_source.html#l00377">field_manager.F90:377</a></div></div>
 <div class="ttc" id="astructfield__manager__mod_1_1fm__list__iter__type_html"><div class="ttname"><a href="structfield__manager__mod_1_1fm__list__iter__type.html">field_manager_mod::fm_list_iter_type</a></div><div class="ttdef"><b>Definition:</b> <a href="field__manager_8F90_source.html#l00406">field_manager.F90:406</a></div></div>
 <div class="ttc" id="astructfield__manager__mod_1_1method__type_html"><div class="ttname"><a href="structfield__manager__mod_1_1method__type.html">field_manager_mod::method_type</a></div><div class="ttdef"><b>Definition:</b> <a href="field__manager_8F90_source.html#l00345">field_manager.F90:345</a></div></div>
+<div class="ttc" id="ampp__util_8inc_html_a8e5518df9532bae0241f53ab542294a2"><div class="ttname"><a href="mpp__util_8inc.html#a8e5518df9532bae0241f53ab542294a2">stdlog</a></div><div class="ttdeci">integer function stdlog()</div><div class="ttdoc">This function returns the current standard fortran unit numbers for log messages. Log messages,...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00106">mpp_util.inc:106</a></div></div>
+<div class="ttc" id="ampp__util_8inc_html_acfeba7de56f9dd6000b3fd78f9d56c50"><div class="ttname"><a href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a></div><div class="ttdeci">integer function mpp_pe()</div><div class="ttdoc">Returns processor ID. This returns the unique ID associated with a PE. This number runs between 0 and...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00442">mpp_util.inc:442</a></div></div>
 <div class="ttc" id="astructfield__manager__mod_1_1fm__array__list__def_html"><div class="ttname"><a href="structfield__manager__mod_1_1fm__array__list__def.html">field_manager_mod::fm_array_list_def</a></div><div class="ttdef"><b>Definition:</b> <a href="field__manager_8F90_source.html#l00325">field_manager.F90:325</a></div></div>
 <div class="ttc" id="agroup__fms__mod_html_ga0c093df98a75dbd9e0f3add67aa6c23a"><div class="ttname"><a href="group__fms__mod.html#ga0c093df98a75dbd9e0f3add67aa6c23a">fms_mod::write_version_number</a></div><div class="ttdeci">subroutine, public write_version_number(version, tag, unit)</div><div class="ttdoc">Prints to the log file (or a specified unit) the version id string and tag name.</div><div class="ttdef"><b>Definition:</b> <a href="fms_8F90_source.html#l01025">fms.F90:1025</a></div></div>
 <!-- start footer part -->

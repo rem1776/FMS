@@ -133,7 +133,7 @@ $(document).ready(function(){initNavTree('mpp__do__redistribute_8h_source.html',
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;      integer :: buffer_pos, wordlen, errunit</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;!fix ke</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;      errunit = stderr()</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;      errunit = <a class="code" href="mpp__util_8inc.html#a285ef180624257148d85af894928844b">stderr</a>()</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;      l_size = size(f_out(:))  ! equal to size(f_in(:))</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;      ke = d_comm%ke</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;      domain_in =&gt;d_comm%domain_in; domain_out =&gt;d_comm%domain_out</div>
@@ -177,7 +177,7 @@ $(document).ready(function(){initNavTree('mpp__do__redistribute_8h_source.html',
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;         buffer_pos = pos</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;      end <span class="keywordflow">do</span></div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;      call mpp_sync_self(check=EVENT_RECV)</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;      call <a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=EVENT_RECV)</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;!unpack buffer</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;      buffer_pos = 0</div>
@@ -203,10 +203,12 @@ $(document).ready(function(){initNavTree('mpp__do__redistribute_8h_source.html',
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;         buffer_pos = pos</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;      end <span class="keywordflow">do</span></div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;      call mpp_sync_self()</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;      call <a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>()</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    end subroutine MPP_DO_REDISTRIBUTE_3D_</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="ampp__util__mpi_8inc_html_a09e69243d8c67e6a6e6e4fd9e93d0870"><div class="ttname"><a href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a></div><div class="ttdeci">subroutine mpp_sync_self(pelist, check, request, msg_size, msg_type)</div><div class="ttdoc">This is to check if current PE's outstanding puts are complete but we can't use shmem_fence because w...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util__mpi_8inc_source.html#l00169">mpp_util_mpi.inc:169</a></div></div>
+<div class="ttc" id="ampp__util_8inc_html_a285ef180624257148d85af894928844b"><div class="ttname"><a href="mpp__util_8inc.html#a285ef180624257148d85af894928844b">stderr</a></div><div class="ttdeci">integer function stderr()</div><div class="ttdoc">This function returns the current standard fortran unit numbers for error messages.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00085">mpp_util.inc:85</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

@@ -120,8 +120,8 @@ $(document).ready(function(){initNavTree('test__mpp__transmit_8F90_source.html',
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">program</span> test_mpp_transmit</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <span class="keywordtype">use </span>mpp_mod, <span class="keywordtype">only</span> : mpp_init, mpp_pe, mpp_npes, mpp_root_pe</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <span class="keywordtype">use </span>mpp_mod, <span class="keywordtype">only</span> : mpp_sync, mpp_sync_self</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <span class="keywordtype">use </span>mpp_mod, <span class="keywordtype">only</span> : mpp_init, <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>, <a class="code" href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>, mpp_root_pe</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <span class="keywordtype">use </span>mpp_mod, <span class="keywordtype">only</span> : <a class="code" href="mpp__util__mpi_8inc.html#ad75482ebfad2337cd236ef0998accdc4">mpp_sync</a>, <a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <span class="keywordtype">use </span>mpp_mod, <span class="keywordtype">only</span> : mpp_set_stack_size, mpp_init_test_requests_allocated</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="keywordtype">use </span>mpp_mod, <span class="keywordtype">only</span> : mpp_transmit, all_pes, null_pe</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="keywordtype">use </span>mpp_mod, <span class="keywordtype">only</span> : mpp_error, fatal</div>
@@ -134,8 +134,8 @@ $(document).ready(function(){initNavTree('test__mpp__transmit_8F90_source.html',
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <span class="keyword">call </span>mpp_init(test_level=mpp_init_test_requests_allocated)</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="keyword">call </span>mpp_set_stack_size(3145746)</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  pe = mpp_pe()</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  npes = mpp_npes()</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  pe = <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  npes = <a class="code" href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>()</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  root = mpp_root_pe()</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keywordflow">if</span>( pe.EQ.root ) print *, <span class="stringliteral">&#39;------------------&gt; Calling test_mpp_transmit &lt;------------------&#39;</span></div>
@@ -160,16 +160,16 @@ $(document).ready(function(){initNavTree('test__mpp__transmit_8F90_source.html',
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="comment">! Initializing a4 as a unique number for each pe</span></div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    a4 = real(pe, kind=r4_kind)</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keyword">call </span>mpp_sync()</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#ad75482ebfad2337cd236ef0998accdc4">mpp_sync</a>()</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordflow">if</span> (pe .EQ. 0) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;      <span class="keywordflow">do</span> i = 1,npes-1</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keyword">call </span>mpp_transmit( put_data=a4, plen=n, to_pe=i, get_data=a4, glen=n, from_pe=null_pe )</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keyword">call </span>mpp_sync_self()</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>()</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keywordflow">      end do</span></div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;      <span class="keyword">call </span>mpp_transmit( put_data=a4, plen=n, to_pe=null_pe, get_data=a4, glen=n, from_pe=0 )</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;      <span class="keyword">call </span>mpp_sync_self()</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;      <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>()</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keywordflow">    end if</span></div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="comment">! a4 should equal 0 for all pes</span></div>
@@ -184,11 +184,11 @@ $(document).ready(function(){initNavTree('test__mpp__transmit_8F90_source.html',
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="comment">! Initializing a4 as a unique number for each pe</span></div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    a4 = real(pe, kind=r4_kind)</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keyword">call </span>mpp_sync()</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#ad75482ebfad2337cd236ef0998accdc4">mpp_sync</a>()</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keyword">call </span>mpp_transmit( put_data=a4, plen=n, to_pe=all_pes, &amp;</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                       get_data=a4, glen=n, from_pe=root )</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keyword">call </span>mpp_sync_self()</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>()</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="comment">! a4 should equal 0 for all pes</span></div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordflow">if</span> (a4 .NE. 0) <span class="keyword">call </span>mpp_error(fatal, <span class="stringliteral">&quot;Test_mpp_transmit_all_pes: transmit didn&#39;t go as expected&quot;</span>)</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="test__mpp__transmit_8F90.html#af78b10cc9288a98cd2193607c35d00e5">test_mpp_transmit_all_pes</a></div>
@@ -212,11 +212,11 @@ $(document).ready(function(){initNavTree('test__mpp__transmit_8F90_source.html',
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="comment">! Initializing a4 as a unique number for each pe</span></div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    a4 = real(pe, kind=r4_kind)</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    b4 = real(0, kind=r4_kind)</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keyword">call </span>mpp_sync()</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#ad75482ebfad2337cd236ef0998accdc4">mpp_sync</a>()</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keyword">call </span>mpp_transmit( put_data=a4, plen=n, to_pe=modulo(pe+1, npes), &amp;</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                       get_data=b4, glen=n, from_pe=modulo(npes+pe-1, npes) )</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keyword">call </span>mpp_sync_self()</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>()</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    c4 = real(modulo(int(a4)+npes-1,npes), kind=r4_kind)</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="comment">! b4 should now equal the value of a4 from the &quot;from_pe&quot;</span></div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordflow">if</span> (b4 .NE. c4 ) <span class="keyword">call </span>mpp_error(fatal, <span class="stringliteral">&quot;Test_mpp_transmit_r4_scalar: transmit didn&#39;t go as expected&quot;</span>)</div>
@@ -232,11 +232,11 @@ $(document).ready(function(){initNavTree('test__mpp__transmit_8F90_source.html',
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <span class="comment">! Initializing a8 as a unique number for each pe</span></div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    a8 = real(pe, kind=r8_kind)</div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    b8 = real(0, kind=r8_kind)</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    <span class="keyword">call </span>mpp_sync()</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#ad75482ebfad2337cd236ef0998accdc4">mpp_sync</a>()</div>
 <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
 <div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    <span class="keyword">call </span>mpp_transmit( put_data=a8, plen=n, to_pe=modulo(pe+1, npes), &amp;</div>
 <div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;                       get_data=b8, glen=n, from_pe=modulo(npes+pe-1, npes) )</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <span class="keyword">call </span>mpp_sync_self()</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>()</div>
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    c8 = real(modulo(int(a8)+npes-1,npes), kind=r8_kind)</div>
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <span class="comment">! b8 should now equal the value of a8 from the &quot;from_pe&quot;</span></div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <span class="keywordflow">if</span> (b8 .NE. c8 ) <span class="keyword">call </span>mpp_error(fatal, <span class="stringliteral">&quot;Test_mpp_transmit_r8_scalar: transmit didn&#39;t go as expected&quot;</span>)</div>
@@ -252,11 +252,11 @@ $(document).ready(function(){initNavTree('test__mpp__transmit_8F90_source.html',
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="comment">! Initializing a4 as a unique number for each pe</span></div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    a4 = int(pe, kind=i4_kind)</div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    b4 = int(0, kind=i4_kind)</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <span class="keyword">call </span>mpp_sync()</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#ad75482ebfad2337cd236ef0998accdc4">mpp_sync</a>()</div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; </div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <span class="keyword">call </span>mpp_transmit( put_data=a4, plen=n, to_pe=modulo(pe+1, npes), &amp;</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;                       get_data=b4, glen=n, from_pe=modulo(npes+pe-1, npes) )</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="keyword">call </span>mpp_sync_self()</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>()</div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    c4 = int(modulo(a4+npes-1,npes), kind=i4_kind)</div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="comment">! b4 should now equal the value of a4 from the &quot;from_pe&quot;</span></div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <span class="keywordflow">if</span> (b4 .NE. c4 ) <span class="keyword">call </span>mpp_error(fatal, <span class="stringliteral">&quot;Test_mpp_transmit_i4_scalar: transmit didn&#39;t go as expected&quot;</span>)</div>
@@ -272,11 +272,11 @@ $(document).ready(function(){initNavTree('test__mpp__transmit_8F90_source.html',
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <span class="comment">! Initializing a8 as a unique number for each pe</span></div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    a8 = int(pe, kind=i8_kind)</div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    b8 = int(0, kind=i8_kind)</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <span class="keyword">call </span>mpp_sync()</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#ad75482ebfad2337cd236ef0998accdc4">mpp_sync</a>()</div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160; </div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    <span class="keyword">call </span>mpp_transmit( put_data=a8, plen=n, to_pe=modulo(pe+1, npes), &amp;</div>
 <div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;                       get_data=b8, glen=n, from_pe=modulo(npes+pe-1, npes) )</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    <span class="keyword">call </span>mpp_sync_self()</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>()</div>
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    c8 = int(modulo(a8+npes-1,npes), kind=i8_kind)</div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    <span class="comment">! b8 should now equal the value of a8 from the &quot;from_pe&quot;</span></div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <span class="keywordflow">if</span> (b8 .NE. c8 ) <span class="keyword">call </span>mpp_error(fatal, <span class="stringliteral">&quot;Test_mpp_transmit_i8_scalar: transmit didn&#39;t go as expected&quot;</span>)</div>
@@ -303,11 +303,11 @@ $(document).ready(function(){initNavTree('test__mpp__transmit_8F90_source.html',
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    <span class="comment">! Initilizing the a4 array with unique numbers for each element and pe</span></div>
 <div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    a4 = real( reshape((/(i, i=pe, pe+(n**2-1))/), shape(a4)), kind=r4_kind)</div>
 <div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    b4 = real(0, kind=r4_kind)</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    <span class="keyword">call </span>mpp_sync()</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#ad75482ebfad2337cd236ef0998accdc4">mpp_sync</a>()</div>
 <div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160; </div>
 <div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    <span class="keyword">call </span>mpp_transmit( put_data=a4(1,1), plen=n**2, to_pe=modulo(pe+1, npes), &amp;</div>
 <div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;                       get_data=b4(1,1), glen=n**2, from_pe=modulo(npes+pe-1, npes) )</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    <span class="keyword">call </span>mpp_sync_self()</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>()</div>
 <div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160; </div>
 <div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    c4 = reshape((/(i, i=modulo(npes+pe-1,npes),modulo(npes+pe-1,npes)+(2**n-1))/),shape(c4))</div>
 <div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    <span class="comment">! b4(1,1) should now equal the value of a4(1,1)from the &quot;from_pe&quot;</span></div>
@@ -325,11 +325,11 @@ $(document).ready(function(){initNavTree('test__mpp__transmit_8F90_source.html',
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    <span class="comment">! Initilizing the a8 array with unique numbers for each element and pe</span></div>
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    a8 = real( reshape((/(i, i=pe, pe+(n**2-1))/), shape(a8)), kind=r8_kind)</div>
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    b8 = real(0, kind=r8_kind)</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    <span class="keyword">call </span>mpp_sync()</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#ad75482ebfad2337cd236ef0998accdc4">mpp_sync</a>()</div>
 <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160; </div>
 <div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    <span class="keyword">call </span>mpp_transmit( put_data=a8(1,1), plen=2**n, to_pe=modulo(pe+1, npes), &amp;</div>
 <div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;                       get_data=b8(1,1), glen=2**n, from_pe=modulo(npes+pe-1, npes) )</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    <span class="keyword">call </span>mpp_sync_self()</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>()</div>
 <div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160; </div>
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    c8 = reshape((/(i, i=modulo(npes+pe-1,npes),modulo(npes+pe-1,npes)+(2**n-1))/),shape(c8))</div>
 <div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    <span class="comment">! b8 should now equal the value of a8 from the &quot;from_pe&quot;</span></div>
@@ -347,11 +347,11 @@ $(document).ready(function(){initNavTree('test__mpp__transmit_8F90_source.html',
 <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    <span class="comment">! Initilizing the a4 array with unique numbers for each element and pe</span></div>
 <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    a4 = int( reshape((/(i, i=pe, pe+(n**2-1))/), shape(a4)), kind=i4_kind)</div>
 <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    b4 = int(0, kind=i4_kind)</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    <span class="keyword">call </span>mpp_sync()</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#ad75482ebfad2337cd236ef0998accdc4">mpp_sync</a>()</div>
 <div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160; </div>
 <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    <span class="keyword">call </span>mpp_transmit( put_data=a4(1,1), plen=2**n, to_pe=modulo(pe+1, npes), &amp;</div>
 <div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;                       get_data=b4(1,1), glen=2**n, from_pe=modulo(npes+pe-1, npes) )</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    <span class="keyword">call </span>mpp_sync_self()</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>()</div>
 <div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160; </div>
 <div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    c4 = reshape((/(i, i=modulo(npes+pe-1,npes),modulo(npes+pe-1,npes)+(2**n-1))/),shape(c4))</div>
 <div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    <span class="comment">! b4 should now equal the value of a4 from the &quot;from_pe&quot;</span></div>
@@ -369,11 +369,11 @@ $(document).ready(function(){initNavTree('test__mpp__transmit_8F90_source.html',
 <div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    <span class="comment">! Initilizing the a8 array with unique numbers for each element and pe</span></div>
 <div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    a8 = int( reshape((/(i, i=pe, pe+(2**n-1))/), shape(a8)), kind=i8_kind)</div>
 <div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    b8 = int(0, kind=i8_kind)</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    <span class="keyword">call </span>mpp_sync()</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#ad75482ebfad2337cd236ef0998accdc4">mpp_sync</a>()</div>
 <div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160; </div>
 <div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    <span class="keyword">call </span>mpp_transmit( put_data=a8(1,1), plen=2**n, to_pe=modulo(pe+1, npes), &amp;</div>
 <div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;                       get_data=b8(1,1), glen=2**n, from_pe=modulo(npes+pe-1, npes) )</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    <span class="keyword">call </span>mpp_sync_self()</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>()</div>
 <div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160; </div>
 <div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    c8 = reshape((/(i, i=modulo(npes+pe-1,npes),modulo(npes+pe-1,npes)+(2**n-1))/),shape(c8))</div>
 <div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    <span class="comment">! b8 should now equal the value of a8 from the &quot;from_pe&quot;</span></div>
@@ -401,11 +401,11 @@ $(document).ready(function(){initNavTree('test__mpp__transmit_8F90_source.html',
 <div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    <span class="comment">! Initilizing the a4 array with unique numbers for each element and pe</span></div>
 <div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    a4 = real( reshape((/(i, i=pe, pe+(2**n-1))/), shape(a4)), kind=r4_kind)</div>
 <div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    b4 = real(0, kind=r4_kind)</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    <span class="keyword">call </span>mpp_sync()</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#ad75482ebfad2337cd236ef0998accdc4">mpp_sync</a>()</div>
 <div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160; </div>
 <div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    <span class="keyword">call </span>mpp_transmit( put_data=a4(1,1,1), plen=2**n, to_pe=modulo(pe+1, npes), &amp;</div>
 <div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;                       get_data=b4(1,1,1), glen=2**n, from_pe=modulo(npes+pe-1, npes) )</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    <span class="keyword">call </span>mpp_sync_self()</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>()</div>
 <div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160; </div>
 <div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    c4 = reshape((/(i, i=modulo(npes+pe-1,npes), modulo(npes+pe-1,npes)+(2**n-1))/), shape(c4))</div>
 <div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    <span class="comment">! b4 should now equal the value of a4 from the &quot;from_pe&quot;</span></div>
@@ -423,11 +423,11 @@ $(document).ready(function(){initNavTree('test__mpp__transmit_8F90_source.html',
 <div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    <span class="comment">! Initilizing the a8 array with unique numbers for each element and pe</span></div>
 <div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    a8 = real( reshape((/(i, i=pe, pe+(2**n-1))/), shape(a8)), kind=r8_kind)</div>
 <div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    b8 = real(0, kind=r8_kind)</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    <span class="keyword">call </span>mpp_sync()</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#ad75482ebfad2337cd236ef0998accdc4">mpp_sync</a>()</div>
 <div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160; </div>
 <div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    <span class="keyword">call </span>mpp_transmit( put_data=a8(1,1,1), plen=2**n, to_pe=modulo(pe+1, npes), &amp;</div>
 <div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;                       get_data=b8(1,1,1), glen=2**n, from_pe=modulo(npes+pe-1, npes) )</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    <span class="keyword">call </span>mpp_sync_self()</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>()</div>
 <div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160; </div>
 <div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    c8 = reshape((/(i, i=modulo(npes+pe-1,npes), modulo(npes+pe-1,npes)+(2**n-1))/), shape(c8))</div>
 <div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    <span class="comment">! b8 should now equal the value of a8 from the &quot;from_pe&quot;</span></div>
@@ -446,11 +446,11 @@ $(document).ready(function(){initNavTree('test__mpp__transmit_8F90_source.html',
 <div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;    <span class="comment">! Initilizing the a4 array with unique numbers for each element and pe</span></div>
 <div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;    a4 = int( reshape((/(i, i=pe, pe+(2**n-1))/), shape(a4)), kind=i4_kind)</div>
 <div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;    b4 = int(0, kind=i4_kind)</div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;    <span class="keyword">call </span>mpp_sync()</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;    <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#ad75482ebfad2337cd236ef0998accdc4">mpp_sync</a>()</div>
 <div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160; </div>
 <div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;    <span class="keyword">call </span>mpp_transmit( put_data=a4(1,1,1), plen=2**n, to_pe=modulo(pe+1, npes), &amp;</div>
 <div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;                       get_data=b4(1,1,1), glen=2**n, from_pe=modulo(npes+pe-1, npes) )</div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;    <span class="keyword">call </span>mpp_sync_self()</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;    <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>()</div>
 <div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160; </div>
 <div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;    c4 = reshape((/(i, i=modulo(npes+pe-1,npes), modulo(npes+pe-1,npes)+(2**n-1))/), shape(c4))</div>
 <div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;    <span class="comment">! b4 should now equal the value of a4 from the &quot;from_pe&quot;</span></div>
@@ -468,11 +468,11 @@ $(document).ready(function(){initNavTree('test__mpp__transmit_8F90_source.html',
 <div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;    <span class="comment">! Initilizing the a8 array with unique numbers for each element and pe</span></div>
 <div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;    a8 = int( reshape((/(i, i=pe, pe+(2**n-1))/), shape(a8)), kind=i8_kind)</div>
 <div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;    b8 = int(0, kind=i8_kind)</div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;    <span class="keyword">call </span>mpp_sync()</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;    <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#ad75482ebfad2337cd236ef0998accdc4">mpp_sync</a>()</div>
 <div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160; </div>
 <div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;    <span class="keyword">call </span>mpp_transmit( put_data=a8(1,1,1), plen=2**n, to_pe=modulo(pe+1, npes), &amp;</div>
 <div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;                       get_data=b8(1,1,1), glen=2**n, from_pe=modulo(npes+pe-1, npes) )</div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;    <span class="keyword">call </span>mpp_sync_self()</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;    <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>()</div>
 <div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160; </div>
 <div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;    c8 = reshape((/(i, i=modulo(npes+pe-1,npes), modulo(npes+pe-1,npes)+(2**n-1))/), shape(c8))</div>
 <div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;    <span class="comment">! b8 should now equal the value of a8(1,1,1)from the &quot;from_pe&quot;</span></div>
@@ -500,11 +500,11 @@ $(document).ready(function(){initNavTree('test__mpp__transmit_8F90_source.html',
 <div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;    <span class="comment">! Initilizing the a4 array with unique numbers for each element and pe</span></div>
 <div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;    a4 = real( reshape((/(i, i=pe, pe+(2**n-1))/), shape(a4)), kind=r4_kind)</div>
 <div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;    b4 = real(0, kind=r4_kind)</div>
-<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;    <span class="keyword">call </span>mpp_sync()</div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;    <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#ad75482ebfad2337cd236ef0998accdc4">mpp_sync</a>()</div>
 <div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160; </div>
 <div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;    <span class="keyword">call </span>mpp_transmit( put_data=a4(1,1,1,1), plen=2**n, to_pe=modulo(pe+1, npes), &amp;</div>
 <div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;                       get_data=b4(1,1,1,1), glen=2**n, from_pe=modulo(npes+pe-1, npes) )</div>
-<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;    <span class="keyword">call </span>mpp_sync_self()</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;    <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>()</div>
 <div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160; </div>
 <div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;    c4 = reshape((/(i, i=modulo(npes+pe-1,npes), modulo(npes+pe-1,npes)+(2**n-1))/), shape(c4))</div>
 <div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;    <span class="comment">! b4 should now equal the value of a4 from the &quot;from_pe&quot;</span></div>
@@ -522,11 +522,11 @@ $(document).ready(function(){initNavTree('test__mpp__transmit_8F90_source.html',
 <div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;    <span class="comment">! Initilizing the a4 array with unique numbers for each element and pe</span></div>
 <div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;    a8 = real( reshape((/(i, i=pe, pe+(2**n-1))/), shape(a8)), kind=r8_kind)</div>
 <div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;    b8 = real(0, kind=r8_kind)</div>
-<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;    <span class="keyword">call </span>mpp_sync()</div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;    <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#ad75482ebfad2337cd236ef0998accdc4">mpp_sync</a>()</div>
 <div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160; </div>
 <div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;    <span class="keyword">call </span>mpp_transmit( put_data=a8(1,1,1,1), plen=2**n, to_pe=modulo(pe+1, npes), &amp;</div>
 <div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;                       get_data=b8(1,1,1,1), glen=2**n, from_pe=modulo(npes+pe-1, npes) )</div>
-<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;    <span class="keyword">call </span>mpp_sync_self()</div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;    <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>()</div>
 <div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160; </div>
 <div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;    c8 = reshape((/(i, i=modulo(npes+pe-1,npes), modulo(npes+pe-1,npes)+(2**n-1))/), shape(c8))</div>
 <div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;    <span class="comment">! b8 should now equal the value of a8 from the &quot;from_pe&quot;</span></div>
@@ -544,11 +544,11 @@ $(document).ready(function(){initNavTree('test__mpp__transmit_8F90_source.html',
 <div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;    <span class="comment">! Initilizing the a4 array with unique numbers for each element and pe</span></div>
 <div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;    a4 = int( reshape((/(i, i=pe, pe+(2**n-1))/), shape(a4)), kind=i4_kind)</div>
 <div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;    b4 = int(0, kind=i4_kind)</div>
-<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;    <span class="keyword">call </span>mpp_sync()</div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;    <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#ad75482ebfad2337cd236ef0998accdc4">mpp_sync</a>()</div>
 <div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160; </div>
 <div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;    <span class="keyword">call </span>mpp_transmit( put_data=a4(1,1,1,1), plen=2**n, to_pe=modulo(pe+1, npes), &amp;</div>
 <div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;                       get_data=b4(1,1,1,1), glen=2**n, from_pe=modulo(npes+pe-1, npes) )</div>
-<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;    <span class="keyword">call </span>mpp_sync_self()</div>
+<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;    <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>()</div>
 <div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160; </div>
 <div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;    c4 = reshape((/(i, i=modulo(npes+pe-1,npes), modulo(npes+pe-1,npes)+(2**n-1))/), shape(c4))</div>
 <div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;    <span class="comment">! b4 should now equal the value of a4 from the &quot;from_pe&quot;</span></div>
@@ -566,11 +566,11 @@ $(document).ready(function(){initNavTree('test__mpp__transmit_8F90_source.html',
 <div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;    <span class="comment">! Initilizing the a8 array with unique numbers for each element and pe</span></div>
 <div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;    a8 = int( reshape((/(i, i=pe, pe+(n**2-1))/), shape(a8)), kind=i8_kind)</div>
 <div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;    b8 = int(0, kind=i8_kind)</div>
-<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;    <span class="keyword">call </span>mpp_sync()</div>
+<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;    <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#ad75482ebfad2337cd236ef0998accdc4">mpp_sync</a>()</div>
 <div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160; </div>
 <div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;    <span class="keyword">call </span>mpp_transmit( put_data=a8(1,1,1,1), plen=2**n, to_pe=modulo(pe+1, npes), &amp;</div>
 <div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;                       get_data=b8(1,1,1,1), glen=2**n, from_pe=modulo(npes+pe-1, npes) )</div>
-<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;    <span class="keyword">call </span>mpp_sync_self()</div>
+<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;    <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>()</div>
 <div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160; </div>
 <div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;    c8 = reshape((/(i, i=modulo(npes+pe-1,npes), modulo(npes+pe-1,npes)+(2**n-1))/), shape(c8))</div>
 <div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;    <span class="comment">! b8 should now equal the value of a8 from the &quot;from_pe&quot;</span></div>
@@ -598,11 +598,11 @@ $(document).ready(function(){initNavTree('test__mpp__transmit_8F90_source.html',
 <div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;    <span class="comment">! Initilizing the a4 array with unique numbers for each element and pe</span></div>
 <div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;    a4 = real( reshape((/(i, i=pe, pe+(2**n-1))/), shape(a4)), kind=r4_kind)</div>
 <div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;    b4 = real(0, kind=r4_kind)</div>
-<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;    <span class="keyword">call </span>mpp_sync()</div>
+<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;    <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#ad75482ebfad2337cd236ef0998accdc4">mpp_sync</a>()</div>
 <div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160; </div>
 <div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;    <span class="keyword">call </span>mpp_transmit( put_data=a4(1,1,1,1,1), plen=2**n, to_pe=modulo(pe+1, npes), &amp;</div>
 <div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;                       get_data=b4(1,1,1,1,1), glen=2**n, from_pe=modulo(npes+pe-1, npes) )</div>
-<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;    <span class="keyword">call </span>mpp_sync_self()</div>
+<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;    <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>()</div>
 <div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160; </div>
 <div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;    c4 = reshape((/(i, i=modulo(npes+pe-1,npes), modulo(npes+pe-1,npes)+(2**n-1))/), shape(c4))</div>
 <div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;    <span class="comment">! b4 should now equal the value of a4 from the &quot;from_pe&quot;</span></div>
@@ -620,11 +620,11 @@ $(document).ready(function(){initNavTree('test__mpp__transmit_8F90_source.html',
 <div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;    <span class="comment">! Initilizing the a4 array with unique numbers for each element and pe</span></div>
 <div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;    a8 = real( reshape((/(i, i=pe, pe+(2**n-1))/), shape(a8)), kind=r8_kind)</div>
 <div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;    b8 = real(0, kind=r8_kind)</div>
-<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;    <span class="keyword">call </span>mpp_sync()</div>
+<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;    <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#ad75482ebfad2337cd236ef0998accdc4">mpp_sync</a>()</div>
 <div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160; </div>
 <div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;    <span class="keyword">call </span>mpp_transmit( put_data=a8(1,1,1,1,1), plen=2**n, to_pe=modulo(pe+1, npes), &amp;</div>
 <div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;                       get_data=b8(1,1,1,1,1), glen=2**n, from_pe=modulo(npes+pe-1, npes) )</div>
-<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;    <span class="keyword">call </span>mpp_sync_self()</div>
+<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;    <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>()</div>
 <div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160; </div>
 <div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;    c8 = reshape((/(i, i=modulo(npes+pe-1,npes), modulo(npes+pe-1,npes)+(2**n-1))/), shape(c8))</div>
 <div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;    <span class="comment">! b8 should now equal the value of a8 from the &quot;from_pe&quot;</span></div>
@@ -642,11 +642,11 @@ $(document).ready(function(){initNavTree('test__mpp__transmit_8F90_source.html',
 <div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;    <span class="comment">! Initilizing the a8 array with unique numbers for each element and pe</span></div>
 <div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;    a4 = int( reshape((/(i, i=pe, pe+(n**2-1))/), shape(a4)), kind=i4_kind)</div>
 <div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;    b4 = int(0, kind=i4_kind)</div>
-<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;    <span class="keyword">call </span>mpp_sync()</div>
+<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;    <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#ad75482ebfad2337cd236ef0998accdc4">mpp_sync</a>()</div>
 <div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160; </div>
 <div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;    <span class="keyword">call </span>mpp_transmit( put_data=a4(1,1,1,1,1), plen=2**n, to_pe=modulo(pe+1, npes), &amp;</div>
 <div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;                       get_data=b4(1,1,1,1,1), glen=2**n, from_pe=modulo(npes+pe-1, npes) )</div>
-<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;    <span class="keyword">call </span>mpp_sync_self()</div>
+<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;    <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>()</div>
 <div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160; </div>
 <div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;    c4 = reshape((/(i, i=modulo(npes+pe-1,npes), modulo(npes+pe-1,npes)+(2**n-1))/), shape(c4))</div>
 <div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;    <span class="comment">! b4 should now equal the value of a4 from the &quot;from_pe&quot;</span></div>
@@ -664,11 +664,11 @@ $(document).ready(function(){initNavTree('test__mpp__transmit_8F90_source.html',
 <div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;    <span class="comment">! Initilizing the a8 array with unique numbers for each element and pe</span></div>
 <div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;    a8 = int( reshape((/(i, i=pe, pe+(n**2-1))/), shape(a8)), kind=i8_kind)</div>
 <div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;    b8 = int(0, kind=i8_kind)</div>
-<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;    <span class="keyword">call </span>mpp_sync()</div>
+<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;    <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#ad75482ebfad2337cd236ef0998accdc4">mpp_sync</a>()</div>
 <div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160; </div>
 <div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;    <span class="keyword">call </span>mpp_transmit( put_data=a8(1,1,1,1,1), plen=2**n, to_pe=modulo(pe+1, npes), &amp;</div>
 <div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;                       get_data=b8(1,1,1,1,1), glen=2**n, from_pe=modulo(npes+pe-1, npes) )</div>
-<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;    <span class="keyword">call </span>mpp_sync_self()</div>
+<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;    <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>()</div>
 <div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160; </div>
 <div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;    c8 = reshape((/(i, i=modulo(npes+pe-1,npes), modulo(npes+pe-1,npes)+(2**n-1))/), shape(c8))</div>
 <div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;    <span class="comment">! b8 should now equal the value of a8 from the &quot;from_pe&quot;</span></div>
@@ -686,12 +686,14 @@ $(document).ready(function(){initNavTree('test__mpp__transmit_8F90_source.html',
 <div class="ttc" id="atest__mpp__transmit_8F90_html_ad06c9778c22a35c59ed551c46e1f0a71"><div class="ttname"><a href="test__mpp__transmit_8F90.html#ad06c9778c22a35c59ed551c46e1f0a71">test_mpp_transmit_r8_2d</a></div><div class="ttdeci">subroutine test_mpp_transmit_r8_2d(npes, pe, root)</div><div class="ttdoc">Test the functionality of mpp_transmit for an r8_2D.</div><div class="ttdef"><b>Definition:</b> <a href="test__mpp__transmit_8F90_source.html#l00224">test_mpp_transmit.F90:224</a></div></div>
 <div class="ttc" id="atest__mpp__transmit_8F90_html_a904bd506627baaf837ae56cfe6455d4b"><div class="ttname"><a href="test__mpp__transmit_8F90.html#a904bd506627baaf837ae56cfe6455d4b">test_mpp_transmit_i8_2d</a></div><div class="ttdeci">subroutine test_mpp_transmit_i8_2d(npes, pe, root)</div><div class="ttdoc">Test the functionality of mpp_transmit for an i8_2D.</div><div class="ttdef"><b>Definition:</b> <a href="test__mpp__transmit_8F90_source.html#l00268">test_mpp_transmit.F90:268</a></div></div>
 <div class="ttc" id="atest__mpp__transmit_8F90_html_a03cec299288f4a8bca54313272605899"><div class="ttname"><a href="test__mpp__transmit_8F90.html#a03cec299288f4a8bca54313272605899">test_mpp_transmit_i4_5d</a></div><div class="ttdeci">subroutine test_mpp_transmit_i4_5d(npes, pe, root)</div><div class="ttdoc">Test the functionality of mpp_transmit for an i4_5D.</div><div class="ttdef"><b>Definition:</b> <a href="test__mpp__transmit_8F90_source.html#l00541">test_mpp_transmit.F90:541</a></div></div>
+<div class="ttc" id="ampp__util__mpi_8inc_html_a09e69243d8c67e6a6e6e4fd9e93d0870"><div class="ttname"><a href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a></div><div class="ttdeci">subroutine mpp_sync_self(pelist, check, request, msg_size, msg_type)</div><div class="ttdoc">This is to check if current PE's outstanding puts are complete but we can't use shmem_fence because w...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util__mpi_8inc_source.html#l00169">mpp_util_mpi.inc:169</a></div></div>
 <div class="ttc" id="atest__mpp__transmit_8F90_html_a59abe665ff70ee2423f9d266d8e87680"><div class="ttname"><a href="test__mpp__transmit_8F90.html#a59abe665ff70ee2423f9d266d8e87680">test_mpp_transmit_i4_3d</a></div><div class="ttdeci">subroutine test_mpp_transmit_i4_3d(npes, pe, root)</div><div class="ttdoc">Test the functionality of mpp_transmit for an i4_3D.</div><div class="ttdef"><b>Definition:</b> <a href="test__mpp__transmit_8F90_source.html#l00345">test_mpp_transmit.F90:345</a></div></div>
 <div class="ttc" id="atest__mpp__transmit_8F90_html_a9caf6ffb86ab9050b377b72640e5a899"><div class="ttname"><a href="test__mpp__transmit_8F90.html#a9caf6ffb86ab9050b377b72640e5a899">test_mpp_transmit_i4_4d</a></div><div class="ttdeci">subroutine test_mpp_transmit_i4_4d(npes, pe, root)</div><div class="ttdoc">Test the functionality of mpp_transmit for an i4_4D.</div><div class="ttdef"><b>Definition:</b> <a href="test__mpp__transmit_8F90_source.html#l00443">test_mpp_transmit.F90:443</a></div></div>
 <div class="ttc" id="atest__mpp__transmit_8F90_html_a6a28cdfc4f26b6412ee4975ecc1652e9"><div class="ttname"><a href="test__mpp__transmit_8F90.html#a6a28cdfc4f26b6412ee4975ecc1652e9">test_mpp_transmit_r8_4d</a></div><div class="ttdeci">subroutine test_mpp_transmit_r8_4d(npes, pe, root)</div><div class="ttdoc">Test the functionality of mpp_transmit for an r8_4D.</div><div class="ttdef"><b>Definition:</b> <a href="test__mpp__transmit_8F90_source.html#l00421">test_mpp_transmit.F90:421</a></div></div>
 <div class="ttc" id="atest__mpp__transmit_8F90_html_a1e4c17caf0d50984a89070cd86d111d4"><div class="ttname"><a href="test__mpp__transmit_8F90.html#a1e4c17caf0d50984a89070cd86d111d4">test_mpp_transmit_i4_scalar</a></div><div class="ttdeci">subroutine test_mpp_transmit_i4_scalar(npes, pe, root)</div><div class="ttdoc">Test the functionality of mpp_transmit for an i4_scalar.</div><div class="ttdef"><b>Definition:</b> <a href="test__mpp__transmit_8F90_source.html#l00152">test_mpp_transmit.F90:152</a></div></div>
 <div class="ttc" id="atest__mpp__transmit_8F90_html_a9f0889173b78289a444b52257307ad9b"><div class="ttname"><a href="test__mpp__transmit_8F90.html#a9f0889173b78289a444b52257307ad9b">test_mpp_transmit_i8_4d</a></div><div class="ttdeci">subroutine test_mpp_transmit_i8_4d(npes, pe, root)</div><div class="ttdoc">Test the functionality of mpp_transmit for an i8_4D.</div><div class="ttdef"><b>Definition:</b> <a href="test__mpp__transmit_8F90_source.html#l00465">test_mpp_transmit.F90:465</a></div></div>
 <div class="ttc" id="atest__mpp__transmit_8F90_html_a8667b63ac65f2ba617fffd18209f75e2"><div class="ttname"><a href="test__mpp__transmit_8F90.html#a8667b63ac65f2ba617fffd18209f75e2">test_mpp_transmit_r8_3d</a></div><div class="ttdeci">subroutine test_mpp_transmit_r8_3d(npes, pe, root)</div><div class="ttdoc">Test the functionality of mpp_transmit for an r8_3D.</div><div class="ttdef"><b>Definition:</b> <a href="test__mpp__transmit_8F90_source.html#l00322">test_mpp_transmit.F90:322</a></div></div>
+<div class="ttc" id="ampp__util__mpi_8inc_html_ad75482ebfad2337cd236ef0998accdc4"><div class="ttname"><a href="mpp__util__mpi_8inc.html#ad75482ebfad2337cd236ef0998accdc4">mpp_sync</a></div><div class="ttdeci">subroutine mpp_sync(pelist, do_self)</div><div class="ttdoc">Synchronize PEs in list.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util__mpi_8inc_source.html#l00146">mpp_util_mpi.inc:146</a></div></div>
 <div class="ttc" id="atest__mpp__transmit_8F90_html_ab22e03364ada525546612cc963ed44e6"><div class="ttname"><a href="test__mpp__transmit_8F90.html#ab22e03364ada525546612cc963ed44e6">test_mpp_transmit_r4_4d</a></div><div class="ttdeci">subroutine test_mpp_transmit_r4_4d(npes, pe, root)</div><div class="ttdoc">Test the functionality of mpp_transmit for an r4_4D.</div><div class="ttdef"><b>Definition:</b> <a href="test__mpp__transmit_8F90_source.html#l00399">test_mpp_transmit.F90:399</a></div></div>
 <div class="ttc" id="atest__mpp__transmit_8F90_html_aa2b234f7214920382678f0d168f8c990"><div class="ttname"><a href="test__mpp__transmit_8F90.html#aa2b234f7214920382678f0d168f8c990">test_mpp_transmit_i8_5d</a></div><div class="ttdeci">subroutine test_mpp_transmit_i8_5d(npes, pe, root)</div><div class="ttdoc">Test the functionality of mpp_transmit for an i8_5D.</div><div class="ttdef"><b>Definition:</b> <a href="test__mpp__transmit_8F90_source.html#l00563">test_mpp_transmit.F90:563</a></div></div>
 <div class="ttc" id="atest__mpp__transmit_8F90_html_a46d733eedae082f2ba9d275ea60fd1a8"><div class="ttname"><a href="test__mpp__transmit_8F90.html#a46d733eedae082f2ba9d275ea60fd1a8">test_mpp_transmit_r4_3d</a></div><div class="ttdeci">subroutine test_mpp_transmit_r4_3d(npes, pe, root)</div><div class="ttdoc">Test the functionality of mpp_transmit for an r4_3D.</div><div class="ttdef"><b>Definition:</b> <a href="test__mpp__transmit_8F90_source.html#l00300">test_mpp_transmit.F90:300</a></div></div>
@@ -699,6 +701,8 @@ $(document).ready(function(){initNavTree('test__mpp__transmit_8F90_source.html',
 <div class="ttc" id="atest__mpp__transmit_8F90_html_aac38f0abe9f0b4b726f076a0791fda03"><div class="ttname"><a href="test__mpp__transmit_8F90.html#aac38f0abe9f0b4b726f076a0791fda03">test_mpp_transmit_null_pe</a></div><div class="ttdeci">subroutine test_mpp_transmit_null_pe(npes, pe, root)</div><div class="ttdoc">Test the use of NULL_PE as an argument. Only testing once for an r4_scalar.</div><div class="ttdef"><b>Definition:</b> <a href="test__mpp__transmit_8F90_source.html#l00060">test_mpp_transmit.F90:60</a></div></div>
 <div class="ttc" id="atest__mpp__transmit_8F90_html_af78b10cc9288a98cd2193607c35d00e5"><div class="ttname"><a href="test__mpp__transmit_8F90.html#af78b10cc9288a98cd2193607c35d00e5">test_mpp_transmit_all_pes</a></div><div class="ttdeci">subroutine test_mpp_transmit_all_pes(npes, pe, root)</div><div class="ttdoc">Test the use of ALL_PES as an argument. Only testing once for an r4_scalar.</div><div class="ttdef"><b>Definition:</b> <a href="test__mpp__transmit_8F90_source.html#l00085">test_mpp_transmit.F90:85</a></div></div>
 <div class="ttc" id="atest__mpp__transmit_8F90_html_a1a2ad697e231b79e42f5899e730d15a5"><div class="ttname"><a href="test__mpp__transmit_8F90.html#a1a2ad697e231b79e42f5899e730d15a5">test_mpp_transmit_r8_5d</a></div><div class="ttdeci">subroutine test_mpp_transmit_r8_5d(npes, pe, root)</div><div class="ttdoc">Test the functionality of mpp_transmit for an r8_5D.</div><div class="ttdef"><b>Definition:</b> <a href="test__mpp__transmit_8F90_source.html#l00519">test_mpp_transmit.F90:519</a></div></div>
+<div class="ttc" id="ampp__util_8inc_html_abf546cd336d5c539e445fb884f98ab6b"><div class="ttname"><a href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a></div><div class="ttdeci">integer function mpp_npes()</div><div class="ttdoc">Returns processor count for current pelist.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00467">mpp_util.inc:467</a></div></div>
+<div class="ttc" id="ampp__util_8inc_html_acfeba7de56f9dd6000b3fd78f9d56c50"><div class="ttname"><a href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a></div><div class="ttdeci">integer function mpp_pe()</div><div class="ttdoc">Returns processor ID. This returns the unique ID associated with a PE. This number runs between 0 and...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00442">mpp_util.inc:442</a></div></div>
 <div class="ttc" id="atest__mpp__transmit_8F90_html_a5c20527e7266f96ad8a4bcb392e777cb"><div class="ttname"><a href="test__mpp__transmit_8F90.html#a5c20527e7266f96ad8a4bcb392e777cb">test_mpp_transmit_i8_scalar</a></div><div class="ttdeci">subroutine test_mpp_transmit_i8_scalar(npes, pe, root)</div><div class="ttdoc">Test the functionality of mpp_transmit for an i8_scalar.</div><div class="ttdef"><b>Definition:</b> <a href="test__mpp__transmit_8F90_source.html#l00172">test_mpp_transmit.F90:172</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

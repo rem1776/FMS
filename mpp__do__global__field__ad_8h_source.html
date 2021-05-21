@@ -215,7 +215,7 @@ $(document).ready(function(){initNavTree('mpp__do__global__field__ad_8h_source.h
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;! if there is more than one tile on this pe, then no decomposition for all tiles on this pe, so we can just return</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;      if(size(domain%x(:))&gt;1) then</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;         !--- the following is needed to avoid deadlock.</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;         if( tile == size(domain%x(:)) ) call mpp_sync_self( )</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;         if( tile == size(domain%x(:)) ) call <a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>( )</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;         return</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;      end if</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
@@ -245,7 +245,7 @@ $(document).ready(function(){initNavTree('mpp__do__global__field__ad_8h_source.h
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;             call mpp_transmit( put_data=cremote(1), plen=nwords, to_pe=from_pe, &amp;</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;                                get_data=clocal(1), glen=nword_me, from_pe=domain%x(1)%list(lpos)%pe )</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160; </div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;             call mpp_sync_self()  !-ensure MPI_ISEND is done.</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;             call <a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>()  !-ensure MPI_ISEND is done.</div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;          end do</div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;      else if( yonly )then</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;          nd = size(domain%y(1)%list(:))</div>
@@ -271,7 +271,7 @@ $(document).ready(function(){initNavTree('mpp__do__global__field__ad_8h_source.h
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;             call mpp_transmit( put_data=cremote(1), plen=nwords, to_pe=from_pe, &amp;</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;                                get_data=clocal(1), glen=nword_me, from_pe=domain%y(1)%list(lpos)%pe )</div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160; </div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;             call mpp_sync_self()  !-ensure MPI_ISEND is done.</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;             call <a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>()  !-ensure MPI_ISEND is done.</div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;          end do</div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;      else</div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;         tile_id = domain%tile_id(1)</div>
@@ -333,7 +333,7 @@ $(document).ready(function(){initNavTree('mpp__do__global__field__ad_8h_source.h
 <div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;         endif</div>
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;      end if</div>
 <div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160; </div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;      call mpp_sync_self()</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;      call <a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>()</div>
 <div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160; </div>
 <div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;     ! make contiguous array from compute domain</div>
 <div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;      m = 0</div>
@@ -367,6 +367,7 @@ $(document).ready(function(){initNavTree('mpp__do__global__field__ad_8h_source.h
 <div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    end subroutine MPP_DO_GLOBAL_FIELD_3D_AD_</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="ampp__util__mpi_8inc_html_a09e69243d8c67e6a6e6e4fd9e93d0870"><div class="ttname"><a href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a></div><div class="ttdeci">subroutine mpp_sync_self(pelist, check, request, msg_size, msg_type)</div><div class="ttdoc">This is to check if current PE's outstanding puts are complete but we can't use shmem_fence because w...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util__mpi_8inc_source.html#l00169">mpp_util_mpi.inc:169</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

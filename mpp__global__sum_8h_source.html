@@ -199,7 +199,7 @@ $(document).ready(function(){initNavTree('mpp__global__sum_8h_source.html',''); 
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                   call mpp_send( mygsum(1), plen=ntile, to_pe=domain%list(m)%pe, tag=COMM_TAG_1 )</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                end <span class="keywordflow">do</span></div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;             end <span class="keywordflow">if</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;             call mpp_sync_self()</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;             call <a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>()</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;             !--- receive data from root_pe of each tile</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;             <span class="keywordflow">do</span> list = 1, nlist - 1</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                m = mod( domain%pos+nlist-list, nlist )</div>
@@ -248,6 +248,7 @@ $(document).ready(function(){initNavTree('mpp__global__sum_8h_source.html',''); 
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;  end <span class="keyword">function</span> MPP_GLOBAL_SUM_</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="ampp__util__mpi_8inc_html_a09e69243d8c67e6a6e6e4fd9e93d0870"><div class="ttname"><a href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a></div><div class="ttdeci">subroutine mpp_sync_self(pelist, check, request, msg_size, msg_type)</div><div class="ttdoc">This is to check if current PE's outstanding puts are complete but we can't use shmem_fence because w...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util__mpi_8inc_source.html#l00169">mpp_util_mpi.inc:169</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

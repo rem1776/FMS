@@ -128,7 +128,7 @@ $(document).ready(function(){initNavTree('mpp__efp_8F90_source.html',''); initRe
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">module</span> mpp_efp_mod</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keywordtype">use </span>mpp_mod, <span class="keywordtype">only</span> : mpp_error, fatal, warning, note</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keywordtype">use </span>mpp_mod, <span class="keywordtype">only</span> : mpp_pe, mpp_root_pe, mpp_npes</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keywordtype">use </span>mpp_mod, <span class="keywordtype">only</span> : <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>, mpp_root_pe, <a class="code" href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keywordtype">use </span>mpp_mod, <span class="keywordtype">only</span> : mpp_sum</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keywordtype">use </span>platform_mod</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
@@ -198,11 +198,11 @@ $(document).ready(function(){initNavTree('mpp__efp_8F90_source.html',''); initRe
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  <span class="keywordtype">character(len=256)</span> :: mesg</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  <span class="keywordtype">integer</span> :: i, j, n, is, ie, js, je, sgn</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  <span class="keywordflow">if</span> (mpp_npes() &gt; max_count_prec) <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>() &gt; max_count_prec) <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="stringliteral">&quot;mpp_reproducing_sum: Too many processors are being used for the value of &quot;</span>//&amp;</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="stringliteral">&quot;prec.  Reduce prec to (2^63-1)/mpp_npes.&quot;</span>)</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  prec_error = (2_8**62 + (2_8**62 - 1)) / mpp_npes()</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  prec_error = (2_8**62 + (2_8**62 - 1)) / <a class="code" href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>()</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;  is = 1 ; ie = <span class="keyword">size</span>(array,1) ; js = 1 ; je = <span class="keyword">size</span>(array,2 )</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  <span class="keywordflow">if</span> (<span class="keyword">present</span>(isr)) <span class="keywordflow">then</span></div>
@@ -316,7 +316,7 @@ $(document).ready(function(){initNavTree('mpp__efp_8F90_source.html',''); initRe
 <div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160; </div>
 <div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;  <span class="keywordflow">if</span> (debug) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    <span class="keyword">write</span>(mesg,<span class="stringliteral">&#39;(&quot;2d RS: &quot;, ES24.16, 6 Z17.16)&#39;</span>) sum, ints_sum(1:numint)</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    <span class="keywordflow">if</span>(mpp_pe() == mpp_root_pe()) <span class="keyword">call </span>mpp_error(note, mesg)</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe()) <span class="keyword">call </span>mpp_error(note, mesg)</div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;<span class="keywordflow">  endif</span></div>
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160; </div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;<span class="keyword">end function </span>mpp_reproducing_sum_r8_2d</div>
@@ -361,11 +361,11 @@ $(document).ready(function(){initNavTree('mpp__efp_8F90_source.html',''); initRe
 <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;  <span class="keywordtype">character(len=256)</span> :: mesg</div>
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;  <span class="keywordtype">integer</span> :: i, j, k, is, ie, js, je, ke, isz, jsz, n</div>
 <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160; </div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;  <span class="keywordflow">if</span> (mpp_npes() &gt; max_count_prec) <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>() &gt; max_count_prec) <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
 <div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    <span class="stringliteral">&quot;mpp_reproducing_sum: Too many processors are being used for the value of &quot;</span>//&amp;</div>
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    <span class="stringliteral">&quot;prec.  Reduce prec to (2^63-1)/mpp_npes.&quot;</span>)</div>
 <div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160; </div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;  prec_error = (2_8**62 + (2_8**62 - 1)) / mpp_npes()</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;  prec_error = (2_8**62 + (2_8**62 - 1)) / <a class="code" href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>()</div>
 <div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;  max_mag_term = 0.0</div>
 <div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160; </div>
 <div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;  is = 1 ; ie = <span class="keyword">size</span>(array,1) ; js = 1 ; je = <span class="keyword">size</span>(array,2) ; ke = <span class="keyword">size</span>(array,3)</div>
@@ -450,7 +450,7 @@ $(document).ready(function(){initNavTree('mpp__efp_8F90_source.html',''); initRe
 <div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;      <span class="keywordflow">do</span> n=1,numint ; ints_sum(n) = 0 ;<span class="keywordflow"> enddo</span></div>
 <div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;      <span class="keywordflow">do</span> k=1,ke ; <span class="keywordflow">do</span> n=1,numint ; ints_sum(n) = ints_sum(n) + ints_sums(n,k) ;<span class="keywordflow"> enddo</span> ;<span class="keywordflow"> enddo</span></div>
 <div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;      <span class="keyword">write</span>(mesg,<span class="stringliteral">&#39;(&quot;3D RS: &quot;, ES24.16, 6 Z17.16)&#39;</span>) sum, ints_sum(1:numint)</div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;      <span class="keywordflow">if</span>(mpp_pe()==mpp_root_pe()) <span class="keyword">call </span>mpp_error(note, mesg)</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;      <span class="keywordflow">if</span>(<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()==mpp_root_pe()) <span class="keyword">call </span>mpp_error(note, mesg)</div>
 <div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;<span class="keywordflow">    endif</span></div>
 <div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;  <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;    ints_sum(:) = 0</div>
@@ -500,7 +500,7 @@ $(document).ready(function(){initNavTree('mpp__efp_8F90_source.html',''); initRe
 <div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160; </div>
 <div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;    <span class="keywordflow">if</span> (debug) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;      <span class="keyword">write</span>(mesg,<span class="stringliteral">&#39;(&quot;3d RS: &quot;, ES24.16, 6 Z17.16)&#39;</span>) sum, ints_sum(1:numint)</div>
-<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;      <span class="keywordflow">if</span>(mpp_pe()==mpp_root_pe()) <span class="keyword">call </span>mpp_error(note, mesg)</div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;      <span class="keywordflow">if</span>(<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()==mpp_root_pe()) <span class="keyword">call </span>mpp_error(note, mesg)</div>
 <div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;<span class="keywordflow">    endif</span></div>
 <div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;<span class="keywordflow">  endif</span></div>
 <div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160; </div>
@@ -754,11 +754,11 @@ $(document).ready(function(){initNavTree('mpp__efp_8F90_source.html',''); initRe
 <div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;  <span class="keywordtype">character(len=256)</span> :: mesg</div>
 <div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;  <span class="keywordtype">integer</span> :: i, n</div>
 <div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160; </div>
-<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;  <span class="keywordflow">if</span> (mpp_npes() &gt; max_count_prec) <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
+<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>() &gt; max_count_prec) <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
 <div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;    <span class="stringliteral">&quot;mpp_efp_list_sum_across_PEs: Too many processors are being used for the value of &quot;</span>//&amp;</div>
 <div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;    <span class="stringliteral">&quot;prec.  Reduce prec to (2^63-1)/mpp_npes.&quot;</span>)</div>
 <div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160; </div>
-<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;  prec_error = (2_8**62 + (2_8**62 - 1)) / mpp_npes()</div>
+<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;  prec_error = (2_8**62 + (2_8**62 - 1)) / <a class="code" href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>()</div>
 <div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;  <span class="comment">! overflow_error is an overflow error flag for the whole module.</span></div>
 <div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;  overflow_error = .false. ; error_found = .false.</div>
 <div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160; </div>
@@ -775,7 +775,7 @@ $(document).ready(function(){initNavTree('mpp__efp_8F90_source.html',''); initRe
 <div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;    <span class="keywordflow">if</span> (overflow_error) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;      <span class="keyword">write</span> (mesg,<span class="stringliteral">&#39;(&quot;mpp_efp_list_sum_across_PEs error at &quot;,i6,&quot; val was &quot;,ES12.6, &quot;, prec_error = &quot;,ES12.6)&#39;</span>) &amp;</div>
 <div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;             i, mpp_efp_to_real(efps(i)), real(prec_error)</div>
-<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;      <span class="keywordflow">if</span>(mpp_pe()==mpp_root_pe()) <span class="keyword">call </span>mpp_error(warning, mesg)</div>
+<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;      <span class="keywordflow">if</span>(<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()==mpp_root_pe()) <span class="keyword">call </span>mpp_error(warning, mesg)</div>
 <div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;<span class="keywordflow">    endif</span></div>
 <div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;    error_found = error_found .or. overflow_error</div>
 <div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;<span class="keywordflow">  enddo</span></div>
@@ -792,6 +792,8 @@ $(document).ready(function(){initNavTree('mpp__efp_8F90_source.html',''); initRe
 </div><!-- doc-content -->
 <div class="ttc" id="astructmpp__efp__mod_1_1mpp__efp__type_html"><div class="ttname"><a href="structmpp__efp__mod_1_1mpp__efp__type.html">mpp_efp_mod::mpp_efp_type</a></div><div class="ttdoc">The Extended Fixed Point (mpp_efp) type provides a public interface for doing sums and taking differe...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__efp_8F90_source.html#l00073">mpp_efp.F90:73</a></div></div>
 <div class="ttc" id="agroup__mpp__efp__mod_html_gaed7cd16825b75d99783dc8e206cff192"><div class="ttname"><a href="group__mpp__efp__mod.html#gaed7cd16825b75d99783dc8e206cff192">mpp_efp_mod::mpp_efp_list_sum_across_pes</a></div><div class="ttdeci">subroutine, public mpp_efp_list_sum_across_pes(EFPs, nval, errors)</div><div class="ttdoc">This subroutine does a sum across PEs of a list of EFP variables, returning the sums in place,...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__efp_8F90_source.html#l00651">mpp_efp.F90:651</a></div></div>
+<div class="ttc" id="ampp__util_8inc_html_abf546cd336d5c539e445fb884f98ab6b"><div class="ttname"><a href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a></div><div class="ttdeci">integer function mpp_npes()</div><div class="ttdoc">Returns processor count for current pelist.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00467">mpp_util.inc:467</a></div></div>
+<div class="ttc" id="ampp__util_8inc_html_acfeba7de56f9dd6000b3fd78f9d56c50"><div class="ttname"><a href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a></div><div class="ttdeci">integer function mpp_pe()</div><div class="ttdoc">Returns processor ID. This returns the unique ID associated with a PE. This number runs between 0 and...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00442">mpp_util.inc:442</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

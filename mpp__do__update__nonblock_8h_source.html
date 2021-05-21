@@ -399,7 +399,7 @@ $(document).ready(function(){initNavTree('mpp__do__update__nonblock_8h_source.ht
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;  count = update%nrecv</div>
 <div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;  if(count &gt; 0) then</div>
 <div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;     call mpp_clock_begin(wait_clock_nonblock)</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;     call mpp_sync_self(check=EVENT_RECV, request=nonblock_data(id_update)%request_recv(1:count), &amp;</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;     call <a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=EVENT_RECV, request=nonblock_data(id_update)%request_recv(1:count), &amp;</div>
 <div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;                        msg_size=nonblock_data(id_update)%size_recv(1:count),                     &amp;</div>
 <div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;                        msg_type=nonblock_data(id_update)%type_recv(1:count) )</div>
 <div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;     call mpp_clock_end(wait_clock_nonblock)</div>
@@ -454,7 +454,7 @@ $(document).ready(function(){initNavTree('mpp__do__update__nonblock_8h_source.ht
 <div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;  count = update%nsend</div>
 <div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;  <span class="keywordflow">if</span>(count &gt; 0) then</div>
 <div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;     call mpp_clock_begin(wait_clock_nonblock)</div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;     call mpp_sync_self(check=EVENT_SEND, request=nonblock_data(id_update)%request_send(1:count))</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;     call <a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=EVENT_SEND, request=nonblock_data(id_update)%request_send(1:count))</div>
 <div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;     call mpp_clock_end(wait_clock_nonblock)</div>
 <div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;     nonblock_data(id_update)%request_send_count = 0</div>
 <div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;<span class="preprocessor">#ifdef use_libMPI</span></div>
@@ -471,6 +471,7 @@ $(document).ready(function(){initNavTree('mpp__do__update__nonblock_8h_source.ht
 <div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;end subroutine MPP_COMPLETE_DO_UPDATE_3D_</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="ampp__util__mpi_8inc_html_a09e69243d8c67e6a6e6e4fd9e93d0870"><div class="ttname"><a href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a></div><div class="ttdeci">subroutine mpp_sync_self(pelist, check, request, msg_size, msg_type)</div><div class="ttdoc">This is to check if current PE's outstanding puts are complete but we can't use shmem_fence because w...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util__mpi_8inc_source.html#l00169">mpp_util_mpi.inc:169</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

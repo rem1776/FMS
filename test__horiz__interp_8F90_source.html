@@ -115,9 +115,9 @@ $(document).ready(function(){initNavTree('test__horiz__interp_8F90_source.html',
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">program</span> horiz_interp_test</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keywordtype">use </span>mpp_mod,          <span class="keywordtype">only</span> : mpp_init, mpp_exit, mpp_error, fatal, stdout, mpp_npes</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keywordtype">use </span>mpp_mod,          <span class="keywordtype">only</span> : mpp_init, mpp_exit, mpp_error, fatal, <a class="code" href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a>, <a class="code" href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keywordtype">use </span>mpp_mod,          <span class="keywordtype">only</span> : mpp_clock_id, mpp_clock_begin, mpp_clock_end</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keywordtype">use </span>mpp_mod,          <span class="keywordtype">only</span> : mpp_pe, mpp_root_pe, note, mpp_clock_sync, mpp_clock_detailed</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keywordtype">use </span>mpp_mod,          <span class="keywordtype">only</span> : <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>, mpp_root_pe, note, mpp_clock_sync, mpp_clock_detailed</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keywordtype">use </span>mpp_mod,          <span class="keywordtype">only</span> : input_nml_file</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keywordtype">use </span>mpp_io_mod,       <span class="keywordtype">only</span> : mpp_io_init, mpp_io_exit</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keywordtype">use </span>mpp_domains_mod,  <span class="keywordtype">only</span> : mpp_define_layout, mpp_define_domains, mpp_get_compute_domain</div>
@@ -175,7 +175,7 @@ $(document).ready(function(){initNavTree('test__horiz__interp_8F90_source.html',
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor"></span> </div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  <span class="comment">!--- define domains</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <span class="keyword">call </span>mpp_define_layout( (/1, ni_dst, 1, nj_dst/), mpp_npes(), layout)</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <span class="keyword">call </span>mpp_define_layout( (/1, ni_dst, 1, nj_dst/), <a class="code" href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>(), layout)</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  <span class="keyword">call </span>mpp_define_domains((/1, ni_dst, 1, nj_dst/), layout, domain)</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  <span class="keyword">call </span>mpp_get_compute_domain(domain,isc,iec,jsc,jec)</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
@@ -288,7 +288,7 @@ $(document).ready(function(){initNavTree('test__horiz__interp_8F90_source.html',
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;<span class="keywordflow">     end do</span></div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;<span class="keywordflow">  end do</span></div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160; </div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;  <span class="keywordflow">if</span>(mpp_pe() == mpp_root_pe()) <span class="keyword">call </span>mpp_error(note,   &amp;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;  <span class="keywordflow">if</span>(<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe()) <span class="keyword">call </span>mpp_error(note,   &amp;</div>
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;       <span class="stringliteral">&quot;The test that verify 1dx2d version horiz_interp can reproduce 1dx1d version of horiz_interp is succesful&quot;</span>)</div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160; </div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;  <span class="keywordflow">do</span> j = jsc, jsc</div>
@@ -302,7 +302,7 @@ $(document).ready(function(){initNavTree('test__horiz__interp_8F90_source.html',
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;<span class="keywordflow">     end do</span></div>
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="keywordflow">  end do</span></div>
 <div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160; </div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;  <span class="keywordflow">if</span>(mpp_pe() == mpp_root_pe()) <span class="keyword">call </span>mpp_error(note,   &amp;</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;  <span class="keywordflow">if</span>(<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe()) <span class="keyword">call </span>mpp_error(note,   &amp;</div>
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;       <span class="stringliteral">&quot;The test that verify 2dx1d version horiz_interp can reproduce 1dx1d version of horiz_interp is succesful&quot;</span>)</div>
 <div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160; </div>
 <div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;  <span class="keywordflow">do</span> j = jsc, jsc</div>
@@ -316,7 +316,7 @@ $(document).ready(function(){initNavTree('test__horiz__interp_8F90_source.html',
 <div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;<span class="keywordflow">     end do</span></div>
 <div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;<span class="keywordflow">  end do</span></div>
 <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160; </div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;  <span class="keywordflow">if</span>(mpp_pe() == mpp_root_pe()) <span class="keyword">call </span>mpp_error(note,   &amp;</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;  <span class="keywordflow">if</span>(<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe()) <span class="keyword">call </span>mpp_error(note,   &amp;</div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;       <span class="stringliteral">&quot;The test that verify 2dx2d version horiz_interp can reproduce 1dx1d version of horiz_interp is succesful&quot;</span>)</div>
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160; </div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;  <span class="keyword">call </span>mpp_io_exit</div>
@@ -326,9 +326,12 @@ $(document).ready(function(){initNavTree('test__horiz__interp_8F90_source.html',
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="agroup__constants__mod_html_ga213b4811b66047b6054d2b853f0e265c"><div class="ttname"><a href="group__constants__mod.html#ga213b4811b66047b6054d2b853f0e265c">constants_mod::constants_init</a></div><div class="ttdeci">subroutine, public constants_init</div><div class="ttdoc">dummy routine.</div><div class="ttdef"><b>Definition:</b> <a href="constants_8F90_source.html#l00171">constants.F90:171</a></div></div>
+<div class="ttc" id="ampp__util_8inc_html_a172901d39c9b0cf14aa83b1e94fdf21b"><div class="ttname"><a href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a></div><div class="ttdeci">integer function stdout()</div><div class="ttdoc">This function returns the current standard fortran unit numbers for output.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00065">mpp_util.inc:65</a></div></div>
 <div class="ttc" id="agroup__fms__mod_html_ga05e7686befc1e49d2be9bdb81d479a76"><div class="ttname"><a href="group__fms__mod.html#ga05e7686befc1e49d2be9bdb81d479a76">fms_mod::check_nml_error</a></div><div class="ttdeci">integer function, public check_nml_error(IOSTAT, NML_NAME)</div><div class="ttdoc">Checks the iostat argument that is returned after reading a namelist and determines if the error code...</div><div class="ttdef"><b>Definition:</b> <a href="fms_8F90_source.html#l00712">fms.F90:712</a></div></div>
 <div class="ttc" id="agroup__fms__mod_html_gabaf667e53627cfaceb48057e827b7b5e"><div class="ttname"><a href="group__fms__mod.html#gabaf667e53627cfaceb48057e827b7b5e">fms_mod::fms_init</a></div><div class="ttdeci">subroutine, public fms_init(localcomm)</div><div class="ttdoc">Initializes the FMS module and also calls the initialization routines for all modules in the MPP pack...</div><div class="ttdef"><b>Definition:</b> <a href="fms_8F90_source.html#l00366">fms.F90:366</a></div></div>
 <div class="ttc" id="agroup__constants__mod_html_gadc909cc70e4e20bc99fc3d3c53125808"><div class="ttname"><a href="group__constants__mod.html#gadc909cc70e4e20bc99fc3d3c53125808">constants_mod::pi</a></div><div class="ttdeci">real, parameter, public pi</div><div class="ttdoc">Ratio of circle circumference to diameter [N/A].</div><div class="ttdef"><b>Definition:</b> <a href="constants_8F90_source.html#l00104">constants.F90:104</a></div></div>
+<div class="ttc" id="ampp__util_8inc_html_abf546cd336d5c539e445fb884f98ab6b"><div class="ttname"><a href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a></div><div class="ttdeci">integer function mpp_npes()</div><div class="ttdoc">Returns processor count for current pelist.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00467">mpp_util.inc:467</a></div></div>
+<div class="ttc" id="ampp__util_8inc_html_acfeba7de56f9dd6000b3fd78f9d56c50"><div class="ttname"><a href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a></div><div class="ttdeci">integer function mpp_pe()</div><div class="ttdoc">Returns processor ID. This returns the unique ID associated with a PE. This number runs between 0 and...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00442">mpp_util.inc:442</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

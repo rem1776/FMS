@@ -144,7 +144,7 @@ $(document).ready(function(){initNavTree('fms__io__unstructured__get__file__unit
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordflow">if</span> (trim(files_read(i)%name) .eq. trim(filename)) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            index_file = i</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            funit = files_read(index_file)%unit</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <span class="keywordflow">if</span> (.not. mpp_file_is_opened(funit)) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <span class="keywordflow">if</span> (.not. <a class="code" href="mpp__io__util_8inc.html#a7a071710f9e8e183af6de01286ea7e3c">mpp_file_is_opened</a>(funit)) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                               <span class="stringliteral">&quot;fms_io_unstructured_get_file_unit:&quot;</span> &amp;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                               //<span class="stringliteral">&quot; the file &quot;</span>//trim(filename) &amp;</div>
@@ -200,6 +200,7 @@ $(document).ready(function(){initNavTree('fms__io__unstructured__get__file__unit
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="comment">!----------</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="ampp__io__util_8inc_html_a7a071710f9e8e183af6de01286ea7e3c"><div class="ttname"><a href="mpp__io__util_8inc.html#a7a071710f9e8e183af6de01286ea7e3c">mpp_file_is_opened</a></div><div class="ttdeci">logical function mpp_file_is_opened(unit)</div><div class="ttdoc">return if certain file with unit is opened or not</div><div class="ttdef"><b>Definition:</b> <a href="mpp__io__util_8inc_source.html#l00835">mpp_io_util.inc:835</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

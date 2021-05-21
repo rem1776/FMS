@@ -173,10 +173,10 @@ $(document).ready(function(){initNavTree('mpp__scatter_8h_source.html',''); init
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;   endtype array3D</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;   type(array3d), dimension(size(pelist)) :: temp</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;   if (.not.ANY(mpp_pe().eq.pelist(:))) return</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;   if (.not.ANY(<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>().eq.pelist(:))) return</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;   if (is_root_pe) then</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;     root_pe = mpp_pe()</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;     root_pe = <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;     root_pe_test = 999</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;     if (.not.ANY(pelist(:).eq.root_pe)) call mpp_error(FATAL, &amp;</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                <span class="stringliteral">&quot;fms_io(mpp_scatter_pelist): root_pe not a member of pelist&quot;</span>)</div>
@@ -190,7 +190,7 @@ $(document).ready(function(){initNavTree('mpp__scatter_8h_source.html',''); init
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                <span class="stringliteral">&quot;fms_io(mpp_scatter_pelist): root_pe not specified or not a member of the pelist&quot;</span>)</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;! need to make sure only one root_pe has been specified</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;   call mpp_sum(root_pe, pelist)</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;   if ((is_root_pe) .and. (mpp_pe().ne.root_pe)) call mpp_error(FATAL, &amp;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;   if ((is_root_pe) .and. (<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>().ne.root_pe)) call mpp_error(FATAL, &amp;</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                <span class="stringliteral">&quot;fms_io(mpp_scatter_pelist): too many root_pes specified&quot;</span>)</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
@@ -214,7 +214,7 @@ $(document).ready(function(){initNavTree('mpp__scatter_8h_source.html',''); init
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;         call mpp_recv(gind(:,i:i), 4, pelist(i), .FALSE., COMM_TAG_1)</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;       endif</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;     enddo</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;     call mpp_sync_self(check=EVENT_RECV)</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;     call <a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=EVENT_RECV)</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;     gind(1,:)=gind(1,:)+ioff</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;     gind(2,:)=gind(2,:)+ioff</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;     gind(3,:)=gind(3,:)+joff</div>
@@ -256,16 +256,18 @@ $(document).ready(function(){initNavTree('mpp__scatter_8h_source.html',''); init
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;<span class="stringliteral">!    non root_pe&#39;</span>s recv data from root_pe</div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;     msgsize = (my_ind(2)-my_ind(1)+1) * (my_ind(4)-my_ind(3)+1) * nk</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;     call mpp_recv(array_seg, msgsize, root_pe, .FALSE., COMM_TAG_2)</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;     call mpp_sync_self(check=EVENT_RECV)</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;     call <a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=EVENT_RECV)</div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;   endif</div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160; </div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;   call mpp_sync_self()</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;   call <a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>()</div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160; </div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;   return</div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;end subroutine MPP_SCATTER_PELIST_3D_</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="ampp__util__mpi_8inc_html_a09e69243d8c67e6a6e6e4fd9e93d0870"><div class="ttname"><a href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a></div><div class="ttdeci">subroutine mpp_sync_self(pelist, check, request, msg_size, msg_type)</div><div class="ttdoc">This is to check if current PE's outstanding puts are complete but we can't use shmem_fence because w...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util__mpi_8inc_source.html#l00169">mpp_util_mpi.inc:169</a></div></div>
+<div class="ttc" id="ampp__util_8inc_html_acfeba7de56f9dd6000b3fd78f9d56c50"><div class="ttname"><a href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a></div><div class="ttdeci">integer function mpp_pe()</div><div class="ttdoc">Returns processor ID. This returns the unique ID associated with a PE. This number runs between 0 and...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00442">mpp_util.inc:442</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

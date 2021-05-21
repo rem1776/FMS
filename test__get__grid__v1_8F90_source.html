@@ -120,8 +120,8 @@ $(document).ready(function(){initNavTree('test__get__grid__v1_8F90_source.html',
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keywordtype">use </span>netcdf,          <span class="keywordtype">only</span>: nf90_create, nf90_clobber, nf90_64bit_offset, nf90_double, &amp;</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                           nf90_def_dim, nf90_def_var, nf90_enddef, nf90_put_var, &amp;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                           nf90_close</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keywordtype">use </span>mpp_mod,         <span class="keywordtype">only</span>: mpp_init, mpp_exit, mpp_root_pe, mpp_pe, mpp_error, fatal, mpp_sync</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keywordtype">use </span>mpp_domains_mod, <span class="keywordtype">only</span>: mpp_define_domains, mpp_define_io_domain, mpp_get_compute_domain, &amp;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keywordtype">use </span>mpp_mod,         <span class="keywordtype">only</span>: mpp_init, mpp_exit, mpp_root_pe, <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>, mpp_error, fatal, <a class="code" href="mpp__util__mpi_8inc.html#ad75482ebfad2337cd236ef0998accdc4">mpp_sync</a></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keywordtype">use </span>mpp_domains_mod, <span class="keywordtype">only</span>: mpp_define_domains, <a class="code" href="mpp__domains__define_8inc.html#a7ac8ee98767fbab41bf6e8ba0ba4ec73">mpp_define_io_domain</a>, mpp_get_compute_domain, &amp;</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                           domain2d</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keywordtype">use </span>fms2_io_mod,     <span class="keywordtype">only</span>: <a class="code" href="group__fms2__io__mod.html#gab2efb88539d9a05da43d95a501ed7e4c">fms2_io_init</a></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keywordtype">use </span>platform_mod</div>
@@ -150,7 +150,7 @@ $(document).ready(function(){initNavTree('test__get__grid__v1_8F90_source.html',
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">call </span><a class="code" href="group__fms2__io__mod.html#gab2efb88539d9a05da43d95a501ed7e4c">fms2_io_init</a></div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">!&lt; Create a grid_spec file with information you need</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keywordflow">if</span> (mpp_pe() .eq. mpp_root_pe()) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keywordflow">if</span> (<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() .eq. mpp_root_pe()) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;   err = nf90_create(<span class="stringliteral">&quot;grid_spec.nc&quot;</span>, ior(nf90_clobber, nf90_64bit_offset), ncid)</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;   err = nf90_def_dim(ncid, <span class="stringliteral">&#39;xta&#39;</span>, 1, dimid1)</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;   err = nf90_def_var(ncid, <span class="stringliteral">&#39;xta&#39;</span>, nf90_double, (/dimid1/), varid1)</div>
@@ -171,14 +171,14 @@ $(document).ready(function(){initNavTree('test__get__grid__v1_8F90_source.html',
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;   err = nf90_close(ncid)</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keywordflow">endif</span></div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keyword">call </span>mpp_sync()</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#ad75482ebfad2337cd236ef0998accdc4">mpp_sync</a>()</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;nlon = 1</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;nlat = 1</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment">!&lt; Create a domain</span></div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="keyword">call </span>mpp_define_domains( (/1,nlon,1,nlat/), (/1, 1/), domain, name=<span class="stringliteral">&#39;Atm&#39;</span>)</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keyword">call </span>mpp_define_io_domain(domain, (/1,1/))</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keyword">call </span><a class="code" href="mpp__domains__define_8inc.html#a7ac8ee98767fbab41bf6e8ba0ba4ec73">mpp_define_io_domain</a>(domain, (/1,1/))</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="keyword">call </span>mpp_get_compute_domain(domain,is,ie,js,je)</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment">!&lt; Call &quot;get_grid_version_1&quot; on a &quot;atm&quot; grid</span></div>
@@ -203,7 +203,7 @@ $(document).ready(function(){initNavTree('test__get__grid__v1_8F90_source.html',
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;lon_vert_in = real(65.5, kind=r8_kind)</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="comment">!&lt; Create a new grid_spec file with &quot;x_T&quot; instead of &quot;geolon_t&quot;</span></div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="keywordflow">if</span> (mpp_pe() .eq. mpp_root_pe()) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="keywordflow">if</span> (<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() .eq. mpp_root_pe()) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;   err = nf90_create(<span class="stringliteral">&quot;grid_spec.nc&quot;</span>, ior(nf90_clobber, nf90_64bit_offset), ncid)</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;   err = nf90_def_dim(ncid, <span class="stringliteral">&#39;nlat&#39;</span>, 1, dimid1)</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;   err = nf90_def_dim(ncid, <span class="stringliteral">&#39;nlon&#39;</span>, 1, dimid2)</div>
@@ -219,7 +219,7 @@ $(document).ready(function(){initNavTree('test__get__grid__v1_8F90_source.html',
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;   err = nf90_close(ncid)</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="keywordflow">endif</span></div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="keyword">call </span>mpp_sync()</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#ad75482ebfad2337cd236ef0998accdc4">mpp_sync</a>()</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="keyword">call </span>get_grid_version_1(<span class="stringliteral">&quot;grid_spec.nc&quot;</span>, <span class="stringliteral">&quot;ocn&quot;</span>, domain, is, ie, js, je, lon, lat, &amp;</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                        min_lon, max_lon)</div>
@@ -240,7 +240,10 @@ $(document).ready(function(){initNavTree('test__get__grid__v1_8F90_source.html',
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;<span class="keyword">end program </span>test_get_grid_v1</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="agroup__fms2__io__mod_html_gab2efb88539d9a05da43d95a501ed7e4c"><div class="ttname"><a href="group__fms2__io__mod.html#gab2efb88539d9a05da43d95a501ed7e4c">fms2_io_mod::fms2_io_init</a></div><div class="ttdeci">subroutine, public fms2_io_init()</div><div class="ttdoc">Reads the fms2_io_nml.</div><div class="ttdef"><b>Definition:</b> <a href="fms2__io_8F90_source.html#l00447">fms2_io.F90:447</a></div></div>
+<div class="ttc" id="agroup__fms2__io__mod_html_gab2efb88539d9a05da43d95a501ed7e4c"><div class="ttname"><a href="group__fms2__io__mod.html#gab2efb88539d9a05da43d95a501ed7e4c">fms2_io_mod::fms2_io_init</a></div><div class="ttdeci">subroutine, public fms2_io_init()</div><div class="ttdoc">Reads the fms2_io_nml.</div><div class="ttdef"><b>Definition:</b> <a href="fms2__io_8F90_source.html#l00455">fms2_io.F90:455</a></div></div>
+<div class="ttc" id="ampp__util__mpi_8inc_html_ad75482ebfad2337cd236ef0998accdc4"><div class="ttname"><a href="mpp__util__mpi_8inc.html#ad75482ebfad2337cd236ef0998accdc4">mpp_sync</a></div><div class="ttdeci">subroutine mpp_sync(pelist, do_self)</div><div class="ttdoc">Synchronize PEs in list.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util__mpi_8inc_source.html#l00146">mpp_util_mpi.inc:146</a></div></div>
+<div class="ttc" id="ampp__domains__define_8inc_html_a7ac8ee98767fbab41bf6e8ba0ba4ec73"><div class="ttname"><a href="mpp__domains__define_8inc.html#a7ac8ee98767fbab41bf6e8ba0ba4ec73">mpp_define_io_domain</a></div><div class="ttdeci">subroutine mpp_define_io_domain(domain, io_layout)</div><div class="ttdoc">define the IO domain.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__define_8inc_source.html#l00465">mpp_domains_define.inc:465</a></div></div>
+<div class="ttc" id="ampp__util_8inc_html_acfeba7de56f9dd6000b3fd78f9d56c50"><div class="ttname"><a href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a></div><div class="ttdeci">integer function mpp_pe()</div><div class="ttdoc">Returns processor ID. This returns the unique ID associated with a PE. This number runs between 0 and...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00442">mpp_util.inc:442</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

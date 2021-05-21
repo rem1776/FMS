@@ -186,16 +186,16 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="preprocessor">#include &lt;fms_platform.h&gt;</span></div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="preprocessor"></span> </div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="keywordtype">use </span>mpp_io_mod,      <span class="keywordtype">only</span>: mpp_open, mpp_close, mpp_io_init, mpp_io_exit, mpp_read, mpp_write</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="keywordtype">use </span>mpp_io_mod,      <span class="keywordtype">only</span>: mpp_write_meta, mpp_get_info, mpp_get_atts, mpp_get_fields</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="keywordtype">use </span>mpp_io_mod,      <span class="keywordtype">only</span>: mpp_write_meta, <a class="code" href="mpp__io__util_8inc.html#a1b259a1037e7498382c529cf0e545c9b">mpp_get_info</a>, mpp_get_atts, <a class="code" href="mpp__io__util_8inc.html#a9d312dd6a9a8382c846fd8f15ce2c7de">mpp_get_fields</a></div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="keywordtype">use </span>mpp_io_mod,      <span class="keywordtype">only</span>: mpp_read_compressed, mpp_write_compressed, mpp_def_dim</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="keywordtype">use </span>mpp_io_mod,      <span class="keywordtype">only</span>: mpp_write_unlimited_axis, mpp_read_distributed_ascii</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="keywordtype">use </span>mpp_io_mod,      <span class="keywordtype">only</span>: mpp_get_axes, mpp_get_axis_data, mpp_get_att_char, mpp_get_att_name</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="keywordtype">use </span>mpp_io_mod,      <span class="keywordtype">only</span>: mpp_get_att_real_scalar, mpp_attribute_exist, mpp_is_dist_ioroot</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="keywordtype">use </span>mpp_io_mod,      <span class="keywordtype">only</span>: <a class="code" href="mpp__io__util_8inc.html#ae1d26816048f40bdb4f4fbb313d65004">mpp_get_axes</a>, mpp_get_axis_data, <a class="code" href="mpp__io__util_8inc.html#af74bcf8898579b66bff0ca09d9183fb7">mpp_get_att_char</a>, <a class="code" href="mpp__io__util_8inc.html#ae850f8f6e3d284d5d18bde80b6ec5c56">mpp_get_att_name</a></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="keywordtype">use </span>mpp_io_mod,      <span class="keywordtype">only</span>: <a class="code" href="mpp__io__util_8inc.html#a66468ba770d782646932392c81b316d6">mpp_get_att_real_scalar</a>, mpp_attribute_exist, mpp_is_dist_ioroot</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="keywordtype">use </span>mpp_io_mod,      <span class="keywordtype">only</span>: fieldtype, axistype, atttype, default_field, default_axis, default_att</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="keywordtype">use </span>mpp_io_mod,      <span class="keywordtype">only</span>: mpp_netcdf, mpp_ascii, mpp_multi, mpp_single, mpp_overwr, mpp_rdonly</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="keywordtype">use </span>mpp_io_mod,      <span class="keywordtype">only</span>: mpp_ieee32, mpp_native, mpp_delete, mpp_append, mpp_sequential, mpp_direct</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="keywordtype">use </span>mpp_io_mod,      <span class="keywordtype">only</span>: max_file_size, mpp_get_att_value</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="keywordtype">use </span>mpp_io_mod,      <span class="keywordtype">only</span>: mpp_get_dimension_length</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="keywordtype">use </span>mpp_io_mod,      <span class="keywordtype">only</span>: <a class="code" href="mpp__io__util_8inc.html#a3571ef7057d32291c3941da7c956b5a9">mpp_get_dimension_length</a></div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="keywordtype">use </span>mpp_domains_mod, <span class="keywordtype">only</span>: domain2d, domain1d, null_domain1d, null_domain2d, <span class="keyword">operator</span>( .EQ. )</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="keywordtype">use </span>mpp_domains_mod, <span class="keywordtype">only</span>: center, east, west, north, south, corner</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="keywordtype">use </span>mpp_domains_mod, <span class="keywordtype">only</span>: mpp_get_domain_components, mpp_get_compute_domain, mpp_get_data_domain</div>
@@ -203,10 +203,10 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="keywordtype">use </span>mpp_domains_mod, <span class="keywordtype">only</span>: mpp_get_ntile_count, mpp_get_current_ntile, mpp_get_tile_id</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="keywordtype">use </span>mpp_domains_mod, <span class="keywordtype">only</span>: mpp_get_pelist, mpp_get_io_domain, mpp_get_domain_npes</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="keywordtype">use </span>mpp_domains_mod, <span class="keywordtype">only</span>: domainug, mpp_pass_sg_to_ug, mpp_get_ug_domain_ntiles, mpp_get_ug_domain_tile_id</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="keywordtype">use </span>mpp_mod,         <span class="keywordtype">only</span>: mpp_error, fatal, note, warning, mpp_pe, mpp_root_pe, mpp_npes, stdlog, stdout</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="keywordtype">use </span>mpp_mod,         <span class="keywordtype">only</span>: mpp_broadcast, all_pes, mpp_chksum, mpp_get_current_pelist, mpp_npes, lowercase</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="keywordtype">use </span>mpp_mod,         <span class="keywordtype">only</span>: mpp_error, fatal, note, warning, <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>, mpp_root_pe, <a class="code" href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>, <a class="code" href="mpp__util_8inc.html#a8e5518df9532bae0241f53ab542294a2">stdlog</a>, <a class="code" href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="keywordtype">use </span>mpp_mod,         <span class="keywordtype">only</span>: mpp_broadcast, all_pes, mpp_chksum, mpp_get_current_pelist, <a class="code" href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>, lowercase</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="keywordtype">use </span>mpp_mod,         <span class="keywordtype">only</span>: input_nml_file, mpp_get_current_pelist_name, uppercase</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="keywordtype">use </span>mpp_mod,         <span class="keywordtype">only</span>: mpp_gather, mpp_scatter, mpp_send, mpp_recv, mpp_sync_self, comm_tag_1, event_recv</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="keywordtype">use </span>mpp_mod,         <span class="keywordtype">only</span>: mpp_gather, mpp_scatter, mpp_send, mpp_recv, <a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>, comm_tag_1, event_recv</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="keywordtype">use </span>mpp_mod,         <span class="keywordtype">only</span>: mpp_fill_double,mpp_fill_int</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="keywordtype">use </span>platform_mod, <span class="keywordtype">only</span>: r8_kind</div>
@@ -220,7 +220,7 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="keywordtype">use </span>mpp_domains_mod,   <span class="keywordtype">only</span>: mpp_get_ug_domain_pelist</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="keywordtype">use </span>mpp_io_mod,        <span class="keywordtype">only</span>: mpp_io_unstructured_write</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="keywordtype">use </span>mpp_io_mod,        <span class="keywordtype">only</span>: mpp_io_unstructured_read</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="keywordtype">use </span>mpp_io_mod,        <span class="keywordtype">only</span>: mpp_file_is_opened</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="keywordtype">use </span>mpp_io_mod,        <span class="keywordtype">only</span>: <a class="code" href="mpp__io__util_8inc.html#a7a071710f9e8e183af6de01286ea7e3c">mpp_file_is_opened</a></div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="comment">!----------</span></div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="keywordtype">implicit none</span></div>
@@ -813,7 +813,7 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;<span class="keywordflow">     endif</span></div>
 <div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;<span class="keywordflow">  endif</span></div>
 <div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160; </div>
-<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;  <span class="keywordflow">if</span>(great_circle_algorithm .AND. (mpp_pe() == mpp_root_pe()) ) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;  <span class="keywordflow">if</span>(great_circle_algorithm .AND. (<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe()) ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;     <span class="keyword">call </span>mpp_error(note,<span class="stringliteral">&quot;fms_io_mod: great_circle algorithm will be used in the model run&quot;</span>)</div>
 <div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;<span class="keywordflow">  endif</span></div>
 <div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160; </div>
@@ -1193,7 +1193,7 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l01097"></a><span class="lineno"> 1097</span>&#160;     <span class="keywordflow">if</span>(<span class="keyword">ASSOCIATED</span>(d_ptr))<span class="keywordflow">then</span></div>
 <div class="line"><a name="l01098"></a><span class="lineno"> 1098</span>&#160;        cur_file%is_root_pe = mpp_domain_is_tile_root_pe(d_ptr)</div>
 <div class="line"><a name="l01099"></a><span class="lineno"> 1099</span>&#160;     <span class="keywordflow">else</span></div>
-<div class="line"><a name="l01100"></a><span class="lineno"> 1100</span>&#160;        cur_file%is_root_pe = mpp_pe() == mpp_root_pe()</div>
+<div class="line"><a name="l01100"></a><span class="lineno"> 1100</span>&#160;        cur_file%is_root_pe = <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe()</div>
 <div class="line"><a name="l01101"></a><span class="lineno"> 1101</span>&#160;<span class="keywordflow">     endif</span></div>
 <div class="line"><a name="l01102"></a><span class="lineno"> 1102</span>&#160;     cur_file%max_ntime = 1</div>
 <div class="line"><a name="l01103"></a><span class="lineno"> 1103</span>&#160;     <span class="comment">!-- allocate memory</span></div>
@@ -2469,7 +2469,7 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l02373"></a><span class="lineno"> 2373</span>&#160;  <span class="keywordtype">integer</span> :: register_restart_region_r2d</div>
 <div class="line"><a name="l02374"></a><span class="lineno"> 2374</span>&#160; </div>
 <div class="line"><a name="l02375"></a><span class="lineno"> 2375</span>&#160;  <span class="keywordflow">if</span>(.not.module_is_initialized) <span class="keyword">call </span>mpp_error(fatal,<span class="stringliteral">&#39;fms_io(register_restart_region_r2d): need to call fms_io_init&#39;</span>)</div>
-<div class="line"><a name="l02376"></a><span class="lineno"> 2376</span>&#160;  <span class="keywordflow">if</span> ((is_root_pe) .and. (.not.any(mpp_pe().eq.pelist))) <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
+<div class="line"><a name="l02376"></a><span class="lineno"> 2376</span>&#160;  <span class="keywordflow">if</span> ((is_root_pe) .and. (.not.any(<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>().eq.pelist))) <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
 <div class="line"><a name="l02377"></a><span class="lineno"> 2377</span>&#160;                    <span class="stringliteral">&#39;fms_io(register_restart_region_r2d) designated root_pe is not a member of pelist&#39;</span>)</div>
 <div class="line"><a name="l02378"></a><span class="lineno"> 2378</span>&#160;  l_position = center</div>
 <div class="line"><a name="l02379"></a><span class="lineno"> 2379</span>&#160;  <span class="keywordflow">if</span> (<span class="keyword">present</span>(position)) l_position = position</div>
@@ -2524,7 +2524,7 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l02428"></a><span class="lineno"> 2428</span>&#160;  <span class="keywordtype">integer</span> :: register_restart_region_r3d</div>
 <div class="line"><a name="l02429"></a><span class="lineno"> 2429</span>&#160; </div>
 <div class="line"><a name="l02430"></a><span class="lineno"> 2430</span>&#160;  <span class="keywordflow">if</span>(.not.module_is_initialized) <span class="keyword">call </span>mpp_error(fatal,<span class="stringliteral">&#39;fms_io(register_restart_region_r3d): need to call fms_io_init&#39;</span>)</div>
-<div class="line"><a name="l02431"></a><span class="lineno"> 2431</span>&#160;  <span class="keywordflow">if</span> ((is_root_pe) .and. (.not.any(mpp_pe().eq.pelist))) <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
+<div class="line"><a name="l02431"></a><span class="lineno"> 2431</span>&#160;  <span class="keywordflow">if</span> ((is_root_pe) .and. (.not.any(<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>().eq.pelist))) <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
 <div class="line"><a name="l02432"></a><span class="lineno"> 2432</span>&#160;                    <span class="stringliteral">&#39;fms_io(register_restart_region_r3d) designated root_pe is not a member of pelist&#39;</span>)</div>
 <div class="line"><a name="l02433"></a><span class="lineno"> 2433</span>&#160;  l_position = center</div>
 <div class="line"><a name="l02434"></a><span class="lineno"> 2434</span>&#160;  <span class="keywordflow">if</span> (<span class="keyword">present</span>(position)) l_position = position</div>
@@ -2856,7 +2856,7 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l02760"></a><span class="lineno"> 2760</span>&#160;        <span class="keyword">allocate</span>(check_val(max(1,cur_var%siz(4))))</div>
 <div class="line"><a name="l02761"></a><span class="lineno"> 2761</span>&#160;        <span class="keywordflow">do</span> k = 1, cur_var%siz(4)</div>
 <div class="line"><a name="l02762"></a><span class="lineno"> 2762</span>&#160;           <span class="keywordflow">if</span> ( <span class="keyword">Associated</span>(fileobj%p0dr(k,j)%p) ) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l02763"></a><span class="lineno"> 2763</span>&#160;              check_val(k) = mpp_chksum(fileobj%p0dr(k,j)%p, (/mpp_pe()/), mask_val=cur_var%default_data)</div>
+<div class="line"><a name="l02763"></a><span class="lineno"> 2763</span>&#160;              check_val(k) = mpp_chksum(fileobj%p0dr(k,j)%p, (/<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()/), mask_val=cur_var%default_data)</div>
 <div class="line"><a name="l02764"></a><span class="lineno"> 2764</span>&#160;           <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( <span class="keyword">Associated</span>(fileobj%p1dr(k,j)%p) ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l02765"></a><span class="lineno"> 2765</span>&#160;              check_val(k) = mpp_chksum(fileobj%p1dr(k,j)%p(:), mask_val=cur_var%default_data)</div>
 <div class="line"><a name="l02766"></a><span class="lineno"> 2766</span>&#160;           <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( <span class="keyword">Associated</span>(fileobj%p2dr(k,j)%p) ) <span class="keywordflow">then</span></div>
@@ -3317,9 +3317,9 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l03221"></a><span class="lineno"> 3221</span>&#160;     cpack_size = pack_size</div>
 <div class="line"><a name="l03222"></a><span class="lineno"> 3222</span>&#160;     <span class="keywordflow">do</span> k = 1, cur_var%siz(4)</div>
 <div class="line"><a name="l03223"></a><span class="lineno"> 3223</span>&#160;        <span class="keywordflow">if</span> ( <span class="keyword">Associated</span>(fileobj%p0dr(k,j)%p) ) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l03224"></a><span class="lineno"> 3224</span>&#160;           check_val(k) = mpp_chksum(fileobj%p0dr(k,j)%p, (/mpp_pe()/) )</div>
+<div class="line"><a name="l03224"></a><span class="lineno"> 3224</span>&#160;           check_val(k) = mpp_chksum(fileobj%p0dr(k,j)%p, (/<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()/) )</div>
 <div class="line"><a name="l03225"></a><span class="lineno"> 3225</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( <span class="keyword">Associated</span>(fileobj%p1dr(k,j)%p) ) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l03226"></a><span class="lineno"> 3226</span>&#160;           check_val(k) = mpp_chksum(fileobj%p1dr(k,j)%p, (/mpp_pe()/) )</div>
+<div class="line"><a name="l03226"></a><span class="lineno"> 3226</span>&#160;           check_val(k) = mpp_chksum(fileobj%p1dr(k,j)%p, (/<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()/) )</div>
 <div class="line"><a name="l03227"></a><span class="lineno"> 3227</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( <span class="keyword">Associated</span>(fileobj%p2dr(k,j)%p) ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l03228"></a><span class="lineno"> 3228</span>&#160;           check_val(k) = mpp_chksum(fileobj%p2dr(k,j)%p(cur_var%is:cur_var%is+iadd, cur_var%js:cur_var%js+jadd) )</div>
 <div class="line"><a name="l03229"></a><span class="lineno"> 3229</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( <span class="keyword">Associated</span>(fileobj%p3dr(k,j)%p) ) <span class="keywordflow">then</span></div>
@@ -3335,7 +3335,7 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l03239"></a><span class="lineno"> 3239</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( <span class="keyword">Associated</span>(fileobj%p0di(k,j)%p) ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l03240"></a><span class="lineno"> 3240</span>&#160;           check_val(k) = fileobj%p0di(k,j)%p</div>
 <div class="line"><a name="l03241"></a><span class="lineno"> 3241</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( <span class="keyword">Associated</span>(fileobj%p1di(k,j)%p) ) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l03242"></a><span class="lineno"> 3242</span>&#160;           check_val(k) = mpp_chksum(fileobj%p1di(k,j)%p, (/mpp_pe()/) )</div>
+<div class="line"><a name="l03242"></a><span class="lineno"> 3242</span>&#160;           check_val(k) = mpp_chksum(fileobj%p1di(k,j)%p, (/<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()/) )</div>
 <div class="line"><a name="l03243"></a><span class="lineno"> 3243</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( <span class="keyword">Associated</span>(fileobj%p2di(k,j)%p) ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l03244"></a><span class="lineno"> 3244</span>&#160;           check_val(k) = mpp_chksum(fileobj%p2di(k,j)%p(cur_var%is:cur_var%is+iadd, cur_var%js:cur_var%js+jadd) )</div>
 <div class="line"><a name="l03245"></a><span class="lineno"> 3245</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( <span class="keyword">Associated</span>(fileobj%p3di(k,j)%p) ) <span class="keywordflow">then</span></div>
@@ -3622,14 +3622,14 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l03526"></a><span class="lineno"> 3526</span>&#160;<span class="keywordflow">    end if</span></div>
 <div class="line"><a name="l03527"></a><span class="lineno"> 3527</span>&#160; </div>
 <div class="line"><a name="l03528"></a><span class="lineno"> 3528</span>&#160;<span class="comment">! cycle the loop for pes not a member of the current pelist</span></div>
-<div class="line"><a name="l03529"></a><span class="lineno"> 3529</span>&#160;    <span class="keywordflow">if</span> (.not.any(mpp_pe().eq.cur_var%pelist(:))) cycle</div>
+<div class="line"><a name="l03529"></a><span class="lineno"> 3529</span>&#160;    <span class="keywordflow">if</span> (.not.any(<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>().eq.cur_var%pelist(:))) cycle</div>
 <div class="line"><a name="l03530"></a><span class="lineno"> 3530</span>&#160; </div>
 <div class="line"><a name="l03531"></a><span class="lineno"> 3531</span>&#160;<span class="comment">! IN ORDER TO GET CHECKSUM INFO, PERFORM THE GATHER AS IF YOU WILL BE DOING THE WRITE</span></div>
 <div class="line"><a name="l03532"></a><span class="lineno"> 3532</span>&#160;<span class="comment">! BUT INSTEAD CHECKSUM THE RESULTING TEMPORARY ARRAY</span></div>
 <div class="line"><a name="l03533"></a><span class="lineno"> 3533</span>&#160;    <span class="keyword">allocate</span>(check_val(max(1,cur_var%siz(4))))</div>
 <div class="line"><a name="l03534"></a><span class="lineno"> 3534</span>&#160;    <span class="keywordflow">do</span> k = 1, cur_var%siz(4)</div>
 <div class="line"><a name="l03535"></a><span class="lineno"> 3535</span>&#160;<span class="comment">! cycle the loop for pes not a member of the current pelist</span></div>
-<div class="line"><a name="l03536"></a><span class="lineno"> 3536</span>&#160;      <span class="keywordflow">if</span> (.not.any(mpp_pe().eq.cur_var%pelist(:))) cycle</div>
+<div class="line"><a name="l03536"></a><span class="lineno"> 3536</span>&#160;      <span class="keywordflow">if</span> (.not.any(<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>().eq.cur_var%pelist(:))) cycle</div>
 <div class="line"><a name="l03537"></a><span class="lineno"> 3537</span>&#160;      isc = cur_var%is</div>
 <div class="line"><a name="l03538"></a><span class="lineno"> 3538</span>&#160;      iec = cur_var%ie</div>
 <div class="line"><a name="l03539"></a><span class="lineno"> 3539</span>&#160;      jsc = cur_var%js</div>
@@ -3652,7 +3652,7 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l03556"></a><span class="lineno"> 3556</span>&#160;          <span class="keyword">call </span>mpp_gather(isc+i_add, iec+i_add, jsc+j_add, jec+j_add, cur_var%pelist, &amp;</div>
 <div class="line"><a name="l03557"></a><span class="lineno"> 3557</span>&#160;                          fileobj%p2dr(k,j)%p(i1:i2,j1:j2), &amp;</div>
 <div class="line"><a name="l03558"></a><span class="lineno"> 3558</span>&#160;                          r2d, fileobj%is_root_pe)</div>
-<div class="line"><a name="l03559"></a><span class="lineno"> 3559</span>&#160;          check_val(k) = mpp_chksum(r2d, (/mpp_pe()/))</div>
+<div class="line"><a name="l03559"></a><span class="lineno"> 3559</span>&#160;          check_val(k) = mpp_chksum(r2d, (/<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()/))</div>
 <div class="line"><a name="l03560"></a><span class="lineno"> 3560</span>&#160;          <span class="keywordflow">if</span> (<span class="keyword">allocated</span>(r2d)) <span class="keyword">deallocate</span>(r2d)</div>
 <div class="line"><a name="l03561"></a><span class="lineno"> 3561</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( <span class="keyword">Associated</span>(fileobj%p3dr(k,j)%p) ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l03562"></a><span class="lineno"> 3562</span>&#160;          i_glob = cur_var%gsiz(1)</div>
@@ -3661,7 +3661,7 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l03565"></a><span class="lineno"> 3565</span>&#160;          <span class="keywordflow">if</span> (fileobj%is_root_pe) <span class="keyword">allocate</span>(r3d(i_glob, j_glob, k_glob))</div>
 <div class="line"><a name="l03566"></a><span class="lineno"> 3566</span>&#160;          <span class="keyword">call </span>mpp_gather(isc+i_add, iec+i_add, jsc+j_add, jec+j_add, k_glob, cur_var%pelist, &amp;</div>
 <div class="line"><a name="l03567"></a><span class="lineno"> 3567</span>&#160;                          fileobj%p3dr(k,j)%p(i1:i2,j1:j2,:), r3d, fileobj%is_root_pe)</div>
-<div class="line"><a name="l03568"></a><span class="lineno"> 3568</span>&#160;          check_val(k) = mpp_chksum(r3d, (/mpp_pe()/))</div>
+<div class="line"><a name="l03568"></a><span class="lineno"> 3568</span>&#160;          check_val(k) = mpp_chksum(r3d, (/<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()/))</div>
 <div class="line"><a name="l03569"></a><span class="lineno"> 3569</span>&#160;          <span class="keywordflow">if</span> (<span class="keyword">allocated</span>(r3d)) <span class="keyword">deallocate</span>(r3d)</div>
 <div class="line"><a name="l03570"></a><span class="lineno"> 3570</span>&#160;        <span class="keywordflow">else</span></div>
 <div class="line"><a name="l03571"></a><span class="lineno"> 3571</span>&#160;          <span class="keyword">call </span>mpp_error(fatal, <span class="stringliteral">&quot;fms_io(save_restart_border): no pointer associated with data of field &quot;</span>// &amp;</div>
@@ -3692,7 +3692,7 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l03596"></a><span class="lineno"> 3596</span>&#160;      cur_var =&gt; fileobj%var(j)</div>
 <div class="line"><a name="l03597"></a><span class="lineno"> 3597</span>&#160;      <span class="keywordflow">if</span>(cur_var%read_only) cycle</div>
 <div class="line"><a name="l03598"></a><span class="lineno"> 3598</span>&#160;<span class="comment">! cycle the loop for pes not a member of the current pelist</span></div>
-<div class="line"><a name="l03599"></a><span class="lineno"> 3599</span>&#160;      <span class="keywordflow">if</span> (.not.any(mpp_pe().eq.cur_var%pelist(:))) cycle</div>
+<div class="line"><a name="l03599"></a><span class="lineno"> 3599</span>&#160;      <span class="keywordflow">if</span> (.not.any(<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>().eq.cur_var%pelist(:))) cycle</div>
 <div class="line"><a name="l03600"></a><span class="lineno"> 3600</span>&#160;      isc = cur_var%is</div>
 <div class="line"><a name="l03601"></a><span class="lineno"> 3601</span>&#160;      iec = cur_var%ie</div>
 <div class="line"><a name="l03602"></a><span class="lineno"> 3602</span>&#160;      jsc = cur_var%js</div>
@@ -3801,7 +3801,7 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l03705"></a><span class="lineno"> 3705</span>&#160;  <span class="keywordflow">if</span> (.not.fexist) <span class="keywordflow">then</span> ; <span class="keywordflow">if</span> (fatal_missing_files) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l03706"></a><span class="lineno"> 3706</span>&#160;     <span class="keyword">call </span>mpp_error(fatal, <span class="stringliteral">&quot;fms_io(restore_state_border): unable to find any restart files &quot;</span>// &amp;</div>
 <div class="line"><a name="l03707"></a><span class="lineno"> 3707</span>&#160;        <span class="stringliteral">&quot;specified by &quot;</span>//trim(restartpath))</div>
-<div class="line"><a name="l03708"></a><span class="lineno"> 3708</span>&#160;  <span class="keywordflow">elseif</span> (mpp_pe() == mpp_root_pe()) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l03708"></a><span class="lineno"> 3708</span>&#160;  <span class="keywordflow">elseif</span> (<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe()) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l03709"></a><span class="lineno"> 3709</span>&#160;     <span class="keyword">call </span>mpp_error(warning, <span class="stringliteral">&quot;fms_io(restore_state_border): unable to find any restart files &quot;</span>// &amp;</div>
 <div class="line"><a name="l03710"></a><span class="lineno"> 3710</span>&#160;        <span class="stringliteral">&quot;specified by &quot;</span>//trim(restartpath))</div>
 <div class="line"><a name="l03711"></a><span class="lineno"> 3711</span>&#160;<span class="keywordflow">  endif</span> ;<span class="keywordflow"> endif</span></div>
@@ -3811,15 +3811,15 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l03715"></a><span class="lineno"> 3715</span>&#160;                  fileset=mpp_single, is_root_pe=fileobj%is_root_pe)</div>
 <div class="line"><a name="l03716"></a><span class="lineno"> 3716</span>&#160; </div>
 <div class="line"><a name="l03717"></a><span class="lineno"> 3717</span>&#160;  <span class="comment">! Read each variable from the first file in which it is found.</span></div>
-<div class="line"><a name="l03718"></a><span class="lineno"> 3718</span>&#160;    <span class="keyword">call </span>mpp_get_info(unit, ndim, nvar, natt, ntime)</div>
+<div class="line"><a name="l03718"></a><span class="lineno"> 3718</span>&#160;    <span class="keyword">call </span><a class="code" href="mpp__io__util_8inc.html#a1b259a1037e7498382c529cf0e545c9b">mpp_get_info</a>(unit, ndim, nvar, natt, ntime)</div>
 <div class="line"><a name="l03719"></a><span class="lineno"> 3719</span>&#160; </div>
 <div class="line"><a name="l03720"></a><span class="lineno"> 3720</span>&#160;    <span class="keyword">allocate</span>(fields(nvar))</div>
-<div class="line"><a name="l03721"></a><span class="lineno"> 3721</span>&#160;    <span class="keyword">call </span>mpp_get_fields(unit,fields(1:nvar))</div>
+<div class="line"><a name="l03721"></a><span class="lineno"> 3721</span>&#160;    <span class="keyword">call </span><a class="code" href="mpp__io__util_8inc.html#a9d312dd6a9a8382c846fd8f15ce2c7de">mpp_get_fields</a>(unit,fields(1:nvar))</div>
 <div class="line"><a name="l03722"></a><span class="lineno"> 3722</span>&#160; </div>
 <div class="line"><a name="l03723"></a><span class="lineno"> 3723</span>&#160;    <span class="keywordflow">do</span> j=1,fileobj%nvar</div>
 <div class="line"><a name="l03724"></a><span class="lineno"> 3724</span>&#160;      cur_var =&gt; fileobj%var(j)</div>
 <div class="line"><a name="l03725"></a><span class="lineno"> 3725</span>&#160;  <span class="comment">! cycle the loop for pes not a member of the current pelist</span></div>
-<div class="line"><a name="l03726"></a><span class="lineno"> 3726</span>&#160;      <span class="keywordflow">if</span> (.not.any(mpp_pe().eq.cur_var%pelist(:))) cycle</div>
+<div class="line"><a name="l03726"></a><span class="lineno"> 3726</span>&#160;      <span class="keywordflow">if</span> (.not.any(<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>().eq.cur_var%pelist(:))) cycle</div>
 <div class="line"><a name="l03727"></a><span class="lineno"> 3727</span>&#160;      isc = cur_var%is</div>
 <div class="line"><a name="l03728"></a><span class="lineno"> 3728</span>&#160;      iec = cur_var%ie</div>
 <div class="line"><a name="l03729"></a><span class="lineno"> 3729</span>&#160;      jsc = cur_var%js</div>
@@ -3855,7 +3855,7 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l03759"></a><span class="lineno"> 3759</span>&#160;              <span class="keyword">call </span>mpp_read(unit, fields(l), r2d, tlev)</div>
 <div class="line"><a name="l03760"></a><span class="lineno"> 3760</span>&#160;              <span class="keyword">call </span>mpp_scatter(isc+i_add, iec+i_add, jsc+j_add, jec+j_add, cur_var%pelist, &amp;</div>
 <div class="line"><a name="l03761"></a><span class="lineno"> 3761</span>&#160;                               fileobj%p2dr(k,j)%p(i1:i2,j1:j2), r2d, fileobj%is_root_pe)</div>
-<div class="line"><a name="l03762"></a><span class="lineno"> 3762</span>&#160;              <span class="keywordflow">if</span> ((fileobj%is_root_pe) .and. (is_there_a_checksum)) checksum_data = mpp_chksum(r2d, (/mpp_pe()/) )</div>
+<div class="line"><a name="l03762"></a><span class="lineno"> 3762</span>&#160;              <span class="keywordflow">if</span> ((fileobj%is_root_pe) .and. (is_there_a_checksum)) checksum_data = mpp_chksum(r2d, (/<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()/) )</div>
 <div class="line"><a name="l03763"></a><span class="lineno"> 3763</span>&#160;              <span class="keywordflow">if</span> (<span class="keyword">allocated</span>(r2d)) <span class="keyword">deallocate</span>(r2d)</div>
 <div class="line"><a name="l03764"></a><span class="lineno"> 3764</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<span class="keyword">Associated</span>(fileobj%p3dr(k,j)%p)) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l03765"></a><span class="lineno"> 3765</span>&#160;              i_glob = cur_var%gsiz(1)</div>
@@ -3865,7 +3865,7 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l03769"></a><span class="lineno"> 3769</span>&#160;              <span class="keyword">call </span>mpp_read(unit, fields(l), r3d, tlev)</div>
 <div class="line"><a name="l03770"></a><span class="lineno"> 3770</span>&#160;              <span class="keyword">call </span>mpp_scatter(isc+i_add, iec+i_add, jsc+j_add, jec+j_add, k_glob, cur_var%pelist, &amp;</div>
 <div class="line"><a name="l03771"></a><span class="lineno"> 3771</span>&#160;                               fileobj%p3dr(k,j)%p(i1:i2,j1:j2,:), r3d, fileobj%is_root_pe)</div>
-<div class="line"><a name="l03772"></a><span class="lineno"> 3772</span>&#160;              <span class="keywordflow">if</span> ((fileobj%is_root_pe) .and. (is_there_a_checksum)) checksum_data = mpp_chksum(r3d, (/mpp_pe()/) )</div>
+<div class="line"><a name="l03772"></a><span class="lineno"> 3772</span>&#160;              <span class="keywordflow">if</span> ((fileobj%is_root_pe) .and. (is_there_a_checksum)) checksum_data = mpp_chksum(r3d, (/<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()/) )</div>
 <div class="line"><a name="l03773"></a><span class="lineno"> 3773</span>&#160;              <span class="keywordflow">if</span> (<span class="keyword">allocated</span>(r3d)) <span class="keyword">deallocate</span>(r3d)</div>
 <div class="line"><a name="l03774"></a><span class="lineno"> 3774</span>&#160;            <span class="keywordflow">else</span></div>
 <div class="line"><a name="l03775"></a><span class="lineno"> 3775</span>&#160;              <span class="keyword">call </span>mpp_error(fatal, <span class="stringliteral">&quot;fms_io(retore_state_border): no pointer associated with data of field &quot;</span>// &amp;</div>
@@ -3891,7 +3891,7 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l03795"></a><span class="lineno"> 3795</span>&#160; </div>
 <div class="line"><a name="l03796"></a><span class="lineno"> 3796</span>&#160;  <span class="comment">! check whether all fields have been found</span></div>
 <div class="line"><a name="l03797"></a><span class="lineno"> 3797</span>&#160;  <span class="keywordflow">do</span> j = 1, fileobj%nvar</div>
-<div class="line"><a name="l03798"></a><span class="lineno"> 3798</span>&#160;    <span class="keywordflow">if</span> (.not.any(mpp_pe().eq.fileobj%var(j)%pelist(:))) cycle</div>
+<div class="line"><a name="l03798"></a><span class="lineno"> 3798</span>&#160;    <span class="keywordflow">if</span> (.not.any(<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>().eq.fileobj%var(j)%pelist(:))) cycle</div>
 <div class="line"><a name="l03799"></a><span class="lineno"> 3799</span>&#160;    <span class="keywordflow">if</span> (.NOT. fileobj%var(j)%initialized) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l03800"></a><span class="lineno"> 3800</span>&#160;      <span class="keywordflow">if</span> (fileobj%var(j)%mandatory) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l03801"></a><span class="lineno"> 3801</span>&#160;        <span class="keyword">call </span>mpp_error(fatal, <span class="stringliteral">&quot;fms_io(restore_state_border): unable to find mandatory variable &quot;</span>// &amp;</div>
@@ -3956,9 +3956,9 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l03860"></a><span class="lineno"> 3860</span>&#160;     <span class="keywordflow">if</span>(action == mpp_overwr .OR. (action == mpp_rdonly .AND. cur_var%initialized) ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l03861"></a><span class="lineno"> 3861</span>&#160;        <span class="keywordflow">do</span> k = 1, cur_var%siz(4)</div>
 <div class="line"><a name="l03862"></a><span class="lineno"> 3862</span>&#160;           <span class="keywordflow">if</span> ( <span class="keyword">Associated</span>(fileobj%p0dr(k,j)%p) ) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l03863"></a><span class="lineno"> 3863</span>&#160;              data_chksum = mpp_chksum(fileobj%p0dr(k,j)%p, (/mpp_pe()/) )</div>
+<div class="line"><a name="l03863"></a><span class="lineno"> 3863</span>&#160;              data_chksum = mpp_chksum(fileobj%p0dr(k,j)%p, (/<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()/) )</div>
 <div class="line"><a name="l03864"></a><span class="lineno"> 3864</span>&#160;           <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( <span class="keyword">Associated</span>(fileobj%p1dr(k,j)%p) ) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l03865"></a><span class="lineno"> 3865</span>&#160;              data_chksum = mpp_chksum(fileobj%p1dr(k,j)%p, (/mpp_pe()/) )</div>
+<div class="line"><a name="l03865"></a><span class="lineno"> 3865</span>&#160;              data_chksum = mpp_chksum(fileobj%p1dr(k,j)%p, (/<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()/) )</div>
 <div class="line"><a name="l03866"></a><span class="lineno"> 3866</span>&#160;           <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( <span class="keyword">Associated</span>(fileobj%p2dr(k,j)%p) ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l03867"></a><span class="lineno"> 3867</span>&#160;              data_chksum = mpp_chksum(fileobj%p2dr(k,j)%p(cur_var%is:cur_var%is+iadd,cur_var%js:cur_var%js+jadd) )</div>
 <div class="line"><a name="l03868"></a><span class="lineno"> 3868</span>&#160;           <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( <span class="keyword">Associated</span>(fileobj%p3dr(k,j)%p) ) <span class="keywordflow">then</span></div>
@@ -3968,7 +3968,7 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l03872"></a><span class="lineno"> 3872</span>&#160;           <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( <span class="keyword">Associated</span>(fileobj%p0di(k,j)%p) ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l03873"></a><span class="lineno"> 3873</span>&#160;              data_chksum = fileobj%p0di(k,j)%p</div>
 <div class="line"><a name="l03874"></a><span class="lineno"> 3874</span>&#160;           <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( <span class="keyword">Associated</span>(fileobj%p1di(k,j)%p) ) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l03875"></a><span class="lineno"> 3875</span>&#160;              data_chksum = mpp_chksum(fileobj%p1di(k,j)%p, (/mpp_pe()/) )</div>
+<div class="line"><a name="l03875"></a><span class="lineno"> 3875</span>&#160;              data_chksum = mpp_chksum(fileobj%p1di(k,j)%p, (/<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()/) )</div>
 <div class="line"><a name="l03876"></a><span class="lineno"> 3876</span>&#160;           <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( <span class="keyword">Associated</span>(fileobj%p2di(k,j)%p) ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l03877"></a><span class="lineno"> 3877</span>&#160;              data_chksum = mpp_chksum(fileobj%p2di(k,j)%p(cur_var%is:cur_var%is+iadd,cur_var%js:cur_var%js+jadd) )</div>
 <div class="line"><a name="l03878"></a><span class="lineno"> 3878</span>&#160;           <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( <span class="keyword">Associated</span>(fileobj%p3di(k,j)%p) ) <span class="keywordflow">then</span></div>
@@ -3977,7 +3977,7 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l03881"></a><span class="lineno"> 3881</span>&#160;              <span class="keyword">call </span>mpp_error(fatal, <span class="stringliteral">&quot;fms_io(write_chksum): There is no pointer associated with the data of  field &quot;</span>// &amp;</div>
 <div class="line"><a name="l03882"></a><span class="lineno"> 3882</span>&#160;                   trim(cur_var%name)//<span class="stringliteral">&quot; of file &quot;</span>//trim(fileobj%name) )</div>
 <div class="line"><a name="l03883"></a><span class="lineno"> 3883</span>&#160;<span class="keywordflow">           end if</span></div>
-<div class="line"><a name="l03884"></a><span class="lineno"> 3884</span>&#160;           outunit = stdout()</div>
+<div class="line"><a name="l03884"></a><span class="lineno"> 3884</span>&#160;           outunit = <a class="code" href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a>()</div>
 <div class="line"><a name="l03885"></a><span class="lineno"> 3885</span>&#160;           <span class="keyword">write</span>(outunit,<span class="stringliteral">&#39;(a, I1, a, Z16)&#39;</span>)<span class="stringliteral">&#39;fms_io(&#39;</span>//trim(routine_name)//<span class="stringliteral">&#39;): At time level = &#39;</span>, k, <span class="stringliteral">&#39;, chksum for &quot;&#39;</span>// &amp;</div>
 <div class="line"><a name="l03886"></a><span class="lineno"> 3886</span>&#160;                trim(cur_var%name)// <span class="stringliteral">&#39;&quot; of &quot;&#39;</span>// trim(fileobj%name)// <span class="stringliteral">&#39;&quot; = &#39;</span>, data_chksum</div>
 <div class="line"><a name="l03887"></a><span class="lineno"> 3887</span>&#160; </div>
@@ -4119,7 +4119,7 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l04023"></a><span class="lineno"> 4023</span>&#160;  <span class="keywordflow">if</span> (nfile == 0) <span class="keywordflow">then</span> ; <span class="keywordflow">if</span> (fatal_missing_files) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l04024"></a><span class="lineno"> 4024</span>&#160;     <span class="keyword">call </span>mpp_error(fatal, <span class="stringliteral">&quot;fms_io(restore_state_all): unable to find any restart files &quot;</span>// &amp;</div>
 <div class="line"><a name="l04025"></a><span class="lineno"> 4025</span>&#160;        <span class="stringliteral">&quot;specified by &quot;</span>//trim(restartpath))</div>
-<div class="line"><a name="l04026"></a><span class="lineno"> 4026</span>&#160;  <span class="keywordflow">elseif</span> (mpp_pe() == mpp_root_pe()) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l04026"></a><span class="lineno"> 4026</span>&#160;  <span class="keywordflow">elseif</span> (<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe()) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l04027"></a><span class="lineno"> 4027</span>&#160;     <span class="keyword">call </span>mpp_error(warning, <span class="stringliteral">&quot;fms_io(restore_state_all): unable to find any restart files &quot;</span>// &amp;</div>
 <div class="line"><a name="l04028"></a><span class="lineno"> 4028</span>&#160;        <span class="stringliteral">&quot;specified by &quot;</span>//trim(restartpath))</div>
 <div class="line"><a name="l04029"></a><span class="lineno"> 4029</span>&#160;<span class="keywordflow">  endif</span> ;<span class="keywordflow"> endif</span></div>
@@ -4127,10 +4127,10 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l04031"></a><span class="lineno"> 4031</span>&#160; </div>
 <div class="line"><a name="l04032"></a><span class="lineno"> 4032</span>&#160;  <span class="comment">! Read each variable from the first file in which it is found.</span></div>
 <div class="line"><a name="l04033"></a><span class="lineno"> 4033</span>&#160;  <span class="keywordflow">do</span> n=1,nfile</div>
-<div class="line"><a name="l04034"></a><span class="lineno"> 4034</span>&#160;     <span class="keyword">call </span>mpp_get_info(unit(n), ndim, nvar, natt, ntime)</div>
+<div class="line"><a name="l04034"></a><span class="lineno"> 4034</span>&#160;     <span class="keyword">call </span><a class="code" href="mpp__io__util_8inc.html#a1b259a1037e7498382c529cf0e545c9b">mpp_get_info</a>(unit(n), ndim, nvar, natt, ntime)</div>
 <div class="line"><a name="l04035"></a><span class="lineno"> 4035</span>&#160; </div>
 <div class="line"><a name="l04036"></a><span class="lineno"> 4036</span>&#160;     <span class="keyword">allocate</span>(fields(nvar))</div>
-<div class="line"><a name="l04037"></a><span class="lineno"> 4037</span>&#160;     <span class="keyword">call </span>mpp_get_fields(unit(n),fields(1:nvar))</div>
+<div class="line"><a name="l04037"></a><span class="lineno"> 4037</span>&#160;     <span class="keyword">call </span><a class="code" href="mpp__io__util_8inc.html#a9d312dd6a9a8382c846fd8f15ce2c7de">mpp_get_fields</a>(unit(n),fields(1:nvar))</div>
 <div class="line"><a name="l04038"></a><span class="lineno"> 4038</span>&#160; </div>
 <div class="line"><a name="l04039"></a><span class="lineno"> 4039</span>&#160;     missing_fields = 0</div>
 <div class="line"><a name="l04040"></a><span class="lineno"> 4040</span>&#160; </div>
@@ -4184,10 +4184,10 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l04088"></a><span class="lineno"> 4088</span>&#160;                 <span class="keywordflow">if</span>(domain_present) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l04089"></a><span class="lineno"> 4089</span>&#160;                    <span class="keywordflow">if</span>( <span class="keyword">Associated</span>(fileobj%p0dr(k,j)%p) ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l04090"></a><span class="lineno"> 4090</span>&#160;                       <span class="keyword">call </span>mpp_read(unit(n), fields(l), fileobj%p0dr(k,j)%p, tlev)</div>
-<div class="line"><a name="l04091"></a><span class="lineno"> 4091</span>&#160;                       <span class="keywordflow">if</span> ( is_there_a_checksum ) checksum_data = mpp_chksum(fileobj%p0dr(k,j)%p, (/mpp_pe()/) )</div>
+<div class="line"><a name="l04091"></a><span class="lineno"> 4091</span>&#160;                       <span class="keywordflow">if</span> ( is_there_a_checksum ) checksum_data = mpp_chksum(fileobj%p0dr(k,j)%p, (/<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()/) )</div>
 <div class="line"><a name="l04092"></a><span class="lineno"> 4092</span>&#160;                    <span class="keywordflow">else</span> <span class="keywordflow">if</span>( <span class="keyword">Associated</span>(fileobj%p1dr(k,j)%p) ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l04093"></a><span class="lineno"> 4093</span>&#160;                       <span class="keyword">call </span>mpp_read(unit(n), fields(l), fileobj%p1dr(k,j)%p, tlev)</div>
-<div class="line"><a name="l04094"></a><span class="lineno"> 4094</span>&#160;                       <span class="keywordflow">if</span> ( is_there_a_checksum ) checksum_data = mpp_chksum(fileobj%p1dr(k,j)%p, (/mpp_pe()/) )</div>
+<div class="line"><a name="l04094"></a><span class="lineno"> 4094</span>&#160;                       <span class="keywordflow">if</span> ( is_there_a_checksum ) checksum_data = mpp_chksum(fileobj%p1dr(k,j)%p, (/<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()/) )</div>
 <div class="line"><a name="l04095"></a><span class="lineno"> 4095</span>&#160;                    <span class="keywordflow">else</span> <span class="keywordflow">if</span>( <span class="keyword">Associated</span>(fileobj%p2dr(k,j)%p) ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l04096"></a><span class="lineno"> 4096</span>&#160;                       <span class="keyword">call </span>mpp_read(unit(n), fields(l), array_domain(domain_idx), fileobj%p2dr(k,j)%p, tlev)</div>
 <div class="line"><a name="l04097"></a><span class="lineno"> 4097</span>&#160;                       <span class="keywordflow">if</span> ( is_there_a_checksum ) &amp;</div>
@@ -4216,7 +4216,7 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l04120"></a><span class="lineno"> 4120</span>&#160;                       <span class="keyword">allocate</span>(r1d(cur_var%siz(1)))</div>
 <div class="line"><a name="l04121"></a><span class="lineno"> 4121</span>&#160;                       <span class="keyword">call </span>mpp_read(unit(n), fields(l), r1d, tlev)</div>
 <div class="line"><a name="l04122"></a><span class="lineno"> 4122</span>&#160;                       fileobj%p1di(k,j)%p = r1d</div>
-<div class="line"><a name="l04123"></a><span class="lineno"> 4123</span>&#160;                       <span class="keywordflow">if</span> ( is_there_a_checksum ) checksum_data = mpp_chksum(fileobj%p1di(k,j)%p, (/mpp_pe()/) )</div>
+<div class="line"><a name="l04123"></a><span class="lineno"> 4123</span>&#160;                       <span class="keywordflow">if</span> ( is_there_a_checksum ) checksum_data = mpp_chksum(fileobj%p1di(k,j)%p, (/<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()/) )</div>
 <div class="line"><a name="l04124"></a><span class="lineno"> 4124</span>&#160;                       <span class="keyword">deallocate</span>(r1d)</div>
 <div class="line"><a name="l04125"></a><span class="lineno"> 4125</span>&#160;                    <span class="keywordflow">else</span> <span class="keywordflow">if</span>( <span class="keyword">Associated</span>(fileobj%p2di(k,j)%p) ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l04126"></a><span class="lineno"> 4126</span>&#160;                       <span class="keyword">allocate</span>(r2d(cur_var%siz(1), cur_var%siz(2)) )</div>
@@ -4241,10 +4241,10 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l04145"></a><span class="lineno"> 4145</span>&#160;                 <span class="keywordflow">else</span></div>
 <div class="line"><a name="l04146"></a><span class="lineno"> 4146</span>&#160;                    <span class="keywordflow">if</span>( <span class="keyword">Associated</span>(fileobj%p0dr(k,j)%p) ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l04147"></a><span class="lineno"> 4147</span>&#160;                       <span class="keyword">call </span>mpp_read(unit(n), fields(l), fileobj%p0dr(k,j)%p, tlev)</div>
-<div class="line"><a name="l04148"></a><span class="lineno"> 4148</span>&#160;                       <span class="keywordflow">if</span> ( is_there_a_checksum ) checksum_data = mpp_chksum(fileobj%p0dr(k,j)%p, (/mpp_pe()/) )</div>
+<div class="line"><a name="l04148"></a><span class="lineno"> 4148</span>&#160;                       <span class="keywordflow">if</span> ( is_there_a_checksum ) checksum_data = mpp_chksum(fileobj%p0dr(k,j)%p, (/<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()/) )</div>
 <div class="line"><a name="l04149"></a><span class="lineno"> 4149</span>&#160;                    <span class="keywordflow">else</span> <span class="keywordflow">if</span>( <span class="keyword">Associated</span>(fileobj%p1dr(k,j)%p) ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l04150"></a><span class="lineno"> 4150</span>&#160;                       <span class="keyword">call </span>mpp_read(unit(n), fields(l), fileobj%p1dr(k,j)%p, tlev)</div>
-<div class="line"><a name="l04151"></a><span class="lineno"> 4151</span>&#160;                       <span class="keywordflow">if</span> ( is_there_a_checksum ) checksum_data = mpp_chksum(fileobj%p1dr(k,j)%p, (/mpp_pe()/) )</div>
+<div class="line"><a name="l04151"></a><span class="lineno"> 4151</span>&#160;                       <span class="keywordflow">if</span> ( is_there_a_checksum ) checksum_data = mpp_chksum(fileobj%p1dr(k,j)%p, (/<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()/) )</div>
 <div class="line"><a name="l04152"></a><span class="lineno"> 4152</span>&#160;                    <span class="keywordflow">else</span> <span class="keywordflow">if</span>( <span class="keyword">Associated</span>(fileobj%p2dr(k,j)%p) ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l04153"></a><span class="lineno"> 4153</span>&#160;                       <span class="keyword">call </span>mpp_read(unit(n), fields(l), fileobj%p2dr(k,j)%p, tlev)</div>
 <div class="line"><a name="l04154"></a><span class="lineno"> 4154</span>&#160;                       <span class="keywordflow">if</span> ( is_there_a_checksum ) &amp;</div>
@@ -4265,7 +4265,7 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l04169"></a><span class="lineno"> 4169</span>&#160;                       <span class="keyword">allocate</span>(r1d(cur_var%siz(1)) )</div>
 <div class="line"><a name="l04170"></a><span class="lineno"> 4170</span>&#160;                       <span class="keyword">call </span>mpp_read(unit(n), fields(l), r1d, tlev)</div>
 <div class="line"><a name="l04171"></a><span class="lineno"> 4171</span>&#160;                       fileobj%p1di(k,j)%p = r1d</div>
-<div class="line"><a name="l04172"></a><span class="lineno"> 4172</span>&#160;                       <span class="keywordflow">if</span> ( is_there_a_checksum ) checksum_data = mpp_chksum(fileobj%p1di(k,j)%p, (/mpp_pe()/) )</div>
+<div class="line"><a name="l04172"></a><span class="lineno"> 4172</span>&#160;                       <span class="keywordflow">if</span> ( is_there_a_checksum ) checksum_data = mpp_chksum(fileobj%p1di(k,j)%p, (/<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()/) )</div>
 <div class="line"><a name="l04173"></a><span class="lineno"> 4173</span>&#160;                       <span class="keyword">deallocate</span>(r1d)</div>
 <div class="line"><a name="l04174"></a><span class="lineno"> 4174</span>&#160;                    <span class="keywordflow">else</span> <span class="keywordflow">if</span>( <span class="keyword">Associated</span>(fileobj%p2di(k,j)%p) ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l04175"></a><span class="lineno"> 4175</span>&#160;                       <span class="keyword">allocate</span>(r2d(cur_var%siz(1), cur_var%siz(2)) )</div>
@@ -4474,7 +4474,7 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l04378"></a><span class="lineno"> 4378</span>&#160;  <span class="keywordflow">if</span> (nfile == 0) <span class="keywordflow">then</span> ; <span class="keywordflow">if</span> (fatal_missing_files) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l04379"></a><span class="lineno"> 4379</span>&#160;     <span class="keyword">call </span>mpp_error(fatal, <span class="stringliteral">&quot;fms_io(restore_state_all): unable to find any restart files &quot;</span>// &amp;</div>
 <div class="line"><a name="l04380"></a><span class="lineno"> 4380</span>&#160;        <span class="stringliteral">&quot;specified by &quot;</span>//trim(restartpath))</div>
-<div class="line"><a name="l04381"></a><span class="lineno"> 4381</span>&#160;  <span class="keywordflow">elseif</span> (mpp_pe() == mpp_root_pe()) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l04381"></a><span class="lineno"> 4381</span>&#160;  <span class="keywordflow">elseif</span> (<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe()) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l04382"></a><span class="lineno"> 4382</span>&#160;     <span class="keyword">call </span>mpp_error(warning, <span class="stringliteral">&quot;fms_io(restore_state_all): unable to find any restart files &quot;</span>// &amp;</div>
 <div class="line"><a name="l04383"></a><span class="lineno"> 4383</span>&#160;        <span class="stringliteral">&quot;specified by &quot;</span>//trim(restartpath))</div>
 <div class="line"><a name="l04384"></a><span class="lineno"> 4384</span>&#160;<span class="keywordflow">  endif</span> ;<span class="keywordflow"> endif</span></div>
@@ -4482,10 +4482,10 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l04386"></a><span class="lineno"> 4386</span>&#160; </div>
 <div class="line"><a name="l04387"></a><span class="lineno"> 4387</span>&#160;  <span class="comment">! Read each variable from the first file in which it is found.</span></div>
 <div class="line"><a name="l04388"></a><span class="lineno"> 4388</span>&#160;  <span class="keywordflow">do</span> n=1,nfile</div>
-<div class="line"><a name="l04389"></a><span class="lineno"> 4389</span>&#160;     <span class="keyword">call </span>mpp_get_info(unit(n), ndim, nvar, natt, ntime)</div>
+<div class="line"><a name="l04389"></a><span class="lineno"> 4389</span>&#160;     <span class="keyword">call </span><a class="code" href="mpp__io__util_8inc.html#a1b259a1037e7498382c529cf0e545c9b">mpp_get_info</a>(unit(n), ndim, nvar, natt, ntime)</div>
 <div class="line"><a name="l04390"></a><span class="lineno"> 4390</span>&#160; </div>
 <div class="line"><a name="l04391"></a><span class="lineno"> 4391</span>&#160;     <span class="keyword">allocate</span>(fields(nvar))</div>
-<div class="line"><a name="l04392"></a><span class="lineno"> 4392</span>&#160;     <span class="keyword">call </span>mpp_get_fields(unit(n),fields(1:nvar))</div>
+<div class="line"><a name="l04392"></a><span class="lineno"> 4392</span>&#160;     <span class="keyword">call </span><a class="code" href="mpp__io__util_8inc.html#a9d312dd6a9a8382c846fd8f15ce2c7de">mpp_get_fields</a>(unit(n),fields(1:nvar))</div>
 <div class="line"><a name="l04393"></a><span class="lineno"> 4393</span>&#160; </div>
 <div class="line"><a name="l04394"></a><span class="lineno"> 4394</span>&#160;     missing_fields = 0</div>
 <div class="line"><a name="l04395"></a><span class="lineno"> 4395</span>&#160;     j = id_field</div>
@@ -4510,10 +4510,10 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l04414"></a><span class="lineno"> 4414</span>&#160;              <span class="keywordflow">if</span>(domain_present) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l04415"></a><span class="lineno"> 4415</span>&#160;                 <span class="keywordflow">if</span>( <span class="keyword">Associated</span>(fileobj%p0dr(k,j)%p) ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l04416"></a><span class="lineno"> 4416</span>&#160;                    <span class="keyword">call </span>mpp_read(unit(n), fields(l), fileobj%p0dr(k,j)%p, tlev)</div>
-<div class="line"><a name="l04417"></a><span class="lineno"> 4417</span>&#160;                    <span class="keywordflow">if</span> ( is_there_a_checksum ) checksum_data = mpp_chksum(fileobj%p0dr(k,j)%p, (/mpp_pe()/) )</div>
+<div class="line"><a name="l04417"></a><span class="lineno"> 4417</span>&#160;                    <span class="keywordflow">if</span> ( is_there_a_checksum ) checksum_data = mpp_chksum(fileobj%p0dr(k,j)%p, (/<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()/) )</div>
 <div class="line"><a name="l04418"></a><span class="lineno"> 4418</span>&#160;                 <span class="keywordflow">else</span> <span class="keywordflow">if</span>( <span class="keyword">Associated</span>(fileobj%p1dr(k,j)%p) ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l04419"></a><span class="lineno"> 4419</span>&#160;                    <span class="keyword">call </span>mpp_read(unit(n), fields(l), fileobj%p1dr(k,j)%p, tlev)</div>
-<div class="line"><a name="l04420"></a><span class="lineno"> 4420</span>&#160;                    <span class="keywordflow">if</span> ( is_there_a_checksum ) checksum_data = mpp_chksum(fileobj%p1dr(k,j)%p, (/mpp_pe()/) )</div>
+<div class="line"><a name="l04420"></a><span class="lineno"> 4420</span>&#160;                    <span class="keywordflow">if</span> ( is_there_a_checksum ) checksum_data = mpp_chksum(fileobj%p1dr(k,j)%p, (/<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()/) )</div>
 <div class="line"><a name="l04421"></a><span class="lineno"> 4421</span>&#160;                 <span class="keywordflow">else</span> <span class="keywordflow">if</span>( <span class="keyword">Associated</span>(fileobj%p2dr(k,j)%p) ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l04422"></a><span class="lineno"> 4422</span>&#160;                    <span class="keyword">call </span>mpp_read(unit(n), fields(l), array_domain(domain_idx), fileobj%p2dr(k,j)%p, tlev)</div>
 <div class="line"><a name="l04423"></a><span class="lineno"> 4423</span>&#160;                    <span class="keywordflow">if</span> ( is_there_a_checksum ) checksum_data =&amp;</div>
@@ -4534,7 +4534,7 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l04438"></a><span class="lineno"> 4438</span>&#160;                    <span class="keyword">allocate</span>(r1d(cur_var%siz(1)))</div>
 <div class="line"><a name="l04439"></a><span class="lineno"> 4439</span>&#160;                    <span class="keyword">call </span>mpp_read(unit(n), fields(l), r1d, tlev)</div>
 <div class="line"><a name="l04440"></a><span class="lineno"> 4440</span>&#160;                    fileobj%p1di(k,j)%p = r1d</div>
-<div class="line"><a name="l04441"></a><span class="lineno"> 4441</span>&#160;                    <span class="keywordflow">if</span> ( is_there_a_checksum ) checksum_data = mpp_chksum(fileobj%p1di(k,j)%p, (/mpp_pe()/) )</div>
+<div class="line"><a name="l04441"></a><span class="lineno"> 4441</span>&#160;                    <span class="keywordflow">if</span> ( is_there_a_checksum ) checksum_data = mpp_chksum(fileobj%p1di(k,j)%p, (/<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()/) )</div>
 <div class="line"><a name="l04442"></a><span class="lineno"> 4442</span>&#160;                    <span class="keyword">deallocate</span>(r1d)</div>
 <div class="line"><a name="l04443"></a><span class="lineno"> 4443</span>&#160;                 <span class="keywordflow">else</span> <span class="keywordflow">if</span>( <span class="keyword">Associated</span>(fileobj%p2di(k,j)%p) ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l04444"></a><span class="lineno"> 4444</span>&#160;                    <span class="keyword">allocate</span>(r2d(cur_var%siz(1), cur_var%siz(2)) )</div>
@@ -4559,10 +4559,10 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l04463"></a><span class="lineno"> 4463</span>&#160;              <span class="keywordflow">else</span></div>
 <div class="line"><a name="l04464"></a><span class="lineno"> 4464</span>&#160;                 <span class="keywordflow">if</span>( <span class="keyword">Associated</span>(fileobj%p0dr(k,j)%p) ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l04465"></a><span class="lineno"> 4465</span>&#160;                    <span class="keyword">call </span>mpp_read(unit(n), fields(l), fileobj%p0dr(k,j)%p, tlev)</div>
-<div class="line"><a name="l04466"></a><span class="lineno"> 4466</span>&#160;                    <span class="keywordflow">if</span> ( is_there_a_checksum ) checksum_data = mpp_chksum(fileobj%p0dr(k,j)%p, (/mpp_pe()/) )</div>
+<div class="line"><a name="l04466"></a><span class="lineno"> 4466</span>&#160;                    <span class="keywordflow">if</span> ( is_there_a_checksum ) checksum_data = mpp_chksum(fileobj%p0dr(k,j)%p, (/<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()/) )</div>
 <div class="line"><a name="l04467"></a><span class="lineno"> 4467</span>&#160;                 <span class="keywordflow">else</span> <span class="keywordflow">if</span>( <span class="keyword">Associated</span>(fileobj%p1dr(k,j)%p) ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l04468"></a><span class="lineno"> 4468</span>&#160;                    <span class="keyword">call </span>mpp_read(unit(n), fields(l), fileobj%p1dr(k,j)%p, tlev)</div>
-<div class="line"><a name="l04469"></a><span class="lineno"> 4469</span>&#160;                    <span class="keywordflow">if</span> ( is_there_a_checksum ) checksum_data = mpp_chksum(fileobj%p1dr(k,j)%p, (/mpp_pe()/) )</div>
+<div class="line"><a name="l04469"></a><span class="lineno"> 4469</span>&#160;                    <span class="keywordflow">if</span> ( is_there_a_checksum ) checksum_data = mpp_chksum(fileobj%p1dr(k,j)%p, (/<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()/) )</div>
 <div class="line"><a name="l04470"></a><span class="lineno"> 4470</span>&#160;                 <span class="keywordflow">else</span> <span class="keywordflow">if</span>( <span class="keyword">Associated</span>(fileobj%p2dr(k,j)%p) ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l04471"></a><span class="lineno"> 4471</span>&#160;                    <span class="keyword">call </span>mpp_read(unit(n), fields(l), fileobj%p2dr(k,j)%p, tlev)</div>
 <div class="line"><a name="l04472"></a><span class="lineno"> 4472</span>&#160;                    <span class="keywordflow">if</span> ( is_there_a_checksum ) checksum_data =&amp;</div>
@@ -4757,7 +4757,7 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l04661"></a><span class="lineno"> 4661</span>&#160;     <span class="keywordflow">if</span>(<span class="keyword">ASSOCIATED</span>(d_ptr))<span class="keywordflow">then</span></div>
 <div class="line"><a name="l04662"></a><span class="lineno"> 4662</span>&#160;        fileobj%is_root_pe = mpp_domain_is_tile_root_pe(d_ptr)</div>
 <div class="line"><a name="l04663"></a><span class="lineno"> 4663</span>&#160;     <span class="keywordflow">else</span></div>
-<div class="line"><a name="l04664"></a><span class="lineno"> 4664</span>&#160;        fileobj%is_root_pe = mpp_pe() == mpp_root_pe()</div>
+<div class="line"><a name="l04664"></a><span class="lineno"> 4664</span>&#160;        fileobj%is_root_pe = <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe()</div>
 <div class="line"><a name="l04665"></a><span class="lineno"> 4665</span>&#160;<span class="keywordflow">     endif</span></div>
 <div class="line"><a name="l04666"></a><span class="lineno"> 4666</span>&#160;     fileobj%max_ntime = field_siz(4)</div>
 <div class="line"><a name="l04667"></a><span class="lineno"> 4667</span>&#160;     fileobj%nvar      = 0</div>
@@ -5173,14 +5173,14 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l05077"></a><span class="lineno"> 5077</span>&#160;  found = .false.</div>
 <div class="line"><a name="l05078"></a><span class="lineno"> 5078</span>&#160;  <span class="keywordflow">if</span>(found_file) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l05079"></a><span class="lineno"> 5079</span>&#160;     <span class="keyword">call </span>get_file_unit(actual_file, unit, nfile, read_dist, io_domain_exist, domain=domain)</div>
-<div class="line"><a name="l05080"></a><span class="lineno"> 5080</span>&#160;     dimension_size = mpp_get_dimension_length(unit, dimname, found)</div>
+<div class="line"><a name="l05080"></a><span class="lineno"> 5080</span>&#160;     dimension_size = <a class="code" href="mpp__io__util_8inc.html#a3571ef7057d32291c3941da7c956b5a9">mpp_get_dimension_length</a>(unit, dimname, found)</div>
 <div class="line"><a name="l05081"></a><span class="lineno"> 5081</span>&#160;<span class="keywordflow">  endif</span></div>
 <div class="line"><a name="l05082"></a><span class="lineno"> 5082</span>&#160; </div>
 <div class="line"><a name="l05083"></a><span class="lineno"> 5083</span>&#160;  <span class="keywordflow">if</span>(.not.found .AND. .not. is_no_domain) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l05084"></a><span class="lineno"> 5084</span>&#160;    found_file =  get_file_name(filename, actual_file, read_dist, io_domain_exist, no_domain=.true.)</div>
 <div class="line"><a name="l05085"></a><span class="lineno"> 5085</span>&#160;    <span class="keywordflow">if</span>(found_file) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l05086"></a><span class="lineno"> 5086</span>&#160;      <span class="keyword">call </span>get_file_unit(actual_file, unit, nfile, read_dist, io_domain_exist, domain=domain)</div>
-<div class="line"><a name="l05087"></a><span class="lineno"> 5087</span>&#160;      dimension_size = mpp_get_dimension_length(unit, dimname, found)</div>
+<div class="line"><a name="l05087"></a><span class="lineno"> 5087</span>&#160;      dimension_size = <a class="code" href="mpp__io__util_8inc.html#a3571ef7057d32291c3941da7c956b5a9">mpp_get_dimension_length</a>(unit, dimname, found)</div>
 <div class="line"><a name="l05088"></a><span class="lineno"> 5088</span>&#160;<span class="keywordflow">    endif</span></div>
 <div class="line"><a name="l05089"></a><span class="lineno"> 5089</span>&#160;<span class="keywordflow">  endif</span></div>
 <div class="line"><a name="l05090"></a><span class="lineno"> 5090</span>&#160; </div>
@@ -5248,7 +5248,7 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l05152"></a><span class="lineno"> 5152</span>&#160; </div>
 <div class="line"><a name="l05153"></a><span class="lineno"> 5153</span>&#160;  <span class="keyword">call </span>file_unit(filename, found_file, unit, domain, no_domain)</div>
 <div class="line"><a name="l05154"></a><span class="lineno"> 5154</span>&#160; </div>
-<div class="line"><a name="l05155"></a><span class="lineno"> 5155</span>&#160;  <span class="keywordflow">if</span>(mpp_pe() == pelist(1)) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l05155"></a><span class="lineno"> 5155</span>&#160;  <span class="keywordflow">if</span>(<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == pelist(1)) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l05156"></a><span class="lineno"> 5156</span>&#160;     found=.false.</div>
 <div class="line"><a name="l05157"></a><span class="lineno"> 5157</span>&#160;     <span class="keywordflow">if</span>(found_file) <span class="keyword">call </span>get_size(unit,fieldname,siz,found)</div>
 <div class="line"><a name="l05158"></a><span class="lineno"> 5158</span>&#160;     <span class="keywordflow">if</span>(.not. found) siz(:) = -1</div>
@@ -5256,14 +5256,14 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l05160"></a><span class="lineno"> 5160</span>&#160;  <span class="comment">!--- z1l replace mpp_broadcast with mpp_send/mpp_recv to avoid hang in calling MPI_COMM_CREATE</span></div>
 <div class="line"><a name="l05161"></a><span class="lineno"> 5161</span>&#160;  <span class="comment">!---     because size(pelist) might be different for different rank.</span></div>
 <div class="line"><a name="l05162"></a><span class="lineno"> 5162</span>&#160;  <span class="comment">!--- prepost receive</span></div>
-<div class="line"><a name="l05163"></a><span class="lineno"> 5163</span>&#160;  <span class="keywordflow">if</span>( mpp_pe() == pelist(1) ) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l05163"></a><span class="lineno"> 5163</span>&#160;  <span class="keywordflow">if</span>( <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == pelist(1) ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l05164"></a><span class="lineno"> 5164</span>&#160;     <span class="keywordflow">do</span> p = 2, npes</div>
 <div class="line"><a name="l05165"></a><span class="lineno"> 5165</span>&#160;        <span class="keyword">call </span>mpp_send(siz(1), plen=<span class="keyword">size</span>(siz(:)), to_pe=pelist(p), tag=comm_tag_1)</div>
 <div class="line"><a name="l05166"></a><span class="lineno"> 5166</span>&#160;<span class="keywordflow">     enddo</span></div>
-<div class="line"><a name="l05167"></a><span class="lineno"> 5167</span>&#160;     <span class="keyword">call </span>mpp_sync_self()</div>
+<div class="line"><a name="l05167"></a><span class="lineno"> 5167</span>&#160;     <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>()</div>
 <div class="line"><a name="l05168"></a><span class="lineno"> 5168</span>&#160;  <span class="keywordflow">else</span></div>
 <div class="line"><a name="l05169"></a><span class="lineno"> 5169</span>&#160;     <span class="keyword">call </span>mpp_recv(siz(1), glen=<span class="keyword">size</span>(siz(:)), from_pe=pelist(1), block=.false., tag=comm_tag_1)</div>
-<div class="line"><a name="l05170"></a><span class="lineno"> 5170</span>&#160;     <span class="keyword">call </span>mpp_sync_self(check=event_recv)</div>
+<div class="line"><a name="l05170"></a><span class="lineno"> 5170</span>&#160;     <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=event_recv)</div>
 <div class="line"><a name="l05171"></a><span class="lineno"> 5171</span>&#160;<span class="keywordflow">  endif</span></div>
 <div class="line"><a name="l05172"></a><span class="lineno"> 5172</span>&#160; </div>
 <div class="line"><a name="l05173"></a><span class="lineno"> 5173</span>&#160;  found = .true.</div>
@@ -5291,13 +5291,13 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l05195"></a><span class="lineno"> 5195</span>&#160;  <span class="keywordtype">type</span>(fieldtype)                :: fields(max_fields)</div>
 <div class="line"><a name="l05196"></a><span class="lineno"> 5196</span>&#160;  <span class="keywordtype">type</span>(axistype)                 :: axes(max_fields)</div>
 <div class="line"><a name="l05197"></a><span class="lineno"> 5197</span>&#160;     found = .false.</div>
-<div class="line"><a name="l05198"></a><span class="lineno"> 5198</span>&#160;     <span class="keyword">call </span>mpp_get_info(unit,ndim,nvar,natt,ntime)</div>
+<div class="line"><a name="l05198"></a><span class="lineno"> 5198</span>&#160;     <span class="keyword">call </span><a class="code" href="mpp__io__util_8inc.html#a1b259a1037e7498382c529cf0e545c9b">mpp_get_info</a>(unit,ndim,nvar,natt,ntime)</div>
 <div class="line"><a name="l05199"></a><span class="lineno"> 5199</span>&#160;     <span class="keywordflow">if</span> (nvar &gt; max_fields) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l05200"></a><span class="lineno"> 5200</span>&#160;        <span class="keyword">write</span>(error_msg,<span class="stringliteral">&#39;(I3,&quot;/&quot;,I3)&#39;</span>) nvar,max_fields</div>
 <div class="line"><a name="l05201"></a><span class="lineno"> 5201</span>&#160;        <span class="keyword">call  </span>mpp_error(fatal,<span class="stringliteral">&#39;fms_io(field_size): max_fields too small, needs increasing, nvar/max_fields=&#39;</span> &amp;</div>
 <div class="line"><a name="l05202"></a><span class="lineno"> 5202</span>&#160;             //trim(error_msg))<span class="comment">!//&#39; in file &#39;//trim(filename))</span></div>
 <div class="line"><a name="l05203"></a><span class="lineno"> 5203</span>&#160;<span class="keywordflow">     endif</span></div>
-<div class="line"><a name="l05204"></a><span class="lineno"> 5204</span>&#160;     <span class="keyword">call </span>mpp_get_fields(unit,fields(1:nvar))</div>
+<div class="line"><a name="l05204"></a><span class="lineno"> 5204</span>&#160;     <span class="keyword">call </span><a class="code" href="mpp__io__util_8inc.html#a9d312dd6a9a8382c846fd8f15ce2c7de">mpp_get_fields</a>(unit,fields(1:nvar))</div>
 <div class="line"><a name="l05205"></a><span class="lineno"> 5205</span>&#160;     <span class="keywordflow">do</span> i=1, nvar</div>
 <div class="line"><a name="l05206"></a><span class="lineno"> 5206</span>&#160;        <span class="keyword">call </span>mpp_get_atts(fields(i),name=name)</div>
 <div class="line"><a name="l05207"></a><span class="lineno"> 5207</span>&#160;        <span class="keywordflow">if</span> (lowercase(trim(name)) == lowercase(trim(fieldname))) <span class="keywordflow">then</span></div>
@@ -5329,7 +5329,7 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l05233"></a><span class="lineno"> 5233</span>&#160;<span class="keywordflow">     enddo</span></div>
 <div class="line"><a name="l05234"></a><span class="lineno"> 5234</span>&#160; </div>
 <div class="line"><a name="l05235"></a><span class="lineno"> 5235</span>&#160;     <span class="keywordflow">if</span>(.not. found) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l05236"></a><span class="lineno"> 5236</span>&#160;        <span class="keyword">call </span>mpp_get_axes(unit,axes(1:ndim))</div>
+<div class="line"><a name="l05236"></a><span class="lineno"> 5236</span>&#160;        <span class="keyword">call </span><a class="code" href="mpp__io__util_8inc.html#ae1d26816048f40bdb4f4fbb313d65004">mpp_get_axes</a>(unit,axes(1:ndim))</div>
 <div class="line"><a name="l05237"></a><span class="lineno"> 5237</span>&#160;        <span class="keywordflow">do</span> i=1, ndim</div>
 <div class="line"><a name="l05238"></a><span class="lineno"> 5238</span>&#160;           <span class="keyword">call </span>mpp_get_atts(axes(i),name=name, len= siz_in(1))</div>
 <div class="line"><a name="l05239"></a><span class="lineno"> 5239</span>&#160;           <span class="keywordflow">if</span> (lowercase(trim(name)) == lowercase(trim(fieldname))) <span class="keywordflow">then</span></div>
@@ -6456,7 +6456,7 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l06360"></a><span class="lineno"> 6360</span>&#160;  <span class="keywordflow">do</span> n = 1, <span class="keyword">size</span>(<span class="keyword">data</span>,4)</div>
 <div class="line"><a name="l06361"></a><span class="lineno"> 6361</span>&#160;     <span class="keyword">call </span>mpp_global_field ( current_domain, <span class="keyword">data</span>(:,:,:,n), gdata(:,:,:,n) )</div>
 <div class="line"><a name="l06362"></a><span class="lineno"> 6362</span>&#160;<span class="keywordflow">  enddo</span></div>
-<div class="line"><a name="l06363"></a><span class="lineno"> 6363</span>&#160;  <span class="keywordflow">if</span> ( mpp_pe() == mpp_root_pe() ) <span class="keyword">write</span> (unit) gdata</div>
+<div class="line"><a name="l06363"></a><span class="lineno"> 6363</span>&#160;  <span class="keywordflow">if</span> ( <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe() ) <span class="keyword">write</span> (unit) gdata</div>
 <div class="line"><a name="l06364"></a><span class="lineno"> 6364</span>&#160;<span class="keyword">end subroutine </span>write_data_4d</div>
 <div class="line"><a name="l06365"></a><span class="lineno"> 6365</span>&#160; </div>
 <div class="line"><a name="l06366"></a><span class="lineno"> 6366</span>&#160;<span class="comment">!#######################################################################</span></div>
@@ -6476,7 +6476,7 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l06380"></a><span class="lineno"> 6380</span>&#160;  <span class="keywordflow">do</span> n = 1, <span class="keyword">size</span>(<span class="keyword">data</span>,4)</div>
 <div class="line"><a name="l06381"></a><span class="lineno"> 6381</span>&#160;     <span class="keyword">call </span>mpp_global_field ( current_domain, <span class="keyword">data</span>(:,:,:,n), gdata(:,:,:,n) )</div>
 <div class="line"><a name="l06382"></a><span class="lineno"> 6382</span>&#160;<span class="keywordflow">  enddo</span></div>
-<div class="line"><a name="l06383"></a><span class="lineno"> 6383</span>&#160;  <span class="keywordflow">if</span> ( mpp_pe() == mpp_root_pe() ) <span class="keyword">write</span> (unit) gdata</div>
+<div class="line"><a name="l06383"></a><span class="lineno"> 6383</span>&#160;  <span class="keywordflow">if</span> ( <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe() ) <span class="keyword">write</span> (unit) gdata</div>
 <div class="line"><a name="l06384"></a><span class="lineno"> 6384</span>&#160;<span class="keyword">end subroutine </span>write_cdata_4d</div>
 <div class="line"><a name="l06385"></a><span class="lineno"> 6385</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l06386"></a><span class="lineno"> 6386</span>&#160;<span class="preprocessor"></span> </div>
@@ -6501,7 +6501,7 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l06405"></a><span class="lineno"> 6405</span>&#160; </div>
 <div class="line"><a name="l06406"></a><span class="lineno"> 6406</span>&#160;<span class="keyword">function </span>do_read ( )</div>
 <div class="line"><a name="l06407"></a><span class="lineno"> 6407</span>&#160;  <span class="keywordtype">logical</span> :: do_read</div>
-<div class="line"><a name="l06408"></a><span class="lineno"> 6408</span>&#160;  do_read = mpp_pe() == mpp_root_pe() .or. read_all_pe</div>
+<div class="line"><a name="l06408"></a><span class="lineno"> 6408</span>&#160;  do_read = <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe() .or. read_all_pe</div>
 <div class="line"><a name="l06409"></a><span class="lineno"> 6409</span>&#160;<span class="keyword">end function </span>do_read</div>
 <div class="line"><a name="l06410"></a><span class="lineno"> 6410</span>&#160; </div>
 <div class="line"><a name="l06411"></a><span class="lineno"> 6411</span>&#160;<span class="comment">!!#######################################################################</span></div>
@@ -6940,7 +6940,7 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l06844"></a><span class="lineno"> 6844</span>&#160;<span class="keywordflow">  enddo</span></div>
 <div class="line"><a name="l06845"></a><span class="lineno"> 6845</span>&#160;<span class="comment">! Assume that you are going to initialize it now, so set flag to initialized if</span></div>
 <div class="line"><a name="l06846"></a><span class="lineno"> 6846</span>&#160;<span class="comment">! queried again.</span></div>
-<div class="line"><a name="l06847"></a><span class="lineno"> 6847</span>&#160;  <span class="keywordflow">if</span> ((m&gt;fileobj%nvar) .and. (mpp_pe() == mpp_root_pe())) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l06847"></a><span class="lineno"> 6847</span>&#160;  <span class="keywordflow">if</span> ((m&gt;fileobj%nvar) .and. (<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe())) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l06848"></a><span class="lineno"> 6848</span>&#160;    <span class="keyword">call </span>mpp_error(note,<span class="stringliteral">&quot;fms_io(query_initialized_name): Unknown restart variable &quot;</span>//name// &amp;</div>
 <div class="line"><a name="l06849"></a><span class="lineno"> 6849</span>&#160;                        <span class="stringliteral">&quot; queried for initialization.&quot;</span>)</div>
 <div class="line"><a name="l06850"></a><span class="lineno"> 6850</span>&#160;<span class="keywordflow">  end if</span></div>
@@ -6978,10 +6978,10 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l06882"></a><span class="lineno"> 6882</span>&#160;  <span class="comment">! Assume that you are going to initialize it now, so set flag to initialized if</span></div>
 <div class="line"><a name="l06883"></a><span class="lineno"> 6883</span>&#160;  <span class="comment">! queried again.</span></div>
 <div class="line"><a name="l06884"></a><span class="lineno"> 6884</span>&#160;  <span class="keywordflow">if</span> (m&gt;fileobj%nvar) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l06885"></a><span class="lineno"> 6885</span>&#160;     <span class="keywordflow">if</span> (mpp_pe() == mpp_root_pe() ) <span class="keyword">call </span>mpp_error(note, <span class="stringliteral">&quot;fms_io(query_initialized_r2d): Unable to find &quot;</span>// &amp;</div>
+<div class="line"><a name="l06885"></a><span class="lineno"> 6885</span>&#160;     <span class="keywordflow">if</span> (<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe() ) <span class="keyword">call </span>mpp_error(note, <span class="stringliteral">&quot;fms_io(query_initialized_r2d): Unable to find &quot;</span>// &amp;</div>
 <div class="line"><a name="l06886"></a><span class="lineno"> 6886</span>&#160;          trim(name)//<span class="stringliteral">&quot; queried by pointer, &quot;</span>//<span class="stringliteral">&quot;probably because of the suspect comparison of pointers by ASSOCIATED.&quot;</span>)</div>
 <div class="line"><a name="l06887"></a><span class="lineno"> 6887</span>&#160;     query_initialized_r2d = query_initialized_name(fileobj, name)</div>
-<div class="line"><a name="l06888"></a><span class="lineno"> 6888</span>&#160;     <span class="keywordflow">if</span> (mpp_pe() == mpp_root_pe() .AND. query_initialized_r2d) <span class="keyword">call </span>mpp_error(note, &amp;</div>
+<div class="line"><a name="l06888"></a><span class="lineno"> 6888</span>&#160;     <span class="keywordflow">if</span> (<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe() .AND. query_initialized_r2d) <span class="keyword">call </span>mpp_error(note, &amp;</div>
 <div class="line"><a name="l06889"></a><span class="lineno"> 6889</span>&#160;          <span class="stringliteral">&quot;fms_io(query_initialized_r2d): &quot;</span>//trim(name)// <span class="stringliteral">&quot; initialization confirmed by name.&quot;</span>)</div>
 <div class="line"><a name="l06890"></a><span class="lineno"> 6890</span>&#160;<span class="keywordflow">  endif</span></div>
 <div class="line"><a name="l06891"></a><span class="lineno"> 6891</span>&#160; </div>
@@ -7020,10 +7020,10 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l06924"></a><span class="lineno"> 6924</span>&#160;  <span class="comment">! Assume that you are going to initialize it now, so set flag to initialized if</span></div>
 <div class="line"><a name="l06925"></a><span class="lineno"> 6925</span>&#160;  <span class="comment">! queried again.</span></div>
 <div class="line"><a name="l06926"></a><span class="lineno"> 6926</span>&#160;  <span class="keywordflow">if</span> (m&gt;fileobj%nvar) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l06927"></a><span class="lineno"> 6927</span>&#160;     <span class="keywordflow">if</span> (mpp_pe() == mpp_root_pe() ) <span class="keyword">call </span>mpp_error(note, <span class="stringliteral">&quot;fms_io(query_initialized_r3d): Unable to find &quot;</span>// &amp;</div>
+<div class="line"><a name="l06927"></a><span class="lineno"> 6927</span>&#160;     <span class="keywordflow">if</span> (<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe() ) <span class="keyword">call </span>mpp_error(note, <span class="stringliteral">&quot;fms_io(query_initialized_r3d): Unable to find &quot;</span>// &amp;</div>
 <div class="line"><a name="l06928"></a><span class="lineno"> 6928</span>&#160;          trim(name)//<span class="stringliteral">&quot; queried by pointer, &quot;</span>//<span class="stringliteral">&quot;probably because of the suspect comparison of pointers by ASSOCIATED.&quot;</span>)</div>
 <div class="line"><a name="l06929"></a><span class="lineno"> 6929</span>&#160;     query_initialized_r3d = query_initialized_name(fileobj, name)</div>
-<div class="line"><a name="l06930"></a><span class="lineno"> 6930</span>&#160;     <span class="keywordflow">if</span> (mpp_pe() == mpp_root_pe() .AND. query_initialized_r3d) <span class="keyword">call </span>mpp_error(note, &amp;</div>
+<div class="line"><a name="l06930"></a><span class="lineno"> 6930</span>&#160;     <span class="keywordflow">if</span> (<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe() .AND. query_initialized_r3d) <span class="keyword">call </span>mpp_error(note, &amp;</div>
 <div class="line"><a name="l06931"></a><span class="lineno"> 6931</span>&#160;          <span class="stringliteral">&quot;fms_io(query_initialized_r3d): &quot;</span>//trim(name)// <span class="stringliteral">&quot; initialization confirmed by name.&quot;</span>)</div>
 <div class="line"><a name="l06932"></a><span class="lineno"> 6932</span>&#160;<span class="keywordflow">  endif</span></div>
 <div class="line"><a name="l06933"></a><span class="lineno"> 6933</span>&#160; </div>
@@ -7063,10 +7063,10 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l06967"></a><span class="lineno"> 6967</span>&#160;  <span class="comment">! Assume that you are going to initialize it now, so set flag to initialized if</span></div>
 <div class="line"><a name="l06968"></a><span class="lineno"> 6968</span>&#160;  <span class="comment">! queried again.</span></div>
 <div class="line"><a name="l06969"></a><span class="lineno"> 6969</span>&#160;  <span class="keywordflow">if</span> (m&gt;fileobj%nvar) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l06970"></a><span class="lineno"> 6970</span>&#160;     <span class="keywordflow">if</span> (mpp_pe() == mpp_root_pe() ) <span class="keyword">call </span>mpp_error(note, <span class="stringliteral">&quot;fms_io(query_initialized_r4d): Unable to find &quot;</span>// &amp;</div>
+<div class="line"><a name="l06970"></a><span class="lineno"> 6970</span>&#160;     <span class="keywordflow">if</span> (<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe() ) <span class="keyword">call </span>mpp_error(note, <span class="stringliteral">&quot;fms_io(query_initialized_r4d): Unable to find &quot;</span>// &amp;</div>
 <div class="line"><a name="l06971"></a><span class="lineno"> 6971</span>&#160;          trim(name)//<span class="stringliteral">&quot; queried by pointer, &quot;</span>//<span class="stringliteral">&quot;probably because of the suspect comparison of pointers by ASSOCIATED.&quot;</span>)</div>
 <div class="line"><a name="l06972"></a><span class="lineno"> 6972</span>&#160;     query_initialized_r4d = query_initialized_name(fileobj, name)</div>
-<div class="line"><a name="l06973"></a><span class="lineno"> 6973</span>&#160;     <span class="keywordflow">if</span> (mpp_pe() == mpp_root_pe() .AND. query_initialized_r4d) <span class="keyword">call </span>mpp_error(note, &amp;</div>
+<div class="line"><a name="l06973"></a><span class="lineno"> 6973</span>&#160;     <span class="keywordflow">if</span> (<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe() .AND. query_initialized_r4d) <span class="keyword">call </span>mpp_error(note, &amp;</div>
 <div class="line"><a name="l06974"></a><span class="lineno"> 6974</span>&#160;          <span class="stringliteral">&quot;fms_io(query_initialized_r4d): &quot;</span>//trim(name)// <span class="stringliteral">&quot; initialization confirmed by name.&quot;</span>)</div>
 <div class="line"><a name="l06975"></a><span class="lineno"> 6975</span>&#160;<span class="keywordflow">  endif</span></div>
 <div class="line"><a name="l06976"></a><span class="lineno"> 6976</span>&#160; </div>
@@ -7163,7 +7163,7 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l07067"></a><span class="lineno"> 7067</span>&#160;<span class="keywordflow">     endif</span></div>
 <div class="line"><a name="l07068"></a><span class="lineno"> 7068</span>&#160;<span class="keywordflow">  enddo</span></div>
 <div class="line"><a name="l07069"></a><span class="lineno"> 7069</span>&#160; </div>
-<div class="line"><a name="l07070"></a><span class="lineno"> 7070</span>&#160;  <span class="keywordflow">if</span> (m&gt;fileobj%nvar .AND. mpp_pe() == mpp_root_pe() ) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l07070"></a><span class="lineno"> 7070</span>&#160;  <span class="keywordflow">if</span> (m&gt;fileobj%nvar .AND. <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe() ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l07071"></a><span class="lineno"> 7071</span>&#160;    <span class="keyword">call </span>mpp_error(note,<span class="stringliteral">&quot;fms_io(set_initialized_r2d): Unable to find &quot;</span>// &amp;</div>
 <div class="line"><a name="l07072"></a><span class="lineno"> 7072</span>&#160;          trim(name)//<span class="stringliteral">&quot; queried by pointer, &quot;</span>//<span class="stringliteral">&quot;probably because of the suspect comparison of pointers by ASSOCIATED&quot;</span>// &amp;</div>
 <div class="line"><a name="l07073"></a><span class="lineno"> 7073</span>&#160;                        <span class="stringliteral">&quot; when attempting to set initialization.&quot;</span>)</div>
@@ -7176,7 +7176,7 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l07080"></a><span class="lineno"> 7080</span>&#160;<span class="keywordflow">    endif</span></div>
 <div class="line"><a name="l07081"></a><span class="lineno"> 7081</span>&#160;<span class="keywordflow">  enddo</span></div>
 <div class="line"><a name="l07082"></a><span class="lineno"> 7082</span>&#160; </div>
-<div class="line"><a name="l07083"></a><span class="lineno"> 7083</span>&#160;  <span class="keywordflow">if</span> (m&gt;fileobj%nvar .AND. mpp_pe() == mpp_root_pe() ) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l07083"></a><span class="lineno"> 7083</span>&#160;  <span class="keywordflow">if</span> (m&gt;fileobj%nvar .AND. <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe() ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l07084"></a><span class="lineno"> 7084</span>&#160;    <span class="keyword">call </span>mpp_error(note,<span class="stringliteral">&quot;fms_io(set_initialized_r2d): Unknown restart variable &quot;</span>//name// &amp;</div>
 <div class="line"><a name="l07085"></a><span class="lineno"> 7085</span>&#160;                        <span class="stringliteral">&quot; attempted to set initialization.&quot;</span>)</div>
 <div class="line"><a name="l07086"></a><span class="lineno"> 7086</span>&#160;<span class="keywordflow">  end if</span></div>
@@ -7210,7 +7210,7 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l07114"></a><span class="lineno"> 7114</span>&#160;<span class="keywordflow">     endif</span></div>
 <div class="line"><a name="l07115"></a><span class="lineno"> 7115</span>&#160;<span class="keywordflow">  enddo</span></div>
 <div class="line"><a name="l07116"></a><span class="lineno"> 7116</span>&#160; </div>
-<div class="line"><a name="l07117"></a><span class="lineno"> 7117</span>&#160;  <span class="keywordflow">if</span> (m&gt;fileobj%nvar .AND. mpp_pe() == mpp_root_pe() ) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l07117"></a><span class="lineno"> 7117</span>&#160;  <span class="keywordflow">if</span> (m&gt;fileobj%nvar .AND. <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe() ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l07118"></a><span class="lineno"> 7118</span>&#160;    <span class="keyword">call </span>mpp_error(note,<span class="stringliteral">&quot;fms_io(set_initialized_r3d): Unable to find &quot;</span>// &amp;</div>
 <div class="line"><a name="l07119"></a><span class="lineno"> 7119</span>&#160;          trim(name)//<span class="stringliteral">&quot; queried by pointer, &quot;</span>//<span class="stringliteral">&quot;probably because of the suspect comparison of pointers by ASSOCIATED&quot;</span>//&amp;</div>
 <div class="line"><a name="l07120"></a><span class="lineno"> 7120</span>&#160;                        <span class="stringliteral">&quot; when attempting to set initialization.&quot;</span>)</div>
@@ -7223,7 +7223,7 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l07127"></a><span class="lineno"> 7127</span>&#160;<span class="keywordflow">    endif</span></div>
 <div class="line"><a name="l07128"></a><span class="lineno"> 7128</span>&#160;<span class="keywordflow">  enddo</span></div>
 <div class="line"><a name="l07129"></a><span class="lineno"> 7129</span>&#160; </div>
-<div class="line"><a name="l07130"></a><span class="lineno"> 7130</span>&#160;  <span class="keywordflow">if</span> (m&gt;fileobj%nvar .AND. mpp_pe() == mpp_root_pe() ) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l07130"></a><span class="lineno"> 7130</span>&#160;  <span class="keywordflow">if</span> (m&gt;fileobj%nvar .AND. <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe() ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l07131"></a><span class="lineno"> 7131</span>&#160;    <span class="keyword">call </span>mpp_error(note,<span class="stringliteral">&quot;fms_io(set_initialized_r3d): Unknown restart variable &quot;</span>//name// &amp;</div>
 <div class="line"><a name="l07132"></a><span class="lineno"> 7132</span>&#160;                        <span class="stringliteral">&quot; attempted to set initialization.&quot;</span>)</div>
 <div class="line"><a name="l07133"></a><span class="lineno"> 7133</span>&#160;<span class="keywordflow">  end if</span></div>
@@ -7258,7 +7258,7 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l07162"></a><span class="lineno"> 7162</span>&#160;<span class="keywordflow">     endif</span></div>
 <div class="line"><a name="l07163"></a><span class="lineno"> 7163</span>&#160;<span class="keywordflow">  enddo</span></div>
 <div class="line"><a name="l07164"></a><span class="lineno"> 7164</span>&#160; </div>
-<div class="line"><a name="l07165"></a><span class="lineno"> 7165</span>&#160;  <span class="keywordflow">if</span> (m&gt;fileobj%nvar .AND. mpp_pe() == mpp_root_pe() ) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l07165"></a><span class="lineno"> 7165</span>&#160;  <span class="keywordflow">if</span> (m&gt;fileobj%nvar .AND. <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe() ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l07166"></a><span class="lineno"> 7166</span>&#160;    <span class="keyword">call </span>mpp_error(note,<span class="stringliteral">&quot;fms_io(set_initialized_r4d): Unable to find &quot;</span>// &amp;</div>
 <div class="line"><a name="l07167"></a><span class="lineno"> 7167</span>&#160;          trim(name)//<span class="stringliteral">&quot; queried by pointer, &quot;</span>//<span class="stringliteral">&quot;probably because of the suspect comparison of pointers by ASSOCIATED&quot;</span>//&amp;</div>
 <div class="line"><a name="l07168"></a><span class="lineno"> 7168</span>&#160;                        <span class="stringliteral">&quot; when attempting to set initialization.&quot;</span>)</div>
@@ -7271,7 +7271,7 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l07175"></a><span class="lineno"> 7175</span>&#160;<span class="keywordflow">    endif</span></div>
 <div class="line"><a name="l07176"></a><span class="lineno"> 7176</span>&#160;<span class="keywordflow">  enddo</span></div>
 <div class="line"><a name="l07177"></a><span class="lineno"> 7177</span>&#160; </div>
-<div class="line"><a name="l07178"></a><span class="lineno"> 7178</span>&#160;  <span class="keywordflow">if</span> (m&gt;fileobj%nvar .AND. mpp_pe() == mpp_root_pe() ) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l07178"></a><span class="lineno"> 7178</span>&#160;  <span class="keywordflow">if</span> (m&gt;fileobj%nvar .AND. <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe() ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l07179"></a><span class="lineno"> 7179</span>&#160;    <span class="keyword">call </span>mpp_error(note,<span class="stringliteral">&quot;fms_io(set_initialized_r4d): Unknown restart variable &quot;</span>//name// &amp;</div>
 <div class="line"><a name="l07180"></a><span class="lineno"> 7180</span>&#160;                        <span class="stringliteral">&quot; attempted to set initialization.&quot;</span>)</div>
 <div class="line"><a name="l07181"></a><span class="lineno"> 7181</span>&#160;<span class="keywordflow">  end if</span></div>
@@ -7474,7 +7474,7 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l07378"></a><span class="lineno"> 7378</span>&#160;<span class="keywordflow">    endif</span></div>
 <div class="line"><a name="l07379"></a><span class="lineno"> 7379</span>&#160;<span class="keywordflow">  endif</span></div>
 <div class="line"><a name="l07380"></a><span class="lineno"> 7380</span>&#160; </div>
-<div class="line"><a name="l07381"></a><span class="lineno"> 7381</span>&#160;  <span class="keywordflow">if</span> (unit == stdlog()) <span class="keywordflow">return</span></div>
+<div class="line"><a name="l07381"></a><span class="lineno"> 7381</span>&#160;  <span class="keywordflow">if</span> (unit == <a class="code" href="mpp__util_8inc.html#a8e5518df9532bae0241f53ab542294a2">stdlog</a>()) <span class="keywordflow">return</span></div>
 <div class="line"><a name="l07382"></a><span class="lineno"> 7382</span>&#160;  <span class="keywordflow">if</span> (<span class="keyword">present</span>(status)) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l07383"></a><span class="lineno"> 7383</span>&#160;     <span class="keywordflow">if</span> (lowercase(trim(status)) == <span class="stringliteral">&#39;delete&#39;</span>) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l07384"></a><span class="lineno"> 7384</span>&#160;        <span class="keyword">call </span>mpp_close (unit, action=mpp_delete)</div>
@@ -7572,7 +7572,7 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l07476"></a><span class="lineno"> 7476</span>&#160; </div>
 <div class="line"><a name="l07477"></a><span class="lineno"> 7477</span>&#160;  <span class="keywordtype">integer</span>, <span class="keywordtype">intent(out)</span>, <span class="keywordtype">dimension(4)</span> :: x, y</div>
 <div class="line"><a name="l07478"></a><span class="lineno"> 7478</span>&#160; </div>
-<div class="line"><a name="l07479"></a><span class="lineno"> 7479</span>&#160;  <span class="keywordflow">if</span> (mpp_pe() == mpp_root_pe())  <span class="keyword">call </span>mpp_error(note, &amp;</div>
+<div class="line"><a name="l07479"></a><span class="lineno"> 7479</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe())  <span class="keyword">call </span>mpp_error(note, &amp;</div>
 <div class="line"><a name="l07480"></a><span class="lineno"> 7480</span>&#160;       <span class="stringliteral">&#39;subroutine get_domain_decomp will be removed with the next release&#39;</span>)</div>
 <div class="line"><a name="l07481"></a><span class="lineno"> 7481</span>&#160;  x = (/ isg, ieg, is, ie /)</div>
 <div class="line"><a name="l07482"></a><span class="lineno"> 7482</span>&#160;  y = (/ jsg, jeg, js, je /)</div>
@@ -7685,7 +7685,7 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l07589"></a><span class="lineno"> 7589</span>&#160;<span class="comment">!   ---- return stdlog if this is the logfile ----</span></div>
 <div class="line"><a name="l07590"></a><span class="lineno"> 7590</span>&#160; </div>
 <div class="line"><a name="l07591"></a><span class="lineno"> 7591</span>&#160;    <span class="keywordflow">if</span> (trim(file) == <span class="stringliteral">&#39;logfile.out&#39;</span>) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l07592"></a><span class="lineno"> 7592</span>&#160;       unit = stdlog()</div>
+<div class="line"><a name="l07592"></a><span class="lineno"> 7592</span>&#160;       unit = <a class="code" href="mpp__util_8inc.html#a8e5518df9532bae0241f53ab542294a2">stdlog</a>()</div>
 <div class="line"><a name="l07593"></a><span class="lineno"> 7593</span>&#160;       <span class="keywordflow">return</span></div>
 <div class="line"><a name="l07594"></a><span class="lineno"> 7594</span>&#160;<span class="keywordflow">    endif</span></div>
 <div class="line"><a name="l07595"></a><span class="lineno"> 7595</span>&#160; </div>
@@ -7792,7 +7792,7 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l07696"></a><span class="lineno"> 7696</span>&#160;    <span class="keywordtype">integer</span>, <span class="keywordtype">intent(in)</span> :: n</div>
 <div class="line"><a name="l07697"></a><span class="lineno"> 7697</span>&#160;    <span class="keywordtype">character(len=16)</span> :: string_from_integer</div>
 <div class="line"><a name="l07698"></a><span class="lineno"> 7698</span>&#160; </div>
-<div class="line"><a name="l07699"></a><span class="lineno"> 7699</span>&#160;    <span class="keywordflow">if</span> (mpp_pe() == mpp_root_pe() .and. warn_string_function ) &amp;</div>
+<div class="line"><a name="l07699"></a><span class="lineno"> 7699</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe() .and. warn_string_function ) &amp;</div>
 <div class="line"><a name="l07700"></a><span class="lineno"> 7700</span>&#160;            <span class="keyword">call </span>mpp_error(warning, <span class="stringliteral">&quot;The function named string has been moved &quot;</span>// &amp;</div>
 <div class="line"><a name="l07701"></a><span class="lineno"> 7701</span>&#160;            <span class="stringliteral">&quot;from fms_io_mod to fms_mod.  Please update your call.&quot;</span>)</div>
 <div class="line"><a name="l07702"></a><span class="lineno"> 7702</span>&#160;    warn_string_function = .false.</div>
@@ -7826,7 +7826,7 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l07730"></a><span class="lineno"> 7730</span>&#160;  <span class="keyword">function </span>string_from_real(a)</div>
 <div class="line"><a name="l07731"></a><span class="lineno"> 7731</span>&#160;<span class="keywordtype">    real</span>, <span class="keywordtype">intent(in)</span> :: a</div>
 <div class="line"><a name="l07732"></a><span class="lineno"> 7732</span>&#160;    <span class="keywordtype">character(len=32)</span> :: string_from_real</div>
-<div class="line"><a name="l07733"></a><span class="lineno"> 7733</span>&#160;    <span class="keywordflow">if</span> (mpp_pe() == mpp_root_pe() .and. warn_string_function ) &amp;</div>
+<div class="line"><a name="l07733"></a><span class="lineno"> 7733</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe() .and. warn_string_function ) &amp;</div>
 <div class="line"><a name="l07734"></a><span class="lineno"> 7734</span>&#160;            <span class="keyword">call </span>mpp_error(warning, <span class="stringliteral">&quot;The function named string has been moved &quot;</span>// &amp;</div>
 <div class="line"><a name="l07735"></a><span class="lineno"> 7735</span>&#160;            <span class="stringliteral">&quot;from fms_io_mod to fms_mod.  Please update your call.&quot;</span>)</div>
 <div class="line"><a name="l07736"></a><span class="lineno"> 7736</span>&#160;    warn_string_function = .false.</div>
@@ -8000,12 +8000,12 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l07904"></a><span class="lineno"> 7904</span>&#160; </div>
 <div class="line"><a name="l07905"></a><span class="lineno"> 7905</span>&#160;    get_global_att_value_text = .false.</div>
 <div class="line"><a name="l07906"></a><span class="lineno"> 7906</span>&#160;    <span class="keyword">call </span>mpp_open(unit,trim(file),mpp_rdonly,mpp_netcdf,threading=mpp_multi,fileset=mpp_single)</div>
-<div class="line"><a name="l07907"></a><span class="lineno"> 7907</span>&#160;    <span class="keyword">call </span>mpp_get_info(unit, ndim, nvar, natt, ntime)</div>
+<div class="line"><a name="l07907"></a><span class="lineno"> 7907</span>&#160;    <span class="keyword">call </span><a class="code" href="mpp__io__util_8inc.html#a1b259a1037e7498382c529cf0e545c9b">mpp_get_info</a>(unit, ndim, nvar, natt, ntime)</div>
 <div class="line"><a name="l07908"></a><span class="lineno"> 7908</span>&#160;    <span class="keyword">allocate</span>(global_atts(natt))</div>
 <div class="line"><a name="l07909"></a><span class="lineno"> 7909</span>&#160;    <span class="keyword">call </span>mpp_get_atts(unit,global_atts)</div>
 <div class="line"><a name="l07910"></a><span class="lineno"> 7910</span>&#160;    <span class="keywordflow">do</span> i=1,natt</div>
-<div class="line"><a name="l07911"></a><span class="lineno"> 7911</span>&#160;       <span class="keywordflow">if</span>( trim(mpp_get_att_name(global_atts(i))) == trim(att) ) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l07912"></a><span class="lineno"> 7912</span>&#160;          attvalue = trim(mpp_get_att_char(global_atts(i)))</div>
+<div class="line"><a name="l07911"></a><span class="lineno"> 7911</span>&#160;       <span class="keywordflow">if</span>( trim(<a class="code" href="mpp__io__util_8inc.html#ae850f8f6e3d284d5d18bde80b6ec5c56">mpp_get_att_name</a>(global_atts(i))) == trim(att) ) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l07912"></a><span class="lineno"> 7912</span>&#160;          attvalue = trim(<a class="code" href="mpp__io__util_8inc.html#af74bcf8898579b66bff0ca09d9183fb7">mpp_get_att_char</a>(global_atts(i)))</div>
 <div class="line"><a name="l07913"></a><span class="lineno"> 7913</span>&#160;          get_global_att_value_text = .true.</div>
 <div class="line"><a name="l07914"></a><span class="lineno"> 7914</span>&#160;          <span class="keywordflow">exit</span></div>
 <div class="line"><a name="l07915"></a><span class="lineno"> 7915</span>&#160;<span class="keywordflow">       end if</span></div>
@@ -8028,12 +8028,12 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l07932"></a><span class="lineno"> 7932</span>&#160; </div>
 <div class="line"><a name="l07933"></a><span class="lineno"> 7933</span>&#160;    get_global_att_value_real = .false.</div>
 <div class="line"><a name="l07934"></a><span class="lineno"> 7934</span>&#160;    <span class="keyword">call </span>mpp_open(unit,trim(file),mpp_rdonly,mpp_netcdf,threading=mpp_multi,fileset=mpp_single)</div>
-<div class="line"><a name="l07935"></a><span class="lineno"> 7935</span>&#160;    <span class="keyword">call </span>mpp_get_info(unit, ndim, nvar, natt, ntime)</div>
+<div class="line"><a name="l07935"></a><span class="lineno"> 7935</span>&#160;    <span class="keyword">call </span><a class="code" href="mpp__io__util_8inc.html#a1b259a1037e7498382c529cf0e545c9b">mpp_get_info</a>(unit, ndim, nvar, natt, ntime)</div>
 <div class="line"><a name="l07936"></a><span class="lineno"> 7936</span>&#160;    <span class="keyword">allocate</span>(global_atts(natt))</div>
 <div class="line"><a name="l07937"></a><span class="lineno"> 7937</span>&#160;    <span class="keyword">call </span>mpp_get_atts(unit,global_atts)</div>
 <div class="line"><a name="l07938"></a><span class="lineno"> 7938</span>&#160;    <span class="keywordflow">do</span> i=1,natt</div>
-<div class="line"><a name="l07939"></a><span class="lineno"> 7939</span>&#160;       <span class="keywordflow">if</span>( trim(mpp_get_att_name(global_atts(i))) == trim(att) ) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l07940"></a><span class="lineno"> 7940</span>&#160;          attvalue = mpp_get_att_real_scalar(global_atts(i))</div>
+<div class="line"><a name="l07939"></a><span class="lineno"> 7939</span>&#160;       <span class="keywordflow">if</span>( trim(<a class="code" href="mpp__io__util_8inc.html#ae850f8f6e3d284d5d18bde80b6ec5c56">mpp_get_att_name</a>(global_atts(i))) == trim(att) ) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l07940"></a><span class="lineno"> 7940</span>&#160;          attvalue = <a class="code" href="mpp__io__util_8inc.html#a66468ba770d782646932392c81b316d6">mpp_get_att_real_scalar</a>(global_atts(i))</div>
 <div class="line"><a name="l07941"></a><span class="lineno"> 7941</span>&#160;          get_global_att_value_real = .true.</div>
 <div class="line"><a name="l07942"></a><span class="lineno"> 7942</span>&#160;          <span class="keywordflow">exit</span></div>
 <div class="line"><a name="l07943"></a><span class="lineno"> 7943</span>&#160;<span class="keywordflow">       end if</span></div>
@@ -8145,7 +8145,7 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l08049"></a><span class="lineno"> 8049</span>&#160;          io_domain =&gt; mpp_get_io_domain(d_ptr)</div>
 <div class="line"><a name="l08050"></a><span class="lineno"> 8050</span>&#160;          <span class="keywordflow">if</span>(<span class="keyword">associated</span>(io_domain)) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l08051"></a><span class="lineno"> 8051</span>&#160;             tile_id = mpp_get_tile_id(io_domain)</div>
-<div class="line"><a name="l08052"></a><span class="lineno"> 8052</span>&#160;             <span class="keywordflow">if</span>(mpp_npes()&gt;10000) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l08052"></a><span class="lineno"> 8052</span>&#160;             <span class="keywordflow">if</span>(<a class="code" href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>()&gt;10000) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l08053"></a><span class="lineno"> 8053</span>&#160;                <span class="keyword">write</span>(fname, <span class="stringliteral">&#39;(a,i6.6)&#39;</span> ) trim(actual_file)//<span class="stringliteral">&#39;.&#39;</span>, tile_id(1)</div>
 <div class="line"><a name="l08054"></a><span class="lineno"> 8054</span>&#160;             <span class="keywordflow">else</span></div>
 <div class="line"><a name="l08055"></a><span class="lineno"> 8055</span>&#160;                <span class="keyword">write</span>(fname, <span class="stringliteral">&#39;(a,i4.4)&#39;</span> ) trim(actual_file)//<span class="stringliteral">&#39;.&#39;</span>, tile_id(1)</div>
@@ -8258,14 +8258,14 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l08162"></a><span class="lineno"> 8162</span>&#160;       <span class="keyword">call  </span>mpp_error(fatal,<span class="stringliteral">&#39;fms_io(get_field_id): max_fields exceeded, needs increasing, nvar/max_fields=&#39;</span> &amp;</div>
 <div class="line"><a name="l08163"></a><span class="lineno"> 8163</span>&#160;            //trim(error_msg))</div>
 <div class="line"><a name="l08164"></a><span class="lineno"> 8164</span>&#160;<span class="keywordflow">    endif</span></div>
-<div class="line"><a name="l08165"></a><span class="lineno"> 8165</span>&#160;    <span class="keyword">call </span>mpp_get_info(unit, ndim, nvar, natt, files_read(index_file)%max_ntime)</div>
+<div class="line"><a name="l08165"></a><span class="lineno"> 8165</span>&#160;    <span class="keyword">call </span><a class="code" href="mpp__io__util_8inc.html#a1b259a1037e7498382c529cf0e545c9b">mpp_get_info</a>(unit, ndim, nvar, natt, files_read(index_file)%max_ntime)</div>
 <div class="line"><a name="l08166"></a><span class="lineno"> 8166</span>&#160;    <span class="keywordflow">if</span>(files_read(index_file)%max_ntime &lt; 1)  files_read(index_file)%max_ntime = 1</div>
 <div class="line"><a name="l08167"></a><span class="lineno"> 8167</span>&#160;    <span class="keywordflow">if</span>(nvar &gt; max_fields) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l08168"></a><span class="lineno"> 8168</span>&#160;       <span class="keyword">write</span>(error_msg,<span class="stringliteral">&#39;(I3,&quot;/&quot;,I3)&#39;</span>) files_read(index_file)%nvar,max_fields</div>
 <div class="line"><a name="l08169"></a><span class="lineno"> 8169</span>&#160;       <span class="keyword">call </span>mpp_error(fatal,<span class="stringliteral">&#39;fms_io(get_field_id): max_fields too small needs increasing,nvar/max_fields=&#39;</span> &amp;</div>
 <div class="line"><a name="l08170"></a><span class="lineno"> 8170</span>&#160;            //trim(error_msg)//<span class="stringliteral">&#39;in file&#39;</span>//trim(files_read(index_file)%name))</div>
 <div class="line"><a name="l08171"></a><span class="lineno"> 8171</span>&#160;<span class="keywordflow">    endif</span></div>
-<div class="line"><a name="l08172"></a><span class="lineno"> 8172</span>&#160;    <span class="keyword">call </span>mpp_get_fields(unit, fields(1:nvar))</div>
+<div class="line"><a name="l08172"></a><span class="lineno"> 8172</span>&#160;    <span class="keyword">call </span><a class="code" href="mpp__io__util_8inc.html#a9d312dd6a9a8382c846fd8f15ce2c7de">mpp_get_fields</a>(unit, fields(1:nvar))</div>
 <div class="line"><a name="l08173"></a><span class="lineno"> 8173</span>&#160;    siz_in = 1</div>
 <div class="line"><a name="l08174"></a><span class="lineno"> 8174</span>&#160;    index_field = files_read(index_file)%nvar</div>
 <div class="line"><a name="l08175"></a><span class="lineno"> 8175</span>&#160;    files_read(index_file)%var(index_field)%is_dimvar = .false.</div>
@@ -8295,7 +8295,7 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l08199"></a><span class="lineno"> 8199</span>&#160;          <span class="keyword">call  </span>mpp_error(fatal,<span class="stringliteral">&#39;fms_io(get_field_id): max_axes exceeded, needs increasing, ndim/max_fields=&#39;</span> &amp;</div>
 <div class="line"><a name="l08200"></a><span class="lineno"> 8200</span>&#160;               //trim(error_msg)//<span class="stringliteral">&#39; in file &#39;</span>//trim(files_read(index_file)%name))</div>
 <div class="line"><a name="l08201"></a><span class="lineno"> 8201</span>&#160;<span class="keywordflow">       endif</span></div>
-<div class="line"><a name="l08202"></a><span class="lineno"> 8202</span>&#160;       <span class="keyword">call </span>mpp_get_axes(unit, axes(1:ndim))</div>
+<div class="line"><a name="l08202"></a><span class="lineno"> 8202</span>&#160;       <span class="keyword">call </span><a class="code" href="mpp__io__util_8inc.html#ae1d26816048f40bdb4f4fbb313d65004">mpp_get_axes</a>(unit, axes(1:ndim))</div>
 <div class="line"><a name="l08203"></a><span class="lineno"> 8203</span>&#160;       <span class="keywordflow">do</span> i=1,ndim</div>
 <div class="line"><a name="l08204"></a><span class="lineno"> 8204</span>&#160;          <span class="keyword">call </span>mpp_get_atts(axes(i), name=name, len = siz_in(1))</div>
 <div class="line"><a name="l08205"></a><span class="lineno"> 8205</span>&#160;          <span class="keywordflow">if</span> (lowercase(trim(name)) == lowercase(trim(fieldname))) <span class="keywordflow">then</span></div>
@@ -8424,9 +8424,9 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l08328"></a><span class="lineno"> 8328</span>&#160;   file_exist=get_file_name(file_name, fname, read_dist, io_domain_exist, no_domain=is_no_domain, domain=domain)</div>
 <div class="line"><a name="l08329"></a><span class="lineno"> 8329</span>&#160;   <span class="keywordflow">if</span>(file_exist) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l08330"></a><span class="lineno"> 8330</span>&#160;      <span class="keyword">call </span>get_file_unit(fname, unit, nfile, read_dist, io_domain_exist, domain=domain)</div>
-<div class="line"><a name="l08331"></a><span class="lineno"> 8331</span>&#160;      <span class="keyword">call </span>mpp_get_info(unit, ndim, nvar, natt, ntime)</div>
+<div class="line"><a name="l08331"></a><span class="lineno"> 8331</span>&#160;      <span class="keyword">call </span><a class="code" href="mpp__io__util_8inc.html#a1b259a1037e7498382c529cf0e545c9b">mpp_get_info</a>(unit, ndim, nvar, natt, ntime)</div>
 <div class="line"><a name="l08332"></a><span class="lineno"> 8332</span>&#160;      <span class="keyword">allocate</span>(fields(nvar))</div>
-<div class="line"><a name="l08333"></a><span class="lineno"> 8333</span>&#160;      <span class="keyword">call </span>mpp_get_fields(unit,fields)</div>
+<div class="line"><a name="l08333"></a><span class="lineno"> 8333</span>&#160;      <span class="keyword">call </span><a class="code" href="mpp__io__util_8inc.html#a9d312dd6a9a8382c846fd8f15ce2c7de">mpp_get_fields</a>(unit,fields)</div>
 <div class="line"><a name="l08334"></a><span class="lineno"> 8334</span>&#160; </div>
 <div class="line"><a name="l08335"></a><span class="lineno"> 8335</span>&#160;      <span class="keywordflow">do</span> i=1, nvar</div>
 <div class="line"><a name="l08336"></a><span class="lineno"> 8336</span>&#160;         <span class="keyword">call </span>mpp_get_atts(fields(i),name=name)</div>
@@ -8438,9 +8438,9 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l08342"></a><span class="lineno"> 8342</span>&#160;    file_exist =  get_file_name(file_name, fname, read_dist, io_domain_exist, no_domain=.true.)</div>
 <div class="line"><a name="l08343"></a><span class="lineno"> 8343</span>&#160;    <span class="keywordflow">if</span>(file_exist) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l08344"></a><span class="lineno"> 8344</span>&#160;       <span class="keyword">call </span>get_file_unit(fname, unit, nfile, read_dist, io_domain_exist)</div>
-<div class="line"><a name="l08345"></a><span class="lineno"> 8345</span>&#160;       <span class="keyword">call </span>mpp_get_info(unit, ndim, nvar, natt, ntime)</div>
+<div class="line"><a name="l08345"></a><span class="lineno"> 8345</span>&#160;       <span class="keyword">call </span><a class="code" href="mpp__io__util_8inc.html#a1b259a1037e7498382c529cf0e545c9b">mpp_get_info</a>(unit, ndim, nvar, natt, ntime)</div>
 <div class="line"><a name="l08346"></a><span class="lineno"> 8346</span>&#160;       <span class="keyword">allocate</span>(fields(nvar))</div>
-<div class="line"><a name="l08347"></a><span class="lineno"> 8347</span>&#160;       <span class="keyword">call </span>mpp_get_fields(unit,fields)</div>
+<div class="line"><a name="l08347"></a><span class="lineno"> 8347</span>&#160;       <span class="keyword">call </span><a class="code" href="mpp__io__util_8inc.html#a9d312dd6a9a8382c846fd8f15ce2c7de">mpp_get_fields</a>(unit,fields)</div>
 <div class="line"><a name="l08348"></a><span class="lineno"> 8348</span>&#160;       <span class="keywordflow">do</span> i=1, nvar</div>
 <div class="line"><a name="l08349"></a><span class="lineno"> 8349</span>&#160;          <span class="keyword">call </span>mpp_get_atts(fields(i),name=name)</div>
 <div class="line"><a name="l08350"></a><span class="lineno"> 8350</span>&#160;          <span class="keywordflow">if</span>(lowercase(trim(name)) == lowercase(trim(field_name))) field_exist = .true.</div>
@@ -8514,8 +8514,8 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l08418"></a><span class="lineno"> 8418</span>&#160; </div>
 <div class="line"><a name="l08419"></a><span class="lineno"> 8419</span>&#160;  maskmap = .true.</div>
 <div class="line"><a name="l08420"></a><span class="lineno"> 8420</span>&#160;  nmask = 0</div>
-<div class="line"><a name="l08421"></a><span class="lineno"> 8421</span>&#160;  stdoutunit = stdout()</div>
-<div class="line"><a name="l08422"></a><span class="lineno"> 8422</span>&#160;  <span class="keywordflow">if</span>( mpp_pe() == mpp_root_pe() ) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l08421"></a><span class="lineno"> 8421</span>&#160;  stdoutunit = <a class="code" href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a>()</div>
+<div class="line"><a name="l08422"></a><span class="lineno"> 8422</span>&#160;  <span class="keywordflow">if</span>( <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe() ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l08423"></a><span class="lineno"> 8423</span>&#160;     <span class="keyword">call </span>mpp_open(unit, mask_table, action=mpp_rdonly)</div>
 <div class="line"><a name="l08424"></a><span class="lineno"> 8424</span>&#160;     <span class="keyword">read</span>(unit, fmt=*, iostat=mystat) nmask</div>
 <div class="line"><a name="l08425"></a><span class="lineno"> 8425</span>&#160;     <span class="keywordflow">if</span>( mystat /= 0 ) <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
@@ -8532,7 +8532,7 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l08436"></a><span class="lineno"> 8436</span>&#160;                  <span class="stringliteral">&quot;does not match size of maskmap for &quot;</span>//trim(modelname))</div>
 <div class="line"><a name="l08437"></a><span class="lineno"> 8437</span>&#160;<span class="keywordflow">        endif</span></div>
 <div class="line"><a name="l08438"></a><span class="lineno"> 8438</span>&#160;        <span class="comment">!--- make sure mpp_npes() == layout(1)*layout(2) - nmask</span></div>
-<div class="line"><a name="l08439"></a><span class="lineno"> 8439</span>&#160;        <span class="keywordflow">if</span>( mpp_npes() .NE. layout(1)*layout(2) - nmask ) <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
+<div class="line"><a name="l08439"></a><span class="lineno"> 8439</span>&#160;        <span class="keywordflow">if</span>( <a class="code" href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>() .NE. layout(1)*layout(2) - nmask ) <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
 <div class="line"><a name="l08440"></a><span class="lineno"> 8440</span>&#160;           .NE.<span class="stringliteral">&quot;fms_io(parse_mask_table_2d): mpp_npes()  layout(1)*layout(2) - nmask for &quot;</span>//trim(modelname))</div>
 <div class="line"><a name="l08441"></a><span class="lineno"> 8441</span>&#160;<span class="keywordflow">      endif</span></div>
 <div class="line"><a name="l08442"></a><span class="lineno"> 8442</span>&#160;<span class="keywordflow">   endif</span></div>
@@ -8540,13 +8540,13 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l08444"></a><span class="lineno"> 8444</span>&#160;   <span class="keyword">call </span>mpp_broadcast(nmask, mpp_root_pe())</div>
 <div class="line"><a name="l08445"></a><span class="lineno"> 8445</span>&#160; </div>
 <div class="line"><a name="l08446"></a><span class="lineno"> 8446</span>&#160;   <span class="keywordflow">if</span>(nmask==0) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l08447"></a><span class="lineno"> 8447</span>&#160;      <span class="keywordflow">if</span>( mpp_pe() == mpp_root_pe() ) <span class="keyword">call </span>mpp_close(unit)</div>
+<div class="line"><a name="l08447"></a><span class="lineno"> 8447</span>&#160;      <span class="keywordflow">if</span>( <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe() ) <span class="keyword">call </span>mpp_close(unit)</div>
 <div class="line"><a name="l08448"></a><span class="lineno"> 8448</span>&#160;      <span class="keywordflow">return</span></div>
 <div class="line"><a name="l08449"></a><span class="lineno"> 8449</span>&#160;<span class="keywordflow">   endif</span></div>
 <div class="line"><a name="l08450"></a><span class="lineno"> 8450</span>&#160; </div>
 <div class="line"><a name="l08451"></a><span class="lineno"> 8451</span>&#160;   <span class="keyword">allocate</span>(mask_list(nmask,2))</div>
 <div class="line"><a name="l08452"></a><span class="lineno"> 8452</span>&#160; </div>
-<div class="line"><a name="l08453"></a><span class="lineno"> 8453</span>&#160;   <span class="keywordflow">if</span>( mpp_pe() == mpp_root_pe() ) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l08453"></a><span class="lineno"> 8453</span>&#160;   <span class="keywordflow">if</span>( <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe() ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l08454"></a><span class="lineno"> 8454</span>&#160;     n = 0</div>
 <div class="line"><a name="l08455"></a><span class="lineno"> 8455</span>&#160;     <span class="keywordflow">do</span> <span class="keywordflow">while</span>( .true. )</div>
 <div class="line"><a name="l08456"></a><span class="lineno"> 8456</span>&#160;        <span class="keyword">read</span>(unit,<span class="stringliteral">&#39;(a)&#39;</span>,<span class="keyword">end</span>=999) record</div>
@@ -8594,8 +8594,8 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l08498"></a><span class="lineno"> 8498</span>&#160; </div>
 <div class="line"><a name="l08499"></a><span class="lineno"> 8499</span>&#160;  maskmap = .true.</div>
 <div class="line"><a name="l08500"></a><span class="lineno"> 8500</span>&#160;  nmask = 0</div>
-<div class="line"><a name="l08501"></a><span class="lineno"> 8501</span>&#160;  stdoutunit = stdout()</div>
-<div class="line"><a name="l08502"></a><span class="lineno"> 8502</span>&#160;  <span class="keywordflow">if</span>( mpp_pe() == mpp_root_pe() ) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l08501"></a><span class="lineno"> 8501</span>&#160;  stdoutunit = <a class="code" href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a>()</div>
+<div class="line"><a name="l08502"></a><span class="lineno"> 8502</span>&#160;  <span class="keywordflow">if</span>( <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe() ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l08503"></a><span class="lineno"> 8503</span>&#160;     <span class="keyword">call </span>mpp_open(unit, mask_table, action=mpp_rdonly)</div>
 <div class="line"><a name="l08504"></a><span class="lineno"> 8504</span>&#160;     <span class="keyword">read</span>(unit, fmt=*, iostat=mystat) nmask</div>
 <div class="line"><a name="l08505"></a><span class="lineno"> 8505</span>&#160;     <span class="keywordflow">if</span>( mystat /= 0 ) <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
@@ -8617,8 +8617,8 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l08521"></a><span class="lineno"> 8521</span>&#160;                  <span class="stringliteral">&quot;does not match size of maskmap for &quot;</span>//trim(modelname))</div>
 <div class="line"><a name="l08522"></a><span class="lineno"> 8522</span>&#160;<span class="keywordflow">        endif</span></div>
 <div class="line"><a name="l08523"></a><span class="lineno"> 8523</span>&#160;        <span class="comment">!--- make sure mpp_npes() == layout(1)*layout(2) - nmask</span></div>
-<div class="line"><a name="l08524"></a><span class="lineno"> 8524</span>&#160;        <span class="keywordflow">if</span>( mpp_npes() .NE. layout(1)*layout(2)*ntiles - nmask ) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l08525"></a><span class="lineno"> 8525</span>&#160;           print*, <span class="stringliteral">&quot;layout=&quot;</span>, layout, nmask, mpp_npes()</div>
+<div class="line"><a name="l08524"></a><span class="lineno"> 8524</span>&#160;        <span class="keywordflow">if</span>( <a class="code" href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>() .NE. layout(1)*layout(2)*ntiles - nmask ) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l08525"></a><span class="lineno"> 8525</span>&#160;           print*, <span class="stringliteral">&quot;layout=&quot;</span>, layout, nmask, <a class="code" href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>()</div>
 <div class="line"><a name="l08526"></a><span class="lineno"> 8526</span>&#160;           <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
 <div class="line"><a name="l08527"></a><span class="lineno"> 8527</span>&#160;              .NE.<span class="stringliteral">&quot;fms_io(parse_mask_table_3d): mpp_npes()  layout(1)*layout(2) - nmask for &quot;</span>//trim(modelname))</div>
 <div class="line"><a name="l08528"></a><span class="lineno"> 8528</span>&#160;<span class="keywordflow">        endif</span></div>
@@ -8628,13 +8628,13 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l08532"></a><span class="lineno"> 8532</span>&#160;   <span class="keyword">call </span>mpp_broadcast(nmask, mpp_root_pe())</div>
 <div class="line"><a name="l08533"></a><span class="lineno"> 8533</span>&#160; </div>
 <div class="line"><a name="l08534"></a><span class="lineno"> 8534</span>&#160;   <span class="keywordflow">if</span>(nmask==0) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l08535"></a><span class="lineno"> 8535</span>&#160;      <span class="keywordflow">if</span>( mpp_pe() == mpp_root_pe() ) <span class="keyword">call </span>mpp_close(unit)</div>
+<div class="line"><a name="l08535"></a><span class="lineno"> 8535</span>&#160;      <span class="keywordflow">if</span>( <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe() ) <span class="keyword">call </span>mpp_close(unit)</div>
 <div class="line"><a name="l08536"></a><span class="lineno"> 8536</span>&#160;      <span class="keywordflow">return</span></div>
 <div class="line"><a name="l08537"></a><span class="lineno"> 8537</span>&#160;<span class="keywordflow">   endif</span></div>
 <div class="line"><a name="l08538"></a><span class="lineno"> 8538</span>&#160; </div>
 <div class="line"><a name="l08539"></a><span class="lineno"> 8539</span>&#160;   <span class="keyword">allocate</span>(mask_list(nmask,3))</div>
 <div class="line"><a name="l08540"></a><span class="lineno"> 8540</span>&#160; </div>
-<div class="line"><a name="l08541"></a><span class="lineno"> 8541</span>&#160;   <span class="keywordflow">if</span>( mpp_pe() == mpp_root_pe() ) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l08541"></a><span class="lineno"> 8541</span>&#160;   <span class="keywordflow">if</span>( <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe() ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l08542"></a><span class="lineno"> 8542</span>&#160;     n = 0</div>
 <div class="line"><a name="l08543"></a><span class="lineno"> 8543</span>&#160;     <span class="keywordflow">do</span> <span class="keywordflow">while</span>( .true. )</div>
 <div class="line"><a name="l08544"></a><span class="lineno"> 8544</span>&#160;        <span class="keyword">read</span>(unit,<span class="stringliteral">&#39;(a)&#39;</span>,<span class="keyword">end</span>=999) record</div>
@@ -8701,7 +8701,20 @@ $(document).ready(function(){initNavTree('fms__io_8F90_source.html',''); initRes
 <div class="line"><a name="l08605"></a><span class="lineno"> 8605</span>&#160;<span class="comment">! close documentation grouping</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="ampp__util_8inc_html_a172901d39c9b0cf14aa83b1e94fdf21b"><div class="ttname"><a href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a></div><div class="ttdeci">integer function stdout()</div><div class="ttdoc">This function returns the current standard fortran unit numbers for output.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00065">mpp_util.inc:65</a></div></div>
+<div class="ttc" id="ampp__io__util_8inc_html_ae1d26816048f40bdb4f4fbb313d65004"><div class="ttname"><a href="mpp__io__util_8inc.html#ae1d26816048f40bdb4f4fbb313d65004">mpp_get_axes</a></div><div class="ttdeci">subroutine mpp_get_axes(unit, axes, time_axis)</div><div class="ttdoc">Copy variable information from file (excluding data)</div><div class="ttdef"><b>Definition:</b> <a href="mpp__io__util_8inc_source.html#l00243">mpp_io_util.inc:243</a></div></div>
+<div class="ttc" id="ampp__util__mpi_8inc_html_a09e69243d8c67e6a6e6e4fd9e93d0870"><div class="ttname"><a href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a></div><div class="ttdeci">subroutine mpp_sync_self(pelist, check, request, msg_size, msg_type)</div><div class="ttdoc">This is to check if current PE's outstanding puts are complete but we can't use shmem_fence because w...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util__mpi_8inc_source.html#l00169">mpp_util_mpi.inc:169</a></div></div>
+<div class="ttc" id="ampp__io__util_8inc_html_ae850f8f6e3d284d5d18bde80b6ec5c56"><div class="ttname"><a href="mpp__io__util_8inc.html#ae850f8f6e3d284d5d18bde80b6ec5c56">mpp_get_att_name</a></div><div class="ttdeci">character(len=len(att%name)) function mpp_get_att_name(att)</div><div class="ttdoc">return the name of an attribute.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__io__util_8inc_source.html#l00742">mpp_io_util.inc:742</a></div></div>
+<div class="ttc" id="ampp__io__util_8inc_html_a9d312dd6a9a8382c846fd8f15ce2c7de"><div class="ttname"><a href="mpp__io__util_8inc.html#a9d312dd6a9a8382c846fd8f15ce2c7de">mpp_get_fields</a></div><div class="ttdeci">subroutine mpp_get_fields(unit, variables)</div><div class="ttdoc">Copy variable information from file (excluding data)</div><div class="ttdef"><b>Definition:</b> <a href="mpp__io__util_8inc_source.html#l00217">mpp_io_util.inc:217</a></div></div>
+<div class="ttc" id="ampp__io__util_8inc_html_a66468ba770d782646932392c81b316d6"><div class="ttname"><a href="mpp__io__util_8inc.html#a66468ba770d782646932392c81b316d6">mpp_get_att_real_scalar</a></div><div class="ttdeci">real function mpp_get_att_real_scalar(att)</div><div class="ttdoc">return the real array value of an attribute.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__io__util_8inc_source.html#l00803">mpp_io_util.inc:803</a></div></div>
 <div class="ttc" id="agroup__fms__io__mod_html_ga02b9c65cd66c6962e30cec3dd5253c53"><div class="ttname"><a href="group__fms__io__mod.html#ga02b9c65cd66c6962e30cec3dd5253c53">fms_io_mod::restore_state_border</a></div><div class="ttdeci">subroutine, public restore_state_border(fileObj, directory, nonfatal_missing_files)</div><div class="ttdef"><b>Definition:</b> <a href="fms__io_8F90_source.html#l03656">fms_io.F90:3656</a></div></div>
+<div class="ttc" id="ampp__util_8inc_html_a8e5518df9532bae0241f53ab542294a2"><div class="ttname"><a href="mpp__util_8inc.html#a8e5518df9532bae0241f53ab542294a2">stdlog</a></div><div class="ttdeci">integer function stdlog()</div><div class="ttdoc">This function returns the current standard fortran unit numbers for log messages. Log messages,...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00106">mpp_util.inc:106</a></div></div>
+<div class="ttc" id="ampp__io__util_8inc_html_a1b259a1037e7498382c529cf0e545c9b"><div class="ttname"><a href="mpp__io__util_8inc.html#a1b259a1037e7498382c529cf0e545c9b">mpp_get_info</a></div><div class="ttdeci">subroutine mpp_get_info(unit, ndim, nvar, natt, ntime)</div><div class="ttdoc">Get some general information about a file.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__io__util_8inc_source.html#l00050">mpp_io_util.inc:50</a></div></div>
+<div class="ttc" id="ampp__util_8inc_html_abf546cd336d5c539e445fb884f98ab6b"><div class="ttname"><a href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a></div><div class="ttdeci">integer function mpp_npes()</div><div class="ttdoc">Returns processor count for current pelist.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00467">mpp_util.inc:467</a></div></div>
+<div class="ttc" id="ampp__util_8inc_html_acfeba7de56f9dd6000b3fd78f9d56c50"><div class="ttname"><a href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a></div><div class="ttdeci">integer function mpp_pe()</div><div class="ttdoc">Returns processor ID. This returns the unique ID associated with a PE. This number runs between 0 and...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00442">mpp_util.inc:442</a></div></div>
+<div class="ttc" id="ampp__io__util_8inc_html_af74bcf8898579b66bff0ca09d9183fb7"><div class="ttname"><a href="mpp__io__util_8inc.html#af74bcf8898579b66bff0ca09d9183fb7">mpp_get_att_char</a></div><div class="ttdeci">character(len=att%len) function mpp_get_att_char(att)</div><div class="ttdoc">return the char value of an attribute.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__io__util_8inc_source.html#l00779">mpp_io_util.inc:779</a></div></div>
+<div class="ttc" id="ampp__io__util_8inc_html_a3571ef7057d32291c3941da7c956b5a9"><div class="ttname"><a href="mpp__io__util_8inc.html#a3571ef7057d32291c3941da7c956b5a9">mpp_get_dimension_length</a></div><div class="ttdeci">integer function mpp_get_dimension_length(unit, dimname, found)</div><div class="ttdoc">Copy variable information from file (excluding data)</div><div class="ttdef"><b>Definition:</b> <a href="mpp__io__util_8inc_source.html#l00276">mpp_io_util.inc:276</a></div></div>
+<div class="ttc" id="ampp__io__util_8inc_html_a7a071710f9e8e183af6de01286ea7e3c"><div class="ttname"><a href="mpp__io__util_8inc.html#a7a071710f9e8e183af6de01286ea7e3c">mpp_file_is_opened</a></div><div class="ttdeci">logical function mpp_file_is_opened(unit)</div><div class="ttdoc">return if certain file with unit is opened or not</div><div class="ttdef"><b>Definition:</b> <a href="mpp__io__util_8inc_source.html#l00835">mpp_io_util.inc:835</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

@@ -163,19 +163,19 @@ $(document).ready(function(){initNavTree('mpp__read__compressed_8h_source.html',
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        allocate(pelist(npes))</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        call mpp_get_pelist(io_domain,pelist)</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        if(mpp_pe() == pelist(1)) call READ_RECORD_(unit,field,size(data(:,:)),data,tindex,start_in=start, axsiz_in=nread)</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        if(<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == pelist(1)) call READ_RECORD_(unit,field,size(data(:,:)),data,tindex,start_in=start, axsiz_in=nread)</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        !--- z1l replace mpp_broadcast with mpp_send/mpp_recv to avoid hang in calling MPI_COMM_CREATE</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        !---     because size(pelist) might be different for different rank.</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        !--- prepost receive</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        if( mpp_pe() == pelist(1) ) then</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        if( <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == pelist(1) ) then</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;          do p = 2, npes</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            call mpp_send(data(1,1), plen=size(data(:,:)), to_pe=pelist(p), tag=COMM_TAG_1)</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;          enddo</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;          call mpp_sync_self()</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;          call <a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>()</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        else</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;          call mpp_recv(data(1,1), glen=size(data(:,:)), from_pe=pelist(1), block=.false., tag=COMM_TAG_1)</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;          call mpp_sync_self(check=EVENT_RECV)</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;          call <a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=EVENT_RECV)</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        endif</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        deallocate(pelist)</div>
@@ -204,7 +204,7 @@ $(document).ready(function(){initNavTree('mpp__read__compressed_8h_source.html',
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;#endif</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;      !!compare</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;         if ( print_compressed_chksum) then</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            if ( mpp_pe() == mpp_root_pe() ) then</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            if ( <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe() ) then</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;               print <span class="stringliteral">&#39;(A,Z16)&#39;</span>, <span class="stringliteral">&quot;mpp_read_compressed_2d chksum: &quot;</span><span class="comment">//trim(field%name)//&quot; = &quot;, chk</span></div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;               !! discuss making fatal after testing/review to match other routines.</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;               !! Need to do <a class="code" href="group__xgrid__mod.html#ga0d6740065d2355a4ac54b90c8c4545fb">some</a> nword-counting and digging with pjp</div>
@@ -256,19 +256,19 @@ $(document).ready(function(){initNavTree('mpp__read__compressed_8h_source.html',
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;         allocate(pelist(npes))</div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;         call mpp_get_pelist(io_domain,pelist)</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;         if(mpp_pe() == pelist(1)) call READ_RECORD_(unit,field,size(data(:,:,:)),data,tindex,start_in=start, axsiz_in=nread)</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;         if(<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == pelist(1)) call READ_RECORD_(unit,field,size(data(:,:,:)),data,tindex,start_in=start, axsiz_in=nread)</div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; </div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;         !--- z1l replace mpp_broadcast with mpp_send/mpp_recv to avoid hang in calling MPI_COMM_CREATE</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;         !---  because size(pelist) might be different for different rank.</div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;         !--- prepost receive</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;         if( mpp_pe() == pelist(1) ) then</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;         if( <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == pelist(1) ) then</div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;            do p = 2, npes</div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;               call mpp_send(data(1,1,1), plen=size(data(:,:,:)), to_pe=pelist(p), tag=COMM_TAG_1)</div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;            enddo</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;            call mpp_sync_self()</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;            call <a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>()</div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;         else</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;            call mpp_recv(data(1,1,1), glen=size(data(:,:,:)), from_pe=pelist(1), block=.false., tag=COMM_TAG_1)</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;            call mpp_sync_self(check=EVENT_RECV)</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;            call <a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=EVENT_RECV)</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;         endif</div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160; </div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;         deallocate(pelist)</div>
@@ -296,7 +296,7 @@ $(document).ready(function(){initNavTree('mpp__read__compressed_8h_source.html',
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;#endif</div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;      !!compare</div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;         if ( print_compressed_chksum) then</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;            if ( mpp_pe() == mpp_root_pe() ) then</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;            if ( <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe() ) then</div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;               print <span class="stringliteral">&#39;(A,Z16)&#39;</span>, <span class="stringliteral">&quot;mpp_read_compressed_3d chksum: &quot;</span><span class="comment">//trim(field%name)//&quot; = &quot;, chk</span></div>
 <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;               !! discuss making fatal after testing/review to match other routines.</div>
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;               !! Need to do <a class="code" href="group__xgrid__mod.html#ga0d6740065d2355a4ac54b90c8c4545fb">some</a> nword-counting and digging with pjp</div>
@@ -314,8 +314,10 @@ $(document).ready(function(){initNavTree('mpp__read__compressed_8h_source.html',
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    end subroutine MPP_READ_COMPRESSED_3D_</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="ampp__util__mpi_8inc_html_a09e69243d8c67e6a6e6e4fd9e93d0870"><div class="ttname"><a href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a></div><div class="ttdeci">subroutine mpp_sync_self(pelist, check, request, msg_size, msg_type)</div><div class="ttdoc">This is to check if current PE's outstanding puts are complete but we can't use shmem_fence because w...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util__mpi_8inc_source.html#l00169">mpp_util_mpi.inc:169</a></div></div>
 <div class="ttc" id="agroup__interpolator__mod_html_ga4dde5fcf3778c18e9803ac1d73a66ef6"><div class="ttname"><a href="group__interpolator__mod.html#ga4dde5fcf3778c18e9803ac1d73a66ef6">interpolator_mod::zero</a></div><div class="ttdeci">integer, parameter, public zero</div><div class="ttdoc">Flags to indicate what to do when the model surface pressure exceeds the climatology surface pressure...</div><div class="ttdef"><b>Definition:</b> <a href="interpolator_8F90_source.html#l00313">interpolator.F90:313</a></div></div>
 <div class="ttc" id="agroup__xgrid__mod_html_ga0d6740065d2355a4ac54b90c8c4545fb"><div class="ttname"><a href="group__xgrid__mod.html#ga0d6740065d2355a4ac54b90c8c4545fb">xgrid_mod::some</a></div><div class="ttdeci">subroutine, public some(xmap, some_arr, grid_id)</div><div class="ttdoc">Returns logical associating exchange grid cells with given side two grid.</div><div class="ttdef"><b>Definition:</b> <a href="xgrid_8F90_source.html#l03554">xgrid.F90:3554</a></div></div>
+<div class="ttc" id="ampp__util_8inc_html_acfeba7de56f9dd6000b3fd78f9d56c50"><div class="ttname"><a href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a></div><div class="ttdeci">integer function mpp_pe()</div><div class="ttdoc">Returns processor ID. This returns the unique ID associated with a PE. This number runs between 0 and...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00442">mpp_util.inc:442</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

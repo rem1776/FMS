@@ -123,7 +123,7 @@ $(document).ready(function(){initNavTree('mpp_2test__read__ascii__file_8F90_sour
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <span class="keywordtype">use </span>mpp_mod, <span class="keywordtype">only</span> : mpp_init, mpp_init_test_peset_allocated</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <span class="keywordtype">use </span>mpp_mod, <span class="keywordtype">only</span> : mpp_error, fatal, note</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <span class="keywordtype">use </span>mpp_mod, <span class="keywordtype">only</span> : read_ascii_file, input_str_length, get_ascii_file_num_lines</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="keywordtype">use </span>mpp_mod, <span class="keywordtype">only</span> : mpp_get_current_pelist, mpp_npes</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="keywordtype">use </span>mpp_mod, <span class="keywordtype">only</span> : mpp_get_current_pelist, <a class="code" href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="keywordtype">character(len=256)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">allocatable</span> :: test_array<span class="comment"> !&lt; Content array</span></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keywordtype">character(len=256)</span> :: filename<span class="comment"> !&lt; Name of ascii file to be read</span></div>
@@ -152,7 +152,7 @@ $(document).ready(function(){initNavTree('mpp_2test__read__ascii__file_8F90_sour
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;      filename = <span class="stringliteral">&quot;input.nml&quot;</span></div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;      num_lines = get_ascii_file_num_lines(filename, input_str_length)</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;      <span class="keyword">allocate</span>(test_array(num_lines))</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;      <span class="keyword">allocate</span>(cur_pelist(0:mpp_npes()-1))</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;      <span class="keyword">allocate</span>(cur_pelist(0:<a class="code" href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>()-1))</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;      <span class="keyword">call </span>mpp_get_current_pelist(cur_pelist)</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;      <span class="keyword">call </span>read_ascii_file(filename, input_str_length, test_array, pelist=cur_pelist)</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (test_numb == 8) <span class="keywordflow">then</span></div>
@@ -209,6 +209,7 @@ $(document).ready(function(){initNavTree('mpp_2test__read__ascii__file_8F90_sour
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="keyword">end program </span>test_read_ascii_file</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="ampp__util_8inc_html_abf546cd336d5c539e445fb884f98ab6b"><div class="ttname"><a href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a></div><div class="ttdeci">integer function mpp_npes()</div><div class="ttdoc">Returns processor count for current pelist.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00467">mpp_util.inc:467</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
