@@ -1,7 +1,5 @@
 var NAVTREEINDEX6 =
 {
-"fms__io__utils_8F90.html#ga8744678dc4c7869d86fc76f1bc31e26c":[6,0,16,3,6],
-"fms__io__utils_8F90.html#ga899ffaee79bff8effd01a7cf6f23940b":[6,0,16,3,21],
 "fms__io__utils_8F90.html#ga903b8517432214a95f6c4abc57756fac":[6,0,16,3,22],
 "fms__io__utils_8F90.html#gab30638a23fea863dbca2978ff1ac8f80":[6,0,16,3,19],
 "fms__io__utils_8F90.html#gab3fa1ad3d5a02de89643ef7c1b4cbe83":[6,0,16,3,8],
@@ -50,8 +48,8 @@ var NAVTREEINDEX6 =
 "fms__platform_8h_source.html":[6,0,18,1],
 "fms__switches_8h_source.html":[6,0,12,9],
 "fmsconstants_8F90_source.html":[6,0,6,1],
-"functions.html":[5,3,0],
 "functions.html":[5,3,0,0],
+"functions.html":[5,3,0],
 "functions_b.html":[5,3,0,1],
 "functions_c.html":[5,3,0,2],
 "functions_d.html":[5,3,0,3],
@@ -163,13 +161,13 @@ var NAVTREEINDEX6 =
 "get__variable__attribute_8inc.html#a6951d4a55b2aa7e1e94098c24f55fa68":[6,0,16,0,11,1],
 "get__variable__attribute_8inc.html#a79d5c842547203112e169f0105584c70":[6,0,16,0,11,0],
 "get__variable__attribute_8inc_source.html":[6,0,16,0,11],
-"globals.html":[6,1,0,0],
 "globals.html":[6,1,0],
+"globals.html":[6,1,0,0],
 "globals_c.html":[6,1,0,1],
 "globals_d.html":[6,1,0,2],
 "globals_f.html":[6,1,0,3],
-"globals_func.html":[6,1,1],
 "globals_func.html":[6,1,1,0],
+"globals_func.html":[6,1,1],
 "globals_func_c.html":[6,1,1,1],
 "globals_func_d.html":[6,1,1,2],
 "globals_func_f.html":[6,1,1,3],
@@ -227,7 +225,7 @@ var NAVTREEINDEX6 =
 "grid_8F90.html#gaedafdde27543407cf634c448ad408cc5":[6,0,22,6,23],
 "grid_8F90.html#gaefdd10ee592d4bab8b096b2a7c562af9":[6,0,22,6,7],
 "grid_8F90_source.html":[6,0,22,6],
-"group__FMS.html":[3,13,0],
+"group__FMS.html":[3,14,0],
 "group__affinity.html":[3,1],
 "group__amip__interp.html":[3,0],
 "group__amip__interp__mod.html":[3,0,0],
@@ -249,5 +247,7 @@ var NAVTREEINDEX6 =
 "group__astronomy__mod.html#ga58ff2b69c33ae8d00c831b2b049e4573":[3,2,0,11],
 "group__astronomy__mod.html#ga7fb404a6aa92465cf74a3fd4a5c48d37":[3,2,0,10],
 "group__astronomy__mod.html#gaa2cc4e0964e5251d056c4f05c4a8ddf7":[3,2,0,13],
-"group__astronomy__mod.html#gada396fa1ede7431df75438a6c9d6c771":[3,2,0,9]
+"group__astronomy__mod.html#gada396fa1ede7431df75438a6c9d6c771":[3,2,0,9],
+"group__astronomy__mod.html#get_period":[3,2,0,3],
+"group__astronomy__mod.html#half_day":[3,2,0,5]
 };

@@ -124,14 +124,14 @@ $(document).ready(function(){initNavTree('test__mpp__root__pe_8F90_source.html',
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">program</span> test_mpp_root_pe</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="keywordtype">use </span>mpp_mod, <span class="keywordtype">only</span>:  mpp_init, fatal, mpp_error, mpp_root_pe, mpp_init_test_init_true_only</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="keywordtype">use </span>mpp_mod, <span class="keywordtype">only</span>:  <a class="code" href="mpp__comm__mpi_8inc.html#a889ed63075362dc3a3d3c12385d5a9c7">mpp_init</a>, fatal, mpp_error, mpp_root_pe, mpp_init_test_init_true_only</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keywordtype">implicit none</span></div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keywordtype">integer</span> :: my_root_pe, test_root_pe, ierr</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">  !&gt; call mpp_init at the lowest level</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keyword">call </span>mpp_init( test_level=mpp_init_test_init_true_only )</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keyword">call </span><a class="code" href="mpp__comm__mpi_8inc.html#a889ed63075362dc3a3d3c12385d5a9c7">mpp_init</a>( test_level=mpp_init_test_init_true_only )</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">  !&gt; assign my_root_pe=root_pe=0</span></div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  my_root_pe = 0<span class="comment"></span></div>
@@ -147,6 +147,7 @@ $(document).ready(function(){initNavTree('test__mpp__root__pe_8F90_source.html',
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">end program </span>test_mpp_root_pe</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="ampp__comm__mpi_8inc_html_a889ed63075362dc3a3d3c12385d5a9c7"><div class="ttname"><a href="mpp__comm__mpi_8inc.html#a889ed63075362dc3a3d3c12385d5a9c7">mpp_init</a></div><div class="ttdeci">subroutine mpp_init(flags, localcomm, test_level)</div><div class="ttdoc">Initialize the mpp_mod module.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__comm__mpi_8inc_source.html#l00034">mpp_comm_mpi.inc:34</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

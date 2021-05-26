@@ -124,32 +124,32 @@ type(domainug), save, public&#160;</td><td class="memItemRight" valign="bottom">
  Simple, minimal API, with free access to underlying API for more complicated stuff.<br  />
 <br  />
  Design toward typical use in climate/weather CFD codes.<br  />
- </p><dl class="section user"><dt>[Domains]</dt><dd>It is assumed that domain decomposition will mainly be in 2 horizontal dimensions, which will in general be the two fastest-varying indices. There is a separate implementation of 1D decomposition on the fastest-varying index, and 1D decomposition on the second index, treated as a special case of 2D decomposition, is also possible. We define domain as the grid associated with a <em>task</em>. We define the compute domain as the set of gridpoints that are computed by a task, and the data domain as the set of points that are required by the task for the calculation. There can in general be more than 1 task per PE, though often the number of domains is the same as the processor count. We define the global domain as the global computational domain of the entire model (i.e, the same as the computational domain if run on a single processor). 2D domains are defined using a derived type domain2D, constructed as follows (see comments in code for more details). <pre class="fragment"> type, public :: domain_axis_spec\n
-   private\n
-   integer :: begin, end, size, max_size\n
-   logical :: is_global\n
- end type domain_axis_spec\n
+ </p><dl class="section user"><dt>[Domains]</dt><dd>It is assumed that domain decomposition will mainly be in 2 horizontal dimensions, which will in general be the two fastest-varying indices. There is a separate implementation of 1D decomposition on the fastest-varying index, and 1D decomposition on the second index, treated as a special case of 2D decomposition, is also possible. We define domain as the grid associated with a <em>task</em>. We define the compute domain as the set of gridpoints that are computed by a task, and the data domain as the set of points that are required by the task for the calculation. There can in general be more than 1 task per PE, though often the number of domains is the same as the processor count. We define the global domain as the global computational domain of the entire model (i.e, the same as the computational domain if run on a single processor). 2D domains are defined using a derived type domain2D, constructed as follows (see comments in code for more details). <pre class="fragment"> type, public :: domain_axis_spec
+   private
+   integer :: begin, end, size, max_size
+   logical :: is_global
+ end type domain_axis_spec
 
- type, public :: domain1D\n
-   private\n
-   type(domain_axis_spec) :: compute, data, global, active\n
-   logical :: mustputb, mustgetb, mustputf, mustgetf, folded\n
-   type(domain1D), pointer, dimension(:) :: list\n
-   integer :: pe  ! pe to which the domain is assigned\n
-   integer :: pos\n
+ type, public :: domain1D
+   private
+   type(domain_axis_spec) :: compute, data, global, active
+   logical :: mustputb, mustgetb, mustputf, mustgetf, folded
+   type(domain1D), pointer, dimension(:) :: list
+   integer :: pe  ! pe to which the domain is assigned
+   integer :: pos
  end type domain1D
 
- type, public :: domain2D\n
-   private\n
-   type(domain1D) :: x\n
-   type(domain1D) :: y\n
-   type(domain2D), pointer, dimension(:) :: list\n
-   integer :: pe ! PE to which this domain is assigned\n
-   integer :: pos\n
- end type domain2D\n
+ type, public :: domain2D
+   private
+   type(domain1D) :: x
+   type(domain1D) :: y
+   type(domain2D), pointer, dimension(:) :: list
+   integer :: pe ! PE to which this domain is assigned
+   integer :: pos
+ end type domain2D
 
- type(domain1D), public :: NULL_DOMAIN1D\n
- type(domain2D), public :: NULL_DOMAIN2D\n
+ type(domain1D), public :: NULL_DOMAIN1D
+ type(domain2D), public :: NULL_DOMAIN2D
 </pre> </dd></dl>
 
 
@@ -157,7 +157,12 @@ type(domainug), save, public&#160;</td><td class="memItemRight" valign="bottom">
 Example usage: call mpp_define_layout( global_indices, ndivs, layout ) </div>
 
 <h3><a id="mpp_define_domains"></a>mpp_define_domains Interface</h3><div class="textblock">Set up a domain decomposition.There are two forms for the <em>mpp_define_domains</em> call. The 2D version is generally to be used but is built by repeated calls to the 1D version, also provided.<br  />
-Example usage: call mpp_define_domains( global_indices, ndivs, domain, &amp; pelist, flags, halo, extent, maskmap ) call mpp_define_domains( global_indices, layout, domain, pelist, &amp; xflags, yflags, xhalo, yhalo, &amp; xextent, yextent, maskmap, name ) </p><dl class="params"><dt>Parameters</dt><dd>
+Example usage: </p><pre class="fragment">               call mpp_define_domains( global_indices, ndivs, domain, &amp;
+                              pelist, flags, halo, extent, maskmap )
+               call mpp_define_domains( global_indices, layout, domain, pelist, &amp;
+                              xflags, yflags, xhalo, yhalo,           &amp;
+                              xextent, yextent, maskmap, name )
+</pre><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir"></td><td class="paramname">global_indices</td><td>Defines the global domain. </td></tr>
     <tr><td class="paramdir"></td><td class="paramname">ndivs</td><td>The number of domain divisions required. </td></tr>
@@ -171,30 +176,28 @@ Example usage: call mpp_define_domains( global_indices, ndivs, domain, &amp; pel
   </dd>
 </dl>
 <p><br  />
-Example usage: call mpp_define_domains( (/1,100/), 10, domain, &amp; flags=GLOBAL_DATA_DOMAIN+CYCLIC_GLOBAL_DOMAIN, halo=2 )defines 10 compute domains spanning the range [1,100] of the global domain. The compute domains are non-overlapping blocks of 10. All the data domains are global, and with a halo of 2 span the range [-1:102]. And since the global domain has been declared to be cyclic, domain(9)next =&gt; domain(0) and domain(0)prev =&gt; domain(9). A field is allocated on the data domain, and computations proceed on the compute domain. A call to mpp_update_domains would fill in the values in the halo region:<br  />
+Example usage: </p><pre class="fragment">                       call mpp_define_domains( (/1,100/), 10, domain, &amp;
+                               flags=GLOBAL_DATA_DOMAIN+CYCLIC_GLOBAL_DOMAIN, halo=2 )
+</pre>defines 10 compute domains spanning the range [1,100] of the global domain. The compute domains are non-overlapping blocks of 10. All the data domains are global, and with a halo of 2 span the range [-1:102]. And since the global domain has been declared to be cyclic, domain(9)next =&gt; domain(0) and domain(0)prev =&gt; domain(9). A field is allocated on the data domain, and computations proceed on the compute domain. A call to mpp_update_domains would fill in the values in the halo region:<br  />
  <br  />
- call mpp_get_data_domain( domain, isd, ied ) !returns -1 and 102 call mpp_get_compute_domain( domain, is, ie ) !returns (1,10) on PE 0 ... allocate( a(isd:ied) ) do i = is,ie a(i) = &lt;perform computations&gt; end do call mpp_update_domains( a, domain )<br  />
- <br  />
+ call mpp_get_data_domain( domain, isd, ied ) !returns -1 and 102 call mpp_get_compute_domain( domain, is, ie ) !returns (1,10) on PE 0 ... allocate( a(isd:ied) ) do i = is,ie a(i) = &lt;perform computations&gt; end do call mpp_update_domains( a, domain ) <br  />
  The call to mpp_update_domainsfills in the regions outside the compute domain. Since the global domain is cyclic, the values at <em>i=</em>(-1,0) are the same as at <em>i=</em>(99,100); and <em>i=</em>(101,102) are the same as <em>i=</em>(1,2).The 2D version is just an extension of this syntax to two dimensions.The 2D version of the above should generally be used in codes, including 1D-decomposed ones, if there is a possibility of future evolution toward 2D decomposition. The arguments are similar to the 1D case, except that now we have optional arguments flags, halo, extent and maskmap along two axes.flags can now take an additional possible value to fold one or more edges. This is done by using flags <em>FOLD_WEST_EDGE</em>, <em>FOLD_EAST_EDGE</em>, <em>FOLD_SOUTH_EDGE</em> or <em>FOLD_NORTH_EDGE</em>. When a fold exists (e.g cylindrical domain), vector fields reverse sign upon crossing the fold. This parity reversal is performed only in the vector version of mpp_update_domains. In addition, shift operations may need to be applied to vector fields on staggered grids, also described in the vector interface to mpp_update_domains.<code>name</code> is the name associated with the decomposition, e.g <code>'Ocean model'</code>. If this argument is present, <code>mpp_define_domains</code> will print the domain decomposition generated to <code>stdlog</code>.<br  />
 Examples: call mpp_define_domains( (/1,100,1,100/), (/2,2/), domain, xhalo=1 ) will create the following domain layout:<br  />
  <br  />
- |------&mdash;|--------&mdash;|--------&mdash;|----------&mdash;| |domain(1)|domain(2) |domain(3) |domain(4) | |-----------&mdash;|------&mdash;|--------&mdash;|--------&mdash;|----------&mdash;| </p><table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Compute domain </th><th class="markdownTableHeadNone">1,50,1,50 </th><th class="markdownTableHeadNone">51,100,1,50 </th><th class="markdownTableHeadNone">1,50,51,100 </th><th class="markdownTableHeadNone">51,100,51,100  </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Data domain </td><td class="markdownTableBodyNone">0,51,1,50 </td><td class="markdownTableBodyNone">50,101,1,50 </td><td class="markdownTableBodyNone">0,51,51,100 </td><td class="markdownTableBodyNone">50,101,51,100  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">-----------&mdash; </td><td class="markdownTableBodyNone">------&mdash; </td><td class="markdownTableBodyNone">--------&mdash; </td><td class="markdownTableBodyNone">--------&mdash; </td><td class="markdownTableBodyNone">----------&mdash;  </td></tr>
-</table>
-Again, we allocate arrays on the data domain, perform computations on the compute domain, and call mpp_update_domains to update the halo region.If we wished to perfom a 1D decomposition along Y on the same global domain, we could use: call mpp_define_domains( (/1,100,1,100/), layout=(/4,1/), domain, xhalo=1 ) This will create the following domain layout:<br  />
+ </p><pre class="fragment">|    domain    |domain(1)|domain(2)  |domain(3)  |domain(4)    |
+|--------------|---------|-----------|-----------|-------------|
+|Compute domain|1,50,1,50|51,100,1,50|1,50,51,100|51,100,51,100|
+|Data domain   |0,51,1,50|50,101,1,50|0,51,51,100|50,101,51,100|
+</pre>Again, we allocate arrays on the data domain, perform computations on the compute domain, and call mpp_update_domains to update the halo region.If we wished to perfom a 1D decomposition along Y on the same global domain, we could use: </p><pre class="fragment">               call mpp_define_domains( (/1,100,1,100/), layout=(/4,1/), domain, xhalo=1 )
+</pre>This will create the following domain layout:<br  />
  <br  />
- |-------&mdash;|--------&mdash;|--------&mdash;|---------&mdash;| |domain(1) |domain(2) |domain(3) |domain(4) | |-----------&mdash;|-------&mdash;|--------&mdash;|--------&mdash;|---------&mdash;| </p><table class="markdownTable">
+ </p><table class="markdownTable">
 <tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Compute domain </th><th class="markdownTableHeadNone">1,100,1,25 </th><th class="markdownTableHeadNone">1,100,26,50 </th><th class="markdownTableHeadNone">1,100,51,75 </th><th class="markdownTableHeadNone">1,100,76,100  </th></tr>
+<th class="markdownTableHeadNone">domain </th><th class="markdownTableHeadNone">domain(1) </th><th class="markdownTableHeadNone">domain(2) </th><th class="markdownTableHeadNone">domain(3) </th><th class="markdownTableHeadNone">domain(4)  </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Data domain </td><td class="markdownTableBodyNone">0,101,1,25 </td><td class="markdownTableBodyNone">0,101,26,50 </td><td class="markdownTableBodyNone">0,101,51,75 </td><td class="markdownTableBodyNone">1,101,76,100  </td></tr>
+<td class="markdownTableBodyNone">Compute domain </td><td class="markdownTableBodyNone">1,100,1,25 </td><td class="markdownTableBodyNone">1,100,26,50 </td><td class="markdownTableBodyNone">1,100,51,75 </td><td class="markdownTableBodyNone">1,100,76,100  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">-----------&mdash; </td><td class="markdownTableBodyNone">-------&mdash; </td><td class="markdownTableBodyNone">--------&mdash; </td><td class="markdownTableBodyNone">--------&mdash; </td><td class="markdownTableBodyNone">---------&mdash;  </td></tr>
+<td class="markdownTableBodyNone">Data domain </td><td class="markdownTableBodyNone">0,101,1,25 </td><td class="markdownTableBodyNone">0,101,26,50 </td><td class="markdownTableBodyNone">0,101,51,75 </td><td class="markdownTableBodyNone">1,101,76,100  </td></tr>
 </table>
 </div>
 
@@ -305,30 +308,41 @@ Used to perform a halo update of a domain-decomposed array on each PE. <em>MPP_T
  It is safe to apply vector field updates to the appropriate arrays irrespective of the domain topology: if the topology requires no special treatment of vector fields, specifying <em>gridtype</em> will do no harm.<br  />
  <br  />
  <em>mpp_start_update_domains/mpp_complete_update_domains</em> internally buffers the data being sent and received into single messages for efficiency. A turnable internal buffer area in memory is provided for this purpose by <em>mpp_domains_mod</em>. The size of this buffer area can be set by the user by calling <em>mpp_domains_set_stack_size</em>.<br  />
- Example usage: call mpp_start_update_domains( field, domain, flags ) call mpp_complete_update_domains( field, domain, flags ) </dd></dl>
+ Example usage: <pre class="fragment">            call mpp_start_update_domains( field, domain, flags )
+            call mpp_complete_update_domains( field, domain, flags )
+</pre> </dd></dl>
 </div>
 
 <h3><a id="mpp_complete_update_domains"></a>mpp_complete_mpp_domains Interface</h3><div class="textblock">Must be used after a call to <a class="el" href="group__mpp__domains__mod.html">mpp_start_update_domains Interface</a> in order to complete a nonblocking domain update. See <a class="el" href="group__mpp__domains__mod.html">mpp_start_update_domains Interface</a> for more info. </div>
 
 <h3><a id="mpp_update_nest_fine"></a>mpp_update_nest_fine Interface</h3><div class="textblock">Pass the data from coarse grid to fill the buffer to be ready to be interpolated nto fine grid. <br  />
-Example usage: call mpp_update_nest_fine(field, nest_domain, wbuffer, ebuffer, sbuffer, nbuffer, nest_level, flags, complete, position, extra_halo, name, tile_count) </div>
+Example usage: </p><pre class="fragment">           call mpp_update_nest_fine(field, nest_domain, wbuffer, ebuffer, sbuffer, 
+                       nbuffer, nest_level, flags, complete, position, extra_halo, name,
+                       tile_count)
+</pre> </div>
 
 <h3><a id="mpp_update_nest_coarse"></a>mpp_update_nest_coarse Interface</h3><div class="textblock">Pass the data from fine grid to fill the buffer to be ready to be interpolated onto coarse grid. <br  />
-Example usage: call mpp_update_nest_coarse(field, nest_domain, field_out, nest_level, complete, position, name, tile_count) </div>
+Example usage: </p><pre class="fragment">          call mpp_update_nest_coarse(field, nest_domain, field_out, nest_level, complete,
+                            position, name, tile_count)
+</pre> </div>
 
 <h3><a id="mpp_get_F2C_index"></a>mpp_get_F2C_index Interface</h3><div class="textblock">Get the index of the data passed from fine grid to coarse grid. <br  />
-Example usage: call mpp_get_F2C_index(nest_domain, is_coarse, ie_coarse, js_coarse, je_coarse, is_fine, ie_fine, js_fine, je_fine, nest_level, position) </div>
+Example usage: </p><pre class="fragment">       call mpp_get_F2C_index(nest_domain, is_coarse, ie_coarse, js_coarse, je_coarse,
+                       is_fine, ie_fine, js_fine, je_fine, nest_level, position)
+</pre> </div>
 
 <h3><a id="mpp_broadcast_domain"></a>mpp_broadcast_domain Interface</h3><div class="textblock">Send domain to every pe </div>
 
 <h3><a id="mpp_update_domains_ad"></a>mpp_update_domains_ad Interface</h3><div class="textblock">Similar to <a class="el" href="group__mpp__domains__mod.html">mpp_update_domains Interface</a> , updates adjoint domains </div>
 
 <h3><a id="mpp_pass_SG_to_UG"></a>mpp_pass_SG_to_UG</h3><div class="textblock">Passes data from a structured grid to an unstructured grid <br  />
-Example usage: call mpp_pass_SG_to_UG(domain, sg_data, ug_data) </div>
+Example usage: </p><pre class="fragment">       call mpp_pass_SG_to_UG(domain, sg_data, ug_data)
+</pre> </div>
 
 <h3><a id="mpp_get_boundary"></a>mpp_get_boundary Interface</h3><div class="textblock">Get the boundary data for symmetric domain when the data is at C, E, or N-cell center.<br  />
  <em>mpp_get_boundary</em> is used to get the boundary data for symmetric domain when the data is at C, E, or N-cell center. For cubic grid, the data should always at C-cell center. <br  />
-Example usage: call mpp_get_boundary(domain, field, ebuffer, sbuffer, wbuffer, nbuffer) Get boundary information from domain and field and store in buffers </div>
+Example usage: </p><pre class="fragment">               call mpp_get_boundary(domain, field, ebuffer, sbuffer, wbuffer, nbuffer)
+</pre><p> Get boundary information from domain and field and store in buffers </div>
 
 <h3><a id="mpp_redistribute"></a>mpp_redistribute Interface</h3><div class="textblock">Reorganization of distributed global arrays.<br  />
  <em>mpp_redistribute</em> is used to reorganize a distributed array. <em>MPP_TYPE_can</em> be of type <em>integer</em>, <em>complex</em>, or <em>real</em>; of 4-byte or 8-byte kind; of rank up to 5. <br  />
@@ -361,20 +375,22 @@ Example usage: call mpp_get_neighbor_pe( domain1d, direction=+1 , pe) Set pe to 
 <h3><a id="operators_domains"></a>Operator Overrides for domain types</h3><div class="textblock">Equality/inequality operators for domaintypes. <br  />
 <br  />
 The module provides public operators to check for equality/inequality of domaintypes, e.g:<br  />
- </p><pre class="fragment">       type(domain1D) :: a, b&lt;br&gt;
-       type(domain2D) :: c, d&lt;br&gt;
-       ...&lt;br&gt;
-       if( a.NE.b )then&lt;br&gt;
-       ...&lt;br&gt;
-       end if&lt;br&gt;
-       if( c==d )then&lt;br&gt;
-       ...&lt;br&gt;
-       end if&lt;br&gt;
+ </p><pre class="fragment">       type(domain1D) :: a, b
+       type(domain2D) :: c, d
+       ...
+       if( a.NE.b )then
+       ...
+       end if
+       if( c==d )then
+       ...
+       end if
 </pre><p> <br  />
  Domains are considered equal if and only if the start and end indices of each of their component global, data and compute domains are equal. </div>
 
 <h3><a id="mpp_get_compute_domain"></a>mpp_get_compute_domain Interface</h3><div class="textblock">These routines retrieve the axis specifications associated with the compute domains. The domain is a derived type with private elements. These routines retrieve the axis specifications associated with the compute domains The 2D version of these is a simple extension of 1D. <br  />
-Example usage: call mpp_get_compute_domain(domain_1D, is, ie) call mpp_get_compute_domain(domain_2D, is, ie, js, je) </div>
+Example usage: </p><pre class="fragment">       call mpp_get_compute_domain(domain_1D, is, ie)
+       call mpp_get_compute_domain(domain_2D, is, ie, js, je)
+</pre> </div>
 
 <h3><a id="mpp_get_compute_domains"></a>mpp_get_compute_domains Interface</h3><div class="textblock">Retrieve the entire array of compute domain extents associated with a decomposition. <br  />
 Example usage: call mpp_get_compute_domains( domain, xbegin, xend, xsize, &amp;<br  />

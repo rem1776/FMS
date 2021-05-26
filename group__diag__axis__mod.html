@@ -99,7 +99,7 @@ $(document).ready(function(){initNavTree('group__diag__axis__mod.html',''); init
 </div><!--header-->
 <div class="contents">
 
-<p>is an integral part of diag_manager_mod. It helps to create axis IDs that are used in register_diag_field.  
+<p>An integral part of <a class="el" href="group__diag__manager__mod.html">diag_manager_mod</a>. It helps to create axis IDs that are used in register_diag_field.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -176,11 +176,13 @@ integer(i4_kind), parameter, public&#160;</td><td class="memItemRight" valign="b
 <tr class="separator:gadb5e4d3bb7b063cbf144a5c79e16cd06"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>is an integral part of diag_manager_mod. It helps to create axis IDs that are used in register_diag_field. </p>
-<dl class="section author"><dt>Author</dt><dd>Seth Underwood Users first create axis ID by calling diag_axis_init, then use this axis ID in register_diag_field. </dd></dl>
+<p>An integral part of <a class="el" href="group__diag__manager__mod.html">diag_manager_mod</a>. It helps to create axis IDs that are used in register_diag_field. </p>
+<dl class="section author"><dt>Author</dt><dd>Seth Underwood</dd></dl>
+<p>Users first create axis ID by calling diag_axis_init, then use this axis ID in register_diag_field. </p>
 
 
-<h3><a id="diag_axis_add_attribute"></a>diag_axis_add_attribute Interface</h3><div class="textblock">Add a attribute to the diag axis Add an arbitrary attribute and value to the diagnostic axis. Any number of attributes can be added to a given axis. All attribute addition must be done before first <code>send_data</code> call.If a real or integer attribute is already defined, a FATAL error will be called. If a character attribute is already defined, then it will be prepended to the existing attribute value. Example usage: call diag_axis_add_attribute(diag_axis_id, att_name, att_value) </div><h2 class="groupheader">Function/Subroutine Documentation</h2>
+<h3><a id="diag_axis_add_attribute"></a>diag_axis_add_attribute Interface</h3><div class="textblock">Add an arbitrary attribute and value to the diagnostic axis. Any number of attributes can be added to a given axis. All attribute addition must be done before first <code>send_data</code> call.<br  />
+If a real or integer attribute is already defined, a FATAL error will be called. If a character attribute is already defined, then it will be prepended to the existing attribute value. Example usage: call diag_axis_add_attribute(diag_axis_id, att_name, att_value) </div><h2 class="groupheader">Function/Subroutine Documentation</h2>
 <a id="ga241aaf31afd11ff2c6ffbfc746487f0f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga241aaf31afd11ff2c6ffbfc746487f0f">&#9670;&nbsp;</a></span>axis_compatible_check()</h2>
 
@@ -350,8 +352,8 @@ integer(i4_kind), parameter, public&#160;</td><td class="memItemRight" valign="b
 </div><div class="memdoc">
 
 <p>Initialize the axis, and return the axis ID. </p>
-<dl class="section return"><dt>Returns</dt><dd>integer axis ID @description <code>diag_axis_init</code> initializes an axis and returns the axis ID that is to be used with <code>register_diag_field</code>. This function also increments the axis counter and fills in the axes </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
+<dl class="section return"><dt>Returns</dt><dd>integer axis ID</dd></dl>
+<p><code>diag_axis_init</code> initializes an axis and returns the axis ID that is to be used with <code>register_diag_field</code>. This function also increments the axis counter and fills in the axes </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>Short name for axis </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>Array of coordinate values </td></tr>

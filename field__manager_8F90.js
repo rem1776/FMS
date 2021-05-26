@@ -57,7 +57,7 @@ var field__manager_8F90 =
     [ "parse_string", "field__manager_8F90.html#ga898bd594b7a0f5691c1555dc603f6d1a", null ],
     [ "parse_strings", "field__manager_8F90.html#ga2d8344440bbfdeebf998b11001223eff", null ],
     [ "query_method", "field__manager_8F90.html#ga16054251842969a40166ac5ad949a605", null ],
-    [ "set_list_stuff", "group__field__manager.html#ga1f8e83ec7b4f8564f4f8d4a4eda84527", null ],
+    [ "set_list_stuff", "group__field__manager__mod.html#ga1f8e83ec7b4f8564f4f8d4a4eda84527", null ],
     [ "strip_front_blanks", "field__manager_8F90.html#ga24ea091bcf33c4a098f9bf35043c9641", null ],
     [ "array_increment", "field__manager_8F90.html#ga7e1c3b33a7c7e60d79b3c5d0e1b1998e", null ],
     [ "bracket_left", "field__manager_8F90.html#ga7e2c690e34868ad7eea77627084df3c3", null ],

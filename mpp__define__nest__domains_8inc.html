@@ -97,7 +97,7 @@ $(document).ready(function(){initNavTree('mpp__define__nest__domains_8inc.html',
 </div><!--header-->
 <div class="contents">
 
-<p>Routines for use in @mpp_domains_mod for routines utilizing domains with nested grids.  
+<p>Routines for use in <a class="el" href="group__mpp__domains__mod.html">mpp_domains_mod</a> for routines utilizing domains with nested grids.  
 <a href="#details">More...</a></p>
 
 <p><a href="mpp__define__nest__domains_8inc_source.html">Go to the source code of this file.</a></p>
@@ -205,7 +205,7 @@ logical function&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_is_ne
 <tr class="separator:a27cb3312205dbb4f9c3e40f059cccb28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Routines for use in @mpp_domains_mod for routines utilizing domains with nested grids. </p>
+<div class="textblock"><p>Routines for use in <a class="el" href="group__mpp__domains__mod.html">mpp_domains_mod</a> for routines utilizing domains with nested grids. </p>
 
 <p class="definition">Definition in file <a class="el" href="mpp__define__nest__domains_8inc_source.html">mpp_define_nest_domains.inc</a>.</p>
 </div><h2 class="groupheader">Function/Subroutine Documentation</h2>
@@ -317,42 +317,64 @@ logical function&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_is_ne
 <p>Set up a domain to pass data between aligned coarse and fine grid of a nested model. Supports multiple and telescoping nests. A telescoping nest is defined as a nest within a nest. Nest domains may span multiple tiles, but cannot contain a coarse-grid, cube corner. Concurrent nesting is the only supported mechanism, i.e. coarse and fine grid are on individual, non-overlapping, processor lists. Coarse and fine grid domain need to be defined before calling mpp_define_nest_domains. An mpp_broadcast is needed to broadcast both fine and coarse grid domain onto all processors.<br  />
 <br  />
  mpp_update_nest_coarse is used to pass data from fine grid to coarse grid computing domain. mpp_update_nest_fine is used to pass data from coarse grid to fine grid halo. You may call mpp_get_C2F_index before calling mpp_update_nest_fine to get the index for passing data from coarse to fine. You may call mpp_get_F2C_index before calling mpp_update_nest_coarse to get the index for passing data from coarse to fine.</p>
-<dl class="section note"><dt>Note</dt><dd>: The following tests for nesting of regular lat-lon grids upon a cubed-sphere grid are done in test_mpp_domains:<br  />
+<dl class="section note"><dt>Note</dt><dd>The following tests for nesting of regular lat-lon grids upon a cubed-sphere grid are done in test_mpp_domains:<br  />
  a) a first-level nest spanning multiple cubed-sphere faces (tiles 1, 2, &amp; 4)<br  />
  b) a first-level nest wholly contained within tile 3<br  />
  c) a second-level nest contained within the nest mentioned in a)<br  />
  Tests are done for data at T, E, C, N-cell center.<br  />
- Below is an example to pass data between fine and coarse grid (More details on how to use the nesting domain update are available in routine test_update_nest_domain of <a class="el" href="test__mpp__domains_8F90_source.html">test_fms/mpp/test_mpp_domains.F90</a>.<br  />
+</dd></dl>
+<p>Below is an example to pass data between fine and coarse grid (More details on how to use the nesting domain update are available in routine test_update_nest_domain of <a class="el" href="test__mpp__domains_8F90_source.html">test_fms/mpp/test_mpp_domains.F90</a>.<br  />
 <br  />
- if( concurrent ) then call mpp_broadcast_domain(domain_fine) call mpp_broadcast_domain(domain_coarse) endif</dd></dl>
-<p>call mpp_define_nest_domains(nest_domain,domain,num_nest,nest_level(1:num_nest), &amp; tile_fine(1:num_nest), tile_coarse(1:num_nest), &amp; istart_coarse(1:num_nest), icount_coarse(1:num_nest), &amp; jstart_coarse(1:num_nest), jcount_coarse(1:num_nest), &amp; npes_nest_tile, x_refine(1:num_nest), y_refine(1:num_nest), &amp; extra_halo=extra_halo, name="nest_domain")</p>
-<p>call mpp_get_C2F_index(nest_domain, isw_f, iew_f, jsw_f, jew_f, isw_c, iew_c, jsw_c, jew_c, WEST, level) call mpp_get_C2F_index(nest_domain, ise_f, iee_f, jse_f, jee_f, ise_c, iee_c, jse_c, jee_c, EAST, level) call mpp_get_C2F_index(nest_domain, iss_f, ies_f, jss_f, jes_f, iss_c, ies_c, jss_c, jes_c, SOUTH, level) call mpp_get_C2F_index(nest_domain, isn_f, ien_f, jsn_f, jen_f, isn_c, ien_c, jsn_c, jen_c, NORTH, level) </p><pre class="fragment">allocate(wbuffer(isw_c:iew_c, jsw_c:jew_c,nz))
-allocate(ebuffer(ise_c:iee_c, jse_c:jee_c,nz))
-allocate(sbuffer(iss_c:ies_c, jss_c:jes_c,nz))
-allocate(nbuffer(isn_c:ien_c, jsn_c:jen_c,nz))
-call mpp_update_nest_fine(x, nest_domain, wbuffer, sbuffer, ebuffer, nbuffer)
+</p><pre class="fragment">
+        if( concurrent ) then
+            call mpp_broadcast_domain(domain_fine)
+            call mpp_broadcast_domain(domain_coarse)
+        endif
 
-call mpp_get_F2C_index(nest_domain, is_c, ie_c, js_c, je_c, is_f, ie_f, js_f, je_f, nest_level=level)
-allocate(buffer (is_f:ie_f, js_f:je_f,nz))
-call mpp_update_nest_coarse(x, nest_domain, buffer)
-</pre> <dl class="section note"><dt>Note</dt><dd>Currently the contact will be limited to overlap contact. </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">nest_domain</td><td>holds the information to pass data between nest and parent grids. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">domain</td><td>domain for the grid defined in the current pelist </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">num_nest</td><td>number of nests </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">nest_level</td><td>array containing the nest level for each nest (&gt;1 implies a telescoping nest) </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">tile_coarse</td><td>array containing tile number of the nest grid (monotonically increasing starting with 7), array containing tile number of the parent grid corresponding to the lower left corner of a given nest </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">jcount_coarse</td><td>start array containing index in the parent grid of the lower left corner of a given nest, count: array containing span of the nest on the parent grid </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">npes_nest_tile</td><td>array containing number of pes to allocated to each defined tile </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">y_refine</td><td>array containing refinement ratio for each nest </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">extra_halo</td><td>extra halo for passing data from coarse grid to fine grid. default is 0 and currently only support extra_halo = 0. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>name of the nest domain </td></tr>
-  </table>
-  </dd>
-</dl>
+        call mpp_define_nest_domains(nest_domain,domain,num_nest,nest_level(1:num_nest), &amp;
+                              tile_fine(1:num_nest), tile_coarse(1:num_nest), &amp;
+                              istart_coarse(1:num_nest), icount_coarse(1:num_nest), &amp;
+                              jstart_coarse(1:num_nest), jcount_coarse(1:num_nest), &amp;
+                              npes_nest_tile, x_refine(1:num_nest), y_refine(1:num_nest), &amp;
+                              extra_halo=extra_halo, name="nest_domain")
 
-<p class="definition">Definition at line <a class="el" href="mpp__define__nest__domains_8inc_source.html#l00090">90</a> of file <a class="el" href="mpp__define__nest__domains_8inc_source.html">mpp_define_nest_domains.inc</a>.</p>
+        call mpp_get_C2F_index(nest_domain, isw_f, iew_f, jsw_f, jew_f, isw_c, iew_c, jsw_c, jew_c, WEST, level)
+        call mpp_get_C2F_index(nest_domain, ise_f, iee_f, jse_f, jee_f, ise_c, iee_c, jse_c, jee_c, EAST, level)
+        call mpp_get_C2F_index(nest_domain, iss_f, ies_f, jss_f, jes_f, iss_c, ies_c, jss_c, jes_c, SOUTH, level)
+        call mpp_get_C2F_index(nest_domain, isn_f, ien_f, jsn_f, jen_f, isn_c, ien_c, jsn_c, jen_c, NORTH, level)
+
+            allocate(wbuffer(isw_c:iew_c, jsw_c:jew_c,nz))
+            allocate(ebuffer(ise_c:iee_c, jse_c:jee_c,nz))
+            allocate(sbuffer(iss_c:ies_c, jss_c:jes_c,nz))
+            allocate(nbuffer(isn_c:ien_c, jsn_c:jen_c,nz))
+            call mpp_update_nest_fine(x, nest_domain, wbuffer, sbuffer, ebuffer, nbuffer)
+
+            call mpp_get_F2C_index(nest_domain, is_c, ie_c, js_c, je_c, is_f, ie_f, js_f, je_f, nest_level=level)
+            allocate(buffer (is_f:ie_f, js_f:je_f,nz))
+            call mpp_update_nest_coarse(x, nest_domain, buffer)
+@note Currently the contact will be limited to overlap contact.
+@param [in,out] nest_domain holds the information to pass data
+ between nest and parent grids.
+@param [in] domain domain for the grid defined in the current pelist
+@param [in] num_nest number of nests
+@param [in] nest_level array containing the nest level for each nest
+(&gt;1 implies a telescoping nest)
+@param [in] tile_coarse array containing tile number of the
+ nest grid (monotonically increasing starting with 7),
+ array containing tile number of the parent grid corresponding
+ to the lower left corner of a given nest
+@param [in] jcount_coarse start
+ array containing index in the parent grid of the lower left corner of a given
+ nest, count: array containing span of the nest on the parent grid
+@param [in] npes_nest_tile array containing number of pes to allocated
+ to each defined tile
+@param [in] y_refine array containing refinement ratio
+ for each nest
+@param [in] extra_halo extra halo for passing data from coarse grid to fine grid.
+ default is 0 and currently only support extra_halo = 0.
+@param [in] name name of the nest domain
+</pre>
+<p class="definition">Definition at line <a class="el" href="mpp__define__nest__domains_8inc_source.html#l00093">93</a> of file <a class="el" href="mpp__define__nest__domains_8inc_source.html">mpp_define_nest_domains.inc</a>.</p>
 
 </div>
 </div>
@@ -452,7 +474,7 @@ call mpp_update_nest_coarse(x, nest_domain, buffer)
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="mpp__define__nest__domains_8inc_source.html#l01528">1528</a> of file <a class="el" href="mpp__define__nest__domains_8inc_source.html">mpp_define_nest_domains.inc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mpp__define__nest__domains_8inc_source.html#l01531">1531</a> of file <a class="el" href="mpp__define__nest__domains_8inc_source.html">mpp_define_nest_domains.inc</a>.</p>
 
 </div>
 </div>
@@ -521,7 +543,7 @@ call mpp_update_nest_coarse(x, nest_domain, buffer)
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="mpp__define__nest__domains_8inc_source.html#l01657">1657</a> of file <a class="el" href="mpp__define__nest__domains_8inc_source.html">mpp_define_nest_domains.inc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mpp__define__nest__domains_8inc_source.html#l01660">1660</a> of file <a class="el" href="mpp__define__nest__domains_8inc_source.html">mpp_define_nest_domains.inc</a>.</p>
 
 </div>
 </div>
@@ -615,7 +637,7 @@ call mpp_update_nest_coarse(x, nest_domain, buffer)
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="mpp__define__nest__domains_8inc_source.html#l01609">1609</a> of file <a class="el" href="mpp__define__nest__domains_8inc_source.html">mpp_define_nest_domains.inc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mpp__define__nest__domains_8inc_source.html#l01612">1612</a> of file <a class="el" href="mpp__define__nest__domains_8inc_source.html">mpp_define_nest_domains.inc</a>.</p>
 
 </div>
 </div>

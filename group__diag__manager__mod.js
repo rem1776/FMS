@@ -1,5 +1,9 @@
 var group__diag__manager__mod =
 [
+    [ "send_data Interface", "group__diag__manager__mod.html#send_data", null ],
+    [ "register_diag_field Interface", "group__diag__manager__mod.html#register_diag_field", null ],
+    [ "send_tile_averaged_data Interface", "group__diag__manager__mod.html#send_tile_averaged_data", null ],
+    [ "diag_field_add_attribute Interface", "group__diag__manager__mod.html#diag_field_add_attribute", null ],
     [ "diag_field_add_cell_measures", "group__diag__manager__mod.html#ga6f632296fdf20dc41c1f4cc3918422b6", null ],
     [ "diag_manager_end", "group__diag__manager__mod.html#gae363283d453e40d48d70f583c1e58b5f", null ],
     [ "diag_manager_init", "group__diag__manager__mod.html#gab78722b306c31534a1b7870aaef28c6c", null ],

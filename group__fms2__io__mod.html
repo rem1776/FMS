@@ -115,11 +115,13 @@ Functions/Subroutines</h2></td></tr>
 <h3><a id="open_file"></a>open_file Interface</h3><div class="textblock">Opens a given netcdf or domain file.<br  />
 Example usage: </p><pre class="fragment">         io_success = open_file(fileobj, "filename", "write")
 </pre>Opens a netcdf file of type fmsnetcdffile_t at the given file path string. File mode is set to one of "read"/"write"/"overwrite"/"append" </p><pre class="fragment">         io_success = open_file(fileobj, "filename", "overwrite", domain)
-</pre>Opens a domain netcdf file of type fmsnetcdfdomainfile_t or</p><ul>
-<li>fmsnetcdfunstructureddomainfile_t at the given file path name and 2D or unstructured domain.</li>
+</pre>Opens a domain netcdf file of type fmsnetcdfdomainfile_t or fmsnetcdfunstructureddomainfile_t at the given file path name and 2D or unstructured domain.<br  />
+Contains the following routines:</p><ul>
+<li>netcdf_file_open_wrap</li>
+<li>open_domain_file</li>
+<li>open_unstructured_domain_file </li>
 </ul>
-Contains the following routines: <br  />
- netcdf_file_open_wrap open_domain_file open_unstructured_domain_file </div>
+</div>
 
 <h3><a id="open_virtual_file"></a>open_virtual_file Interface</h3><div class="textblock">Creates a diskless netcdf or domain file<dl class="section return"><dt>Returns</dt><dd>true if successful, false otherwise</dd></dl>
 <p><br  />
@@ -129,22 +131,18 @@ Example usage: </p><pre class="fragment">         io_success = open_virtual_file
 <li>fmsnetcdfunstructureddomainfile_t for a given 2D domain at an optional path <br  />
 </li>
 </ul>
-Contains the following routines <br  />
-</p><ul>
+<br  />
+Contains the following routines:</p><ul>
 <li>create_diskless_netcdf_file_wrap</li>
 <li>create_diskless_domain_file</li>
 <li>create_diskless_unstructured_domain_file </li>
 </ul>
 </div>
 
-<h3><a id="close_file"></a>close_file Interface</h3><div class="textblock">Close a netcdf or domain file opened with <a class="el" href="group__fms2__io__mod.html">open_file Interface</a> or<ul>
-<li><a class="el" href="group__fms2__io__mod.html">open_virtual_file Interface</a></li>
-</ul>
-<br  />
+<h3><a id="close_file"></a>close_file Interface</h3><div class="textblock">Close a netcdf or domain file opened with <a class="el" href="group__fms2__io__mod.html">open_file Interface</a> or <a class="el" href="group__fms2__io__mod.html">open_virtual_file Interface</a><br  />
 Example usage: </p><pre class="fragment">         call close_file(fileobj)
-</pre>Closes any given fileobj opened via <a class="el" href="group__fms2__io__mod.html">open_file Interface</a> or <a class="el" href="group__fms2__io__mod.html">open_virtual_file Interface</a> <br  />
-Contains the following routines <br  />
-</p><ul>
+</pre>Closes any given fileobj opened via <a class="el" href="group__fms2__io__mod.html">open_file Interface</a> or <a class="el" href="group__fms2__io__mod.html">open_virtual_file Interface</a><br  />
+Contains the following routines:</p><ul>
 <li>netcdf_file_close_wrap</li>
 <li>close_domain_file</li>
 <li>close_unstructured_domain_file </li>
@@ -154,7 +152,9 @@ Contains the following routines <br  />
 <h3><a id="register_axis"></a>register_axis Interface</h3><div class="textblock">Add a dimension to a given file<br  />
 Example usage: </p><pre class="fragment">         call register_axis(fileobj, "lon", "x")
 </pre>Adds a dimension named "lon" associated with the x axis of the 2D domain file. For unstructured domains no x or y axis character is provided. </p><pre class="fragment">         call register_axis(fileobj, "lon", n)
-</pre>Adds a dimension named "lon" with length n to a given netcdf fileContains the following routines</p><ul>
+</pre>Adds a dimension named "lon" with length n to a given netcdf file.<br  />
+<br  />
+Contains the following routines:</p><ul>
 <li>netcdf_add_dimension</li>
 <li>register_compressed_dimension</li>
 <li>register_domain_decomposed_dimension</li>
@@ -164,7 +164,8 @@ Example usage: </p><pre class="fragment">         call register_axis(fileobj, "l
 
 <h3><a id="register_field"></a>register_field Interface</h3><div class="textblock">Defines a new field within the given file <br  />
 Example usage:<pre class="fragment">         call register_field(fileobj, "lon", "double", (/"lon"/) )
-</pre>Adds a double variable named "lon" to the given file, corresponding to the list of dimension names (which must be previously defined in the fileobj). The size of dimension name list provided is the amount of ranks for the created field, scalar if list not provided.Contains the following routines</p><ul>
+</pre>Adds a double variable named "lon" to the given file, corresponding to the list of dimension names (which must be previously defined in the fileobj). The size of dimension name list provided is the amount of ranks for the created field, scalar if list not provided.<br  />
+Contains the following routines</p><ul>
 <li>netcdf_add_variable_wrap</li>
 <li>register_domain_variable</li>
 <li>register_unstructured_domain_variable </li>
@@ -173,7 +174,8 @@ Example usage:<pre class="fragment">         call register_field(fileobj, "lon",
 
 <h3><a id="register_restart_field"></a>register_restart_field Interface</h3><div class="textblock">Similar to <a class="el" href="group__fms2__io__mod.html">register_field Interface</a>, but occupies the field with data for restarts <br  />
 Example usage:<pre class="fragment">         call register_restart_field(fileobj, "temperature", data_ptr, (/"lon", "time"/) )
-</pre>Creates a restart variable and sets it to the values from data_ptr, corresponding to the list of dimension names. Rank of data_ptr must equal the amount of corresponding dimensions.Contains the following routines</p><ul>
+</pre>Creates a restart variable and sets it to the values from data_ptr, corresponding to the list of dimension names. Rank of data_ptr must equal the amount of corresponding dimensions.<br  />
+Contains the following routines:</p><ul>
 <li><a class="el" href="netcdf__add__restart__variable_8inc.html#a06d12dfb8f09f3ca259363d01c886fad">netcdf_add_restart_variable_0d_wrap</a></li>
 <li><a class="el" href="netcdf__add__restart__variable_8inc.html#ae7fd172a8f8f4da0f5f61589c3048672">netcdf_add_restart_variable_1d_wrap</a></li>
 <li><a class="el" href="netcdf__add__restart__variable_8inc.html#a88a48ddd4b9a6b6d68d005d120aa044a">netcdf_add_restart_variable_2d_wrap</a></li>
@@ -199,7 +201,8 @@ Example usage:<pre class="fragment">         call register_restart_field(fileobj
 
 <h3><a id="write_data"></a>write_data Interface</h3><div class="textblock">Write data to a defined field within a file <br  />
 Example usage:<pre class="fragment">         call write_data(fileobj, "lon", data)
-</pre>Write the value(s) in data to the field named "lon"Contains the following routines</p><ul>
+</pre>Write the value(s) in data to the field named "lon"<br  />
+Contains the following routines</p><ul>
 <li><a class="el" href="compressed__write_8inc.html#a4e17a109b16f1b0989654cdceb1d6587">compressed_write_0d_wrap</a></li>
 <li><a class="el" href="compressed__write_8inc.html#a0326e0dee8e43c01c7c88c28ed27936a">compressed_write_1d_wrap</a></li>
 <li><a class="el" href="compressed__write_8inc.html#a7e238d0d9af000d6a6ead42b23d66068">compressed_write_2d_wrap</a></li>
@@ -254,7 +257,8 @@ Contains the following routines</p><ul>
 
 <h3><a id="write_restart"></a>write_restart Interface</h3><div class="textblock">Writes all restart fields registered within a given restart file <br  />
 Example usage:<pre class="fragment">         call write_restart(fileobj)
-</pre>Writes previously registered restart fields to the given restart fileContains the following routines</p><ul>
+</pre>Writes previously registered restart fields to the given restart file<br  />
+Contains the following routines</p><ul>
 <li>netcdf_save_restart_wrap</li>
 <li>save_domain_restart</li>
 <li>unstructured_write_restart </li>
@@ -263,7 +267,8 @@ Example usage:<pre class="fragment">         call write_restart(fileobj)
 
 <h3><a id="write_new_restart"></a>write_new_restart Interface</h3><div class="textblock">Writes all restart fields in a given restart file to a new restart file <br  />
 Example usage:<pre class="fragment">         call write_new_restart(fileobj, timestamp="tstring", filename="new_restartfilename")
-</pre>Creates a new restart file, with the provided timestamp and filename, out of the registered restart fields in the given restart file.Contains the following routines</p><ul>
+</pre>Creates a new restart file, with the provided timestamp and filename, out of the registered restart fields in the given restart file.<br  />
+Contains the following routines</p><ul>
 <li>netcdf_save_restart_wrap2</li>
 <li>save_domain_restart_wrap</li>
 <li>unstructured_write_restart_wrap </li>
@@ -271,13 +276,15 @@ Example usage:<pre class="fragment">         call write_new_restart(fileobj, tim
 </div>
 
 <h3><a id="read_restart"></a>read_restart Interface</h3><div class="textblock">Reads in restart variables from a given file <br  />
-Example usage: call read_restart(fileobj) Reads registered restart variables from fileobj Contains the following routines:<ul>
+Example usage: call read_restart(fileobj) Reads registered restart variables from fileobj <br  />
+Contains the following routines:<ul>
 <li>netcdf_restart_state</li>
 <li>restore_domain_state </li>
 </ul>
 </div>
 
-<h3><a id="read_new_restart"></a>read_new_restart Interface</h3><div class="textblock">Read registered restarts from a new file Contains the following routines<ul>
+<h3><a id="read_new_restart"></a>read_new_restart Interface</h3><div class="textblock">Read registered restarts from a new file <br  />
+Contains the following routines<ul>
 <li>netcdf_restore_state_wrap</li>
 <li>restore_domain_state_wrap </li>
 </ul>

@@ -175,7 +175,7 @@ $(document).ready(function(){initNavTree('test__drifters_8F90_source.html',''); 
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  <span class="keywordtype">type</span>(domain2d) :: domain</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <span class="keyword">call </span>mpp_init</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <span class="keyword">call </span><a class="code" href="mpp__comm__mpi_8inc.html#a889ed63075362dc3a3d3c12385d5a9c7">mpp_init</a></div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  npes   = 1 <span class="comment">!_MPP_NPES</span></div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  pe     = 0 <span class="comment">!_MPP_PE</span></div>
@@ -430,7 +430,7 @@ $(document).ready(function(){initNavTree('test__drifters_8F90_source.html',''); 
 <div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;<span class="keywordflow">  endif</span></div>
 <div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160; </div>
 <div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;<span class="comment">!#ifndef _SERIAL</span></div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;  <span class="keyword">call </span>mpp_exit</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;  <span class="keyword">call </span><a class="code" href="mpp__comm__mpi_8inc.html#a8d0366d81b9701ccaaf3612b666aada1">mpp_exit</a></div>
 <div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;<span class="comment">!#endif</span></div>
 <div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160; </div>
 <div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;<span class="keyword">end program </span>test_drifters</div>
@@ -451,6 +451,8 @@ $(document).ready(function(){initNavTree('test__drifters_8F90_source.html',''); 
 <div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;<span class="keyword">end subroutine </span>my_error_handler</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="ampp__comm__mpi_8inc_html_a8d0366d81b9701ccaaf3612b666aada1"><div class="ttname"><a href="mpp__comm__mpi_8inc.html#a8d0366d81b9701ccaaf3612b666aada1">mpp_exit</a></div><div class="ttdeci">subroutine mpp_exit()</div><div class="ttdoc">To be called at the end of a run.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__comm__mpi_8inc_source.html#l00235">mpp_comm_mpi.inc:235</a></div></div>
+<div class="ttc" id="ampp__comm__mpi_8inc_html_a889ed63075362dc3a3d3c12385d5a9c7"><div class="ttname"><a href="mpp__comm__mpi_8inc.html#a889ed63075362dc3a3d3c12385d5a9c7">mpp_init</a></div><div class="ttdeci">subroutine mpp_init(flags, localcomm, test_level)</div><div class="ttdoc">Initialize the mpp_mod module.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__comm__mpi_8inc_source.html#l00034">mpp_comm_mpi.inc:34</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

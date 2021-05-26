@@ -97,8 +97,7 @@ $(document).ready(function(){initNavTree('mpp__io__write_8inc.html',''); initRes
 </div><!--header-->
 <div class="contents">
 
-<p>This series of routines is used to describe the contents of the file <br  />
- being written on &lt;unit&gt;.  
+<p>This series of routines is used to describe the contents of the file being written on &lt;unit&gt;.  
 <a href="#details">More...</a></p>
 
 <p><a href="mpp__io__write_8inc_source.html">Go to the source code of this file.</a></p>
@@ -178,91 +177,20 @@ subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href
 <tr class="separator:ac5c019b9e111a608d620cc2d28326475"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This series of routines is used to describe the contents of the file <br  />
- being written on &lt;unit&gt;. </p>
-<p>Each file can contain any number of fields, <br  />
- which can be functions of 0-3 spatial axes and 0-1 time axes. Axis <br  />
- descriptors are stored in the &lt;axistype&gt; structure and field <br  />
- descriptors in the &lt;fieldtype&gt; structure. <br  />
-</p>
-<p>The metadata contained in the type is always written for each axis and <br  />
- field. Any other metadata one wishes to attach to an axis or field <br  />
- can subsequently be passed to mpp_write_meta using the ID, as shown below.</p>
-<p>mpp_write_meta can take several forms: <br  />
-</p>
-<p>mpp_write_meta( unit, name, rval=rval, pack=pack ) <br  />
- mpp_write_meta( unit, name, ival=ival ) <br  />
- mpp_write_meta( unit, name, cval=cval ) <br  />
- integer, intent(in) :: unit <br  />
- character(len=*), intent(in) :: name <br  />
- real, intent(in), optional :: rval(:) <br  />
- integer, intent(in), optional :: ival(:) <br  />
- character(len=*), intent(in), optional :: cval <br  />
-</p>
-<p>This form defines global metadata associated with the file as a <br  />
- whole. The attribute is named &lt;name&gt; and can take on a real, integer <br  />
- or character value. &lt;rval&gt; and &lt;ival&gt; can be scalar or 1D arrays. <br  />
-</p>
-<p>mpp_write_meta( unit, id, name, rval=rval, pack=pack ) <br  />
- mpp_write_meta( unit, id, name, ival=ival ) <br  />
- mpp_write_meta( unit, id, name, cval=cval ) <br  />
- integer, intent(in) :: unit, id <br  />
- character(len=*), intent(in) :: name <br  />
- real, intent(in), optional :: rval(:) <br  />
- integer, intent(in), optional :: ival(:) <br  />
- character(len=*), intent(in), optional :: cval <br  />
-</p>
-<p>This form defines metadata associated with a previously defined <br  />
- axis or field, identified to mpp_write_meta by its unique ID &lt;id&gt;. <br  />
- The attribute is named &lt;name&gt; and can take on a real, integer <br  />
- or character value. &lt;rval&gt; and &lt;ival&gt; can be scalar or 1D arrays. <br  />
- This need not be called for attributes already contained in <br  />
- the type. <br  />
-</p>
-<p>PACK can take values 1,2,4,8. This only has meaning when writing <br  />
- floating point numbers. The value of PACK defines the number of words <br  />
- written into 8 bytes. For pack=4 and pack=8, an integer value is <br  />
- written: rval is assumed to have been scaled to the appropriate dynamic <br  />
- range. <br  />
- PACK currently only works for netCDF files, and is ignored otherwise. <br  />
-</p>
-<p>subroutine mpp_write_meta_axis( unit, axis, name, units, longname, &amp; <br  />
- cartesian, sense, domain, data ) <br  />
- integer, intent(in) :: unit <br  />
- type(axistype), intent(inout) :: axis <br  />
- character(len=*), intent(in) :: name, units, longname <br  />
- character(len=*), intent(in), optional :: cartesian <br  />
- integer, intent(in), optional :: sense <br  />
- type(domain1D), intent(in), optional :: domain <br  />
- real, intent(in), optional :: data(:) <br  />
-</p>
-<p>This form defines a time or space axis. Metadata corresponding to the <br  />
- type above are written to the file on &lt;unit&gt;. A unique ID for subsequent <br  />
- references to this axis is returned in axisid. If the &lt;domain&gt; <br  />
- element is present, this is recognized as a distributed data axis <br  />
- and domain decomposition information is also written if required (the <br  />
- domain decomposition info is required for multi-fileset multi-threaded <br  />
- I/O). If the &lt;datLINK&gt; element is allocated, it is considered to be a <br  />
- space axis, otherwise it is a time axis with an unlimited dimension. <br  />
- Only one time axis is allowed per file. <br  />
-</p>
-<p>subroutine mpp_write_meta_field( unit, field, axes, name, units, longname standard_name, min, max, missing, fill, scale, add, pack) integer, intent(in) :: unit <br  />
- type(fieldtype), intent(out) :: field <br  />
- type(axistype), intent(in) :: axes(:) <br  />
- character(len=*), intent(in) :: name, units, longname, standard_name <br  />
- real, intent(in), optional :: min, max, missing, fill, scale, add <br  />
- integer, intent(in), optional :: pack <br  />
-</p>
-<p>This form defines a field. Metadata corresponding to the type <br  />
- above are written to the file on &lt;unit&gt;. A unique ID for subsequent <br  />
- references to this field is returned in fieldid. At least one axis <br  />
- must be associated, 0D variables are not considered. mpp_write_meta <br  />
- must previously have been called on all axes associated with this <br  />
- field. <br  />
-</p>
-<p>The mpp_write_meta package also includes subroutines write_attribute and <br  />
- write_attribute_netcdf, that are private to this module. <br  />
- </p>
+<div class="textblock"><p>This series of routines is used to describe the contents of the file being written on &lt;unit&gt;. </p>
+<p>Each file can contain any number of fields, which can be functions of 0-3 spatial axes and 0-1 time axes. Axis descriptors are stored in the &lt;axistype&gt; structure and field descriptors in the &lt;fieldtype&gt; structure.</p>
+<p>The metadata contained in the type is always written for each axis and field. Any other metadata one wishes to attach to an axis or field can subsequently be passed to mpp_write_meta using the ID, as shown below.</p>
+<p>mpp_write_meta can take several forms:</p>
+<p>mpp_write_meta( unit, name, rval=rval, pack=pack ) mpp_write_meta( unit, name, ival=ival ) mpp_write_meta( unit, name, cval=cval ) integer, intent(in) :: unit character(len=*), intent(in) :: name real, intent(in), optional :: rval(:) integer, intent(in), optional :: ival(:) character(len=*), intent(in), optional :: cval</p>
+<p>This form defines global metadata associated with the file as a whole. The attribute is named &lt;name&gt; and can take on a real, integer or character value. &lt;rval&gt; and &lt;ival&gt; can be scalar or 1D arrays.</p>
+<p>mpp_write_meta( unit, id, name, rval=rval, pack=pack ) mpp_write_meta( unit, id, name, ival=ival ) mpp_write_meta( unit, id, name, cval=cval ) integer, intent(in) :: unit, id character(len=*), intent(in) :: name real, intent(in), optional :: rval(:) integer, intent(in), optional :: ival(:) character(len=*), intent(in), optional :: cval</p>
+<p>This form defines metadata associated with a previously defined axis or field, identified to mpp_write_meta by its unique ID &lt;id&gt;. The attribute is named &lt;name&gt; and can take on a real, integer or character value. &lt;rval&gt; and &lt;ival&gt; can be scalar or 1D arrays. This need not be called for attributes already contained in the type.</p>
+<p>PACK can take values 1,2,4,8. This only has meaning when writing floating point numbers. The value of PACK defines the number of words written into 8 bytes. For pack=4 and pack=8, an integer value is written: rval is assumed to have been scaled to the appropriate dynamic range. PACK currently only works for netCDF files, and is ignored otherwise.</p>
+<p>subroutine mpp_write_meta_axis( unit, axis, name, units, longname, &amp; cartesian, sense, domain, data ) integer, intent(in) :: unit type(axistype), intent(inout) :: axis character(len=*), intent(in) :: name, units, longname character(len=*), intent(in), optional :: cartesian integer, intent(in), optional :: sense type(domain1D), intent(in), optional :: domain real, intent(in), optional :: data(:)</p>
+<p>This form defines a time or space axis. Metadata corresponding to the type above are written to the file on &lt;unit&gt;. A unique ID for subsequent references to this axis is returned in axisid. If the &lt;domain&gt; element is present, this is recognized as a distributed data axis and domain decomposition information is also written if required (the domain decomposition info is required for multi-fileset multi-threaded I/O). If the &lt;datLINK&gt; element is allocated, it is considered to be a space axis, otherwise it is a time axis with an unlimited dimension. Only one time axis is allowed per file.</p>
+<p>subroutine mpp_write_meta_field( unit, field, axes, name, units, longname standard_name, min, max, missing, fill, scale, add, pack) integer, intent(in) :: unit type(fieldtype), intent(out) :: field type(axistype), intent(in) :: axes(:) character(len=*), intent(in) :: name, units, longname, standard_name real, intent(in), optional :: min, max, missing, fill, scale, add integer, intent(in), optional :: pack</p>
+<p>This form defines a field. Metadata corresponding to the type above are written to the file on &lt;unit&gt;. A unique ID for subsequent references to this field is returned in fieldid. At least one axis must be associated, 0D variables are not considered. mpp_write_meta must previously have been called on all axes associated with this field.</p>
+<p>The mpp_write_meta package also includes subroutines write_attribute and write_attribute_netcdf, that are private to this module. </p>
 
 <p class="definition">Definition in file <a class="el" href="mpp__io__write_8inc_source.html">mpp_io_write.inc</a>.</p>
 </div></div><!-- contents -->

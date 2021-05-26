@@ -1,7 +1,5 @@
 var NAVTREEINDEX7 =
 {
-"group__astronomy__mod.html#get_period":[3,2,0,3],
-"group__astronomy__mod.html#half_day":[3,2,0,5],
 "group__astronomy__mod.html#set_period":[3,2,0,4],
 "group__atmos__ocean__fluxes__mod.html":[3,7,0],
 "group__atmos__ocean__fluxes__mod.html#ga1bd0443a803dd443bd7a4f24dae28e13":[3,7,0,0],
@@ -167,8 +165,8 @@ var NAVTREEINDEX7 =
 "group__coupler__types__mod.html#ga1c19d20b9d51627a84cc064c5d0251f1":[3,7,1,2,0],
 "group__coupler__types__mod.html#ga1de2168a846b8670760d6c1306d8b3f3":[3,7,1,7,10],
 "group__coupler__types__mod.html#ga1de2168a846b8670760d6c1306d8b3f3":[3,7,1,103],
-"group__coupler__types__mod.html#ga1de2168a846b8670760d6c1306d8b3f3":[3,7,1,104],
 "group__coupler__types__mod.html#ga1de2168a846b8670760d6c1306d8b3f3":[3,7,1,1,11],
+"group__coupler__types__mod.html#ga1de2168a846b8670760d6c1306d8b3f3":[3,7,1,104],
 "group__coupler__types__mod.html#ga1de2168a846b8670760d6c1306d8b3f3":[3,7,1,105],
 "group__coupler__types__mod.html#ga1de2168a846b8670760d6c1306d8b3f3":[3,7,1,4,11],
 "group__coupler__types__mod.html#ga1f58c5ee9bab10e481f1f34596e81d47":[3,7,1,43],
@@ -249,5 +247,7 @@ var NAVTREEINDEX7 =
 "group__coupler__types__mod.html#ga5f9a30581ca97cd18f2f5be83fcaa735":[3,7,1,5,2],
 "group__coupler__types__mod.html#ga657e3d8548c8e96e2ef46bc98f79b6e2":[3,7,1,124],
 "group__coupler__types__mod.html#ga657e3d8548c8e96e2ef46bc98f79b6e2":[3,7,1,3,8],
-"group__coupler__types__mod.html#ga68a73407cc4e29d4f65cb3700758fec0":[3,7,1,8,2]
+"group__coupler__types__mod.html#ga68a73407cc4e29d4f65cb3700758fec0":[3,7,1,8,2],
+"group__coupler__types__mod.html#ga68a73407cc4e29d4f65cb3700758fec0":[3,7,1,111],
+"group__coupler__types__mod.html#ga68a73407cc4e29d4f65cb3700758fec0":[3,7,1,112]
 };

@@ -131,7 +131,7 @@ $(document).ready(function(){initNavTree('test__global__att_8F90_source.html',''
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keywordtype">character(len=20)</span> :: buf_str<span class="comment"> !&lt; character buffer</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">call </span><a class="code" href="group__fms2__io__mod.html#gab2efb88539d9a05da43d95a501ed7e4c">fms2_io_init</a></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">call </span>mpp_init</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">call </span><a class="code" href="mpp__comm__mpi_8inc.html#a889ed63075362dc3a3d3c12385d5a9c7">mpp_init</a></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">!&gt; Write out the different possible global attributes to a netcdf file</span></div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keywordflow">if</span> (open_file(fileobj, <span class="stringliteral">&quot;test_global_att.nc&quot;</span>, <span class="stringliteral">&quot;overwrite&quot;</span>)) <span class="keywordflow">then</span></div>
@@ -196,11 +196,13 @@ $(document).ready(function(){initNavTree('test__global__att_8F90_source.html',''
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    print *, <span class="stringliteral">&quot;buf_str read in = &quot;</span>, trim(buf_str)</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keyword">call </span>mpp_error(fatal, <span class="stringliteral">&quot;test_global_att: error reading buf_str&quot;</span>)</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="keywordflow">endif</span></div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="keyword">call </span>mpp_exit()</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="keyword">call </span><a class="code" href="mpp__comm__mpi_8inc.html#a8d0366d81b9701ccaaf3612b666aada1">mpp_exit</a>()</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="keyword">end program</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="agroup__fms2__io__mod_html_gab2efb88539d9a05da43d95a501ed7e4c"><div class="ttname"><a href="group__fms2__io__mod.html#gab2efb88539d9a05da43d95a501ed7e4c">fms2_io_mod::fms2_io_init</a></div><div class="ttdeci">subroutine, public fms2_io_init()</div><div class="ttdoc">Reads the fms2_io_nml.</div><div class="ttdef"><b>Definition:</b> <a href="fms2__io_8F90_source.html#l00455">fms2_io.F90:455</a></div></div>
+<div class="ttc" id="ampp__comm__mpi_8inc_html_a8d0366d81b9701ccaaf3612b666aada1"><div class="ttname"><a href="mpp__comm__mpi_8inc.html#a8d0366d81b9701ccaaf3612b666aada1">mpp_exit</a></div><div class="ttdeci">subroutine mpp_exit()</div><div class="ttdoc">To be called at the end of a run.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__comm__mpi_8inc_source.html#l00235">mpp_comm_mpi.inc:235</a></div></div>
+<div class="ttc" id="ampp__comm__mpi_8inc_html_a889ed63075362dc3a3d3c12385d5a9c7"><div class="ttname"><a href="mpp__comm__mpi_8inc.html#a889ed63075362dc3a3d3c12385d5a9c7">mpp_init</a></div><div class="ttdeci">subroutine mpp_init(flags, localcomm, test_level)</div><div class="ttdoc">Initialize the mpp_mod module.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__comm__mpi_8inc_source.html#l00034">mpp_comm_mpi.inc:34</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

@@ -1360,20 +1360,20 @@ $(document).ready(function(){initNavTree('data__override_8F90_source.html',''); 
 <div class="line"><a name="l01264"></a><span class="lineno"> 1264</span>&#160;<span class="comment">!   &lt;IN NAME=&quot;data_index&quot; TYPE=&quot;integer&quot;&gt;</span></div>
 <div class="line"><a name="l01265"></a><span class="lineno"> 1265</span>&#160;<span class="comment">!   &lt;/IN&gt;</span></div>
 <div class="line"><a name="l01266"></a><span class="lineno"> 1266</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l01267"></a><span class="lineno"> 1267</span>&#160;<span class="comment">!&gt; @brief This routine performs data override for scalar fields</span></div>
+<div class="line"><a name="l01267"></a><span class="lineno"> 1267</span>&#160;<span class="comment">!&gt; @brief Routine to perform data override for scalar fields</span></div>
 <div class="line"><a name="l01268"></a><span class="lineno"> 1268</span>&#160;<span class="keyword">subroutine </span>data_override_0d(gridname,fieldname_code,data,time,override,data_index)</div>
-<div class="line"><a name="l01269"></a><span class="lineno"> 1269</span>&#160;  <span class="keywordtype">character(len=3)</span>, <span class="keywordtype">intent(in)</span> :: gridname<span class="comment"> !&gt; model grid ID</span></div>
-<div class="line"><a name="l01270"></a><span class="lineno"> 1270</span>&#160;  <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: fieldname_code<span class="comment"> !&gt; field name as used in the model</span></div>
-<div class="line"><a name="l01271"></a><span class="lineno"> 1271</span>&#160;  <span class="keywordtype">logical</span>, <span class="keywordtype">intent(out)</span>, <span class="keywordtype">optional</span> :: override<span class="comment"> !&gt; true if the field has been overriden succesfully</span></div>
-<div class="line"><a name="l01272"></a><span class="lineno"> 1272</span>&#160;  <span class="keywordtype">type</span>(time_type), <span class="keywordtype">intent(in)</span> :: time<span class="comment"> !&gt; (target) model time</span></div>
-<div class="line"><a name="l01273"></a><span class="lineno"> 1273</span>&#160;<span class="keywordtype">  real</span>,             <span class="keywordtype">intent(out)</span> :: data<span class="comment"> !&gt; data returned by this call</span></div>
+<div class="line"><a name="l01269"></a><span class="lineno"> 1269</span>&#160;  <span class="keywordtype">character(len=3)</span>, <span class="keywordtype">intent(in)</span> :: gridname<span class="comment"> !&lt; model grid ID</span></div>
+<div class="line"><a name="l01270"></a><span class="lineno"> 1270</span>&#160;  <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: fieldname_code<span class="comment"> !&lt; field name as used in the model</span></div>
+<div class="line"><a name="l01271"></a><span class="lineno"> 1271</span>&#160;  <span class="keywordtype">logical</span>, <span class="keywordtype">intent(out)</span>, <span class="keywordtype">optional</span> :: override<span class="comment"> !&lt; true if the field has been overriden succesfully</span></div>
+<div class="line"><a name="l01272"></a><span class="lineno"> 1272</span>&#160;  <span class="keywordtype">type</span>(time_type), <span class="keywordtype">intent(in)</span> :: time<span class="comment"> !&lt; (target) model time</span></div>
+<div class="line"><a name="l01273"></a><span class="lineno"> 1273</span>&#160;<span class="keywordtype">  real</span>,             <span class="keywordtype">intent(out)</span> :: data<span class="comment"> !&lt; data returned by this call</span></div>
 <div class="line"><a name="l01274"></a><span class="lineno"> 1274</span>&#160;  <span class="keywordtype">integer</span>, <span class="keywordtype">intent(in)</span>, <span class="keywordtype">optional</span> :: data_index</div>
 <div class="line"><a name="l01275"></a><span class="lineno"> 1275</span>&#160; </div>
-<div class="line"><a name="l01276"></a><span class="lineno"> 1276</span>&#160;  <span class="keywordtype">character(len=512)</span> :: filename<span class="comment"> !&gt; file containing source data</span></div>
-<div class="line"><a name="l01277"></a><span class="lineno"> 1277</span>&#160;  <span class="keywordtype">character(len=128)</span> :: fieldname<span class="comment"> !&gt; fieldname used in the data file</span></div>
-<div class="line"><a name="l01278"></a><span class="lineno"> 1278</span>&#160;  <span class="keywordtype">integer</span> :: index1<span class="comment"> !&gt; field index in data_table</span></div>
-<div class="line"><a name="l01279"></a><span class="lineno"> 1279</span>&#160;  <span class="keywordtype">integer</span> :: id_time<span class="comment"> !&gt; index for time interp in override array</span></div>
-<div class="line"><a name="l01280"></a><span class="lineno"> 1280</span>&#160;  <span class="keywordtype">integer</span> :: curr_position<span class="comment"> !&gt; position of the field currently processed in override_array</span></div>
+<div class="line"><a name="l01276"></a><span class="lineno"> 1276</span>&#160;  <span class="keywordtype">character(len=512)</span> :: filename<span class="comment"> !&lt; file containing source data</span></div>
+<div class="line"><a name="l01277"></a><span class="lineno"> 1277</span>&#160;  <span class="keywordtype">character(len=128)</span> :: fieldname<span class="comment"> !&lt; fieldname used in the data file</span></div>
+<div class="line"><a name="l01278"></a><span class="lineno"> 1278</span>&#160;  <span class="keywordtype">integer</span> :: index1<span class="comment"> !&lt; field index in data_table</span></div>
+<div class="line"><a name="l01279"></a><span class="lineno"> 1279</span>&#160;  <span class="keywordtype">integer</span> :: id_time<span class="comment"> !&lt; index for time interp in override array</span></div>
+<div class="line"><a name="l01280"></a><span class="lineno"> 1280</span>&#160;  <span class="keywordtype">integer</span> :: curr_position<span class="comment"> !&lt; position of the field currently processed in override_array</span></div>
 <div class="line"><a name="l01281"></a><span class="lineno"> 1281</span>&#160;  <span class="keywordtype">integer</span> :: i</div>
 <div class="line"><a name="l01282"></a><span class="lineno"> 1282</span>&#160;<span class="keywordtype">  real</span> :: factor</div>
 <div class="line"><a name="l01283"></a><span class="lineno"> 1283</span>&#160; </div>
@@ -1455,7 +1455,7 @@ $(document).ready(function(){initNavTree('data__override_8F90_source.html',''); 
 <div class="line"><a name="l01359"></a><span class="lineno"> 1359</span>&#160;<span class="keyword">end subroutine </span>data_override_0d</div>
 <div class="line"><a name="l01360"></a><span class="lineno"> 1360</span>&#160;<span class="comment">! &lt;/SUBROUTINE&gt;</span></div>
 <div class="line"><a name="l01361"></a><span class="lineno"> 1361</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l01362"></a><span class="lineno"> 1362</span>&#160;<span class="comment">!&gt; @brief</span></div>
+<div class="line"><a name="l01362"></a><span class="lineno"> 1362</span>&#160;<span class="comment">!&gt; @brief Data override for 2D unstructured grids</span></div>
 <div class="line"><a name="l01363"></a><span class="lineno"> 1363</span>&#160;<span class="keyword">subroutine </span>data_override_ug_1d(gridname,fieldname,data,time,override)</div>
 <div class="line"><a name="l01364"></a><span class="lineno"> 1364</span>&#160;  <span class="keywordtype">character(len=3)</span>,   <span class="keywordtype">intent(in)</span> :: gridname<span class="comment"> !&lt; model grid ID</span></div>
 <div class="line"><a name="l01365"></a><span class="lineno"> 1365</span>&#160;  <span class="keywordtype">character(len=*)</span>,   <span class="keywordtype">intent(in)</span> :: fieldname<span class="comment"> !&lt; field to override</span></div>
@@ -1490,52 +1490,53 @@ $(document).ready(function(){initNavTree('data__override_8F90_source.html',''); 
 <div class="line"><a name="l01394"></a><span class="lineno"> 1394</span>&#160;  <span class="keyword">deallocate</span>(data_sg)</div>
 <div class="line"><a name="l01395"></a><span class="lineno"> 1395</span>&#160; </div>
 <div class="line"><a name="l01396"></a><span class="lineno"> 1396</span>&#160;<span class="keyword">end subroutine </span>data_override_ug_1d</div>
-<div class="line"><a name="l01397"></a><span class="lineno"> 1397</span>&#160; </div>
-<div class="line"><a name="l01398"></a><span class="lineno"> 1398</span>&#160;<span class="keyword">subroutine </span>data_override_ug_2d(gridname,fieldname,data,time,override)</div>
-<div class="line"><a name="l01399"></a><span class="lineno"> 1399</span>&#160;  <span class="keywordtype">character(len=3)</span>,     <span class="keywordtype">intent(in)</span> :: gridname<span class="comment"> !&lt; model grid ID</span></div>
-<div class="line"><a name="l01400"></a><span class="lineno"> 1400</span>&#160;  <span class="keywordtype">character(len=*)</span>,     <span class="keywordtype">intent(in)</span> :: fieldname<span class="comment"> !&lt; field to override</span></div>
-<div class="line"><a name="l01401"></a><span class="lineno"> 1401</span>&#160;<span class="keywordtype">  real</span>, <span class="keywordtype">dimension(:,:)</span>, <span class="keywordtype">intent(inout)</span> :: data<span class="comment"> !&lt; data returned by this call</span></div>
-<div class="line"><a name="l01402"></a><span class="lineno"> 1402</span>&#160;  <span class="keywordtype">type</span>(time_type),      <span class="keywordtype">intent(in)</span> :: time<span class="comment"> !&lt;  model time</span></div>
-<div class="line"><a name="l01403"></a><span class="lineno"> 1403</span>&#160;  <span class="keywordtype">logical</span>, <span class="keywordtype">intent(out)</span>, <span class="keywordtype">optional</span> :: override<span class="comment"> !&lt; true if the field has been overriden succesfully</span></div>
-<div class="line"><a name="l01404"></a><span class="lineno"> 1404</span>&#160;  <span class="comment">!local vars</span></div>
-<div class="line"><a name="l01405"></a><span class="lineno"> 1405</span>&#160;<span class="keywordtype">  real</span>, <span class="keywordtype">dimension(:,:,:)</span>, <span class="keywordtype">allocatable</span> ::  data_sg</div>
-<div class="line"><a name="l01406"></a><span class="lineno"> 1406</span>&#160;<span class="keywordtype">  real</span>, <span class="keywordtype">dimension(:,:)</span>,   <span class="keywordtype">allocatable</span> ::  data_ug</div>
-<div class="line"><a name="l01407"></a><span class="lineno"> 1407</span>&#160;  <span class="keywordtype">type</span>(domainug) :: ug_domain</div>
-<div class="line"><a name="l01408"></a><span class="lineno"> 1408</span>&#160;  <span class="keywordtype">integer</span>       :: index1</div>
-<div class="line"><a name="l01409"></a><span class="lineno"> 1409</span>&#160;  <span class="keywordtype">integer</span>       :: i, nlevel, nlevel_max</div>
-<div class="line"><a name="l01410"></a><span class="lineno"> 1410</span>&#160;  <span class="keywordtype">integer</span>, <span class="keywordtype">dimension(4)</span> :: comp_domain = 0<span class="comment">  !&lt; istart,iend,jstart,jend for compute domain</span></div>
-<div class="line"><a name="l01411"></a><span class="lineno"> 1411</span>&#160; </div>
-<div class="line"><a name="l01412"></a><span class="lineno"> 1412</span>&#160;<span class="comment">!1  Look  for the data file in data_table</span></div>
-<div class="line"><a name="l01413"></a><span class="lineno"> 1413</span>&#160;  <span class="keywordflow">if</span>(<span class="keyword">PRESENT</span>(override)) override = .false.</div>
-<div class="line"><a name="l01414"></a><span class="lineno"> 1414</span>&#160;  index1 = -1</div>
-<div class="line"><a name="l01415"></a><span class="lineno"> 1415</span>&#160;  <span class="keywordflow">do</span> i = 1, table_size</div>
-<div class="line"><a name="l01416"></a><span class="lineno"> 1416</span>&#160;     <span class="keywordflow">if</span>( trim(gridname) /= trim(data_table(i)%gridname)) cycle</div>
-<div class="line"><a name="l01417"></a><span class="lineno"> 1417</span>&#160;     <span class="keywordflow">if</span>( trim(fieldname) /= trim(data_table(i)%fieldname_code)) cycle</div>
-<div class="line"><a name="l01418"></a><span class="lineno"> 1418</span>&#160;     index1 = i                               <span class="comment">! field found</span></div>
-<div class="line"><a name="l01419"></a><span class="lineno"> 1419</span>&#160;     <span class="keywordflow">exit</span></div>
-<div class="line"><a name="l01420"></a><span class="lineno"> 1420</span>&#160;<span class="keywordflow">  enddo</span></div>
-<div class="line"><a name="l01421"></a><span class="lineno"> 1421</span>&#160;  <span class="keywordflow">if</span>(index1 .eq. -1) <span class="keywordflow">return</span>  <span class="comment">! NO override was performed</span></div>
-<div class="line"><a name="l01422"></a><span class="lineno"> 1422</span>&#160; </div>
-<div class="line"><a name="l01423"></a><span class="lineno"> 1423</span>&#160;  nlevel = <span class="keyword">size</span>(<span class="keyword">data</span>,2)</div>
-<div class="line"><a name="l01424"></a><span class="lineno"> 1424</span>&#160;  nlevel_max = nlevel</div>
-<div class="line"><a name="l01425"></a><span class="lineno"> 1425</span>&#160;  <span class="keyword">call </span>mpp_max(nlevel_max)</div>
-<div class="line"><a name="l01426"></a><span class="lineno"> 1426</span>&#160; </div>
-<div class="line"><a name="l01427"></a><span class="lineno"> 1427</span>&#160;  <span class="keyword">call </span>get_domainug(gridname,ug_domain,comp_domain)</div>
-<div class="line"><a name="l01428"></a><span class="lineno"> 1428</span>&#160;  <span class="keyword">allocate</span>(data_sg(comp_domain(1):comp_domain(2),comp_domain(3):comp_domain(4),nlevel_max))</div>
-<div class="line"><a name="l01429"></a><span class="lineno"> 1429</span>&#160;  <span class="keyword">allocate</span>(data_ug(<span class="keyword">size</span>(<span class="keyword">data</span>,1), nlevel_max))</div>
-<div class="line"><a name="l01430"></a><span class="lineno"> 1430</span>&#160;  data_sg = 0.0</div>
-<div class="line"><a name="l01431"></a><span class="lineno"> 1431</span>&#160;  <span class="keyword">call </span>data_override_3d(gridname,fieldname,data_sg,time,override)</div>
-<div class="line"><a name="l01432"></a><span class="lineno"> 1432</span>&#160; </div>
-<div class="line"><a name="l01433"></a><span class="lineno"> 1433</span>&#160;  <span class="keyword">call </span>mpp_pass_sg_to_ug(ug_domain, data_sg(:,:,:), data_ug(:,:))</div>
-<div class="line"><a name="l01434"></a><span class="lineno"> 1434</span>&#160;  <span class="keyword">data</span>(:,1:nlevel) = data_ug(:,1:nlevel)</div>
-<div class="line"><a name="l01435"></a><span class="lineno"> 1435</span>&#160; </div>
-<div class="line"><a name="l01436"></a><span class="lineno"> 1436</span>&#160;  <span class="keyword">deallocate</span>(data_sg, data_ug)</div>
-<div class="line"><a name="l01437"></a><span class="lineno"> 1437</span>&#160; </div>
-<div class="line"><a name="l01438"></a><span class="lineno"> 1438</span>&#160;<span class="keyword">end subroutine </span>data_override_ug_2d</div>
-<div class="line"><a name="l01439"></a><span class="lineno"> 1439</span>&#160; </div>
-<div class="line"><a name="l01440"></a><span class="lineno"> 1440</span>&#160;<span class="keyword">end module </span>data_override_mod</div>
-<div class="line"><a name="l01441"></a><span class="lineno"> 1441</span>&#160;<span class="comment">! @}</span></div>
-<div class="line"><a name="l01442"></a><span class="lineno"> 1442</span>&#160;<span class="comment">! close documentation grouping</span></div>
+<div class="line"><a name="l01397"></a><span class="lineno"> 1397</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l01398"></a><span class="lineno"> 1398</span>&#160;<span class="comment">!&gt; @brief Data override for 2D unstructured grids</span></div>
+<div class="line"><a name="l01399"></a><span class="lineno"> 1399</span>&#160;<span class="keyword">subroutine </span>data_override_ug_2d(gridname,fieldname,data,time,override)</div>
+<div class="line"><a name="l01400"></a><span class="lineno"> 1400</span>&#160;  <span class="keywordtype">character(len=3)</span>,     <span class="keywordtype">intent(in)</span> :: gridname<span class="comment"> !&lt; model grid ID</span></div>
+<div class="line"><a name="l01401"></a><span class="lineno"> 1401</span>&#160;  <span class="keywordtype">character(len=*)</span>,     <span class="keywordtype">intent(in)</span> :: fieldname<span class="comment"> !&lt; field to override</span></div>
+<div class="line"><a name="l01402"></a><span class="lineno"> 1402</span>&#160;<span class="keywordtype">  real</span>, <span class="keywordtype">dimension(:,:)</span>, <span class="keywordtype">intent(inout)</span> :: data<span class="comment"> !&lt; data returned by this call</span></div>
+<div class="line"><a name="l01403"></a><span class="lineno"> 1403</span>&#160;  <span class="keywordtype">type</span>(time_type),      <span class="keywordtype">intent(in)</span> :: time<span class="comment"> !&lt;  model time</span></div>
+<div class="line"><a name="l01404"></a><span class="lineno"> 1404</span>&#160;  <span class="keywordtype">logical</span>, <span class="keywordtype">intent(out)</span>, <span class="keywordtype">optional</span> :: override<span class="comment"> !&lt; true if the field has been overriden succesfully</span></div>
+<div class="line"><a name="l01405"></a><span class="lineno"> 1405</span>&#160;  <span class="comment">!local vars</span></div>
+<div class="line"><a name="l01406"></a><span class="lineno"> 1406</span>&#160;<span class="keywordtype">  real</span>, <span class="keywordtype">dimension(:,:,:)</span>, <span class="keywordtype">allocatable</span> ::  data_sg</div>
+<div class="line"><a name="l01407"></a><span class="lineno"> 1407</span>&#160;<span class="keywordtype">  real</span>, <span class="keywordtype">dimension(:,:)</span>,   <span class="keywordtype">allocatable</span> ::  data_ug</div>
+<div class="line"><a name="l01408"></a><span class="lineno"> 1408</span>&#160;  <span class="keywordtype">type</span>(domainug) :: ug_domain</div>
+<div class="line"><a name="l01409"></a><span class="lineno"> 1409</span>&#160;  <span class="keywordtype">integer</span>       :: index1</div>
+<div class="line"><a name="l01410"></a><span class="lineno"> 1410</span>&#160;  <span class="keywordtype">integer</span>       :: i, nlevel, nlevel_max</div>
+<div class="line"><a name="l01411"></a><span class="lineno"> 1411</span>&#160;  <span class="keywordtype">integer</span>, <span class="keywordtype">dimension(4)</span> :: comp_domain = 0<span class="comment">  !&lt; istart,iend,jstart,jend for compute domain</span></div>
+<div class="line"><a name="l01412"></a><span class="lineno"> 1412</span>&#160; </div>
+<div class="line"><a name="l01413"></a><span class="lineno"> 1413</span>&#160;<span class="comment">!1  Look  for the data file in data_table</span></div>
+<div class="line"><a name="l01414"></a><span class="lineno"> 1414</span>&#160;  <span class="keywordflow">if</span>(<span class="keyword">PRESENT</span>(override)) override = .false.</div>
+<div class="line"><a name="l01415"></a><span class="lineno"> 1415</span>&#160;  index1 = -1</div>
+<div class="line"><a name="l01416"></a><span class="lineno"> 1416</span>&#160;  <span class="keywordflow">do</span> i = 1, table_size</div>
+<div class="line"><a name="l01417"></a><span class="lineno"> 1417</span>&#160;     <span class="keywordflow">if</span>( trim(gridname) /= trim(data_table(i)%gridname)) cycle</div>
+<div class="line"><a name="l01418"></a><span class="lineno"> 1418</span>&#160;     <span class="keywordflow">if</span>( trim(fieldname) /= trim(data_table(i)%fieldname_code)) cycle</div>
+<div class="line"><a name="l01419"></a><span class="lineno"> 1419</span>&#160;     index1 = i                               <span class="comment">! field found</span></div>
+<div class="line"><a name="l01420"></a><span class="lineno"> 1420</span>&#160;     <span class="keywordflow">exit</span></div>
+<div class="line"><a name="l01421"></a><span class="lineno"> 1421</span>&#160;<span class="keywordflow">  enddo</span></div>
+<div class="line"><a name="l01422"></a><span class="lineno"> 1422</span>&#160;  <span class="keywordflow">if</span>(index1 .eq. -1) <span class="keywordflow">return</span>  <span class="comment">! NO override was performed</span></div>
+<div class="line"><a name="l01423"></a><span class="lineno"> 1423</span>&#160; </div>
+<div class="line"><a name="l01424"></a><span class="lineno"> 1424</span>&#160;  nlevel = <span class="keyword">size</span>(<span class="keyword">data</span>,2)</div>
+<div class="line"><a name="l01425"></a><span class="lineno"> 1425</span>&#160;  nlevel_max = nlevel</div>
+<div class="line"><a name="l01426"></a><span class="lineno"> 1426</span>&#160;  <span class="keyword">call </span>mpp_max(nlevel_max)</div>
+<div class="line"><a name="l01427"></a><span class="lineno"> 1427</span>&#160; </div>
+<div class="line"><a name="l01428"></a><span class="lineno"> 1428</span>&#160;  <span class="keyword">call </span>get_domainug(gridname,ug_domain,comp_domain)</div>
+<div class="line"><a name="l01429"></a><span class="lineno"> 1429</span>&#160;  <span class="keyword">allocate</span>(data_sg(comp_domain(1):comp_domain(2),comp_domain(3):comp_domain(4),nlevel_max))</div>
+<div class="line"><a name="l01430"></a><span class="lineno"> 1430</span>&#160;  <span class="keyword">allocate</span>(data_ug(<span class="keyword">size</span>(<span class="keyword">data</span>,1), nlevel_max))</div>
+<div class="line"><a name="l01431"></a><span class="lineno"> 1431</span>&#160;  data_sg = 0.0</div>
+<div class="line"><a name="l01432"></a><span class="lineno"> 1432</span>&#160;  <span class="keyword">call </span>data_override_3d(gridname,fieldname,data_sg,time,override)</div>
+<div class="line"><a name="l01433"></a><span class="lineno"> 1433</span>&#160; </div>
+<div class="line"><a name="l01434"></a><span class="lineno"> 1434</span>&#160;  <span class="keyword">call </span>mpp_pass_sg_to_ug(ug_domain, data_sg(:,:,:), data_ug(:,:))</div>
+<div class="line"><a name="l01435"></a><span class="lineno"> 1435</span>&#160;  <span class="keyword">data</span>(:,1:nlevel) = data_ug(:,1:nlevel)</div>
+<div class="line"><a name="l01436"></a><span class="lineno"> 1436</span>&#160; </div>
+<div class="line"><a name="l01437"></a><span class="lineno"> 1437</span>&#160;  <span class="keyword">deallocate</span>(data_sg, data_ug)</div>
+<div class="line"><a name="l01438"></a><span class="lineno"> 1438</span>&#160; </div>
+<div class="line"><a name="l01439"></a><span class="lineno"> 1439</span>&#160;<span class="keyword">end subroutine </span>data_override_ug_2d</div>
+<div class="line"><a name="l01440"></a><span class="lineno"> 1440</span>&#160; </div>
+<div class="line"><a name="l01441"></a><span class="lineno"> 1441</span>&#160;<span class="keyword">end module </span>data_override_mod<span class="comment"></span></div>
+<div class="line"><a name="l01442"></a><span class="lineno"> 1442</span>&#160;<span class="comment">!&gt; @}</span></div>
+<div class="line"><a name="l01443"></a><span class="lineno"> 1443</span>&#160;<span class="comment">! close documentation grouping</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="agroup__axis__utils2__mod_html_ga857fb377daad45ec66be74424e160568"><div class="ttname"><a href="group__axis__utils2__mod.html#ga857fb377daad45ec66be74424e160568">axis_utils2_mod::nearest_index</a></div><div class="ttdeci">integer function, public nearest_index(value, array)</div><div class="ttdoc">Return index of nearest point along axis.</div><div class="ttdef"><b>Definition:</b> <a href="axis__utils2_8F90_source.html#l00462">axis_utils2.F90:462</a></div></div>

@@ -116,7 +116,7 @@ $(document).ready(function(){initNavTree('test__drifters__io_8F90_source.html','
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">program</span> test_drifters_io</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <span class="keywordtype">use </span>drifters_io_mod</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="keywordtype">use </span>mpp_mod, <span class="keywordtype">only</span> : mpp_error, fatal, <a class="code" href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a>, mpp_init, mpp_exit</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="keywordtype">use </span>mpp_mod, <span class="keywordtype">only</span> : mpp_error, fatal, <a class="code" href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a>, <a class="code" href="mpp__comm__mpi_8inc.html#a889ed63075362dc3a3d3c12385d5a9c7">mpp_init</a>, <a class="code" href="mpp__comm__mpi_8inc.html#a8d0366d81b9701ccaaf3612b666aada1">mpp_exit</a></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <span class="keywordtype">implicit none</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keywordtype">type</span>(drifters_io_type) :: drfts_io</div>
@@ -127,7 +127,7 @@ $(document).ready(function(){initNavTree('test__drifters__io_8F90_source.html','
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="keywordtype">integer</span>, <span class="keywordtype">allocatable</span> :: ids(:)</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keywordtype">  real</span>, <span class="keywordtype">allocatable</span> :: positions(:,:), fields(:,:)</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keyword">call </span>mpp_init()</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keyword">call </span><a class="code" href="mpp__comm__mpi_8inc.html#a889ed63075362dc3a3d3c12385d5a9c7">mpp_init</a>()</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="comment">! number of dimensions</span></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  nd = 3</div>
@@ -251,12 +251,14 @@ $(document).ready(function(){initNavTree('test__drifters__io_8F90_source.html','
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;      print *,<span class="stringliteral">&#39;ERROR after drifters_io_del: &#39;</span>, ermesg</div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;      <span class="keyword">call </span>mpp_error(fatal, ermesg)</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="keywordflow">  endif</span></div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;  <span class="keyword">call </span>mpp_exit()</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;  <span class="keyword">call </span><a class="code" href="mpp__comm__mpi_8inc.html#a8d0366d81b9701ccaaf3612b666aada1">mpp_exit</a>()</div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;<span class="keyword">end program </span>test_drifters_io</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="ampp__util_8inc_html_a172901d39c9b0cf14aa83b1e94fdf21b"><div class="ttname"><a href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a></div><div class="ttdeci">integer function stdout()</div><div class="ttdoc">This function returns the current standard fortran unit numbers for output.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00065">mpp_util.inc:65</a></div></div>
 <div class="ttc" id="agroup__drifters__input__mod_html_ga7463d5de931507189f4e839f2fd60575"><div class="ttname"><a href="group__drifters__input__mod.html#ga7463d5de931507189f4e839f2fd60575">drifters_io_mod::drifters_io_new</a></div><div class="ttdeci">subroutine, public drifters_io_new(self, filename, nd, nf, ermesg)</div><div class="ttdef"><b>Definition:</b> <a href="drifters__io_8F90_source.html#l00063">drifters_io.F90:63</a></div></div>
+<div class="ttc" id="ampp__comm__mpi_8inc_html_a8d0366d81b9701ccaaf3612b666aada1"><div class="ttname"><a href="mpp__comm__mpi_8inc.html#a8d0366d81b9701ccaaf3612b666aada1">mpp_exit</a></div><div class="ttdeci">subroutine mpp_exit()</div><div class="ttdoc">To be called at the end of a run.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__comm__mpi_8inc_source.html#l00235">mpp_comm_mpi.inc:235</a></div></div>
+<div class="ttc" id="ampp__comm__mpi_8inc_html_a889ed63075362dc3a3d3c12385d5a9c7"><div class="ttname"><a href="mpp__comm__mpi_8inc.html#a889ed63075362dc3a3d3c12385d5a9c7">mpp_init</a></div><div class="ttdeci">subroutine mpp_init(flags, localcomm, test_level)</div><div class="ttdoc">Initialize the mpp_mod module.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__comm__mpi_8inc_source.html#l00034">mpp_comm_mpi.inc:34</a></div></div>
 <div class="ttc" id="agroup__drifters__input__mod_html_ga3f2cc77720a0b1cf3e4ba35d7961466e"><div class="ttname"><a href="group__drifters__input__mod.html#ga3f2cc77720a0b1cf3e4ba35d7961466e">drifters_io_mod::drifters_io_write</a></div><div class="ttdeci">subroutine, public drifters_io_write(self, time, np, nd, nf, ids, positions, fields, ermesg)</div><div class="ttdef"><b>Definition:</b> <a href="drifters__io_8F90_source.html#l00242">drifters_io.F90:242</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
