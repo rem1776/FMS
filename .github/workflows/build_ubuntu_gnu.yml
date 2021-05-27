@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        containers: [ underwood/ubuntu_libfms_gnu, thomasrobinson/centos7-netcdf ] 
+        containers: [underwood/ubuntu_libfms_gnu] 
         distcheck-conf-flags: [--enable-openmp, --disable-openmp, --enable-mixed-mode, --disable-setting-flags]
         fcflags: ["-I/usr/include", "-fdefault-real-8 -fdefault-double-8 -fcray-pointer -ffree-line-length-none -I/usr/include"]
         exclude:
@@ -16,7 +16,7 @@ jobs:
           - distcheck-conf-flags: --enable-mixed-mode
             fcflags: "-fdefault-real-8 -fdefault-double-8 -fcray-pointer -ffree-line-length-none -I/usr/include"
     container:
-      image: "${{ matrix.containers}}" 
+      image: ${{ matrix.containers }}
       env:
         FCFLAGS: "${{ matrix.fcflags }}"
         VERBOSE: 1
