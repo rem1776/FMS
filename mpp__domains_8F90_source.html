@@ -319,7 +319,7 @@ $(document).ready(function(){initNavTree('mpp__domains_8F90_source.html',''); in
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160; </div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;  <span class="comment">! data types used by mpp_domains_mod</span></div>
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;<span class="comment">  !&gt; axis specification data for an unstructured grid</span></div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;<span class="comment">  !&gt; @brief axis specification data for an unstructured grid</span></div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;  <span class="keyword">type</span> unstruct_axis_spec</div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;     <span class="keywordtype">private</span></div>
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;     <span class="keywordtype">integer</span> :: begin, end, size, max_size</div>
@@ -396,8 +396,8 @@ $(document).ready(function(){initNavTree('mpp__domains_8F90_source.html',''); in
 <div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;     <span class="keywordtype">integer</span>                :: pos</div>
 <div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;  <span class="keyword">end type </span>domain1d_spec</div>
 <div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;<span class="comment">  !&gt; Specify multiple index limits and pe information for a 2D domain</span></div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;  <span class="keyword">type</span> domain2d_spec</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;<span class="comment">  !&gt; @brief Specify multiple index limits and pe information for a 2D domain</span></div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;  <span class="keyword">TYPE</span> :: domain2d_spec</div>
 <div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;     <span class="keywordtype">private</span></div>
 <div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;     <span class="keywordtype">type</span>(domain1D_spec), <span class="keywordtype">pointer</span> :: x(:)       =&gt; null() <span class="comment">!&lt; x-direction domain decomposition</span></div>
 <div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;     <span class="keywordtype">type</span>(domain1D_spec), <span class="keywordtype">pointer</span> :: y(:)       =&gt; null() <span class="comment">!&lt; y-direction domain decomposition</span></div>
@@ -438,11 +438,11 @@ $(document).ready(function(){initNavTree('mpp__domains_8F90_source.html',''); in
 <div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;  <span class="keyword">end type </span>overlapspec</div>
 <div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;<span class="comment">  !&gt; Upper and lower x and y bounds for a tile</span></div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;  <span class="keyword">type</span> tile_type</div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;     <span class="keywordtype">integer</span> :: xbegin, xend, ybegin, yend</div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;  <span class="keyword">end type </span>tile_type</div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;<span class="comment">  !&gt; @typedef domain2D </span></div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;<span class="comment">  !&gt; @typedef</span></div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;  <span class="keyword">type</span> tile_type</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;     <span class="keywordtype">integer</span> :: xbegin, xend, ybegin, yend</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;  <span class="keyword">end type </span>tile_type</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;<span class="comment">  !&gt; @brief The domain2D type contains all the necessary information to</span></div>
 <div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;<span class="comment">  !! define the global, compute and data domains of each task, as well as the PE</span></div>
 <div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;<span class="comment">  !! associated with the task. The PEs from which remote data may be</span></div>
@@ -451,7 +451,7 @@ $(document).ready(function(){initNavTree('mpp__domains_8F90_source.html',''); in
 <div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;<span class="comment">  !&gt; Domain types of higher rank can be constructed from type domain1D</span></div>
 <div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;<span class="comment">  !! typically we only need 1 and 2D, but could need higher (e.g 3D LES)</span></div>
 <div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;<span class="comment">  !! some elements are repeated below if they are needed once per domain, not once per axis</span></div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;  <span class="keyword">type</span> domain2d</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;  <span class="keyword">type</span> :: domain2d</div>
 <div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;     <span class="keywordtype">private</span></div>
 <div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;     <span class="keywordtype">character(len=NAME_LENGTH)</span>  :: name=<span class="stringliteral">&#39;unnamed&#39;</span><span class="comment"> !&lt; name of the domain, default is &quot;unspecified&quot;</span></div>
 <div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;     <span class="keywordtype">integer(i8_kind)</span>            :: id</div>

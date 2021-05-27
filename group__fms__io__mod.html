@@ -235,11 +235,14 @@ character(len= *), parameter, public&#160;</td><td class="memItemRight" valign="
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Module for writing and reading restart data via NetCDF files. </p>
-<dl class="section author"><dt>Author</dt><dd>M.J. Harrison, Zhi Liang This module is for writing and reading restart data in NetCDF format. fms_io_init must be called before the first write_data/read_data call For writing, fms_io_exit must be called after ALL write calls have been made. Typically, fms_io_init and fms_io_exit are placed in the main (driver) program while read_data and write_data can be called where needed. Presently, two combinations of threading and fileset are supported, users can choose one line of the following by setting namelist:</dd></dl>
+<dl class="section author"><dt>Author</dt><dd>M.J. Harrison, Zhi Liang</dd></dl>
+<p>This module is for writing and reading restart data in NetCDF format. fms_io_init must be called before the first write_data/read_data call For writing, fms_io_exit must be called after ALL write calls have been made. Typically, fms_io_init and fms_io_exit are placed in the main (driver) program while read_data and write_data can be called where needed. Presently, two combinations of threading and fileset are supported, users can choose one line of the following by setting namelist:</p>
 <p>With the introduction of netCDF restart files, there is a need for a global switch to turn on/off netCDF restart options in all of the modules that deal with restart files. Here two more namelist variables (logical type) are introduced to fms_io</p>
-<p>fms_netcdf_override fms_netcdf_restart</p>
-<p>because default values of both flags are .true., the default behavior of the entire model is to use netCDF IO mode. To turn off netCDF restart, simply set fms_netcdf_restart to .false. &lt;NAMELIST NAME="fms_io_nml"&gt; &lt;DATA NAME="threading_read" TYPE="character"&gt; threading_read can be 'single' or 'multi' &lt;/DATA&gt; &lt;DATA NAME="fms_netcdf_override" TYPE="logical"&gt; .true. : fms_netcdf_restart overrides individual do_netcdf_restart value (default behavior) .false.: individual module settings has a precedence over the global setting, therefore fms_netcdf_restart is ignored &lt;/DATA&gt; &lt;DATA NAME="fms_netcdf_restart" TYPE="logical"&gt; .true. : all modules deal with restart files will operate under netCDF mode (default behavior) .false.: all modules deal with restart files will operate under binary mode This flag is effective only when fms_netcdf_override is .true. When fms_netcdf_override is .false., individual module setting takes over. &lt;/DATA&gt; &lt;DATA NAME="time_stamped_restart" TYPE="logical"&gt; .true. : time_stamp will be added to the restart file name as a prefix when optional argument time_stamp is passed into routine save_restart. .false.: time_stmp will not be added to the restart file name even though time_stamp is passed into save_restart. default is true. &lt;/DATA&gt; &lt;DATA NAME="print_chksum" TYPE="logical"&gt; set print_chksum (default is false) to true to print out chksum of fields that are read and written through save_restart/restore_state. The chksum is accross all the processors, so there will be only one chksum even there are multiple-tiles in the grid. For the multiple case, the filename appeared in the message will contain tile1 because the message is print out from root pe and on root pe the tile id is tile1. &lt;/DATA&gt; &lt;DATA NAME="debug_mask_list" TYPE="logical"&gt; set debug_mask_list (default is false) to true to print out mask_list reading from mask_table. &lt;/DATA&gt; &lt;DATA NAME="checksum_required" TYPE="logical"&gt; Set checksum_required (default is true) to true to compare checksums stored in the attribute of a field against the checksum after reading in the data. This check mitigates the possibility of data that gets corrupted on write or read from being used in a n ongoing fashion. The checksum is across all the processors, so there will be only one checksum even if there are multiple-tiles in the grid. For the decomposed file case, the filename appearing in the message will contain tile1 because the message is printed out from the root pe and on root pe the tile id is tile1.</p>
-<p>Set checksum_required to false if you do not want to compare checksums. &lt;/DATA&gt; &lt;/NAMELIST&gt; </p>
+<ul>
+<li>fms_netcdf_override</li>
+<li>fms_netcdf_restart</li>
+</ul>
+<p>because default values of both flags are .true., the default behavior of the entire model is to use netCDF IO mode. To turn off netCDF restart, simply set fms_netcdf_restart to .false. </p>
 <h2 class="groupheader">Function/Subroutine Documentation</h2>
 <a id="ga02b9c65cd66c6962e30cec3dd5253c53"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga02b9c65cd66c6962e30cec3dd5253c53">&#9670;&nbsp;</a></span>restore_state_border()</h2>
@@ -281,7 +284,7 @@ character(len= *), parameter, public&#160;</td><td class="memItemRight" valign="
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="fms__io_8F90_source.html#l03656">3656</a> of file <a class="el" href="fms__io_8F90_source.html">fms_io.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="fms__io_8F90_source.html#l03658">3658</a> of file <a class="el" href="fms__io_8F90_source.html">fms_io.F90</a>.</p>
 
 </div>
 </div>

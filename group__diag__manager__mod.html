@@ -169,13 +169,13 @@ Check if a field is registered twice. </li>
 <li>
 Check for duplicate lines in diag_table.  </li>
 <li>
-&lt;LINK SRC="diag_table.html"&gt;diag_table&lt;/LINK&gt; can contain fields that are NOT written to any files. The file name in diag_table of these fields is <code>null</code>. </li>
+<a class="el" href="group__diag__table__mod.html">diag_table_mod</a> can contain fields that are NOT written to any files. The file name in diag_table of these fields is <code>null</code>. </li>
 <li>
-By default, a field is output in its global grid. The user can now output a field in a specified region. See &lt;LINK SRC="#send_data"&gt;<code>send_data</code>&lt;/LINK&gt; for more details. </li>
+By default, a field is output in its global grid. The user can now output a field in a specified region. See <a class="el" href="group__diag__manager__mod.html">send_data Interface</a> for more details. </li>
 <li>
 To check if the diag table is set up correctly, user should set <code>debug_diag_manager=.true.</code> in diag_manager namelist, then the the content of diag_table is printed in stdout. </li>
 <li>
-<p class="startli">New optional format of file information in &lt;LINK SRC="diag_table.html"&gt;diag_table&lt;/LINK&gt;.It is possible to have just one file name and reuse it many times. A time string will be appended to the base file name each time a new file is opened. The time string can be any combination from year to second of current model time.</p>
+<p class="startli">New optional format of file information in <a class="el" href="group__diag__table__mod.html">diag_table_mod</a>. It is possible to have just one file name and reuse it many times. A time string will be appended to the base file name each time a new file is opened. The time string can be any combination from year to second of current model time.</p>
 <p class="interli">Here is an example file line: <br  />
  </p><pre>"file2_yr_dy%1yr%3dy",2,"hours",1,"hours","Time", 10, "days", "1 1 7 0 0 0", 6, "hours"</pre><p> <br  />
 </p>
@@ -219,16 +219,15 @@ file duration unit. </li>
 <p class="endli">A diurnal average or the average of an integer power can also be requested using <code>diurnal##</code> or <code>pow##</code> where <code>##</code> are the number of diurnal sections or integer power to average. </p>
 </li>
 <li>
-<code>standard_name</code> is added as optional argument in &lt;LINK SRC="#register_diag_field"&gt;<code>register_diag_field</code> &lt;/LINK&gt;. </li>
+<code>standard_name</code> is added as optional argument in <a class="el" href="group__diag__manager__mod.html">register_diag_field Interface</a>.  </li>
 <li>
-When namelist variable <code>debug_diag_manager = .true.</code> array bounds are checked in &lt;LINK SRC="#send_data"&gt;<code>send_data</code>&lt;/LINK&gt;. </li>
+When namelist variable <code>debug_diag_manager = .true.</code> array bounds are checked in <a class="el" href="group__diag__manager__mod.html">send_data Interface</a>. </li>
 <li>
-Coordinate attributes can be written in the output file if the argument "&lt;TT&gt;aux&lt;/TT&gt;" is given in &lt;LINK SRC="diag_axis.html#diag_axis_init"&gt;<code>diag_axis_init</code>&lt;/LINK&gt;. The corresponding fields (geolat/geolon) should also be written to the same file. </li>
+Coordinate attributes can be written in the output file if the argument "&lt;TT&gt;aux&lt;/TT&gt;" is given in diag_axis_mod::diag_axis_init . The corresponding fields (geolat/geolon) should also be written to the same file. </li>
 </ol>
 
 
-<h3><a id="send_data"></a>send_data Interface</h3><div class="textblock">Send data over to output fields.<code>send_data</code> is overloaded for fields having zero dimension (scalars) to 3 dimension. <code>diag_field_id</code> corresponds to the id returned from a previous call to <code>register_diag_field</code>. The field array is restricted to the computational range of the array. Optional argument <code>is_in</code> can be used to update sub-arrays of the entire field. Additionally, an optional logical or real mask can be used to apply missing values to the array.If a field is declared to be <code>mask_variant</code> in <code>register_diag_field</code> logical mask should be mandatory.For the real mask, the mask is applied if the mask value is less than 0.5.By default, a field will be written out entirely in its global grid. Users can also specify regions in which the field will be output. The region is specified in diag-table just before the end of output_field replacing "none".For example, by default:"ocean_mod","Vorticity","vorticity","file1","all",.false.,"none",2for regional output:"ocean_mod","Vorticity","vorticity_local","file2","all",.false.,"0.5 53.5 -89.5 -28.5 -1 -1",2The format of a region is "&lt;TT&gt;xbegin xend ybegin yend zbegin zend&lt;/TT&gt;". If it is a 2D field use (-1 -1) for (zbegin zend) as in the example above. For a 3D field use (-1 -1) for (zbegin zend) when you want to write the entire vertical extent, otherwise specify real coordinates. The units used for region are the actual units used in grid_spec.nc (for example degrees for lat, lon). <b><em>NOTE:</em></b> A FATAL error will occur if the region's boundaries are not found in grid_spec.nc.Regional output on the cubed sphere grid is also supported. To use regional output on the cubed sphere grid, first the grid information needs to be sent to <code>diag_manager_mod</code> using the &lt;LINK
-     SRC="diag_grid.html#diag_grid_init"&gt;<code> diag_grid_init</code>&lt;/LINK&gt; subroutine.<b><em>NOTE:</em></b> When using regional output the files containing regional outputs should be different from files containing global (default) output. It is a FATAL error to have one file containing both regional and global results. For maximum flexibility and independence from PE counts one file should contain just one region.Time averaging is supported in regional output.Physical fields (written in "physics windows" of atmospheric code) are fully supported for regional outputs.<b><em>NOTE:</em></b> Most fields are defined in the data domain but use the compute domain. In <code>send_data</code> the field can be passed in either the data domain or in the compute domain. If the data domain is used, the start and end indicies of the compute domain (isc, iec, . . .) should be passed. If the compute domain is used no indices are needed. The indices are for determining halo exclusively. If users want to output the field partially they should use regional output as mentioned above.Weight in Time averaging is now supported, each time level may have a different weight. The default of weight is 1. </div>
+<h3><a id="send_data"></a>send_data Interface</h3><div class="textblock">Send data over to output fields.<code>send_data</code> is overloaded for fields having zero dimension (scalars) to 3 dimension. <code>diag_field_id</code> corresponds to the id returned from a previous call to <code>register_diag_field</code>. The field array is restricted to the computational range of the array. Optional argument <code>is_in</code> can be used to update sub-arrays of the entire field. Additionally, an optional logical or real mask can be used to apply missing values to the array.If a field is declared to be <code>mask_variant</code> in <code>register_diag_field</code> logical mask should be mandatory.For the real mask, the mask is applied if the mask value is less than 0.5.By default, a field will be written out entirely in its global grid. Users can also specify regions in which the field will be output. The region is specified in diag-table just before the end of output_field replacing "none".For example, by default:"ocean_mod","Vorticity","vorticity","file1","all",.false.,"none",2for regional output:"ocean_mod","Vorticity","vorticity_local","file2","all",.false.,"0.5 53.5 -89.5 -28.5 -1 -1",2The format of a region is "&lt;TT&gt;xbegin xend ybegin yend zbegin zend&lt;/TT&gt;". If it is a 2D field use (-1 -1) for (zbegin zend) as in the example above. For a 3D field use (-1 -1) for (zbegin zend) when you want to write the entire vertical extent, otherwise specify real coordinates. The units used for region are the actual units used in grid_spec.nc (for example degrees for lat, lon). <b><em>NOTE:</em></b> A FATAL error will occur if the region's boundaries are not found in grid_spec.nc.Regional output on the cubed sphere grid is also supported. To use regional output on the cubed sphere grid, first the grid information needs to be sent to <code>diag_manager_mod</code> using the diag_grid::diag_grid_init subroutine.<b><em>NOTE:</em></b> When using regional output the files containing regional outputs should be different from files containing global (default) output. It is a FATAL error to have one file containing both regional and global results. For maximum flexibility and independence from PE counts one file should contain just one region.Time averaging is supported in regional output.Physical fields (written in "physics windows" of atmospheric code) are fully supported for regional outputs.<b><em>NOTE:</em></b> Most fields are defined in the data domain but use the compute domain. In <code>send_data</code> the field can be passed in either the data domain or in the compute domain. If the data domain is used, the start and end indicies of the compute domain (isc, iec, . . .) should be passed. If the compute domain is used no indices are needed. The indices are for determining halo exclusively. If users want to output the field partially they should use regional output as mentioned above.Weight in Time averaging is now supported, each time level may have a different weight. The default of weight is 1. </div>
 
 <h3><a id="register_diag_field"></a>register_diag_field Interface</h3><div class="textblock">Register a diagnostic field for a given module </div>
 
@@ -284,7 +283,7 @@ Coordinate attributes can be written in the output file if the argument "&lt;TT&
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__manager_8F90_source.html#l04410">4410</a> of file <a class="el" href="diag__manager_8F90_source.html">diag_manager.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__manager_8F90_source.html#l04413">4413</a> of file <a class="el" href="diag__manager_8F90_source.html">diag_manager.F90</a>.</p>
 
 </div>
 </div>
@@ -329,7 +328,7 @@ Coordinate attributes can be written in the output file if the argument "&lt;TT&
 </dl>
 <p>Initialize fnum_for_domain with "dn" which stands for done</p>
 
-<p class="definition">Definition at line <a class="el" href="diag__manager_8F90_source.html#l03886">3886</a> of file <a class="el" href="diag__manager_8F90_source.html">diag_manager.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__manager_8F90_source.html#l03883">3883</a> of file <a class="el" href="diag__manager_8F90_source.html">diag_manager.F90</a>.</p>
 
 </div>
 </div>
@@ -352,7 +351,7 @@ Coordinate attributes can be written in the output file if the argument "&lt;TT&
 <p>The subroutine 'diag_send_complete_instant' allows the user to save diagnostic data on variable intervals (user defined in code logic) to the same file. The argument (time_type) will be written to the time axis correspondingly. </p>
 <p>The user is responsible for any averaging of accumulated data as this routine is not designed for instantaneous values. This routine works only for send_data calls within OpenMP regions as they are buffered until the complete signal is given. </p>
 
-<p class="definition">Definition at line <a class="el" href="diag__manager_8F90_source.html#l03688">3688</a> of file <a class="el" href="diag__manager_8F90_source.html">diag_manager.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__manager_8F90_source.html#l03685">3685</a> of file <a class="el" href="diag__manager_8F90_source.html">diag_manager.F90</a>.</p>
 
 </div>
 </div>
@@ -409,7 +408,7 @@ Coordinate attributes can be written in the output file if the argument "&lt;TT&
 <p>Return base date for diagnostics. </p>
 <p>Return date information for diagnostic reference time. </p>
 
-<p class="definition">Definition at line <a class="el" href="diag__manager_8F90_source.html#l04088">4088</a> of file <a class="el" href="diag__manager_8F90_source.html">diag_manager.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__manager_8F90_source.html#l04085">4085</a> of file <a class="el" href="diag__manager_8F90_source.html">diag_manager.F90</a>.</p>
 
 </div>
 </div>
@@ -429,7 +428,7 @@ Coordinate attributes can be written in the output file if the argument "&lt;TT&
 <dl class="section return"><dt>Returns</dt><dd>time_type get_base_time</dd></dl>
 <p>Return base time for diagnostics (note: base time must be &gt;= model time). </p>
 
-<p class="definition">Definition at line <a class="el" href="diag__manager_8F90_source.html#l04077">4077</a> of file <a class="el" href="diag__manager_8F90_source.html">diag_manager.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__manager_8F90_source.html#l04074">4074</a> of file <a class="el" href="diag__manager_8F90_source.html">diag_manager.F90</a>.</p>
 
 </div>
 </div>
@@ -469,7 +468,7 @@ Coordinate attributes can be written in the output file if the argument "&lt;TT&
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__manager_8F90_source.html#l01307">1307</a> of file <a class="el" href="diag__manager_8F90_source.html">diag_manager.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__manager_8F90_source.html#l01304">1304</a> of file <a class="el" href="diag__manager_8F90_source.html">diag_manager.F90</a>.</p>
 
 </div>
 </div>
@@ -508,7 +507,7 @@ Coordinate attributes can be written in the output file if the argument "&lt;TT&
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__manager_8F90_source.html#l04108">4108</a> of file <a class="el" href="diag__manager_8F90_source.html">diag_manager.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__manager_8F90_source.html#l04105">4105</a> of file <a class="el" href="diag__manager_8F90_source.html">diag_manager.F90</a>.</p>
 
 </div>
 </div>
@@ -635,7 +634,7 @@ Coordinate attributes can be written in the output file if the argument "&lt;TT&
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__manager_8F90_source.html#l00852">852</a> of file <a class="el" href="diag__manager_8F90_source.html">diag_manager.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__manager_8F90_source.html#l00849">849</a> of file <a class="el" href="diag__manager_8F90_source.html">diag_manager.F90</a>.</p>
 
 </div>
 </div>

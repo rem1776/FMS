@@ -99,8 +99,9 @@ $(document).ready(function(){initNavTree('group__FMS.html',''); initResizable();
 <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>A convenience module to use any FMS routines, functions, values. </p>
-<dl class="section author"><dt>Author</dt><dd>Ryan Mulhall </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2/2021 Imports all supported FMS modules so that any public interfaces, variables or routines can be used via this module. Excludes mpp_io modules and routines. Overloaded type operators/assignments cannot be imported individually (ie. <code>use fms, only: OPERATOR(*)</code> includes any defined '*' operators within FMS).</dd></dl>
+<dl class="section author"><dt>Author</dt><dd>Ryan Mulhall</dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2/2021</dd></dl>
+<p>Imports all supported FMS modules so that any public interfaces, variables or routines can be used via this module. Excludes mpp_io modules and routines. Overloaded type operators/assignments cannot be imported individually (ie. <code>use fms, only: OPERATOR(*)</code> includes any defined '*' operators within FMS).</p>
 <p>Remappings due to conflicts: </p><pre class="fragment">      get_mosaic_tile_grid from mosaic2(fms2_io) =&gt; mosaic2_get_mosaic_tile_grid
 
       read_data from interpolator_mod(fms2_io)   =&gt; interpolator_read_data
@@ -112,6 +113,7 @@ $(document).ready(function(){initNavTree('group__FMS.html',''); initResizable();
                 get_grid_version_mpp_mod, mpp_io_mod, mosaic_mod,
                 fms_mod(partial, old io excluded), drifters modules
                 constants_mod (FMSconstants should be used externally)
+                grid_mod, mosaic_mod
 </pre><p>A full list of supported interfaces and public types intended for use via this module is provided in the ../../supported_interfaces.md "supported_interfaces.md" file. </p>
 </div><!-- contents -->
 </div><!-- doc-content -->

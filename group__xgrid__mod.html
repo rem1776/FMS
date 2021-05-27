@@ -153,7 +153,10 @@ real, dimension(:,:), allocatable, public&#160;</td><td class="memItemRight" val
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Implements exchange grids for coupled models running on multiple processors. </p>
 <dl class="section author"><dt>Author</dt><dd>Michael Winton, Zhi Liang</dd></dl>
-<p>An exchange grid is formed from the union of the bounding lines of the two (logically rectangular) participating grids. The exchange grid is therefore the coarsest grid that is a refinement of both participating grids. Exchange grids are used for two purposes by coupled models: (1) conservative interpolation of fields between models uses the exchange grid cell areas as weights and (2) the surface flux calculation takes place on the exchange grid thereby using the finest scale data available. <code>xgrid_mod</code> uses a NetCDF grid specification file containing the grid cell overlaps in combination with the &lt;LINK SRC="ftp://ftp.gfdl.gov/pub/vb/mpp/mpp_domains.F90"&gt; <code>mpp_domains</code>&lt;/LINK&gt; domain decomposition information to determine the grid and processor connectivities.</p>
+<p>An exchange grid is formed from the union of the bounding lines of the two (logically rectangular) participating grids. The exchange grid is therefore the coarsest grid that is a refinement of both participating grids. Exchange grids are used for two purposes by coupled models:</p><ol type="1">
+<li>conservative interpolation of fields between models uses the exchange grid cell areas as weights and</li>
+<li>the surface flux calculation takes place on the exchange grid thereby using the finest scale data available. <code>xgrid_mod</code> uses a NetCDF grid specification file containing the grid cell overlaps in combination with the <a class="el" href="">ftp://ftp.gfdl.gov/pub/vb/mpp/mpp_domains.F90</a> domain decomposition information to determine the grid and processor connectivities.</li>
+</ol>
 <p>xgrid_mod - implements exchange grids. An exchange grid is the grid whose boundary set is the union of the boundaries of the participating grids. The exchange grid is the coarsest grid that is a refinement of each of the participating grids. Every exchange grid cell is a subarea of one and only one cell in each of the participating grids. The exchange grid has two purposes:</p>
 <p>(1) The exchange cell areas are used as weights for conservative interpolation between model grids.</p>
 <p>(2) Computation of surface fluxes takes place on it, thereby using the finest scale data obtainable.</p>
@@ -189,7 +192,7 @@ real, dimension(:,:), allocatable, public&#160;</td><td class="memItemRight" val
 <p>Read Ocean area element data. </p>
 <p>If available in the NetCDF file, this routine will read the AREA_OCN_MODEL field and load the data into global AREA_OCN_MODEL. If not available, then the array AREA_OCN_MODEL will be left unallocated. Must be called by all PEs. </p>
 
-<p class="definition">Definition at line <a class="el" href="xgrid_8F90_source.html#l01564">1564</a> of file <a class="el" href="xgrid_8F90_source.html">xgrid.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="xgrid_8F90_source.html#l01566">1566</a> of file <a class="el" href="xgrid_8F90_source.html">xgrid.F90</a>.</p>
 
 </div>
 </div>
@@ -233,7 +236,7 @@ real, dimension(:,:), allocatable, public&#160;</td><td class="memItemRight" val
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="xgrid_8F90_source.html#l03554">3554</a> of file <a class="el" href="xgrid_8F90_source.html">xgrid.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="xgrid_8F90_source.html#l03556">3556</a> of file <a class="el" href="xgrid_8F90_source.html">xgrid.F90</a>.</p>
 
 </div>
 </div>
@@ -256,7 +259,7 @@ real, dimension(:,:), allocatable, public&#160;</td><td class="memItemRight" val
 <p>Returns current size of exchange grid variables. </p>
 <dl class="section return"><dt>Returns</dt><dd>integer xgrid_count </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="xgrid_8F90_source.html#l03284">3284</a> of file <a class="el" href="xgrid_8F90_source.html">xgrid.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="xgrid_8F90_source.html#l03286">3286</a> of file <a class="el" href="xgrid_8F90_source.html">xgrid.F90</a>.</p>
 
 </div>
 </div>
@@ -284,7 +287,7 @@ real, dimension(:,:), allocatable, public&#160;</td><td class="memItemRight" val
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="xgrid_8F90_source.html#l00567">567</a> of file <a class="el" href="xgrid_8F90_source.html">xgrid.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="xgrid_8F90_source.html#l00569">569</a> of file <a class="el" href="xgrid_8F90_source.html">xgrid.F90</a>.</p>
 
 </div>
 </div>

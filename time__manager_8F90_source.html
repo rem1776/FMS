@@ -121,27 +121,27 @@ $(document).ready(function(){initNavTree('time__manager_8F90_source.html',''); i
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">!! extensive that all those between antwerp and lima.</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">!! A brief description of these changes follows.</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">!!</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">!! - Added option to set the smallest time increment to something less than one second.</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">!!    This is controlled by calling the pubic subroutine set_ticks_per_second.</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">!! &lt;LI&gt; Added option to set the smallest time increment to something less than one second.</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">!!    This is controlled by calling the pubic subroutine set_ticks_per_second. &lt;/LI&gt;</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">!!</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">!! - Gregorian calendar fixed.</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">!! &lt;LI&gt;Gregorian calendar fixed.&lt;/LI&gt;</span></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">!!</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">!! - Optional error flag added to calling arguments of public routines.</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">!! &lt;LI&gt;Optional error flag added to calling arguments of public routines.</span></div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">!!    This allows the using routine to terminate the program. It is likely that more</span></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">!!    diagnostic information is available from the user than from time_manager alone.</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">!!    If the error flag is present then it is the responsibility of the using</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">!!    routine to test it and add additional information to the error message.</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">!!    routine to test it and add additional information to the error message.&lt;/LI&gt;</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">!!</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">!! - Removed the restriction that time increments be positive in routines that increment or decrement</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">!!    time and date. The option to prohibit negative increments can be turned on via optional argument.</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">!! &lt;LI&gt;Removed the restriction that time increments be positive in routines that increment or decrement</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">!!    time and date. The option to prohibit negative increments can be turned on via optional argument.&lt;/LI&gt;</span></div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">!!</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">!! - subroutine set_date_c modified to handle strings that include only hours or only hours and minutes.</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">!!    This complies with CF convensions.</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">!! &lt;LI&gt;subroutine set_date_c modified to handle strings that include only hours or only hours and minutes.</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">!!    This complies with CF convensions.&lt;/LI&gt;</span></div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">!!</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">!! - Made calendar specific routines private.</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">!!    They are not used, and should not be used, by any using code.</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">!! &lt;LI&gt;Made calendar specific routines private.</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">!!    They are not used, and should not be used, by any using code.&lt;/LI&gt;</span></div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">!!</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">!! - Error messages made more informative.</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">!! &lt;LI&gt;Error messages made more informative.&lt;/LI&gt;</span></div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">!!</span></div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">!! The module defines a type that can be used to represent discrete</span></div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">!! times (accurate to one second) and to map these times into dates</span></div>
