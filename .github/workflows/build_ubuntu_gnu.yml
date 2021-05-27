@@ -7,10 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        container: [ underwoo/ubuntu_libfms_gnu, thomasrobinson/centos7-netcdff ]
-          env:
-            FCFLAGS: "${{ matrix.fcflags }}"
-            VERBOSE: 1
+        containers: [ underwood/ubuntu_libfms_gnu, thomasrobinson/centos7-netcdf ] 
         distcheck-conf-flags: [--enable-openmp, --disable-openmp, --enable-mixed-mode, --disable-setting-flags]
         fcflags: ["-I/usr/include", "-fdefault-real-8 -fdefault-double-8 -fcray-pointer -ffree-line-length-none -I/usr/include"]
         exclude:
@@ -18,6 +15,10 @@ jobs:
             fcflags: -I/usr/include
           - distcheck-conf-flags: --enable-mixed-mode
             fcflags: "-fdefault-real-8 -fdefault-double-8 -fcray-pointer -ffree-line-length-none -I/usr/include"
+    container: "${{ matrix.containers }}"
+      env:
+        FCFLAGS: "${{ matrix.fcflags }}"
+        VERBOSE: 1
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
