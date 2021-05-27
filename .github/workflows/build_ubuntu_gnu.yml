@@ -15,7 +15,8 @@ jobs:
             fcflags: -I/usr/include
           - distcheck-conf-flags: --enable-mixed-mode
             fcflags: "-fdefault-real-8 -fdefault-double-8 -fcray-pointer -ffree-line-length-none -I/usr/include"
-    container: "${{ matrix.containers }}"
+    container:
+      image: "${{ matrix.containers}}" 
       env:
         FCFLAGS: "${{ matrix.fcflags }}"
         VERBOSE: 1
