@@ -3,12 +3,10 @@ name: Build libFMS test
 on: [push, pull_request]
 
 jobs:
-  build:
+  build_gcc7:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        # list of docker containers to run in
-        containers: ["underwoo/ubuntu_libfms_gnu", "thomasrobinson/centos7-netcdff:4.5.3-c4.7.4-gcc11-mpich-slurm"] 
         distcheck-conf-flags: [--enable-openmp, --disable-openmp, --enable-mixed-mode, --disable-setting-flags]
         fcflags: ["-I/usr/include", "-fdefault-real-8 -fdefault-double-8 -fcray-pointer -ffree-line-length-none -I/usr/include"]
         exclude:
@@ -17,7 +15,35 @@ jobs:
           - distcheck-conf-flags: --enable-mixed-mode
             fcflags: "-fdefault-real-8 -fdefault-double-8 -fcray-pointer -ffree-line-length-none -I/usr/include"
     container:
-      image: ${{ matrix.containers }}
+      image: underwoo/ubuntu_libfms_gnu 
+      env:
+        FCFLAGS: "${{ matrix.fcflags }}"
+        VERBOSE: 1
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Prepare GNU autoconf for build
+      run: autoreconf -if
+    - name: Configure the build
+      run: ./configure ${{ matrix.distcheck-conf-flags }}
+      env:
+        DISTCHECK_CONFIGURE_FLAGS: "${{ matrix.distcheck-conf-flags }}"
+    - name: Build the library
+      run: make -j distcheck
+  ## make distcheck with most recent gcc version
+  build_gcc11:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        distcheck-conf-flags: [--enable-openmp, --disable-openmp, --enable-mixed-mode, --disable-setting-flags]
+        fcflags: ["-I/opt/mpich/include", "-fdefault-real-8 -fdefault-double-8 -fcray-pointer -ffree-line-length-none -I/opt/mpich/include"]
+        exclude:
+          - distcheck-conf-flags: --disable-setting-flags
+            fcflags: -I/usr/include
+          - distcheck-conf-flags: --enable-mixed-mode
+            fcflags: "-fdefault-real-8 -fdefault-double-8 -fcray-pointer -ffree-line-length-none -I/usr/include"
+    container:
+      image: thomasrobinson/centos7-netcdff:4.5.3-c4.7.4-gcc11-mpich-slurm
       env:
         FCFLAGS: "${{ matrix.fcflags }}"
         VERBOSE: 1
