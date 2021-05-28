@@ -240,7 +240,7 @@ $(document).ready(function(){initNavTree('mpp__domains_8F90_source.html',''); in
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;  <span class="comment">!--- public data imported from mpp_data_mod</span></div>
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;  <span class="keywordtype">public</span> :: null_domain1d, null_domain2d</div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;  <span class="keywordtype">public</span> :: domain_axis_spec, domain1d, domain2d, domaincommunicator2d</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;  <span class="keywordtype">public</span> :: <a class="code" href="structmpp__domains__mod_1_1domain__axis__spec.html">domain_axis_spec</a>, <a class="code" href="structmpp__domains__mod_1_1domain1d.html">domain1d</a>, domain2d, domaincommunicator2d</div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;  <span class="keywordtype">public</span> :: nest_domain_type, mpp_group_update_type</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; </div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;  <span class="comment">!--- public interface from mpp_domains_util.h</span></div>
@@ -287,7 +287,7 @@ $(document).ready(function(){initNavTree('mpp__domains_8F90_source.html',''); in
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;  <span class="keywordtype">public</span> :: mpp_compute_extent, mpp_compute_block_extent</div>
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160; </div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;  <span class="comment">!--- public interface for unstruct domain</span></div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;  <span class="keywordtype">public</span> :: mpp_define_unstruct_domain, domainug, mpp_get_ug_io_domain</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;  <span class="keywordtype">public</span> :: mpp_define_unstruct_domain, <a class="code" href="structmpp__domains__mod_1_1domainug.html">domainug</a>, mpp_get_ug_io_domain</div>
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;  <span class="keywordtype">public</span> :: mpp_get_ug_domain_npes, mpp_get_ug_compute_domain, mpp_get_ug_domain_tile_id</div>
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;  <span class="keywordtype">public</span> :: mpp_get_ug_domain_pelist, mpp_get_ug_domain_grid_index</div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;  <span class="keywordtype">public</span> :: mpp_get_ug_domain_ntiles, mpp_get_ug_global_domain</div>
@@ -351,15 +351,15 @@ $(document).ready(function(){initNavTree('mpp__domains_8F90_source.html',''); in
 <div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;  <span class="keyword">end type </span>unstruct_pass_type</div>
 <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;<span class="comment">  !&gt; Domain information for managing data on unstructured grids</span></div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;  <span class="keyword">type</span> domainug</div>
+<div class="line"><a name="l00258"></a><span class="lineno"><a class="line" href="structmpp__domains__mod_1_1domainug.html">  258</a></span>&#160;  <span class="keyword">type</span>, <span class="keyword">public</span> <a class="code" href="structmpp__domains__mod_1_1domainug.html">domainug</a></div>
 <div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;     <span class="keywordtype">private</span></div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;     <span class="keywordtype">type</span>(unstruct_axis_spec) :: compute, global<span class="comment"> !&lt; axis specifications</span></div>
+<div class="line"><a name="l00260"></a><span class="lineno"><a class="line" href="group__mpp__domains__mod.html#gabad0f65728de4e6f2c0c4b9db7c9fd11">  260</a></span>&#160;     <span class="keywordtype">type</span>(unstruct_axis_spec) :: compute, global<span class="comment"> !&lt; axis specifications</span></div>
 <div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;     <span class="keywordtype">type</span>(unstruct_domain_spec), <span class="keywordtype">pointer</span> :: list(:)=&gt;null() <span class="comment">!&lt;</span></div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;     <span class="keywordtype">type</span>(domainUG), <span class="keywordtype">pointer</span> :: io_domain=&gt;null() <span class="comment">!&lt;</span></div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;     <span class="keywordtype">type</span>(unstruct_pass_type) :: SG2UG</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;     <span class="keywordtype">type</span>(unstruct_pass_type) :: UG2SG</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;     <span class="keywordtype">integer</span>, <span class="keywordtype">pointer</span> :: grid_index(:) =&gt; null() <span class="comment">!&lt; index of grid on current pe</span></div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;     <span class="keywordtype">type</span>(domain2d), <span class="keywordtype">pointer</span> :: SG_domain =&gt; null()</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;     <span class="keywordtype">type</span>(<a class="code" href="structmpp__domains__mod_1_1domainug.html">domainug</a>), <span class="keywordtype">pointer</span> :: io_domain=&gt;null() <span class="comment">!&lt;</span></div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;     <span class="keywordtype">type</span>(unstruct_pass_type) :: sg2ug</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;     <span class="keywordtype">type</span>(unstruct_pass_type) :: ug2sg</div>
+<div class="line"><a name="l00265"></a><span class="lineno"><a class="line" href="group__mpp__domains__mod.html#ga1bd327fa6ac5f6708e1e05d50d3bfc86">  265</a></span>&#160;     <span class="keywordtype">integer</span>, <span class="keywordtype">pointer</span> :: grid_index(:) =&gt; null() <span class="comment">!&lt; index of grid on current pe</span></div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;     <span class="keywordtype">type</span>(domain2d), <span class="keywordtype">pointer</span> :: sg_domain =&gt; null()</div>
 <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;     <span class="keywordtype">integer</span> :: pe</div>
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;     <span class="keywordtype">integer</span> :: pos</div>
 <div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;     <span class="keywordtype">integer</span> :: ntiles</div>
@@ -368,17 +368,17 @@ $(document).ready(function(){initNavTree('mpp__domains_8F90_source.html',''); in
 <div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;     <span class="keywordtype">integer</span> :: tile_npes</div>
 <div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;     <span class="keywordtype">integer</span> :: npes_io_group</div>
 <div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;     <span class="keywordtype">integer(i4_kind)</span> :: io_layout</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;  <span class="keyword">end type </span>domainug</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;  <span class="keyword">end type </span><a class="code" href="structmpp__domains__mod_1_1domainug.html">domainug</a></div>
 <div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;<span class="comment">  !&gt; type used to specify index limits along an axis of a domain</span></div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;  <span class="keyword">type</span> domain_axis_spec</div>
+<div class="line"><a name="l00278"></a><span class="lineno"><a class="line" href="structmpp__domains__mod_1_1domain__axis__spec.html">  278</a></span>&#160;  <span class="keyword">type</span>, <span class="keyword">public</span> :: <a class="code" href="structmpp__domains__mod_1_1domain__axis__spec.html">domain_axis_spec</a></div>
 <div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;     <span class="keywordtype">private</span></div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;     <span class="keywordtype">integer</span> :: begin, end, size, max_size<span class="comment"> !&lt; start, end of domain axis, size, max size in set</span></div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;     <span class="keywordtype">logical</span> :: is_global<span class="comment"> !&lt; .true. if domain axis extent covers global domain</span></div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;  <span class="keyword">end type </span>domain_axis_spec</div>
+<div class="line"><a name="l00280"></a><span class="lineno"><a class="line" href="group__mpp__domains__mod.html#ga7ecf7b60e9b74736fd61d8ab8e67f404">  280</a></span>&#160;     <span class="keywordtype">integer</span> :: begin, end, size, max_size<span class="comment"> !&lt; start, end of domain axis, size, max size in set</span></div>
+<div class="line"><a name="l00281"></a><span class="lineno"><a class="line" href="group__mpp__domains__mod.html#gad8b8fffdf3a6391f59fdfd128001fd7d">  281</a></span>&#160;     <span class="keywordtype">logical</span> :: is_global<span class="comment"> !&lt; .true. if domain axis extent covers global domain</span></div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;  <span class="keyword">end type </span><a class="code" href="structmpp__domains__mod_1_1domain__axis__spec.html">domain_axis_spec</a></div>
 <div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;<span class="comment">  !&gt; One dimensional domain used to manage shared data access between pes</span></div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;  <span class="keyword">type</span> domain1d</div>
+<div class="line"><a name="l00285"></a><span class="lineno"><a class="line" href="structmpp__domains__mod_1_1domain1d.html">  285</a></span>&#160;  <span class="keyword">TYPE</span>, <span class="keyword">PUBLIC</span> :: <a class="code" href="structmpp__domains__mod_1_1domain1d.html">domain1d</a></div>
 <div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;     <span class="keywordtype">private</span></div>
 <div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;     <span class="keywordtype">type</span>(domain_axis_spec) :: compute, data, global, memory<span class="comment"> !&gt; index limits for different domains</span></div>
 <div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;     <span class="keywordtype">logical</span> :: cyclic</div>
@@ -386,7 +386,7 @@ $(document).ready(function(){initNavTree('mpp__domains_8F90_source.html',''); in
 <div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;     <span class="keywordtype">integer</span> :: pe<span class="comment"> !&lt;PE to which this domain is assigned</span></div>
 <div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;     <span class="keywordtype">integer</span> :: pos<span class="comment"> !&lt; position of this PE within link list, i.e domain%list(pos)%pe = pe</span></div>
 <div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;     <span class="keywordtype">integer</span> :: goffset, loffset<span class="comment"> !&lt; needed for global sum</span></div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;  <span class="keyword">end type </span>domain1d</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;  <span class="keyword">end type </span><a class="code" href="structmpp__domains__mod_1_1domain1d.html">domain1d</a></div>
 <div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;<span class="comment">  !&gt; Used to specify index limits for a domain decomposition</span></div>
 <div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;  <span class="keyword">type</span> domain1d_spec</div>
@@ -437,8 +437,8 @@ $(document).ready(function(){initNavTree('mpp__domains_8F90_source.html',''); in
 <div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;     <span class="keywordtype">type</span>(overlapSpec),  <span class="keywordtype">pointer</span> :: next =&gt; null()</div>
 <div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;  <span class="keyword">end type </span>overlapspec</div>
 <div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;<span class="comment">  !&gt; Upper and lower x and y bounds for a tile</span></div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;<span class="comment">  !&gt; @typedef</span></div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;<span class="comment">  !&gt; @typedef</span></div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;<span class="comment">  !&gt; @brief Upper and lower x and y bounds for a tile</span></div>
 <div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;  <span class="keyword">type</span> tile_type</div>
 <div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;     <span class="keywordtype">integer</span> :: xbegin, xend, ybegin, yend</div>
 <div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;  <span class="keyword">end type </span>tile_type</div>
@@ -609,10 +609,10 @@ $(document).ready(function(){initNavTree('mpp__domains_8F90_source.html',''); in
 <div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;     <span class="keywordtype">integer(i8_kind)</span>, <span class="keywordtype">dimension(:,:)</span>, <span class="keywordtype">allocatable</span> :: rem_addrl</div>
 <div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;     <span class="keywordtype">integer(i8_kind)</span>, <span class="keywordtype">dimension(:,:)</span>, <span class="keywordtype">allocatable</span> :: rem_addrlx</div>
 <div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;     <span class="keywordtype">integer(i8_kind)</span>, <span class="keywordtype">dimension(:,:)</span>, <span class="keywordtype">allocatable</span> :: rem_addrly</div>
-<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;     <span class="keywordtype">integer</span>                             :: position<span class="comment"> !&lt; data location. T, E, C, or N.</span></div>
+<div class="line"><a name="l00516"></a><span class="lineno"><a class="line" href="group__mpp__domains__mod.html#ga1cbb3e6ffe89173c2026ce1cd4279c8a">  516</a></span>&#160;     <span class="keywordtype">integer</span>                             :: position<span class="comment"> !&lt; data location. T, E, C, or N.</span></div>
 <div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;  <span class="keyword">end type </span>domaincommunicator2d</div>
 <div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160; </div>
-<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;  <span class="keywordtype">integer</span>, <span class="keywordtype">parameter</span> :: MAX_REQUEST = 100</div>
+<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;  <span class="keywordtype">integer</span>, <span class="keywordtype">parameter</span> :: max_request = 100</div>
 <div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;<span class="comment">  !&gt; Used for nonblocking data transfer</span></div>
 <div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;  <span class="keyword">type</span> nonblock_type</div>
@@ -635,8 +635,8 @@ $(document).ready(function(){initNavTree('mpp__domains_8F90_source.html',''); in
 <div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;     <span class="keywordtype">integer</span>, <span class="keywordtype">dimension(MAX_REQUEST)</span> :: type_recv</div>
 <div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;     <span class="keywordtype">integer</span>, <span class="keywordtype">dimension(MAX_REQUEST)</span> :: buffer_pos_send</div>
 <div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;     <span class="keywordtype">integer</span>, <span class="keywordtype">dimension(MAX_REQUEST)</span> :: buffer_pos_recv</div>
-<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;     <span class="keywordtype">integer(i8_kind)</span>              :: field_addrs(MAX_DOMAIN_FIELDS)</div>
-<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;     <span class="keywordtype">integer(i8_kind)</span>              :: field_addrs2(MAX_DOMAIN_FIELDS)</div>
+<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;     <span class="keywordtype">integer(i8_kind)</span>              :: field_addrs(max_domain_fields)</div>
+<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;     <span class="keywordtype">integer(i8_kind)</span>              :: field_addrs2(max_domain_fields)</div>
 <div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;     <span class="keywordtype">integer</span>                         :: nfields</div>
 <div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;  <span class="keyword">end type </span>nonblock_type</div>
 <div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;<span class="comment"></span> </div>
@@ -664,35 +664,35 @@ $(document).ready(function(){initNavTree('mpp__domains_8F90_source.html',''); in
 <div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;     <span class="keywordtype">integer</span>            :: reset_index_s = 0</div>
 <div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;     <span class="keywordtype">integer</span>            :: reset_index_v = 0</div>
 <div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;     <span class="keywordtype">integer</span>            :: tot_msgsize = 0</div>
-<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;     <span class="keywordtype">integer</span>            :: from_pe(MAXOVERLAP)</div>
-<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;     <span class="keywordtype">integer</span>            :: to_pe(MAXOVERLAP)</div>
-<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;     <span class="keywordtype">integer</span>            :: recv_size(MAXOVERLAP)</div>
-<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;     <span class="keywordtype">integer</span>            :: send_size(MAXOVERLAP)</div>
-<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;     <span class="keywordtype">integer</span>            :: buffer_pos_recv(MAXOVERLAP)</div>
-<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;     <span class="keywordtype">integer</span>            :: buffer_pos_send(MAXOVERLAP)</div>
-<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;     <span class="keywordtype">integer</span>            :: pack_type(MAXOVERLAP)</div>
-<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;     <span class="keywordtype">integer</span>            :: pack_buffer_pos(MAXOVERLAP)</div>
-<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;     <span class="keywordtype">integer</span>            :: pack_rotation(MAXOVERLAP)</div>
-<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;     <span class="keywordtype">integer</span>            :: pack_size(MAXOVERLAP)</div>
-<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;     <span class="keywordtype">integer</span>            :: pack_is(MAXOVERLAP)</div>
-<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;     <span class="keywordtype">integer</span>            :: pack_ie(MAXOVERLAP)</div>
-<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;     <span class="keywordtype">integer</span>            :: pack_js(MAXOVERLAP)</div>
-<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;     <span class="keywordtype">integer</span>            :: pack_je(MAXOVERLAP)</div>
-<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;     <span class="keywordtype">integer</span>            :: unpack_type(MAXOVERLAP)</div>
-<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;     <span class="keywordtype">integer</span>            :: unpack_buffer_pos(MAXOVERLAP)</div>
-<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;     <span class="keywordtype">integer</span>            :: unpack_rotation(MAXOVERLAP)</div>
-<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;     <span class="keywordtype">integer</span>            :: unpack_size(MAXOVERLAP)</div>
-<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;     <span class="keywordtype">integer</span>            :: unpack_is(MAXOVERLAP)</div>
-<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;     <span class="keywordtype">integer</span>            :: unpack_ie(MAXOVERLAP)</div>
-<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;     <span class="keywordtype">integer</span>            :: unpack_js(MAXOVERLAP)</div>
-<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;     <span class="keywordtype">integer</span>            :: unpack_je(MAXOVERLAP)</div>
-<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;     <span class="keywordtype">integer(i8_kind)</span> :: addrs_s(MAX_DOMAIN_FIELDS)</div>
-<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;     <span class="keywordtype">integer(i8_kind)</span> :: addrs_x(MAX_DOMAIN_FIELDS)</div>
-<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;     <span class="keywordtype">integer(i8_kind)</span> :: addrs_y(MAX_DOMAIN_FIELDS)</div>
+<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;     <span class="keywordtype">integer</span>            :: from_pe(maxoverlap)</div>
+<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;     <span class="keywordtype">integer</span>            :: to_pe(maxoverlap)</div>
+<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;     <span class="keywordtype">integer</span>            :: recv_size(maxoverlap)</div>
+<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;     <span class="keywordtype">integer</span>            :: send_size(maxoverlap)</div>
+<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;     <span class="keywordtype">integer</span>            :: buffer_pos_recv(maxoverlap)</div>
+<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;     <span class="keywordtype">integer</span>            :: buffer_pos_send(maxoverlap)</div>
+<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;     <span class="keywordtype">integer</span>            :: pack_type(maxoverlap)</div>
+<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;     <span class="keywordtype">integer</span>            :: pack_buffer_pos(maxoverlap)</div>
+<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;     <span class="keywordtype">integer</span>            :: pack_rotation(maxoverlap)</div>
+<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;     <span class="keywordtype">integer</span>            :: pack_size(maxoverlap)</div>
+<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;     <span class="keywordtype">integer</span>            :: pack_is(maxoverlap)</div>
+<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;     <span class="keywordtype">integer</span>            :: pack_ie(maxoverlap)</div>
+<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;     <span class="keywordtype">integer</span>            :: pack_js(maxoverlap)</div>
+<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;     <span class="keywordtype">integer</span>            :: pack_je(maxoverlap)</div>
+<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;     <span class="keywordtype">integer</span>            :: unpack_type(maxoverlap)</div>
+<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;     <span class="keywordtype">integer</span>            :: unpack_buffer_pos(maxoverlap)</div>
+<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;     <span class="keywordtype">integer</span>            :: unpack_rotation(maxoverlap)</div>
+<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;     <span class="keywordtype">integer</span>            :: unpack_size(maxoverlap)</div>
+<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;     <span class="keywordtype">integer</span>            :: unpack_is(maxoverlap)</div>
+<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;     <span class="keywordtype">integer</span>            :: unpack_ie(maxoverlap)</div>
+<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;     <span class="keywordtype">integer</span>            :: unpack_js(maxoverlap)</div>
+<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;     <span class="keywordtype">integer</span>            :: unpack_je(maxoverlap)</div>
+<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;     <span class="keywordtype">integer(i8_kind)</span> :: addrs_s(max_domain_fields)</div>
+<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;     <span class="keywordtype">integer(i8_kind)</span> :: addrs_x(max_domain_fields)</div>
+<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;     <span class="keywordtype">integer(i8_kind)</span> :: addrs_y(max_domain_fields)</div>
 <div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;     <span class="keywordtype">integer</span>            :: buffer_start_pos = -1</div>
-<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;     <span class="keywordtype">integer</span>            :: request_send(MAX_REQUEST)</div>
-<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;     <span class="keywordtype">integer</span>            :: request_recv(MAX_REQUEST)</div>
-<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;     <span class="keywordtype">integer</span>            :: type_recv(MAX_REQUEST)</div>
+<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;     <span class="keywordtype">integer</span>            :: request_send(max_request)</div>
+<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;     <span class="keywordtype">integer</span>            :: request_recv(max_request)</div>
+<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;     <span class="keywordtype">integer</span>            :: type_recv(max_request)</div>
 <div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;  <span class="keyword">end type </span>mpp_group_update_type</div>
 <div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160; </div>
 <div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;<span class="comment">!#######################################################################</span></div>
@@ -709,9 +709,9 @@ $(document).ready(function(){initNavTree('mpp__domains_8F90_source.html',''); in
 <div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;  <span class="keywordtype">logical</span>              :: mosaic_defined = .false.</div>
 <div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;  <span class="keywordtype">integer</span>              :: mpp_domains_stack_size=0</div>
 <div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;  <span class="keywordtype">integer</span>              :: mpp_domains_stack_hwm=0</div>
-<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;  <span class="keywordtype">type</span>(domain1D),<span class="keywordtype">save</span>  :: NULL_DOMAIN1D</div>
-<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;  <span class="keywordtype">type</span>(domain2D),<span class="keywordtype">save</span>  :: NULL_DOMAIN2D</div>
-<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;  <span class="keywordtype">type</span>(domainUG),<span class="keywordtype">save</span>  :: NULL_DOMAINUG</div>
+<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;  <span class="keywordtype">type</span>(<a class="code" href="structmpp__domains__mod_1_1domain1d.html">domain1d</a>),<span class="keywordtype">save</span>  :: null_domain1d</div>
+<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;  <span class="keywordtype">type</span>(domain2d),<span class="keywordtype">save</span>  :: null_domain2d</div>
+<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;  <span class="keywordtype">type</span>(<a class="code" href="structmpp__domains__mod_1_1domainug.html">domainug</a>),<span class="keywordtype">save</span>  :: null_domainug</div>
 <div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;  <span class="keywordtype">integer</span>              :: current_id_update = 0</div>
 <div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;  <span class="keywordtype">integer</span>                         :: num_update = 0</div>
 <div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;  <span class="keywordtype">integer</span>                         :: num_nonblock_group_update = 0</div>
@@ -720,39 +720,39 @@ $(document).ready(function(){initNavTree('mpp__domains_8F90_source.html',''); in
 <div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;  <span class="keywordtype">logical</span>                         :: start_update = .true.</div>
 <div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;  <span class="keywordtype">logical</span>                         :: complete_update = .false.</div>
 <div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;  <span class="keywordtype">type</span>(nonblock_type), <span class="keywordtype">allocatable</span> :: nonblock_data(:)</div>
-<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;  <span class="keywordtype">integer</span>, <span class="keywordtype">parameter</span>              :: MAX_NONBLOCK_UPDATE = 100</div>
+<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;  <span class="keywordtype">integer</span>, <span class="keywordtype">parameter</span>              :: max_nonblock_update = 100</div>
 <div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160; </div>
 <div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;  <span class="keywordtype">integer</span>                         :: group_update_buffer_pos = 0</div>
 <div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;  <span class="keywordtype">logical</span>                         :: complete_group_update_on = .false.</div>
 <div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;  <span class="comment">!-------- The following variables are used in mpp_domains_comm.h</span></div>
 <div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160; </div>
-<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;  <span class="keywordtype">integer</span>, <span class="keywordtype">parameter</span> :: MAX_ADDRS=512</div>
+<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;  <span class="keywordtype">integer</span>, <span class="keywordtype">parameter</span> :: max_addrs=512</div>
 <div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;  <span class="keywordtype">integer(i8_kind)</span>,<span class="keywordtype">dimension(MAX_ADDRS)</span>,<span class="keywordtype">save</span> :: addrs_sorted=-9999<span class="comment"> !&lt; list of sorted local addresses</span></div>
 <div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;  <span class="keywordtype">integer</span>,           <span class="keywordtype">dimension(-1:MAX_ADDRS)</span>,<span class="keywordtype">save</span> :: addrs_idx=-9999<span class="comment"> !&lt; index of address associated with d_comm</span></div>
 <div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;  <span class="keywordtype">integer</span>,           <span class="keywordtype">dimension(MAX_ADDRS)</span>,<span class="keywordtype">save</span> :: a_salvage=-9999<span class="comment"> !&lt; freed index list of addresses</span></div>
 <div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;  <span class="keywordtype">integer</span>,                                <span class="keywordtype">save</span> :: a_sort_len=0<span class="comment"> !&lt; length sorted memory list</span></div>
 <div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;  <span class="keywordtype">integer</span>,                                <span class="keywordtype">save</span> :: n_addrs=0<span class="comment">   !&lt; number of memory addresses used</span></div>
 <div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160; </div>
-<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;  <span class="keywordtype">integer(i8_kind)</span>, <span class="keywordtype">parameter</span> :: ADDR2_BASE = int(z<span class="stringliteral">&#39;0000000000010000&#39;</span>, kind=i8_kind)</div>
-<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;  <span class="keywordtype">integer</span>, <span class="keywordtype">parameter</span> :: MAX_ADDRS2=128</div>
+<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;  <span class="keywordtype">integer(i8_kind)</span>, <span class="keywordtype">parameter</span> :: addr2_base = int(z<span class="stringliteral">&#39;0000000000010000&#39;</span>, kind=i8_kind)</div>
+<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;  <span class="keywordtype">integer</span>, <span class="keywordtype">parameter</span> :: max_addrs2=128</div>
 <div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;  <span class="keywordtype">integer(i8_kind)</span>,<span class="keywordtype">dimension(MAX_ADDRS2)</span>,<span class="keywordtype">save</span> :: addrs2_sorted=-9999<span class="comment"> !&lt; list of sorted local addresses</span></div>
 <div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;  <span class="keywordtype">integer</span>,           <span class="keywordtype">dimension(-1:MAX_ADDRS2)</span>,<span class="keywordtype">save</span> :: addrs2_idx=-9999<span class="comment"> !&lt; index of addr2 associated with d_comm</span></div>
 <div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;  <span class="keywordtype">integer</span>,           <span class="keywordtype">dimension(MAX_ADDRS2)</span>,<span class="keywordtype">save</span> :: a2_salvage=-9999<span class="comment"> !&lt; freed indices of addr2</span></div>
 <div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;  <span class="keywordtype">integer</span>,                                 <span class="keywordtype">save</span> :: a2_sort_len=0<span class="comment">   !&lt; length sorted memory list</span></div>
 <div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;  <span class="keywordtype">integer</span>,                                 <span class="keywordtype">save</span> :: n_addrs2=0<span class="comment">  !&lt; number of memory addresses used</span></div>
 <div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160; </div>
-<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;  <span class="keywordtype">integer</span>, <span class="keywordtype">parameter</span> :: MAX_DOM_IDS=128</div>
+<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;  <span class="keywordtype">integer</span>, <span class="keywordtype">parameter</span> :: max_dom_ids=128</div>
 <div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;  <span class="keywordtype">integer(i8_kind)</span>,<span class="keywordtype">dimension(MAX_DOM_IDS)</span>,<span class="keywordtype">save</span> :: ids_sorted=-9999<span class="comment"> !&lt; list of sorted domain identifiers</span></div>
 <div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;  <span class="keywordtype">integer</span>,           <span class="keywordtype">dimension(-1:MAX_DOM_IDS)</span>,<span class="keywordtype">save</span> :: ids_idx=-9999<span class="comment"> !&lt; index of d_comm associated with sorted addesses</span></div>
 <div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;  <span class="keywordtype">integer</span>,                                  <span class="keywordtype">save</span> :: i_sort_len=0<span class="comment"> !&lt; length sorted domain ids list</span></div>
 <div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;  <span class="keywordtype">integer</span>,                                  <span class="keywordtype">save</span> :: n_ids=0<span class="comment"> !&lt; number of domain ids used</span></div>
 <div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;<span class="comment">                                                            !!(=i_sort_len; domain ids are never removed)</span></div>
 <div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160; </div>
-<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;  <span class="keywordtype">integer</span>, <span class="keywordtype">parameter</span> :: MAX_FIELDS=1024</div>
-<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;  <span class="keywordtype">integer(i8_kind)</span>,        <span class="keywordtype">dimension(MAX_FIELDS)</span>,<span class="keywordtype">save</span>           :: dcKey_sorted=-9999<span class="comment"> !&lt; list of sorted local addresses</span></div>
+<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;  <span class="keywordtype">integer</span>, <span class="keywordtype">parameter</span> :: max_fields=1024</div>
+<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;  <span class="keywordtype">integer(i8_kind)</span>,        <span class="keywordtype">dimension(MAX_FIELDS)</span>,<span class="keywordtype">save</span>           :: dckey_sorted=-9999<span class="comment"> !&lt; list of sorted local addresses</span></div>
 <div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;  <span class="comment">!     Not sure why static d_comm fails during deallocation of derived type members; allocatable works</span></div>
 <div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;  <span class="comment">!     type(DomainCommunicator2D),dimension(MAX_FIELDS),save,target    :: d_comm !&lt; domain communicators</span></div>
-<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;  <span class="keywordtype">type</span>(DomainCommunicator2D),<span class="keywordtype">dimension(:)</span>,<span class="keywordtype">allocatable</span>,<span class="keywordtype">save</span>,<span class="keywordtype">target</span> :: d_comm<span class="comment">  !&lt; domain communicators</span></div>
+<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;  <span class="keywordtype">type</span>(domaincommunicator2d),<span class="keywordtype">dimension(:)</span>,<span class="keywordtype">allocatable</span>,<span class="keywordtype">save</span>,<span class="keywordtype">target</span> :: d_comm<span class="comment">  !&lt; domain communicators</span></div>
 <div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;  <span class="keywordtype">integer</span>,                   <span class="keywordtype">dimension(-1:MAX_FIELDS)</span>,<span class="keywordtype">save</span>           :: d_comm_idx=-9999<span class="comment"> !&lt; index of d_comm associated with sorted addresses</span></div>
 <div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;  <span class="keywordtype">integer</span>,                   <span class="keywordtype">dimension(MAX_FIELDS)</span>,<span class="keywordtype">save</span>           :: dc_salvage=-9999<span class="comment"> !&lt; freed indices of d_comm</span></div>
 <div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;  <span class="keywordtype">integer</span>,                                         <span class="keywordtype">save</span>           :: dc_sort_len=0<span class="comment"> !&lt; length sorted comm keys</span></div>
@@ -760,10 +760,10 @@ $(document).ready(function(){initNavTree('mpp__domains_8F90_source.html',''); in
 <div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;  <span class="keywordtype">integer</span>,                                         <span class="keywordtype">save</span>           :: n_comm=0<span class="comment">  !&lt; number of communicators used</span></div>
 <div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160; </div>
 <div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;  <span class="comment">!     integer(i8_kind), parameter :: GT_BASE=2**8</span></div>
-<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;  <span class="keywordtype">integer(i8_kind)</span>, <span class="keywordtype">parameter</span> :: GT_BASE = int(z<span class="stringliteral">&#39;0000000000000100&#39;</span>, kind=i8_kind)</div>
+<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;  <span class="keywordtype">integer(i8_kind)</span>, <span class="keywordtype">parameter</span> :: gt_base = int(z<span class="stringliteral">&#39;0000000000000100&#39;</span>, kind=i8_kind)</div>
 <div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160; </div>
 <div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;  <span class="comment">!     integer(i8_kind), parameter :: KE_BASE=2**48</span></div>
-<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;  <span class="keywordtype">integer(i8_kind)</span>, <span class="keywordtype">parameter</span> :: KE_BASE = int(z<span class="stringliteral">&#39;0001000000000000&#39;</span>, kind=i8_kind)</div>
+<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;  <span class="keywordtype">integer(i8_kind)</span>, <span class="keywordtype">parameter</span> :: ke_base = int(z<span class="stringliteral">&#39;0001000000000000&#39;</span>, kind=i8_kind)</div>
 <div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160; </div>
 <div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;  <span class="keywordtype">integer(i8_kind)</span> :: domain_cnt=0</div>
 <div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160; </div>
@@ -804,7 +804,7 @@ $(document).ready(function(){initNavTree('mpp__domains_8F90_source.html',''); in
 <div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160; </div>
 <div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;  <span class="comment">!***********************************************************************</span></div>
 <div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160; </div>
-<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;  <span class="keywordtype">integer</span>, <span class="keywordtype">parameter</span> :: NO_CHECK = -1</div>
+<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;  <span class="keywordtype">integer</span>, <span class="keywordtype">parameter</span> :: no_check = -1</div>
 <div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;  <span class="keywordtype">integer</span>            :: debug_update_level = no_check</div>
 <div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;<span class="comment">!***********************************************************************</span></div>
 <div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;<span class="comment">!</span></div>
@@ -2168,211 +2168,222 @@ $(document).ready(function(){initNavTree('mpp__domains_8F90_source.html',''); in
 <div class="line"><a name="l02072"></a><span class="lineno"> 2072</span>&#160;<span class="comment">  !! decomposition. If no neighboring domain exists (masked domain), then the</span></div>
 <div class="line"><a name="l02073"></a><span class="lineno"> 2073</span>&#160;<span class="comment">  !! returned &quot;pe&quot; value will be set to NULL_PE.&lt;br&gt;</span></div>
 <div class="line"><a name="l02074"></a><span class="lineno"> 2074</span>&#160;<span class="comment">  !! &lt;br&gt;Example usage:</span></div>
-<div class="line"><a name="l02075"></a><span class="lineno"> 2075</span>&#160;<span class="comment">  !!            call mpp_get_neighbor_pe( domain1d, direction=+1   , pe)</span></div>
-<div class="line"><a name="l02076"></a><span class="lineno"> 2076</span>&#160;<span class="comment">  !! Set pe to the neighbor pe number that is to the right of the current pe</span></div>
-<div class="line"><a name="l02077"></a><span class="lineno"> 2077</span>&#160;<span class="comment">  !!            call mpp_get_neighbor_pe( domain2d, direction=NORTH, pe)</span></div>
-<div class="line"><a name="l02078"></a><span class="lineno"> 2078</span>&#160;<span class="comment">  !! Get neighbor pe number that&#39;s above/north of the current pe</span></div>
-<div class="line"><a name="l02079"></a><span class="lineno"> 2079</span>&#160;  <span class="keyword">interface</span> mpp_get_neighbor_pe</div>
-<div class="line"><a name="l02080"></a><span class="lineno"> 2080</span>&#160;     <span class="keyword">module procedure</span> mpp_get_neighbor_pe_1d</div>
-<div class="line"><a name="l02081"></a><span class="lineno"> 2081</span>&#160;     <span class="keyword">module procedure</span> mpp_get_neighbor_pe_2d</div>
-<div class="line"><a name="l02082"></a><span class="lineno"> 2082</span>&#160;  <span class="keyword">end interface</span></div>
-<div class="line"><a name="l02083"></a><span class="lineno"> 2083</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l02084"></a><span class="lineno"> 2084</span>&#160;<span class="comment">  !&gt; @page operators_domains Operator Overrides for domain types</span></div>
-<div class="line"><a name="l02085"></a><span class="lineno"> 2085</span>&#160;<span class="comment">  !! Equality/inequality operators for domaintypes. &lt;br&gt;</span></div>
-<div class="line"><a name="l02086"></a><span class="lineno"> 2086</span>&#160;<span class="comment">  !!</span></div>
-<div class="line"><a name="l02087"></a><span class="lineno"> 2087</span>&#160;<span class="comment">  !! &lt;br&gt;The module provides public operators to check for</span></div>
-<div class="line"><a name="l02088"></a><span class="lineno"> 2088</span>&#160;<span class="comment">  !! equality/inequality of domaintypes, e.g:&lt;br&gt;</span></div>
-<div class="line"><a name="l02089"></a><span class="lineno"> 2089</span>&#160;<span class="comment">  !!</span></div>
-<div class="line"><a name="l02090"></a><span class="lineno"> 2090</span>&#160;<span class="comment">  !!            type(domain1D) :: a, b</span></div>
-<div class="line"><a name="l02091"></a><span class="lineno"> 2091</span>&#160;<span class="comment">  !!            type(domain2D) :: c, d</span></div>
-<div class="line"><a name="l02092"></a><span class="lineno"> 2092</span>&#160;<span class="comment">  !!            ...</span></div>
-<div class="line"><a name="l02093"></a><span class="lineno"> 2093</span>&#160;<span class="comment">  !!            if( a.NE.b )then</span></div>
-<div class="line"><a name="l02094"></a><span class="lineno"> 2094</span>&#160;<span class="comment">  !!            ...</span></div>
-<div class="line"><a name="l02095"></a><span class="lineno"> 2095</span>&#160;<span class="comment">  !!            end if</span></div>
-<div class="line"><a name="l02096"></a><span class="lineno"> 2096</span>&#160;<span class="comment">  !!            if( c==d )then</span></div>
-<div class="line"><a name="l02097"></a><span class="lineno"> 2097</span>&#160;<span class="comment">  !!            ...</span></div>
-<div class="line"><a name="l02098"></a><span class="lineno"> 2098</span>&#160;<span class="comment">  !!            end if</span></div>
-<div class="line"><a name="l02099"></a><span class="lineno"> 2099</span>&#160;<span class="comment">  !!&lt;br&gt;</span></div>
-<div class="line"><a name="l02100"></a><span class="lineno"> 2100</span>&#160;<span class="comment">  !! Domains are considered equal if and only if the start and end</span></div>
-<div class="line"><a name="l02101"></a><span class="lineno"> 2101</span>&#160;<span class="comment">  !! indices of each of their component global, data and compute domains are equal.</span></div>
-<div class="line"><a name="l02102"></a><span class="lineno"> 2102</span>&#160;  <span class="keyword">interface</span> <span class="keyword">operator</span>(.EQ.)</div>
-<div class="line"><a name="l02103"></a><span class="lineno"> 2103</span>&#160;     <span class="keyword">module procedure</span> mpp_domain1d_eq</div>
-<div class="line"><a name="l02104"></a><span class="lineno"> 2104</span>&#160;     <span class="keyword">module procedure</span> mpp_domain2d_eq</div>
-<div class="line"><a name="l02105"></a><span class="lineno"> 2105</span>&#160;     <span class="keyword">module procedure</span> <a class="code" href="mpp__unstruct__domain_8inc.html#af17c52b0ad4e4bdbddc56b67e18c9a64">mpp_domainug_eq</a></div>
-<div class="line"><a name="l02106"></a><span class="lineno"> 2106</span>&#160;  <span class="keyword">end interface</span></div>
-<div class="line"><a name="l02107"></a><span class="lineno"> 2107</span>&#160; </div>
-<div class="line"><a name="l02108"></a><span class="lineno"> 2108</span>&#160;  <span class="keyword">interface</span> <span class="keyword">operator</span>(.NE.)</div>
-<div class="line"><a name="l02109"></a><span class="lineno"> 2109</span>&#160;     <span class="keyword">module procedure</span> mpp_domain1d_ne</div>
-<div class="line"><a name="l02110"></a><span class="lineno"> 2110</span>&#160;     <span class="keyword">module procedure</span> mpp_domain2d_ne</div>
-<div class="line"><a name="l02111"></a><span class="lineno"> 2111</span>&#160;     <span class="keyword">module procedure</span> <a class="code" href="mpp__unstruct__domain_8inc.html#a134f4e34feb58ecdc6a94c59677ef37d">mpp_domainug_ne</a></div>
-<div class="line"><a name="l02112"></a><span class="lineno"> 2112</span>&#160;  <span class="keyword">end interface</span></div>
-<div class="line"><a name="l02113"></a><span class="lineno"> 2113</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l02114"></a><span class="lineno"> 2114</span>&#160;<span class="comment">  !&gt; @page mpp_get_compute_domain mpp_get_compute_domain Interface</span></div>
-<div class="line"><a name="l02115"></a><span class="lineno"> 2115</span>&#160;<span class="comment">  !! These routines retrieve the axis specifications associated with the compute domains.</span></div>
-<div class="line"><a name="l02116"></a><span class="lineno"> 2116</span>&#160;<span class="comment">  !! The domain is a derived type with private elements. These routines</span></div>
-<div class="line"><a name="l02117"></a><span class="lineno"> 2117</span>&#160;<span class="comment">  !! retrieve the axis specifications associated with the compute domains</span></div>
-<div class="line"><a name="l02118"></a><span class="lineno"> 2118</span>&#160;<span class="comment">  !! The 2D version of these is a simple extension of 1D.</span></div>
-<div class="line"><a name="l02119"></a><span class="lineno"> 2119</span>&#160;<span class="comment">  !! &lt;br&gt;Example usage:</span></div>
-<div class="line"><a name="l02120"></a><span class="lineno"> 2120</span>&#160;<span class="comment">  !!</span></div>
-<div class="line"><a name="l02121"></a><span class="lineno"> 2121</span>&#160;<span class="comment">  !!            call mpp_get_compute_domain(domain_1D, is, ie)</span></div>
-<div class="line"><a name="l02122"></a><span class="lineno"> 2122</span>&#160;<span class="comment">  !!            call mpp_get_compute_domain(domain_2D, is, ie, js, je)</span></div>
-<div class="line"><a name="l02123"></a><span class="lineno"> 2123</span>&#160;  <span class="keyword">interface</span> mpp_get_compute_domain</div>
-<div class="line"><a name="l02124"></a><span class="lineno"> 2124</span>&#160;     <span class="keyword">module procedure</span> mpp_get_compute_domain1d</div>
-<div class="line"><a name="l02125"></a><span class="lineno"> 2125</span>&#160;     <span class="keyword">module procedure</span> mpp_get_compute_domain2d</div>
-<div class="line"><a name="l02126"></a><span class="lineno"> 2126</span>&#160;  <span class="keyword">end interface</span></div>
-<div class="line"><a name="l02127"></a><span class="lineno"> 2127</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l02128"></a><span class="lineno"> 2128</span>&#160;<span class="comment">  !&gt; @page mpp_get_compute_domains mpp_get_compute_domains Interface</span></div>
-<div class="line"><a name="l02129"></a><span class="lineno"> 2129</span>&#160;<span class="comment">  !! Retrieve the entire array of compute domain extents associated with a decomposition.</span></div>
-<div class="line"><a name="l02130"></a><span class="lineno"> 2130</span>&#160;<span class="comment">  !! &lt;br&gt;Example usage:</span></div>
-<div class="line"><a name="l02131"></a><span class="lineno"> 2131</span>&#160;<span class="comment">  !!            call mpp_get_compute_domains( domain, xbegin, xend, xsize, &amp;&lt;br&gt;</span></div>
-<div class="line"><a name="l02132"></a><span class="lineno"> 2132</span>&#160;<span class="comment">  !!                                                ybegin, yend, ysize )</span></div>
-<div class="line"><a name="l02133"></a><span class="lineno"> 2133</span>&#160;  <span class="comment">!  &lt;IN NAME=&quot;domain&quot; TYPE=&quot;type(domain2D)&quot;&gt;&lt;/IN&gt;</span></div>
-<div class="line"><a name="l02134"></a><span class="lineno"> 2134</span>&#160;  <span class="comment">!  &lt;OUT NAME=&quot;xbegin,ybegin&quot; TYPE=&quot;integer&quot; DIM=&quot;(:)&quot;&gt;&lt;/OUT&gt;</span></div>
-<div class="line"><a name="l02135"></a><span class="lineno"> 2135</span>&#160;  <span class="comment">!  &lt;OUT NAME=&quot;xend,yend&quot; TYPE=&quot;integer&quot; DIM=&quot;(:)&quot;&gt;&lt;/OUT&gt;</span></div>
-<div class="line"><a name="l02136"></a><span class="lineno"> 2136</span>&#160;  <span class="comment">!  &lt;OUT NAME=&quot;xsize,ysize&quot; TYPE=&quot;integer&quot; DIM=&quot;(:)&quot;&gt;&lt;/OUT&gt;</span></div>
-<div class="line"><a name="l02137"></a><span class="lineno"> 2137</span>&#160;  <span class="keyword">interface</span> mpp_get_compute_domains</div>
-<div class="line"><a name="l02138"></a><span class="lineno"> 2138</span>&#160;     <span class="keyword">module procedure</span> mpp_get_compute_domains1d</div>
-<div class="line"><a name="l02139"></a><span class="lineno"> 2139</span>&#160;     <span class="keyword">module procedure</span> mpp_get_compute_domains2d</div>
-<div class="line"><a name="l02140"></a><span class="lineno"> 2140</span>&#160;  <span class="keyword">end interface</span></div>
-<div class="line"><a name="l02141"></a><span class="lineno"> 2141</span>&#160; </div>
-<div class="line"><a name="l02142"></a><span class="lineno"> 2142</span>&#160;  <span class="keyword">interface</span> mpp_get_global_domains</div>
-<div class="line"><a name="l02143"></a><span class="lineno"> 2143</span>&#160;     <span class="keyword">module procedure</span> mpp_get_global_domains1d</div>
-<div class="line"><a name="l02144"></a><span class="lineno"> 2144</span>&#160;     <span class="keyword">module procedure</span> mpp_get_global_domains2d</div>
+<div class="line"><a name="l02075"></a><span class="lineno"> 2075</span>&#160;<span class="comment">  !!</span></div>
+<div class="line"><a name="l02076"></a><span class="lineno"> 2076</span>&#160;<span class="comment">  !!                    call mpp_get_neighbor_pe( domain1d, direction=+1   , pe)</span></div>
+<div class="line"><a name="l02077"></a><span class="lineno"> 2077</span>&#160;<span class="comment">  !!</span></div>
+<div class="line"><a name="l02078"></a><span class="lineno"> 2078</span>&#160;<span class="comment">  !! Set pe to the neighbor pe number that is to the right of the current pe</span></div>
+<div class="line"><a name="l02079"></a><span class="lineno"> 2079</span>&#160;<span class="comment">  !!</span></div>
+<div class="line"><a name="l02080"></a><span class="lineno"> 2080</span>&#160;<span class="comment">  !!                    call mpp_get_neighbor_pe( domain2d, direction=NORTH, pe)</span></div>
+<div class="line"><a name="l02081"></a><span class="lineno"> 2081</span>&#160;<span class="comment">  !!</span></div>
+<div class="line"><a name="l02082"></a><span class="lineno"> 2082</span>&#160;<span class="comment">  !! Get neighbor pe number that&#39;s above/north of the current pe</span></div>
+<div class="line"><a name="l02083"></a><span class="lineno"> 2083</span>&#160;  <span class="keyword">interface</span> mpp_get_neighbor_pe</div>
+<div class="line"><a name="l02084"></a><span class="lineno"> 2084</span>&#160;     <span class="keyword">module procedure</span> mpp_get_neighbor_pe_1d</div>
+<div class="line"><a name="l02085"></a><span class="lineno"> 2085</span>&#160;     <span class="keyword">module procedure</span> mpp_get_neighbor_pe_2d</div>
+<div class="line"><a name="l02086"></a><span class="lineno"> 2086</span>&#160;  <span class="keyword">end interface</span></div>
+<div class="line"><a name="l02087"></a><span class="lineno"> 2087</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l02088"></a><span class="lineno"> 2088</span>&#160;<span class="comment">  !&gt; @page operators_domains Operator Overrides for domain types</span></div>
+<div class="line"><a name="l02089"></a><span class="lineno"> 2089</span>&#160;<span class="comment">  !! Equality/inequality operators for domaintypes. &lt;br&gt;</span></div>
+<div class="line"><a name="l02090"></a><span class="lineno"> 2090</span>&#160;<span class="comment">  !!</span></div>
+<div class="line"><a name="l02091"></a><span class="lineno"> 2091</span>&#160;<span class="comment">  !! &lt;br&gt;The module provides public operators to check for</span></div>
+<div class="line"><a name="l02092"></a><span class="lineno"> 2092</span>&#160;<span class="comment">  !! equality/inequality of domaintypes, e.g:&lt;br&gt;</span></div>
+<div class="line"><a name="l02093"></a><span class="lineno"> 2093</span>&#160;<span class="comment">  !!</span></div>
+<div class="line"><a name="l02094"></a><span class="lineno"> 2094</span>&#160;<span class="comment">  !!            type(domain1D) :: a, b</span></div>
+<div class="line"><a name="l02095"></a><span class="lineno"> 2095</span>&#160;<span class="comment">  !!            type(domain2D) :: c, d</span></div>
+<div class="line"><a name="l02096"></a><span class="lineno"> 2096</span>&#160;<span class="comment">  !!            ...</span></div>
+<div class="line"><a name="l02097"></a><span class="lineno"> 2097</span>&#160;<span class="comment">  !!            if( a.NE.b )then</span></div>
+<div class="line"><a name="l02098"></a><span class="lineno"> 2098</span>&#160;<span class="comment">  !!            ...</span></div>
+<div class="line"><a name="l02099"></a><span class="lineno"> 2099</span>&#160;<span class="comment">  !!            end if</span></div>
+<div class="line"><a name="l02100"></a><span class="lineno"> 2100</span>&#160;<span class="comment">  !!            if( c==d )then</span></div>
+<div class="line"><a name="l02101"></a><span class="lineno"> 2101</span>&#160;<span class="comment">  !!            ...</span></div>
+<div class="line"><a name="l02102"></a><span class="lineno"> 2102</span>&#160;<span class="comment">  !!            end if</span></div>
+<div class="line"><a name="l02103"></a><span class="lineno"> 2103</span>&#160;<span class="comment">  !!&lt;br&gt;</span></div>
+<div class="line"><a name="l02104"></a><span class="lineno"> 2104</span>&#160;<span class="comment">  !! Domains are considered equal if and only if the start and end</span></div>
+<div class="line"><a name="l02105"></a><span class="lineno"> 2105</span>&#160;<span class="comment">  !! indices of each of their component global, data and compute domains are equal.</span></div>
+<div class="line"><a name="l02106"></a><span class="lineno"> 2106</span>&#160;  <span class="keyword">interface</span> <span class="keyword">operator</span>(.EQ.)</div>
+<div class="line"><a name="l02107"></a><span class="lineno"> 2107</span>&#160;     <span class="keyword">module procedure</span> mpp_domain1d_eq</div>
+<div class="line"><a name="l02108"></a><span class="lineno"> 2108</span>&#160;     <span class="keyword">module procedure</span> mpp_domain2d_eq</div>
+<div class="line"><a name="l02109"></a><span class="lineno"> 2109</span>&#160;     <span class="keyword">module procedure</span> <a class="code" href="mpp__unstruct__domain_8inc.html#af17c52b0ad4e4bdbddc56b67e18c9a64">mpp_domainug_eq</a></div>
+<div class="line"><a name="l02110"></a><span class="lineno"> 2110</span>&#160;  <span class="keyword">end interface</span></div>
+<div class="line"><a name="l02111"></a><span class="lineno"> 2111</span>&#160; </div>
+<div class="line"><a name="l02112"></a><span class="lineno"> 2112</span>&#160;  <span class="keyword">interface</span> <span class="keyword">operator</span>(.NE.)</div>
+<div class="line"><a name="l02113"></a><span class="lineno"> 2113</span>&#160;     <span class="keyword">module procedure</span> mpp_domain1d_ne</div>
+<div class="line"><a name="l02114"></a><span class="lineno"> 2114</span>&#160;     <span class="keyword">module procedure</span> mpp_domain2d_ne</div>
+<div class="line"><a name="l02115"></a><span class="lineno"> 2115</span>&#160;     <span class="keyword">module procedure</span> <a class="code" href="mpp__unstruct__domain_8inc.html#a134f4e34feb58ecdc6a94c59677ef37d">mpp_domainug_ne</a></div>
+<div class="line"><a name="l02116"></a><span class="lineno"> 2116</span>&#160;  <span class="keyword">end interface</span></div>
+<div class="line"><a name="l02117"></a><span class="lineno"> 2117</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l02118"></a><span class="lineno"> 2118</span>&#160;<span class="comment">  !&gt; @page mpp_get_compute_domain mpp_get_compute_domain Interface</span></div>
+<div class="line"><a name="l02119"></a><span class="lineno"> 2119</span>&#160;<span class="comment">  !! These routines retrieve the axis specifications associated with the compute domains.</span></div>
+<div class="line"><a name="l02120"></a><span class="lineno"> 2120</span>&#160;<span class="comment">  !! The domain is a derived type with private elements. These routines</span></div>
+<div class="line"><a name="l02121"></a><span class="lineno"> 2121</span>&#160;<span class="comment">  !! retrieve the axis specifications associated with the compute domains</span></div>
+<div class="line"><a name="l02122"></a><span class="lineno"> 2122</span>&#160;<span class="comment">  !! The 2D version of these is a simple extension of 1D.</span></div>
+<div class="line"><a name="l02123"></a><span class="lineno"> 2123</span>&#160;<span class="comment">  !! &lt;br&gt;Example usage:</span></div>
+<div class="line"><a name="l02124"></a><span class="lineno"> 2124</span>&#160;<span class="comment">  !!</span></div>
+<div class="line"><a name="l02125"></a><span class="lineno"> 2125</span>&#160;<span class="comment">  !!            call mpp_get_compute_domain(domain_1D, is, ie)</span></div>
+<div class="line"><a name="l02126"></a><span class="lineno"> 2126</span>&#160;<span class="comment">  !!            call mpp_get_compute_domain(domain_2D, is, ie, js, je)</span></div>
+<div class="line"><a name="l02127"></a><span class="lineno"> 2127</span>&#160;  <span class="keyword">interface</span> mpp_get_compute_domain</div>
+<div class="line"><a name="l02128"></a><span class="lineno"> 2128</span>&#160;     <span class="keyword">module procedure</span> mpp_get_compute_domain1d</div>
+<div class="line"><a name="l02129"></a><span class="lineno"> 2129</span>&#160;     <span class="keyword">module procedure</span> mpp_get_compute_domain2d</div>
+<div class="line"><a name="l02130"></a><span class="lineno"> 2130</span>&#160;  <span class="keyword">end interface</span></div>
+<div class="line"><a name="l02131"></a><span class="lineno"> 2131</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l02132"></a><span class="lineno"> 2132</span>&#160;<span class="comment">  !&gt; @page mpp_get_compute_domains mpp_get_compute_domains Interface</span></div>
+<div class="line"><a name="l02133"></a><span class="lineno"> 2133</span>&#160;<span class="comment">  !! Retrieve the entire array of compute domain extents associated with a decomposition.</span></div>
+<div class="line"><a name="l02134"></a><span class="lineno"> 2134</span>&#160;<span class="comment">  !! &lt;br&gt;Example usage:</span></div>
+<div class="line"><a name="l02135"></a><span class="lineno"> 2135</span>&#160;<span class="comment">  !!</span></div>
+<div class="line"><a name="l02136"></a><span class="lineno"> 2136</span>&#160;<span class="comment">  !!            call mpp_get_compute_domains( domain, xbegin, xend, xsize, &amp;&lt;br&gt;</span></div>
+<div class="line"><a name="l02137"></a><span class="lineno"> 2137</span>&#160;<span class="comment">  !!                                                ybegin, yend, ysize )</span></div>
+<div class="line"><a name="l02138"></a><span class="lineno"> 2138</span>&#160;  <span class="comment">!  &lt;IN NAME=&quot;domain&quot; TYPE=&quot;type(domain2D)&quot;&gt;&lt;/IN&gt;</span></div>
+<div class="line"><a name="l02139"></a><span class="lineno"> 2139</span>&#160;  <span class="comment">!  &lt;OUT NAME=&quot;xbegin,ybegin&quot; TYPE=&quot;integer&quot; DIM=&quot;(:)&quot;&gt;&lt;/OUT&gt;</span></div>
+<div class="line"><a name="l02140"></a><span class="lineno"> 2140</span>&#160;  <span class="comment">!  &lt;OUT NAME=&quot;xend,yend&quot; TYPE=&quot;integer&quot; DIM=&quot;(:)&quot;&gt;&lt;/OUT&gt;</span></div>
+<div class="line"><a name="l02141"></a><span class="lineno"> 2141</span>&#160;  <span class="comment">!  &lt;OUT NAME=&quot;xsize,ysize&quot; TYPE=&quot;integer&quot; DIM=&quot;(:)&quot;&gt;&lt;/OUT&gt;</span></div>
+<div class="line"><a name="l02142"></a><span class="lineno"> 2142</span>&#160;  <span class="keyword">interface</span> mpp_get_compute_domains</div>
+<div class="line"><a name="l02143"></a><span class="lineno"> 2143</span>&#160;     <span class="keyword">module procedure</span> mpp_get_compute_domains1d</div>
+<div class="line"><a name="l02144"></a><span class="lineno"> 2144</span>&#160;     <span class="keyword">module procedure</span> mpp_get_compute_domains2d</div>
 <div class="line"><a name="l02145"></a><span class="lineno"> 2145</span>&#160;  <span class="keyword">end interface</span></div>
-<div class="line"><a name="l02146"></a><span class="lineno"> 2146</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l02147"></a><span class="lineno"> 2147</span>&#160;<span class="comment">  !&gt; @page mpp_get_data_domain mpp_get_data_domain Interface</span></div>
-<div class="line"><a name="l02148"></a><span class="lineno"> 2148</span>&#160;<span class="comment">  !! These routines retrieve the axis specifications associated with the data domains.</span></div>
-<div class="line"><a name="l02149"></a><span class="lineno"> 2149</span>&#160;<span class="comment">  !! The domain is a derived type with private elements. These routines</span></div>
-<div class="line"><a name="l02150"></a><span class="lineno"> 2150</span>&#160;<span class="comment">  !! retrieve the axis specifications associated with the data domains.</span></div>
-<div class="line"><a name="l02151"></a><span class="lineno"> 2151</span>&#160;<span class="comment">  !! The 2D version of these is a simple extension of 1D.</span></div>
-<div class="line"><a name="l02152"></a><span class="lineno"> 2152</span>&#160;<span class="comment">  !! &lt;br&gt;Example usage:</span></div>
-<div class="line"><a name="l02153"></a><span class="lineno"> 2153</span>&#160;<span class="comment">  !!            call mpp_get_data_domain(domain_1d, isd, ied)</span></div>
-<div class="line"><a name="l02154"></a><span class="lineno"> 2154</span>&#160;<span class="comment">  !!            call mpp_get_data_domain(domain_2d, isd, ied, jsd, jed)</span></div>
-<div class="line"><a name="l02155"></a><span class="lineno"> 2155</span>&#160;  <span class="keyword">interface</span> mpp_get_data_domain</div>
-<div class="line"><a name="l02156"></a><span class="lineno"> 2156</span>&#160;     <span class="keyword">module procedure</span> mpp_get_data_domain1d</div>
-<div class="line"><a name="l02157"></a><span class="lineno"> 2157</span>&#160;     <span class="keyword">module procedure</span> mpp_get_data_domain2d</div>
-<div class="line"><a name="l02158"></a><span class="lineno"> 2158</span>&#160;  <span class="keyword">end interface</span></div>
-<div class="line"><a name="l02159"></a><span class="lineno"> 2159</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l02160"></a><span class="lineno"> 2160</span>&#160;<span class="comment">  !&gt; @page mpp_get_global_domain mpp_get_global_domain Interface</span></div>
-<div class="line"><a name="l02161"></a><span class="lineno"> 2161</span>&#160;<span class="comment">  !! These routines retrieve the axis specifications associated with the global domains.</span></div>
-<div class="line"><a name="l02162"></a><span class="lineno"> 2162</span>&#160;<span class="comment">  !! The domain is a derived type with private elements. These routines</span></div>
-<div class="line"><a name="l02163"></a><span class="lineno"> 2163</span>&#160;<span class="comment">  !! retrieve the axis specifications associated with the global domains.</span></div>
-<div class="line"><a name="l02164"></a><span class="lineno"> 2164</span>&#160;<span class="comment">  !! The 2D version of these is a simple extension of 1D.</span></div>
-<div class="line"><a name="l02165"></a><span class="lineno"> 2165</span>&#160;<span class="comment">  !! &lt;br&gt;Example usage:</span></div>
-<div class="line"><a name="l02166"></a><span class="lineno"> 2166</span>&#160;<span class="comment">  !!            call mpp_get_global_domain(domain_1d, isg, ieg)</span></div>
-<div class="line"><a name="l02167"></a><span class="lineno"> 2167</span>&#160;<span class="comment">  !!            call mpp_get_global_domain(domain_2d, isg, ieg, jsg, jeg)</span></div>
-<div class="line"><a name="l02168"></a><span class="lineno"> 2168</span>&#160;  <span class="keyword">interface</span> mpp_get_global_domain</div>
-<div class="line"><a name="l02169"></a><span class="lineno"> 2169</span>&#160;     <span class="keyword">module procedure</span> mpp_get_global_domain1d</div>
-<div class="line"><a name="l02170"></a><span class="lineno"> 2170</span>&#160;     <span class="keyword">module procedure</span> mpp_get_global_domain2d</div>
-<div class="line"><a name="l02171"></a><span class="lineno"> 2171</span>&#160;  <span class="keyword">end interface</span></div>
-<div class="line"><a name="l02172"></a><span class="lineno"> 2172</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l02173"></a><span class="lineno"> 2173</span>&#160;<span class="comment">  !&gt; @page mpp_get_memory_domain mpp_get_memory_domain Interface</span></div>
-<div class="line"><a name="l02174"></a><span class="lineno"> 2174</span>&#160;<span class="comment">  !! These routines retrieve the axis specifications associated with the memory domains.</span></div>
-<div class="line"><a name="l02175"></a><span class="lineno"> 2175</span>&#160;<span class="comment">  !! The domain is a derived type with private elements. These routines</span></div>
-<div class="line"><a name="l02176"></a><span class="lineno"> 2176</span>&#160;<span class="comment">  !! retrieve the axis specifications associated with the memory domains.</span></div>
-<div class="line"><a name="l02177"></a><span class="lineno"> 2177</span>&#160;<span class="comment">  !! The 2D version of these is a simple extension of 1D.</span></div>
-<div class="line"><a name="l02178"></a><span class="lineno"> 2178</span>&#160;<span class="comment">  !! &lt;br&gt;Example usage:</span></div>
-<div class="line"><a name="l02179"></a><span class="lineno"> 2179</span>&#160;<span class="comment">  !!            call mpp_get_memory_domain(domain_1d, ism, iem)</span></div>
-<div class="line"><a name="l02180"></a><span class="lineno"> 2180</span>&#160;<span class="comment">  !!            call mpp_get_memory_domain(domain_2d, ism, iem, jsm, jem)</span></div>
-<div class="line"><a name="l02181"></a><span class="lineno"> 2181</span>&#160;  <span class="keyword">interface</span> mpp_get_memory_domain</div>
-<div class="line"><a name="l02182"></a><span class="lineno"> 2182</span>&#160;     <span class="keyword">module procedure</span> mpp_get_memory_domain1d</div>
-<div class="line"><a name="l02183"></a><span class="lineno"> 2183</span>&#160;     <span class="keyword">module procedure</span> mpp_get_memory_domain2d</div>
-<div class="line"><a name="l02184"></a><span class="lineno"> 2184</span>&#160;  <span class="keyword">end interface</span></div>
-<div class="line"><a name="l02185"></a><span class="lineno"> 2185</span>&#160; </div>
-<div class="line"><a name="l02186"></a><span class="lineno"> 2186</span>&#160;  <span class="keyword">interface</span> mpp_get_domain_extents</div>
-<div class="line"><a name="l02187"></a><span class="lineno"> 2187</span>&#160;     <span class="keyword">module procedure</span> mpp_get_domain_extents1d</div>
-<div class="line"><a name="l02188"></a><span class="lineno"> 2188</span>&#160;     <span class="keyword">module procedure</span> mpp_get_domain_extents2d</div>
-<div class="line"><a name="l02189"></a><span class="lineno"> 2189</span>&#160;  <span class="keyword">end interface</span></div>
-<div class="line"><a name="l02190"></a><span class="lineno"> 2190</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l02191"></a><span class="lineno"> 2191</span>&#160;<span class="comment">  !&gt; @page mpp_set_compute_domain mpp_set_compute_domain Interface</span></div>
-<div class="line"><a name="l02192"></a><span class="lineno"> 2192</span>&#160;<span class="comment">  !! These routines set the axis specifications associated with the compute domains.</span></div>
-<div class="line"><a name="l02193"></a><span class="lineno"> 2193</span>&#160;<span class="comment">  !! The domain is a derived type with private elements. These routines</span></div>
-<div class="line"><a name="l02194"></a><span class="lineno"> 2194</span>&#160;<span class="comment">  !! set the axis specifications associated with the compute domains</span></div>
-<div class="line"><a name="l02195"></a><span class="lineno"> 2195</span>&#160;<span class="comment">  !! The 2D version of these is a simple extension of 1D.</span></div>
-<div class="line"><a name="l02196"></a><span class="lineno"> 2196</span>&#160;<span class="comment">  !! &lt;br&gt;Example usage:</span></div>
-<div class="line"><a name="l02197"></a><span class="lineno"> 2197</span>&#160;<span class="comment">  !!            call mpp_set_compute_domain()</span></div>
-<div class="line"><a name="l02198"></a><span class="lineno"> 2198</span>&#160;  <span class="keyword">interface</span> mpp_set_compute_domain</div>
-<div class="line"><a name="l02199"></a><span class="lineno"> 2199</span>&#160;     <span class="keyword">module procedure</span> mpp_set_compute_domain1d</div>
-<div class="line"><a name="l02200"></a><span class="lineno"> 2200</span>&#160;     <span class="keyword">module procedure</span> mpp_set_compute_domain2d</div>
-<div class="line"><a name="l02201"></a><span class="lineno"> 2201</span>&#160;  <span class="keyword">end interface</span></div>
-<div class="line"><a name="l02202"></a><span class="lineno"> 2202</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l02203"></a><span class="lineno"> 2203</span>&#160;<span class="comment">  !&gt; @page mpp_set_data_domain mpp_set_data_domain Interface</span></div>
-<div class="line"><a name="l02204"></a><span class="lineno"> 2204</span>&#160;<span class="comment">  !! These routines set the axis specifications associated with the data domains.</span></div>
-<div class="line"><a name="l02205"></a><span class="lineno"> 2205</span>&#160;<span class="comment">  !! The domain is a derived type with private elements. These routines</span></div>
-<div class="line"><a name="l02206"></a><span class="lineno"> 2206</span>&#160;<span class="comment">  !! set the axis specifications associated with the data domains.</span></div>
-<div class="line"><a name="l02207"></a><span class="lineno"> 2207</span>&#160;<span class="comment">  !! The 2D version of these is a simple extension of 1D.</span></div>
-<div class="line"><a name="l02208"></a><span class="lineno"> 2208</span>&#160;  <span class="keyword">interface</span> mpp_set_data_domain</div>
-<div class="line"><a name="l02209"></a><span class="lineno"> 2209</span>&#160;     <span class="keyword">module procedure</span> mpp_set_data_domain1d</div>
-<div class="line"><a name="l02210"></a><span class="lineno"> 2210</span>&#160;     <span class="keyword">module procedure</span> mpp_set_data_domain2d</div>
-<div class="line"><a name="l02211"></a><span class="lineno"> 2211</span>&#160;  <span class="keyword">end interface</span></div>
-<div class="line"><a name="l02212"></a><span class="lineno"> 2212</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l02213"></a><span class="lineno"> 2213</span>&#160;<span class="comment">  !&gt; @page mpp_set_global_domain mpp_set_global_domain Interface</span></div>
-<div class="line"><a name="l02214"></a><span class="lineno"> 2214</span>&#160;<span class="comment">  !! These routines set the axis specifications associated with the global domains.</span></div>
-<div class="line"><a name="l02215"></a><span class="lineno"> 2215</span>&#160;<span class="comment">  !! The domain is a derived type with private elements. These routines</span></div>
-<div class="line"><a name="l02216"></a><span class="lineno"> 2216</span>&#160;<span class="comment">  !! set the axis specifications associated with the global domains.</span></div>
-<div class="line"><a name="l02217"></a><span class="lineno"> 2217</span>&#160;<span class="comment">  !! The 2D version of these is a simple extension of 1D.</span></div>
-<div class="line"><a name="l02218"></a><span class="lineno"> 2218</span>&#160;  <span class="keyword">interface</span> mpp_set_global_domain</div>
-<div class="line"><a name="l02219"></a><span class="lineno"> 2219</span>&#160;     <span class="keyword">module procedure</span> mpp_set_global_domain1d</div>
-<div class="line"><a name="l02220"></a><span class="lineno"> 2220</span>&#160;     <span class="keyword">module procedure</span> mpp_set_global_domain2d</div>
-<div class="line"><a name="l02221"></a><span class="lineno"> 2221</span>&#160;  <span class="keyword">end interface</span></div>
-<div class="line"><a name="l02222"></a><span class="lineno"> 2222</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l02223"></a><span class="lineno"> 2223</span>&#160;<span class="comment">  !&gt; @page mpp_get_pelist mpp_get_pelist Interface</span></div>
-<div class="line"><a name="l02224"></a><span class="lineno"> 2224</span>&#160;<span class="comment">  !! Retrieve list of PEs associated with a domain decomposition.</span></div>
-<div class="line"><a name="l02225"></a><span class="lineno"> 2225</span>&#160;<span class="comment">  !! The 1D version of this call returns an array of the PEs assigned to</span></div>
-<div class="line"><a name="l02226"></a><span class="lineno"> 2226</span>&#160;<span class="comment">  !! this 1D domain decomposition. In addition the optional argument pos may be</span></div>
-<div class="line"><a name="l02227"></a><span class="lineno"> 2227</span>&#160;<span class="comment">  !! used to retrieve the 0-based position of the domain local to the</span></div>
-<div class="line"><a name="l02228"></a><span class="lineno"> 2228</span>&#160;<span class="comment">  !! calling PE, i.e., \e domain%list(pos)%pe is the local PE,</span></div>
-<div class="line"><a name="l02229"></a><span class="lineno"> 2229</span>&#160;<span class="comment">  !! as returned by mpp_pe()</span></div>
-<div class="line"><a name="l02230"></a><span class="lineno"> 2230</span>&#160;<span class="comment">  !! The 2D version of this call is identical to 1D version.</span></div>
-<div class="line"><a name="l02231"></a><span class="lineno"> 2231</span>&#160;  <span class="keyword">interface</span> mpp_get_pelist</div>
-<div class="line"><a name="l02232"></a><span class="lineno"> 2232</span>&#160;     <span class="keyword">module procedure</span> mpp_get_pelist1d</div>
-<div class="line"><a name="l02233"></a><span class="lineno"> 2233</span>&#160;     <span class="keyword">module procedure</span> mpp_get_pelist2d</div>
-<div class="line"><a name="l02234"></a><span class="lineno"> 2234</span>&#160;  <span class="keyword">end interface</span></div>
-<div class="line"><a name="l02235"></a><span class="lineno"> 2235</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l02236"></a><span class="lineno"> 2236</span>&#160;<span class="comment">  !&gt; @page mpp_get_layout mpp_get_layout Interface</span></div>
-<div class="line"><a name="l02237"></a><span class="lineno"> 2237</span>&#160;<span class="comment">  !! Retrieve layout associated with a domain decomposition</span></div>
-<div class="line"><a name="l02238"></a><span class="lineno"> 2238</span>&#160;<span class="comment">  !! The 1D version of this call returns the number of divisions that was assigned to this</span></div>
-<div class="line"><a name="l02239"></a><span class="lineno"> 2239</span>&#160;<span class="comment">  !! decomposition axis. The 2D version of this call returns an array of dimension 2 holding the</span></div>
-<div class="line"><a name="l02240"></a><span class="lineno"> 2240</span>&#160;<span class="comment">  !! results on two axes.</span></div>
-<div class="line"><a name="l02241"></a><span class="lineno"> 2241</span>&#160;<span class="comment">  !! &lt;br&gt;Example usage:</span></div>
-<div class="line"><a name="l02242"></a><span class="lineno"> 2242</span>&#160;<span class="comment">  !!            call mpp_get_layout( domain, layout )</span></div>
-<div class="line"><a name="l02243"></a><span class="lineno"> 2243</span>&#160;  <span class="keyword">interface</span> mpp_get_layout</div>
-<div class="line"><a name="l02244"></a><span class="lineno"> 2244</span>&#160;     <span class="keyword">module procedure</span> mpp_get_layout1d</div>
-<div class="line"><a name="l02245"></a><span class="lineno"> 2245</span>&#160;     <span class="keyword">module procedure</span> mpp_get_layout2d</div>
-<div class="line"><a name="l02246"></a><span class="lineno"> 2246</span>&#160;  <span class="keyword">end interface</span></div>
-<div class="line"><a name="l02247"></a><span class="lineno"> 2247</span>&#160; </div>
-<div class="line"><a name="l02248"></a><span class="lineno"> 2248</span>&#160;  <span class="keyword">interface</span> check_data_size</div>
-<div class="line"><a name="l02249"></a><span class="lineno"> 2249</span>&#160;     <span class="keyword">module procedure</span> check_data_size_1d</div>
-<div class="line"><a name="l02250"></a><span class="lineno"> 2250</span>&#160;     <span class="keyword">module procedure</span> check_data_size_2d</div>
-<div class="line"><a name="l02251"></a><span class="lineno"> 2251</span>&#160;  <span class="keyword">end interface</span></div>
-<div class="line"><a name="l02252"></a><span class="lineno"> 2252</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l02253"></a><span class="lineno"> 2253</span>&#160;<span class="comment">  !&gt; @page mpp_nullify_domain_list mpp_nullify_domain_list Interface</span></div>
-<div class="line"><a name="l02254"></a><span class="lineno"> 2254</span>&#160;<span class="comment">  !! Nullify domain list. This interface is needed in mpp_domains_test.</span></div>
-<div class="line"><a name="l02255"></a><span class="lineno"> 2255</span>&#160;<span class="comment">  !! 1-D case can be added in if needed.</span></div>
-<div class="line"><a name="l02256"></a><span class="lineno"> 2256</span>&#160;<span class="comment">  !! Example usage:</span></div>
-<div class="line"><a name="l02257"></a><span class="lineno"> 2257</span>&#160;<span class="comment">  !!            call mpp_nullify_domain_list(domain)</span></div>
-<div class="line"><a name="l02258"></a><span class="lineno"> 2258</span>&#160;  <span class="keyword">interface</span> mpp_nullify_domain_list</div>
-<div class="line"><a name="l02259"></a><span class="lineno"> 2259</span>&#160;     <span class="keyword">module procedure</span> nullify_domain2d_list</div>
-<div class="line"><a name="l02260"></a><span class="lineno"> 2260</span>&#160;  <span class="keyword">end interface</span></div>
-<div class="line"><a name="l02261"></a><span class="lineno"> 2261</span>&#160; </div>
-<div class="line"><a name="l02262"></a><span class="lineno"> 2262</span>&#160;  <span class="comment">! Include variable &quot;version&quot; to be written to log file.</span></div>
-<div class="line"><a name="l02263"></a><span class="lineno"> 2263</span>&#160;<span class="preprocessor">#include&lt;file_version.h&gt;</span></div>
-<div class="line"><a name="l02264"></a><span class="lineno"> 2264</span>&#160;<span class="preprocessor"></span>  <span class="keywordtype">public</span> version</div>
-<div class="line"><a name="l02265"></a><span class="lineno"> 2265</span>&#160; </div>
-<div class="line"><a name="l02266"></a><span class="lineno"> 2266</span>&#160; </div>
-<div class="line"><a name="l02267"></a><span class="lineno"> 2267</span>&#160;<span class="keyword">contains</span></div>
-<div class="line"><a name="l02268"></a><span class="lineno"> 2268</span>&#160; </div>
-<div class="line"><a name="l02269"></a><span class="lineno"> 2269</span>&#160;<span class="preprocessor">#include &lt;mpp_define_nest_domains.inc&gt;</span></div>
-<div class="line"><a name="l02270"></a><span class="lineno"> 2270</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &lt;mpp_domains_util.inc&gt;</span></div>
-<div class="line"><a name="l02271"></a><span class="lineno"> 2271</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &lt;mpp_domains_comm.inc&gt;</span></div>
-<div class="line"><a name="l02272"></a><span class="lineno"> 2272</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &lt;mpp_domains_define.inc&gt;</span></div>
-<div class="line"><a name="l02273"></a><span class="lineno"> 2273</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &lt;mpp_domains_misc.inc&gt;</span></div>
-<div class="line"><a name="l02274"></a><span class="lineno"> 2274</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &lt;mpp_domains_reduce.inc&gt;</span></div>
-<div class="line"><a name="l02275"></a><span class="lineno"> 2275</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &lt;mpp_unstruct_domain.inc&gt;</span></div>
-<div class="line"><a name="l02276"></a><span class="lineno"> 2276</span>&#160;<span class="preprocessor"></span> </div>
-<div class="line"><a name="l02277"></a><span class="lineno"> 2277</span>&#160;<span class="keyword">end module </span>mpp_domains_mod<span class="comment"></span></div>
-<div class="line"><a name="l02278"></a><span class="lineno"> 2278</span>&#160;<span class="comment">!&gt; @}</span></div>
-<div class="line"><a name="l02279"></a><span class="lineno"> 2279</span>&#160;<span class="comment">! close documentation grouping</span></div>
+<div class="line"><a name="l02146"></a><span class="lineno"> 2146</span>&#160; </div>
+<div class="line"><a name="l02147"></a><span class="lineno"> 2147</span>&#160;  <span class="keyword">interface</span> mpp_get_global_domains</div>
+<div class="line"><a name="l02148"></a><span class="lineno"> 2148</span>&#160;     <span class="keyword">module procedure</span> mpp_get_global_domains1d</div>
+<div class="line"><a name="l02149"></a><span class="lineno"> 2149</span>&#160;     <span class="keyword">module procedure</span> mpp_get_global_domains2d</div>
+<div class="line"><a name="l02150"></a><span class="lineno"> 2150</span>&#160;  <span class="keyword">end interface</span></div>
+<div class="line"><a name="l02151"></a><span class="lineno"> 2151</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l02152"></a><span class="lineno"> 2152</span>&#160;<span class="comment">  !&gt; @page mpp_get_data_domain mpp_get_data_domain Interface</span></div>
+<div class="line"><a name="l02153"></a><span class="lineno"> 2153</span>&#160;<span class="comment">  !! These routines retrieve the axis specifications associated with the data domains.</span></div>
+<div class="line"><a name="l02154"></a><span class="lineno"> 2154</span>&#160;<span class="comment">  !! The domain is a derived type with private elements. These routines</span></div>
+<div class="line"><a name="l02155"></a><span class="lineno"> 2155</span>&#160;<span class="comment">  !! retrieve the axis specifications associated with the data domains.</span></div>
+<div class="line"><a name="l02156"></a><span class="lineno"> 2156</span>&#160;<span class="comment">  !! The 2D version of these is a simple extension of 1D.</span></div>
+<div class="line"><a name="l02157"></a><span class="lineno"> 2157</span>&#160;<span class="comment">  !! &lt;br&gt;Example usage:</span></div>
+<div class="line"><a name="l02158"></a><span class="lineno"> 2158</span>&#160;<span class="comment">  !!</span></div>
+<div class="line"><a name="l02159"></a><span class="lineno"> 2159</span>&#160;<span class="comment">  !!                    call mpp_get_data_domain(domain_1d, isd, ied)</span></div>
+<div class="line"><a name="l02160"></a><span class="lineno"> 2160</span>&#160;<span class="comment">  !!                    call mpp_get_data_domain(domain_2d, isd, ied, jsd, jed)</span></div>
+<div class="line"><a name="l02161"></a><span class="lineno"> 2161</span>&#160;  <span class="keyword">interface</span> mpp_get_data_domain</div>
+<div class="line"><a name="l02162"></a><span class="lineno"> 2162</span>&#160;     <span class="keyword">module procedure</span> mpp_get_data_domain1d</div>
+<div class="line"><a name="l02163"></a><span class="lineno"> 2163</span>&#160;     <span class="keyword">module procedure</span> mpp_get_data_domain2d</div>
+<div class="line"><a name="l02164"></a><span class="lineno"> 2164</span>&#160;  <span class="keyword">end interface</span></div>
+<div class="line"><a name="l02165"></a><span class="lineno"> 2165</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l02166"></a><span class="lineno"> 2166</span>&#160;<span class="comment">  !&gt; @page mpp_get_global_domain mpp_get_global_domain Interface</span></div>
+<div class="line"><a name="l02167"></a><span class="lineno"> 2167</span>&#160;<span class="comment">  !! These routines retrieve the axis specifications associated with the global domains.</span></div>
+<div class="line"><a name="l02168"></a><span class="lineno"> 2168</span>&#160;<span class="comment">  !! The domain is a derived type with private elements. These routines</span></div>
+<div class="line"><a name="l02169"></a><span class="lineno"> 2169</span>&#160;<span class="comment">  !! retrieve the axis specifications associated with the global domains.</span></div>
+<div class="line"><a name="l02170"></a><span class="lineno"> 2170</span>&#160;<span class="comment">  !! The 2D version of these is a simple extension of 1D.</span></div>
+<div class="line"><a name="l02171"></a><span class="lineno"> 2171</span>&#160;<span class="comment">  !! &lt;br&gt;Example usage:</span></div>
+<div class="line"><a name="l02172"></a><span class="lineno"> 2172</span>&#160;<span class="comment">  !!</span></div>
+<div class="line"><a name="l02173"></a><span class="lineno"> 2173</span>&#160;<span class="comment">  !!                    call mpp_get_global_domain(domain_1d, isg, ieg)</span></div>
+<div class="line"><a name="l02174"></a><span class="lineno"> 2174</span>&#160;<span class="comment">  !!                    call mpp_get_global_domain(domain_2d, isg, ieg, jsg, jeg)</span></div>
+<div class="line"><a name="l02175"></a><span class="lineno"> 2175</span>&#160;  <span class="keyword">interface</span> mpp_get_global_domain</div>
+<div class="line"><a name="l02176"></a><span class="lineno"> 2176</span>&#160;     <span class="keyword">module procedure</span> mpp_get_global_domain1d</div>
+<div class="line"><a name="l02177"></a><span class="lineno"> 2177</span>&#160;     <span class="keyword">module procedure</span> mpp_get_global_domain2d</div>
+<div class="line"><a name="l02178"></a><span class="lineno"> 2178</span>&#160;  <span class="keyword">end interface</span></div>
+<div class="line"><a name="l02179"></a><span class="lineno"> 2179</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l02180"></a><span class="lineno"> 2180</span>&#160;<span class="comment">  !&gt; @page mpp_get_memory_domain mpp_get_memory_domain Interface</span></div>
+<div class="line"><a name="l02181"></a><span class="lineno"> 2181</span>&#160;<span class="comment">  !! These routines retrieve the axis specifications associated with the memory domains.</span></div>
+<div class="line"><a name="l02182"></a><span class="lineno"> 2182</span>&#160;<span class="comment">  !! The domain is a derived type with private elements. These routines</span></div>
+<div class="line"><a name="l02183"></a><span class="lineno"> 2183</span>&#160;<span class="comment">  !! retrieve the axis specifications associated with the memory domains.</span></div>
+<div class="line"><a name="l02184"></a><span class="lineno"> 2184</span>&#160;<span class="comment">  !! The 2D version of these is a simple extension of 1D.</span></div>
+<div class="line"><a name="l02185"></a><span class="lineno"> 2185</span>&#160;<span class="comment">  !! &lt;br&gt;Example usage:</span></div>
+<div class="line"><a name="l02186"></a><span class="lineno"> 2186</span>&#160;<span class="comment">  !!</span></div>
+<div class="line"><a name="l02187"></a><span class="lineno"> 2187</span>&#160;<span class="comment">  !!                    call mpp_get_memory_domain(domain_1d, ism, iem)</span></div>
+<div class="line"><a name="l02188"></a><span class="lineno"> 2188</span>&#160;<span class="comment">  !!                    call mpp_get_memory_domain(domain_2d, ism, iem, jsm, jem)</span></div>
+<div class="line"><a name="l02189"></a><span class="lineno"> 2189</span>&#160;  <span class="keyword">interface</span> mpp_get_memory_domain</div>
+<div class="line"><a name="l02190"></a><span class="lineno"> 2190</span>&#160;     <span class="keyword">module procedure</span> mpp_get_memory_domain1d</div>
+<div class="line"><a name="l02191"></a><span class="lineno"> 2191</span>&#160;     <span class="keyword">module procedure</span> mpp_get_memory_domain2d</div>
+<div class="line"><a name="l02192"></a><span class="lineno"> 2192</span>&#160;  <span class="keyword">end interface</span></div>
+<div class="line"><a name="l02193"></a><span class="lineno"> 2193</span>&#160; </div>
+<div class="line"><a name="l02194"></a><span class="lineno"> 2194</span>&#160;  <span class="keyword">interface</span> mpp_get_domain_extents</div>
+<div class="line"><a name="l02195"></a><span class="lineno"> 2195</span>&#160;     <span class="keyword">module procedure</span> mpp_get_domain_extents1d</div>
+<div class="line"><a name="l02196"></a><span class="lineno"> 2196</span>&#160;     <span class="keyword">module procedure</span> mpp_get_domain_extents2d</div>
+<div class="line"><a name="l02197"></a><span class="lineno"> 2197</span>&#160;  <span class="keyword">end interface</span></div>
+<div class="line"><a name="l02198"></a><span class="lineno"> 2198</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l02199"></a><span class="lineno"> 2199</span>&#160;<span class="comment">  !&gt; @page mpp_set_compute_domain mpp_set_compute_domain Interface</span></div>
+<div class="line"><a name="l02200"></a><span class="lineno"> 2200</span>&#160;<span class="comment">  !! These routines set the axis specifications associated with the compute domains.</span></div>
+<div class="line"><a name="l02201"></a><span class="lineno"> 2201</span>&#160;<span class="comment">  !! The domain is a derived type with private elements. These routines</span></div>
+<div class="line"><a name="l02202"></a><span class="lineno"> 2202</span>&#160;<span class="comment">  !! set the axis specifications associated with the compute domains</span></div>
+<div class="line"><a name="l02203"></a><span class="lineno"> 2203</span>&#160;<span class="comment">  !! The 2D version of these is a simple extension of 1D.</span></div>
+<div class="line"><a name="l02204"></a><span class="lineno"> 2204</span>&#160;<span class="comment">  !! &lt;br&gt;Example usage:</span></div>
+<div class="line"><a name="l02205"></a><span class="lineno"> 2205</span>&#160;<span class="comment">  !!</span></div>
+<div class="line"><a name="l02206"></a><span class="lineno"> 2206</span>&#160;<span class="comment">  !!                        call mpp_set_compute_domain()</span></div>
+<div class="line"><a name="l02207"></a><span class="lineno"> 2207</span>&#160;  <span class="keyword">interface</span> mpp_set_compute_domain</div>
+<div class="line"><a name="l02208"></a><span class="lineno"> 2208</span>&#160;     <span class="keyword">module procedure</span> mpp_set_compute_domain1d</div>
+<div class="line"><a name="l02209"></a><span class="lineno"> 2209</span>&#160;     <span class="keyword">module procedure</span> mpp_set_compute_domain2d</div>
+<div class="line"><a name="l02210"></a><span class="lineno"> 2210</span>&#160;  <span class="keyword">end interface</span></div>
+<div class="line"><a name="l02211"></a><span class="lineno"> 2211</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l02212"></a><span class="lineno"> 2212</span>&#160;<span class="comment">  !&gt; @page mpp_set_data_domain mpp_set_data_domain Interface</span></div>
+<div class="line"><a name="l02213"></a><span class="lineno"> 2213</span>&#160;<span class="comment">  !! These routines set the axis specifications associated with the data domains.</span></div>
+<div class="line"><a name="l02214"></a><span class="lineno"> 2214</span>&#160;<span class="comment">  !! The domain is a derived type with private elements. These routines</span></div>
+<div class="line"><a name="l02215"></a><span class="lineno"> 2215</span>&#160;<span class="comment">  !! set the axis specifications associated with the data domains.</span></div>
+<div class="line"><a name="l02216"></a><span class="lineno"> 2216</span>&#160;<span class="comment">  !! The 2D version of these is a simple extension of 1D.</span></div>
+<div class="line"><a name="l02217"></a><span class="lineno"> 2217</span>&#160;  <span class="keyword">interface</span> mpp_set_data_domain</div>
+<div class="line"><a name="l02218"></a><span class="lineno"> 2218</span>&#160;     <span class="keyword">module procedure</span> mpp_set_data_domain1d</div>
+<div class="line"><a name="l02219"></a><span class="lineno"> 2219</span>&#160;     <span class="keyword">module procedure</span> mpp_set_data_domain2d</div>
+<div class="line"><a name="l02220"></a><span class="lineno"> 2220</span>&#160;  <span class="keyword">end interface</span></div>
+<div class="line"><a name="l02221"></a><span class="lineno"> 2221</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l02222"></a><span class="lineno"> 2222</span>&#160;<span class="comment">  !&gt; @page mpp_set_global_domain mpp_set_global_domain Interface</span></div>
+<div class="line"><a name="l02223"></a><span class="lineno"> 2223</span>&#160;<span class="comment">  !! These routines set the axis specifications associated with the global domains.</span></div>
+<div class="line"><a name="l02224"></a><span class="lineno"> 2224</span>&#160;<span class="comment">  !! The domain is a derived type with private elements. These routines</span></div>
+<div class="line"><a name="l02225"></a><span class="lineno"> 2225</span>&#160;<span class="comment">  !! set the axis specifications associated with the global domains.</span></div>
+<div class="line"><a name="l02226"></a><span class="lineno"> 2226</span>&#160;<span class="comment">  !! The 2D version of these is a simple extension of 1D.</span></div>
+<div class="line"><a name="l02227"></a><span class="lineno"> 2227</span>&#160;  <span class="keyword">interface</span> mpp_set_global_domain</div>
+<div class="line"><a name="l02228"></a><span class="lineno"> 2228</span>&#160;     <span class="keyword">module procedure</span> mpp_set_global_domain1d</div>
+<div class="line"><a name="l02229"></a><span class="lineno"> 2229</span>&#160;     <span class="keyword">module procedure</span> mpp_set_global_domain2d</div>
+<div class="line"><a name="l02230"></a><span class="lineno"> 2230</span>&#160;  <span class="keyword">end interface</span></div>
+<div class="line"><a name="l02231"></a><span class="lineno"> 2231</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l02232"></a><span class="lineno"> 2232</span>&#160;<span class="comment">  !&gt; @page mpp_get_pelist mpp_get_pelist Interface</span></div>
+<div class="line"><a name="l02233"></a><span class="lineno"> 2233</span>&#160;<span class="comment">  !! Retrieve list of PEs associated with a domain decomposition.</span></div>
+<div class="line"><a name="l02234"></a><span class="lineno"> 2234</span>&#160;<span class="comment">  !! The 1D version of this call returns an array of the PEs assigned to</span></div>
+<div class="line"><a name="l02235"></a><span class="lineno"> 2235</span>&#160;<span class="comment">  !! this 1D domain decomposition. In addition the optional argument pos may be</span></div>
+<div class="line"><a name="l02236"></a><span class="lineno"> 2236</span>&#160;<span class="comment">  !! used to retrieve the 0-based position of the domain local to the</span></div>
+<div class="line"><a name="l02237"></a><span class="lineno"> 2237</span>&#160;<span class="comment">  !! calling PE, i.e., \e domain\%list(pos)%pe is the local PE,</span></div>
+<div class="line"><a name="l02238"></a><span class="lineno"> 2238</span>&#160;<span class="comment">  !! as returned by mpp_pe()</span></div>
+<div class="line"><a name="l02239"></a><span class="lineno"> 2239</span>&#160;<span class="comment">  !! The 2D version of this call is identical to 1D version.</span></div>
+<div class="line"><a name="l02240"></a><span class="lineno"> 2240</span>&#160;  <span class="keyword">interface</span> mpp_get_pelist</div>
+<div class="line"><a name="l02241"></a><span class="lineno"> 2241</span>&#160;     <span class="keyword">module procedure</span> mpp_get_pelist1d</div>
+<div class="line"><a name="l02242"></a><span class="lineno"> 2242</span>&#160;     <span class="keyword">module procedure</span> mpp_get_pelist2d</div>
+<div class="line"><a name="l02243"></a><span class="lineno"> 2243</span>&#160;  <span class="keyword">end interface</span></div>
+<div class="line"><a name="l02244"></a><span class="lineno"> 2244</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l02245"></a><span class="lineno"> 2245</span>&#160;<span class="comment">  !&gt; @page mpp_get_layout mpp_get_layout Interface</span></div>
+<div class="line"><a name="l02246"></a><span class="lineno"> 2246</span>&#160;<span class="comment">  !! Retrieve layout associated with a domain decomposition</span></div>
+<div class="line"><a name="l02247"></a><span class="lineno"> 2247</span>&#160;<span class="comment">  !! The 1D version of this call returns the number of divisions that was assigned to this</span></div>
+<div class="line"><a name="l02248"></a><span class="lineno"> 2248</span>&#160;<span class="comment">  !! decomposition axis. The 2D version of this call returns an array of dimension 2 holding the</span></div>
+<div class="line"><a name="l02249"></a><span class="lineno"> 2249</span>&#160;<span class="comment">  !! results on two axes.</span></div>
+<div class="line"><a name="l02250"></a><span class="lineno"> 2250</span>&#160;<span class="comment">  !! &lt;br&gt;Example usage:</span></div>
+<div class="line"><a name="l02251"></a><span class="lineno"> 2251</span>&#160;<span class="comment">  !!</span></div>
+<div class="line"><a name="l02252"></a><span class="lineno"> 2252</span>&#160;<span class="comment">  !!                    call mpp_get_layout( domain, layout )</span></div>
+<div class="line"><a name="l02253"></a><span class="lineno"> 2253</span>&#160;  <span class="keyword">interface</span> mpp_get_layout</div>
+<div class="line"><a name="l02254"></a><span class="lineno"> 2254</span>&#160;     <span class="keyword">module procedure</span> mpp_get_layout1d</div>
+<div class="line"><a name="l02255"></a><span class="lineno"> 2255</span>&#160;     <span class="keyword">module procedure</span> mpp_get_layout2d</div>
+<div class="line"><a name="l02256"></a><span class="lineno"> 2256</span>&#160;  <span class="keyword">end interface</span></div>
+<div class="line"><a name="l02257"></a><span class="lineno"> 2257</span>&#160; </div>
+<div class="line"><a name="l02258"></a><span class="lineno"> 2258</span>&#160;  <span class="keyword">interface</span> check_data_size</div>
+<div class="line"><a name="l02259"></a><span class="lineno"> 2259</span>&#160;     <span class="keyword">module procedure</span> check_data_size_1d</div>
+<div class="line"><a name="l02260"></a><span class="lineno"> 2260</span>&#160;     <span class="keyword">module procedure</span> check_data_size_2d</div>
+<div class="line"><a name="l02261"></a><span class="lineno"> 2261</span>&#160;  <span class="keyword">end interface</span></div>
+<div class="line"><a name="l02262"></a><span class="lineno"> 2262</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l02263"></a><span class="lineno"> 2263</span>&#160;<span class="comment">  !&gt; @page mpp_nullify_domain_list mpp_nullify_domain_list Interface</span></div>
+<div class="line"><a name="l02264"></a><span class="lineno"> 2264</span>&#160;<span class="comment">  !! Nullify domain list. This interface is needed in mpp_domains_test.</span></div>
+<div class="line"><a name="l02265"></a><span class="lineno"> 2265</span>&#160;<span class="comment">  !! 1-D case can be added in if needed.</span></div>
+<div class="line"><a name="l02266"></a><span class="lineno"> 2266</span>&#160;<span class="comment">  !! &lt;br&gt;Example usage:</span></div>
+<div class="line"><a name="l02267"></a><span class="lineno"> 2267</span>&#160;<span class="comment">  !!</span></div>
+<div class="line"><a name="l02268"></a><span class="lineno"> 2268</span>&#160;<span class="comment">  !!                    call mpp_nullify_domain_list(domain)</span></div>
+<div class="line"><a name="l02269"></a><span class="lineno"> 2269</span>&#160;  <span class="keyword">interface</span> mpp_nullify_domain_list</div>
+<div class="line"><a name="l02270"></a><span class="lineno"> 2270</span>&#160;     <span class="keyword">module procedure</span> nullify_domain2d_list</div>
+<div class="line"><a name="l02271"></a><span class="lineno"> 2271</span>&#160;  <span class="keyword">end interface</span></div>
+<div class="line"><a name="l02272"></a><span class="lineno"> 2272</span>&#160; </div>
+<div class="line"><a name="l02273"></a><span class="lineno"> 2273</span>&#160;  <span class="comment">! Include variable &quot;version&quot; to be written to log file.</span></div>
+<div class="line"><a name="l02274"></a><span class="lineno"> 2274</span>&#160;<span class="preprocessor">#include&lt;file_version.h&gt;</span></div>
+<div class="line"><a name="l02275"></a><span class="lineno"> 2275</span>&#160;<span class="preprocessor"></span>  <span class="keywordtype">public</span> version</div>
+<div class="line"><a name="l02276"></a><span class="lineno"> 2276</span>&#160; </div>
+<div class="line"><a name="l02277"></a><span class="lineno"> 2277</span>&#160; </div>
+<div class="line"><a name="l02278"></a><span class="lineno"> 2278</span>&#160;<span class="keyword">contains</span></div>
+<div class="line"><a name="l02279"></a><span class="lineno"> 2279</span>&#160; </div>
+<div class="line"><a name="l02280"></a><span class="lineno"> 2280</span>&#160;<span class="preprocessor">#include &lt;mpp_define_nest_domains.inc&gt;</span></div>
+<div class="line"><a name="l02281"></a><span class="lineno"> 2281</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &lt;mpp_domains_util.inc&gt;</span></div>
+<div class="line"><a name="l02282"></a><span class="lineno"> 2282</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &lt;mpp_domains_comm.inc&gt;</span></div>
+<div class="line"><a name="l02283"></a><span class="lineno"> 2283</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &lt;mpp_domains_define.inc&gt;</span></div>
+<div class="line"><a name="l02284"></a><span class="lineno"> 2284</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &lt;mpp_domains_misc.inc&gt;</span></div>
+<div class="line"><a name="l02285"></a><span class="lineno"> 2285</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &lt;mpp_domains_reduce.inc&gt;</span></div>
+<div class="line"><a name="l02286"></a><span class="lineno"> 2286</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &lt;mpp_unstruct_domain.inc&gt;</span></div>
+<div class="line"><a name="l02287"></a><span class="lineno"> 2287</span>&#160;<span class="preprocessor"></span> </div>
+<div class="line"><a name="l02288"></a><span class="lineno"> 2288</span>&#160;<span class="keyword">end module </span>mpp_domains_mod<span class="comment"></span></div>
+<div class="line"><a name="l02289"></a><span class="lineno"> 2289</span>&#160;<span class="comment">!&gt; @}</span></div>
+<div class="line"><a name="l02290"></a><span class="lineno"> 2290</span>&#160;<span class="comment">! close documentation grouping</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="ampp__unstruct__domain_8inc_html_a853f0210a8fcbff66db6f72496064a96"><div class="ttname"><a href="mpp__unstruct__domain_8inc.html#a853f0210a8fcbff66db6f72496064a96">mpp_broadcast_domain_ug</a></div><div class="ttdeci">subroutine mpp_broadcast_domain_ug(domain)</div><div class="ttdoc">Broadcast domain (useful only outside the context of its own pelist)</div><div class="ttdef"><b>Definition:</b> <a href="mpp__unstruct__domain_8inc_source.html#l00580">mpp_unstruct_domain.inc:580</a></div></div>
@@ -2389,10 +2400,12 @@ $(document).ready(function(){initNavTree('mpp__domains_8F90_source.html',''); in
 <div class="ttc" id="agroup__mpp__memutils__mod_html_ga3c5834bfffa897af09be279c225279a2"><div class="ttname"><a href="group__mpp__memutils__mod.html#ga3c5834bfffa897af09be279c225279a2">mpp_memutils_mod::mpp_memuse_begin</a></div><div class="ttdeci">subroutine, public mpp_memuse_begin</div><div class="ttdoc">Initialize the memory module, and record the initial memory use.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__memutils_8F90_source.html#l00048">mpp_memutils.F90:48</a></div></div>
 <div class="ttc" id="ampp__util__mpi_8inc_html_a09e69243d8c67e6a6e6e4fd9e93d0870"><div class="ttname"><a href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a></div><div class="ttdeci">subroutine mpp_sync_self(pelist, check, request, msg_size, msg_type)</div><div class="ttdoc">This is to check if current PE's outstanding puts are complete but we can't use shmem_fence because w...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util__mpi_8inc_source.html#l00169">mpp_util_mpi.inc:169</a></div></div>
 <div class="ttc" id="ampp__define__nest__domains_8inc_html_adb0ae97e2b863b058f17161d2079e31a"><div class="ttname"><a href="mpp__define__nest__domains_8inc.html#adb0ae97e2b863b058f17161d2079e31a">mpp_get_c2f_index</a></div><div class="ttdeci">subroutine mpp_get_c2f_index(nest_domain, is_fine, ie_fine, js_fine, je_fine, is_coarse, ie_coarse, js_coarse, je_coarse, dir, nest_level, position)</div><div class="ttdef"><b>Definition:</b> <a href="mpp__define__nest__domains_8inc_source.html#l01531">mpp_define_nest_domains.inc:1531</a></div></div>
+<div class="ttc" id="astructmpp__domains__mod_1_1domain__axis__spec_html"><div class="ttname"><a href="structmpp__domains__mod_1_1domain__axis__spec.html">mpp_domains_mod::domain_axis_spec</a></div><div class="ttdoc">type used to specify index limits along an axis of a domain</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains_8F90_source.html#l00278">mpp_domains.F90:278</a></div></div>
 <div class="ttc" id="ampp__domains__define_8inc_html_a5ef8586c1cb432309203faa1723d1e8e"><div class="ttname"><a href="mpp__domains__define_8inc.html#a5ef8586c1cb432309203faa1723d1e8e">mpp_define_domains1d</a></div><div class="ttdeci">subroutine mpp_define_domains1d(global_indices, ndivs, domain, pelist, flags, halo, extent, maskmap, memory_size, begin_halo, end_halo)</div><div class="ttdoc">MPP_DEFINE_DOMAINS: define layout and decomposition !</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__define_8inc_source.html#l00293">mpp_domains_define.inc:293</a></div></div>
 <div class="ttc" id="ampp__domains__util_8inc_html_ae1f3c0c5c574686aac6c1595b1ca0b66"><div class="ttname"><a href="mpp__domains__util_8inc.html#ae1f3c0c5c574686aac6c1595b1ca0b66">mpp_domains_set_stack_size</a></div><div class="ttdeci">subroutine mpp_domains_set_stack_size(n)</div><div class="ttdoc">Set user stack size.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__util_8inc_source.html#l00052">mpp_domains_util.inc:52</a></div></div>
 <div class="ttc" id="ampp__util_8inc_html_a285ef180624257148d85af894928844b"><div class="ttname"><a href="mpp__util_8inc.html#a285ef180624257148d85af894928844b">stderr</a></div><div class="ttdeci">integer function stderr()</div><div class="ttdoc">This function returns the current standard fortran unit numbers for error messages.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00085">mpp_util.inc:85</a></div></div>
 <div class="ttc" id="ampp__domains__define_8inc_html_a80f2abb456b7778c01032502e70fe683"><div class="ttname"><a href="mpp__domains__define_8inc.html#a80f2abb456b7778c01032502e70fe683">mpp_modify_domain1d</a></div><div class="ttdeci">subroutine mpp_modify_domain1d(domain_in, domain_out, cbegin, cend, gbegin, gend, hbegin, hend)</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__define_8inc_source.html#l07446">mpp_domains_define.inc:7446</a></div></div>
+<div class="ttc" id="astructmpp__domains__mod_1_1domain1d_html"><div class="ttname"><a href="structmpp__domains__mod_1_1domain1d.html">mpp_domains_mod::domain1d</a></div><div class="ttdoc">One dimensional domain used to manage shared data access between pes.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains_8F90_source.html#l00285">mpp_domains.F90:285</a></div></div>
 <div class="ttc" id="ampp__comm__mpi_8inc_html_a889ed63075362dc3a3d3c12385d5a9c7"><div class="ttname"><a href="mpp__comm__mpi_8inc.html#a889ed63075362dc3a3d3c12385d5a9c7">mpp_init</a></div><div class="ttdeci">subroutine mpp_init(flags, localcomm, test_level)</div><div class="ttdoc">Initialize the mpp_mod module.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__comm__mpi_8inc_source.html#l00034">mpp_comm_mpi.inc:34</a></div></div>
 <div class="ttc" id="ampp__util__mpi_8inc_html_ad75482ebfad2337cd236ef0998accdc4"><div class="ttname"><a href="mpp__util__mpi_8inc.html#ad75482ebfad2337cd236ef0998accdc4">mpp_sync</a></div><div class="ttdeci">subroutine mpp_sync(pelist, do_self)</div><div class="ttdoc">Synchronize PEs in list.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util__mpi_8inc_source.html#l00146">mpp_util_mpi.inc:146</a></div></div>
 <div class="ttc" id="ampp__domains__define_8inc_html_a7ac8ee98767fbab41bf6e8ba0ba4ec73"><div class="ttname"><a href="mpp__domains__define_8inc.html#a7ac8ee98767fbab41bf6e8ba0ba4ec73">mpp_define_io_domain</a></div><div class="ttdeci">subroutine mpp_define_io_domain(domain, io_layout)</div><div class="ttdoc">define the IO domain.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__define_8inc_source.html#l00465">mpp_domains_define.inc:465</a></div></div>
@@ -2402,6 +2415,7 @@ $(document).ready(function(){initNavTree('mpp__domains_8F90_source.html',''); in
 <div class="ttc" id="ampp__util_8inc_html_abf546cd336d5c539e445fb884f98ab6b"><div class="ttname"><a href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a></div><div class="ttdeci">integer function mpp_npes()</div><div class="ttdoc">Returns processor count for current pelist.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00467">mpp_util.inc:467</a></div></div>
 <div class="ttc" id="ampp__domains__define_8inc_html_aac8a748b09a51c920c21e20a9782b61c"><div class="ttname"><a href="mpp__domains__define_8inc.html#aac8a748b09a51c920c21e20a9782b61c">mpp_define_layout2d</a></div><div class="ttdeci">subroutine mpp_define_layout2d(global_indices, ndivs, layout)</div><div class="ttdoc">Instantiates a layout with the given indices and divisions.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__define_8inc_source.html#l00034">mpp_domains_define.inc:34</a></div></div>
 <div class="ttc" id="ampp__util_8inc_html_acfeba7de56f9dd6000b3fd78f9d56c50"><div class="ttname"><a href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a></div><div class="ttdeci">integer function mpp_pe()</div><div class="ttdoc">Returns processor ID. This returns the unique ID associated with a PE. This number runs between 0 and...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00442">mpp_util.inc:442</a></div></div>
+<div class="ttc" id="astructmpp__domains__mod_1_1domainug_html"><div class="ttname"><a href="structmpp__domains__mod_1_1domainug.html">mpp_domains_mod::domainug</a></div><div class="ttdoc">Domain information for managing data on unstructured grids.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains_8F90_source.html#l00258">mpp_domains.F90:258</a></div></div>
 <div class="ttc" id="ampp__domains__util_8inc_html_af7e43a54543f13f1c93200becebd894e"><div class="ttname"><a href="mpp__domains__util_8inc.html#af7e43a54543f13f1c93200becebd894e">mpp_copy_domain1d</a></div><div class="ttdeci">recursive subroutine mpp_copy_domain1d(domain_in, domain_out)</div><div class="ttdoc">Copies input 1d domain to the output 1d domain.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__util_8inc_source.html#l01746">mpp_domains_util.inc:1746</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

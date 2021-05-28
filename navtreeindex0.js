@@ -11,6 +11,7 @@ var NAVTREEINDEX0 =
 ".html":[5,0,9],
 ".html":[5,0,10],
 ".html":[5,0,11],
+".html":[5,0,12],
 "This-example.html":[7,3],
 "_2home_2runner_2work_2FMS_2FMS_2mosaic2_2mosaic2_8F90-example.html":[7,0],
 "affinity_8c.html":[6,0,0,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX0 =
 "astronomy_8F90.html#gad369225c254bc7bda087334ca5d13096":[6,0,2,0,44],
 "astronomy_8F90.html#gad63eb1838f8bd3a04f7323a0dc826c83":[6,0,2,0,3],
 "astronomy_8F90.html#gada396fa1ede7431df75438a6c9d6c771":[6,0,2,0,24],
-"astronomy_8F90.html#gadc97a16dbd669dfb2ba2b36daaf34b79":[6,0,2,0,23],
-"astronomy_8F90.html#gadfb82cadb8494848ea78e039c31e7f34":[6,0,2,0,37]
+"astronomy_8F90.html#gadc97a16dbd669dfb2ba2b36daaf34b79":[6,0,2,0,23]
 };

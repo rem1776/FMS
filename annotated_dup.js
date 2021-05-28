@@ -49,6 +49,11 @@ var annotated_dup =
     [ "interpolator_mod", null, [
       [ "interpolate_type", "structinterpolator__mod_1_1interpolate__type.html", "structinterpolator__mod_1_1interpolate__type" ]
     ] ],
+    [ "mpp_domains_mod", null, [
+      [ "domain1d", "structmpp__domains__mod_1_1domain1d.html", "structmpp__domains__mod_1_1domain1d" ],
+      [ "domain_axis_spec", "structmpp__domains__mod_1_1domain__axis__spec.html", "structmpp__domains__mod_1_1domain__axis__spec" ],
+      [ "domainug", "structmpp__domains__mod_1_1domainug.html", "structmpp__domains__mod_1_1domainug" ]
+    ] ],
     [ "mpp_efp_mod", null, [
       [ "mpp_efp_type", "structmpp__efp__mod_1_1mpp__efp__type.html", "structmpp__efp__mod_1_1mpp__efp__type" ],
       [ "operator(+)", "interfacempp__efp__mod_1_1operator_07_09_08.html", null ]

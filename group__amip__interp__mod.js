@@ -1,5 +1,6 @@
 var group__amip__interp__mod =
 [
+    [ "Assignment", "group__amip__interp__mod.html#amip_interp_type", null ],
     [ "amip_interp_new Interface", "group__amip__interp__mod.html#amip_interp_new", null ],
     [ "amip_interp Namelist", "group__amip__interp__mod.html#amip_interp_nml", null ],
     [ "amip_interp_del", "group__amip__interp__mod.html#gaa680c8750f89c6444c6caf3d93b54cb4", null ],

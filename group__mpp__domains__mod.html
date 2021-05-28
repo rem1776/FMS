@@ -101,16 +101,291 @@ $(document).ready(function(){initNavTree('group__mpp__domains__mod.html',''); in
 <p>Domain decomposition and domain update for message-passing codes.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Data Types</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">type &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmpp__domains__mod_1_1domainug.html">domainug</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Domain information for managing data on unstructured grids.  <a href="structmpp__domains__mod_1_1domainug.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">type &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmpp__domains__mod_1_1domain__axis__spec.html">domain_axis_spec</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">type used to specify index limits along an axis of a domain  <a href="structmpp__domains__mod_1_1domain__axis__spec.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">type &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmpp__domains__mod_1_1domain1d.html">domain1d</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">One dimensional domain used to manage shared data access between pes.  <a href="structmpp__domains__mod_1_1domain1d.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
+<tr class="memitem:ga04b14fa6607ddc263d8d302eabc1870d"><td class="memItemLeft" align="right" valign="top"><a id="ga04b14fa6607ddc263d8d302eabc1870d"></a>
+type(unstruct_axis_spec)&#160;</td><td class="memItemRight" valign="bottom"><b>compute</b></td></tr>
+<tr class="separator:ga04b14fa6607ddc263d8d302eabc1870d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabad0f65728de4e6f2c0c4b9db7c9fd11"><td class="memItemLeft" align="right" valign="top"><a id="gabad0f65728de4e6f2c0c4b9db7c9fd11"></a>
+type(unstruct_axis_spec)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mpp__domains__mod.html#gabad0f65728de4e6f2c0c4b9db7c9fd11">global</a></td></tr>
+<tr class="memdesc:gabad0f65728de4e6f2c0c4b9db7c9fd11"><td class="mdescLeft">&#160;</td><td class="mdescRight">axis specifications <br /></td></tr>
+<tr class="separator:gabad0f65728de4e6f2c0c4b9db7c9fd11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga42caca158f36cf540d45fcf46efa88f5"><td class="memItemLeft" align="right" valign="top"><a id="ga42caca158f36cf540d45fcf46efa88f5"></a>
+type(unstruct_domain_spec), dimension(:), pointer&#160;</td><td class="memItemRight" valign="bottom"><b>list</b> =&gt;NULL()</td></tr>
+<tr class="separator:ga42caca158f36cf540d45fcf46efa88f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4e6c57965a08fca6a9f7c7000696623d"><td class="memItemLeft" align="right" valign="top"><a id="ga4e6c57965a08fca6a9f7c7000696623d"></a>
+type(<a class="el" href="structmpp__domains__mod_1_1domainug.html">domainug</a>), pointer&#160;</td><td class="memItemRight" valign="bottom"><b>io_domain</b> =&gt;NULL()</td></tr>
+<tr class="separator:ga4e6c57965a08fca6a9f7c7000696623d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6c8de172b03961bf70ef90eb5dcb8bdc"><td class="memItemLeft" align="right" valign="top"><a id="ga6c8de172b03961bf70ef90eb5dcb8bdc"></a>
+type(unstruct_pass_type)&#160;</td><td class="memItemRight" valign="bottom"><b>sg2ug</b></td></tr>
+<tr class="separator:ga6c8de172b03961bf70ef90eb5dcb8bdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac2d7d75f4365ae287146892b4632d63f"><td class="memItemLeft" align="right" valign="top"><a id="gac2d7d75f4365ae287146892b4632d63f"></a>
+type(unstruct_pass_type)&#160;</td><td class="memItemRight" valign="bottom"><b>ug2sg</b></td></tr>
+<tr class="separator:gac2d7d75f4365ae287146892b4632d63f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1bd327fa6ac5f6708e1e05d50d3bfc86"><td class="memItemLeft" align="right" valign="top"><a id="ga1bd327fa6ac5f6708e1e05d50d3bfc86"></a>
+integer, dimension(:), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mpp__domains__mod.html#ga1bd327fa6ac5f6708e1e05d50d3bfc86">grid_index</a> =&gt; NULL()</td></tr>
+<tr class="memdesc:ga1bd327fa6ac5f6708e1e05d50d3bfc86"><td class="mdescLeft">&#160;</td><td class="mdescRight">index of grid on current pe <br /></td></tr>
+<tr class="separator:ga1bd327fa6ac5f6708e1e05d50d3bfc86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa85974702e52655ac37c010c78eb69c2"><td class="memItemLeft" align="right" valign="top"><a id="gaa85974702e52655ac37c010c78eb69c2"></a>
+type(domain2d), pointer&#160;</td><td class="memItemRight" valign="bottom"><b>sg_domain</b> =&gt; NULL()</td></tr>
+<tr class="separator:gaa85974702e52655ac37c010c78eb69c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8a5f299eef1abe4c0df23ebd220ce83e"><td class="memItemLeft" align="right" valign="top"><a id="ga8a5f299eef1abe4c0df23ebd220ce83e"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>pe</b></td></tr>
+<tr class="separator:ga8a5f299eef1abe4c0df23ebd220ce83e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab310b8bd92c60fdad3abc93d93ccb38c"><td class="memItemLeft" align="right" valign="top"><a id="gab310b8bd92c60fdad3abc93d93ccb38c"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>pos</b></td></tr>
+<tr class="separator:gab310b8bd92c60fdad3abc93d93ccb38c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad647e9d34add429dd842471b09d57723"><td class="memItemLeft" align="right" valign="top"><a id="gad647e9d34add429dd842471b09d57723"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>ntiles</b></td></tr>
+<tr class="separator:gad647e9d34add429dd842471b09d57723"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga45e4e66ccbc5b1cd75e976aba93f39c3"><td class="memItemLeft" align="right" valign="top"><a id="ga45e4e66ccbc5b1cd75e976aba93f39c3"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>tile_id</b></td></tr>
+<tr class="separator:ga45e4e66ccbc5b1cd75e976aba93f39c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga425c87944eae08f08a9fb078daae8bdb"><td class="memItemLeft" align="right" valign="top"><a id="ga425c87944eae08f08a9fb078daae8bdb"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>tile_root_pe</b></td></tr>
+<tr class="separator:ga425c87944eae08f08a9fb078daae8bdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4285a8ea89a27591ed227b047403387d"><td class="memItemLeft" align="right" valign="top"><a id="ga4285a8ea89a27591ed227b047403387d"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>tile_npes</b></td></tr>
+<tr class="separator:ga4285a8ea89a27591ed227b047403387d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8ec1edff2ca60c49778b1268260413a0"><td class="memItemLeft" align="right" valign="top"><a id="ga8ec1edff2ca60c49778b1268260413a0"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>npes_io_group</b></td></tr>
+<tr class="separator:ga8ec1edff2ca60c49778b1268260413a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga57a0dde6c489fd73df78f7e89d70300d"><td class="memItemLeft" align="right" valign="top"><a id="ga57a0dde6c489fd73df78f7e89d70300d"></a>
+integer(i4_kind)&#160;</td><td class="memItemRight" valign="bottom"><b>io_layout</b></td></tr>
+<tr class="separator:ga57a0dde6c489fd73df78f7e89d70300d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga88e49475748526c3b64450b6a6093e31"><td class="memItemLeft" align="right" valign="top"><a id="ga88e49475748526c3b64450b6a6093e31"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>begin</b></td></tr>
+<tr class="separator:ga88e49475748526c3b64450b6a6093e31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7196112fa51ac7a2ed25086d2090f208"><td class="memItemLeft" align="right" valign="top"><a id="ga7196112fa51ac7a2ed25086d2090f208"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>end</b></td></tr>
+<tr class="separator:ga7196112fa51ac7a2ed25086d2090f208"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6621c7fedbd7c7baa696edda1ef5aee6"><td class="memItemLeft" align="right" valign="top"><a id="ga6621c7fedbd7c7baa696edda1ef5aee6"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>size</b></td></tr>
+<tr class="separator:ga6621c7fedbd7c7baa696edda1ef5aee6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7ecf7b60e9b74736fd61d8ab8e67f404"><td class="memItemLeft" align="right" valign="top"><a id="ga7ecf7b60e9b74736fd61d8ab8e67f404"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mpp__domains__mod.html#ga7ecf7b60e9b74736fd61d8ab8e67f404">max_size</a></td></tr>
+<tr class="memdesc:ga7ecf7b60e9b74736fd61d8ab8e67f404"><td class="mdescLeft">&#160;</td><td class="mdescRight">start, end of domain axis, size, max size in set <br /></td></tr>
+<tr class="separator:ga7ecf7b60e9b74736fd61d8ab8e67f404"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad8b8fffdf3a6391f59fdfd128001fd7d"><td class="memItemLeft" align="right" valign="top"><a id="gad8b8fffdf3a6391f59fdfd128001fd7d"></a>
+logical&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mpp__domains__mod.html#gad8b8fffdf3a6391f59fdfd128001fd7d">is_global</a></td></tr>
+<tr class="memdesc:gad8b8fffdf3a6391f59fdfd128001fd7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">.true. if domain axis extent covers global domain <br /></td></tr>
+<tr class="separator:gad8b8fffdf3a6391f59fdfd128001fd7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae89552ebf5ff03e24a9aa29a8fe6ef9b"><td class="memItemLeft" align="right" valign="top"><a id="gae89552ebf5ff03e24a9aa29a8fe6ef9b"></a>
+type(<a class="el" href="structmpp__domains__mod_1_1domain__axis__spec.html">domain_axis_spec</a>)&#160;</td><td class="memItemRight" valign="bottom"><b>compute</b></td></tr>
+<tr class="separator:gae89552ebf5ff03e24a9aa29a8fe6ef9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4bd837d2d2bd7a4bb4ca31e97ceb4ba1"><td class="memItemLeft" align="right" valign="top"><a id="ga4bd837d2d2bd7a4bb4ca31e97ceb4ba1"></a>
+type(<a class="el" href="structmpp__domains__mod_1_1domain__axis__spec.html">domain_axis_spec</a>)&#160;</td><td class="memItemRight" valign="bottom"><b>data</b></td></tr>
+<tr class="separator:ga4bd837d2d2bd7a4bb4ca31e97ceb4ba1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga924b6ab9a5d0e6fedc5d87e9e8b66cd2"><td class="memItemLeft" align="right" valign="top"><a id="ga924b6ab9a5d0e6fedc5d87e9e8b66cd2"></a>
+type(<a class="el" href="structmpp__domains__mod_1_1domain__axis__spec.html">domain_axis_spec</a>)&#160;</td><td class="memItemRight" valign="bottom"><b>global</b></td></tr>
+<tr class="separator:ga924b6ab9a5d0e6fedc5d87e9e8b66cd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga96760f0116a225da1e47fec0a049f1c4"><td class="memItemLeft" align="right" valign="top"><a id="ga96760f0116a225da1e47fec0a049f1c4"></a>
+type(<a class="el" href="structmpp__domains__mod_1_1domain__axis__spec.html">domain_axis_spec</a>)&#160;</td><td class="memItemRight" valign="bottom"><b>memory</b></td></tr>
+<tr class="separator:ga96760f0116a225da1e47fec0a049f1c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf5bc22244f7577b7fb65ae68b7b7662c"><td class="memItemLeft" align="right" valign="top"><a id="gaf5bc22244f7577b7fb65ae68b7b7662c"></a>
+type(<a class="el" href="structmpp__domains__mod_1_1domain__axis__spec.html">domain_axis_spec</a>)&#160;</td><td class="memItemRight" valign="bottom"><b>index</b></td></tr>
+<tr class="separator:gaf5bc22244f7577b7fb65ae68b7b7662c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga92b3755781fd70b3de48ca9cceb840d4"><td class="memItemLeft" align="right" valign="top"><a id="ga92b3755781fd70b3de48ca9cceb840d4"></a>
+type(<a class="el" href="structmpp__domains__mod_1_1domain__axis__spec.html">domain_axis_spec</a>)&#160;</td><td class="memItemRight" valign="bottom"><b>limits</b></td></tr>
+<tr class="separator:ga92b3755781fd70b3de48ca9cceb840d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac86ed20f8b9f5c00a3f881b4d055f3c4"><td class="memItemLeft" align="right" valign="top"><a id="gac86ed20f8b9f5c00a3f881b4d055f3c4"></a>
+type(<a class="el" href="structmpp__domains__mod_1_1domain__axis__spec.html">domain_axis_spec</a>)&#160;</td><td class="memItemRight" valign="bottom"><b>for</b></td></tr>
+<tr class="separator:gac86ed20f8b9f5c00a3f881b4d055f3c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafb7e8b4447aa8a10834ef297ec9403db"><td class="memItemLeft" align="right" valign="top"><a id="gafb7e8b4447aa8a10834ef297ec9403db"></a>
+type(<a class="el" href="structmpp__domains__mod_1_1domain__axis__spec.html">domain_axis_spec</a>)&#160;</td><td class="memItemRight" valign="bottom"><b>different</b></td></tr>
+<tr class="separator:gafb7e8b4447aa8a10834ef297ec9403db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga535d6b75811d6e59b8bdd76d247524e5"><td class="memItemLeft" align="right" valign="top"><a id="ga535d6b75811d6e59b8bdd76d247524e5"></a>
+type(<a class="el" href="structmpp__domains__mod_1_1domain__axis__spec.html">domain_axis_spec</a>)&#160;</td><td class="memItemRight" valign="bottom"><b>domains</b></td></tr>
+<tr class="separator:ga535d6b75811d6e59b8bdd76d247524e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0d5428dcfada2c6dc75a7dc3c5b00ca9"><td class="memItemLeft" align="right" valign="top"><a id="ga0d5428dcfada2c6dc75a7dc3c5b00ca9"></a>
+logical&#160;</td><td class="memItemRight" valign="bottom"><b>cyclic</b></td></tr>
+<tr class="separator:ga0d5428dcfada2c6dc75a7dc3c5b00ca9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab2f93e98e221df4f1f6867373e408158"><td class="memItemLeft" align="right" valign="top"><a id="gab2f93e98e221df4f1f6867373e408158"></a>
+type(<a class="el" href="structmpp__domains__mod_1_1domain1d.html">domain1d</a>), dimension(:), pointer&#160;</td><td class="memItemRight" valign="bottom"><b>list</b> =&gt;NULL()</td></tr>
+<tr class="separator:gab2f93e98e221df4f1f6867373e408158"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8ba1f9a514832466440ecae03c1a6bbd"><td class="memItemLeft" align="right" valign="top"><a id="ga8ba1f9a514832466440ecae03c1a6bbd"></a>
+type(<a class="el" href="structmpp__domains__mod_1_1domain1d.html">domain1d</a>), pointer&#160;</td><td class="memItemRight" valign="bottom"><b>of</b></td></tr>
+<tr class="separator:ga8ba1f9a514832466440ecae03c1a6bbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad0cb381a2e30d82c1efbd753f5606444"><td class="memItemLeft" align="right" valign="top"><a id="gad0cb381a2e30d82c1efbd753f5606444"></a>
+type(<a class="el" href="structmpp__domains__mod_1_1domain1d.html">domain1d</a>), pointer&#160;</td><td class="memItemRight" valign="bottom"><b>each</b></td></tr>
+<tr class="separator:gad0cb381a2e30d82c1efbd753f5606444"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga41ecfe2f5cc34ce3087835f190d9e5ce"><td class="memItemLeft" align="right" valign="top"><a id="ga41ecfe2f5cc34ce3087835f190d9e5ce"></a>
+type(<a class="el" href="structmpp__domains__mod_1_1domain1d.html">domain1d</a>), pointer&#160;</td><td class="memItemRight" valign="bottom"><b>pe</b></td></tr>
+<tr class="separator:ga41ecfe2f5cc34ce3087835f190d9e5ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga61d54b409cb7f5211e593ac9bf5562ca"><td class="memItemLeft" align="right" valign="top"><a id="ga61d54b409cb7f5211e593ac9bf5562ca"></a>
+type(<a class="el" href="structmpp__domains__mod_1_1domain1d.html">domain1d</a>), pointer&#160;</td><td class="memItemRight" valign="bottom"><b>unnamed</b></td></tr>
+<tr class="separator:ga61d54b409cb7f5211e593ac9bf5562ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga46b8577111e68f247a7a3a1eb42130de"><td class="memItemLeft" align="right" valign="top"><a id="ga46b8577111e68f247a7a3a1eb42130de"></a>
+type(<a class="el" href="structmpp__domains__mod_1_1domain1d.html">domain1d</a>), pointer&#160;</td><td class="memItemRight" valign="bottom"><b>s</b></td></tr>
+<tr class="separator:ga46b8577111e68f247a7a3a1eb42130de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabedc417ac331461c0a5a4b5274b2bc6a"><td class="memItemLeft" align="right" valign="top"><a id="gabedc417ac331461c0a5a4b5274b2bc6a"></a>
+logical&#160;</td><td class="memItemRight" valign="bottom"><b>initialized</b> =.false.</td></tr>
+<tr class="separator:gabedc417ac331461c0a5a4b5274b2bc6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga206c3bccaf4548b3daa6cb155f524667"><td class="memItemLeft" align="right" valign="top"><a id="ga206c3bccaf4548b3daa6cb155f524667"></a>
+integer(i8_kind)&#160;</td><td class="memItemRight" valign="bottom"><b>id</b> =-9999</td></tr>
+<tr class="separator:ga206c3bccaf4548b3daa6cb155f524667"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga745bbb4251154a2b48a4d0fbb34b7b20"><td class="memItemLeft" align="right" valign="top"><a id="ga745bbb4251154a2b48a4d0fbb34b7b20"></a>
+integer(i8_kind)&#160;</td><td class="memItemRight" valign="bottom"><b>l_addr</b> =-9999</td></tr>
+<tr class="separator:ga745bbb4251154a2b48a4d0fbb34b7b20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga72ac0f47bbd42478359a4439748e4056"><td class="memItemLeft" align="right" valign="top"><a id="ga72ac0f47bbd42478359a4439748e4056"></a>
+integer(i8_kind)&#160;</td><td class="memItemRight" valign="bottom"><b>l_addrx</b> =-9999</td></tr>
+<tr class="separator:ga72ac0f47bbd42478359a4439748e4056"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga428a7e3cbd58546beda77ae4ee015607"><td class="memItemLeft" align="right" valign="top"><a id="ga428a7e3cbd58546beda77ae4ee015607"></a>
+integer(i8_kind)&#160;</td><td class="memItemRight" valign="bottom"><b>l_addry</b> =-9999</td></tr>
+<tr class="separator:ga428a7e3cbd58546beda77ae4ee015607"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab292c57e63534f991583f9cbb57d149c"><td class="memItemLeft" align="right" valign="top"><a id="gab292c57e63534f991583f9cbb57d149c"></a>
+type(domain2d), pointer&#160;</td><td class="memItemRight" valign="bottom"><b>domain</b> =&gt;NULL()</td></tr>
+<tr class="separator:gab292c57e63534f991583f9cbb57d149c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaefac2e67b92a47150e35665ae12bdcc6"><td class="memItemLeft" align="right" valign="top"><a id="gaefac2e67b92a47150e35665ae12bdcc6"></a>
+type(domain2d), pointer&#160;</td><td class="memItemRight" valign="bottom"><b>domain_in</b> =&gt;NULL()</td></tr>
+<tr class="separator:gaefac2e67b92a47150e35665ae12bdcc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf2a3002f71db29e30112843a16a4ab7f"><td class="memItemLeft" align="right" valign="top"><a id="gaf2a3002f71db29e30112843a16a4ab7f"></a>
+type(domain2d), pointer&#160;</td><td class="memItemRight" valign="bottom"><b>domain_out</b> =&gt;NULL()</td></tr>
+<tr class="separator:gaf2a3002f71db29e30112843a16a4ab7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga681352f937347533722c3b6bc9af42f4"><td class="memItemLeft" align="right" valign="top"><a id="ga681352f937347533722c3b6bc9af42f4"></a>
+type(overlapspec), dimension(:,:,:,:), pointer&#160;</td><td class="memItemRight" valign="bottom"><b>send</b> =&gt; NULL()</td></tr>
+<tr class="separator:ga681352f937347533722c3b6bc9af42f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf8f545154f5072333128f98505132ab4"><td class="memItemLeft" align="right" valign="top"><a id="gaf8f545154f5072333128f98505132ab4"></a>
+type(overlapspec), dimension(:,:,:,:), pointer&#160;</td><td class="memItemRight" valign="bottom"><b>recv</b> =&gt; NULL()</td></tr>
+<tr class="separator:gaf8f545154f5072333128f98505132ab4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga68db4c4a831fffccb8c378c878e0fc7e"><td class="memItemLeft" align="right" valign="top"><a id="ga68db4c4a831fffccb8c378c878e0fc7e"></a>
+integer, dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><b>sendis</b></td></tr>
+<tr class="separator:ga68db4c4a831fffccb8c378c878e0fc7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa8d56ce4a0a8522193ed68df6aa82335"><td class="memItemLeft" align="right" valign="top"><a id="gaa8d56ce4a0a8522193ed68df6aa82335"></a>
+integer, dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><b>sendie</b></td></tr>
+<tr class="separator:gaa8d56ce4a0a8522193ed68df6aa82335"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6f290edbac6af1e5688a4fa5646de940"><td class="memItemLeft" align="right" valign="top"><a id="ga6f290edbac6af1e5688a4fa5646de940"></a>
+integer, dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><b>sendjs</b></td></tr>
+<tr class="separator:ga6f290edbac6af1e5688a4fa5646de940"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga167c6e5feaf6ff1950ede5d34dadf57e"><td class="memItemLeft" align="right" valign="top"><a id="ga167c6e5feaf6ff1950ede5d34dadf57e"></a>
+integer, dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><b>sendje</b></td></tr>
+<tr class="separator:ga167c6e5feaf6ff1950ede5d34dadf57e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga879529b95041a1949c6c5ebe131e60cf"><td class="memItemLeft" align="right" valign="top"><a id="ga879529b95041a1949c6c5ebe131e60cf"></a>
+integer, dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><b>recvis</b></td></tr>
+<tr class="separator:ga879529b95041a1949c6c5ebe131e60cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga241162c7391238bfd36b248cbef316eb"><td class="memItemLeft" align="right" valign="top"><a id="ga241162c7391238bfd36b248cbef316eb"></a>
+integer, dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><b>recvie</b></td></tr>
+<tr class="separator:ga241162c7391238bfd36b248cbef316eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad05b0a360e9cfcf3b44130d82f52bdd6"><td class="memItemLeft" align="right" valign="top"><a id="gad05b0a360e9cfcf3b44130d82f52bdd6"></a>
+integer, dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><b>recvjs</b></td></tr>
+<tr class="separator:gad05b0a360e9cfcf3b44130d82f52bdd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac94a9e24f39f2aecfe4ae7178a52ae3b"><td class="memItemLeft" align="right" valign="top"><a id="gac94a9e24f39f2aecfe4ae7178a52ae3b"></a>
+integer, dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><b>recvje</b></td></tr>
+<tr class="separator:gac94a9e24f39f2aecfe4ae7178a52ae3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac85dde73e530bbb8cdbd40e9df4605e8"><td class="memItemLeft" align="right" valign="top"><a id="gac85dde73e530bbb8cdbd40e9df4605e8"></a>
+logical, dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><b>s_do_buf</b></td></tr>
+<tr class="separator:gac85dde73e530bbb8cdbd40e9df4605e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad7a05c9ad446de0bef7dc113f245705d"><td class="memItemLeft" align="right" valign="top"><a id="gad7a05c9ad446de0bef7dc113f245705d"></a>
+logical, dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><b>r_do_buf</b></td></tr>
+<tr class="separator:gad7a05c9ad446de0bef7dc113f245705d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacd59b0b96eac65771144f1fa9dceef40"><td class="memItemLeft" align="right" valign="top"><a id="gacd59b0b96eac65771144f1fa9dceef40"></a>
+integer, dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><b>cto_pe</b></td></tr>
+<tr class="separator:gacd59b0b96eac65771144f1fa9dceef40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9d2bd09203f3a65156385b9f56aa93f2"><td class="memItemLeft" align="right" valign="top"><a id="ga9d2bd09203f3a65156385b9f56aa93f2"></a>
+integer, dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><b>cfrom_pe</b></td></tr>
+<tr class="separator:ga9d2bd09203f3a65156385b9f56aa93f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa8ba6586bf4835acd8844c975f66ee49"><td class="memItemLeft" align="right" valign="top"><a id="gaa8ba6586bf4835acd8844c975f66ee49"></a>
+integer, dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><b>s_msize</b></td></tr>
+<tr class="separator:gaa8ba6586bf4835acd8844c975f66ee49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga469a5d9e17e48695a1f70b1b0e218b01"><td class="memItemLeft" align="right" valign="top"><a id="ga469a5d9e17e48695a1f70b1b0e218b01"></a>
+integer, dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><b>r_msize</b></td></tr>
+<tr class="separator:ga469a5d9e17e48695a1f70b1b0e218b01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf3482616e40ebb44082ba3ee8d84cf33"><td class="memItemLeft" align="right" valign="top"><a id="gaf3482616e40ebb44082ba3ee8d84cf33"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>slist_size</b> =0</td></tr>
+<tr class="separator:gaf3482616e40ebb44082ba3ee8d84cf33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga51b0db3322759953002c24aa9fb8d9b1"><td class="memItemLeft" align="right" valign="top"><a id="ga51b0db3322759953002c24aa9fb8d9b1"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>rlist_size</b> =0</td></tr>
+<tr class="separator:ga51b0db3322759953002c24aa9fb8d9b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0ca56a2e73a1f91a8ddb9cc9017489ab"><td class="memItemLeft" align="right" valign="top"><a id="ga0ca56a2e73a1f91a8ddb9cc9017489ab"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>isize</b> =0</td></tr>
+<tr class="separator:ga0ca56a2e73a1f91a8ddb9cc9017489ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga39ff5cf46282629481a52c279b3d74ac"><td class="memItemLeft" align="right" valign="top"><a id="ga39ff5cf46282629481a52c279b3d74ac"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>jsize</b> =0</td></tr>
+<tr class="separator:ga39ff5cf46282629481a52c279b3d74ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga450c07245fa7eca1ce6d7f1b1d73bdd3"><td class="memItemLeft" align="right" valign="top"><a id="ga450c07245fa7eca1ce6d7f1b1d73bdd3"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>ke</b> =0</td></tr>
+<tr class="separator:ga450c07245fa7eca1ce6d7f1b1d73bdd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga79e81ae4893b6bba4922fa8896727031"><td class="memItemLeft" align="right" valign="top"><a id="ga79e81ae4893b6bba4922fa8896727031"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>isize_in</b> =0</td></tr>
+<tr class="separator:ga79e81ae4893b6bba4922fa8896727031"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab0e92697b41413e295cce4da47afb3dd"><td class="memItemLeft" align="right" valign="top"><a id="gab0e92697b41413e295cce4da47afb3dd"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>jsize_in</b> =0</td></tr>
+<tr class="separator:gab0e92697b41413e295cce4da47afb3dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafb478d6ef590bc05bbb3f2f547fad016"><td class="memItemLeft" align="right" valign="top"><a id="gafb478d6ef590bc05bbb3f2f547fad016"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>isize_out</b> =0</td></tr>
+<tr class="separator:gafb478d6ef590bc05bbb3f2f547fad016"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafc5e70223268d12685eb17418ebb3174"><td class="memItemLeft" align="right" valign="top"><a id="gafc5e70223268d12685eb17418ebb3174"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>jsize_out</b> =0</td></tr>
+<tr class="separator:gafc5e70223268d12685eb17418ebb3174"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0afb59ad0469e7e097a8361d67316c75"><td class="memItemLeft" align="right" valign="top"><a id="ga0afb59ad0469e7e097a8361d67316c75"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>isize_max</b> =0</td></tr>
+<tr class="separator:ga0afb59ad0469e7e097a8361d67316c75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga31516f4f0e452e2c2a85125b0c0d98aa"><td class="memItemLeft" align="right" valign="top"><a id="ga31516f4f0e452e2c2a85125b0c0d98aa"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>jsize_max</b> =0</td></tr>
+<tr class="separator:ga31516f4f0e452e2c2a85125b0c0d98aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga52d06c9144fe4d106351f2496f6732cc"><td class="memItemLeft" align="right" valign="top"><a id="ga52d06c9144fe4d106351f2496f6732cc"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>gf_ioff</b> =0</td></tr>
+<tr class="separator:ga52d06c9144fe4d106351f2496f6732cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga80a883e5514a6923ebf49bc7440b14f5"><td class="memItemLeft" align="right" valign="top"><a id="ga80a883e5514a6923ebf49bc7440b14f5"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>gf_joff</b> =0</td></tr>
+<tr class="separator:ga80a883e5514a6923ebf49bc7440b14f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa7e80d25266511841464160e405ef970"><td class="memItemLeft" align="right" valign="top"><a id="gaa7e80d25266511841464160e405ef970"></a>
+integer, dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><b>isizer</b></td></tr>
+<tr class="separator:gaa7e80d25266511841464160e405ef970"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga317d4358fbe65844be659f9f9f373227"><td class="memItemLeft" align="right" valign="top"><a id="ga317d4358fbe65844be659f9f9f373227"></a>
+integer, dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><b>jsizer</b></td></tr>
+<tr class="separator:ga317d4358fbe65844be659f9f9f373227"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa355430bf28012f6bab6145fe1ad0ede"><td class="memItemLeft" align="right" valign="top"><a id="gaa355430bf28012f6bab6145fe1ad0ede"></a>
+integer, dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><b>sendisr</b></td></tr>
+<tr class="separator:gaa355430bf28012f6bab6145fe1ad0ede"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8662c8f1a5d0816131aaed61d2658417"><td class="memItemLeft" align="right" valign="top"><a id="ga8662c8f1a5d0816131aaed61d2658417"></a>
+integer, dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><b>sendjsr</b></td></tr>
+<tr class="separator:ga8662c8f1a5d0816131aaed61d2658417"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gace5b05581d02491751f0fcaf68d13ba5"><td class="memItemLeft" align="right" valign="top"><a id="gace5b05581d02491751f0fcaf68d13ba5"></a>
+integer(i8_kind), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><b>rem_addr</b></td></tr>
+<tr class="separator:gace5b05581d02491751f0fcaf68d13ba5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad4d5623e404b6e713d4f3f3a4de1156b"><td class="memItemLeft" align="right" valign="top"><a id="gad4d5623e404b6e713d4f3f3a4de1156b"></a>
+integer(i8_kind), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><b>rem_addrx</b></td></tr>
+<tr class="separator:gad4d5623e404b6e713d4f3f3a4de1156b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf77b629ff0a34593d8a88cb6135d1ecd"><td class="memItemLeft" align="right" valign="top"><a id="gaf77b629ff0a34593d8a88cb6135d1ecd"></a>
+integer(i8_kind), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><b>rem_addry</b></td></tr>
+<tr class="separator:gaf77b629ff0a34593d8a88cb6135d1ecd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab6914bbad5bdd05d322a49ad2eb3fea0"><td class="memItemLeft" align="right" valign="top"><a id="gab6914bbad5bdd05d322a49ad2eb3fea0"></a>
+integer(i8_kind), dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><b>rem_addrl</b></td></tr>
+<tr class="separator:gab6914bbad5bdd05d322a49ad2eb3fea0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga358231102c60b7a44d06db25aabea4f0"><td class="memItemLeft" align="right" valign="top"><a id="ga358231102c60b7a44d06db25aabea4f0"></a>
+integer(i8_kind), dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><b>rem_addrlx</b></td></tr>
+<tr class="separator:ga358231102c60b7a44d06db25aabea4f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga54e793f4df2c032e0df38154fe98c26a"><td class="memItemLeft" align="right" valign="top"><a id="ga54e793f4df2c032e0df38154fe98c26a"></a>
+integer(i8_kind), dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><b>rem_addrly</b></td></tr>
+<tr class="separator:ga54e793f4df2c032e0df38154fe98c26a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1cbb3e6ffe89173c2026ce1cd4279c8a"><td class="memItemLeft" align="right" valign="top"><a id="ga1cbb3e6ffe89173c2026ce1cd4279c8a"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mpp__domains__mod.html#ga1cbb3e6ffe89173c2026ce1cd4279c8a">position</a></td></tr>
+<tr class="memdesc:ga1cbb3e6ffe89173c2026ce1cd4279c8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">data location. T, E, C, or N. <br /></td></tr>
+<tr class="separator:ga1cbb3e6ffe89173c2026ce1cd4279c8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaac00b7e601c412dcfb2d59f0bea50758"><td class="memItemLeft" align="right" valign="top"><a id="gaac00b7e601c412dcfb2d59f0bea50758"></a>
+integer, parameter&#160;</td><td class="memItemRight" valign="bottom"><b>max_request</b> = 100</td></tr>
+<tr class="separator:gaac00b7e601c412dcfb2d59f0bea50758"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga0406f210136aebd26e0c9ad46e4e6912"><td class="memItemLeft" align="right" valign="top"><a id="ga0406f210136aebd26e0c9ad46e4e6912"></a>
-type(domain1d), save, public&#160;</td><td class="memItemRight" valign="bottom"><b>null_domain1d</b></td></tr>
+type(<a class="el" href="structmpp__domains__mod_1_1domain1d.html">domain1d</a>), save, public&#160;</td><td class="memItemRight" valign="bottom"><b>null_domain1d</b></td></tr>
 <tr class="separator:ga0406f210136aebd26e0c9ad46e4e6912"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga14f594ff34345eb378085e2d2474a561"><td class="memItemLeft" align="right" valign="top"><a id="ga14f594ff34345eb378085e2d2474a561"></a>
 type(domain2d), save, public&#160;</td><td class="memItemRight" valign="bottom"><b>null_domain2d</b></td></tr>
 <tr class="separator:ga14f594ff34345eb378085e2d2474a561"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4b2cdd4e8b26c3a979ac96878d114c5d"><td class="memItemLeft" align="right" valign="top"><a id="ga4b2cdd4e8b26c3a979ac96878d114c5d"></a>
-type(domainug), save, public&#160;</td><td class="memItemRight" valign="bottom"><b>null_domainug</b></td></tr>
+type(<a class="el" href="structmpp__domains__mod_1_1domainug.html">domainug</a>), save, public&#160;</td><td class="memItemRight" valign="bottom"><b>null_domainug</b></td></tr>
 <tr class="separator:ga4b2cdd4e8b26c3a979ac96878d114c5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -370,7 +645,9 @@ Example usage: call mpp_global_sum( domain, field, flags ) </p><dl class="sectio
 
 <h3><a id="mpp_get_neighbor_pe"></a>mpp_get_neighbor_pe Interface</h3><div class="textblock">Retrieve PE number of a neighboring domain.Given a 1-D or 2-D domain decomposition, this call allows users to retrieve the PE number of an adjacent PE-domain while taking into account that the domain may have holes (masked) and/or have cyclic boundary conditions and/or a folded edge. Which PE-domain will be retrived will depend on "direction": +1 (right) or -1 (left) for a 1-D domain decomposition and either NORTH, SOUTH, EAST, WEST, NORTH_EAST, SOUTH_EAST, SOUTH_WEST, or NORTH_WEST for a 2-D decomposition. If no neighboring domain exists (masked domain), then the returned "pe" value will be set to NULL_PE.<br  />
  <br  />
-Example usage: call mpp_get_neighbor_pe( domain1d, direction=+1 , pe) Set pe to the neighbor pe number that is to the right of the current pe call mpp_get_neighbor_pe( domain2d, direction=NORTH, pe) Get neighbor pe number that's above/north of the current pe </div>
+Example usage: </p><pre class="fragment">               call mpp_get_neighbor_pe( domain1d, direction=+1   , pe)
+</pre>Set pe to the neighbor pe number that is to the right of the current pe </p><pre class="fragment">               call mpp_get_neighbor_pe( domain2d, direction=NORTH, pe)
+</pre>Get neighbor pe number that's above/north of the current pe </div>
 
 <h3><a id="operators_domains"></a>Operator Overrides for domain types</h3><div class="textblock">Equality/inequality operators for domaintypes. <br  />
 <br  />
@@ -393,31 +670,42 @@ Example usage: </p><pre class="fragment">       call mpp_get_compute_domain(doma
 </pre> </div>
 
 <h3><a id="mpp_get_compute_domains"></a>mpp_get_compute_domains Interface</h3><div class="textblock">Retrieve the entire array of compute domain extents associated with a decomposition. <br  />
-Example usage: call mpp_get_compute_domains( domain, xbegin, xend, xsize, &amp;<br  />
- ybegin, yend, ysize ) </div>
+Example usage: </p><pre class="fragment">       call mpp_get_compute_domains( domain, xbegin, xend, xsize, &amp;&lt;br&gt;
+                                           ybegin, yend, ysize )
+</pre> </div>
 
 <h3><a id="mpp_get_data_domain"></a>mpp_get_data_domain Interface</h3><div class="textblock">These routines retrieve the axis specifications associated with the data domains. The domain is a derived type with private elements. These routines retrieve the axis specifications associated with the data domains. The 2D version of these is a simple extension of 1D. <br  />
-Example usage: call mpp_get_data_domain(domain_1d, isd, ied) call mpp_get_data_domain(domain_2d, isd, ied, jsd, jed) </div>
+Example usage: </p><pre class="fragment">               call mpp_get_data_domain(domain_1d, isd, ied)
+               call mpp_get_data_domain(domain_2d, isd, ied, jsd, jed)
+</pre> </div>
 
 <h3><a id="mpp_get_global_domain"></a>mpp_get_global_domain Interface</h3><div class="textblock">These routines retrieve the axis specifications associated with the global domains. The domain is a derived type with private elements. These routines retrieve the axis specifications associated with the global domains. The 2D version of these is a simple extension of 1D. <br  />
-Example usage: call mpp_get_global_domain(domain_1d, isg, ieg) call mpp_get_global_domain(domain_2d, isg, ieg, jsg, jeg) </div>
+Example usage: </p><pre class="fragment">               call mpp_get_global_domain(domain_1d, isg, ieg)
+               call mpp_get_global_domain(domain_2d, isg, ieg, jsg, jeg)
+</pre> </div>
 
 <h3><a id="mpp_get_memory_domain"></a>mpp_get_memory_domain Interface</h3><div class="textblock">These routines retrieve the axis specifications associated with the memory domains. The domain is a derived type with private elements. These routines retrieve the axis specifications associated with the memory domains. The 2D version of these is a simple extension of 1D. <br  />
-Example usage: call mpp_get_memory_domain(domain_1d, ism, iem) call mpp_get_memory_domain(domain_2d, ism, iem, jsm, jem) </div>
+Example usage: </p><pre class="fragment">               call mpp_get_memory_domain(domain_1d, ism, iem)
+               call mpp_get_memory_domain(domain_2d, ism, iem, jsm, jem)
+</pre> </div>
 
 <h3><a id="mpp_set_compute_domain"></a>mpp_set_compute_domain Interface</h3><div class="textblock">These routines set the axis specifications associated with the compute domains. The domain is a derived type with private elements. These routines set the axis specifications associated with the compute domains The 2D version of these is a simple extension of 1D. <br  />
-Example usage: call mpp_set_compute_domain() </div>
+Example usage: </p><pre class="fragment">                   call mpp_set_compute_domain()
+</pre> </div>
 
 <h3><a id="mpp_set_data_domain"></a>mpp_set_data_domain Interface</h3><div class="textblock">These routines set the axis specifications associated with the data domains. The domain is a derived type with private elements. These routines set the axis specifications associated with the data domains. The 2D version of these is a simple extension of 1D. </div>
 
 <h3><a id="mpp_set_global_domain"></a>mpp_set_global_domain Interface</h3><div class="textblock">These routines set the axis specifications associated with the global domains. The domain is a derived type with private elements. These routines set the axis specifications associated with the global domains. The 2D version of these is a simple extension of 1D. </div>
 
-<h3><a id="mpp_get_pelist"></a>mpp_get_pelist Interface</h3><div class="textblock">Retrieve list of PEs associated with a domain decomposition. The 1D version of this call returns an array of the PEs assigned to this 1D domain decomposition. In addition the optional argument pos may be used to retrieve the 0-based position of the domain local to the calling PE, i.e., <em>domainlist</em>(pos)pe is the local PE, as returned by <a class="el" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50" title="Returns processor ID. This returns the unique ID associated with a PE. This number runs between 0 and...">mpp_pe()</a> The 2D version of this call is identical to 1D version. </div>
+<h3><a id="mpp_get_pelist"></a>mpp_get_pelist Interface</h3><div class="textblock">Retrieve list of PEs associated with a domain decomposition. The 1D version of this call returns an array of the PEs assigned to this 1D domain decomposition. In addition the optional argument pos may be used to retrieve the 0-based position of the domain local to the calling PE, i.e., <em>domain%list(pos)pe</em> is the local PE, as returned by <a class="el" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50" title="Returns processor ID. This returns the unique ID associated with a PE. This number runs between 0 and...">mpp_pe()</a> The 2D version of this call is identical to 1D version. </div>
 
 <h3><a id="mpp_get_layout"></a>mpp_get_layout Interface</h3><div class="textblock">Retrieve layout associated with a domain decomposition The 1D version of this call returns the number of divisions that was assigned to this decomposition axis. The 2D version of this call returns an array of dimension 2 holding the results on two axes. <br  />
-Example usage: call mpp_get_layout( domain, layout ) </div>
+Example usage: </p><pre class="fragment">               call mpp_get_layout( domain, layout )
+</pre> </div>
 
-<h3><a id="mpp_nullify_domain_list"></a>mpp_nullify_domain_list Interface</h3><div class="textblock">Nullify domain list. This interface is needed in mpp_domains_test. 1-D case can be added in if needed. Example usage: call mpp_nullify_domain_list(domain) </div></div><!-- contents -->
+<h3><a id="mpp_nullify_domain_list"></a>mpp_nullify_domain_list Interface</h3><div class="textblock">Nullify domain list. This interface is needed in mpp_domains_test. 1-D case can be added in if needed. <br  />
+Example usage: </p><pre class="fragment">               call mpp_nullify_domain_list(domain)
+</pre> </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
