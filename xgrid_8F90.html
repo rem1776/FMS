@@ -106,6 +106,13 @@ $(document).ready(function(){initNavTree('xgrid_8F90.html',''); initResizable();
 </div>
 <p><a href="xgrid_8F90_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Data Types</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">type &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structxgrid__mod_1_1grid__box__type.html">grid_box_type</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">type &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structxgrid__mod_1_1xmap__type.html">xmap_type</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
 <tr class="memitem:gaed7666b9fdf6c25272786857c6bb13ca"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__xgrid__mod.html#gaed7666b9fdf6c25272786857c6bb13ca">xgrid_init</a> (remap_method)</td></tr>
@@ -169,6 +176,9 @@ real, dimension(:,:), allocatable, public&#160;</td><td class="memItemRight" val
 <tr class="memitem:ga13760b65c2019c8c8e4a7038998be022"><td class="memItemLeft" align="right" valign="top">
 real, dimension(:,:), allocatable, public&#160;</td><td class="memItemRight" valign="bottom"><b>area_ocn_sphere</b></td></tr>
 <tr class="separator:ga13760b65c2019c8c8e4a7038998be022"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad49659b5e2fc7b1013c03f5e5fc7b828"><td class="memItemLeft" align="right" valign="top">
+real, parameter&#160;</td><td class="memItemRight" valign="bottom"><b>eps</b> = 1.0e-10</td></tr>
+<tr class="separator:gad49659b5e2fc7b1013c03f5e5fc7b828"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>File for <a class="el" href="group__xgrid__mod.html">xgrid_mod</a>. </p>
@@ -221,7 +231,7 @@ real, dimension(:,:), allocatable, public&#160;</td><td class="memItemRight" val
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">type(xmap_type), intent(in)&#160;</td>
+          <td class="paramtype">type(<a class="el" href="structxgrid__mod_1_1xmap__type.html">xmap_type</a>), intent(in)&#160;</td>
           <td class="paramname"><em>xmap</em>, </td>
         </tr>
         <tr>
@@ -278,13 +288,13 @@ real, dimension(:,:), allocatable, public&#160;</td><td class="memItemRight" val
         <tr>
           <td class="memname">subroutine xgrid_mod::stock_move_2d </td>
           <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structstock__constants__mod_1_1stock__type.html">stock_type</a>), intent(inout), optional&#160;</td>
+          <td class="paramtype">type(stock_type), intent(inout), optional&#160;</td>
           <td class="paramname"><em>from</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">type(<a class="el" href="structstock__constants__mod_1_1stock__type.html">stock_type</a>), intent(inout), optional&#160;</td>
+          <td class="paramtype">type(stock_type), intent(inout), optional&#160;</td>
           <td class="paramname"><em>to</em>, </td>
         </tr>
         <tr>
@@ -302,7 +312,7 @@ real, dimension(:,:), allocatable, public&#160;</td><td class="memItemRight" val
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">type(xmap_type), intent(in)&#160;</td>
+          <td class="paramtype">type(<a class="el" href="structxgrid__mod_1_1xmap__type.html">xmap_type</a>), intent(in)&#160;</td>
           <td class="paramname"><em>xmap</em>, </td>
         </tr>
         <tr>
@@ -373,13 +383,13 @@ real, dimension(:,:), allocatable, public&#160;</td><td class="memItemRight" val
         <tr>
           <td class="memname">subroutine xgrid_mod::stock_move_ug_3d </td>
           <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structstock__constants__mod_1_1stock__type.html">stock_type</a>), intent(inout), optional&#160;</td>
+          <td class="paramtype">type(stock_type), intent(inout), optional&#160;</td>
           <td class="paramname"><em>from</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">type(<a class="el" href="structstock__constants__mod_1_1stock__type.html">stock_type</a>), intent(inout), optional&#160;</td>
+          <td class="paramtype">type(stock_type), intent(inout), optional&#160;</td>
           <td class="paramname"><em>to</em>, </td>
         </tr>
         <tr>
@@ -397,7 +407,7 @@ real, dimension(:,:), allocatable, public&#160;</td><td class="memItemRight" val
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">type(xmap_type), intent(in)&#160;</td>
+          <td class="paramtype">type(<a class="el" href="structxgrid__mod_1_1xmap__type.html">xmap_type</a>), intent(in)&#160;</td>
           <td class="paramname"><em>xmap</em>, </td>
         </tr>
         <tr>
@@ -469,7 +479,7 @@ real, dimension(:,:), allocatable, public&#160;</td><td class="memItemRight" val
         <tr>
           <td class="memname">subroutine, public xgrid_mod::stock_print </td>
           <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structstock__constants__mod_1_1stock__type.html">stock_type</a>), intent(in)&#160;</td>
+          <td class="paramtype">type(stock_type), intent(in)&#160;</td>
           <td class="paramname"><em>stck</em>, </td>
         </tr>
         <tr>

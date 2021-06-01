@@ -116,34 +116,42 @@ Functions/Subroutines</h2></td></tr>
 <p>Below is a description of the three sections. </p><ol>
 <li>
 <b>Global Section:</b> The first two lines of the <code>diag_table</code> must contain the <em>title</em> and the <em>base date</em> of the experiment respectively. The <em>title</em> must be a Fortran CHARACTER string. The <em>base date</em> is the reference time used for the time units, and must be greater than or equal to the model start time. The <em>base date</em> consists of six space-separated integer in the following format.<br  />
- <code>&lt;NOBR&gt;year month day hour minute second&lt;/NOBR&gt;</code><br  />
+ <code> year month day hour minute second </code><br  />
   </li>
 <li>
 <b>File Section:</b> File lines contain 6 required and 5 optional fields (optional fields are surrounded with square brackets ([]). File lines can be intermixed with the field lines, but the file must be defined before any fields that are to be written to the file. File lines have the following format:<br  />
- &lt;PRELN&gt; "file_name", output_freq, "output_freq_units", file_format, "time_axis_units", "time_axis_name" [, new_file_freq, "new_file_freq_units"[, "start_time"[, file_duration, "file_duration_units"]]] &lt;/PRELN&gt; <br  />
+ "file_name", output_freq, "output_freq_units", file_format, "time_axis_units", "time_axis_name" [, new_file_freq, "new_file_freq_units"[, "start_time"[, file_duration, "file_duration_units"]]] <br  />
  with the following descriptions. <dl>
 <dt><code>CHARACTER(len=128) :: file_name</code> </dt>
-<dd><p class="startdd">Output file name without the trailing "&lt;TT&gt;.nc&lt;/TT&gt;".</p>
-<p class="enddd">A single file description can produce multiple files using special time string suffix keywords. This time string will append the time strings to the base file name each time a new file is opened. They syntax for the time string suffix keywords are <code>%#tt</code> Where <code>#</code> is a mandatory single digit number specifying the width of the field, and <code>tt</code> can be as follows: &lt;NL&gt; </p>
+<dd><p class="startdd">Output file name without the trailing <code>".nc"</code>.</p>
+<p class="interdd">A single file description can produce multiple files using special time string suffix keywords. This time string will append the time strings to the base file name each time a new file is opened. They syntax for the time string suffix keywords are <code>%#tt</code> Where <code>#</code> is a mandatory single digit number specifying the width of the field, and <code>tt</code> can be as follows: </p><ul>
+<li>
+<code>yr</code> Years </li>
+<li>
+<code>mo</code> Months </li>
+<li>
+<code>dy</code> Days </li>
+<li>
+<code>hr</code> Hours </li>
+<li>
+<code>mi</code> Minutes </li>
+<li>
+<code>sc</code> Seconds </li>
+</ul>
+<p>Thus, a file name of <code>file2_yr_dy%1yr%3dy</code> will have a base file name of <code>file2_yr_dy_1_001</code> if the file is created on year 1 day 1 of the model run. <b><em>NOTE:</em></b> The time suffix keywords must be used if the optional fields <code>new_file_freq</code> and <code>new_file_freq_units</code> are used, otherwise a <code>FATAL</code> error will occur. </p>
+<p class="enddd"></p>
 </dd>
+<dt><code>INTEGER :: output_freq</code> </dt>
+<dd>How often to write fields to file. &lt;NL&gt; </dd>
 </dl>
 </li>
 <li>
-<code>yr</code> &lt;EN &gt; Years </li>
+<code>&gt; 0</code> &lt;EN &gt; Output frequency in <code>output_freq_units</code>. </li>
 <li>
-<code>mo</code> &lt;EN &gt; Months </li>
+<code>= 0</code> &lt;EN &gt; Output frequency every time set. (<code>output_freq_units</code> is ignored.) </li>
 <li>
-<code>dy</code> &lt;EN &gt; Days </li>
-<li>
-<code>hr</code> &lt;EN &gt; Hours </li>
-<li>
-<code>mi</code> &lt;EN &gt; Minutes </li>
-<li>
-<p class="startli"><code>sc</code> &lt;EN &gt; Seconds &lt;/NL&gt; Thus, a file name of <code>file2_yr_dy%1yr%3dy</code> will have a base file name of <code>file2_yr_dy_1_001</code> if the file is created on year 1 day 1 of the model run. <b><em>NOTE:</em></b> The time suffix keywords must be used if the optional fields <code>new_file_freq</code> and <code>new_file_freq_units</code> are used, otherwise a <code>FATAL</code> error will occur. </p>
-<p class="endli"></p>
-</li>
+<code>=-1</code> &lt;EN &gt; Output at end of run only. (<code>output_freq_units</code> is ignored.) &lt;/NL&gt;  </li>
 </ol>
-<p><code>INTEGER :: output_freq</code> How often to write fields to file. &lt;NL&gt; <code>&gt; 0</code> &lt;EN &gt; Output frequency in <code>output_freq_units</code>. <code>= 0</code> &lt;EN &gt; Output frequency every time set. (<code>output_freq_units</code> is ignored.) <code>=-1</code> &lt;EN &gt; Output at end of run only. (<code>output_freq_units</code> is ignored.) &lt;/NL&gt;  </p>
 <p><code>CHARACTER(len=10) :: output_freq_units</code>  Time units for output. Can be either <code>years</code>, <code>months</code>, <code>days</code>, <code>minutes</code>, <code>hours</code>, or <code>seconds</code>.  </p>
 <p><code>INTEGER :: file_format</code>  Output file format. Currently only the <em>netCDF</em> file format is supported. &lt;NL&gt; <code>= 1</code> &lt;EN &gt; netCDF &lt;/NL&gt;  </p>
 <p><code>CHARACTER(len=10) :: time_axis_units</code>  Time units for the output file time axis. Can be either <code>years</code>, <code>months</code>, <code>days</code>, <code>minutes</code>, <code>hours</code>, or <code>seconds</code>.  </p>
@@ -194,7 +202,7 @@ Functions/Subroutines</h2></td></tr>
 <dd>Fortran number <code>KIND</code> of the data written. Valid values: &lt;NL&gt; <code>= 1</code> &lt;EN &gt; double precision <code>= 2</code> &lt;EN &gt; float <code>= 4</code> &lt;EN &gt; packed 16-bit integers <code>= 8</code> &lt;EN &gt; packed 1-byte (not tested). &lt;/NL&gt;  </dd>
 </dl>
 <h4><b>Sample <code>diag_table</code></b></h4>
-<p>&lt;NL&gt;  </p><pre>
+<pre>
  "diag manager test"
  1999 1 1 0 0 0</pre><pre> #output files
  10_days,               10, "days", 1, "hours", "Time"
@@ -204,8 +212,7 @@ Functions/Subroutines</h2></td></tr>
  "ice_mod", "ice", "ice", "10_days", "all", .false., "none", 2</pre><pre> # temp_local file and fields.
  temp_local, 1, "days", 1, "hours", "Time"
  "ocean_mod", "temp", "temp", "temp_local", "all", .FALSE., "5 259.5 -59.5 59.5 1 1", 2
-       </pre><p>  &lt;/NL&gt;</p>
-<h4>Useful Additional Utility</h4>
+       </pre> <h4>Useful Additional Utility</h4>
 <p>A simple utility has been created to help discover </p>
 <h2 class="groupheader">Function/Subroutine Documentation</h2>
 <a id="gadadc44257b97056c277261b4ada5098b"></a>
@@ -251,7 +258,7 @@ Functions/Subroutines</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__table_8F90_source.html#l00504">504</a> of file <a class="el" href="diag__table_8F90_source.html">diag_table.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__table_8F90_source.html#l00500">500</a> of file <a class="el" href="diag__table_8F90_source.html">diag_table.F90</a>.</p>
 
 </div>
 </div>

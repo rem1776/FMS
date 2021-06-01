@@ -1,5 +1,6 @@
 var mpp_8F90 =
 [
+    [ "communicator", "structmpp__mod_1_1communicator.html", "structmpp__mod_1_1communicator" ],
     [ "clock0", "mpp_8F90.html#ga5a819083f3d2fcb30eaad81d1ba66312", null ],
     [ "clock_grain", "mpp_8F90.html#ga9d4bea011521a078a1fe1a3ef674fbb3", null ],
     [ "clock_num", "mpp_8F90.html#ga6605c7d0e46b3a0077b0de582871b111", null ],

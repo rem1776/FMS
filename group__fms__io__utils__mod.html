@@ -92,7 +92,8 @@ $(document).ready(function(){initNavTree('group__fms__io__utils__mod.html',''); 
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Data Types</a> &#124;
-<a href="#func-members">Functions/Subroutines</a>  </div>
+<a href="#func-members">Functions/Subroutines</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">fms_io_utils_mod<div class="ingroups"><a class="el" href="group__fms2__io.html">FMS2 IO</a></div></div>  </div>
 </div><!--header-->
@@ -101,6 +102,12 @@ $(document).ready(function(){initNavTree('group__fms__io__utils__mod.html',''); 
 <p>Misc. utility routines for use in <a class="el" href="group__fms2__io.html">FMS2 IO</a>.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Data Types</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">type &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfms__io__utils__mod_1_1char__linked__list.html">char_linked_list</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A linked list of strings.  <a href="structfms__io__utils__mod_1_1char__linked__list.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
 <tr class="memitem:ga72465fafa808bb56795bf3336785f803"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms__io__utils__mod.html#ga72465fafa808bb56795bf3336785f803">error</a> (mesg)</td></tr>
@@ -156,6 +163,15 @@ subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="
 <tr class="memitem:ga1970ce77c383f6aa80ea2a8e23ef4f37"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms__io__utils__mod.html#ga1970ce77c383f6aa80ea2a8e23ef4f37">get_instance_filename</a> (name_in, name_out)</td></tr>
 <tr class="memdesc:ga1970ce77c383f6aa80ea2a8e23ef4f37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds the filename_appendix to name_in and sets it as name_out.  <a href="group__fms__io__utils__mod.html#ga1970ce77c383f6aa80ea2a8e23ef4f37">More...</a><br /></td></tr>
 <tr class="separator:ga1970ce77c383f6aa80ea2a8e23ef4f37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ga97e727b516248b76c8fe204a53b49f52"><td class="memItemLeft" align="right" valign="top"><a id="ga97e727b516248b76c8fe204a53b49f52"></a>
+character(len=128)&#160;</td><td class="memItemRight" valign="bottom"><b>string</b></td></tr>
+<tr class="separator:ga97e727b516248b76c8fe204a53b49f52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac92e852526f5476f05f3228ba314b973"><td class="memItemLeft" align="right" valign="top"><a id="gac92e852526f5476f05f3228ba314b973"></a>
+type(<a class="el" href="structfms__io__utils__mod_1_1char__linked__list.html">char_linked_list</a>), pointer&#160;</td><td class="memItemRight" valign="bottom"><b>head</b> =&gt; null()</td></tr>
+<tr class="separator:gac92e852526f5476f05f3228ba314b973"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Misc. utility routines for use in <a class="el" href="group__fms2__io.html">FMS2 IO</a>. </p>
@@ -171,7 +187,7 @@ subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="
         <tr>
           <td class="memname">subroutine, public fms_io_utils_mod::append_to_list </td>
           <td>(</td>
-          <td class="paramtype">type(char_linked_list), intent(inout), pointer&#160;</td>
+          <td class="paramtype">type(<a class="el" href="structfms__io__utils__mod_1_1char__linked__list.html">char_linked_list</a>), intent(inout), pointer&#160;</td>
           <td class="paramname"><em>list</em>, </td>
         </tr>
         <tr>
@@ -249,7 +265,7 @@ subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="
         <tr>
           <td class="memname">subroutine, public fms_io_utils_mod::destroy_list </td>
           <td>(</td>
-          <td class="paramtype">type(char_linked_list), intent(inout), pointer&#160;</td>
+          <td class="paramtype">type(<a class="el" href="structfms__io__utils__mod_1_1char__linked__list.html">char_linked_list</a>), intent(inout), pointer&#160;</td>
           <td class="paramname"><em>list</em></td><td>)</td>
           <td></td>
         </tr>
@@ -493,7 +509,7 @@ subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="
         <tr>
           <td class="memname">logical function, public fms_io_utils_mod::is_in_list </td>
           <td>(</td>
-          <td class="paramtype">type(char_linked_list), intent(in), pointer&#160;</td>
+          <td class="paramtype">type(<a class="el" href="structfms__io__utils__mod_1_1char__linked__list.html">char_linked_list</a>), intent(in), pointer&#160;</td>
           <td class="paramname"><em>list</em>, </td>
         </tr>
         <tr>

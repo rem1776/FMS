@@ -90,6 +90,10 @@ $(document).ready(function(){initNavTree('group__drifters__mod.html',''); initRe
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#nested-classes">Data Types</a> &#124;
+<a href="#func-members">Functions/Subroutines</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">drifters_mod<div class="ingroups"><a class="el" href="group__drifters.html">Drifters</a></div></div>  </div>
 </div><!--header-->
@@ -97,12 +101,881 @@ $(document).ready(function(){initNavTree('group__drifters__mod.html',''); initRe
 
 <p><code>Drifters_mod</code>is a module designed to advect a set of particles, in parallel or sequentially, given an prescribed velocity field.  
 <a href="#details">More...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Data Types</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">type &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdrifters__mod_1_1drifters__type.html">drifters_type</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">type to hold drifter data  <a href="structdrifters__mod_1_1drifters__type.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacedrifters__mod_1_1assignment_07_0a_08.html">assignment(=)</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions/Subroutines</h2></td></tr>
+<tr class="memitem:gaddfba33d6e4b7bdc50a58a1be1e3489b"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__drifters__mod.html#gaddfba33d6e4b7bdc50a58a1be1e3489b">drifters_new</a> (self, input_file, output_file, ermesg)</td></tr>
+<tr class="memdesc:gaddfba33d6e4b7bdc50a58a1be1e3489b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Will read positions stored in the netCDF file <code>input_file</code>. The trajectories will be saved in files <code>output_file.PE</code>, one file per PE domain.  <a href="group__drifters__mod.html#gaddfba33d6e4b7bdc50a58a1be1e3489b">More...</a><br /></td></tr>
+<tr class="separator:gaddfba33d6e4b7bdc50a58a1be1e3489b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabd7a7c5d6f87429d1f125fccbbbf9a5a"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__drifters__mod.html#gabd7a7c5d6f87429d1f125fccbbbf9a5a">drifters_del</a> (self, ermesg)</td></tr>
+<tr class="memdesc:gabd7a7c5d6f87429d1f125fccbbbf9a5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor, Call this to reclaim memory.  <a href="group__drifters__mod.html#gabd7a7c5d6f87429d1f125fccbbbf9a5a">More...</a><br /></td></tr>
+<tr class="separator:gabd7a7c5d6f87429d1f125fccbbbf9a5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf48b96da0cba62052592800e59ec7529"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__drifters__mod.html#gaf48b96da0cba62052592800e59ec7529">drifters_set_domain</a> (self, xmin_comp, xmax_comp, ymin_comp, ymax_comp, xmin_data, xmax_data, ymin_data, ymax_data, xmin_glob, xmax_glob, ymin_glob, ymax_glob, ermesg)</td></tr>
+<tr class="memdesc:gaf48b96da0cba62052592800e59ec7529"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the compute, data, and global domain boundaries.  <a href="group__drifters__mod.html#gaf48b96da0cba62052592800e59ec7529">More...</a><br /></td></tr>
+<tr class="separator:gaf48b96da0cba62052592800e59ec7529"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa90f5c5c61f3e1f0a686b87cece0c1d6"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__drifters__mod.html#gaa90f5c5c61f3e1f0a686b87cece0c1d6">drifters_set_pe_neighbors</a> (self, domain, ermesg)</td></tr>
+<tr class="memdesc:gaa90f5c5c61f3e1f0a686b87cece0c1d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Given an MPP based deomposition, set the PE numbers that are adjacent to this processor.  <a href="group__drifters__mod.html#gaa90f5c5c61f3e1f0a686b87cece0c1d6">More...</a><br /></td></tr>
+<tr class="separator:gaa90f5c5c61f3e1f0a686b87cece0c1d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae5f4a850b28c0132197541725ed0a933"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__drifters__mod.html#gae5f4a850b28c0132197541725ed0a933">drifters_save</a> (self, ermesg)</td></tr>
+<tr class="memdesc:gae5f4a850b28c0132197541725ed0a933"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to append the new trajectory positions and the interpolated probe fields to a netCDF file.  <a href="group__drifters__mod.html#gae5f4a850b28c0132197541725ed0a933">More...</a><br /></td></tr>
+<tr class="separator:gae5f4a850b28c0132197541725ed0a933"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9a1aa7c59e21aeab310b3fd722ced015"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__drifters__mod.html#ga9a1aa7c59e21aeab310b3fd722ced015">drifters_distribute</a> (self, ermesg)</td></tr>
+<tr class="memdesc:ga9a1aa7c59e21aeab310b3fd722ced015"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method after setting the domain boundaries (<code>drifters_set_domain</code>) to spread the particles across PE.  <a href="group__drifters__mod.html#ga9a1aa7c59e21aeab310b3fd722ced015">More...</a><br /></td></tr>
+<tr class="separator:ga9a1aa7c59e21aeab310b3fd722ced015"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3e7db869b8b17f17d7c07b3c2b0cc5c2"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__drifters__mod.html#ga3e7db869b8b17f17d7c07b3c2b0cc5c2">drifters_write_restart</a> (self, filename, x1, y1, geolon1, x2, y2, geolat2, root, mycomm, ermesg)</td></tr>
+<tr class="memdesc:ga3e7db869b8b17f17d7c07b3c2b0cc5c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write restart file. Gather all the particle positions distributed across PE domains on root PE and save the data in netCDF file.  <a href="group__drifters__mod.html#ga3e7db869b8b17f17d7c07b3c2b0cc5c2">More...</a><br /></td></tr>
+<tr class="separator:ga3e7db869b8b17f17d7c07b3c2b0cc5c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2d38270021bffd79cb60096459b3ae7e"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__drifters__mod.html#ga2d38270021bffd79cb60096459b3ae7e">drifters_set_v_axes</a> (self, component, x, y, z, ermesg)</td></tr>
+<tr class="memdesc:ga2d38270021bffd79cb60096459b3ae7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set velocity field axes.  <a href="group__drifters__mod.html#ga2d38270021bffd79cb60096459b3ae7e">More...</a><br /></td></tr>
+<tr class="separator:ga2d38270021bffd79cb60096459b3ae7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0008498100571c609b7ed537d30bd25e"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__drifters__mod.html#ga0008498100571c609b7ed537d30bd25e">drifters_set_domain_bounds</a> (self, domain, backoff_x, backoff_y, ermesg)</td></tr>
+<tr class="memdesc:ga0008498100571c609b7ed537d30bd25e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set boundaries of "data" and "compute" domains.  <a href="group__drifters__mod.html#ga0008498100571c609b7ed537d30bd25e">More...</a><br /></td></tr>
+<tr class="separator:ga0008498100571c609b7ed537d30bd25e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga957f185b18b0ab1fe8ad189b1a94f5f7"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__drifters__mod.html#ga957f185b18b0ab1fe8ad189b1a94f5f7">drifters_positions2lonlat</a> (self, positions, x1, y1, geolon1, x2, y2, geolat2, lons, lats, ermesg)</td></tr>
+<tr class="memdesc:ga957f185b18b0ab1fe8ad189b1a94f5f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interpolates positions onto longitude/latitude grid.  <a href="group__drifters__mod.html#ga957f185b18b0ab1fe8ad189b1a94f5f7">More...</a><br /></td></tr>
+<tr class="separator:ga957f185b18b0ab1fe8ad189b1a94f5f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf2ba8c08ff285a71fa0879270f0e2096"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__drifters__mod.html#gaf2ba8c08ff285a71fa0879270f0e2096">drifters_print_checksums</a> (self, pe, ermesg)</td></tr>
+<tr class="memdesc:gaf2ba8c08ff285a71fa0879270f0e2096"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print Runge-Kutta check sums. Useful for debugging only.  <a href="group__drifters__mod.html#gaf2ba8c08ff285a71fa0879270f0e2096">More...</a><br /></td></tr>
+<tr class="separator:gaf2ba8c08ff285a71fa0879270f0e2096"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ga3be99618087553829e5bcf1d127ea103"><td class="memItemLeft" align="right" valign="top"><a id="ga3be99618087553829e5bcf1d127ea103"></a>
+type(<a class="el" href="structdrifters__core__mod_1_1drifters__core__type.html">drifters_core_type</a>)&#160;</td><td class="memItemRight" valign="bottom"><b>core</b></td></tr>
+<tr class="separator:ga3be99618087553829e5bcf1d127ea103"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga890649807aac8355a8820f116dfc39a4"><td class="memItemLeft" align="right" valign="top"><a id="ga890649807aac8355a8820f116dfc39a4"></a>
+type(<a class="el" href="structdrifters__input__mod_1_1drifters__input__type.html">drifters_input_type</a>)&#160;</td><td class="memItemRight" valign="bottom"><b>input</b></td></tr>
+<tr class="separator:ga890649807aac8355a8820f116dfc39a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga595e4d03d010cd24bb100e81c815a46a"><td class="memItemLeft" align="right" valign="top"><a id="ga595e4d03d010cd24bb100e81c815a46a"></a>
+type(<a class="el" href="structdrifters__io__mod_1_1drifters__io__type.html">drifters_io_type</a>)&#160;</td><td class="memItemRight" valign="bottom"><b>io</b></td></tr>
+<tr class="separator:ga595e4d03d010cd24bb100e81c815a46a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2034d16612d3e0da4a6c360d8b18a3f1"><td class="memItemLeft" align="right" valign="top"><a id="ga2034d16612d3e0da4a6c360d8b18a3f1"></a>
+type(<a class="el" href="structdrifters__comm__mod_1_1drifters__comm__type.html">drifters_comm_type</a>)&#160;</td><td class="memItemRight" valign="bottom"><b>comm</b></td></tr>
+<tr class="separator:ga2034d16612d3e0da4a6c360d8b18a3f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0d83938800a951e18c7a96a4d5ff7a07"><td class="memItemLeft" align="right" valign="top"><a id="ga0d83938800a951e18c7a96a4d5ff7a07"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__drifters__mod.html#ga0d83938800a951e18c7a96a4d5ff7a07">dt</a></td></tr>
+<tr class="memdesc:ga0d83938800a951e18c7a96a4d5ff7a07"><td class="mdescLeft">&#160;</td><td class="mdescRight">total dt, over a complete step <br /></td></tr>
+<tr class="separator:ga0d83938800a951e18c7a96a4d5ff7a07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf1d4f29e7f0a2828126f4ea8335d7f17"><td class="memItemLeft" align="right" valign="top"><a id="gaf1d4f29e7f0a2828126f4ea8335d7f17"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><b>time</b></td></tr>
+<tr class="separator:gaf1d4f29e7f0a2828126f4ea8335d7f17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf29c4557122720d6f69fa20734d764fe"><td class="memItemLeft" align="right" valign="top"><a id="gaf29c4557122720d6f69fa20734d764fe"></a>
+real, dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><b>fields</b></td></tr>
+<tr class="separator:gaf29c4557122720d6f69fa20734d764fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab14cbecd886ff26189d30b96592fb680"><td class="memItemLeft" align="right" valign="top"><a id="gab14cbecd886ff26189d30b96592fb680"></a>
+real, dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__drifters__mod.html#gab14cbecd886ff26189d30b96592fb680">xu</a></td></tr>
+<tr class="memdesc:gab14cbecd886ff26189d30b96592fb680"><td class="mdescLeft">&#160;</td><td class="mdescRight">velocity field axes <br /></td></tr>
+<tr class="separator:gab14cbecd886ff26189d30b96592fb680"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga80f186c60efe46a34194858cf67d2417"><td class="memItemLeft" align="right" valign="top"><a id="ga80f186c60efe46a34194858cf67d2417"></a>
+real, dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__drifters__mod.html#ga80f186c60efe46a34194858cf67d2417">yu</a></td></tr>
+<tr class="memdesc:ga80f186c60efe46a34194858cf67d2417"><td class="mdescLeft">&#160;</td><td class="mdescRight">velocity field axes <br /></td></tr>
+<tr class="separator:ga80f186c60efe46a34194858cf67d2417"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5d739381d2fe0cbf92be8f43dc7115c2"><td class="memItemLeft" align="right" valign="top"><a id="ga5d739381d2fe0cbf92be8f43dc7115c2"></a>
+real, dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__drifters__mod.html#ga5d739381d2fe0cbf92be8f43dc7115c2">zu</a></td></tr>
+<tr class="memdesc:ga5d739381d2fe0cbf92be8f43dc7115c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">velocity field axes <br /></td></tr>
+<tr class="separator:ga5d739381d2fe0cbf92be8f43dc7115c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacfcbedb22d1546d33ee1a9483f37a9b6"><td class="memItemLeft" align="right" valign="top"><a id="gacfcbedb22d1546d33ee1a9483f37a9b6"></a>
+real, dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__drifters__mod.html#gacfcbedb22d1546d33ee1a9483f37a9b6">xv</a></td></tr>
+<tr class="memdesc:gacfcbedb22d1546d33ee1a9483f37a9b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">velocity field axes <br /></td></tr>
+<tr class="separator:gacfcbedb22d1546d33ee1a9483f37a9b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae2fa1ae1da814c3cfab3f1ef936402ec"><td class="memItemLeft" align="right" valign="top"><a id="gae2fa1ae1da814c3cfab3f1ef936402ec"></a>
+real, dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__drifters__mod.html#gae2fa1ae1da814c3cfab3f1ef936402ec">yv</a></td></tr>
+<tr class="memdesc:gae2fa1ae1da814c3cfab3f1ef936402ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">velocity field axes <br /></td></tr>
+<tr class="separator:gae2fa1ae1da814c3cfab3f1ef936402ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7609d8bf799afff52a6c8e21f2ef84af"><td class="memItemLeft" align="right" valign="top"><a id="ga7609d8bf799afff52a6c8e21f2ef84af"></a>
+real, dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__drifters__mod.html#ga7609d8bf799afff52a6c8e21f2ef84af">zv</a></td></tr>
+<tr class="memdesc:ga7609d8bf799afff52a6c8e21f2ef84af"><td class="mdescLeft">&#160;</td><td class="mdescRight">velocity field axes <br /></td></tr>
+<tr class="separator:ga7609d8bf799afff52a6c8e21f2ef84af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga601ac90d9061ba9877a140c5396a80bd"><td class="memItemLeft" align="right" valign="top"><a id="ga601ac90d9061ba9877a140c5396a80bd"></a>
+real, dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__drifters__mod.html#ga601ac90d9061ba9877a140c5396a80bd">xw</a></td></tr>
+<tr class="memdesc:ga601ac90d9061ba9877a140c5396a80bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">velocity field axes <br /></td></tr>
+<tr class="separator:ga601ac90d9061ba9877a140c5396a80bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaacd336263c4fd60255e6b3a5f7f00a41"><td class="memItemLeft" align="right" valign="top"><a id="gaacd336263c4fd60255e6b3a5f7f00a41"></a>
+real, dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__drifters__mod.html#gaacd336263c4fd60255e6b3a5f7f00a41">yw</a></td></tr>
+<tr class="memdesc:gaacd336263c4fd60255e6b3a5f7f00a41"><td class="mdescLeft">&#160;</td><td class="mdescRight">velocity field axes <br /></td></tr>
+<tr class="separator:gaacd336263c4fd60255e6b3a5f7f00a41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab495eb1bc85a7ec8f5c7c70b2b882a35"><td class="memItemLeft" align="right" valign="top"><a id="gab495eb1bc85a7ec8f5c7c70b2b882a35"></a>
+real, dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__drifters__mod.html#gab495eb1bc85a7ec8f5c7c70b2b882a35">zw</a></td></tr>
+<tr class="memdesc:gab495eb1bc85a7ec8f5c7c70b2b882a35"><td class="mdescLeft">&#160;</td><td class="mdescRight">velocity field axes <br /></td></tr>
+<tr class="separator:gab495eb1bc85a7ec8f5c7c70b2b882a35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1fbf29e8d3d5a5eb5bfd1b3efbab796f"><td class="memItemLeft" align="right" valign="top"><a id="ga1fbf29e8d3d5a5eb5bfd1b3efbab796f"></a>
+real, dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__drifters__mod.html#ga1fbf29e8d3d5a5eb5bfd1b3efbab796f">temp_pos</a></td></tr>
+<tr class="memdesc:ga1fbf29e8d3d5a5eb5bfd1b3efbab796f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runge Kutta coefficients holding intermediate results (positions) <br /></td></tr>
+<tr class="separator:ga1fbf29e8d3d5a5eb5bfd1b3efbab796f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8e5dbb44238343353deb0038b51f36f5"><td class="memItemLeft" align="right" valign="top"><a id="ga8e5dbb44238343353deb0038b51f36f5"></a>
+real, dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__drifters__mod.html#ga8e5dbb44238343353deb0038b51f36f5">rk4_k1</a></td></tr>
+<tr class="memdesc:ga8e5dbb44238343353deb0038b51f36f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runge Kutta coefficients holding intermediate results (positions) <br /></td></tr>
+<tr class="separator:ga8e5dbb44238343353deb0038b51f36f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga50f70ca5051e4260c07841fb0c94bc8c"><td class="memItemLeft" align="right" valign="top"><a id="ga50f70ca5051e4260c07841fb0c94bc8c"></a>
+real, dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__drifters__mod.html#ga50f70ca5051e4260c07841fb0c94bc8c">rk4_k2</a></td></tr>
+<tr class="memdesc:ga50f70ca5051e4260c07841fb0c94bc8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runge Kutta coefficients holding intermediate results (positions) <br /></td></tr>
+<tr class="separator:ga50f70ca5051e4260c07841fb0c94bc8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad535f4051d070a2c97b861323107c02d"><td class="memItemLeft" align="right" valign="top"><a id="gad535f4051d070a2c97b861323107c02d"></a>
+real, dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__drifters__mod.html#gad535f4051d070a2c97b861323107c02d">rk4_k3</a></td></tr>
+<tr class="memdesc:gad535f4051d070a2c97b861323107c02d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runge Kutta coefficients holding intermediate results (positions) <br /></td></tr>
+<tr class="separator:gad535f4051d070a2c97b861323107c02d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf8266a9abd4f38fc8d3136c520a01186"><td class="memItemLeft" align="right" valign="top"><a id="gaf8266a9abd4f38fc8d3136c520a01186"></a>
+real, dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__drifters__mod.html#gaf8266a9abd4f38fc8d3136c520a01186">rk4_k4</a></td></tr>
+<tr class="memdesc:gaf8266a9abd4f38fc8d3136c520a01186"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runge Kutta coefficients holding intermediate results (positions) <br /></td></tr>
+<tr class="separator:gaf8266a9abd4f38fc8d3136c520a01186"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad2ae55360652f3f71c44d734466c49e2"><td class="memItemLeft" align="right" valign="top"><a id="gad2ae55360652f3f71c44d734466c49e2"></a>
+character(len=max_str_len)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__drifters__mod.html#gad2ae55360652f3f71c44d734466c49e2">input_file</a></td></tr>
+<tr class="memdesc:gad2ae55360652f3f71c44d734466c49e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">store filenames for convenience <br /></td></tr>
+<tr class="separator:gad2ae55360652f3f71c44d734466c49e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2c67722adb5e0b1441c5b6ada91c9357"><td class="memItemLeft" align="right" valign="top"><a id="ga2c67722adb5e0b1441c5b6ada91c9357"></a>
+character(len=max_str_len)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__drifters__mod.html#ga2c67722adb5e0b1441c5b6ada91c9357">output_file</a></td></tr>
+<tr class="memdesc:ga2c67722adb5e0b1441c5b6ada91c9357"><td class="mdescLeft">&#160;</td><td class="mdescRight">store filenames for convenience <br /></td></tr>
+<tr class="separator:ga2c67722adb5e0b1441c5b6ada91c9357"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga48c67eb7af40caf7fdf0f38a245bfa47"><td class="memItemLeft" align="right" valign="top"><a id="ga48c67eb7af40caf7fdf0f38a245bfa47"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__drifters__mod.html#ga48c67eb7af40caf7fdf0f38a245bfa47">rk4_step</a></td></tr>
+<tr class="memdesc:ga48c67eb7af40caf7fdf0f38a245bfa47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runge Kutta stuff. <br /></td></tr>
+<tr class="separator:ga48c67eb7af40caf7fdf0f38a245bfa47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga57c69e241c4aad4d17fa999cd729b492"><td class="memItemLeft" align="right" valign="top"><a id="ga57c69e241c4aad4d17fa999cd729b492"></a>
+logical&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__drifters__mod.html#ga57c69e241c4aad4d17fa999cd729b492">rk4_completed</a></td></tr>
+<tr class="memdesc:ga57c69e241c4aad4d17fa999cd729b492"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runge Kutta stuff. <br /></td></tr>
+<tr class="separator:ga57c69e241c4aad4d17fa999cd729b492"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9325c6f85d13f367ab7d59aa9e081a21"><td class="memItemLeft" align="right" valign="top"><a id="ga9325c6f85d13f367ab7d59aa9e081a21"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>nx</b></td></tr>
+<tr class="separator:ga9325c6f85d13f367ab7d59aa9e081a21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaaed092df61bc93c2d3c13611d463e87"><td class="memItemLeft" align="right" valign="top"><a id="gaaaed092df61bc93c2d3c13611d463e87"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>ny</b></td></tr>
+<tr class="separator:gaaaed092df61bc93c2d3c13611d463e87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac536ff24730bc3f15417d95f4fbba526"><td class="memItemLeft" align="right" valign="top"><a id="gac536ff24730bc3f15417d95f4fbba526"></a>
+logical, dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><b>remove</b></td></tr>
+<tr class="separator:gac536ff24730bc3f15417d95f4fbba526"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p><code>Drifters_mod</code>is a module designed to advect a set of particles, in parallel or sequentially, given an prescribed velocity field. </p>
 <dl class="section author"><dt>Author</dt><dd>Alexander Pletzer</dd></dl>
 <p>Drifters are idealized point particles with positions that evolve in time according to a prescribed velocity field, starting from some initial conditions. Drifters have no mass, no energy, no size, and no friction and therefore have no impact on the dynamics of the underlying system. The only feature that distinguishes a drifter from another is its trajectory. This makes drifters ideal for tracking pollution clouds and probing fields (e.g. temperature, salinity) along ocean currents, to name a few applications. Drifters can mimic real experiments such as the Argo floats <a href="http://www.metoffice.com/research/ocean/argo/ukfloats.html">http://www.metoffice.com/research/ocean/argo/ukfloats.html</a>.</p>
 <p>When run in parallel, on a 2d decomposed domain, <code>drifters_mod</code> will handle all the bookkeeping and communication transparently for the user. This involves adding/removing drifters as they enter/leave a processor element (PE) domain. Note that the number of drifters can vary greatly both between PE domains and within a PE domain in the course of a simulation; the drifters' module will also manage dynamically the memory for the user.</p>
 <p>There are a number of basic assumptions which could make the drifters' module ill-suited for some tasks. First and foremost, it is assumed that the motion of drifters is not erratic but follows deterministic trajectories. Furthermore, drifters should not cross both compute and data domain boundaries within less than a time step. This limitation is imposed by the Runge-Kutta integration scheme, which must be able to complete, within a time step, a trajectory calculation that starts inside the compute domain and ends inside the data domain. Therefore, the drifters, as they are presently modelled, are unlikely to work for very fast objects. This constraint also puts a upper limit to the domain decomposition, although it can often be remedied by increasing the number of ghost nodes.</p>
 <p>Another fundamental assumption is that the (e.g. velocity) fields are structured, on a per PE domain basis. There is no support for locally nested or unstrucured meshes. Meshes need not be smooth and continuous across PE domains, however. </p>
+<h2 class="groupheader">Function/Subroutine Documentation</h2>
+<a id="gabd7a7c5d6f87429d1f125fccbbbf9a5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gabd7a7c5d6f87429d1f125fccbbbf9a5a">&#9670;&nbsp;</a></span>drifters_del()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine, public drifters_mod::drifters_del </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structdrifters__mod_1_1drifters__type.html">drifters_type</a>)&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(out)&#160;</td>
+          <td class="paramname"><em>ermesg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Destructor, Call this to reclaim memory. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">self</td><td>Opaque data structure. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">ermesg</td><td>Error message (if any). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="drifters_8F90_source.html#l00317">317</a> of file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
+
+</div>
+</div>
+<a id="ga9a1aa7c59e21aeab310b3fd722ced015"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9a1aa7c59e21aeab310b3fd722ced015">&#9670;&nbsp;</a></span>drifters_distribute()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine, public drifters_mod::drifters_distribute </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structdrifters__mod_1_1drifters__type.html">drifters_type</a>)&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(out)&#160;</td>
+          <td class="paramname"><em>ermesg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Use this method after setting the domain boundaries (<code>drifters_set_domain</code>) to spread the particles across PE. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">self</td><td>Opaque handle. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">ermesg</td><td>Error message (if any). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="drifters_8F90_source.html#l00719">719</a> of file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
+
+</div>
+</div>
+<a id="gaddfba33d6e4b7bdc50a58a1be1e3489b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaddfba33d6e4b7bdc50a58a1be1e3489b">&#9670;&nbsp;</a></span>drifters_new()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine, public drifters_mod::drifters_new </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structdrifters__mod_1_1drifters__type.html">drifters_type</a>)&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in)&#160;</td>
+          <td class="paramname"><em>input_file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in)&#160;</td>
+          <td class="paramname"><em>output_file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(out)&#160;</td>
+          <td class="paramname"><em>ermesg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Will read positions stored in the netCDF file <code>input_file</code>. The trajectories will be saved in files <code>output_file.PE</code>, one file per PE domain. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">self</td><td>Opaque data structure. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">input_file</td><td>NetCDF input file name containing initial positions. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">output_file</td><td>NetCDF output file. Will contain trajectory positions and interpolated fields. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">ermesg</td><td>Error message (if any). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="drifters_8F90_source.html#l00211">211</a> of file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
+
+</div>
+</div>
+<a id="ga957f185b18b0ab1fe8ad189b1a94f5f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga957f185b18b0ab1fe8ad189b1a94f5f7">&#9670;&nbsp;</a></span>drifters_positions2lonlat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine, public drifters_mod::drifters_positions2lonlat </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structdrifters__mod_1_1drifters__type.html">drifters_type</a>)&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:,:), intent(in)&#160;</td>
+          <td class="paramname"><em>positions</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:), intent(in)&#160;</td>
+          <td class="paramname"><em>x1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:), intent(in)&#160;</td>
+          <td class="paramname"><em>y1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:,:), intent(in)&#160;</td>
+          <td class="paramname"><em>geolon1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:), intent(in)&#160;</td>
+          <td class="paramname"><em>x2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:), intent(in)&#160;</td>
+          <td class="paramname"><em>y2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:,:), intent(in)&#160;</td>
+          <td class="paramname"><em>geolat2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:), intent(out)&#160;</td>
+          <td class="paramname"><em>lons</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:), intent(out)&#160;</td>
+          <td class="paramname"><em>lats</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(out)&#160;</td>
+          <td class="paramname"><em>ermesg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Interpolates positions onto longitude/latitude grid. </p>
+<p>In many cases, the integrated positions will not be longitudes or latitudes. This call can be ionvoked to recover the longitude/latitude positions from the "logical" positions. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">self</td><td>Opaque data structure. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">positions</td><td>Logical positions. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">x1</td><td>X-axis of "geolon1" field. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y1</td><td>Y-axis of "geolon1" field. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">geolon1</td><td>Y-axis of "geolon1" field. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">x2</td><td>X-axis of "geolat2" field. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y2</td><td>Y-axis of "geolat2" field. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">geolat2</td><td>Latitude field as an array of (x2, y2) </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">lons</td><td>Returned longitudes. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">lats</td><td>Returned latitudes. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">ermesg</td><td>Error message (if any). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="drifters_8F90_source.html#l01109">1109</a> of file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
+
+</div>
+</div>
+<a id="gaf2ba8c08ff285a71fa0879270f0e2096"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf2ba8c08ff285a71fa0879270f0e2096">&#9670;&nbsp;</a></span>drifters_print_checksums()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine, public drifters_mod::drifters_print_checksums </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structdrifters__mod_1_1drifters__type.html">drifters_type</a>)&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>pe</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(out)&#160;</td>
+          <td class="paramname"><em>ermesg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Print Runge-Kutta check sums. Useful for debugging only. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">self</td><td>Opaque handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pe</td><td>Processor element. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">ermesg</td><td>Error message (if any). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="drifters_8F90_source.html#l01220">1220</a> of file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
+
+</div>
+</div>
+<a id="gae5f4a850b28c0132197541725ed0a933"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae5f4a850b28c0132197541725ed0a933">&#9670;&nbsp;</a></span>drifters_save()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine, public drifters_mod::drifters_save </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structdrifters__mod_1_1drifters__type.html">drifters_type</a>)&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(out)&#160;</td>
+          <td class="paramname"><em>ermesg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Use this method to append the new trajectory positions and the interpolated probe fields to a netCDF file. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">self</td><td>Opaque daata structure. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">ermesg</td><td>Error message (if any). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="drifters_8F90_source.html#l00679">679</a> of file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
+
+</div>
+</div>
+<a id="gaf48b96da0cba62052592800e59ec7529"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf48b96da0cba62052592800e59ec7529">&#9670;&nbsp;</a></span>drifters_set_domain()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine, public drifters_mod::drifters_set_domain </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structdrifters__mod_1_1drifters__type.html">drifters_type</a>)&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, intent(in), optional&#160;</td>
+          <td class="paramname"><em>xmin_comp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, intent(in), optional&#160;</td>
+          <td class="paramname"><em>xmax_comp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, intent(in), optional&#160;</td>
+          <td class="paramname"><em>ymin_comp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, intent(in), optional&#160;</td>
+          <td class="paramname"><em>ymax_comp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, intent(in), optional&#160;</td>
+          <td class="paramname"><em>xmin_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, intent(in), optional&#160;</td>
+          <td class="paramname"><em>xmax_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, intent(in), optional&#160;</td>
+          <td class="paramname"><em>ymin_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, intent(in), optional&#160;</td>
+          <td class="paramname"><em>ymax_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, intent(in), optional&#160;</td>
+          <td class="paramname"><em>xmin_glob</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, intent(in), optional&#160;</td>
+          <td class="paramname"><em>xmax_glob</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, intent(in), optional&#160;</td>
+          <td class="paramname"><em>ymin_glob</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, intent(in), optional&#160;</td>
+          <td class="paramname"><em>ymax_glob</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(out)&#160;</td>
+          <td class="paramname"><em>ermesg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the compute, data, and global domain boundaries. </p>
+<p>The data domain extends beyond the compute domain and is shared between two or more PE domains. A particle crossing the compute domain boundary will trigger a communication with one or more neighboring domains. A particle leaving the data domain will be removed from the list of particles. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">self</td><td>Opaque data structure. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">xmin_comp</td><td>Min of longitude-like axis on compute domain. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">xmax_comp</td><td>Max of longitude-like axis on compute domain. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ymin_comp</td><td>Min of latitude-like axis on compute domain. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ymax_comp</td><td>Max of latitude-like axis on compute domain. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">xmin_data</td><td>Min of longitude-like axis on data domain. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">xmax_data</td><td>Max of longitude-like axis on data domain. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ymin_data</td><td>Min of latitude-like axis on data domain. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ymax_data</td><td>Max of latitude-like axis on data domain. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">xmin_glob</td><td>Min of longitude-like axis on global domain. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">xmax_glob</td><td>Max of longitude-like axis on global domain. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ymin_glob</td><td>Min of latitude-like axis on global domain. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ymax_glob</td><td>Max of latitude-like axis on global domain. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">ermesg</td><td>Error message (if any). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="drifters_8F90_source.html#l00518">518</a> of file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
+
+</div>
+</div>
+<a id="ga0008498100571c609b7ed537d30bd25e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0008498100571c609b7ed537d30bd25e">&#9670;&nbsp;</a></span>drifters_set_domain_bounds()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine, public drifters_mod::drifters_set_domain_bounds </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structdrifters__mod_1_1drifters__type.html">drifters_type</a>)&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer&#160;</td>
+          <td class="paramname"><em>domain</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)&#160;</td>
+          <td class="paramname"><em>backoff_x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)&#160;</td>
+          <td class="paramname"><em>backoff_y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(out)&#160;</td>
+          <td class="paramname"><em>ermesg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set boundaries of "data" and "compute" domains. </p>
+<p>Each particle will be tracked sol long is it is located in the data domain. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">self</td><td>Opaque data structure. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">domain</td><td>Instance of Domain2D (see mpp_domain) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">backoff_x</td><td>particles leaves domain when crossing ied-backoff_x </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">backoff_y</td><td>particles leaves domain when crossing jed-backoff_y </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">ermesg</td><td>Error message (if any). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="drifters_8F90_source.html#l01025">1025</a> of file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
+
+</div>
+</div>
+<a id="gaa90f5c5c61f3e1f0a686b87cece0c1d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa90f5c5c61f3e1f0a686b87cece0c1d6">&#9670;&nbsp;</a></span>drifters_set_pe_neighbors()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine, public drifters_mod::drifters_set_pe_neighbors </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structdrifters__mod_1_1drifters__type.html">drifters_type</a>)&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer&#160;</td>
+          <td class="paramname"><em>domain</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(out)&#160;</td>
+          <td class="paramname"><em>ermesg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Given an MPP based deomposition, set the PE numbers that are adjacent to this processor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">self</td><td>Opaque data structure. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">domain</td><td>MPP domain. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">ermesg</td><td>Error message (if any). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="drifters_8F90_source.html#l00587">587</a> of file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
+
+</div>
+</div>
+<a id="ga2d38270021bffd79cb60096459b3ae7e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2d38270021bffd79cb60096459b3ae7e">&#9670;&nbsp;</a></span>drifters_set_v_axes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine, public drifters_mod::drifters_set_v_axes </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structdrifters__mod_1_1drifters__type.html">drifters_type</a>)&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in)&#160;</td>
+          <td class="paramname"><em>component</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:), intent(in)&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:), intent(in)&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:), intent(in)&#160;</td>
+          <td class="paramname"><em>z</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(out)&#160;</td>
+          <td class="paramname"><em>ermesg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set velocity field axes. </p>
+<p>Velocity axis components may be located on different grids or cell faces. For instance, zonal (u) and meridional (v) velcity components are staggered by half a cell size in Arakawa's C and D grids. This call will set individual axes for each components do as to allow interpolation of the velocity field on arbitrary positions. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">self</td><td>Opaque data structure. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">component</td><td>Velocity component: either 'u', 'v', or 'w'. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>X-axis. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y</td><td>Y-axis. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">z</td><td>Z-axis. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">ermesg</td><td>Error message (if any). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="drifters_8F90_source.html#l00920">920</a> of file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
+
+</div>
+</div>
+<a id="ga3e7db869b8b17f17d7c07b3c2b0cc5c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3e7db869b8b17f17d7c07b3c2b0cc5c2">&#9670;&nbsp;</a></span>drifters_write_restart()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine, public drifters_mod::drifters_write_restart </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structdrifters__mod_1_1drifters__type.html">drifters_type</a>)&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in)&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:), intent(in), optional&#160;</td>
+          <td class="paramname"><em>x1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:), intent(in), optional&#160;</td>
+          <td class="paramname"><em>y1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:,:), intent(in), optional&#160;</td>
+          <td class="paramname"><em>geolon1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:), intent(in), optional&#160;</td>
+          <td class="paramname"><em>x2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:), intent(in), optional&#160;</td>
+          <td class="paramname"><em>y2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:,:), intent(in), optional&#160;</td>
+          <td class="paramname"><em>geolat2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>root</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>mycomm</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(out)&#160;</td>
+          <td class="paramname"><em>ermesg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Write restart file. Gather all the particle positions distributed across PE domains on root PE and save the data in netCDF file. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">self</td><td>Opaque data structure. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">filename</td><td>Restart file name. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">x1</td><td>Pseudo-longitude axis supporting longitudes. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y1</td><td>Pseudo-latitude axis supporting longitudes. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">geolon1</td><td>Longitude array (x1, y1). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">x2</td><td>Pseudo-longitude axis supporting latitudes. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y2</td><td>Pseudo-latitude axis supporting latitudes. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">geolat2</td><td>Latitudes array (x2, y2) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">root</td><td>root pe </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mycomm</td><td>MPI communicator </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">ermesg</td><td>Error message (if any). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="drifters_8F90_source.html#l00805">805</a> of file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

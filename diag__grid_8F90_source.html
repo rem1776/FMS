@@ -182,42 +182,42 @@ $(document).ready(function(){initNavTree('diag__grid_8F90_source.html',''); init
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="preprocessor">#include&lt;file_version.h&gt;</span></div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="preprocessor"></span><span class="comment"></span> </div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment">  !&gt; @brief Contains the model&#39;s global grid data, and other grid information.</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="structdiag__grid__mod_1_1diag__global__grid__type.html">   89</a></span>&#160;  <span class="keyword">TYPE</span> :: <a class="code" href="structdiag__grid__mod_1_1diag__global__grid__type.html">diag_global_grid_type</a></div>
-<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="group__diag__grid__mod.html#gae3eb4a3d1d9b08f05623c3ae6458e00d">   90</a></span>&#160;<span class="keywordtype">     REAL</span>, <span class="keywordtype">allocatable</span>, <span class="keywordtype">DIMENSION(:,:)</span> :: glo_lat<span class="comment"> !&lt; The latitude values on the global grid.</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="group__diag__grid__mod.html#ga9969dceb880fc2d80d8d3b961083f0a3">   91</a></span>&#160;<span class="keywordtype">     REAL</span>, <span class="keywordtype">allocatable</span>, <span class="keywordtype">DIMENSION(:,:)</span> :: glo_lon<span class="comment"> !&lt; The longitude values on the global grid.</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="group__diag__grid__mod.html#gacf91b0a8ab14c847de6dcf3a75bf7563">   92</a></span>&#160;<span class="keywordtype">     REAL</span>, <span class="keywordtype">allocatable</span>, <span class="keywordtype">DIMENSION(:,:)</span> :: aglo_lat<span class="comment"> !&lt; The latitude values on the global a-grid.  Here we expect isc-1:iec+1 and</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  <span class="keyword">TYPE</span>, <span class="keyword">PRIVATE</span> :: diag_global_grid_type</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="keywordtype">     REAL</span>, <span class="keywordtype">allocatable</span>, <span class="keywordtype">DIMENSION(:,:)</span> :: glo_lat<span class="comment"> !&lt; The latitude values on the global grid.</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="keywordtype">     REAL</span>, <span class="keywordtype">allocatable</span>, <span class="keywordtype">DIMENSION(:,:)</span> :: glo_lon<span class="comment"> !&lt; The longitude values on the global grid.</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="keywordtype">     REAL</span>, <span class="keywordtype">allocatable</span>, <span class="keywordtype">DIMENSION(:,:)</span> :: aglo_lat<span class="comment"> !&lt; The latitude values on the global a-grid.  Here we expect isc-1:iec+1 and</span></div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="comment">                                                   !! jsc=1:jec+1 to be passed in.</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="group__diag__grid__mod.html#gabc738585b21d733c289514d704b31b57">   94</a></span>&#160;<span class="keywordtype">     REAL</span>, <span class="keywordtype">allocatable</span>, <span class="keywordtype">DIMENSION(:,:)</span> :: aglo_lon<span class="comment"> !&lt; The longitude values on the global a-grid.  Here we expec isc-1:iec+j and</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="keywordtype">     REAL</span>, <span class="keywordtype">allocatable</span>, <span class="keywordtype">DIMENSION(:,:)</span> :: aglo_lon<span class="comment"> !&lt; The longitude values on the global a-grid.  Here we expec isc-1:iec+j and</span></div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="comment">                                                   !! jsc-1:jec+1 to be passed in.</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="group__diag__grid__mod.html#ga2d7903f6b52147a70fd397ae37ef8d26">   96</a></span>&#160;     <span class="keywordtype">INTEGER</span> :: myxbegin<span class="comment"> !&lt; The starting index of the compute domain on the current PE.</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="group__diag__grid__mod.html#ga6298bdaa8a32dfbe5e64f704995d6bf3">   97</a></span>&#160;     <span class="keywordtype">INTEGER</span> :: myybegin<span class="comment"> !&lt; The starting index of the compute domain on the current PE.</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="group__diag__grid__mod.html#ga49a0ec2c2044680c58ef6bc811e3ac74">   98</a></span>&#160;     <span class="keywordtype">INTEGER</span> :: dimi<span class="comment"> !&lt; The dimension of the global grid in the &#39;i&#39; / longitudal direction.</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="group__diag__grid__mod.html#gae989844e19d85097cd5a13b83a73b890">   99</a></span>&#160;     <span class="keywordtype">INTEGER</span> :: dimj<span class="comment"> !&lt; The dimension of the global grid in the &#39;j&#39; / latitudal direction.</span></div>
-<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="group__diag__grid__mod.html#gac15c33ac089571a954c320ef2c67630a">  100</a></span>&#160;     <span class="keywordtype">INTEGER</span> :: adimi<span class="comment"> !&lt; The dimension of the global a-grid in the &#39;i&#39; / longitudal direction.  Again,</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;     <span class="keywordtype">INTEGER</span> :: myXbegin<span class="comment"> !&lt; The starting index of the compute domain on the current PE.</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;     <span class="keywordtype">INTEGER</span> :: myYbegin<span class="comment"> !&lt; The starting index of the compute domain on the current PE.</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;     <span class="keywordtype">INTEGER</span> :: dimI<span class="comment"> !&lt; The dimension of the global grid in the &#39;i&#39; / longitudal direction.</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;     <span class="keywordtype">INTEGER</span> :: dimJ<span class="comment"> !&lt; The dimension of the global grid in the &#39;j&#39; / latitudal direction.</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;     <span class="keywordtype">INTEGER</span> :: adimI<span class="comment"> !&lt; The dimension of the global a-grid in the &#39;i&#39; / longitudal direction.  Again,</span></div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="comment">                      !! the expected dimension for diag_grid_mod is isc-1:iec+1.</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno"><a class="line" href="group__diag__grid__mod.html#ga86d68afdf2a37152ab6dfdfef8ac7b8b">  102</a></span>&#160;     <span class="keywordtype">INTEGER</span> :: adimj<span class="comment"> !&lt; The dimension of the global a-grid in the &#39;j&#39; / latitudal direction.  Again,</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;     <span class="keywordtype">INTEGER</span> :: adimJ<span class="comment"> !&lt; The dimension of the global a-grid in the &#39;j&#39; / latitudal direction.  Again,</span></div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="comment">                      !! the expected dimension for diag_grid_mod is jsc-1:jec+1.</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="group__diag__grid__mod.html#gabf2730d777f8dceceb7669cfff23fd20">  104</a></span>&#160;     <span class="keywordtype">INTEGER</span> :: tile_number<span class="comment"> !&lt; The tile the &lt;TT&gt;glo_lat&lt;/TT&gt; and &lt;TT&gt;glo_lon&lt;/TT&gt; define.</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="group__diag__grid__mod.html#gad647e9d34add429dd842471b09d57723">  105</a></span>&#160;     <span class="keywordtype">INTEGER</span> :: ntiles<span class="comment"> !&lt; The number of tiles.</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="group__diag__grid__mod.html#gacc94db07ba99997a63533a2b04fe8296">  106</a></span>&#160;     <span class="keywordtype">INTEGER</span> :: pestart<span class="comment"> !&lt; The starting PE number for the current tile.</span></div>
-<div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="group__diag__grid__mod.html#ga2a770f8073c4c3e7c74940b5598ac113">  107</a></span>&#160;     <span class="keywordtype">INTEGER</span> :: peend<span class="comment"> !&lt; The ending PE number for the current tile.</span></div>
-<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="group__diag__grid__mod.html#ga6bf0505a03af67deea36dd10b1e059a6">  108</a></span>&#160;     <span class="keywordtype">CHARACTER(len=128)</span> :: grid_type<span class="comment"> !&lt; The global grid type.</span></div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  <span class="keyword">END TYPE </span><a class="code" href="structdiag__grid__mod_1_1diag__global__grid__type.html">diag_global_grid_type</a></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;     <span class="keywordtype">INTEGER</span> :: tile_number<span class="comment"> !&lt; The tile the &lt;TT&gt;glo_lat&lt;/TT&gt; and &lt;TT&gt;glo_lon&lt;/TT&gt; define.</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;     <span class="keywordtype">INTEGER</span> :: ntiles<span class="comment"> !&lt; The number of tiles.</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;     <span class="keywordtype">INTEGER</span> :: peStart<span class="comment"> !&lt; The starting PE number for the current tile.</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;     <span class="keywordtype">INTEGER</span> :: peEnd<span class="comment"> !&lt; The ending PE number for the current tile.</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;     <span class="keywordtype">CHARACTER(len=128)</span> :: grid_type<span class="comment"> !&lt; The global grid type.</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  <span class="keyword">END TYPE </span>diag_global_grid_type</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="comment">  !&gt; @brief Private point type to hold the (x,y,z) location for a (lat,lon)</span></div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="comment">  !! location.</span></div>
-<div class="line"><a name="l00113"></a><span class="lineno"><a class="line" href="structdiag__grid__mod_1_1point.html">  113</a></span>&#160;  <span class="keyword">TYPE</span> :: <a class="code" href="structdiag__grid__mod_1_1point.html">point</a></div>
-<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="group__diag__grid__mod.html#gab0aad012248673bbebc1382484d5344a">  114</a></span>&#160;<span class="keywordtype">     REAL</span> :: x<span class="comment"> !&lt; The x value of the (x,y,z) coordinates.</span></div>
-<div class="line"><a name="l00115"></a><span class="lineno"><a class="line" href="group__diag__grid__mod.html#ga4b63294f355d7b12de9a25f75a70c5ec">  115</a></span>&#160;<span class="keywordtype">     REAL</span> :: y<span class="comment"> !&lt; The y value of the (x,y,z) coordinates.</span></div>
-<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="group__diag__grid__mod.html#ga10bcf9869cc0e4a13dc5c090991dac34">  116</a></span>&#160;<span class="keywordtype">     REAL</span> :: z<span class="comment"> !&lt; The z value of the (x,y,z) coordinates.</span></div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  <span class="keyword">END TYPE </span><a class="code" href="structdiag__grid__mod_1_1point.html">point</a></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  <span class="keyword">TYPE</span>, <span class="keyword">PRIVATE</span> :: point</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="keywordtype">     REAL</span> :: x<span class="comment"> !&lt; The x value of the (x,y,z) coordinates.</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="keywordtype">     REAL</span> :: y<span class="comment"> !&lt; The y value of the (x,y,z) coordinates.</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="keywordtype">     REAL</span> :: z<span class="comment"> !&lt; The z value of the (x,y,z) coordinates.</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  <span class="keyword">END TYPE </span>point</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  <span class="comment">! &lt;PRIVATE&gt;</span></div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;  <span class="comment">! &lt;DATA NAME=&quot;diag_global_grid&quot; TYPE=&quot;TYPE(diag_global_grid_type)&quot;&gt;</span></div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;  <span class="comment">!   Variable to hold the global grid data</span></div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;  <span class="comment">! &lt;/DATA&gt;</span></div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  <span class="comment">! &lt;/PRIVATE&gt;</span></div>
-<div class="line"><a name="l00124"></a><span class="lineno"><a class="line" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">  124</a></span>&#160;  <span class="keywordtype">TYPE</span>(<a class="code" href="structdiag__grid__mod_1_1diag__global__grid__type.html">diag_global_grid_type</a>) :: <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a><span class="comment"> !&lt; Variable to hold the global grid data</span></div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  <span class="keywordtype">TYPE</span>(diag_global_grid_type) :: diag_global_grid<span class="comment"> !&lt; Variable to hold the global grid data</span></div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;  <span class="comment">! &lt;PRIVATE&gt;</span></div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  <span class="comment">! &lt;DATA NAME=&quot;diag_grid_initialized&quot; TYPE=&quot;LOGICAL&quot; DEFAULT=&quot;.FALSE.&quot;&gt;</span></div>
@@ -290,8 +290,8 @@ $(document).ready(function(){initNavTree('diag__grid_8F90_source.html',''); init
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160; </div>
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="comment">! Number of PEs per tile</span></div>
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    npespertile = npes / ntiles</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%peEnd = npespertile * tile(1)</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%peStart = <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%peEnd - npespertile + 1</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    diag_global_grid%peEnd = npespertile * tile(1)</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    diag_global_grid%peStart = diag_global_grid%peEnd - npespertile + 1</div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160; </div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    <span class="comment">! Get the compute domains</span></div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    <span class="keyword">CALL </span>mpp_get_compute_domains(domain,&amp;</div>
@@ -332,14 +332,14 @@ $(document).ready(function(){initNavTree('diag__grid_8F90_source.html',''); init
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;<span class="keywordflow">    END IF</span></div>
 <div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160; </div>
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    <span class="comment">! Allocate the grid arrays</span></div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    <span class="keywordflow">IF</span> (   <span class="keyword">allocated</span>(<a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%glo_lat) .OR.&amp;</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;         &amp; <span class="keyword">allocated</span>(<a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%glo_lon) ) <span class="keywordflow">THEN</span></div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    <span class="keywordflow">IF</span> (   <span class="keyword">allocated</span>(diag_global_grid%glo_lat) .OR.&amp;</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;         &amp; <span class="keyword">allocated</span>(diag_global_grid%glo_lon) ) <span class="keywordflow">THEN</span></div>
 <div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;       <span class="keywordflow">IF</span> ( <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe() ) &amp;</div>
 <div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;            &amp; <span class="keyword">CALL </span><a class="code" href="group__fms__mod.html#gae5c7420e421293e2be14717dd7b3d97f">error_mesg</a>(<span class="stringliteral">&#39;diag_grid_mod::diag_grid_init&#39;</span>,&amp;</div>
 <div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;            &amp;<span class="stringliteral">&#39;The global grid has already been initialized&#39;</span>, warning)</div>
 <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;    <span class="keywordflow">ELSE</span></div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;       <span class="keyword">ALLOCATE</span>(<a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%glo_lat(i_dim,j_dim),&amp;</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;            &amp;   <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%glo_lon(i_dim,j_dim), stat=stat)</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;       <span class="keyword">ALLOCATE</span>(diag_global_grid%glo_lat(i_dim,j_dim),&amp;</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;            &amp;   diag_global_grid%glo_lon(i_dim,j_dim), stat=stat)</div>
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;       <span class="keywordflow">IF</span> ( stat .NE. 0 ) <span class="keywordflow">THEN</span></div>
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;          <span class="keyword">CALL </span><a class="code" href="group__fms__mod.html#gae5c7420e421293e2be14717dd7b3d97f">error_mesg</a>(<span class="stringliteral">&#39;diag_grid_mod::diag_grid_init&#39;</span>,&amp;</div>
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;               &amp;<span class="stringliteral">&#39;Could not allocate memory for the global grid.&#39;</span>, fatal)</div>
@@ -347,14 +347,14 @@ $(document).ready(function(){initNavTree('diag__grid_8F90_source.html',''); init
 <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;<span class="keywordflow">    END IF</span></div>
 <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160; </div>
 <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    <span class="comment">! Same thing for the a-grid</span></div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    <span class="keywordflow">IF</span> (   <span class="keyword">allocated</span>(<a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%aglo_lat) .OR.&amp;</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;         &amp; <span class="keyword">allocated</span>(<a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%aglo_lon) ) <span class="keywordflow">THEN</span></div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    <span class="keywordflow">IF</span> (   <span class="keyword">allocated</span>(diag_global_grid%aglo_lat) .OR.&amp;</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;         &amp; <span class="keyword">allocated</span>(diag_global_grid%aglo_lon) ) <span class="keywordflow">THEN</span></div>
 <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;       <span class="keywordflow">IF</span> ( <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe() ) &amp;</div>
 <div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;            &amp; <span class="keyword">CALL </span><a class="code" href="group__fms__mod.html#gae5c7420e421293e2be14717dd7b3d97f">error_mesg</a>(<span class="stringliteral">&#39;diag_grid_mod::diag_grid_init&#39;</span>,&amp;</div>
 <div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;            &amp;<span class="stringliteral">&#39;The global a-grid has already been initialized&#39;</span>, warning)</div>
 <div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    <span class="keywordflow">ELSE</span></div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;       <span class="keyword">ALLOCATE</span>(<a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%aglo_lat(0:ai_dim-1,0:aj_dim-1),&amp;</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;            &amp;   <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%aglo_lon(0:ai_dim-1,0:aj_dim-1), stat=stat)</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;       <span class="keyword">ALLOCATE</span>(diag_global_grid%aglo_lat(0:ai_dim-1,0:aj_dim-1),&amp;</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;            &amp;   diag_global_grid%aglo_lon(0:ai_dim-1,0:aj_dim-1), stat=stat)</div>
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;       <span class="keywordflow">IF</span> ( stat .NE. 0 ) <span class="keywordflow">THEN</span></div>
 <div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;          <span class="keyword">CALL </span><a class="code" href="group__fms__mod.html#gae5c7420e421293e2be14717dd7b3d97f">error_mesg</a>(<span class="stringliteral">&#39;diag_global_mod::diag_grid_init&#39;</span>,&amp;</div>
 <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;               &amp;<span class="stringliteral">&#39;Could not allocate memory for the global a-grid&#39;</span>, fatal)</div>
@@ -366,18 +366,18 @@ $(document).ready(function(){initNavTree('diag__grid_8F90_source.html',''); init
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    <span class="comment">! If we are on tile 4 or 5, we need to transpose the grid to get</span></div>
 <div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    <span class="comment">! this to work.</span></div>
 <div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    <span class="keywordflow">IF</span> ( tile(1) == 4 .OR. tile(1) == 5 ) <span class="keywordflow">THEN</span></div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;       <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%aglo_lat = transpose(aglo_lat)</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;       <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%aglo_lon = transpose(aglo_lon)</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;       diag_global_grid%aglo_lat = transpose(aglo_lat)</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;       diag_global_grid%aglo_lon = transpose(aglo_lon)</div>
 <div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    <span class="keywordflow">ELSE</span></div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;       <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%aglo_lat = aglo_lat</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;       <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%aglo_lon = aglo_lon</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;       diag_global_grid%aglo_lat = aglo_lat</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;       diag_global_grid%aglo_lon = aglo_lon</div>
 <div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;<span class="keywordflow">    END IF</span></div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%glo_lat = glo_lat</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%glo_lon = glo_lon</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%dimI = i_dim</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%dimJ = j_dim</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%adimI = ai_dim</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%adimJ = aj_dim</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    diag_global_grid%glo_lat = glo_lat</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    diag_global_grid%glo_lon = glo_lon</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    diag_global_grid%dimI = i_dim</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    diag_global_grid%dimJ = j_dim</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    diag_global_grid%adimI = ai_dim</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    diag_global_grid%adimJ = aj_dim</div>
 <div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    <span class="comment">!--- For the nested model, the nested region only has 1 tile ( ntiles = 1) but</span></div>
 <div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    <span class="comment">!--- the tile_id is 7 for the nested region. In the routine get_local_indexes,</span></div>
 <div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    <span class="comment">!--- local variables ijMin and ijMax have dimesnion (ntiles) and will access</span></div>
@@ -385,13 +385,13 @@ $(document).ready(function(){initNavTree('diag__grid_8F90_source.html',''); init
 <div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    <span class="comment">!--- diag_global_grid%tile_number = 7 will cause out of bounds. So need to</span></div>
 <div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    <span class="comment">!--- set diag_global_grid%tile_number = 1 when ntiles = 1 for the nested model.</span></div>
 <div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    <span class="keywordflow">if</span>(ntiles == 1) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;       <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%tile_number = 1</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;       diag_global_grid%tile_number = 1</div>
 <div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;       <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%tile_number = tile(1)</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;       diag_global_grid%tile_number = tile(1)</div>
 <div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;<span class="keywordflow">    endif</span></div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;    <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%ntiles = ntiles</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;    <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%myXbegin = xbegin(mype)</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%myYbegin = ybegin(mype)</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;    diag_global_grid%ntiles = ntiles</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;    diag_global_grid%myXbegin = xbegin(mype)</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    diag_global_grid%myYbegin = ybegin(mype)</div>
 <div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160; </div>
 <div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    <span class="comment">! Unallocate arrays used here</span></div>
 <div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    <span class="keyword">DEALLOCATE</span>(xbegin)</div>
@@ -410,29 +410,29 @@ $(document).ready(function(){initNavTree('diag__grid_8F90_source.html',''); init
 <div class="line"><a name="l00314"></a><span class="lineno"><a class="line" href="group__diag__grid__mod.html#ga5e5a7eeabed97e40f69b0167e44b1330">  314</a></span>&#160; </div>
 <div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    <span class="keywordflow">IF</span> ( <a class="code" href="group__diag__grid__mod.html#ga5b81ca171d240b2f550afcb9f8cbccdc">diag_grid_initialized</a> ) <span class="keywordflow">THEN</span></div>
 <div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;       <span class="comment">! De-allocate grid</span></div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;       <span class="keywordflow">IF</span> ( <span class="keyword">allocated</span>(<a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%glo_lat) ) <span class="keywordflow">THEN</span></div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;          <span class="keyword">DEALLOCATE</span>(<a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%glo_lat)</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;       <span class="keywordflow">IF</span> ( <span class="keyword">allocated</span>(diag_global_grid%glo_lat) ) <span class="keywordflow">THEN</span></div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;          <span class="keyword">DEALLOCATE</span>(diag_global_grid%glo_lat)</div>
 <div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;       <span class="keywordflow">ELSE</span> <span class="keywordflow">IF</span> ( <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe() ) <span class="keywordflow">THEN</span></div>
 <div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;          <span class="keyword">CALL </span><a class="code" href="group__fms__mod.html#gae5c7420e421293e2be14717dd7b3d97f">error_mesg</a>(<span class="stringliteral">&#39;diag_grid_mod::diag_grid_end&#39;</span>,&amp;</div>
 <div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;               &amp;<span class="stringliteral">&#39;diag_global_grid%glo_lat was not allocated.&#39;</span>, warning)</div>
 <div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;<span class="keywordflow">       END IF</span></div>
 <div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160; </div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;       <span class="keywordflow">IF</span> ( <span class="keyword">allocated</span>(<a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%glo_lon) ) <span class="keywordflow">THEN</span></div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;          <span class="keyword">DEALLOCATE</span>(<a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%glo_lon)</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;       <span class="keywordflow">IF</span> ( <span class="keyword">allocated</span>(diag_global_grid%glo_lon) ) <span class="keywordflow">THEN</span></div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;          <span class="keyword">DEALLOCATE</span>(diag_global_grid%glo_lon)</div>
 <div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;       <span class="keywordflow">ELSE</span> <span class="keywordflow">IF</span> ( <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe() ) <span class="keywordflow">THEN</span></div>
 <div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;          <span class="keyword">CALL </span><a class="code" href="group__fms__mod.html#gae5c7420e421293e2be14717dd7b3d97f">error_mesg</a>(<span class="stringliteral">&#39;diag_grid_mod::diag_grid_end&#39;</span>,&amp;</div>
 <div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;               &amp;<span class="stringliteral">&#39;diag_global_grid%glo_lon was not allocated.&#39;</span>, warning)</div>
 <div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;<span class="keywordflow">       END IF</span></div>
 <div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;       <span class="comment">! De-allocate a-grid</span></div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;       <span class="keywordflow">IF</span> ( <span class="keyword">allocated</span>(<a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%aglo_lat) ) <span class="keywordflow">THEN</span></div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;          <span class="keyword">DEALLOCATE</span>(<a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%aglo_lat)</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;       <span class="keywordflow">IF</span> ( <span class="keyword">allocated</span>(diag_global_grid%aglo_lat) ) <span class="keywordflow">THEN</span></div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;          <span class="keyword">DEALLOCATE</span>(diag_global_grid%aglo_lat)</div>
 <div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;       <span class="keywordflow">ELSE</span> <span class="keywordflow">IF</span> ( <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe() ) <span class="keywordflow">THEN</span></div>
 <div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;          <span class="keyword">CALL </span><a class="code" href="group__fms__mod.html#gae5c7420e421293e2be14717dd7b3d97f">error_mesg</a>(<span class="stringliteral">&#39;diag_grid_mod::diag_grid_end&#39;</span>,&amp;</div>
 <div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;               &amp;<span class="stringliteral">&#39;diag_global_grid%aglo_lat was not allocated.&#39;</span>, warning)</div>
 <div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;<span class="keywordflow">       END IF</span></div>
 <div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160; </div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;       <span class="keywordflow">IF</span> ( <span class="keyword">allocated</span>(<a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%aglo_lon) ) <span class="keywordflow">THEN</span></div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;          <span class="keyword">DEALLOCATE</span>(<a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%aglo_lon)</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;       <span class="keywordflow">IF</span> ( <span class="keyword">allocated</span>(diag_global_grid%aglo_lon) ) <span class="keywordflow">THEN</span></div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;          <span class="keyword">DEALLOCATE</span>(diag_global_grid%aglo_lon)</div>
 <div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;       <span class="keywordflow">ELSE</span> <span class="keywordflow">IF</span> ( <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe() ) <span class="keywordflow">THEN</span></div>
 <div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;          <span class="keyword">CALL </span><a class="code" href="group__fms__mod.html#gae5c7420e421293e2be14717dd7b3d97f">error_mesg</a>(<span class="stringliteral">&#39;diag_grid_mod::diag_grid_end&#39;</span>,&amp;</div>
 <div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;               &amp;<span class="stringliteral">&#39;diag_global_grid%aglo_lon was not allocated.&#39;</span>, warning)</div>
@@ -497,8 +497,8 @@ $(document).ready(function(){initNavTree('diag__grid_8F90_source.html',''); init
 <div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;        <span class="comment">!For a single point, use the a-grid longitude and latitude</span></div>
 <div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;        <span class="comment">!values.</span></div>
 <div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160; </div>
-<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;        mytile = <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%tile_number</div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;        ntiles = <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%ntiles</div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;        mytile = diag_global_grid%tile_number</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;        ntiles = diag_global_grid%ntiles</div>
 <div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160; </div>
 <div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;        <span class="keyword">allocate</span>(ijmin(ntiles,2))</div>
 <div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;        ijmin = 0</div>
@@ -532,8 +532,8 @@ $(document).ready(function(){initNavTree('diag__grid_8F90_source.html',''); init
 <div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;<span class="keywordflow">        ENDIF</span></div>
 <div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160; </div>
 <div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;        <span class="keywordflow">IF</span> (rank_buf .EQ. <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()) <span class="keywordflow">THEN</span></div>
-<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;            ijmin(mytile,1) = mini + <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%myXbegin - 1</div>
-<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;            ijmin(mytile,2) = minj + <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%myYbegin - 1</div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;            ijmin(mytile,1) = mini + diag_global_grid%myXbegin - 1</div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;            ijmin(mytile,2) = minj + diag_global_grid%myYbegin - 1</div>
 <div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;<span class="keywordflow">        ENDIF</span></div>
 <div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160; </div>
 <div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;        <span class="keywordflow">DO</span> i = 1,ntiles</div>
@@ -549,8 +549,8 @@ $(document).ready(function(){initNavTree('diag__grid_8F90_source.html',''); init
 <div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;        <span class="keyword">DEALLOCATE</span>(ijmin)</div>
 <div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;    <span class="keywordflow">ELSE</span></div>
 <div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160; </div>
-<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;        mytile = <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%tile_number</div>
-<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;        ntiles = <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%ntiles</div>
+<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;        mytile = diag_global_grid%tile_number</div>
+<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;        ntiles = diag_global_grid%ntiles</div>
 <div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160; </div>
 <div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;        <span class="comment">! Arrays to home min/max for each tile</span></div>
 <div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;        <span class="keyword">ALLOCATE</span>(ijmin(ntiles,2), stat=istat)</div>
@@ -567,8 +567,8 @@ $(document).ready(function(){initNavTree('diag__grid_8F90_source.html',''); init
 <div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;        <span class="comment">! There will be four points to define a region, find all four.</span></div>
 <div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;        <span class="comment">! Need to call the correct function depending on if the tile is a</span></div>
 <div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;        <span class="comment">! pole tile or not.</span></div>
-<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;       dimi = <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%dimI</div>
-<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;       dimj = <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%dimJ</div>
+<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;       dimi = diag_global_grid%dimI</div>
+<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;       dimj = diag_global_grid%dimJ</div>
 <div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160; </div>
 <div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;       <span class="comment">! Build the delta array</span></div>
 <div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;       <span class="keyword">ALLOCATE</span>(delta_lat(dimi,dimj), stat=istat)</div>
@@ -585,23 +585,23 @@ $(document).ready(function(){initNavTree('diag__grid_8F90_source.html',''); init
 <div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;             dists_lon = 0.</div>
 <div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;             dists_lat = 0.</div>
 <div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;             <span class="keywordflow">IF</span> ( i &lt; dimi ) <span class="keywordflow">THEN</span></div>
-<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;                dists_lon(1) = abs(<a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%glo_lon(i+1,j) - <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%glo_lon(i,j))</div>
-<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;                dists_lat(1) = abs(<a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%glo_lat(i+1,j) - <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%glo_lat(i,j))</div>
+<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;                dists_lon(1) = abs(diag_global_grid%glo_lon(i+1,j) - diag_global_grid%glo_lon(i,j))</div>
+<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;                dists_lat(1) = abs(diag_global_grid%glo_lat(i+1,j) - diag_global_grid%glo_lat(i,j))</div>
 <div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;                count = count+1</div>
 <div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;<span class="keywordflow">             END IF</span></div>
 <div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;             <span class="keywordflow">IF</span> ( j &lt; dimj ) <span class="keywordflow">THEN</span></div>
-<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;                dists_lon(2) = abs(<a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%glo_lon(i,j+1) - <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%glo_lon(i,j))</div>
-<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;                dists_lat(2) = abs(<a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%glo_lat(i,j+1) - <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%glo_lat(i,j))</div>
+<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;                dists_lon(2) = abs(diag_global_grid%glo_lon(i,j+1) - diag_global_grid%glo_lon(i,j))</div>
+<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;                dists_lat(2) = abs(diag_global_grid%glo_lat(i,j+1) - diag_global_grid%glo_lat(i,j))</div>
 <div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;                count = count+1</div>
 <div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;<span class="keywordflow">             END IF</span></div>
 <div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;             <span class="keywordflow">IF</span> ( i &gt; 1 ) <span class="keywordflow">THEN</span></div>
-<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;                dists_lon(3) = abs(<a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%glo_lon(i,j) - <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%glo_lon(i-1,j))</div>
-<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;                dists_lat(3) = abs(<a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%glo_lat(i,j) - <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%glo_lat(i-1,j))</div>
+<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;                dists_lon(3) = abs(diag_global_grid%glo_lon(i,j) - diag_global_grid%glo_lon(i-1,j))</div>
+<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;                dists_lat(3) = abs(diag_global_grid%glo_lat(i,j) - diag_global_grid%glo_lat(i-1,j))</div>
 <div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;                count = count+1</div>
 <div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;<span class="keywordflow">             END IF</span></div>
 <div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;             <span class="keywordflow">IF</span> ( j &gt; 1 ) <span class="keywordflow">THEN</span></div>
-<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;                dists_lon(4) = abs(<a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%glo_lon(i,j) - <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%glo_lon(i,j-1))</div>
-<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;                dists_lat(4) = abs(<a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%glo_lat(i,j) - <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%glo_lat(i,j-1))</div>
+<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;                dists_lon(4) = abs(diag_global_grid%glo_lon(i,j) - diag_global_grid%glo_lon(i,j-1))</div>
+<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;                dists_lat(4) = abs(diag_global_grid%glo_lat(i,j) - diag_global_grid%glo_lat(i,j-1))</div>
 <div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;                count = count+1</div>
 <div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;<span class="keywordflow">             END IF</span></div>
 <div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160; </div>
@@ -624,7 +624,7 @@ $(document).ready(function(){initNavTree('diag__grid_8F90_source.html',''); init
 <div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;       <span class="keywordflow">IF</span> ( istat .NE. 0 )&amp;</div>
 <div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;            &amp; <span class="keyword">CALL </span><a class="code" href="group__fms__mod.html#gae5c7420e421293e2be14717dd7b3d97f">error_mesg</a>(<span class="stringliteral">&#39;diag_grid_mod::get_local_indexes&#39;</span>,&amp;</div>
 <div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;            &amp;<span class="stringliteral">&#39;Cannot allocate temporary longitude array&#39;</span>, fatal)</div>
-<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;       grid_lon = <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%glo_lon</div>
+<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;       grid_lon = diag_global_grid%glo_lon</div>
 <div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160; </div>
 <div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;       <span class="comment">! Make adjustments where required</span></div>
 <div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;       <span class="keywordflow">IF</span> ( my_lonstart &gt; my_lonend ) <span class="keywordflow">THEN</span></div>
@@ -639,12 +639,12 @@ $(document).ready(function(){initNavTree('diag__grid_8F90_source.html',''); init
 <div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;       <span class="keywordflow">DO</span> j=1, dimj-1</div>
 <div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;          <span class="keywordflow">DO</span> i=1, dimi-1</div>
 <div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;             onmype = .false.</div>
-<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;             <span class="keywordflow">IF</span> ( latstart-delta_lat(i,j) &lt;= <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%glo_lat(i,j) .AND.&amp;</div>
-<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;                  &amp; <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%glo_lat(i,j) &lt; latend+delta_lat(i,j) ) <span class="keywordflow">THEN</span></div>
+<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;             <span class="keywordflow">IF</span> ( latstart-delta_lat(i,j) &lt;= diag_global_grid%glo_lat(i,j) .AND.&amp;</div>
+<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;                  &amp; diag_global_grid%glo_lat(i,j) &lt; latend+delta_lat(i,j) ) <span class="keywordflow">THEN</span></div>
 <div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;                <span class="comment">! Short-cut for the poles</span></div>
 <div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;                <span class="keywordflow">IF</span> ( (abs(latstart)-delta_lat(i,j) &lt;= 90.0 .AND.&amp;</div>
 <div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;                     &amp; 90.0 &lt;= abs(latend)+delta_lat(i,j)) .AND.&amp;</div>
-<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;                     &amp; abs(<a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%glo_lat(i,j)) == 90.0 ) <span class="keywordflow">THEN</span></div>
+<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;                     &amp; abs(diag_global_grid%glo_lat(i,j)) == 90.0 ) <span class="keywordflow">THEN</span></div>
 <div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;                   onmype = .true.</div>
 <div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;                <span class="keywordflow">ELSE</span> <span class="keywordflow">IF</span> ( (my_lonstart-delta_lon(i,j) &lt;= grid_lon(i,j) .AND.&amp;</div>
 <div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;                     &amp; grid_lon(i,j) &lt; lonendadj+delta_lon(i,j)) ) <span class="keywordflow">THEN</span></div>
@@ -653,10 +653,10 @@ $(document).ready(function(){initNavTree('diag__grid_8F90_source.html',''); init
 <div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;                   onmype = .false.</div>
 <div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;<span class="keywordflow">                END IF</span></div>
 <div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;                <span class="keywordflow">IF</span> ( onmype ) <span class="keywordflow">THEN</span></div>
-<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;                   ijmin(mytile,1) = min(ijmin(mytile,1),i + <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%myXbegin - 1)</div>
-<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;                   ijmax(mytile,1) = max(ijmax(mytile,1),i + <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%myXbegin - 1)</div>
-<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;                   ijmin(mytile,2) = min(ijmin(mytile,2),j + <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%myYbegin - 1)</div>
-<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;                   ijmax(mytile,2) = max(ijmax(mytile,2),j + <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%myYbegin - 1)</div>
+<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;                   ijmin(mytile,1) = min(ijmin(mytile,1),i + diag_global_grid%myXbegin - 1)</div>
+<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;                   ijmax(mytile,1) = max(ijmax(mytile,1),i + diag_global_grid%myXbegin - 1)</div>
+<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;                   ijmin(mytile,2) = min(ijmin(mytile,2),j + diag_global_grid%myYbegin - 1)</div>
+<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;                   ijmax(mytile,2) = max(ijmax(mytile,2),j + diag_global_grid%myYbegin - 1)</div>
 <div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;<span class="keywordflow">                END IF</span></div>
 <div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;<span class="keywordflow">             END IF</span></div>
 <div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;<span class="keywordflow">          END DO</span></div>
@@ -711,10 +711,10 @@ $(document).ready(function(){initNavTree('diag__grid_8F90_source.html',''); init
 <div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160; </div>
 <div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;    indexes = 0</div>
 <div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160; </div>
-<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;    <span class="keywordflow">IF</span> ( mod(<a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%tile_number,3) == 0 ) <span class="keywordflow">THEN</span></div>
-<div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;       <span class="keywordflow">IF</span> ( lat &gt; 30.0 .AND. <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%tile_number == 3 ) <span class="keywordflow">THEN</span></div>
+<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;    <span class="keywordflow">IF</span> ( mod(diag_global_grid%tile_number,3) == 0 ) <span class="keywordflow">THEN</span></div>
+<div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;       <span class="keywordflow">IF</span> ( lat &gt; 30.0 .AND. diag_global_grid%tile_number == 3 ) <span class="keywordflow">THEN</span></div>
 <div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;          indexes(:) = find_pole_index_agrid(lat,lon)</div>
-<div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;       <span class="keywordflow">ELSE</span> <span class="keywordflow">IF</span> ( lat &lt; -30.0 .AND. <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%tile_number == 6 ) <span class="keywordflow">THEN</span></div>
+<div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;       <span class="keywordflow">ELSE</span> <span class="keywordflow">IF</span> ( lat &lt; -30.0 .AND. diag_global_grid%tile_number == 6 ) <span class="keywordflow">THEN</span></div>
 <div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;          indexes(:) = find_pole_index_agrid(lat,lon)</div>
 <div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;<span class="keywordflow">       ENDIF</span></div>
 <div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;    <span class="keywordflow">ELSE</span></div>
@@ -723,8 +723,8 @@ $(document).ready(function(){initNavTree('diag__grid_8F90_source.html',''); init
 <div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160; </div>
 <div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;    iindex = indexes(1)</div>
 <div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;    jindex = indexes(2)</div>
-<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;    <span class="keywordflow">IF</span> (iindex ==  <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%adimI -1 .OR.&amp;</div>
-<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;        jindex ==  <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%adimJ -1 ) <span class="keywordflow">THEN</span></div>
+<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;    <span class="keywordflow">IF</span> (iindex ==  diag_global_grid%adimI -1 .OR.&amp;</div>
+<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;        jindex ==  diag_global_grid%adimJ -1 ) <span class="keywordflow">THEN</span></div>
 <div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;      iindex = 0</div>
 <div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;      jindex = 0</div>
 <div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;<span class="keywordflow">    ENDIF</span></div>
@@ -781,17 +781,17 @@ $(document).ready(function(){initNavTree('diag__grid_8F90_source.html',''); init
 <div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;<span class="keywordtype">    REAL</span> :: llat, llon</div>
 <div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;<span class="keywordtype">    REAL</span> :: maxctrdist<span class="comment"> !&lt; maximum distance to center of grid</span></div>
 <div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;<span class="keywordtype">    REAL</span>, <span class="keywordtype">DIMENSION(4)</span> :: pntdistances<span class="comment"> !&lt; distance from origPt to corner</span></div>
-<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;    <span class="keywordtype">TYPE</span>(<a class="code" href="structdiag__grid__mod_1_1point.html">point</a>) :: origpt<span class="comment"> !&lt; Original point</span></div>
+<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;    <span class="keywordtype">TYPE</span>(point) :: origpt<span class="comment"> !&lt; Original point</span></div>
 <div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;<span class="keywordtype">    REAL</span>, <span class="keywordtype">DIMENSION(4,2)</span> :: cornerpts<span class="comment"> !&lt; Corner points using (lat,lon)</span></div>
-<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;    <span class="keywordtype">TYPE</span>(<a class="code" href="structdiag__grid__mod_1_1point.html">point</a>), <span class="keywordtype">DIMENSION(9)</span> :: points<span class="comment"> !&lt; xyz of 8 nearest neighbors</span></div>
+<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;    <span class="keywordtype">TYPE</span>(point), <span class="keywordtype">DIMENSION(9)</span> :: points<span class="comment"> !&lt; xyz of 8 nearest neighbors</span></div>
 <div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;<span class="keywordtype">    REAL</span>, <span class="keywordtype">DIMENSION(9)</span> :: distsqrd<span class="comment"> !&lt; distance between origPt and points(:)</span></div>
 <div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160; </div>
 <div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;    <span class="comment">! Set the inital fail values for indxI and indxJ</span></div>
 <div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;    indxi = 0</div>
 <div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;    indxj = 0</div>
 <div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160; </div>
-<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;    dimi = <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%adimI</div>
-<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;    dimj = <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%adimJ</div>
+<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;    dimi = diag_global_grid%adimI</div>
+<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;    dimj = diag_global_grid%adimJ</div>
 <div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160; </div>
 <div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;    <span class="comment">! Since the poles have an non-unique longitude value, make a small correction if looking for one of the poles.</span></div>
 <div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;    <span class="keywordflow">IF</span> ( lat == 90.0 ) <span class="keywordflow">THEN</span></div>
@@ -807,10 +807,10 @@ $(document).ready(function(){initNavTree('diag__grid_8F90_source.html',''); init
 <div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160; </div>
 <div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;    iloop: <span class="keywordflow">DO</span> i=0, dimi-2</div>
 <div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;       jloop: <span class="keywordflow">DO</span> j = 0, dimj-2</div>
-<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;          cornerpts = reshape( (/ <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%aglo_lat(i,  j),  <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%aglo_lon(i,  j),&amp;</div>
-<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;               &amp;                  <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%aglo_lat(i+1,j+1),<a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%aglo_lon(i+1,j+1),&amp;</div>
-<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;               &amp;                  <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%aglo_lat(i+1,j),  <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%aglo_lon(i+1,j),&amp;</div>
-<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;               &amp;                  <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%aglo_lat(i,  j+1),<a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%aglo_lon(i,  j+1) /),&amp;</div>
+<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;          cornerpts = reshape( (/ diag_global_grid%aglo_lat(i,  j),  diag_global_grid%aglo_lon(i,  j),&amp;</div>
+<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;               &amp;                  diag_global_grid%aglo_lat(i+1,j+1),diag_global_grid%aglo_lon(i+1,j+1),&amp;</div>
+<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;               &amp;                  diag_global_grid%aglo_lat(i+1,j),  diag_global_grid%aglo_lon(i+1,j),&amp;</div>
+<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;               &amp;                  diag_global_grid%aglo_lat(i,  j+1),diag_global_grid%aglo_lon(i,  j+1) /),&amp;</div>
 <div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;               &amp;               (/ 4, 2 /), order=(/2,1/) )</div>
 <div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;          <span class="comment">! Find the maximum half distance of the corner points</span></div>
 <div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;          maxctrdist = max(gcirdistance(cornerpts(1,1),cornerpts(1,2), cornerpts(2,1),cornerpts(2,2)),&amp;</div>
@@ -860,24 +860,24 @@ $(document).ready(function(){initNavTree('diag__grid_8F90_source.html',''); init
 <div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;<span class="keywordflow">       END DO</span></div>
 <div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160; </div>
 <div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;       <span class="comment">! All the points around the i,j indexes</span></div>
-<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;       points(1) = latlon2xyz(<a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%aglo_lat(indxi-1,indxj+1),&amp;</div>
-<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;            &amp;                 <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%aglo_lon(indxi-1,indxj+1))</div>
-<div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;       points(2) = latlon2xyz(<a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%aglo_lat(indxi-1,indxj),&amp;</div>
-<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;            &amp;                 <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%aglo_lon(indxi-1,indxj))</div>
-<div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;       points(3) = latlon2xyz(<a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%aglo_lat(indxi-1,indxj-1),&amp;</div>
-<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;            &amp;                 <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%aglo_lon(indxi-1,indxj-1))</div>
-<div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160;       points(4) = latlon2xyz(<a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%aglo_lat(indxi,  indxj+1),&amp;</div>
-<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;            &amp;                 <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%aglo_lon(indxi,  indxj+1))</div>
-<div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160;       points(5) = latlon2xyz(<a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%aglo_lat(indxi,  indxj),&amp;</div>
-<div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160;            &amp;                 <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%aglo_lon(indxi,  indxj))</div>
-<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160;       points(6) = latlon2xyz(<a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%aglo_lat(indxi,  indxj-1),&amp;</div>
-<div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160;            &amp;                 <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%aglo_lon(indxi,  indxj-1))</div>
-<div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160;       points(7) = latlon2xyz(<a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%aglo_lat(indxi+1,indxj+1),&amp;</div>
-<div class="line"><a name="l00780"></a><span class="lineno">  780</span>&#160;            &amp;                 <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%aglo_lon(indxi+1,indxj+1))</div>
-<div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160;       points(8) = latlon2xyz(<a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%aglo_lat(indxi+1,indxj),&amp;</div>
-<div class="line"><a name="l00782"></a><span class="lineno">  782</span>&#160;            &amp;                 <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%aglo_lon(indxi+1,indxj))</div>
-<div class="line"><a name="l00783"></a><span class="lineno">  783</span>&#160;       points(9) = latlon2xyz(<a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%aglo_lat(indxi+1,indxj-1),&amp;</div>
-<div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160;            &amp;                 <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%aglo_lon(indxi+1,indxj-1))</div>
+<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;       points(1) = latlon2xyz(diag_global_grid%aglo_lat(indxi-1,indxj+1),&amp;</div>
+<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;            &amp;                 diag_global_grid%aglo_lon(indxi-1,indxj+1))</div>
+<div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;       points(2) = latlon2xyz(diag_global_grid%aglo_lat(indxi-1,indxj),&amp;</div>
+<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;            &amp;                 diag_global_grid%aglo_lon(indxi-1,indxj))</div>
+<div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;       points(3) = latlon2xyz(diag_global_grid%aglo_lat(indxi-1,indxj-1),&amp;</div>
+<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;            &amp;                 diag_global_grid%aglo_lon(indxi-1,indxj-1))</div>
+<div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160;       points(4) = latlon2xyz(diag_global_grid%aglo_lat(indxi,  indxj+1),&amp;</div>
+<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;            &amp;                 diag_global_grid%aglo_lon(indxi,  indxj+1))</div>
+<div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160;       points(5) = latlon2xyz(diag_global_grid%aglo_lat(indxi,  indxj),&amp;</div>
+<div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160;            &amp;                 diag_global_grid%aglo_lon(indxi,  indxj))</div>
+<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160;       points(6) = latlon2xyz(diag_global_grid%aglo_lat(indxi,  indxj-1),&amp;</div>
+<div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160;            &amp;                 diag_global_grid%aglo_lon(indxi,  indxj-1))</div>
+<div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160;       points(7) = latlon2xyz(diag_global_grid%aglo_lat(indxi+1,indxj+1),&amp;</div>
+<div class="line"><a name="l00780"></a><span class="lineno">  780</span>&#160;            &amp;                 diag_global_grid%aglo_lon(indxi+1,indxj+1))</div>
+<div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160;       points(8) = latlon2xyz(diag_global_grid%aglo_lat(indxi+1,indxj),&amp;</div>
+<div class="line"><a name="l00782"></a><span class="lineno">  782</span>&#160;            &amp;                 diag_global_grid%aglo_lon(indxi+1,indxj))</div>
+<div class="line"><a name="l00783"></a><span class="lineno">  783</span>&#160;       points(9) = latlon2xyz(diag_global_grid%aglo_lat(indxi+1,indxj-1),&amp;</div>
+<div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160;            &amp;                 diag_global_grid%aglo_lon(indxi+1,indxj-1))</div>
 <div class="line"><a name="l00785"></a><span class="lineno">  785</span>&#160; </div>
 <div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160; </div>
 <div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160;       <span class="comment">! Calculate the distance squared between the points(:) and the origPt</span></div>
@@ -939,20 +939,20 @@ $(document).ready(function(){initNavTree('diag__grid_8F90_source.html',''); init
 <div class="line"><a name="l00843"></a><span class="lineno">  843</span>&#160;    <span class="keywordtype">INTEGER</span> :: dimi, dimj<span class="comment"> !&lt; Size of the grid dimensions</span></div>
 <div class="line"><a name="l00844"></a><span class="lineno">  844</span>&#160;    <span class="keywordtype">INTEGER</span> :: i,j<span class="comment"> !&lt; Count indexes</span></div>
 <div class="line"><a name="l00845"></a><span class="lineno">  845</span>&#160;    <span class="keywordtype">INTEGER</span> :: jstart, jend, nextj<span class="comment"> !&lt; j counting variables</span></div>
-<div class="line"><a name="l00846"></a><span class="lineno">  846</span>&#160;    <span class="keywordtype">TYPE</span>(<a class="code" href="structdiag__grid__mod_1_1point.html">point</a>) :: origpt<span class="comment"> !&lt; Original point</span></div>
-<div class="line"><a name="l00847"></a><span class="lineno">  847</span>&#160;    <span class="keywordtype">TYPE</span>(<a class="code" href="structdiag__grid__mod_1_1point.html">point</a>), <span class="keywordtype">DIMENSION(4)</span> :: points<span class="comment"> !&lt; xyz of 8 nearest neighbors</span></div>
+<div class="line"><a name="l00846"></a><span class="lineno">  846</span>&#160;    <span class="keywordtype">TYPE</span>(point) :: origpt<span class="comment"> !&lt; Original point</span></div>
+<div class="line"><a name="l00847"></a><span class="lineno">  847</span>&#160;    <span class="keywordtype">TYPE</span>(point), <span class="keywordtype">DIMENSION(4)</span> :: points<span class="comment"> !&lt; xyz of 8 nearest neighbors</span></div>
 <div class="line"><a name="l00848"></a><span class="lineno">  848</span>&#160;<span class="keywordtype">    REAL</span>, <span class="keywordtype">DIMENSION(4)</span> :: distsqrd<span class="comment"> !&lt; distance between origPt and points(:)</span></div>
 <div class="line"><a name="l00849"></a><span class="lineno">  849</span>&#160; </div>
 <div class="line"><a name="l00850"></a><span class="lineno">  850</span>&#160;    <span class="comment">! Set the inital fail values for indxI and indxJ</span></div>
 <div class="line"><a name="l00851"></a><span class="lineno">  851</span>&#160;    indxi = 0</div>
 <div class="line"><a name="l00852"></a><span class="lineno">  852</span>&#160;    indxj = 0</div>
 <div class="line"><a name="l00853"></a><span class="lineno">  853</span>&#160; </div>
-<div class="line"><a name="l00854"></a><span class="lineno">  854</span>&#160;    dimi = <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%adimI</div>
-<div class="line"><a name="l00855"></a><span class="lineno">  855</span>&#160;    dimj = <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%adimJ</div>
+<div class="line"><a name="l00854"></a><span class="lineno">  854</span>&#160;    dimi = diag_global_grid%adimI</div>
+<div class="line"><a name="l00855"></a><span class="lineno">  855</span>&#160;    dimj = diag_global_grid%adimJ</div>
 <div class="line"><a name="l00856"></a><span class="lineno">  856</span>&#160; </div>
 <div class="line"><a name="l00857"></a><span class="lineno">  857</span>&#160;    <span class="comment">! check to see if the &#39;fix&#39; for the latitude index is needed</span></div>
-<div class="line"><a name="l00858"></a><span class="lineno">  858</span>&#160;    <span class="keywordflow">IF</span> ( <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%aglo_lat(1,1) &gt; &amp;</div>
-<div class="line"><a name="l00859"></a><span class="lineno">  859</span>&#160;         &amp;<a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%aglo_lat(1,2) ) <span class="keywordflow">THEN</span></div>
+<div class="line"><a name="l00858"></a><span class="lineno">  858</span>&#160;    <span class="keywordflow">IF</span> ( diag_global_grid%aglo_lat(1,1) &gt; &amp;</div>
+<div class="line"><a name="l00859"></a><span class="lineno">  859</span>&#160;         &amp;diag_global_grid%aglo_lat(1,2) ) <span class="keywordflow">THEN</span></div>
 <div class="line"><a name="l00860"></a><span class="lineno">  860</span>&#160;       <span class="comment">! reverse the j search</span></div>
 <div class="line"><a name="l00861"></a><span class="lineno">  861</span>&#160;       jstart = dimj-1</div>
 <div class="line"><a name="l00862"></a><span class="lineno">  862</span>&#160;       jend = 1</div>
@@ -965,16 +965,16 @@ $(document).ready(function(){initNavTree('diag__grid_8F90_source.html',''); init
 <div class="line"><a name="l00869"></a><span class="lineno">  869</span>&#160; </div>
 <div class="line"><a name="l00870"></a><span class="lineno">  870</span>&#160;    <span class="comment">! find the I index</span></div>
 <div class="line"><a name="l00871"></a><span class="lineno">  871</span>&#160;    iloop: <span class="keywordflow">DO</span> i=0, dimi-2</div>
-<div class="line"><a name="l00872"></a><span class="lineno">  872</span>&#160;       <span class="keywordflow">IF</span> (   <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%aglo_lon(i,0) &gt;&amp;</div>
-<div class="line"><a name="l00873"></a><span class="lineno">  873</span>&#160;            &amp; <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%aglo_lon(i+1,0) ) <span class="keywordflow">THEN</span></div>
+<div class="line"><a name="l00872"></a><span class="lineno">  872</span>&#160;       <span class="keywordflow">IF</span> (   diag_global_grid%aglo_lon(i,0) &gt;&amp;</div>
+<div class="line"><a name="l00873"></a><span class="lineno">  873</span>&#160;            &amp; diag_global_grid%aglo_lon(i+1,0) ) <span class="keywordflow">THEN</span></div>
 <div class="line"><a name="l00874"></a><span class="lineno">  874</span>&#160;          <span class="comment">! We are at the 0 longitudal line</span></div>
-<div class="line"><a name="l00875"></a><span class="lineno">  875</span>&#160;          <span class="keywordflow">IF</span> (   (<a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%aglo_lon(i,0) &lt;= lon .AND. lon &lt;= 360.) .OR.&amp;</div>
-<div class="line"><a name="l00876"></a><span class="lineno">  876</span>&#160;               &amp; (0. &lt;= lon .AND. lon &lt; <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%aglo_lon(i+1, 0)) ) <span class="keywordflow">THEN</span></div>
+<div class="line"><a name="l00875"></a><span class="lineno">  875</span>&#160;          <span class="keywordflow">IF</span> (   (diag_global_grid%aglo_lon(i,0) &lt;= lon .AND. lon &lt;= 360.) .OR.&amp;</div>
+<div class="line"><a name="l00876"></a><span class="lineno">  876</span>&#160;               &amp; (0. &lt;= lon .AND. lon &lt; diag_global_grid%aglo_lon(i+1, 0)) ) <span class="keywordflow">THEN</span></div>
 <div class="line"><a name="l00877"></a><span class="lineno">  877</span>&#160;             indxi = i</div>
 <div class="line"><a name="l00878"></a><span class="lineno">  878</span>&#160;             <span class="keywordflow">EXIT</span> iloop</div>
 <div class="line"><a name="l00879"></a><span class="lineno">  879</span>&#160;<span class="keywordflow">          END IF</span></div>
-<div class="line"><a name="l00880"></a><span class="lineno">  880</span>&#160;       <span class="keywordflow">ELSEIF</span> ( <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%aglo_lon(i,0) &lt;= lon .AND.&amp;</div>
-<div class="line"><a name="l00881"></a><span class="lineno">  881</span>&#160;            &amp;   lon &lt;= <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%aglo_lon(i+1,0) ) <span class="keywordflow">THEN</span></div>
+<div class="line"><a name="l00880"></a><span class="lineno">  880</span>&#160;       <span class="keywordflow">ELSEIF</span> ( diag_global_grid%aglo_lon(i,0) &lt;= lon .AND.&amp;</div>
+<div class="line"><a name="l00881"></a><span class="lineno">  881</span>&#160;            &amp;   lon &lt;= diag_global_grid%aglo_lon(i+1,0) ) <span class="keywordflow">THEN</span></div>
 <div class="line"><a name="l00882"></a><span class="lineno">  882</span>&#160;          indxi = i</div>
 <div class="line"><a name="l00883"></a><span class="lineno">  883</span>&#160;          <span class="keywordflow">EXIT</span> iloop</div>
 <div class="line"><a name="l00884"></a><span class="lineno">  884</span>&#160;<span class="keywordflow">       END IF</span></div>
@@ -983,8 +983,8 @@ $(document).ready(function(){initNavTree('diag__grid_8F90_source.html',''); init
 <div class="line"><a name="l00887"></a><span class="lineno">  887</span>&#160;    <span class="comment">! Find the J index</span></div>
 <div class="line"><a name="l00888"></a><span class="lineno">  888</span>&#160;    <span class="keywordflow">IF</span> ( indxi &gt; 0 ) <span class="keywordflow">THEN</span></div>
 <div class="line"><a name="l00889"></a><span class="lineno">  889</span>&#160;       jloop: <span class="keywordflow">DO</span> j=jstart, jend, nextj</div>
-<div class="line"><a name="l00890"></a><span class="lineno">  890</span>&#160;          <span class="keywordflow">IF</span> (   <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%aglo_lat(indxi,j) &lt;= lat .AND.&amp;</div>
-<div class="line"><a name="l00891"></a><span class="lineno">  891</span>&#160;               &amp; lat &lt;= <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%aglo_lat(indxi,j+nextj) ) <span class="keywordflow">THEN</span></div>
+<div class="line"><a name="l00890"></a><span class="lineno">  890</span>&#160;          <span class="keywordflow">IF</span> (   diag_global_grid%aglo_lat(indxi,j) &lt;= lat .AND.&amp;</div>
+<div class="line"><a name="l00891"></a><span class="lineno">  891</span>&#160;               &amp; lat &lt;= diag_global_grid%aglo_lat(indxi,j+nextj) ) <span class="keywordflow">THEN</span></div>
 <div class="line"><a name="l00892"></a><span class="lineno">  892</span>&#160;             indxj = j</div>
 <div class="line"><a name="l00893"></a><span class="lineno">  893</span>&#160;             <span class="keywordflow">EXIT</span> jloop</div>
 <div class="line"><a name="l00894"></a><span class="lineno">  894</span>&#160;<span class="keywordflow">          END IF</span></div>
@@ -1019,14 +1019,14 @@ $(document).ready(function(){initNavTree('diag__grid_8F90_source.html',''); init
 <div class="line"><a name="l00923"></a><span class="lineno">  923</span>&#160;       <span class="comment">! The original point</span></div>
 <div class="line"><a name="l00924"></a><span class="lineno">  924</span>&#160;       origpt = latlon2xyz(lat,lon)</div>
 <div class="line"><a name="l00925"></a><span class="lineno">  925</span>&#160; </div>
-<div class="line"><a name="l00926"></a><span class="lineno">  926</span>&#160;       points(1) = latlon2xyz(<a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%aglo_lat(indxi,indxj),&amp;</div>
-<div class="line"><a name="l00927"></a><span class="lineno">  927</span>&#160;            &amp;                 <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%aglo_lon(indxi,indxj))</div>
-<div class="line"><a name="l00928"></a><span class="lineno">  928</span>&#160;       points(2) = latlon2xyz(<a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%aglo_lat(indxi,indxj+nextj),&amp;</div>
-<div class="line"><a name="l00929"></a><span class="lineno">  929</span>&#160;            &amp;                 <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%aglo_lon(indxi,indxj+nextj))</div>
-<div class="line"><a name="l00930"></a><span class="lineno">  930</span>&#160;       points(3) = latlon2xyz(<a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%aglo_lat(indxi+1,indxj+nextj),&amp;</div>
-<div class="line"><a name="l00931"></a><span class="lineno">  931</span>&#160;            &amp;                 <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%aglo_lon(indxi+1,indxj+nextj))</div>
-<div class="line"><a name="l00932"></a><span class="lineno">  932</span>&#160;       points(4) = latlon2xyz(<a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%aglo_lat(indxi+1,indxj),&amp;</div>
-<div class="line"><a name="l00933"></a><span class="lineno">  933</span>&#160;            &amp;                 <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%aglo_lon(indxi+1,indxj))</div>
+<div class="line"><a name="l00926"></a><span class="lineno">  926</span>&#160;       points(1) = latlon2xyz(diag_global_grid%aglo_lat(indxi,indxj),&amp;</div>
+<div class="line"><a name="l00927"></a><span class="lineno">  927</span>&#160;            &amp;                 diag_global_grid%aglo_lon(indxi,indxj))</div>
+<div class="line"><a name="l00928"></a><span class="lineno">  928</span>&#160;       points(2) = latlon2xyz(diag_global_grid%aglo_lat(indxi,indxj+nextj),&amp;</div>
+<div class="line"><a name="l00929"></a><span class="lineno">  929</span>&#160;            &amp;                 diag_global_grid%aglo_lon(indxi,indxj+nextj))</div>
+<div class="line"><a name="l00930"></a><span class="lineno">  930</span>&#160;       points(3) = latlon2xyz(diag_global_grid%aglo_lat(indxi+1,indxj+nextj),&amp;</div>
+<div class="line"><a name="l00931"></a><span class="lineno">  931</span>&#160;            &amp;                 diag_global_grid%aglo_lon(indxi+1,indxj+nextj))</div>
+<div class="line"><a name="l00932"></a><span class="lineno">  932</span>&#160;       points(4) = latlon2xyz(diag_global_grid%aglo_lat(indxi+1,indxj),&amp;</div>
+<div class="line"><a name="l00933"></a><span class="lineno">  933</span>&#160;            &amp;                 diag_global_grid%aglo_lon(indxi+1,indxj))</div>
 <div class="line"><a name="l00934"></a><span class="lineno">  934</span>&#160; </div>
 <div class="line"><a name="l00935"></a><span class="lineno">  935</span>&#160;       <span class="comment">! Find the distance between the original point and the four</span></div>
 <div class="line"><a name="l00936"></a><span class="lineno">  936</span>&#160;       <span class="comment">! grid points</span></div>
@@ -1052,8 +1052,8 @@ $(document).ready(function(){initNavTree('diag__grid_8F90_source.html',''); init
 <div class="line"><a name="l00956"></a><span class="lineno">  956</span>&#160; </div>
 <div class="line"><a name="l00957"></a><span class="lineno">  957</span>&#160;       <span class="comment">! If we are on tile 3 or 4, then the indxI and indxJ are</span></div>
 <div class="line"><a name="l00958"></a><span class="lineno">  958</span>&#160;       <span class="comment">! reversed due to the transposed grids.</span></div>
-<div class="line"><a name="l00959"></a><span class="lineno">  959</span>&#160;       <span class="keywordflow">IF</span> (   <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%tile_number == 4 .OR.&amp;</div>
-<div class="line"><a name="l00960"></a><span class="lineno">  960</span>&#160;            &amp; <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%tile_number == 5 ) <span class="keywordflow">THEN</span></div>
+<div class="line"><a name="l00959"></a><span class="lineno">  959</span>&#160;       <span class="keywordflow">IF</span> (   diag_global_grid%tile_number == 4 .OR.&amp;</div>
+<div class="line"><a name="l00960"></a><span class="lineno">  960</span>&#160;            &amp; diag_global_grid%tile_number == 5 ) <span class="keywordflow">THEN</span></div>
 <div class="line"><a name="l00961"></a><span class="lineno">  961</span>&#160;          indxi_tmp = indxi</div>
 <div class="line"><a name="l00962"></a><span class="lineno">  962</span>&#160;          indxi = indxj</div>
 <div class="line"><a name="l00963"></a><span class="lineno">  963</span>&#160;          indxj = indxi_tmp</div>
@@ -1073,7 +1073,7 @@ $(document).ready(function(){initNavTree('diag__grid_8F90_source.html',''); init
 <div class="line"><a name="l00977"></a><span class="lineno">  977</span>&#160;<span class="comment">  !! @return The return of latlon2xyz</span></div>
 <div class="line"><a name="l00978"></a><span class="lineno">  978</span>&#160;<span class="comment">  !!   will be either a scalar or an array of the same size as lat</span></div>
 <div class="line"><a name="l00979"></a><span class="lineno">  979</span>&#160;<span class="comment">  !!   and lon.</span></div>
-<div class="line"><a name="l00980"></a><span class="lineno">  980</span>&#160;  <span class="keywordtype">PURE</span> <span class="keywordtype">ELEMENTAL</span> <span class="keywordtype">TYPE</span>(<a class="code" href="structdiag__grid__mod_1_1point.html">point</a>) function latlon2xyz(lat, lon)</div>
+<div class="line"><a name="l00980"></a><span class="lineno">  980</span>&#160;  <span class="keywordtype">PURE</span> <span class="keywordtype">ELEMENTAL</span> <span class="keywordtype">TYPE</span>(point) function latlon2xyz(lat, lon)</div>
 <div class="line"><a name="l00981"></a><span class="lineno">  981</span>&#160;<span class="keywordtype">    REAL</span>, <span class="keywordtype">INTENT(in)</span> :: lat<span class="comment"> !&lt; The latitude of the (x,y,z) location to find.  &lt;TT&gt;lat&lt;/TT&gt;</span></div>
 <div class="line"><a name="l00982"></a><span class="lineno">  982</span>&#160;<span class="comment">                            !! can be either a scalar or array.  &lt;TT&gt;lat&lt;/TT&gt; must be of the</span></div>
 <div class="line"><a name="l00983"></a><span class="lineno">  983</span>&#160;<span class="comment">                            !! same rank / size as &lt;TT&gt;lon&lt;/TT&gt;.  This function assumes</span></div>
@@ -1109,7 +1109,7 @@ $(document).ready(function(){initNavTree('diag__grid_8F90_source.html',''); init
 <div class="line"><a name="l01013"></a><span class="lineno"> 1013</span>&#160;<span class="comment">  !!   will be a scalar or array of the same size as the input array.</span></div>
 <div class="line"><a name="l01014"></a><span class="lineno"> 1014</span>&#160;<span class="comment">  !! @return The return value will be a scalar or array of the same size as the input array.</span></div>
 <div class="line"><a name="l01015"></a><span class="lineno"> 1015</span>&#160;  <span class="keywordtype">PURE</span> <span class="keywordtype">ELEMENTAL</span> <span class="keyword">REAL </span><span class="keyword">FUNCTION </span>distancesqrd(pt1, pt2)</div>
-<div class="line"><a name="l01016"></a><span class="lineno"> 1016</span>&#160;    <span class="keywordtype">TYPE</span>(<a class="code" href="structdiag__grid__mod_1_1point.html">point</a>), <span class="keywordtype">INTENT(in)</span> :: pt1, pt2</div>
+<div class="line"><a name="l01016"></a><span class="lineno"> 1016</span>&#160;    <span class="keywordtype">TYPE</span>(point), <span class="keywordtype">INTENT(in)</span> :: pt1, pt2</div>
 <div class="line"><a name="l01017"></a><span class="lineno"> 1017</span>&#160; </div>
 <div class="line"><a name="l01018"></a><span class="lineno"> 1018</span>&#160;    distancesqrd = (pt1%x-pt2%x)**2 +&amp;</div>
 <div class="line"><a name="l01019"></a><span class="lineno"> 1019</span>&#160;         &amp;         (pt1%y-pt2%y)**2 +&amp;</div>
@@ -1176,18 +1176,18 @@ $(document).ready(function(){initNavTree('diag__grid_8F90_source.html',''); init
 <div class="line"><a name="l01080"></a><span class="lineno"> 1080</span>&#160;    mini = 0</div>
 <div class="line"><a name="l01081"></a><span class="lineno"> 1081</span>&#160;    minj = 0</div>
 <div class="line"><a name="l01082"></a><span class="lineno"> 1082</span>&#160;    minimum_distance = 2.0*radius*3.141592653</div>
-<div class="line"><a name="l01083"></a><span class="lineno"> 1083</span>&#160;    <span class="keywordflow">DO</span> j = 1,<a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%adimJ-2</div>
-<div class="line"><a name="l01084"></a><span class="lineno"> 1084</span>&#160;        <span class="keywordflow">DO</span> i = 1,<a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%adimI-2</div>
+<div class="line"><a name="l01083"></a><span class="lineno"> 1083</span>&#160;    <span class="keywordflow">DO</span> j = 1,diag_global_grid%adimJ-2</div>
+<div class="line"><a name="l01084"></a><span class="lineno"> 1084</span>&#160;        <span class="keywordflow">DO</span> i = 1,diag_global_grid%adimI-2</div>
 <div class="line"><a name="l01085"></a><span class="lineno"> 1085</span>&#160;            dist = gcirdistance(llat, &amp;</div>
 <div class="line"><a name="l01086"></a><span class="lineno"> 1086</span>&#160;                                llon, &amp;</div>
-<div class="line"><a name="l01087"></a><span class="lineno"> 1087</span>&#160;                                <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%aglo_lat(i,j), &amp;</div>
-<div class="line"><a name="l01088"></a><span class="lineno"> 1088</span>&#160;                                <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%aglo_lon(i,j))</div>
+<div class="line"><a name="l01087"></a><span class="lineno"> 1087</span>&#160;                                diag_global_grid%aglo_lat(i,j), &amp;</div>
+<div class="line"><a name="l01088"></a><span class="lineno"> 1088</span>&#160;                                diag_global_grid%aglo_lon(i,j))</div>
 <div class="line"><a name="l01089"></a><span class="lineno"> 1089</span>&#160;            <span class="keywordflow">IF</span> (dist .LT. minimum_distance) <span class="keywordflow">THEN</span></div>
 <div class="line"><a name="l01090"></a><span class="lineno"> 1090</span>&#160; </div>
 <div class="line"><a name="l01091"></a><span class="lineno"> 1091</span>&#160;                <span class="comment">!These number shouldn&#39;t be hardcoded, but they have to</span></div>
 <div class="line"><a name="l01092"></a><span class="lineno"> 1092</span>&#160;                <span class="comment">!match the ones in diag_grid_init.</span></div>
-<div class="line"><a name="l01093"></a><span class="lineno"> 1093</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%tile_number .eq. 4 .or. &amp;</div>
-<div class="line"><a name="l01094"></a><span class="lineno"> 1094</span>&#160;                        <a class="code" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a>%tile_number .eq. 5) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l01093"></a><span class="lineno"> 1093</span>&#160;                <span class="keywordflow">if</span> (diag_global_grid%tile_number .eq. 4 .or. &amp;</div>
+<div class="line"><a name="l01094"></a><span class="lineno"> 1094</span>&#160;                        diag_global_grid%tile_number .eq. 5) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l01095"></a><span class="lineno"> 1095</span>&#160; </div>
 <div class="line"><a name="l01096"></a><span class="lineno"> 1096</span>&#160;                    <span class="comment">!Because of transpose in diag_grid_init.</span></div>
 <div class="line"><a name="l01097"></a><span class="lineno"> 1097</span>&#160;                    mini = j</div>
@@ -1216,21 +1216,18 @@ $(document).ready(function(){initNavTree('diag__grid_8F90_source.html',''); init
 <div class="line"><a name="l01120"></a><span class="lineno"> 1120</span>&#160;<span class="comment">! close documentation grouping</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="astructdiag__grid__mod_1_1point_html"><div class="ttname"><a href="structdiag__grid__mod_1_1point.html">diag_grid_mod::point</a></div><div class="ttdoc">Private point type to hold the (x,y,z) location for a (lat,lon) location.</div><div class="ttdef"><b>Definition:</b> <a href="diag__grid_8F90_source.html#l00113">diag_grid.F90:113</a></div></div>
 <div class="ttc" id="agroup__diag__grid__mod_html_ga5b81ca171d240b2f550afcb9f8cbccdc"><div class="ttname"><a href="group__diag__grid__mod.html#ga5b81ca171d240b2f550afcb9f8cbccdc">diag_grid_mod::diag_grid_initialized</a></div><div class="ttdeci">logical diag_grid_initialized</div><div class="ttdoc">Indicates if the diag_grid_mod has been initialized.</div><div class="ttdef"><b>Definition:</b> <a href="diag__grid_8F90_source.html#l00131">diag_grid.F90:131</a></div></div>
 <div class="ttc" id="agroup__diag__grid__mod_html_ga344fd60b0703604265c527332794df35"><div class="ttname"><a href="group__diag__grid__mod.html#ga344fd60b0703604265c527332794df35">diag_grid_mod::diag_grid_init</a></div><div class="ttdeci">subroutine, public diag_grid_init(domain, glo_lat, glo_lon, aglo_lat, aglo_lon)</div><div class="ttdoc">Send the global grid to the diag_manager_mod for regional output. @description In order for the diag_...</div><div class="ttdef"><b>Definition:</b> <a href="diag__grid_8F90_source.html#l00150">diag_grid.F90:150</a></div></div>
 <div class="ttc" id="agroup__diag__grid__mod_html_ga8809db19aeaef7fbd8a30a94017a45af"><div class="ttname"><a href="group__diag__grid__mod.html#ga8809db19aeaef7fbd8a30a94017a45af">diag_grid_mod::get_local_indexes2</a></div><div class="ttdeci">subroutine, public get_local_indexes2(lat, lon, iindex, jindex)</div><div class="ttdoc">Find the indices of the nearest grid point of the a-grid to the specified (lon,lat) location on the l...</div><div class="ttdef"><b>Definition:</b> <a href="diag__grid_8F90_source.html#l00604">diag_grid.F90:604</a></div></div>
 <div class="ttc" id="agroup__constants__mod_html_gae0fda99f7e05cd201a9947c6718cb1c0"><div class="ttname"><a href="group__constants__mod.html#gae0fda99f7e05cd201a9947c6718cb1c0">constants_mod::deg_to_rad</a></div><div class="ttdeci">real, parameter, public deg_to_rad</div><div class="ttdoc">Radians per degree [rad/deg].</div><div class="ttdef"><b>Definition:</b> <a href="constants_8F90_source.html#l00150">constants.F90:150</a></div></div>
 <div class="ttc" id="agroup__constants__mod_html_ga29edb91d4131b7e047c641cf1cb1610e"><div class="ttname"><a href="group__constants__mod.html#ga29edb91d4131b7e047c641cf1cb1610e">constants_mod::rad_to_deg</a></div><div class="ttdeci">real, parameter, public rad_to_deg</div><div class="ttdoc">Degrees per radian [deg/rad].</div><div class="ttdef"><b>Definition:</b> <a href="constants_8F90_source.html#l00149">constants.F90:149</a></div></div>
-<div class="ttc" id="agroup__diag__grid__mod_html_ga53e348963b34cc198fb5dcf065d7fcc5"><div class="ttname"><a href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_grid_mod::diag_global_grid</a></div><div class="ttdeci">type(diag_global_grid_type) diag_global_grid</div><div class="ttdoc">Variable to hold the global grid data.</div><div class="ttdef"><b>Definition:</b> <a href="diag__grid_8F90_source.html#l00124">diag_grid.F90:124</a></div></div>
 <div class="ttc" id="agroup__constants__mod_html_ga4a9bc4832415870f8640fd6d3f81e346"><div class="ttname"><a href="group__constants__mod.html#ga4a9bc4832415870f8640fd6d3f81e346">constants_mod::radius</a></div><div class="ttdeci">real, parameter, public radius</div><div class="ttdoc">Radius of the Earth [m].</div><div class="ttdef"><b>Definition:</b> <a href="constants_8F90_source.html#l00102">constants.F90:102</a></div></div>
 <div class="ttc" id="agroup__diag__grid__mod_html_gacd48f9784c8244ff7edc7c98f1ad51cd"><div class="ttname"><a href="group__diag__grid__mod.html#gacd48f9784c8244ff7edc7c98f1ad51cd">diag_grid_mod::get_local_indexes</a></div><div class="ttdeci">subroutine, public get_local_indexes(latStart, latEnd, lonStart, lonEnd, istart, iend, jstart, jend)</div><div class="ttdoc">Find the local start and local end indexes on the local PE for regional output. @description Given a ...</div><div class="ttdef"><b>Definition:</b> <a href="diag__grid_8F90_source.html#l00355">diag_grid.F90:355</a></div></div>
-<div class="ttc" id="agroup__fms__mod_html_gae5c7420e421293e2be14717dd7b3d97f"><div class="ttname"><a href="group__fms__mod.html#gae5c7420e421293e2be14717dd7b3d97f">fms_mod::error_mesg</a></div><div class="ttdeci">subroutine, public error_mesg(routine, message, level)</div><div class="ttdoc">Print notes, warnings and error messages; terminates program for warning and error messages....</div><div class="ttdef"><b>Definition:</b> <a href="fms_8F90_source.html#l00568">fms.F90:568</a></div></div>
-<div class="ttc" id="astructdiag__grid__mod_1_1diag__global__grid__type_html"><div class="ttname"><a href="structdiag__grid__mod_1_1diag__global__grid__type.html">diag_grid_mod::diag_global_grid_type</a></div><div class="ttdoc">Contains the model's global grid data, and other grid information.</div><div class="ttdef"><b>Definition:</b> <a href="diag__grid_8F90_source.html#l00089">diag_grid.F90:89</a></div></div>
+<div class="ttc" id="agroup__fms__mod_html_gae5c7420e421293e2be14717dd7b3d97f"><div class="ttname"><a href="group__fms__mod.html#gae5c7420e421293e2be14717dd7b3d97f">fms_mod::error_mesg</a></div><div class="ttdeci">subroutine, public error_mesg(routine, message, level)</div><div class="ttdoc">Print notes, warnings and error messages; terminates program for warning and error messages....</div><div class="ttdef"><b>Definition:</b> <a href="fms_8F90_source.html#l00569">fms.F90:569</a></div></div>
 <div class="ttc" id="agroup__diag__grid__mod_html_ga5e5a7eeabed97e40f69b0167e44b1330"><div class="ttname"><a href="group__diag__grid__mod.html#ga5e5a7eeabed97e40f69b0167e44b1330">diag_grid_mod::diag_grid_end</a></div><div class="ttdeci">subroutine, public diag_grid_end()</div><div class="ttdoc">Unallocate the diag_global_grid variable. @description The diag_global_grid variable is only needed d...</div><div class="ttdef"><b>Definition:</b> <a href="diag__grid_8F90_source.html#l00314">diag_grid.F90:314</a></div></div>
 <div class="ttc" id="ampp__util_8inc_html_abf546cd336d5c539e445fb884f98ab6b"><div class="ttname"><a href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a></div><div class="ttdeci">integer function mpp_npes()</div><div class="ttdoc">Returns processor count for current pelist.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00467">mpp_util.inc:467</a></div></div>
 <div class="ttc" id="ampp__util_8inc_html_acfeba7de56f9dd6000b3fd78f9d56c50"><div class="ttname"><a href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a></div><div class="ttdeci">integer function mpp_pe()</div><div class="ttdoc">Returns processor ID. This returns the unique ID associated with a PE. This number runs between 0 and...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00442">mpp_util.inc:442</a></div></div>
-<div class="ttc" id="agroup__fms__mod_html_ga0c093df98a75dbd9e0f3add67aa6c23a"><div class="ttname"><a href="group__fms__mod.html#ga0c093df98a75dbd9e0f3add67aa6c23a">fms_mod::write_version_number</a></div><div class="ttdeci">subroutine, public write_version_number(version, tag, unit)</div><div class="ttdoc">Prints to the log file (or a specified unit) the version id string and tag name.</div><div class="ttdef"><b>Definition:</b> <a href="fms_8F90_source.html#l01026">fms.F90:1026</a></div></div>
+<div class="ttc" id="agroup__fms__mod_html_ga0c093df98a75dbd9e0f3add67aa6c23a"><div class="ttname"><a href="group__fms__mod.html#ga0c093df98a75dbd9e0f3add67aa6c23a">fms_mod::write_version_number</a></div><div class="ttdeci">subroutine, public write_version_number(version, tag, unit)</div><div class="ttdoc">Prints to the log file (or a specified unit) the version id string and tag name.</div><div class="ttdef"><b>Definition:</b> <a href="fms_8F90_source.html#l01028">fms.F90:1028</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

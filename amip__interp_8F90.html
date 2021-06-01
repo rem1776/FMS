@@ -102,6 +102,12 @@ $(document).ready(function(){initNavTree('amip__interp_8F90.html',''); initResiz
 </div>
 <p><a href="amip__interp_8F90_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Data Types</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">type &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structamip__interp__mod_1_1amip__interp__type.html">amip_interp_type</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains information needed by the interpolation module (exchange_mod) and buffers data.  <a href="structamip__interp__mod_1_1amip__interp__type.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
 <tr class="memitem:gae4985aae40b07468c1b5853c6bf85e56"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__amip__interp__mod.html#gae4985aae40b07468c1b5853c6bf85e56">get_amip_sst</a> (Time, Interp, sst, err_msg, lon_model, lat_model)</td></tr>
@@ -116,7 +122,7 @@ subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="
 <tr class="memdesc:ga6da33323528930f4680012957d27d6db"><td class="mdescLeft">&#160;</td><td class="mdescRight">initialize <a class="el" href="group__amip__interp__mod.html">amip_interp_mod</a> for use <br /></td></tr>
 <tr class="separator:ga6da33323528930f4680012957d27d6db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaa680c8750f89c6444c6caf3d93b54cb4"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__amip__interp__mod.html#gaa680c8750f89c6444c6caf3d93b54cb4">amip_interp_del</a> (Interp)</td></tr>
-<tr class="memdesc:gaa680c8750f89c6444c6caf3d93b54cb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees data associated with a amip_interp_type variable. Should be used for any variables initialized via <a class="el" href="group__amip__interp__mod.html">amip_interp_new Interface</a>.  <a href="group__amip__interp__mod.html#gaa680c8750f89c6444c6caf3d93b54cb4">More...</a><br /></td></tr>
+<tr class="memdesc:gaa680c8750f89c6444c6caf3d93b54cb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees data associated with a <a class="el" href="structamip__interp__mod_1_1amip__interp__type.html" title="Contains information needed by the interpolation module (exchange_mod) and buffers data.">amip_interp_type</a> variable. Should be used for any variables initialized via <a class="el" href="group__amip__interp__mod.html">amip_interp_new Interface</a>.  <a href="group__amip__interp__mod.html#gaa680c8750f89c6444c6caf3d93b54cb4">More...</a><br /></td></tr>
 <tr class="separator:gaa680c8750f89c6444c6caf3d93b54cb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
@@ -136,6 +142,9 @@ real, dimension(:,:), allocatable, public&#160;</td><td class="memItemRight" val
 <tr class="memitem:ga0a88a41790ba6fad200c8cab6ba5b6d0"><td class="memItemLeft" align="right" valign="top">
 real, dimension(:,:), allocatable, public&#160;</td><td class="memItemRight" valign="bottom"><b>sst_anom</b></td></tr>
 <tr class="separator:ga0a88a41790ba6fad200c8cab6ba5b6d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga82381de27effbea5ce679054ecc3894d"><td class="memItemLeft" align="right" valign="top">
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>mobs</b></td></tr>
+<tr class="separator:ga82381de27effbea5ce679054ecc3894d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6f4009eae2b5bf19e9e53c2e04809cf2"><td class="memItemLeft" align="right" valign="top">
 logical, public&#160;</td><td class="memItemRight" valign="bottom"><b>use_ncep_sst</b> = .false.</td></tr>
 <tr class="separator:ga6f4009eae2b5bf19e9e53c2e04809cf2"><td class="memSeparator" colspan="2">&#160;</td></tr>

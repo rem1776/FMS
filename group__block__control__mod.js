@@ -1,9 +1,5 @@
 var group__block__control__mod =
 [
-    [ "pk_type", "structblock__control__mod_1_1pk__type.html", [
-      [ "ii", "group__block__control__mod.html#ga453c591c12dc5856910aefacca38301f", null ],
-      [ "jj", "group__block__control__mod.html#ga1d1f476b5789f7e645421303a400b57f", null ]
-    ] ],
     [ "block_control_type", "structblock__control__mod_1_1block__control__type.html", [
       [ "blkno", "group__block__control__mod.html#ga9da7a70ca7d9359a637256ce246b079f", null ],
       [ "blksz", "group__block__control__mod.html#ga498f2a7116034dd717063c9f928e463d", null ],

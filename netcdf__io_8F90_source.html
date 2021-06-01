@@ -153,7 +153,7 @@ $(document).ready(function(){initNavTree('netcdf__io_8F90_source.html',''); init
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keywordtype">integer</span>, <span class="keywordtype">private</span> :: fms2_header_buffer_val = -1<span class="comment">  !&lt; value used in NF__ENDDEF</span></div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">!&gt; @brief information needed fr regional restart variables</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keyword">type</span> :: bc_information</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keyword">type</span>, <span class="keyword">private</span> :: bc_information</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <span class="keywordtype">integer</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">allocatable</span> :: indices<span class="comment"> !&lt; Indices for the halo region for the variable</span></div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">                                                !! (starting x, ending x, starting y, ending y)</span></div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="keywordtype">integer</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">allocatable</span> :: global_size<span class="comment"> !&lt; Size of the variable for each dimension</span></div>
@@ -173,7 +173,7 @@ $(document).ready(function(){initNavTree('netcdf__io_8F90_source.html',''); init
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keyword">endtype </span>bc_information</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment">!&gt; @brief Restart variable.</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keyword">type</span> :: restartvariable_t</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keyword">type</span>, <span class="keyword">private</span> :: restartvariable_t</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  <span class="keywordtype">character(len=256)</span> :: varname<span class="comment"> !&lt; Variable name.</span></div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <span class="keywordtype">class</span>(*), <span class="keywordtype">pointer</span> :: data0d =&gt; null() <span class="comment">!&lt; Scalar data pointer.</span></div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  <span class="keywordtype">class</span>(*), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span> :: data1d =&gt; null() <span class="comment">!&lt; 1d data pointer.</span></div>
@@ -188,7 +188,7 @@ $(document).ready(function(){initNavTree('netcdf__io_8F90_source.html',''); init
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="keyword">endtype </span>restartvariable_t</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="comment">!&gt; @brief Compressed dimension.</span></div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="keyword">type</span> :: compresseddimension_t</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="keyword">type</span>, <span class="keyword">private</span> :: compresseddimension_t</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  <span class="keywordtype">character(len=256)</span> :: dimname<span class="comment"> !&lt; Dimension name.</span></div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  <span class="keywordtype">integer</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">allocatable</span> :: npes_corner<span class="comment"> !&lt; Array of starting</span></div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="comment">                                                    !! indices for each rank.</span></div>
@@ -199,7 +199,7 @@ $(document).ready(function(){initNavTree('netcdf__io_8F90_source.html',''); init
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="keyword">endtype </span>compresseddimension_t</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="comment">!&gt; @brief information about the current dimensions for regional restart variables</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="keyword">type</span> :: dimension_information</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="keyword">type</span>, <span class="keyword">private</span> :: dimension_information</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;  <span class="keywordtype">integer</span>, <span class="keywordtype">dimension(5)</span> :: xlen<span class="comment"> !&gt; The size of each unique x dimension</span></div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  <span class="keywordtype">integer</span>, <span class="keywordtype">dimension(5)</span> :: ylen<span class="comment"> !&gt; The size of each unique y dimension</span></div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  <span class="keywordtype">integer</span>, <span class="keywordtype">dimension(5)</span> :: zlen<span class="comment"> !&gt; The size of each unique z dimension</span></div>

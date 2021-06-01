@@ -133,7 +133,7 @@ $(document).ready(function(){initNavTree('test__mpp__alltoall_8F90_source.html',
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="keywordtype">use </span>platform_mod</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keywordtype">use </span>mpp_mod, <span class="keywordtype">only</span> : <a class="code" href="mpp__comm__mpi_8inc.html#a889ed63075362dc3a3d3c12385d5a9c7">mpp_init</a>, mpp_init_test_requests_allocated, mpp_init_test_peset_allocated, mpp_error, fatal</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <span class="keywordtype">use </span>mpp_mod, <span class="keywordtype">only</span> : <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>, <a class="code" href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>, mpp_alltoall</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="keywordtype">use </span>mpp_mod, <span class="keywordtype">only</span> : mpp_type_create, mpp_type, mpp_byte</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="keywordtype">use </span>mpp_mod, <span class="keywordtype">only</span> : mpp_type_create, <a class="code" href="structmpp__mod_1_1mpp__type.html">mpp_type</a>, mpp_byte</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keywordtype">implicit none</span></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
@@ -758,7 +758,7 @@ $(document).ready(function(){initNavTree('test__mpp__alltoall_8F90_source.html',
 <div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;<span class="keywordtype">    real</span>(r4_kind), <span class="keywordtype">target</span> :: sbuf(n,n,n), rbuf(n,n,n)</div>
 <div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160; </div>
 <div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;<span class="keywordtype">    real</span>(r4_kind), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span> :: psbuf, prbuf</div>
-<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;    <span class="keywordtype">type</span>(mpp_type) :: stype(0:npes-1), rtype(0:npes-1)</div>
+<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structmpp__mod_1_1mpp__type.html">mpp_type</a>) :: stype(0:npes-1), rtype(0:npes-1)</div>
 <div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160; </div>
 <div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;<span class="comment">    !&gt; get pe</span></div>
@@ -1011,7 +1011,7 @@ $(document).ready(function(){initNavTree('test__mpp__alltoall_8F90_source.html',
 <div class="line"><a name="l00915"></a><span class="lineno">  915</span>&#160;<span class="keywordtype">    real</span>(r8_kind), <span class="keywordtype">target</span> :: sbuf(n,n,n), rbuf(n,n,n)</div>
 <div class="line"><a name="l00916"></a><span class="lineno">  916</span>&#160; </div>
 <div class="line"><a name="l00917"></a><span class="lineno">  917</span>&#160;<span class="keywordtype">    real</span>(r8_kind), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span> :: psbuf, prbuf</div>
-<div class="line"><a name="l00918"></a><span class="lineno">  918</span>&#160;    <span class="keywordtype">type</span>(mpp_type) :: stype(0:npes-1), rtype(0:npes-1)</div>
+<div class="line"><a name="l00918"></a><span class="lineno">  918</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structmpp__mod_1_1mpp__type.html">mpp_type</a>) :: stype(0:npes-1), rtype(0:npes-1)</div>
 <div class="line"><a name="l00919"></a><span class="lineno">  919</span>&#160; </div>
 <div class="line"><a name="l00920"></a><span class="lineno">  920</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00921"></a><span class="lineno">  921</span>&#160;<span class="comment">    !&gt; get pe</span></div>
@@ -1264,7 +1264,7 @@ $(document).ready(function(){initNavTree('test__mpp__alltoall_8F90_source.html',
 <div class="line"><a name="l01168"></a><span class="lineno"> 1168</span>&#160;    <span class="keywordtype">integer(i4_kind)</span>, <span class="keywordtype">target</span> :: sbuf(n,n,n), rbuf(n,n,n)</div>
 <div class="line"><a name="l01169"></a><span class="lineno"> 1169</span>&#160; </div>
 <div class="line"><a name="l01170"></a><span class="lineno"> 1170</span>&#160;    <span class="keywordtype">integer(i4_kind)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span> :: psbuf, prbuf</div>
-<div class="line"><a name="l01171"></a><span class="lineno"> 1171</span>&#160;    <span class="keywordtype">type</span>(mpp_type) :: stype(0:npes-1), rtype(0:npes-1)</div>
+<div class="line"><a name="l01171"></a><span class="lineno"> 1171</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structmpp__mod_1_1mpp__type.html">mpp_type</a>) :: stype(0:npes-1), rtype(0:npes-1)</div>
 <div class="line"><a name="l01172"></a><span class="lineno"> 1172</span>&#160; </div>
 <div class="line"><a name="l01173"></a><span class="lineno"> 1173</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l01174"></a><span class="lineno"> 1174</span>&#160;<span class="comment">    !&gt; get pe</span></div>
@@ -1517,7 +1517,7 @@ $(document).ready(function(){initNavTree('test__mpp__alltoall_8F90_source.html',
 <div class="line"><a name="l01421"></a><span class="lineno"> 1421</span>&#160;    <span class="keywordtype">integer(i8_kind)</span>, <span class="keywordtype">target</span> :: sbuf(n,n,n), rbuf(n,n,n)</div>
 <div class="line"><a name="l01422"></a><span class="lineno"> 1422</span>&#160; </div>
 <div class="line"><a name="l01423"></a><span class="lineno"> 1423</span>&#160;    <span class="keywordtype">integer(i8_kind)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span> :: psbuf, prbuf</div>
-<div class="line"><a name="l01424"></a><span class="lineno"> 1424</span>&#160;    <span class="keywordtype">type</span>(mpp_type) :: stype(0:npes-1), rtype(0:npes-1)</div>
+<div class="line"><a name="l01424"></a><span class="lineno"> 1424</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structmpp__mod_1_1mpp__type.html">mpp_type</a>) :: stype(0:npes-1), rtype(0:npes-1)</div>
 <div class="line"><a name="l01425"></a><span class="lineno"> 1425</span>&#160; </div>
 <div class="line"><a name="l01426"></a><span class="lineno"> 1426</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l01427"></a><span class="lineno"> 1427</span>&#160;<span class="comment">    !&gt; get pe</span></div>
@@ -1761,6 +1761,7 @@ $(document).ready(function(){initNavTree('test__mpp__alltoall_8F90_source.html',
 <div class="ttc" id="atest__mpp__alltoall_8F90_html_a19451f2a395ca6ea8d6c850a07d08798"><div class="ttname"><a href="test__mpp__alltoall_8F90.html#a19451f2a395ca6ea8d6c850a07d08798">test_mpp_alltoallv_real8</a></div><div class="ttdeci">subroutine test_mpp_alltoallv_real8(npes)</div><div class="ttdoc">test mpp_alltoallv for real8</div><div class="ttdef"><b>Definition:</b> <a href="test__mpp__alltoall_8F90_source.html#l00406">test_mpp_alltoall.F90:406</a></div></div>
 <div class="ttc" id="atest__mpp__alltoall_8F90_html_a557a44bdd77d5dfbb3589a85521f20c6"><div class="ttname"><a href="test__mpp__alltoall_8F90.html#a557a44bdd77d5dfbb3589a85521f20c6">test_mpp_alltoallw_int4</a></div><div class="ttdeci">subroutine test_mpp_alltoallw_int4(npes)</div><div class="ttdoc">test mpp_alltoallw_int4</div><div class="ttdef"><b>Definition:</b> <a href="test__mpp__alltoall_8F90_source.html#l01152">test_mpp_alltoall.F90:1152</a></div></div>
 <div class="ttc" id="atest__mpp__alltoall_8F90_html_a2c894786dfd42c97022d3c012ea08003"><div class="ttname"><a href="test__mpp__alltoall_8F90.html#a2c894786dfd42c97022d3c012ea08003">test_mpp_alltoall_real4</a></div><div class="ttdeci">subroutine test_mpp_alltoall_real4(npes)</div><div class="ttdoc">initialize MPI</div><div class="ttdef"><b>Definition:</b> <a href="test__mpp__alltoall_8F90_source.html#l00078">test_mpp_alltoall.F90:78</a></div></div>
+<div class="ttc" id="astructmpp__mod_1_1mpp__type_html"><div class="ttname"><a href="structmpp__mod_1_1mpp__type.html">mpp_mod::mpp_type</a></div><div class="ttdoc">Data types for generalized data transfer (e.g. MPI_Type)</div><div class="ttdef"><b>Definition:</b> <a href="mpp_8F90_source.html#l00282">mpp.F90:282</a></div></div>
 <div class="ttc" id="ampp__util_8inc_html_abf546cd336d5c539e445fb884f98ab6b"><div class="ttname"><a href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a></div><div class="ttdeci">integer function mpp_npes()</div><div class="ttdoc">Returns processor count for current pelist.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00467">mpp_util.inc:467</a></div></div>
 <div class="ttc" id="atest__mpp__alltoall_8F90_html_ab9734b8a59e868cfd9f57620a1074027"><div class="ttname"><a href="test__mpp__alltoall_8F90.html#ab9734b8a59e868cfd9f57620a1074027">test_mpp_alltoall_int4</a></div><div class="ttdeci">subroutine test_mpp_alltoall_int4(npes)</div><div class="ttdoc">test mpp_alltoall for int4</div><div class="ttdef"><b>Definition:</b> <a href="test__mpp__alltoall_8F90_source.html#l00202">test_mpp_alltoall.F90:202</a></div></div>
 <div class="ttc" id="ampp__util_8inc_html_acfeba7de56f9dd6000b3fd78f9d56c50"><div class="ttname"><a href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a></div><div class="ttdeci">integer function mpp_pe()</div><div class="ttdoc">Returns processor ID. This returns the unique ID associated with a PE. This number runs between 0 and...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00442">mpp_util.inc:442</a></div></div>

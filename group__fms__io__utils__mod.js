@@ -1,5 +1,9 @@
 var group__fms__io__utils__mod =
 [
+    [ "char_linked_list", "structfms__io__utils__mod_1_1char__linked__list.html", [
+      [ "head", "group__fms__io__utils__mod.html#gac92e852526f5476f05f3228ba314b973", null ],
+      [ "string", "group__fms__io__utils__mod.html#ga97e727b516248b76c8fe204a53b49f52", null ]
+    ] ],
     [ "string2 Interface", "group__fms__io__utils__mod.html#string2", null ],
     [ "append_to_list", "group__fms__io__utils__mod.html#gac9a7307571d33a595a3309cb62ed17cd", null ],
     [ "ascii_read", "group__fms__io__utils__mod.html#ga2e5bf8a20a89497ccda754450467ec54", null ],

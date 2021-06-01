@@ -164,7 +164,7 @@ In order to implement drifters in your code, you will need to get access to the 
 <div class="line"><span class="keywordtype">type</span>(drifters_type) :: drfts <span class="comment">! drifters&#39; object</span></div>
 <div class="line"> </div>
 <div class="line"><span class="comment">! constructor</span></div>
-<div class="line"><span class="keyword">call </span>drifters_new(drfts, &amp;</div>
+<div class="line"><span class="keyword">call </span><a class="code" href="group__drifters__mod.html#gaddfba33d6e4b7bdc50a58a1be1e3489b">drifters_new</a>(drfts, &amp;</div>
 <div class="line">     &amp; input_file =<span class="stringliteral">&#39;INPUT/drifters_inp.nc&#39;</span>  , &amp;</div>
 <div class="line">     &amp; output_file=<span class="stringliteral">&#39;drifters_out.nc&#39;</span>, &amp;</div>
 <div class="line">     &amp; ermesg=ermesg)</div>
@@ -184,7 +184,7 @@ In order to implement drifters in your code, you will need to get access to the 
 <div class="line"><span class="comment">! ydmax[pe] &gt; ydmin[pe_north]</span></div>
 <div class="line"><span class="comment">! Particles in the overlap regions are tracked by several PEs.</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">call </span>drifters_set_domain(drfts, &amp;</div>
+<div class="line"><span class="keyword">call </span><a class="code" href="group__drifters__mod.html#gaf48b96da0cba62052592800e59ec7529">drifters_set_domain</a>(drfts, &amp;</div>
 <div class="line">     &amp; xmin_comp=xcmin, xmax_comp=xcmax, &amp;</div>
 <div class="line">     &amp; ymin_comp=ycmin, ymax_comp=ycmax, &amp;</div>
 <div class="line">     &amp; xmin_data=xdmin, xmax_data=xdmax, &amp;</div>
@@ -194,20 +194,20 @@ In order to implement drifters in your code, you will need to get access to the 
 <div class="line"> </div>
 <div class="line"><span class="comment">! set neighboring PEs [domain2d is of type(domain2d)]</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">call </span>drifters_set_pe_neighbors(drfts, domain=domain2d, ermesg=ermesg)</div>
+<div class="line"><span class="keyword">call </span><a class="code" href="group__drifters__mod.html#gaa90f5c5c61f3e1f0a686b87cece0c1d6">drifters_set_pe_neighbors</a>(drfts, domain=domain2d, ermesg=ermesg)</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">! set the velocities axes. Each velocity can have different axes.</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">call </span>drifters_set_v_axes(drfts, component=<span class="stringliteral">&#39;u&#39;</span>, &amp;</div>
+<div class="line"><span class="keyword">call </span><a class="code" href="group__drifters__mod.html#ga2d38270021bffd79cb60096459b3ae7e">drifters_set_v_axes</a>(drfts, component=<span class="stringliteral">&#39;u&#39;</span>, &amp;</div>
 <div class="line">     &amp; x=x_u, y=y_u, z=z_u, ermesg=ermesg)</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">call </span>drifters_set_v_axes(drfts, component=<span class="stringliteral">&#39;v&#39;</span>, &amp;</div>
+<div class="line"><span class="keyword">call </span><a class="code" href="group__drifters__mod.html#ga2d38270021bffd79cb60096459b3ae7e">drifters_set_v_axes</a>(drfts, component=<span class="stringliteral">&#39;v&#39;</span>, &amp;</div>
 <div class="line">     &amp; x=x_v, y=y_v, z=z_v, ermesg=ermesg)</div>
 <div class="line"> </div>
 <div class="line">...</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">! Distribute the drifters across PEs</span></div>
-<div class="line"><span class="keyword">call </span>drifters_distribute(drfts, ermesg)</div>
+<div class="line"><span class="keyword">call </span><a class="code" href="group__drifters__mod.html#ga9a1aa7c59e21aeab310b3fd722ced015">drifters_distribute</a>(drfts, ermesg)</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">! Push the drifters. u_comp, v_comp etc are provided by the host code</span></div>
 <div class="line"> </div>
@@ -233,7 +233,7 @@ In order to implement drifters in your code, you will need to get access to the 
 <div class="line"> </div>
 <div class="line">     <span class="comment">! save data</span></div>
 <div class="line"> </div>
-<div class="line">     <span class="keyword">call </span>drifters_save(drfts, ermesg=ermesg)</div>
+<div class="line">     <span class="keyword">call </span><a class="code" href="group__drifters__mod.html#gae5f4a850b28c0132197541725ed0a933">drifters_save</a>(drfts, ermesg=ermesg)</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordflow">endif</span></div>
 <div class="line"> </div>
@@ -242,7 +242,7 @@ In order to implement drifters in your code, you will need to get access to the 
 <div class="line">...</div>
 <div class="line"><span class="comment">! write restart file, optionally with lon/lat data coordinates</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">call </span>drifters_write_restart(drfts, filename=<span class="stringliteral">&#39;RESTART/drifters_inp.nc&#39;</span>, &amp;</div>
+<div class="line"><span class="keyword">call </span><a class="code" href="group__drifters__mod.html#ga3e7db869b8b17f17d7c07b3c2b0cc5c2">drifters_write_restart</a>(drfts, filename=<span class="stringliteral">&#39;RESTART/drifters_inp.nc&#39;</span>, &amp;</div>
 <div class="line">     &amp; x1=x_u, y1=y_v, geolon1=grid%geolonq, &amp;</div>
 <div class="line">     &amp; x2=x_u, y2=y_v, geolat2=grid%geolatq, &amp;</div>
 <div class="line">     &amp; ermesg=ermesg)</div>
@@ -250,7 +250,7 @@ In order to implement drifters in your code, you will need to get access to the 
 <div class="line"> </div>
 <div class="line"><span class="comment">! destroy</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">call </span>drifters_del(drfts, ermesg=ermesg)</div>
+<div class="line"><span class="keyword">call </span><a class="code" href="group__drifters__mod.html#gabd7a7c5d6f87429d1f125fccbbbf9a5a">drifters_del</a>(drfts, ermesg=ermesg)</div>
 </div><!-- fragment --><h2>5. Pre- and post-processing</h2>
 A typical NetCDF input file contains:<div class="fragment"><div class="line">netcdf drifters_inp {</div>
 <div class="line">dimensions:</div>
@@ -331,6 +331,14 @@ A typical NetCDF input file contains:<div class="fragment"><div class="line">net
 </ul>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="agroup__drifters__mod_html_gae5f4a850b28c0132197541725ed0a933"><div class="ttname"><a href="group__drifters__mod.html#gae5f4a850b28c0132197541725ed0a933">drifters_mod::drifters_save</a></div><div class="ttdeci">subroutine, public drifters_save(self, ermesg)</div><div class="ttdoc">Use this method to append the new trajectory positions and the interpolated probe fields to a netCDF ...</div><div class="ttdef"><b>Definition:</b> <a href="drifters_8F90_source.html#l00679">drifters.F90:679</a></div></div>
+<div class="ttc" id="agroup__drifters__mod_html_ga9a1aa7c59e21aeab310b3fd722ced015"><div class="ttname"><a href="group__drifters__mod.html#ga9a1aa7c59e21aeab310b3fd722ced015">drifters_mod::drifters_distribute</a></div><div class="ttdeci">subroutine, public drifters_distribute(self, ermesg)</div><div class="ttdoc">Use this method after setting the domain boundaries (drifters_set_domain) to spread the particles acr...</div><div class="ttdef"><b>Definition:</b> <a href="drifters_8F90_source.html#l00719">drifters.F90:719</a></div></div>
+<div class="ttc" id="agroup__drifters__mod_html_gaddfba33d6e4b7bdc50a58a1be1e3489b"><div class="ttname"><a href="group__drifters__mod.html#gaddfba33d6e4b7bdc50a58a1be1e3489b">drifters_mod::drifters_new</a></div><div class="ttdeci">subroutine, public drifters_new(self, input_file, output_file, ermesg)</div><div class="ttdoc">Will read positions stored in the netCDF file input_file. The trajectories will be saved in files out...</div><div class="ttdef"><b>Definition:</b> <a href="drifters_8F90_source.html#l00211">drifters.F90:211</a></div></div>
+<div class="ttc" id="agroup__drifters__mod_html_ga3e7db869b8b17f17d7c07b3c2b0cc5c2"><div class="ttname"><a href="group__drifters__mod.html#ga3e7db869b8b17f17d7c07b3c2b0cc5c2">drifters_mod::drifters_write_restart</a></div><div class="ttdeci">subroutine, public drifters_write_restart(self, filename, x1, y1, geolon1, x2, y2, geolat2, root, mycomm, ermesg)</div><div class="ttdoc">Write restart file. Gather all the particle positions distributed across PE domains on root PE and sa...</div><div class="ttdef"><b>Definition:</b> <a href="drifters_8F90_source.html#l00805">drifters.F90:805</a></div></div>
+<div class="ttc" id="agroup__drifters__mod_html_gaf48b96da0cba62052592800e59ec7529"><div class="ttname"><a href="group__drifters__mod.html#gaf48b96da0cba62052592800e59ec7529">drifters_mod::drifters_set_domain</a></div><div class="ttdeci">subroutine, public drifters_set_domain(self, xmin_comp, xmax_comp, ymin_comp, ymax_comp, xmin_data, xmax_data, ymin_data, ymax_data, xmin_glob, xmax_glob, ymin_glob, ymax_glob, ermesg)</div><div class="ttdoc">Set the compute, data, and global domain boundaries.</div><div class="ttdef"><b>Definition:</b> <a href="drifters_8F90_source.html#l00518">drifters.F90:518</a></div></div>
+<div class="ttc" id="agroup__drifters__mod_html_ga2d38270021bffd79cb60096459b3ae7e"><div class="ttname"><a href="group__drifters__mod.html#ga2d38270021bffd79cb60096459b3ae7e">drifters_mod::drifters_set_v_axes</a></div><div class="ttdeci">subroutine, public drifters_set_v_axes(self, component, x, y, z, ermesg)</div><div class="ttdoc">Set velocity field axes.</div><div class="ttdef"><b>Definition:</b> <a href="drifters_8F90_source.html#l00920">drifters.F90:920</a></div></div>
+<div class="ttc" id="agroup__drifters__mod_html_gaa90f5c5c61f3e1f0a686b87cece0c1d6"><div class="ttname"><a href="group__drifters__mod.html#gaa90f5c5c61f3e1f0a686b87cece0c1d6">drifters_mod::drifters_set_pe_neighbors</a></div><div class="ttdeci">subroutine, public drifters_set_pe_neighbors(self, domain, ermesg)</div><div class="ttdoc">Given an MPP based deomposition, set the PE numbers that are adjacent to this processor.</div><div class="ttdef"><b>Definition:</b> <a href="drifters_8F90_source.html#l00587">drifters.F90:587</a></div></div>
+<div class="ttc" id="agroup__drifters__mod_html_gabd7a7c5d6f87429d1f125fccbbbf9a5a"><div class="ttname"><a href="group__drifters__mod.html#gabd7a7c5d6f87429d1f125fccbbbf9a5a">drifters_mod::drifters_del</a></div><div class="ttdeci">subroutine, public drifters_del(self, ermesg)</div><div class="ttdoc">Destructor, Call this to reclaim memory.</div><div class="ttdef"><b>Definition:</b> <a href="drifters_8F90_source.html#l00317">drifters.F90:317</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

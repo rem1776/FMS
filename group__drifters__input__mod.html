@@ -92,7 +92,8 @@ $(document).ready(function(){initNavTree('group__drifters__input__mod.html','');
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Data Types</a> &#124;
-<a href="#func-members">Functions/Subroutines</a>  </div>
+<a href="#func-members">Functions/Subroutines</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">drifters_input_mod<div class="ingroups"><a class="el" href="group__drifters.html">Drifters</a></div></div>  </div>
 </div><!--header-->
@@ -101,6 +102,16 @@ $(document).ready(function(){initNavTree('group__drifters__input__mod.html','');
 <p>Imports initial drifter positions from a netCDF file.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Data Types</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">type &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdrifters__input__mod_1_1drifters__input__type.html">drifters_input_type</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Be sure to update drifters_input_new, drifters_input_del and drifters_input_copy_new when adding members.  <a href="structdrifters__input__mod_1_1drifters__input__type.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacedrifters__input__mod_1_1assignment_07_0a_08.html">assignment(=)</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">type &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdrifters__io__mod_1_1drifters__io__type.html">drifters_io_type</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
 <tr class="memitem:ga39332ee09eea6463ddaba374dfed2c88"><td class="memItemLeft" align="right" valign="top"><a id="ga39332ee09eea6463ddaba374dfed2c88"></a>
@@ -132,6 +143,71 @@ subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>drifter
 <tr class="separator:gaa35d3722c21cc23505abb7cd19882497"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga3f2cc77720a0b1cf3e4ba35d7961466e"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__drifters__input__mod.html#ga3f2cc77720a0b1cf3e4ba35d7961466e">drifters_io_write</a> (self, time, np, nd, nf, ids, positions, fields, ermesg)</td></tr>
 <tr class="separator:ga3f2cc77720a0b1cf3e4ba35d7961466e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ga1822e66d02b917d25948c6b67e49137e"><td class="memItemLeft" align="right" valign="top"><a id="ga1822e66d02b917d25948c6b67e49137e"></a>
+character(len=max_str_len), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><b>position_names</b></td></tr>
+<tr class="separator:ga1822e66d02b917d25948c6b67e49137e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6c60d9bf172af4f2391dab45d87aaea2"><td class="memItemLeft" align="right" valign="top"><a id="ga6c60d9bf172af4f2391dab45d87aaea2"></a>
+character(len=max_str_len), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><b>position_units</b></td></tr>
+<tr class="separator:ga6c60d9bf172af4f2391dab45d87aaea2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga370f5b069a5cf6352d78220b3d17c142"><td class="memItemLeft" align="right" valign="top"><a id="ga370f5b069a5cf6352d78220b3d17c142"></a>
+character(len=max_str_len), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><b>field_names</b></td></tr>
+<tr class="separator:ga370f5b069a5cf6352d78220b3d17c142"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9ea5b928a2aba82def53070ffbd54a42"><td class="memItemLeft" align="right" valign="top"><a id="ga9ea5b928a2aba82def53070ffbd54a42"></a>
+character(len=max_str_len), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><b>field_units</b></td></tr>
+<tr class="separator:ga9ea5b928a2aba82def53070ffbd54a42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga02f64e2e3fa5b9976c2539dd31b0a90a"><td class="memItemLeft" align="right" valign="top"><a id="ga02f64e2e3fa5b9976c2539dd31b0a90a"></a>
+character(len=max_str_len), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><b>velocity_names</b></td></tr>
+<tr class="separator:ga02f64e2e3fa5b9976c2539dd31b0a90a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga60b9a6628afde98ff4376c272f27b370"><td class="memItemLeft" align="right" valign="top"><a id="ga60b9a6628afde98ff4376c272f27b370"></a>
+real, dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><b>positions</b></td></tr>
+<tr class="separator:ga60b9a6628afde98ff4376c272f27b370"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa07753728c9757a5b35aa008fe04a3cc"><td class="memItemLeft" align="right" valign="top"><a id="gaa07753728c9757a5b35aa008fe04a3cc"></a>
+integer, dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><b>ids</b></td></tr>
+<tr class="separator:gaa07753728c9757a5b35aa008fe04a3cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf07f495aecfcfa17fc290d18141f0864"><td class="memItemLeft" align="right" valign="top"><a id="gaf07f495aecfcfa17fc290d18141f0864"></a>
+character(len=max_str_len)&#160;</td><td class="memItemRight" valign="bottom"><b>time_units</b></td></tr>
+<tr class="separator:gaf07f495aecfcfa17fc290d18141f0864"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1aaf9db6d64a475d9bfe2b3ce07b110f"><td class="memItemLeft" align="right" valign="top"><a id="ga1aaf9db6d64a475d9bfe2b3ce07b110f"></a>
+character(len=max_str_len)&#160;</td><td class="memItemRight" valign="bottom"><b>title</b></td></tr>
+<tr class="separator:ga1aaf9db6d64a475d9bfe2b3ce07b110f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafc71d11fe90105a6c48f6cbe5ae0bd5e"><td class="memItemLeft" align="right" valign="top"><a id="gafc71d11fe90105a6c48f6cbe5ae0bd5e"></a>
+character(len=max_str_len)&#160;</td><td class="memItemRight" valign="bottom"><b>version</b></td></tr>
+<tr class="separator:gafc71d11fe90105a6c48f6cbe5ae0bd5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf1d4f29e7f0a2828126f4ea8335d7f17"><td class="memItemLeft" align="right" valign="top"><a id="gaf1d4f29e7f0a2828126f4ea8335d7f17"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><b>time</b></td></tr>
+<tr class="separator:gaf1d4f29e7f0a2828126f4ea8335d7f17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2fc191e6fd72910e48dd9086f31038ed"><td class="memItemLeft" align="right" valign="top"><a id="ga2fc191e6fd72910e48dd9086f31038ed"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__drifters__input__mod.html#ga2fc191e6fd72910e48dd9086f31038ed">it</a></td></tr>
+<tr class="memdesc:ga2fc191e6fd72910e48dd9086f31038ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">time index <br /></td></tr>
+<tr class="separator:ga2fc191e6fd72910e48dd9086f31038ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga78fc0e29bf06eaedb30358b7f60b711f"><td class="memItemLeft" align="right" valign="top"><a id="ga78fc0e29bf06eaedb30358b7f60b711f"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__drifters__input__mod.html#ga78fc0e29bf06eaedb30358b7f60b711f">it_id</a></td></tr>
+<tr class="memdesc:ga78fc0e29bf06eaedb30358b7f60b711f"><td class="mdescLeft">&#160;</td><td class="mdescRight">infinite axis index <br /></td></tr>
+<tr class="separator:ga78fc0e29bf06eaedb30358b7f60b711f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8aee7ef824e0b5887384003bfd4f65fc"><td class="memItemLeft" align="right" valign="top"><a id="ga8aee7ef824e0b5887384003bfd4f65fc"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>ncid</b></td></tr>
+<tr class="separator:ga8aee7ef824e0b5887384003bfd4f65fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6cb9cd30102ec5644182d5ec033d7717"><td class="memItemLeft" align="right" valign="top"><a id="ga6cb9cd30102ec5644182d5ec033d7717"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>nc_positions</b></td></tr>
+<tr class="separator:ga6cb9cd30102ec5644182d5ec033d7717"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga81b56669674b20a70f8dc44da2ba39d3"><td class="memItemLeft" align="right" valign="top"><a id="ga81b56669674b20a70f8dc44da2ba39d3"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>nc_fields</b></td></tr>
+<tr class="separator:ga81b56669674b20a70f8dc44da2ba39d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3f045783975ed7bf67d8e9aac2a81e9a"><td class="memItemLeft" align="right" valign="top"><a id="ga3f045783975ed7bf67d8e9aac2a81e9a"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>nc_ids</b></td></tr>
+<tr class="separator:ga3f045783975ed7bf67d8e9aac2a81e9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaa7fd6448f28ae05135c14780a344943"><td class="memItemLeft" align="right" valign="top"><a id="gaaa7fd6448f28ae05135c14780a344943"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>nc_time</b></td></tr>
+<tr class="separator:gaaa7fd6448f28ae05135c14780a344943"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2019598691af642b8f2c9db5795bdb40"><td class="memItemLeft" align="right" valign="top"><a id="ga2019598691af642b8f2c9db5795bdb40"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>nc_index_time</b></td></tr>
+<tr class="separator:ga2019598691af642b8f2c9db5795bdb40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab77326b6fd010650d965c61f86de82ee"><td class="memItemLeft" align="right" valign="top"><a id="gab77326b6fd010650d965c61f86de82ee"></a>
+logical&#160;</td><td class="memItemRight" valign="bottom"><b>enddef</b></td></tr>
+<tr class="separator:gab77326b6fd010650d965c61f86de82ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Imports initial drifter positions from a netCDF file. </p>
@@ -145,7 +221,7 @@ subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>drifter
         <tr>
           <td class="memname">subroutine, public drifters_io_mod::drifters_io_new </td>
           <td>(</td>
-          <td class="paramtype">type(drifters_io_type)&#160;</td>
+          <td class="paramtype">type(<a class="el" href="structdrifters__io__mod_1_1drifters__io__type.html">drifters_io_type</a>)&#160;</td>
           <td class="paramname"><em>self</em>, </td>
         </tr>
         <tr>
@@ -200,7 +276,7 @@ subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>drifter
         <tr>
           <td class="memname">subroutine, public drifters_io_mod::drifters_io_write </td>
           <td>(</td>
-          <td class="paramtype">type(drifters_io_type)&#160;</td>
+          <td class="paramtype">type(<a class="el" href="structdrifters__io__mod_1_1drifters__io__type.html">drifters_io_type</a>)&#160;</td>
           <td class="paramname"><em>self</em>, </td>
         </tr>
         <tr>

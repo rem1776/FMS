@@ -102,12 +102,6 @@ $(document).ready(function(){initNavTree('group__stock__constants__mod.html','')
 <p>Parameters, routines, and types for computing stocks in <a class="el" href="group__xgrid__mod.html">xgrid_mod</a>.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Data Types</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">type &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstock__constants__mod_1_1stock__type.html">stock_type</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">per PE values  <a href="structstock__constants__mod_1_1stock__type.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
 <tr class="memitem:ga8e42ea824c5dce612e7364bebe30a311"><td class="memItemLeft" align="right" valign="top"><a id="ga8e42ea824c5dce612e7364bebe30a311"></a>
@@ -150,33 +144,17 @@ integer, public&#160;</td><td class="memItemRight" valign="bottom"><b>stocks_fil
 integer, parameter&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__stock__constants__mod.html#gaf58e9da841d22fb8927f19008ee4beb5">nsides</a> = 3</td></tr>
 <tr class="memdesc:gaf58e9da841d22fb8927f19008ee4beb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">top, bottom, side <br /></td></tr>
 <tr class="separator:gaf58e9da841d22fb8927f19008ee4beb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga14b6c27bac0e5df5e35a6067bf1031d2"><td class="memItemLeft" align="right" valign="top"><a id="ga14b6c27bac0e5df5e35a6067bf1031d2"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__stock__constants__mod.html#ga14b6c27bac0e5df5e35a6067bf1031d2">q_start</a> = 0.0</td></tr>
-<tr class="memdesc:ga14b6c27bac0e5df5e35a6067bf1031d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">total stocks at start time <br /></td></tr>
-<tr class="separator:ga14b6c27bac0e5df5e35a6067bf1031d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gabd16f11b5766f2615166ed233c147711"><td class="memItemLeft" align="right" valign="top"><a id="gabd16f11b5766f2615166ed233c147711"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__stock__constants__mod.html#gabd16f11b5766f2615166ed233c147711">q_now</a> = 0.0</td></tr>
-<tr class="memdesc:gabd16f11b5766f2615166ed233c147711"><td class="mdescLeft">&#160;</td><td class="mdescRight">total stocks at time t <br /></td></tr>
-<tr class="separator:gabd16f11b5766f2615166ed233c147711"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf43c501a29ae174776cd0a27ab08f25b"><td class="memItemLeft" align="right" valign="top"><a id="gaf43c501a29ae174776cd0a27ab08f25b"></a>
-real, dimension(nsides)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__stock__constants__mod.html#gaf43c501a29ae174776cd0a27ab08f25b">dq</a> = 0.0</td></tr>
-<tr class="memdesc:gaf43c501a29ae174776cd0a27ab08f25b"><td class="mdescLeft">&#160;</td><td class="mdescRight">stock increments at present time on the Ice grid <br /></td></tr>
-<tr class="separator:gaf43c501a29ae174776cd0a27ab08f25b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga0fd9e142d56c59d10655606fb4a41adf"><td class="memItemLeft" align="right" valign="top"><a id="ga0fd9e142d56c59d10655606fb4a41adf"></a>
-real, dimension(nsides)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__stock__constants__mod.html#ga0fd9e142d56c59d10655606fb4a41adf">dq_in</a> = 0.0</td></tr>
-<tr class="memdesc:ga0fd9e142d56c59d10655606fb4a41adf"><td class="mdescLeft">&#160;</td><td class="mdescRight">stock increments at present time on the Ocean grid <br /></td></tr>
-<tr class="separator:ga0fd9e142d56c59d10655606fb4a41adf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga3f7f30b179440d9909bb0f7049e4bd6e"><td class="memItemLeft" align="right" valign="top"><a id="ga3f7f30b179440d9909bb0f7049e4bd6e"></a>
-type(<a class="el" href="structstock__constants__mod_1_1stock__type.html">stock_type</a>), dimension(nelems), save, public&#160;</td><td class="memItemRight" valign="bottom"><b>atm_stock</b></td></tr>
+type(stock_type), dimension(nelems), save, public&#160;</td><td class="memItemRight" valign="bottom"><b>atm_stock</b></td></tr>
 <tr class="separator:ga3f7f30b179440d9909bb0f7049e4bd6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga7e145a1736e6a746d8d18d6c80c422c5"><td class="memItemLeft" align="right" valign="top"><a id="ga7e145a1736e6a746d8d18d6c80c422c5"></a>
-type(<a class="el" href="structstock__constants__mod_1_1stock__type.html">stock_type</a>), dimension(nelems), save, public&#160;</td><td class="memItemRight" valign="bottom"><b>ocn_stock</b></td></tr>
+type(stock_type), dimension(nelems), save, public&#160;</td><td class="memItemRight" valign="bottom"><b>ocn_stock</b></td></tr>
 <tr class="separator:ga7e145a1736e6a746d8d18d6c80c422c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga28f4a5a5ea78d7f33f123b92cf884c7c"><td class="memItemLeft" align="right" valign="top"><a id="ga28f4a5a5ea78d7f33f123b92cf884c7c"></a>
-type(<a class="el" href="structstock__constants__mod_1_1stock__type.html">stock_type</a>), dimension(nelems), save, public&#160;</td><td class="memItemRight" valign="bottom"><b>lnd_stock</b></td></tr>
+type(stock_type), dimension(nelems), save, public&#160;</td><td class="memItemRight" valign="bottom"><b>lnd_stock</b></td></tr>
 <tr class="separator:ga28f4a5a5ea78d7f33f123b92cf884c7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga3df95e063dc6e6dd1475c93ae6d66e4c"><td class="memItemLeft" align="right" valign="top"><a id="ga3df95e063dc6e6dd1475c93ae6d66e4c"></a>
-type(<a class="el" href="structstock__constants__mod_1_1stock__type.html">stock_type</a>), dimension(nelems), save, public&#160;</td><td class="memItemRight" valign="bottom"><b>ice_stock</b></td></tr>
+type(stock_type), dimension(nelems), save, public&#160;</td><td class="memItemRight" valign="bottom"><b>ice_stock</b></td></tr>
 <tr class="separator:ga3df95e063dc6e6dd1475c93ae6d66e4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga5ae7d2a81f46f578526cc6d64681b4ab"><td class="memItemLeft" align="right" valign="top"><a id="ga5ae7d2a81f46f578526cc6d64681b4ab"></a>
 type(time_type), save&#160;</td><td class="memItemRight" valign="bottom"><b>init_time</b></td></tr>

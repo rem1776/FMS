@@ -101,21 +101,265 @@ $(document).ready(function(){initNavTree('group__mpp__io__mod.html',''); initRes
 <p>a set of simple calls for parallel I/O on distributed systems. It is geared toward the writing of data in netCDF format  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Data Types</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">type &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmpp__io__mod_1_1atttype.html">atttype</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">type &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmpp__io__mod_1_1axistype.html">axistype</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">type &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmpp__io__mod_1_1validtype.html">validtype</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">type &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmpp__io__mod_1_1fieldtype.html">fieldtype</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">type &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmpp__io__mod_1_1filetype.html">filetype</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacempp__io__mod_1_1mpp__get__id.html">mpp_get_id</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
+<tr class="memitem:gace6d84263dbeb3e382e7a69ec237383b"><td class="memItemLeft" align="right" valign="top"><a id="gace6d84263dbeb3e382e7a69ec237383b"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>type</b></td></tr>
+<tr class="separator:gace6d84263dbeb3e382e7a69ec237383b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5e12e763eded3d17204b2fc9c561c13e"><td class="memItemLeft" align="right" valign="top"><a id="ga5e12e763eded3d17204b2fc9c561c13e"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>len</b></td></tr>
+<tr class="separator:ga5e12e763eded3d17204b2fc9c561c13e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaae58c3d1a017cc0d36082fdf508df9c1"><td class="memItemLeft" align="right" valign="top"><a id="gaae58c3d1a017cc0d36082fdf508df9c1"></a>
+character(len=128)&#160;</td><td class="memItemRight" valign="bottom"><b>name</b></td></tr>
+<tr class="separator:gaae58c3d1a017cc0d36082fdf508df9c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga39a63cb45bfa05e4a2fc04f97cd87946"><td class="memItemLeft" align="right" valign="top"><a id="ga39a63cb45bfa05e4a2fc04f97cd87946"></a>
+character(len=max_att_length)&#160;</td><td class="memItemRight" valign="bottom"><b>catt</b></td></tr>
+<tr class="separator:ga39a63cb45bfa05e4a2fc04f97cd87946"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8ec40187cc037b8ae4a794a25b48d630"><td class="memItemLeft" align="right" valign="top"><a id="ga8ec40187cc037b8ae4a794a25b48d630"></a>
+real, dimension(:), pointer&#160;</td><td class="memItemRight" valign="bottom"><b>fatt</b> =&gt;NULL()</td></tr>
+<tr class="separator:ga8ec40187cc037b8ae4a794a25b48d630"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaae58c3d1a017cc0d36082fdf508df9c1"><td class="memItemLeft" align="right" valign="top"><a id="gaae58c3d1a017cc0d36082fdf508df9c1"></a>
+character(len=128)&#160;</td><td class="memItemRight" valign="bottom"><b>name</b></td></tr>
+<tr class="separator:gaae58c3d1a017cc0d36082fdf508df9c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2e1fdaefbce4bc5652203758e5d25960"><td class="memItemLeft" align="right" valign="top"><a id="ga2e1fdaefbce4bc5652203758e5d25960"></a>
+character(len=128)&#160;</td><td class="memItemRight" valign="bottom"><b>name_bounds</b></td></tr>
+<tr class="separator:ga2e1fdaefbce4bc5652203758e5d25960"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga27f470ec770c4cae53cd21508b4d16d6"><td class="memItemLeft" align="right" valign="top"><a id="ga27f470ec770c4cae53cd21508b4d16d6"></a>
+character(len=128)&#160;</td><td class="memItemRight" valign="bottom"><b>units</b></td></tr>
+<tr class="separator:ga27f470ec770c4cae53cd21508b4d16d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafc02a58f86be183bd5b46df885db447d"><td class="memItemLeft" align="right" valign="top"><a id="gafc02a58f86be183bd5b46df885db447d"></a>
+character(len=256)&#160;</td><td class="memItemRight" valign="bottom"><b>longname</b></td></tr>
+<tr class="separator:gafc02a58f86be183bd5b46df885db447d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga903ace4b98df53323a8ee483fd83b320"><td class="memItemLeft" align="right" valign="top"><a id="ga903ace4b98df53323a8ee483fd83b320"></a>
+character(len=8)&#160;</td><td class="memItemRight" valign="bottom"><b>cartesian</b></td></tr>
+<tr class="separator:ga903ace4b98df53323a8ee483fd83b320"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga37c76503e6149ddb7e4359b3f41bc771"><td class="memItemLeft" align="right" valign="top"><a id="ga37c76503e6149ddb7e4359b3f41bc771"></a>
+character(len=256)&#160;</td><td class="memItemRight" valign="bottom"><b>compressed</b></td></tr>
+<tr class="separator:ga37c76503e6149ddb7e4359b3f41bc771"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad0b844e8efe101054058ba0dd05d8787"><td class="memItemLeft" align="right" valign="top"><a id="gad0b844e8efe101054058ba0dd05d8787"></a>
+character(len=24)&#160;</td><td class="memItemRight" valign="bottom"><b>calendar</b></td></tr>
+<tr class="separator:gad0b844e8efe101054058ba0dd05d8787"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8ca7993c91c39425803b10a08d07cb9f"><td class="memItemLeft" align="right" valign="top"><a id="ga8ca7993c91c39425803b10a08d07cb9f"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>sense</b></td></tr>
+<tr class="separator:ga8ca7993c91c39425803b10a08d07cb9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5e12e763eded3d17204b2fc9c561c13e"><td class="memItemLeft" align="right" valign="top"><a id="ga5e12e763eded3d17204b2fc9c561c13e"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>len</b></td></tr>
+<tr class="separator:ga5e12e763eded3d17204b2fc9c561c13e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0917e8759e48db3b63d66733e2faa29a"><td class="memItemLeft" align="right" valign="top"><a id="ga0917e8759e48db3b63d66733e2faa29a"></a>
+type(<a class="el" href="structmpp__domains__mod_1_1domain1d.html">domain1d</a>)&#160;</td><td class="memItemRight" valign="bottom"><b>domain</b></td></tr>
+<tr class="separator:ga0917e8759e48db3b63d66733e2faa29a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafb312662706647947ce5c3c86f894a90"><td class="memItemLeft" align="right" valign="top"><a id="gafb312662706647947ce5c3c86f894a90"></a>
+real, dimension(:), pointer&#160;</td><td class="memItemRight" valign="bottom"><b>data</b> =&gt;NULL()</td></tr>
+<tr class="separator:gafb312662706647947ce5c3c86f894a90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaeb8c3b1a2ec834f94f2316927af21b2f"><td class="memItemLeft" align="right" valign="top"><a id="gaeb8c3b1a2ec834f94f2316927af21b2f"></a>
+real, dimension(:), pointer&#160;</td><td class="memItemRight" valign="bottom"><b>data_bounds</b> =&gt;NULL()</td></tr>
+<tr class="separator:gaeb8c3b1a2ec834f94f2316927af21b2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf4fd5c7baae2e756362f702284fe0265"><td class="memItemLeft" align="right" valign="top"><a id="gaf4fd5c7baae2e756362f702284fe0265"></a>
+integer, dimension(:), pointer&#160;</td><td class="memItemRight" valign="bottom"><b>idata</b> =&gt;NULL()</td></tr>
+<tr class="separator:gaf4fd5c7baae2e756362f702284fe0265"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga01795d202d42911850a69913f8a8f0e8"><td class="memItemLeft" align="right" valign="top"><a id="ga01795d202d42911850a69913f8a8f0e8"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>id</b></td></tr>
+<tr class="separator:ga01795d202d42911850a69913f8a8f0e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga30cfc6901057840ae1d85f5aaf57fe9a"><td class="memItemLeft" align="right" valign="top"><a id="ga30cfc6901057840ae1d85f5aaf57fe9a"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>did</b></td></tr>
+<tr class="separator:ga30cfc6901057840ae1d85f5aaf57fe9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gace6d84263dbeb3e382e7a69ec237383b"><td class="memItemLeft" align="right" valign="top"><a id="gace6d84263dbeb3e382e7a69ec237383b"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>type</b></td></tr>
+<tr class="separator:gace6d84263dbeb3e382e7a69ec237383b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac7d0abb97a8be1d1727e3e6f7a9b6961"><td class="memItemLeft" align="right" valign="top"><a id="gac7d0abb97a8be1d1727e3e6f7a9b6961"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>natt</b></td></tr>
+<tr class="separator:gac7d0abb97a8be1d1727e3e6f7a9b6961"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab2c316265aaf2477b911b0dfda3d1ad2"><td class="memItemLeft" align="right" valign="top"><a id="gab2c316265aaf2477b911b0dfda3d1ad2"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>shift</b></td></tr>
+<tr class="separator:gab2c316265aaf2477b911b0dfda3d1ad2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga10f1bae55183552b3bb9b22b231f0e4f"><td class="memItemLeft" align="right" valign="top"><a id="ga10f1bae55183552b3bb9b22b231f0e4f"></a>
+type(<a class="el" href="structmpp__io__mod_1_1atttype.html">atttype</a>), dimension(:), pointer&#160;</td><td class="memItemRight" valign="bottom"><b>att</b> =&gt;NULL()</td></tr>
+<tr class="separator:ga10f1bae55183552b3bb9b22b231f0e4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga654f1f693da3c3e859baf6f55905c18c"><td class="memItemLeft" align="right" valign="top"><a id="ga654f1f693da3c3e859baf6f55905c18c"></a>
+logical&#160;</td><td class="memItemRight" valign="bottom"><b>is_range</b></td></tr>
+<tr class="separator:ga654f1f693da3c3e859baf6f55905c18c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafd7fb158d67df7ec976b4d88bbaaa9ff"><td class="memItemLeft" align="right" valign="top"><a id="gafd7fb158d67df7ec976b4d88bbaaa9ff"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><b>min</b></td></tr>
+<tr class="separator:gafd7fb158d67df7ec976b4d88bbaaa9ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga12541f7f4a6c002aea9ee9d40440f29b"><td class="memItemLeft" align="right" valign="top"><a id="ga12541f7f4a6c002aea9ee9d40440f29b"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><b>max</b></td></tr>
+<tr class="separator:ga12541f7f4a6c002aea9ee9d40440f29b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaae58c3d1a017cc0d36082fdf508df9c1"><td class="memItemLeft" align="right" valign="top"><a id="gaae58c3d1a017cc0d36082fdf508df9c1"></a>
+character(len=128)&#160;</td><td class="memItemRight" valign="bottom"><b>name</b></td></tr>
+<tr class="separator:gaae58c3d1a017cc0d36082fdf508df9c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga27f470ec770c4cae53cd21508b4d16d6"><td class="memItemLeft" align="right" valign="top"><a id="ga27f470ec770c4cae53cd21508b4d16d6"></a>
+character(len=128)&#160;</td><td class="memItemRight" valign="bottom"><b>units</b></td></tr>
+<tr class="separator:ga27f470ec770c4cae53cd21508b4d16d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafc02a58f86be183bd5b46df885db447d"><td class="memItemLeft" align="right" valign="top"><a id="gafc02a58f86be183bd5b46df885db447d"></a>
+character(len=256)&#160;</td><td class="memItemRight" valign="bottom"><b>longname</b></td></tr>
+<tr class="separator:gafc02a58f86be183bd5b46df885db447d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2ae006fabd196f848917275fc81bca58"><td class="memItemLeft" align="right" valign="top"><a id="ga2ae006fabd196f848917275fc81bca58"></a>
+character(len=256)&#160;</td><td class="memItemRight" valign="bottom"><b>standard_name</b></td></tr>
+<tr class="separator:ga2ae006fabd196f848917275fc81bca58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafd7fb158d67df7ec976b4d88bbaaa9ff"><td class="memItemLeft" align="right" valign="top"><a id="gafd7fb158d67df7ec976b4d88bbaaa9ff"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><b>min</b></td></tr>
+<tr class="separator:gafd7fb158d67df7ec976b4d88bbaaa9ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga12541f7f4a6c002aea9ee9d40440f29b"><td class="memItemLeft" align="right" valign="top"><a id="ga12541f7f4a6c002aea9ee9d40440f29b"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><b>max</b></td></tr>
+<tr class="separator:ga12541f7f4a6c002aea9ee9d40440f29b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3d7c9bcf4a981e2ac5936bdf0b9bb302"><td class="memItemLeft" align="right" valign="top"><a id="ga3d7c9bcf4a981e2ac5936bdf0b9bb302"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><b>missing</b></td></tr>
+<tr class="separator:ga3d7c9bcf4a981e2ac5936bdf0b9bb302"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga82e4455737212a855661bba0bca20598"><td class="memItemLeft" align="right" valign="top"><a id="ga82e4455737212a855661bba0bca20598"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><b>fill</b></td></tr>
+<tr class="separator:ga82e4455737212a855661bba0bca20598"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga53208c6c82fde7856579212ec740a495"><td class="memItemLeft" align="right" valign="top"><a id="ga53208c6c82fde7856579212ec740a495"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><b>scale</b></td></tr>
+<tr class="separator:ga53208c6c82fde7856579212ec740a495"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac50f7c5a2881e32cd416b0c946dd5ec6"><td class="memItemLeft" align="right" valign="top"><a id="gac50f7c5a2881e32cd416b0c946dd5ec6"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><b>add</b></td></tr>
+<tr class="separator:gac50f7c5a2881e32cd416b0c946dd5ec6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6d706dee9f5ff8e047e05758a8b2948b"><td class="memItemLeft" align="right" valign="top"><a id="ga6d706dee9f5ff8e047e05758a8b2948b"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>pack</b></td></tr>
+<tr class="separator:ga6d706dee9f5ff8e047e05758a8b2948b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae6b39fb9411a9cd3a78991e9641f4036"><td class="memItemLeft" align="right" valign="top"><a id="gae6b39fb9411a9cd3a78991e9641f4036"></a>
+integer(i8_kind), dimension(3)&#160;</td><td class="memItemRight" valign="bottom"><b>checksum</b></td></tr>
+<tr class="separator:gae6b39fb9411a9cd3a78991e9641f4036"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2f66162afc09d7d317c4026f3e525d4e"><td class="memItemLeft" align="right" valign="top"><a id="ga2f66162afc09d7d317c4026f3e525d4e"></a>
+type(<a class="el" href="structmpp__io__mod_1_1axistype.html">axistype</a>), dimension(:), pointer&#160;</td><td class="memItemRight" valign="bottom"><b>axes</b> =&gt;NULL()</td></tr>
+<tr class="separator:ga2f66162afc09d7d317c4026f3e525d4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3d245f9e80f51c12556a625769574528"><td class="memItemLeft" align="right" valign="top"><a id="ga3d245f9e80f51c12556a625769574528"></a>
+integer, dimension(:), pointer&#160;</td><td class="memItemRight" valign="bottom"><b>size</b> =&gt;NULL()</td></tr>
+<tr class="separator:ga3d245f9e80f51c12556a625769574528"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad5ba289a0b60307dc0308a943d7f510d"><td class="memItemLeft" align="right" valign="top"><a id="gad5ba289a0b60307dc0308a943d7f510d"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>time_axis_index</b></td></tr>
+<tr class="separator:gad5ba289a0b60307dc0308a943d7f510d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga01795d202d42911850a69913f8a8f0e8"><td class="memItemLeft" align="right" valign="top"><a id="ga01795d202d42911850a69913f8a8f0e8"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>id</b></td></tr>
+<tr class="separator:ga01795d202d42911850a69913f8a8f0e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gace6d84263dbeb3e382e7a69ec237383b"><td class="memItemLeft" align="right" valign="top"><a id="gace6d84263dbeb3e382e7a69ec237383b"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>type</b></td></tr>
+<tr class="separator:gace6d84263dbeb3e382e7a69ec237383b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac7d0abb97a8be1d1727e3e6f7a9b6961"><td class="memItemLeft" align="right" valign="top"><a id="gac7d0abb97a8be1d1727e3e6f7a9b6961"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>natt</b></td></tr>
+<tr class="separator:gac7d0abb97a8be1d1727e3e6f7a9b6961"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2478bde0940afdb5975a61635ece1163"><td class="memItemLeft" align="right" valign="top"><a id="ga2478bde0940afdb5975a61635ece1163"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>ndim</b></td></tr>
+<tr class="separator:ga2478bde0940afdb5975a61635ece1163"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga10f1bae55183552b3bb9b22b231f0e4f"><td class="memItemLeft" align="right" valign="top"><a id="ga10f1bae55183552b3bb9b22b231f0e4f"></a>
+type(<a class="el" href="structmpp__io__mod_1_1atttype.html">atttype</a>), dimension(:), pointer&#160;</td><td class="memItemRight" valign="bottom"><b>att</b> =&gt;NULL()</td></tr>
+<tr class="separator:ga10f1bae55183552b3bb9b22b231f0e4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1cbb3e6ffe89173c2026ce1cd4279c8a"><td class="memItemLeft" align="right" valign="top"><a id="ga1cbb3e6ffe89173c2026ce1cd4279c8a"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>position</b></td></tr>
+<tr class="separator:ga1cbb3e6ffe89173c2026ce1cd4279c8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa01f75e1df20041bf072cbe24695d349"><td class="memItemLeft" align="right" valign="top"><a id="gaa01f75e1df20041bf072cbe24695d349"></a>
+character(len=256)&#160;</td><td class="memItemRight" valign="bottom"><b>name</b></td></tr>
+<tr class="separator:gaa01f75e1df20041bf072cbe24695d349"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga49dfd9f65e29fcbca5b4ed593cad3cc7"><td class="memItemLeft" align="right" valign="top"><a id="ga49dfd9f65e29fcbca5b4ed593cad3cc7"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>action</b></td></tr>
+<tr class="separator:ga49dfd9f65e29fcbca5b4ed593cad3cc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga34c0a69daa30b4b1ce348b5ace8a9069"><td class="memItemLeft" align="right" valign="top"><a id="ga34c0a69daa30b4b1ce348b5ace8a9069"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>format</b></td></tr>
+<tr class="separator:ga34c0a69daa30b4b1ce348b5ace8a9069"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafb7776eddce81c2f27cae180baa9bf34"><td class="memItemLeft" align="right" valign="top"><a id="gafb7776eddce81c2f27cae180baa9bf34"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>access</b></td></tr>
+<tr class="separator:gafb7776eddce81c2f27cae180baa9bf34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7001e5dcee6b573e48a67bba8c7c1ac1"><td class="memItemLeft" align="right" valign="top"><a id="ga7001e5dcee6b573e48a67bba8c7c1ac1"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>threading</b></td></tr>
+<tr class="separator:ga7001e5dcee6b573e48a67bba8c7c1ac1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6aff8e82cc4071525f602753188f977d"><td class="memItemLeft" align="right" valign="top"><a id="ga6aff8e82cc4071525f602753188f977d"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>fileset</b></td></tr>
+<tr class="separator:ga6aff8e82cc4071525f602753188f977d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6603730910d9e9c3dfbce04f020390f0"><td class="memItemLeft" align="right" valign="top"><a id="ga6603730910d9e9c3dfbce04f020390f0"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>record</b></td></tr>
+<tr class="separator:ga6603730910d9e9c3dfbce04f020390f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8aee7ef824e0b5887384003bfd4f65fc"><td class="memItemLeft" align="right" valign="top"><a id="ga8aee7ef824e0b5887384003bfd4f65fc"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>ncid</b></td></tr>
+<tr class="separator:ga8aee7ef824e0b5887384003bfd4f65fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae81e582bdd8cf6806fdf62f425c2018b"><td class="memItemLeft" align="right" valign="top"><a id="gae81e582bdd8cf6806fdf62f425c2018b"></a>
+logical&#160;</td><td class="memItemRight" valign="bottom"><b>opened</b></td></tr>
+<tr class="separator:gae81e582bdd8cf6806fdf62f425c2018b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabedc417ac331461c0a5a4b5274b2bc6a"><td class="memItemLeft" align="right" valign="top"><a id="gabedc417ac331461c0a5a4b5274b2bc6a"></a>
+logical&#160;</td><td class="memItemRight" valign="bottom"><b>initialized</b></td></tr>
+<tr class="separator:gabedc417ac331461c0a5a4b5274b2bc6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga919d3ba6adc236915f6ae219d9b5afa0"><td class="memItemLeft" align="right" valign="top"><a id="ga919d3ba6adc236915f6ae219d9b5afa0"></a>
+logical&#160;</td><td class="memItemRight" valign="bottom"><b>nohdrs</b></td></tr>
+<tr class="separator:ga919d3ba6adc236915f6ae219d9b5afa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf10b550a38b48d8536ff3e131aa082c5"><td class="memItemLeft" align="right" valign="top"><a id="gaf10b550a38b48d8536ff3e131aa082c5"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>time_level</b></td></tr>
+<tr class="separator:gaf10b550a38b48d8536ff3e131aa082c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga91b3e57c129f03416e9dde014dd54785"><td class="memItemLeft" align="right" valign="top"><a id="ga91b3e57c129f03416e9dde014dd54785"></a>
+real(r8_kind)&#160;</td><td class="memItemRight" valign="bottom"><b>time</b></td></tr>
+<tr class="separator:ga91b3e57c129f03416e9dde014dd54785"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga490f7aab7596ac370d9acec7d1b8a1a7"><td class="memItemLeft" align="right" valign="top"><a id="ga490f7aab7596ac370d9acec7d1b8a1a7"></a>
+logical&#160;</td><td class="memItemRight" valign="bottom"><b>valid</b></td></tr>
+<tr class="separator:ga490f7aab7596ac370d9acec7d1b8a1a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga313ad836d9d59b0cd524e4a7e0cd9295"><td class="memItemLeft" align="right" valign="top"><a id="ga313ad836d9d59b0cd524e4a7e0cd9295"></a>
+logical&#160;</td><td class="memItemRight" valign="bottom"><b>write_on_this_pe</b></td></tr>
+<tr class="separator:ga313ad836d9d59b0cd524e4a7e0cd9295"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga311a06967e8f3f92c7996b4f01ab715a"><td class="memItemLeft" align="right" valign="top"><a id="ga311a06967e8f3f92c7996b4f01ab715a"></a>
+logical&#160;</td><td class="memItemRight" valign="bottom"><b>read_on_this_pe</b></td></tr>
+<tr class="separator:ga311a06967e8f3f92c7996b4f01ab715a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga883281ad3e4d4d79ca2df45bf653ea72"><td class="memItemLeft" align="right" valign="top"><a id="ga883281ad3e4d4d79ca2df45bf653ea72"></a>
+logical&#160;</td><td class="memItemRight" valign="bottom"><b>io_domain_exist</b></td></tr>
+<tr class="separator:ga883281ad3e4d4d79ca2df45bf653ea72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga01795d202d42911850a69913f8a8f0e8"><td class="memItemLeft" align="right" valign="top"><a id="ga01795d202d42911850a69913f8a8f0e8"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>id</b></td></tr>
+<tr class="separator:ga01795d202d42911850a69913f8a8f0e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa8b72e020ef69da29fe5e412c433e73c"><td class="memItemLeft" align="right" valign="top"><a id="gaa8b72e020ef69da29fe5e412c433e73c"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>recdimid</b></td></tr>
+<tr class="separator:gaa8b72e020ef69da29fe5e412c433e73c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae15e1e64286c9ec70e16f039f22f6d5c"><td class="memItemLeft" align="right" valign="top"><a id="gae15e1e64286c9ec70e16f039f22f6d5c"></a>
+real(r8_kind), dimension(:), pointer&#160;</td><td class="memItemRight" valign="bottom"><b>time_values</b> =&gt;NULL()</td></tr>
+<tr class="separator:gae15e1e64286c9ec70e16f039f22f6d5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2478bde0940afdb5975a61635ece1163"><td class="memItemLeft" align="right" valign="top"><a id="ga2478bde0940afdb5975a61635ece1163"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>ndim</b></td></tr>
+<tr class="separator:ga2478bde0940afdb5975a61635ece1163"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga912077ba059d2b501757eaa28ec7c8e0"><td class="memItemLeft" align="right" valign="top"><a id="ga912077ba059d2b501757eaa28ec7c8e0"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>nvar</b></td></tr>
+<tr class="separator:ga912077ba059d2b501757eaa28ec7c8e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac7d0abb97a8be1d1727e3e6f7a9b6961"><td class="memItemLeft" align="right" valign="top"><a id="gac7d0abb97a8be1d1727e3e6f7a9b6961"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>natt</b></td></tr>
+<tr class="separator:gac7d0abb97a8be1d1727e3e6f7a9b6961"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga14e5830756a1de145f5ff39a644bbca5"><td class="memItemLeft" align="right" valign="top"><a id="ga14e5830756a1de145f5ff39a644bbca5"></a>
+type(<a class="el" href="structmpp__io__mod_1_1axistype.html">axistype</a>), dimension(:), pointer&#160;</td><td class="memItemRight" valign="bottom"><b>axis</b> =&gt;NULL()</td></tr>
+<tr class="separator:ga14e5830756a1de145f5ff39a644bbca5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9c65ae9fc6f67e47febccb8e2759233c"><td class="memItemLeft" align="right" valign="top"><a id="ga9c65ae9fc6f67e47febccb8e2759233c"></a>
+type(<a class="el" href="structmpp__io__mod_1_1fieldtype.html">fieldtype</a>), dimension(:), pointer&#160;</td><td class="memItemRight" valign="bottom"><b>var</b> =&gt;NULL()</td></tr>
+<tr class="separator:ga9c65ae9fc6f67e47febccb8e2759233c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga10f1bae55183552b3bb9b22b231f0e4f"><td class="memItemLeft" align="right" valign="top"><a id="ga10f1bae55183552b3bb9b22b231f0e4f"></a>
+type(<a class="el" href="structmpp__io__mod_1_1atttype.html">atttype</a>), dimension(:), pointer&#160;</td><td class="memItemRight" valign="bottom"><b>att</b> =&gt;NULL()</td></tr>
+<tr class="separator:ga10f1bae55183552b3bb9b22b231f0e4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab292c57e63534f991583f9cbb57d149c"><td class="memItemLeft" align="right" valign="top"><a id="gab292c57e63534f991583f9cbb57d149c"></a>
+type(domain2d), pointer&#160;</td><td class="memItemRight" valign="bottom"><b>domain</b> =&gt;NULL()</td></tr>
+<tr class="separator:gab292c57e63534f991583f9cbb57d149c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafa99d42a5994c78c8f5585d5a0c452cc"><td class="memItemLeft" align="right" valign="top"><a id="gafa99d42a5994c78c8f5585d5a0c452cc"></a>
+type(domainug), pointer&#160;</td><td class="memItemRight" valign="bottom"><b>domain_ug</b> =&gt; null()</td></tr>
+<tr class="separator:gafa99d42a5994c78c8f5585d5a0c452cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga24a4fc780a4d59c6deb986e568bc4fb3"><td class="memItemLeft" align="right" valign="top"><a id="ga24a4fc780a4d59c6deb986e568bc4fb3"></a>
-type(axistype), save, public&#160;</td><td class="memItemRight" valign="bottom"><b>default_axis</b></td></tr>
+type(<a class="el" href="structmpp__io__mod_1_1axistype.html">axistype</a>), save, public&#160;</td><td class="memItemRight" valign="bottom"><b>default_axis</b></td></tr>
 <tr class="separator:ga24a4fc780a4d59c6deb986e568bc4fb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaa7e7a0df6239708e641f5aea04ecb057"><td class="memItemLeft" align="right" valign="top"><a id="gaa7e7a0df6239708e641f5aea04ecb057"></a>
-type(fieldtype), save, public&#160;</td><td class="memItemRight" valign="bottom"><b>default_field</b></td></tr>
+type(<a class="el" href="structmpp__io__mod_1_1fieldtype.html">fieldtype</a>), save, public&#160;</td><td class="memItemRight" valign="bottom"><b>default_field</b></td></tr>
 <tr class="separator:gaa7e7a0df6239708e641f5aea04ecb057"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaa2e17073b91b274d5187ff091446fd5c"><td class="memItemLeft" align="right" valign="top"><a id="gaa2e17073b91b274d5187ff091446fd5c"></a>
-type(atttype), save, public&#160;</td><td class="memItemRight" valign="bottom"><b>default_att</b></td></tr>
+type(<a class="el" href="structmpp__io__mod_1_1atttype.html">atttype</a>), save, public&#160;</td><td class="memItemRight" valign="bottom"><b>default_att</b></td></tr>
 <tr class="separator:gaa2e17073b91b274d5187ff091446fd5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>a set of simple calls for parallel I/O on distributed systems. It is geared toward the writing of data in netCDF format </p>
-<dl class="section author"><dt>Author</dt><dd>V. Balaji &lt;"vb@gfdl.noaa.gov"&gt; In massively parallel environments, an often difficult problem is the reading and writing of data to files on disk. MPI-IO and MPI-2 IO are moving toward providing this capability, but are currently not widely implemented. Further, it is a rather abstruse API. <a class="el" href="group__mpp__io__mod.html">mpp_io_mod</a> is an attempt at a simple API encompassing a certain variety of the I/O tasks that will be required. It does not attempt to be an all-encompassing standard such as MPI, however, it can be implemented in MPI if so desired. It is equally simple to add parallel I/O capability to <a class="el" href="group__mpp__io__mod.html">mpp_io_mod</a> based on vendor-specific APIs while providing a layer of insulation for user codes.</dd></dl>
+<dl class="section author"><dt>Author</dt><dd>V. Balaji &lt;"vb@gfdl.noaa.gov"&gt;</dd></dl>
+<p>In massively parallel environments, an often difficult problem is the reading and writing of data to files on disk. MPI-IO and MPI-2 IO are moving toward providing this capability, but are currently not widely implemented. Further, it is a rather abstruse API. <a class="el" href="group__mpp__io__mod.html">mpp_io_mod</a> is an attempt at a simple API encompassing a certain variety of the I/O tasks that will be required. It does not attempt to be an all-encompassing standard such as MPI, however, it can be implemented in MPI if so desired. It is equally simple to add parallel I/O capability to <a class="el" href="group__mpp__io__mod.html">mpp_io_mod</a> based on vendor-specific APIs while providing a layer of insulation for user codes.</p>
 <p>The <a class="el" href="group__mpp__io__mod.html">mpp_io_mod</a> parallel I/O API built on top of the &lt;LINK
  SRC="mpp_domains.html"&gt;mpp_domains_mod&lt;/LINK&gt; and &lt;LINK
  SRC="mpp.html"&gt;mpp_mod&lt;/LINK&gt; API for domain decomposition and message passing. Features of <a class="el" href="group__mpp__io__mod.html">mpp_io_mod</a> include:</p>
@@ -237,7 +481,10 @@ type(atttype), save, public&#160;</td><td class="memItemRight" valign="bottom"><
    </pre><p>In this example, the data are distributed as in the previous example. The call to &lt;LINK
    SRC="#mpp_read_meta"&gt;mpp_read_meta&lt;/LINK&gt; initializes all of the metadata associated with the file, including global attributes, variable attributes and non-record dimension data. The call to <code>mpp_get_info</code> returns the number of global attributes (<code>natt</code>), variables (<code>nvar</code>) and time levels (<code>ntime</code>) associated with the file identified by a unique ID (<code>unit</code>). <code>mpp_get_atts</code> returns all global attributes for the file in the derived type <code>atttype(natt)</code>. <code>mpp_get_vars</code> returns variable types (<code>fieldtype(nvar)</code>). Since the record dimension data are not allocated for calls to &lt;LINK SRC="#mpp_write"&gt;mpp_write&lt;/LINK&gt;, a separate call to <code>mpp_get_times</code> is required to access record dimension data. Subsequent calls to <code>mpp_read</code> return the field data arrays corresponding to the fieldtype. The <code>domain</code> type is an optional argument. If <code>domain</code> is omitted, the incoming field array should be dimensioned for the global domain, otherwise, the field data is assigned to the computational domain of a local array.</p>
 <p><em>Multi-fileset</em> reads are not supported with <code>mpp_read</code>.</p>
-</div><!-- contents -->
+
+
+<h3><a id="mpp_get_atts"></a>mpp_get_atts Interface</h3><div class="textblock">Get file global metadata.<br  />
+Example usage: call mpp_get_atts( unit, global_atts) </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

@@ -102,6 +102,13 @@ $(document).ready(function(){initNavTree('group__xgrid__mod.html',''); initResiz
 <p>Implements exchange grids for coupled models running on multiple processors.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Data Types</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">type &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structxgrid__mod_1_1grid__box__type.html">grid_box_type</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">type &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structxgrid__mod_1_1xmap__type.html">xmap_type</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
 <tr class="memitem:gaed7666b9fdf6c25272786857c6bb13ca"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__xgrid__mod.html#gaed7666b9fdf6c25272786857c6bb13ca">xgrid_init</a> (remap_method)</td></tr>
@@ -149,6 +156,127 @@ real, dimension(:,:), allocatable, public&#160;</td><td class="memItemRight" val
 <tr class="memitem:ga13760b65c2019c8c8e4a7038998be022"><td class="memItemLeft" align="right" valign="top"><a id="ga13760b65c2019c8c8e4a7038998be022"></a>
 real, dimension(:,:), allocatable, public&#160;</td><td class="memItemRight" valign="bottom"><b>area_ocn_sphere</b></td></tr>
 <tr class="separator:ga13760b65c2019c8c8e4a7038998be022"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4c26bb7ccdd7e6fce092454637b5e8a9"><td class="memItemLeft" align="right" valign="top"><a id="ga4c26bb7ccdd7e6fce092454637b5e8a9"></a>
+real, dimension(:,:), pointer&#160;</td><td class="memItemRight" valign="bottom"><b>dx</b> =&gt; NULL()</td></tr>
+<tr class="separator:ga4c26bb7ccdd7e6fce092454637b5e8a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae50017632cc37705cefa72922564d22c"><td class="memItemLeft" align="right" valign="top"><a id="gae50017632cc37705cefa72922564d22c"></a>
+real, dimension(:,:), pointer&#160;</td><td class="memItemRight" valign="bottom"><b>dy</b> =&gt; NULL()</td></tr>
+<tr class="separator:gae50017632cc37705cefa72922564d22c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf63c0b8c9a2766847b732a1db6d3d0f3"><td class="memItemLeft" align="right" valign="top"><a id="gaf63c0b8c9a2766847b732a1db6d3d0f3"></a>
+real, dimension(:,:), pointer&#160;</td><td class="memItemRight" valign="bottom"><b>area</b> =&gt; NULL()</td></tr>
+<tr class="separator:gaf63c0b8c9a2766847b732a1db6d3d0f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8ab7b4b14bd526884856dd991de54eae"><td class="memItemLeft" align="right" valign="top"><a id="ga8ab7b4b14bd526884856dd991de54eae"></a>
+real, dimension(:), pointer&#160;</td><td class="memItemRight" valign="bottom"><b>edge_w</b> =&gt; NULL()</td></tr>
+<tr class="separator:ga8ab7b4b14bd526884856dd991de54eae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8c5a6e1d5f7293fd24e2819f99447fd0"><td class="memItemLeft" align="right" valign="top"><a id="ga8c5a6e1d5f7293fd24e2819f99447fd0"></a>
+real, dimension(:), pointer&#160;</td><td class="memItemRight" valign="bottom"><b>edge_e</b> =&gt; NULL()</td></tr>
+<tr class="separator:ga8c5a6e1d5f7293fd24e2819f99447fd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafa3611ea5dd13875694b06587ee9ed2e"><td class="memItemLeft" align="right" valign="top"><a id="gafa3611ea5dd13875694b06587ee9ed2e"></a>
+real, dimension(:), pointer&#160;</td><td class="memItemRight" valign="bottom"><b>edge_s</b> =&gt; NULL()</td></tr>
+<tr class="separator:gafa3611ea5dd13875694b06587ee9ed2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadf1dffb4d71dc06ca72e6b508c31bbd8"><td class="memItemLeft" align="right" valign="top"><a id="gadf1dffb4d71dc06ca72e6b508c31bbd8"></a>
+real, dimension(:), pointer&#160;</td><td class="memItemRight" valign="bottom"><b>edge_n</b> =&gt; NULL()</td></tr>
+<tr class="separator:gadf1dffb4d71dc06ca72e6b508c31bbd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1b61e2ca44cfa0eb9a4eaa9ea53c28bb"><td class="memItemLeft" align="right" valign="top"><a id="ga1b61e2ca44cfa0eb9a4eaa9ea53c28bb"></a>
+real, dimension(:,:,:), pointer&#160;</td><td class="memItemRight" valign="bottom"><b>en1</b> =&gt; NULL()</td></tr>
+<tr class="separator:ga1b61e2ca44cfa0eb9a4eaa9ea53c28bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad7a702f263d8064159f71b22a50b0a52"><td class="memItemLeft" align="right" valign="top"><a id="gad7a702f263d8064159f71b22a50b0a52"></a>
+real, dimension(:,:,:), pointer&#160;</td><td class="memItemRight" valign="bottom"><b>en2</b> =&gt; NULL()</td></tr>
+<tr class="separator:gad7a702f263d8064159f71b22a50b0a52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaea0fa07395f2a8fcac69198427192c4f"><td class="memItemLeft" align="right" valign="top"><a id="gaea0fa07395f2a8fcac69198427192c4f"></a>
+real, dimension(:,:,:), pointer&#160;</td><td class="memItemRight" valign="bottom"><b>vlon</b> =&gt; NULL()</td></tr>
+<tr class="separator:gaea0fa07395f2a8fcac69198427192c4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacdf10ef86f13dfd0e080e08e2f63e723"><td class="memItemLeft" align="right" valign="top"><a id="gacdf10ef86f13dfd0e080e08e2f63e723"></a>
+real, dimension(:,:,:), pointer&#160;</td><td class="memItemRight" valign="bottom"><b>vlat</b> =&gt; NULL()</td></tr>
+<tr class="separator:gacdf10ef86f13dfd0e080e08e2f63e723"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6621c7fedbd7c7baa696edda1ef5aee6"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__xgrid__mod.html#ga6621c7fedbd7c7baa696edda1ef5aee6">size</a></td></tr>
+<tr class="separator:ga6621c7fedbd7c7baa696edda1ef5aee6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2c66cee9b9b5c1da93452553bfe39cd5"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__xgrid__mod.html#ga2c66cee9b9b5c1da93452553bfe39cd5">size_put1</a></td></tr>
+<tr class="separator:ga2c66cee9b9b5c1da93452553bfe39cd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacc4d9ee133827f3688fc3a74d200004c"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__xgrid__mod.html#gacc4d9ee133827f3688fc3a74d200004c">size_get2</a></td></tr>
+<tr class="separator:gacc4d9ee133827f3688fc3a74d200004c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf0c1ebe7c983f1b1061d88e367afc933"><td class="memItemLeft" align="right" valign="top"><a id="gaf0c1ebe7c983f1b1061d88e367afc933"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>me</b></td></tr>
+<tr class="separator:gaf0c1ebe7c983f1b1061d88e367afc933"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga41e7fb762a9241d5528151ca2d284ca5"><td class="memItemLeft" align="right" valign="top"><a id="ga41e7fb762a9241d5528151ca2d284ca5"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>npes</b></td></tr>
+<tr class="separator:ga41e7fb762a9241d5528151ca2d284ca5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab96da8c443f9c55ebfefe033da98ab47"><td class="memItemLeft" align="right" valign="top"><a id="gab96da8c443f9c55ebfefe033da98ab47"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>root_pe</b></td></tr>
+<tr class="separator:gab96da8c443f9c55ebfefe033da98ab47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga973bf7af6ce9cd63e3534009bbd6772d"><td class="memItemLeft" align="right" valign="top"><a id="ga973bf7af6ce9cd63e3534009bbd6772d"></a>
+logical, dimension(:), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__xgrid__mod.html#ga973bf7af6ce9cd63e3534009bbd6772d">your1my2</a> =&gt;NULL()</td></tr>
+<tr class="memdesc:ga973bf7af6ce9cd63e3534009bbd6772d"><td class="mdescLeft">&#160;</td><td class="mdescRight">true if side 1 domain on indexed pe overlaps side 2 domain on this pe <br /></td></tr>
+<tr class="separator:ga973bf7af6ce9cd63e3534009bbd6772d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaffbab574cf2d4279fb32c12f72279b09"><td class="memItemLeft" align="right" valign="top"><a id="gaffbab574cf2d4279fb32c12f72279b09"></a>
+logical, dimension(:), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__xgrid__mod.html#gaffbab574cf2d4279fb32c12f72279b09">your2my1</a> =&gt;NULL()</td></tr>
+<tr class="memdesc:gaffbab574cf2d4279fb32c12f72279b09"><td class="mdescLeft">&#160;</td><td class="mdescRight">true if a side 2 domain on indexed pe overlaps side 1 domain on this pe <br /></td></tr>
+<tr class="separator:gaffbab574cf2d4279fb32c12f72279b09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga93f6c030937569a01ace6ba1ca273a5e"><td class="memItemLeft" align="right" valign="top"><a id="ga93f6c030937569a01ace6ba1ca273a5e"></a>
+integer, dimension(:), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__xgrid__mod.html#ga93f6c030937569a01ace6ba1ca273a5e">your2my1_size</a> =&gt;NULL()</td></tr>
+<tr class="memdesc:ga93f6c030937569a01ace6ba1ca273a5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of exchange grid of a side 2 domain on indexed pe overlaps side 1 domain on this pe <br /></td></tr>
+<tr class="separator:ga93f6c030937569a01ace6ba1ca273a5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacae022706db72f6a30a40aea31c103da"><td class="memItemLeft" align="right" valign="top"><a id="gacae022706db72f6a30a40aea31c103da"></a>
+type(grid_type), dimension(:), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__xgrid__mod.html#gacae022706db72f6a30a40aea31c103da">grids</a> =&gt;NULL()</td></tr>
+<tr class="memdesc:gacae022706db72f6a30a40aea31c103da"><td class="mdescLeft">&#160;</td><td class="mdescRight">1st grid is side 1; rest on side 2 <br /></td></tr>
+<tr class="separator:gacae022706db72f6a30a40aea31c103da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaeae3101216812dacb59a76ad86bc62c7"><td class="memItemLeft" align="right" valign="top"><a id="gaeae3101216812dacb59a76ad86bc62c7"></a>
+type(x1_type), dimension(:), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__xgrid__mod.html#gaeae3101216812dacb59a76ad86bc62c7">x1</a> =&gt;NULL()</td></tr>
+<tr class="memdesc:gaeae3101216812dacb59a76ad86bc62c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">side 1 info <br /></td></tr>
+<tr class="separator:gaeae3101216812dacb59a76ad86bc62c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7fec775ff6d43fc26797acab3f63c8e2"><td class="memItemLeft" align="right" valign="top"><a id="ga7fec775ff6d43fc26797acab3f63c8e2"></a>
+type(x1_type), dimension(:), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__xgrid__mod.html#ga7fec775ff6d43fc26797acab3f63c8e2">x1_put</a> =&gt;NULL()</td></tr>
+<tr class="memdesc:ga7fec775ff6d43fc26797acab3f63c8e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">side 1 info <br /></td></tr>
+<tr class="separator:ga7fec775ff6d43fc26797acab3f63c8e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga92024cf0024e8c57fab9bd23dc89e979"><td class="memItemLeft" align="right" valign="top"><a id="ga92024cf0024e8c57fab9bd23dc89e979"></a>
+type(x2_type), dimension(:), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__xgrid__mod.html#ga92024cf0024e8c57fab9bd23dc89e979">x2</a> =&gt;NULL()</td></tr>
+<tr class="memdesc:ga92024cf0024e8c57fab9bd23dc89e979"><td class="mdescLeft">&#160;</td><td class="mdescRight">side 2 info <br /></td></tr>
+<tr class="separator:ga92024cf0024e8c57fab9bd23dc89e979"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaed7320b532ba202187b2de6497ded52d"><td class="memItemLeft" align="right" valign="top"><a id="gaed7320b532ba202187b2de6497ded52d"></a>
+type(x2_type), dimension(:), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__xgrid__mod.html#gaed7320b532ba202187b2de6497ded52d">x2_get</a> =&gt;NULL()</td></tr>
+<tr class="memdesc:gaed7320b532ba202187b2de6497ded52d"><td class="mdescLeft">&#160;</td><td class="mdescRight">side 2 info <br /></td></tr>
+<tr class="separator:gaed7320b532ba202187b2de6497ded52d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab76fb46dd94237014dc609a41c326325"><td class="memItemLeft" align="right" valign="top"><a id="gab76fb46dd94237014dc609a41c326325"></a>
+integer, dimension(:), pointer&#160;</td><td class="memItemRight" valign="bottom"><b>send_count_repro</b> =&gt;NULL()</td></tr>
+<tr class="separator:gab76fb46dd94237014dc609a41c326325"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7484ab6bb0c39858d454919ba2bbc3e2"><td class="memItemLeft" align="right" valign="top"><a id="ga7484ab6bb0c39858d454919ba2bbc3e2"></a>
+integer, dimension(:), pointer&#160;</td><td class="memItemRight" valign="bottom"><b>recv_count_repro</b> =&gt;NULL()</td></tr>
+<tr class="separator:ga7484ab6bb0c39858d454919ba2bbc3e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga797feff82af965067b34bab49b9c2035"><td class="memItemLeft" align="right" valign="top"><a id="ga797feff82af965067b34bab49b9c2035"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__xgrid__mod.html#ga797feff82af965067b34bab49b9c2035">send_count_repro_tot</a></td></tr>
+<tr class="memdesc:ga797feff82af965067b34bab49b9c2035"><td class="mdescLeft">&#160;</td><td class="mdescRight">sum(send_count_repro) <br /></td></tr>
+<tr class="separator:ga797feff82af965067b34bab49b9c2035"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6bfc07b62fea929163951e2391be6761"><td class="memItemLeft" align="right" valign="top"><a id="ga6bfc07b62fea929163951e2391be6761"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__xgrid__mod.html#ga6bfc07b62fea929163951e2391be6761">recv_count_repro_tot</a></td></tr>
+<tr class="memdesc:ga6bfc07b62fea929163951e2391be6761"><td class="mdescLeft">&#160;</td><td class="mdescRight">sum(recv_count_repro) <br /></td></tr>
+<tr class="separator:ga6bfc07b62fea929163951e2391be6761"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac35bc8aa283c31e1b50bbad14da3092e"><td class="memItemLeft" align="right" valign="top"><a id="gac35bc8aa283c31e1b50bbad14da3092e"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__xgrid__mod.html#gac35bc8aa283c31e1b50bbad14da3092e">version</a></td></tr>
+<tr class="memdesc:gac35bc8aa283c31e1b50bbad14da3092e"><td class="mdescLeft">&#160;</td><td class="mdescRight">version of xgrids. version=VERSION! is for grid_spec file and version=VERSION2 is for mosaic grid. <br /></td></tr>
+<tr class="separator:gac35bc8aa283c31e1b50bbad14da3092e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4cf98cd6232b0f88f9771d57dcc082d7"><td class="memItemLeft" align="right" valign="top"><a id="ga4cf98cd6232b0f88f9771d57dcc082d7"></a>
+integer, dimension(:), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__xgrid__mod.html#ga4cf98cd6232b0f88f9771d57dcc082d7">ind_get1</a> =&gt;NULL()</td></tr>
+<tr class="memdesc:ga4cf98cd6232b0f88f9771d57dcc082d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">indx for side1 get and side2 put. <br /></td></tr>
+<tr class="separator:ga4cf98cd6232b0f88f9771d57dcc082d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa184950102541dba2ba1273f815f6dae"><td class="memItemLeft" align="right" valign="top"><a id="gaa184950102541dba2ba1273f815f6dae"></a>
+integer, dimension(:), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__xgrid__mod.html#gaa184950102541dba2ba1273f815f6dae">ind_put1</a> =&gt;NULL()</td></tr>
+<tr class="memdesc:gaa184950102541dba2ba1273f815f6dae"><td class="mdescLeft">&#160;</td><td class="mdescRight">indx for side1 put and side 2get. <br /></td></tr>
+<tr class="separator:gaa184950102541dba2ba1273f815f6dae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga583a21c261e50a70ec2d0593ad0c764e"><td class="memItemLeft" align="right" valign="top"><a id="ga583a21c261e50a70ec2d0593ad0c764e"></a>
+type(comm_type), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__xgrid__mod.html#ga583a21c261e50a70ec2d0593ad0c764e">put1</a> =&gt;NULL()</td></tr>
+<tr class="memdesc:ga583a21c261e50a70ec2d0593ad0c764e"><td class="mdescLeft">&#160;</td><td class="mdescRight">for put_1_to_xgrid <br /></td></tr>
+<tr class="separator:ga583a21c261e50a70ec2d0593ad0c764e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9169a300a001697716ac1a046f11c35c"><td class="memItemLeft" align="right" valign="top"><a id="ga9169a300a001697716ac1a046f11c35c"></a>
+type(comm_type), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__xgrid__mod.html#ga9169a300a001697716ac1a046f11c35c">get1</a> =&gt;NULL()</td></tr>
+<tr class="memdesc:ga9169a300a001697716ac1a046f11c35c"><td class="mdescLeft">&#160;</td><td class="mdescRight">for get_1_from_xgrid <br /></td></tr>
+<tr class="separator:ga9169a300a001697716ac1a046f11c35c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga08c1781332c90e76d4a226dcff9f0969"><td class="memItemLeft" align="right" valign="top"><a id="ga08c1781332c90e76d4a226dcff9f0969"></a>
+type(comm_type), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__xgrid__mod.html#ga08c1781332c90e76d4a226dcff9f0969">get1_repro</a> =&gt;NULL()</td></tr>
+<tr class="memdesc:ga08c1781332c90e76d4a226dcff9f0969"><td class="mdescLeft">&#160;</td><td class="mdescRight">for get_1_from_xgrid_repro <br /></td></tr>
+<tr class="separator:ga08c1781332c90e76d4a226dcff9f0969"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad49659b5e2fc7b1013c03f5e5fc7b828"><td class="memItemLeft" align="right" valign="top"><a id="gad49659b5e2fc7b1013c03f5e5fc7b828"></a>
+real, parameter&#160;</td><td class="memItemRight" valign="bottom"><b>eps</b> = 1.0e-10</td></tr>
+<tr class="separator:gad49659b5e2fc7b1013c03f5e5fc7b828"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Implements exchange grids for coupled models running on multiple processors. </p>
@@ -205,7 +333,7 @@ real, dimension(:,:), allocatable, public&#160;</td><td class="memItemRight" val
         <tr>
           <td class="memname">subroutine, public xgrid_mod::some </td>
           <td>(</td>
-          <td class="paramtype">type (xmap_type), intent(in)&#160;</td>
+          <td class="paramtype">type (<a class="el" href="structxgrid__mod_1_1xmap__type.html">xmap_type</a>), intent(in)&#160;</td>
           <td class="paramname"><em>xmap</em>, </td>
         </tr>
         <tr>
@@ -249,7 +377,7 @@ real, dimension(:,:), allocatable, public&#160;</td><td class="memItemRight" val
         <tr>
           <td class="memname">integer function, public xgrid_mod::xgrid_count </td>
           <td>(</td>
-          <td class="paramtype">type (xmap_type), intent(inout)&#160;</td>
+          <td class="paramtype">type (<a class="el" href="structxgrid__mod_1_1xmap__type.html">xmap_type</a>), intent(inout)&#160;</td>
           <td class="paramname"><em>xmap</em></td><td>)</td>
           <td></td>
         </tr>
@@ -288,6 +416,58 @@ real, dimension(:,:), allocatable, public&#160;</td><td class="memItemRight" val
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="xgrid_8F90_source.html#l00569">569</a> of file <a class="el" href="xgrid_8F90_source.html">xgrid.F90</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="ga6621c7fedbd7c7baa696edda1ef5aee6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6621c7fedbd7c7baa696edda1ef5aee6">&#9670;&nbsp;</a></span>size</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer size</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<h1>of exchange grid cells with area &gt; 0 on this pe</h1>
+
+<p class="definition">Definition at line <a class="el" href="xgrid_8F90_source.html#l00450">450</a> of file <a class="el" href="xgrid_8F90_source.html">xgrid.F90</a>.</p>
+
+</div>
+</div>
+<a id="gacc4d9ee133827f3688fc3a74d200004c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gacc4d9ee133827f3688fc3a74d200004c">&#9670;&nbsp;</a></span>size_get2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer size_get2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<h1>of exchange grid cells for get_2_to_xgrid</h1>
+
+<p class="definition">Definition at line <a class="el" href="xgrid_8F90_source.html#l00452">452</a> of file <a class="el" href="xgrid_8F90_source.html">xgrid.F90</a>.</p>
+
+</div>
+</div>
+<a id="ga2c66cee9b9b5c1da93452553bfe39cd5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2c66cee9b9b5c1da93452553bfe39cd5">&#9670;&nbsp;</a></span>size_put1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer size_put1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<h1>of exchange grid cells for put_1_to_xgrid</h1>
+
+<p class="definition">Definition at line <a class="el" href="xgrid_8F90_source.html#l00451">451</a> of file <a class="el" href="xgrid_8F90_source.html">xgrid.F90</a>.</p>
 
 </div>
 </div>

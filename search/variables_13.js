@@ -1,20 +1,9 @@
 var searchData=
 [
-  ['tfreeze_2392',['tfreeze',['../group__constants__mod.html#ga722fa6ded6947c860a32b171bd428926',1,'constants_mod']]],
-  ['tile_5fnumber_2393',['tile_number',['../group__diag__grid__mod.html#gabf2730d777f8dceceb7669cfff23fd20',1,'diag_grid_mod::diag_global_grid_type']]],
-  ['time_5faverage_2394',['time_average',['../group__diag__data__mod.html#ga9b2ea47156de93fd8439e52ea449b942',1,'diag_data_mod::output_field_type']]],
-  ['time_5fflag_2395',['time_flag',['../group__interpolator__mod.html#ga99bf4c89dd347ad3ca8049eb5608098b',1,'interpolator_mod::interpolate_type']]],
-  ['time_5finit_2396',['time_init',['../group__interpolator__mod.html#ga0b5f7bac17cdc5d6d491c394b1ac12fc',1,'interpolator_mod::interpolate_type']]],
-  ['time_5fmax_2397',['time_max',['../group__diag__data__mod.html#ga869882bca29398d4ca96ddbb6edf451f',1,'diag_data_mod::output_field_type']]],
-  ['time_5fmethod_2398',['time_method',['../group__diag__data__mod.html#ga4a7c12972159a0f50b75430f70d81d57',1,'diag_data_mod::output_field_type']]],
-  ['time_5fmin_2399',['time_min',['../group__diag__data__mod.html#gac5b4ee20a9fcd90fc49232911369b9ee',1,'diag_data_mod::output_field_type']]],
-  ['time_5fops_2400',['time_ops',['../group__diag__data__mod.html#ga3e8c144586aab07ee443b4bcbdc04e8c',1,'diag_data_mod::output_field_type']]],
-  ['time_5frms_2401',['time_rms',['../group__diag__data__mod.html#ga50b437265ab1a8616e51bff54e6e27e6',1,'diag_data_mod::output_field_type']]],
-  ['time_5fslice_2402',['time_slice',['../group__interpolator__mod.html#ga33afb0d775370cc82fc20cba05cd58d7',1,'interpolator_mod::interpolate_type']]],
-  ['time_5fsum_2403',['time_sum',['../group__diag__data__mod.html#ga4b9450544bd9a26e881aedf148edb266',1,'diag_data_mod::output_field_type']]],
-  ['tweight_2404',['tweight',['../group__interpolator__mod.html#ga0ad0c654ceb8662723efd6ba687c6ca0',1,'interpolator_mod::interpolate_type']]],
-  ['tweight1_2405',['tweight1',['../group__interpolator__mod.html#gafbce8c1bd5d750a15f3a9db4aeee89f5',1,'interpolator_mod::interpolate_type']]],
-  ['tweight2_2406',['tweight2',['../group__interpolator__mod.html#ga9c39f8bc3ce71555eef608437fe4e049',1,'interpolator_mod::interpolate_type']]],
-  ['tweight3_2407',['tweight3',['../group__interpolator__mod.html#gaba44fc6d3b8d4c2cd45b23974a4b5dba',1,'interpolator_mod::interpolate_type']]],
-  ['type_2408',['type',['../group__diag__data__mod.html#gace6d84263dbeb3e382e7a69ec237383b',1,'diag_data_mod::diag_atttype']]]
+  ['unit_2491',['unit',['../group__interpolator__mod.html#ga30ee20f1f8152bc52c795fa8fea700d2',1,'interpolator_mod::interpolate_type']]],
+  ['units_2492',['units',['../group__coupler__types__mod.html#ga27f470ec770c4cae53cd21508b4d16d6',1,'coupler_types_mod::coupler_3d_values_type::units()'],['../group__coupler__types__mod.html#ga27f470ec770c4cae53cd21508b4d16d6',1,'coupler_types_mod::coupler_2d_values_type::units()'],['../group__coupler__types__mod.html#ga27f470ec770c4cae53cd21508b4d16d6',1,'coupler_types_mod::coupler_1d_values_type::units()']]],
+  ['use_5f10m_5fwind_5fspeed_2493',['use_10m_wind_speed',['../group__coupler__types__mod.html#gabed84f6899a7923d7173742d142d97d1',1,'coupler_types_mod::coupler_3d_field_type::use_10m_wind_speed()'],['../group__coupler__types__mod.html#gabed84f6899a7923d7173742d142d97d1',1,'coupler_types_mod::coupler_2d_field_type::use_10m_wind_speed()'],['../group__coupler__types__mod.html#gabed84f6899a7923d7173742d142d97d1',1,'coupler_types_mod::coupler_1d_field_type::use_10m_wind_speed()']]],
+  ['use_5fatm_5fpressure_2494',['use_atm_pressure',['../group__coupler__types__mod.html#ga457ee5e325fe71a4adaefbb0d3775cf6',1,'coupler_types_mod::coupler_3d_field_type::use_atm_pressure()'],['../group__coupler__types__mod.html#ga457ee5e325fe71a4adaefbb0d3775cf6',1,'coupler_types_mod::coupler_2d_field_type::use_atm_pressure()'],['../group__coupler__types__mod.html#ga457ee5e325fe71a4adaefbb0d3775cf6',1,'coupler_types_mod::coupler_1d_field_type::use_atm_pressure()']]],
+  ['use_5fcmor_2495',['use_cmor',['../group__diag__data__mod.html#ga3420a40310788729f1afb40d8a6d66e3',1,'diag_data_mod']]],
+  ['use_5fmpp_5fio_2496',['use_mpp_io',['../group__diag__data__mod.html#ga6354efeadfde9254bc8a3c2698bff1a0',1,'diag_data_mod']]]
 ];
