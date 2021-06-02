@@ -35,18 +35,16 @@ var annotated_dup =
       [ "drifters_comm_type", "structdrifters__comm__mod_1_1drifters__comm__type.html", "structdrifters__comm__mod_1_1drifters__comm__type" ]
     ] ],
     [ "drifters_core_mod", null, [
-      [ "assignment(=)", "interfacedrifters__core__mod_1_1assignment_07_0a_08.html", null ],
       [ "drifters_core_type", "structdrifters__core__mod_1_1drifters__core__type.html", "structdrifters__core__mod_1_1drifters__core__type" ]
     ] ],
     [ "drifters_input_mod", null, [
-      [ "assignment(=)", "interfacedrifters__input__mod_1_1assignment_07_0a_08.html", null ],
       [ "drifters_input_type", "structdrifters__input__mod_1_1drifters__input__type.html", "structdrifters__input__mod_1_1drifters__input__type" ]
     ] ],
     [ "drifters_io_mod", null, [
       [ "drifters_io_type", "structdrifters__io__mod_1_1drifters__io__type.html", "structdrifters__io__mod_1_1drifters__io__type" ]
     ] ],
     [ "drifters_mod", null, [
-      [ "assignment(=)", "interfacedrifters__mod_1_1assignment_07_0a_08.html", null ],
+      [ "drifters_push", "interfacedrifters__mod_1_1drifters__push.html", null ],
       [ "drifters_type", "structdrifters__mod_1_1drifters__type.html", "structdrifters__mod_1_1drifters__type" ]
     ] ],
     [ "field_manager_mod", null, [
@@ -84,7 +82,7 @@ var annotated_dup =
     ] ],
     [ "mpp_efp_mod", null, [
       [ "mpp_efp_type", "structmpp__efp__mod_1_1mpp__efp__type.html", "structmpp__efp__mod_1_1mpp__efp__type" ],
-      [ "operator(+)", "interfacempp__efp__mod_1_1operator_07_09_08.html", null ]
+      [ "operator(-)", "interfacempp__efp__mod_1_1operator_07-_08.html", null ]
     ] ],
     [ "mpp_io_mod", null, [
       [ "atttype", "structmpp__io__mod_1_1atttype.html", "structmpp__io__mod_1_1atttype" ],

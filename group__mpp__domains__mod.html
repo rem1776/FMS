@@ -33,7 +33,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">FMS
-   &#160;<span id="projectnumber">2021.01-dev</span>
+   &#160;<span id="projectnumber">2021.02.0</span>
    </div>
    <div id="projectbrief">Flexible Modeling System</div>
   </td>
@@ -825,7 +825,7 @@ Used to perform a halo update of a domain-decomposed array on each PE. <em>MPP_T
 <h3><a id="mpp_complete_update_domains"></a>mpp_complete_mpp_domains Interface</h3><div class="textblock">Must be used after a call to <a class="el" href="group__mpp__domains__mod.html">mpp_start_update_domains Interface</a> in order to complete a nonblocking domain update. See <a class="el" href="group__mpp__domains__mod.html">mpp_start_update_domains Interface</a> for more info. </div>
 
 <h3><a id="mpp_update_nest_fine"></a>mpp_update_nest_fine Interface</h3><div class="textblock">Pass the data from coarse grid to fill the buffer to be ready to be interpolated nto fine grid. <br  />
-Example usage: </p><pre class="fragment">           call mpp_update_nest_fine(field, nest_domain, wbuffer, ebuffer, sbuffer, 
+Example usage: </p><pre class="fragment">           call mpp_update_nest_fine(field, nest_domain, wbuffer, ebuffer, sbuffer,
                        nbuffer, nest_level, flags, complete, position, extra_halo, name,
                        tile_count)
 </pre> </div>
@@ -904,7 +904,7 @@ Example usage: </p><pre class="fragment">       call mpp_get_compute_domain(doma
 </pre> </div>
 
 <h3><a id="mpp_get_compute_domains"></a>mpp_get_compute_domains Interface</h3><div class="textblock">Retrieve the entire array of compute domain extents associated with a decomposition. <br  />
-Example usage: </p><pre class="fragment">       call mpp_get_compute_domains( domain, xbegin, xend, xsize, &amp;&lt;br&gt;
+Example usage: </p><pre class="fragment">       call mpp_get_compute_domains( domain, xbegin, xend, xsize, &amp;
                                            ybegin, yend, ysize )
 </pre> </div>
 
@@ -924,14 +924,21 @@ Example usage: </p><pre class="fragment">               call mpp_get_memory_doma
 </pre> </div>
 
 <h3><a id="mpp_set_compute_domain"></a>mpp_set_compute_domain Interface</h3><div class="textblock">These routines set the axis specifications associated with the compute domains. The domain is a derived type with private elements. These routines set the axis specifications associated with the compute domains The 2D version of these is a simple extension of 1D. <br  />
-Example usage: </p><pre class="fragment">                   call mpp_set_compute_domain()
+Example usage: </p><pre class="fragment">               call mpp_get_data_domain(domain_1d, isd, ied)
+               call mpp_get_data_domain(domain_2d, isd, ied, jsd, jed)
 </pre> </div>
 
-<h3><a id="mpp_set_data_domain"></a>mpp_set_data_domain Interface</h3><div class="textblock">These routines set the axis specifications associated with the data domains. The domain is a derived type with private elements. These routines set the axis specifications associated with the data domains. The 2D version of these is a simple extension of 1D. </div>
+<h3><a id="mpp_set_data_domain"></a>mpp_set_data_domain Interface</h3><div class="textblock">These routines set the axis specifications associated with the data domains. The domain is a derived type with private elements. These routines set the axis specifications associated with the data domains. The 2D version of these is a simple extension of 1D. <br  />
+Example usage: </p><pre class="fragment">               call mpp_set_data_domain(domain_1d, isd, ied)
+               call mpp_set_data_domain(domain_2d, isd, ied, jsd, jed)
+</pre> </div>
 
-<h3><a id="mpp_set_global_domain"></a>mpp_set_global_domain Interface</h3><div class="textblock">These routines set the axis specifications associated with the global domains. The domain is a derived type with private elements. These routines set the axis specifications associated with the global domains. The 2D version of these is a simple extension of 1D. </div>
+<h3><a id="mpp_set_global_domain"></a>mpp_set_global_domain Interface</h3><div class="textblock">These routines set the axis specifications associated with the global domains. The domain is a derived type with private elements. These routines set the axis specifications associated with the global domains. The 2D version of these is a simple extension of 1D. <br  />
+Example usage: </p><pre class="fragment">               call mpp_set_global_domain(domain_1d, isg, ieg)
+               call mpp_set_global_domain(domain_2d, isg, ieg, jsg, jeg)
+</pre> </div>
 
-<h3><a id="mpp_get_pelist"></a>mpp_get_pelist Interface</h3><div class="textblock">Retrieve list of PEs associated with a domain decomposition. The 1D version of this call returns an array of the PEs assigned to this 1D domain decomposition. In addition the optional argument pos may be used to retrieve the 0-based position of the domain local to the calling PE, i.e., <em>domain%list(pos)pe</em> is the local PE, as returned by <a class="el" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50" title="Returns processor ID. This returns the unique ID associated with a PE. This number runs between 0 and...">mpp_pe()</a> The 2D version of this call is identical to 1D version. </div>
+<h3><a id="mpp_get_pelist"></a>mpp_get_pelist Interface</h3><div class="textblock">Retrieve list of PEs associated with a domain decomposition. The 1D version of this call returns an array of the PEs assigned to this 1D domain decomposition. In addition the optional argument pos may be used to retrieve the 0-based position of the domain local to the calling PE, i.e., <code> domain%list(pos)%pe</code> is the local PE, as returned by <a class="el" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe()</a>. The 2D version of this call is identical to 1D version. </div>
 
 <h3><a id="mpp_get_layout"></a>mpp_get_layout Interface</h3><div class="textblock">Retrieve layout associated with a domain decomposition The 1D version of this call returns the number of divisions that was assigned to this decomposition axis. The 2D version of this call returns an array of dimension 2 holding the results on two axes. <br  />
 Example usage: </p><pre class="fragment">               call mpp_get_layout( domain, layout )

@@ -30,7 +30,7 @@ var group__drifters__mod =
       [ "zv", "group__drifters__mod.html#ga7609d8bf799afff52a6c8e21f2ef84af", null ],
       [ "zw", "group__drifters__mod.html#gab495eb1bc85a7ec8f5c7c70b2b882a35", null ]
     ] ],
-    [ "assignment(=)", "interfacedrifters__mod_1_1assignment_07_0a_08.html", null ],
+    [ "drifters_push", "interfacedrifters__mod_1_1drifters__push.html", null ],
     [ "drifters_del", "group__drifters__mod.html#gabd7a7c5d6f87429d1f125fccbbbf9a5a", null ],
     [ "drifters_distribute", "group__drifters__mod.html#ga9a1aa7c59e21aeab310b3fd722ced015", null ],
     [ "drifters_new", "group__drifters__mod.html#gaddfba33d6e4b7bdc50a58a1be1e3489b", null ],

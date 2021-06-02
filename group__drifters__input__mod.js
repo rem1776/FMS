@@ -12,7 +12,6 @@ var group__drifters__input__mod =
       [ "velocity_names", "group__drifters__input__mod.html#ga02f64e2e3fa5b9976c2539dd31b0a90a", null ],
       [ "version", "group__drifters__input__mod.html#gafc71d11fe90105a6c48f6cbe5ae0bd5e", null ]
     ] ],
-    [ "assignment(=)", "interfacedrifters__input__mod_1_1assignment_07_0a_08.html", null ],
     [ "drifters_io_type", "structdrifters__io__mod_1_1drifters__io__type.html", [
       [ "enddef", "group__drifters__input__mod.html#gab77326b6fd010650d965c61f86de82ee", null ],
       [ "it", "group__drifters__input__mod.html#ga2fc191e6fd72910e48dd9086f31038ed", null ],

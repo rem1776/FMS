@@ -33,7 +33,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">FMS
-   &#160;<span id="projectnumber">2021.01-dev</span>
+   &#160;<span id="projectnumber">2021.02.0</span>
    </div>
    <div id="projectbrief">Flexible Modeling System</div>
   </td>
@@ -141,7 +141,7 @@ $(document).ready(function(){initNavTree('horiz__interp__conserve_8F90_source.ht
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keywordtype">use </span>mpp_mod,               <span class="keywordtype">only</span>: mpp_error, fatal,  <a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="keywordtype">use </span>mpp_mod,               <span class="keywordtype">only</span>: comm_tag_1, comm_tag_2</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <span class="keywordtype">use </span>fms_mod,               <span class="keywordtype">only</span>: <a class="code" href="group__fms__mod.html#ga0c093df98a75dbd9e0f3add67aa6c23a">write_version_number</a></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="keywordtype">use </span>grid2_mod,             <span class="keywordtype">only</span>: get_great_circle_algorithm</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="keywordtype">use </span>grid2_mod,             <span class="keywordtype">only</span>: <a class="code" href="group__grid2__mod.html#gaec8a7fad18427244f943cded62170663">get_great_circle_algorithm</a></div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="keywordtype">use </span>constants_mod,         <span class="keywordtype">only</span>: <a class="code" href="group__constants__mod.html#gadc909cc70e4e20bc99fc3d3c53125808">pi</a></div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <span class="keywordtype">use </span>horiz_interp_type_mod, <span class="keywordtype">only</span>: horiz_interp_type</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
@@ -226,7 +226,7 @@ $(document).ready(function(){initNavTree('horiz__interp__conserve_8F90_source.ht
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keywordflow">if</span>(module_is_initialized) <span class="keywordflow">return</span></div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keyword">call </span><a class="code" href="group__fms__mod.html#ga0c093df98a75dbd9e0f3add67aa6c23a">write_version_number</a>(<span class="stringliteral">&quot;HORIZ_INTERP_CONSERVE_MOD&quot;</span>, version)</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    great_circle_algorithm = get_great_circle_algorithm()</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    great_circle_algorithm = <a class="code" href="group__grid2__mod.html#gaec8a7fad18427244f943cded62170663">get_great_circle_algorithm</a>()</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    module_is_initialized = .true.</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
@@ -1216,6 +1216,7 @@ $(document).ready(function(){initNavTree('horiz__interp__conserve_8F90_source.ht
 <div class="line"><a name="l01120"></a><span class="lineno"> 1120</span>&#160;<span class="comment">! close documentation grouping</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="agroup__grid2__mod_html_gaec8a7fad18427244f943cded62170663"><div class="ttname"><a href="group__grid2__mod.html#gaec8a7fad18427244f943cded62170663">grid2_mod::get_great_circle_algorithm</a></div><div class="ttdeci">logical function, public get_great_circle_algorithm()</div><div class="ttdoc">Determine if we are using the great circle algorithm.</div><div class="ttdef"><b>Definition:</b> <a href="grid2_8F90_source.html#l00149">grid2.F90:149</a></div></div>
 <div class="ttc" id="ampp__util__mpi_8inc_html_a09e69243d8c67e6a6e6e4fd9e93d0870"><div class="ttname"><a href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a></div><div class="ttdeci">subroutine mpp_sync_self(pelist, check, request, msg_size, msg_type)</div><div class="ttdoc">This is to check if current PE's outstanding puts are complete but we can't use shmem_fence because w...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util__mpi_8inc_source.html#l00169">mpp_util_mpi.inc:169</a></div></div>
 <div class="ttc" id="agroup__constants__mod_html_gadc909cc70e4e20bc99fc3d3c53125808"><div class="ttname"><a href="group__constants__mod.html#gadc909cc70e4e20bc99fc3d3c53125808">constants_mod::pi</a></div><div class="ttdeci">real, parameter, public pi</div><div class="ttdoc">Ratio of circle circumference to diameter [N/A].</div><div class="ttdef"><b>Definition:</b> <a href="constants_8F90_source.html#l00104">constants.F90:104</a></div></div>
 <div class="ttc" id="ampp__util_8inc_html_abf546cd336d5c539e445fb884f98ab6b"><div class="ttname"><a href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a></div><div class="ttdeci">integer function mpp_npes()</div><div class="ttdoc">Returns processor count for current pelist.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00467">mpp_util.inc:467</a></div></div>
