@@ -113,7 +113,69 @@ subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>topogra
 <p>This module generates realistic mountains and land-water masks on a specified latitude-longitude grid by interpolating from the 1/6 degree Navy mean topography and percent water data sets. The fields that can be generated are mean and standard deviation of topography within the specified grid boxes; and land-ocean (or water) mask and land-ocean (or water) fractional area.</p>
 <p>The interpolation scheme conserves the area-weighted average of the input data by using module horiz_interp.</p>
 <p>The interfaces get_gaussian_topog and gaussian_topog_init are documented in <a class="el" href="group__gaussian__topog__mod.html">gaussian_topog_mod</a> </p>
-</div><!-- contents -->
+
+
+<h3><a id="get_topog_stdev"></a>get_topog_stdev Interface</h3><div class="textblock">Returns a standard deviation of higher resolution topography with the given model grid boxes.Returns the standard deviation of the "finer" input topography data set, currently the Navy 1/6 degree mean topography data, within the boundaries of the given input grid.<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">real</td><td>blon The longitude (in radians) at grid box boundaries. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">real</td><td>blat The latitude (in radians) at grid box boundaries. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">real</td><td>stdev The standard deviation of surface height (in meters) within given input model grid boxes. The size of this field must be size(blon)-1 by size(blat)-1.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A logical value of TRUE is returned if the output field was successfully created. A value of FALSE may be returned if the input topography data set was not readable.</dd></dl>
+<p>Example usage: </p><div class="fragment"><div class="line">flag = get_topog_stdev( blon, blat, stdev ) @code</div>
+</div><!-- fragment --></div>
+
+<h3><a id="get_ocean_frac"></a>get_ocean_frac Interfaces</h3><div class="textblock">Returns fractional area covered by ocean in a grid box. Returns fractional area covered by ocean in the given model grid boxes.<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">real</td><td>blon The longitude (in radians) at grid box boundaries. </td></tr>
+    <tr><td class="paramname">real</td><td>blat The latitude (in radians) at grid box boundaries. </td></tr>
+    <tr><td class="paramname">real</td><td>ocean_frac The fractional amount (0 to 1) of ocean in a grid box. The size of this field must be size(blon)-1 by size(blat)-1.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A logical value of TRUE is returned if the output field was successfully created. A value of FALSE may be returned if the Navy 1/6 degree percent water data set was not readable.</dd></dl>
+<p>Example usage: </p><div class="fragment"><div class="line">flag = &lt;b&gt;get_ocean_frac&lt;/b&gt; ( blon, blat, ocean_frac ) </div>
+</div><!-- fragment --> </div>
+
+<h3><a id="get_ocean_mask"></a>get_ocean_mask Interface</h3><div class="textblock">Returns a land-ocean mask in a grid box.Returns a land-ocean mask in the given model grid boxes.<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">real</td><td>blon The longitude (in radians) at grid box boundaries. </td></tr>
+    <tr><td class="paramname">real</td><td>blat The latitude (in radians) at grid box boundaries. </td></tr>
+    <tr><td class="paramname">real</td><td>ocean_frac The fractional amount (0 to 1) of ocean in a grid box. The size of this field must be size(blon)-1 by size(blat)-1.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A logical value of TRUE is returned if the output field was successfully created. A value of FALSE may be returned if the Navy 1/6 degree percent water data set was not readable.</dd></dl>
+<p>Example code: </p><div class="fragment"><div class="line">flag = get_ocean_mask( blon, blat, ocean_mask ) </div>
+</div><!-- fragment --> </div>
+
+<h3><a id="get_water_frac"></a>get_water_frac Interface</h3><div class="textblock">Returns fractional area covered by water.Returns the percent of water in a grid box.<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">real</td><td>blon The longitude (in radians) at grid box boundaries. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">real</td><td>blat The latitude (in radians) at grid box boundaries. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">real</td><td>water_frac The fractional amount (0 to 1) of water in a grid box. The size of this field must be size(blon)-1 by size(blat)-1.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A logical value of TRUE is returned if the output field was successfully created. A value of FALSE may be returned if the Navy 1/6 degree percent water data set was not readable.</dd></dl>
+<p><br  />
+Example usage:<br  />
+</p><div class="fragment"><div class="line">flag = get_water_frac( blon, blat, water_frac ) </div>
+</div><!-- fragment --> </div>
+
+<h3><a id="get_water_mask"></a>get_water_mask Interface</h3><div class="textblock">Returns a land-water mask in a grid box.Returns a land-water mask in the given model grid boxes.<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">real</td><td>blon The longitude (in radians) at grid box boundaries. </td></tr>
+    <tr><td class="paramname">real</td><td>blat The latitude (in radians) at grid box boundaries. </td></tr>
+    <tr><td class="paramname">real</td><td>water_mask(:,:) A binary mask for water (true) or land (false). The size of this field must be size(blon)-1 by size(blat)-1.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A logical value of TRUE is returned if the output field was successfully created. A value of FALSE may be returned if the Navy 1/6 degree percent water data set was not readable.</dd></dl>
+<p>Example usage:</p><div class="fragment"><div class="line">flag = get_water_mask( blon, blat, water_mask ) </div>
+</div><!-- fragment --> </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

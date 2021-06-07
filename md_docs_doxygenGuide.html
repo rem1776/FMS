@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>FMS: FMS Doxygen Documentation Guide</title>
+<title>FMS: Documentation Style Guide</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -91,68 +91,41 @@ $(document).ready(function(){initNavTree('md_docs_doxygenGuide.html',''); initRe
 
 <div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">FMS Doxygen Documentation Guide </div>  </div>
+<div class="title">Documentation Style Guide </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h2>Basics</h2>
+<div class="textblock"><p>short description !! continued short description !! !&gt; Long description !! continued long description !! <br  />
+Example 1: !! !! foo() !! !! Example 2: !!</p>
+<p>Best practices for documenting FMS code with Doxygen.</p>
+<h2>Basics</h2>
 <p>For .F90 files:</p><ul>
 <li><code>!&gt;</code> Starts or continues a multi-line doxygen comment</li>
 <li><code>!!</code> Continues a comment</li>
-<li><code>!&lt;</code> Starts a comment</li>
+<li><code>!&lt;</code> Starts a comment(usually used after variables/parameters)</li>
 <li><code>@commandname</code> to use a given doxygen command</li>
 </ul>
-<p>For .c files, multi-line javadoc-style blocks are used, and the command specifier is instead <code>\commandname</code>.</p>
-<p>Certain doxygen commands must be terminated with an empty comment line, such as <code>@brief</code> or <code>@author</code>.</p>
-<p>Simple html commands, namely <code>&lt;TT&gt;</code> and <code>&lt;br&gt;</code> are allowed. Coding examples can be formatted by either tabbing as seen above, or within the <code>@code</code> commands(see full subroutine documentation below for an example).</p>
+<p>For .c files, javadoc-style comments are used (<code>///</code> or multi-line with <code>/**</code> and <code>*/</code>), and the command specifier is instead <code>\commandname</code>.</p>
+<p>Certain doxygen commands must be terminated with an empty comment line, mainly <code>@brief</code> and <code>@author</code> , otherwise will include any additional documentation below it.</p>
+<p>Some html commands, such as <code>&lt;TT&gt;</code> and <code>&lt;br&gt;</code> are allowed. Full list can be found <a href="https://www.doxygen.nl/manual/htmlcmds.html">here</a>. Coding examples can be formatted by either tabbing, or within the <code>@code</code> commands(see full subroutine documentation below for examples of both). Links to other pages within the documentation can be created with <code>@ref name</code>.</p>
 <p>The following previously used commands are invalid:</p><ul>
-<li><code>@email</code>, email can be included in <dl class="section author"><dt>Author</dt><dd>line</dd></dl>
-</li>
-<li><code>@description</code>,</li>
+<li><code>@email</code>, email can be included in <code>@author</code> line</li>
+<li><code>@description</code>, <code>@details</code> can be used, but is also implied by <code>!&gt;</code> if a brief description is already given</li>
+<li><code>@example</code>, not actually invalid, but should not be used in subroutine/function descriptions as it is for presenting examples of source code separately. Some examples of what can be used for programming examples in descriptions are below.</li>
 </ul>
-<p>can be used, but is also implied by <code>!&gt;</code> if a brief description is already given</p><ul>
-<li><code>@example</code>, not actually invalid, but should not be used in subroutine/function descriptions as it is for presenting examples of source code.<div class="fragment"><div class="line"> can be used to enclose programming examples for routines</div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">### Documenting subroutines and functions:</span></div>
-<div class="line"><span class="preprocessor"></span> </div>
-<div class="line">the first `<span class="comment">!&gt;` comment above a routine implicitly starts the brief description, and the second `!&gt;`</span></div>
-<div class="line">will start the full description(as long as the brief description is terminated).</div>
-<div class="line"> </div>
-<div class="line">simple subroutine/<span class="keyword">function </span>documentation:</div>
-<div class="line"> </div>
-<div class="line">```<span class="comment"></span></div>
-<div class="line"><span class="comment">!&gt; brief description</span></div>
-<div class="line"><span class="comment">!! continued description</span></div>
-<div class="line"><span class="keyword">function </span>foo()</div>
-<div class="line">  <span class="keywordtype">integer</span> :: bar<span class="comment"> !&lt; variable description</span></div>
-<div class="line">```</div>
-<div class="line"> </div>
-<div class="line">full subroutine/<span class="keyword">function </span>documentation:</div>
-<div class="line">```<span class="comment"></span></div>
-<div class="line"><span class="comment">!&gt; @brief short description</span></div>
-<div class="line"><span class="comment">!! continued short description</span></div>
-<div class="line"><span class="comment">!!</span></div>
-<div class="line"><span class="comment">!&gt; @author author_name @link author@email.com @endlink</span></div>
-<div class="line"><span class="comment">!!</span></div>
-<div class="line"><span class="comment">!! Long description</span></div>
-<div class="line"><span class="comment">!! continued long description</span></div>
-<div class="line"><span class="comment">!! &lt;br&gt;Example 1:</span></div>
-<div class="line"><span class="comment">!!</span></div>
-<div class="line"><span class="comment">!!      foo()</span></div>
-<div class="line"><span class="comment">!!</span></div>
-<div class="line"><span class="comment">!! Example 2: </span></div>
-<div class="line"><span class="comment">!! @code{.F90}</span></div>
-<div class="line"><span class="comment">!! foo()</span></div>
-<div class="line"><span class="comment">!! </span></div>
-</div><!-- fragment --> subroutine foo() integer :: bar !&lt; variable description ... <div class="fragment"><div class="line">### Documenting Interfaces</div>
-<div class="line">Fortran supports documenting interfaces, just not fortran interfaces. As a workaround, the </div>
-<div class="line">`@page interface_name &quot;Interface name to display&quot;` command is used to create sections for each </div>
+<p>### Documenting subroutines and functions:</p>
+<p>The first <code>!&gt;</code> comment above a routine implicitly starts the brief description, and the second <code>!&gt;</code> will start the full description (as long as the brief description is terminated).</p>
+<p>Simple subroutine/function documentation:</p>
+<p>``` !&gt; description !! continued description function foo() integer :: bar !&lt; variable description ```</p>
+<p>Full subroutine/function documentation: ``` !&gt;</p><div class="fragment"><div class="line"><span class="comment">!! foo()</span></div>
+<div class="line">!! </div>
+</div><!-- fragment --><p> subroutine foo() integer :: bar !&lt; variable description ... </p><div class="fragment"><div class="line">### Documenting Interfaces</div>
+<div class="line">Doxygen supports documenting interfaces, just not Fortran&#39;s version of an interface. As a workaround,</div>
+<div class="line">the `@page interface_name Interface name to display` command can be used to create sections for each</div>
 <div class="line">interface. The descriptions work the same as routines/functions, but any parameters/return values</div>
-<div class="line">must be defined with commands as nothing is actually getting parsed.</div>
+<div class="line">must be defined with commands as the interface definition is not actually getting parsed.</div>
 <div class="line"> </div>
 <div class="line">Example:</div>
-</div><!-- fragment --></li>
-</ul>
-<p>!&gt; </p>
+</div><!-- fragment --><p>!&gt; </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->

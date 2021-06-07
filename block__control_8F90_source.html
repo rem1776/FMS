@@ -130,17 +130,17 @@ $(document).ready(function(){initNavTree('block__control_8F90_source.html',''); 
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keywordtype">public</span> <a class="code" href="structblock__control__mod_1_1block__control__type.html">block_control_type</a></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">type</span>, <span class="keyword">private</span> ix_type</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">type</span>, <span class="keyword">private</span> :: ix_type</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keywordtype">integer</span>, <span class="keywordtype">dimension(:,:)</span>, <span class="keywordtype">allocatable</span> :: ix</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">end type </span>ix_type</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">type</span>, <span class="keyword">private</span> pk_type</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">type</span>, <span class="keyword">private</span> :: pk_type</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keywordtype">integer</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">allocatable</span> :: ii</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="keywordtype">integer</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">allocatable</span> :: jj</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">end type </span>pk_type</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">!&gt; @brief Block data and extents for OpenMP threading of column-based calculations</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="structblock__control__mod_1_1block__control__type.html">   47</a></span>&#160;<span class="keyword">type</span>, <span class="keyword">public</span> <a class="code" href="structblock__control__mod_1_1block__control__type.html">block_control_type</a></div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="structblock__control__mod_1_1block__control__type.html">   47</a></span>&#160;<span class="keyword">type</span>, <span class="keyword">public</span> :: <a class="code" href="structblock__control__mod_1_1block__control__type.html">block_control_type</a></div>
 <div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="group__block__control__mod.html#ga4b25955e7e5544c51497533e00015746">   48</a></span>&#160;  <span class="keywordtype">integer</span> :: nx_block, ny_block<span class="comment">  !&lt; blocking factor using mpp-style decomposition</span></div>
 <div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="group__block__control__mod.html#ga321f6dda0d7dcf50605fd5ba416335f1">   49</a></span>&#160;  <span class="keywordtype">integer</span> :: nblks<span class="comment">               !&lt; number of blocks cover MPI domain</span></div>
 <div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="group__block__control__mod.html#gab1cad82f25f65ef5449e8bf44552498e">   50</a></span>&#160;  <span class="keywordtype">integer</span> :: isc, iec, jsc, jec<span class="comment">  !&lt; MPI domain global extents</span></div>

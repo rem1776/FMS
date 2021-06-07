@@ -122,5 +122,6 @@ var searchData=
   ['drifters_5ftype_324',['drifters_type',['../structdrifters__mod_1_1drifters__type.html',1,'drifters_mod']]],
   ['drifters_5fwrite_5frestart_325',['drifters_write_restart',['../group__drifters__mod.html#ga3e7db869b8b17f17d7c07b3c2b0cc5c2',1,'drifters_mod']]],
   ['dt_326',['dt',['../group__drifters__mod.html#ga0d83938800a951e18c7a96a4d5ff7a07',1,'drifters_mod::drifters_type']]],
-  ['diag_5ftable_327',['diag_table',['../group__diag__manager.html',1,'']]]
+  ['diag_5ftable_327',['diag_table',['../group__diag__manager.html',1,'']]],
+  ['documentation_20style_20guide_328',['Documentation Style Guide',['../md_docs_doxygenGuide.html',1,'']]]
 ];

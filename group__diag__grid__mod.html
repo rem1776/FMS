@@ -105,14 +105,13 @@ $(document).ready(function(){initNavTree('group__diag__grid__mod.html',''); init
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
 <tr class="memitem:ga344fd60b0703604265c527332794df35"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__grid__mod.html#ga344fd60b0703604265c527332794df35">diag_grid_init</a> (domain, glo_lat, glo_lon, aglo_lat, aglo_lon)</td></tr>
-<tr class="memdesc:ga344fd60b0703604265c527332794df35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send the global grid to the <code>diag_manager_mod</code> for regional output. @description In order for the diag_manager to do regional output for grids other than the standard lat/lon grid, the <code> diag_manager_mod</code> needs to know the the latitude and longitude values for the entire global grid. This procedure is the mechanism the models will use to share their grid with the diagnostic manager. This procedure needs to be called after the grid is created, and before the first call to register the fields.  <a href="group__diag__grid__mod.html#ga344fd60b0703604265c527332794df35">More...</a><br /></td></tr>
+<tr class="memdesc:ga344fd60b0703604265c527332794df35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send the global grid to the <code>diag_manager_mod</code> for regional output.  <a href="group__diag__grid__mod.html#ga344fd60b0703604265c527332794df35">More...</a><br /></td></tr>
 <tr class="separator:ga344fd60b0703604265c527332794df35"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5e5a7eeabed97e40f69b0167e44b1330"><td class="memItemLeft" align="right" valign="top"><a id="ga5e5a7eeabed97e40f69b0167e44b1330"></a>
-subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__grid__mod.html#ga5e5a7eeabed97e40f69b0167e44b1330">diag_grid_end</a> ()</td></tr>
-<tr class="memdesc:ga5e5a7eeabed97e40f69b0167e44b1330"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unallocate the diag_global_grid variable. @description The <code>diag_global_grid</code> variable is only needed during the register field calls, and then only if there are fields requestion regional output. Once all the register fields calls are complete (before the first <code>send_data</code> call this procedure can be called to free up memory. <br /></td></tr>
+<tr class="memitem:ga5e5a7eeabed97e40f69b0167e44b1330"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__grid__mod.html#ga5e5a7eeabed97e40f69b0167e44b1330">diag_grid_end</a> ()</td></tr>
+<tr class="memdesc:ga5e5a7eeabed97e40f69b0167e44b1330"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unallocate the diag_global_grid variable.  <a href="group__diag__grid__mod.html#ga5e5a7eeabed97e40f69b0167e44b1330">More...</a><br /></td></tr>
 <tr class="separator:ga5e5a7eeabed97e40f69b0167e44b1330"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gacd48f9784c8244ff7edc7c98f1ad51cd"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__grid__mod.html#gacd48f9784c8244ff7edc7c98f1ad51cd">get_local_indexes</a> (latStart, latEnd, lonStart, lonEnd, istart, iend, jstart, jend)</td></tr>
-<tr class="memdesc:gacd48f9784c8244ff7edc7c98f1ad51cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the local start and local end indexes on the local PE for regional output. @description Given a defined region, find the local indexes on the local PE surrounding the region.  <a href="group__diag__grid__mod.html#gacd48f9784c8244ff7edc7c98f1ad51cd">More...</a><br /></td></tr>
+<tr class="memdesc:gacd48f9784c8244ff7edc7c98f1ad51cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the local start and local end indexes on the local PE for regional output.  <a href="group__diag__grid__mod.html#gacd48f9784c8244ff7edc7c98f1ad51cd">More...</a><br /></td></tr>
 <tr class="separator:gacd48f9784c8244ff7edc7c98f1ad51cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga8809db19aeaef7fbd8a30a94017a45af"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__grid__mod.html#ga8809db19aeaef7fbd8a30a94017a45af">get_local_indexes2</a> (lat, lon, iindex, jindex)</td></tr>
 <tr class="memdesc:ga8809db19aeaef7fbd8a30a94017a45af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the indices of the nearest grid point of the a-grid to the specified (lon,lat) location on the local PE. if desired point not within domain of local PE, return (0,0) as the indices.  <a href="group__diag__grid__mod.html#ga8809db19aeaef7fbd8a30a94017a45af">More...</a><br /></td></tr>
@@ -130,6 +129,25 @@ logical&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="g
 <dl class="section author"><dt>Author</dt><dd>Seth Underwood&lt;"seth.underwood@noaa.gov"&gt;</dd></dl>
 <p><code>diag_grid_mod</code> contains useful utilities for dealing with, mostly, regional output for grids other than the standard lat/lon grid. This module contains three public procedures <code> diag_grid_init</code>, which is shared globably in the <code> diag_manager_mod</code>, <code>diag_grid_end</code> which will free up memory used during the register field calls, and <code>get_local_indexes</code>. The <code>send_global_grid</code> procedure is called by the model that creates the global grid. <code>send_global_grid</code> needs to be called before any fields are registered that will output only regions. <code>get_local_indexes</code> is to be called by the <code>diag_manager_mod</code> to discover the global indexes defining a subregion on the tile. </p>
 <h2 class="groupheader">Function/Subroutine Documentation</h2>
+<a id="ga5e5a7eeabed97e40f69b0167e44b1330"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5e5a7eeabed97e40f69b0167e44b1330">&#9670;&nbsp;</a></span>diag_grid_end()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine, public diag_grid_mod::diag_grid_end</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Unallocate the diag_global_grid variable. </p>
+<p>The <code>diag_global_grid</code> variable is only needed during the register field calls, and then only if there are fields requestion regional output. Once all the register fields calls are complete (before the first <code>send_data</code> call this procedure can be called to free up memory. </p>
+
+<p class="definition">Definition at line <a class="el" href="diag__grid_8F90_source.html#l00317">317</a> of file <a class="el" href="diag__grid_8F90_source.html">diag_grid.F90</a>.</p>
+
+</div>
+</div>
 <a id="ga344fd60b0703604265c527332794df35"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga344fd60b0703604265c527332794df35">&#9670;&nbsp;</a></span>diag_grid_init()</h2>
 
@@ -174,8 +192,9 @@ logical&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="g
       </table>
 </div><div class="memdoc">
 
-<p>Send the global grid to the <code>diag_manager_mod</code> for regional output. @description In order for the diag_manager to do regional output for grids other than the standard lat/lon grid, the <code> diag_manager_mod</code> needs to know the the latitude and longitude values for the entire global grid. This procedure is the mechanism the models will use to share their grid with the diagnostic manager. This procedure needs to be called after the grid is created, and before the first call to register the fields. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Send the global grid to the <code>diag_manager_mod</code> for regional output. </p>
+<p>In order for the diag_manager to do regional output for grids other than the standard lat/lon grid, the <code> diag_manager_mod</code> needs to know the the latitude and longitude values for the entire global grid. This procedure is the mechanism the models will use to share their grid with the diagnostic manager.</p>
+<p>This procedure needs to be called after the grid is created, and before the first call to register the fields. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">domain</td><td>The domain to which the grid data corresponds. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">glo_lat</td><td>The latitude information for the grid tile. </td></tr>
@@ -186,7 +205,7 @@ logical&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="g
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__grid_8F90_source.html#l00150">150</a> of file <a class="el" href="diag__grid_8F90_source.html">diag_grid.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__grid_8F90_source.html#l00152">152</a> of file <a class="el" href="diag__grid_8F90_source.html">diag_grid.F90</a>.</p>
 
 </div>
 </div>
@@ -252,8 +271,8 @@ logical&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="g
       </table>
 </div><div class="memdoc">
 
-<p>Find the local start and local end indexes on the local PE for regional output. @description Given a defined region, find the local indexes on the local PE surrounding the region. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Find the local start and local end indexes on the local PE for regional output. </p>
+<p>Given a defined region, find the local indexes on the local PE surrounding the region. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">latstart</td><td>lat start angles </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">lonstart</td><td>lon start angles </td></tr>
@@ -267,7 +286,7 @@ logical&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="g
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__grid_8F90_source.html#l00355">355</a> of file <a class="el" href="diag__grid_8F90_source.html">diag_grid.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__grid_8F90_source.html#l00359">359</a> of file <a class="el" href="diag__grid_8F90_source.html">diag_grid.F90</a>.</p>
 
 </div>
 </div>
@@ -320,7 +339,7 @@ logical&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="g
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__grid_8F90_source.html#l00604">604</a> of file <a class="el" href="diag__grid_8F90_source.html">diag_grid.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__grid_8F90_source.html#l00608">608</a> of file <a class="el" href="diag__grid_8F90_source.html">diag_grid.F90</a>.</p>
 
 </div>
 </div>

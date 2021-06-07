@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['xmap_5ftype_1478',['xmap_type',['../structxgrid__mod_1_1xmap__type.html',1,'xgrid_mod']]]
+  ['valid_5ft_1491',['valid_t',['../structnetcdf__io__mod_1_1valid__t.html',1,'netcdf_io_mod']]],
+  ['validtype_1492',['validtype',['../structmpp__io__mod_1_1validtype.html',1,'mpp_io_mod']]]
 ];

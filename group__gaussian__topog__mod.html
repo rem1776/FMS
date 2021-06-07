@@ -102,16 +102,149 @@ $(document).ready(function(){initNavTree('group__gaussian__topog__mod.html','');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
-<tr class="memitem:gabeb4ce76e0c0042e8100454d13364111"><td class="memItemLeft" align="right" valign="top"><a id="gabeb4ce76e0c0042e8100454d13364111"></a>
-subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>gaussian_topog_init</b> (lon, lat, zsurf)</td></tr>
+<tr class="memitem:gabeb4ce76e0c0042e8100454d13364111"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gaussian__topog__mod.html#gabeb4ce76e0c0042e8100454d13364111">gaussian_topog_init</a> (lon, lat, zsurf)</td></tr>
+<tr class="memdesc:gabeb4ce76e0c0042e8100454d13364111"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a surface height field that consists of the sum of one or more Gaussian-shaped mountains.  <a href="group__gaussian__topog__mod.html#gabeb4ce76e0c0042e8100454d13364111">More...</a><br /></td></tr>
 <tr class="separator:gabeb4ce76e0c0042e8100454d13364111"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5fd9e8166dec60386040936b308551a2"><td class="memItemLeft" align="right" valign="top"><a id="ga5fd9e8166dec60386040936b308551a2"></a>
-real function, dimension(size(lon, 1), size(lat, 1)), public&#160;</td><td class="memItemRight" valign="bottom"><b>get_gaussian_topog</b> (lon, lat, height, olond, olatd, wlond, wlatd, rlond, rlatd)</td></tr>
+<tr class="memitem:ga5fd9e8166dec60386040936b308551a2"><td class="memItemLeft" align="right" valign="top">real function, dimension(size(lon, 1), size(lat, 1)), public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gaussian__topog__mod.html#ga5fd9e8166dec60386040936b308551a2">get_gaussian_topog</a> (lon, lat, height, olond, olatd, wlond, wlatd, rlond, rlatd)</td></tr>
+<tr class="memdesc:ga5fd9e8166dec60386040936b308551a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a simple surface height field that consists of a single Gaussian-shaped mountain.  <a href="group__gaussian__topog__mod.html#ga5fd9e8166dec60386040936b308551a2">More...</a><br /></td></tr>
 <tr class="separator:ga5fd9e8166dec60386040936b308551a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Routines for creating Gaussian-shaped land surface topography for latitude-longitude grids. </p>
 <dl class="section author"><dt>Author</dt><dd>Bruce Wyman Interfaces generate simple Gaussian-shaped mountains from parameters specified by either argument list or namelist input. The mountain shapes are controlled by the height, half-width, and ridge-width parameters. </dd></dl>
+<h2 class="groupheader">Function/Subroutine Documentation</h2>
+<a id="gabeb4ce76e0c0042e8100454d13364111"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gabeb4ce76e0c0042e8100454d13364111">&#9670;&nbsp;</a></span>gaussian_topog_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine, public gaussian_topog_mod::gaussian_topog_init </td>
+          <td>(</td>
+          <td class="paramtype">real, dimension(:), intent(in)&#160;</td>
+          <td class="paramname"><em>lon</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:), intent(in)&#160;</td>
+          <td class="paramname"><em>lat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:,:), intent(out)&#160;</td>
+          <td class="paramname"><em>zsurf</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns a surface height field that consists of the sum of one or more Gaussian-shaped mountains. </p>
+<p>Returns a land surface topography that consists of a "set" of simple Gaussian-shaped mountains. The height, position, width, and elongation of the mountains can be controlled by variables in the namelist. </p>
+
+<p class="definition">Definition at line <a class="el" href="gaussian__topog_8F90_source.html#l00136">136</a> of file <a class="el" href="gaussian__topog_8F90_source.html">gaussian_topog.F90</a>.</p>
+
+</div>
+</div>
+<a id="ga5fd9e8166dec60386040936b308551a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5fd9e8166dec60386040936b308551a2">&#9670;&nbsp;</a></span>get_gaussian_topog()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real function, dimension(size(lon,1),size(lat,1)), public gaussian_topog_mod::get_gaussian_topog </td>
+          <td>(</td>
+          <td class="paramtype">real, dimension(:), intent(in)&#160;</td>
+          <td class="paramname"><em>lon</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:), intent(in)&#160;</td>
+          <td class="paramname"><em>lat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, intent(in)&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, intent(in), optional&#160;</td>
+          <td class="paramname"><em>olond</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, intent(in), optional&#160;</td>
+          <td class="paramname"><em>olatd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, intent(in), optional&#160;</td>
+          <td class="paramname"><em>wlond</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, intent(in), optional&#160;</td>
+          <td class="paramname"><em>wlatd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, intent(in), optional&#160;</td>
+          <td class="paramname"><em>rlond</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, intent(in), optional&#160;</td>
+          <td class="paramname"><em>rlatd</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns a simple surface height field that consists of a single Gaussian-shaped mountain. </p>
+<p>The height, position, width, and elongation of the mountain is controlled by optional arguments. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">real</td><td>lon The mean grid box longitude in radians. </td></tr>
+    <tr><td class="paramname">real</td><td>lat The mean grid box latitude in radians. </td></tr>
+    <tr><td class="paramname">real</td><td>height Maximum surface height in meters. </td></tr>
+    <tr><td class="paramname">real</td><td>olond, olatd Position/origin of mountain in degrees longitude and latitude. This is the location of the maximum height. </td></tr>
+    <tr><td class="paramname">real</td><td>wlond, wlatd Gaussian half-width of mountain in degrees longitude and latitude. </td></tr>
+    <tr><td class="paramname">real</td><td>rlond, rlatd Ridge half-width of mountain in degrees longitude and latitude. This is the elongation of the maximum height. </td></tr>
+    <tr><td class="paramname">real</td><td>zsurf The surface height (in meters). The size of the returned field is size(lon) by size(lat). &lt;/OUT&gt;</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">FATAL</td><td>shape(zsurf) is not equal to (/size(lon),size(lat)/) Check the input grid size and output field size. The input grid is defined at the midpoint of grid boxes.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Mountains do not wrap around the poles. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="gaussian__topog_8F90_source.html#l00199">199</a> of file <a class="el" href="gaussian__topog_8F90_source.html">gaussian_topog.F90</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

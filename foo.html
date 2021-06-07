@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>FMS: &quot;foo Interface&quot;</title>
+<title>FMS: foo Interface</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -91,7 +91,7 @@ $(document).ready(function(){initNavTree('foo.html',''); initResizable(); });
 
 <div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">"foo Interface" </div>  </div>
+<div class="title">foo Interface </div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>short description !! !&gt; Longer description !!</p>
@@ -101,9 +101,16 @@ $(document).ready(function(){initNavTree('foo.html',''); initResizable(); });
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>some_return_value ```</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>retval description <div class="fragment"><div class="line">### Documenting Type Definitions</div>
+<div class="line">Type definitions are only parsed through doxygen if they are defined in a certain way. They must</div>
+<div class="line">include the visibility(public or private) and `::` otherwise will likely be missed by the parser.</div>
+<div class="line">Other than that they are documented the same as subroutines.</div>
+<div class="line"> </div>
+<div class="line">Example:</div>
+</div><!-- fragment --></dd></dl>
+<p>!&gt; description type, public :: typename integer :: num !&lt; description end type typename ```</p>
 <h2>Module Grouping</h2>
-<p>Each FMS module is in a group corresponding to subdirectory, with these groups are defined in <code><a class="el" href="grouping_8h_source.html">docs/grouping.h</a></code>. The groups can also contain any other relevant files, such as additional documentation files, header, or include files. Files be added by adding <code>@ingroup dir_name</code> to a documentation block. </p>
+<p>To get the modules parsed correctly, each module page is created through a grouping defined at the top of the file. Each FMS module is then also in a group corresponding to its subdirectory, with these groups defined in <code><a class="el" href="grouping_8h_source.html">docs/grouping.h</a></code>. The groups can also contain any other relevant files, such as additional documentation files, header, or include files. Files or additional documentation can be added to either directory or module groups by adding <code>@ingroup group_name</code> to a documentation block. </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->

@@ -107,6 +107,10 @@ var annotated_dup =
       [ "valid_t", "structnetcdf__io__mod_1_1valid__t.html", "structnetcdf__io__mod_1_1valid__t" ]
     ] ],
     [ "test_domains_utility_mod", "namespacetest__domains__utility__mod.html", "namespacetest__domains__utility__mod" ],
+    [ "time_manager_mod", null, [
+      [ "operator(+)", "interfacetime__manager__mod_1_1operator_07_09_08.html", null ],
+      [ "time_type", "structtime__manager__mod_1_1time__type.html", "structtime__manager__mod_1_1time__type" ]
+    ] ],
     [ "xgrid_mod", null, [
       [ "grid_box_type", "structxgrid__mod_1_1grid__box__type.html", "structxgrid__mod_1_1grid__box__type" ],
       [ "xmap_type", "structxgrid__mod_1_1xmap__type.html", "structxgrid__mod_1_1xmap__type" ]
