@@ -94,9 +94,7 @@ $(document).ready(function(){initNavTree('md_docs_doxygenGuide.html',''); initRe
 <div class="title">Documentation Style Guide </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>short description !! continued short description !! !&gt; Long description !! continued long description !! <br  />
-Example 1: !! !! foo() !! !! Example 2: !!</p>
-<p>Best practices for documenting FMS code with Doxygen.</p>
+<div class="textblock"><p>Best practices for documenting FMS code with Doxygen.</p>
 <h2>Basics</h2>
 <p>For .F90 files:</p><ul>
 <li><code>!&gt;</code> Starts or continues a multi-line doxygen comment</li>
@@ -114,16 +112,41 @@ Example 1: !! !! foo() !! !! Example 2: !!</p>
 </ul>
 <p>The first <code>!&gt;</code> comment above a routine implicitly starts the brief description, and the second <code>!&gt;</code> will start the full description (as long as the brief description is terminated).</p>
 <p>Simple subroutine/function documentation:</p>
-<p>``` !&gt; description !! continued description function foo() integer :: bar !&lt; variable description ```</p>
-<p>Full subroutine/function documentation:</p>
-<p>``` !&gt;</p><div class="fragment"><div class="line"><span class="comment">!! foo()</span></div>
-<div class="line">!! </div>
-</div><!-- fragment --><p> subroutine foo() integer :: bar !&lt; variable description ... </p><div class="fragment"><div class="line">&lt;!--- </div>
-</div><!-- fragment --><p> --&gt;</p>
+<div class="fragment"><div class="line"><span class="comment">!&gt; description</span></div>
+<div class="line"><span class="comment">!! continued description</span></div>
+<div class="line">    <span class="keyword">function </span>foo()</div>
+<div class="line">  <span class="keywordtype">integer</span> :: bar<span class="comment"> !&lt; variable description</span></div>
+</div><!-- fragment --><p>Full subroutine/function documentation:</p>
+<div class="fragment"><div class="line"><span class="comment">!&gt; @brief short description</span></div>
+<div class="line"><span class="comment">!! continued short description</span></div>
+<div class="line"><span class="comment">!!</span></div>
+<div class="line"><span class="comment">!&gt; Long description</span></div>
+<div class="line"><span class="comment">!! continued long description</span></div>
+<div class="line"><span class="comment">!! &lt;br&gt;Example 1:</span></div>
+<div class="line"><span class="comment">!!</span></div>
+<div class="line"><span class="comment">!!      foo()</span></div>
+<div class="line"><span class="comment">!!</span></div>
+<div class="line"><span class="comment">!! Example 2:</span></div>
+<div class="line"><span class="comment">!! @code{.F90}</span></div>
+<div class="line"><span class="comment">!! foo()</span></div>
+<div class="line"><span class="comment">!! </span></div>
+</div><!-- fragment --><p> subroutine foo() integer :: bar !&lt; variable description ... </p>
 <h2>Documenting Interfaces</h2>
 <p>Doxygen supports documenting interfaces, just not Fortran's version of an interface. As a workaround, the <code>@page interface_name Interface name to display</code> command can be used to create sections for each interface. The descriptions work the same as routines/functions, but any parameters/return values must be defined with commands as the interface definition is not actually getting parsed.</p>
-<p>Example:</p>
-<p>!&gt; </p>
+<p>Example: </p><div class="fragment"><div class="line"><span class="comment">!&gt; @page foo foo Interface</span></div>
+<div class="line"><span class="comment">!&gt; @brief short description</span></div>
+<div class="line"><span class="comment">!!</span></div>
+<div class="line"><span class="comment">!&gt; Longer description</span></div>
+<div class="line"><span class="comment">!! @param[inout] arg1 description</span></div>
+<div class="line"><span class="comment">!! @returns retval description</span></div>
+</div><!-- fragment --><h2>Documenting Type Definitions</h2>
+<p>Type definitions are only parsed through doxygen if they are defined in a certain way. They must include the visibility(public or private) and <code>::</code> otherwise will likely be missed by the parser. Other than that they are documented the same as subroutines.</p>
+<p>Example: </p><div class="fragment"><div class="line"><span class="comment">!&gt; description</span></div>
+<div class="line"><span class="keyword">type</span>, <span class="keyword">public</span> :: typename</div>
+<div class="line">    <span class="keywordtype">integer</span> :: num<span class="comment"> !&lt; description</span></div>
+<div class="line"><span class="keyword">end type </span>typename</div>
+</div><!-- fragment --><h2>Module Grouping</h2>
+<p>To get the modules parsed correctly, each module page is created through a grouping defined at the top of the file. Each FMS module is then also in a group corresponding to its subdirectory, with these groups defined in <code><a class="el" href="grouping_8h_source.html">docs/grouping.h</a></code>. The groups can also contain any other relevant files, such as additional documentation files, header, or include files. Files or additional documentation can be added to either directory or module groups by adding <code>@ingroup group_name</code> to a documentation block. </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->

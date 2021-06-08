@@ -92,9 +92,8 @@ var searchData=
   ['fmsnetcdffile_5ft_433',['fmsnetcdffile_t',['../structnetcdf__io__mod_1_1fmsnetcdffile__t.html',1,'netcdf_io_mod']]],
   ['fmsnetcdfunstructureddomainfile_5ft_434',['fmsnetcdfunstructureddomainfile_t',['../structfms__netcdf__unstructured__domain__io__mod_1_1fmsnetcdfunstructureddomainfile__t.html',1,'fms_netcdf_unstructured_domain_io_mod']]],
   ['fnum_5ffor_5fdomain_435',['fnum_for_domain',['../group__diag__data__mod.html#gaab6bfb8035a62ecc10afae33b516d123',1,'diag_data_mod']]],
-  ['foo_20interface_436',['foo Interface',['../foo.html',1,'']]],
-  ['frac_5findex_437',['frac_index',['../group__axis__utils__mod.html#ga501df9f40778ebcfee3caf5cd3740e0d',1,'axis_utils_mod::frac_index()'],['../group__axis__utils2__mod.html#ga66cb5a2069d0ed24abe8681758ec4133',1,'axis_utils2_mod::frac_index()']]],
-  ['fraction_5fof_5fyear_438',['fraction_of_year',['../group__time__interp__mod.html#gacdace5b151bad1b788e4c7fe22afd90a',1,'time_interp_mod']]],
-  ['fms_20documentation_20homepage_439',['FMS Documentation Homepage',['../index.html',1,'']]],
-  ['fms_20global_20module_440',['FMS Global Module',['../group__libfms.html',1,'']]]
+  ['frac_5findex_436',['frac_index',['../group__axis__utils__mod.html#ga501df9f40778ebcfee3caf5cd3740e0d',1,'axis_utils_mod::frac_index()'],['../group__axis__utils2__mod.html#ga66cb5a2069d0ed24abe8681758ec4133',1,'axis_utils2_mod::frac_index()']]],
+  ['fraction_5fof_5fyear_437',['fraction_of_year',['../group__time__interp__mod.html#gacdace5b151bad1b788e4c7fe22afd90a',1,'time_interp_mod']]],
+  ['fms_20documentation_20homepage_438',['FMS Documentation Homepage',['../index.html',1,'']]],
+  ['fms_20global_20module_439',['FMS Global Module',['../group__libfms.html',1,'']]]
 ];

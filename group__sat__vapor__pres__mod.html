@@ -145,6 +145,23 @@ integer, public&#160;</td><td class="memItemRight" valign="bottom"><b>tcmax</b> 
                            err_msg, es_over_liq)
 </pre> 
 
+<h3><a id="lookup_es"></a>lookup_es Interface</h3><div class="textblock">For the given temperatures, returns the saturation vapor pressuresFor the given temperatures these routines return the saturation vapor pressure(esat). The return values are derived from lookup tables. Example usage: </p><div class="fragment"><div class="line"><span class="keyword">call </span>lookup_es( temp, esat, err_msg ) </div>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">temp</td><td>Temperature in degrees Kelvin. </td></tr>
+    <tr><td class="paramname">esat</td><td>Saturation vapor pressure in pascals. May be a scalar, 1d, 2d, or 3d array Must have the same order and size as temp. </td></tr>
+    <tr><td class="paramname">err_msg</td><td>Character string containing error message to be returned to calling routine. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">FATAL</td><td>table overflow, nbad=## Temperature(s) provided to the saturation vapor pressure lookup are outside the valid range of the lookup table (-160 to 100 deg C). This may be due to a numerical instability in the model. Information should have been printed to standard output to help determine where the instability may have occurred. If the lookup table needs a larger temperature range, then parameters in the module header must be modified. </td></tr>
+  </table>
+  </dd>
+</dl>
+</div>
+
 <h3><a id="lookup_des"></a>lookup_des Interface</h3><div class="textblock">For the given temperatures, returns the derivative of saturation vapor pressure with respect to temperature.For the given temperatures these routines return the derivtive of esat w.r.t. temperature (desat). The return values are derived from lookup tables.<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">temp</td><td>Temperature in degrees kelvin </td></tr>
