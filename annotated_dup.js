@@ -108,7 +108,6 @@ var annotated_dup =
     ] ],
     [ "test_domains_utility_mod", "namespacetest__domains__utility__mod.html", "namespacetest__domains__utility__mod" ],
     [ "time_manager_mod", null, [
-      [ "operator(+)", "interfacetime__manager__mod_1_1operator_07_09_08.html", null ],
       [ "time_type", "structtime__manager__mod_1_1time__type.html", "structtime__manager__mod_1_1time__type" ]
     ] ],
     [ "xgrid_mod", null, [

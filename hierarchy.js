@@ -61,7 +61,6 @@ var hierarchy =
     [ "netcdf_add_restart_variable", "interfacenetcdf__io__mod_1_1netcdf__add__restart__variable.html", null ],
     [ "nml_errors_type", "structfms__mod_1_1nml__errors__type.html", null ],
     [ "Node", "structNode.html", null ],
-    [ "operator(+)", "interfacetime__manager__mod_1_1operator_07_09_08.html", null ],
     [ "operator(-)", "interfacempp__efp__mod_1_1operator_07-_08.html", null ],
     [ "output_field_type", "structdiag__data__mod_1_1output__field__type.html", null ],
     [ "parser_t", "structargparse_1_1parser__t.html", null ],

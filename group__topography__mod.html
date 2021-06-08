@@ -115,11 +115,24 @@ subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>topogra
 <p>The interfaces get_gaussian_topog and gaussian_topog_init are documented in <a class="el" href="group__gaussian__topog__mod.html">gaussian_topog_mod</a> </p>
 
 
+<h3><a id="get_topog_mean"></a>get_topog_mean Interface</h3><div class="textblock">Returns a "realistic" mean surface height field.Returns realistic mountains on a latitude-longtude grid. The returned field is the mean topography for the given grid boxes. Computed using a conserving area-weighted interpolation. The current input data set is the 1/6 degree Navy mean topography.<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">blon</td><td>The longitude (in radians) at grid box boundaries. </td></tr>
+    <tr><td class="paramname">blat</td><td>The latitude (in radians) at grid box boundaries. </td></tr>
+    <tr><td class="paramname">zmean</td><td>The mean surface height (meters). The size of this field must be size(blon)-1 by size(blat)-1. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A logical value of TRUE is returned if the surface height field was successfully created. A value of FALSE may be returned if the input topography data set was not readable.</dd></dl>
+<p><br  />
+Example usage: </p><div class="fragment"><div class="line">flag = get_topog_mean( blon, blat, zmean )</div>
+</div><!-- fragment --> </div>
+
 <h3><a id="get_topog_stdev"></a>get_topog_stdev Interface</h3><div class="textblock">Returns a standard deviation of higher resolution topography with the given model grid boxes.Returns the standard deviation of the "finer" input topography data set, currently the Navy 1/6 degree mean topography data, within the boundaries of the given input grid.<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">real</td><td>blon The longitude (in radians) at grid box boundaries. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">real</td><td>blat The latitude (in radians) at grid box boundaries. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">real</td><td>stdev The standard deviation of surface height (in meters) within given input model grid boxes. The size of this field must be size(blon)-1 by size(blat)-1.</td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">blon</td><td>The longitude (in radians) at grid box boundaries. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">blat</td><td>The latitude (in radians) at grid box boundaries. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">stdev</td><td>The standard deviation of surface height (in meters) within given input model grid boxes. The size of this field must be size(blon)-1 by size(blat)-1.</td></tr>
   </table>
   </dd>
 </dl>
@@ -129,21 +142,21 @@ subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>topogra
 
 <h3><a id="get_ocean_frac"></a>get_ocean_frac Interfaces</h3><div class="textblock">Returns fractional area covered by ocean in a grid box. Returns fractional area covered by ocean in the given model grid boxes.<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">real</td><td>blon The longitude (in radians) at grid box boundaries. </td></tr>
-    <tr><td class="paramname">real</td><td>blat The latitude (in radians) at grid box boundaries. </td></tr>
-    <tr><td class="paramname">real</td><td>ocean_frac The fractional amount (0 to 1) of ocean in a grid box. The size of this field must be size(blon)-1 by size(blat)-1.</td></tr>
+    <tr><td class="paramname">blon</td><td>The longitude (in radians) at grid box boundaries. </td></tr>
+    <tr><td class="paramname">blat</td><td>The latitude (in radians) at grid box boundaries. </td></tr>
+    <tr><td class="paramname">ocean_frac</td><td>The fractional amount (0 to 1) of ocean in a grid box. The size of this field must be size(blon)-1 by size(blat)-1.</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A logical value of TRUE is returned if the output field was successfully created. A value of FALSE may be returned if the Navy 1/6 degree percent water data set was not readable.</dd></dl>
-<p>Example usage: </p><div class="fragment"><div class="line">flag = &lt;b&gt;get_ocean_frac&lt;/b&gt; ( blon, blat, ocean_frac ) </div>
+<p>Example usage: </p><div class="fragment"><div class="line">flag = get_ocean_frac( blon, blat, ocean_frac ) </div>
 </div><!-- fragment --> </div>
 
 <h3><a id="get_ocean_mask"></a>get_ocean_mask Interface</h3><div class="textblock">Returns a land-ocean mask in a grid box.Returns a land-ocean mask in the given model grid boxes.<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">real</td><td>blon The longitude (in radians) at grid box boundaries. </td></tr>
-    <tr><td class="paramname">real</td><td>blat The latitude (in radians) at grid box boundaries. </td></tr>
-    <tr><td class="paramname">real</td><td>ocean_frac The fractional amount (0 to 1) of ocean in a grid box. The size of this field must be size(blon)-1 by size(blat)-1.</td></tr>
+    <tr><td class="paramname">blon</td><td>The longitude (in radians) at grid box boundaries. </td></tr>
+    <tr><td class="paramname">blat</td><td>The latitude (in radians) at grid box boundaries. </td></tr>
+    <tr><td class="paramname">ocean_frac</td><td>The fractional amount (0 to 1) of ocean in a grid box. The size of this field must be size(blon)-1 by size(blat)-1.</td></tr>
   </table>
   </dd>
 </dl>
@@ -153,9 +166,9 @@ subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>topogra
 
 <h3><a id="get_water_frac"></a>get_water_frac Interface</h3><div class="textblock">Returns fractional area covered by water.Returns the percent of water in a grid box.<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">real</td><td>blon The longitude (in radians) at grid box boundaries. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">real</td><td>blat The latitude (in radians) at grid box boundaries. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">real</td><td>water_frac The fractional amount (0 to 1) of water in a grid box. The size of this field must be size(blon)-1 by size(blat)-1.</td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">blon</td><td>The longitude (in radians) at grid box boundaries. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">blat</td><td>The latitude (in radians) at grid box boundaries. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">water_frac</td><td>The fractional amount (0 to 1) of water in a grid box. The size of this field must be size(blon)-1 by size(blat)-1.</td></tr>
   </table>
   </dd>
 </dl>
@@ -167,9 +180,9 @@ Example usage:<br  />
 
 <h3><a id="get_water_mask"></a>get_water_mask Interface</h3><div class="textblock">Returns a land-water mask in a grid box.Returns a land-water mask in the given model grid boxes.<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">real</td><td>blon The longitude (in radians) at grid box boundaries. </td></tr>
-    <tr><td class="paramname">real</td><td>blat The latitude (in radians) at grid box boundaries. </td></tr>
-    <tr><td class="paramname">real</td><td>water_mask(:,:) A binary mask for water (true) or land (false). The size of this field must be size(blon)-1 by size(blat)-1.</td></tr>
+    <tr><td class="paramname">blon</td><td>The longitude (in radians) at grid box boundaries. </td></tr>
+    <tr><td class="paramname">blat</td><td>The latitude (in radians) at grid box boundaries. </td></tr>
+    <tr><td class="paramname">water_mask</td><td>A binary mask for water (true) or land (false). The size of this field must be size(blon)-1 by size(blat)-1.</td></tr>
   </table>
   </dd>
 </dl>

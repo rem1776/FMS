@@ -110,22 +110,20 @@ Example 1: !! !! foo() !! !! Example 2: !!</p>
 <p>The following previously used commands are invalid:</p><ul>
 <li><code>@email</code>, email can be included in <code>@author</code> line</li>
 <li><code>@description</code>, <code>@details</code> can be used, but is also implied by <code>!&gt;</code> if a brief description is already given</li>
-<li><code>@example</code>, not actually invalid, but should not be used in subroutine/function descriptions as it is for presenting examples of source code separately. Some examples of what can be used for programming examples in descriptions are below.</li>
+<li><code>@example</code>, not actually invalid, but should not be used in subroutine/function descriptions as it is for presenting examples of source code separately. Some examples of what can be used for programming examples in descriptions are below. ### Documenting subroutines and functions:</li>
 </ul>
-<p>### Documenting subroutines and functions:</p>
 <p>The first <code>!&gt;</code> comment above a routine implicitly starts the brief description, and the second <code>!&gt;</code> will start the full description (as long as the brief description is terminated).</p>
 <p>Simple subroutine/function documentation:</p>
 <p>``` !&gt; description !! continued description function foo() integer :: bar !&lt; variable description ```</p>
-<p>Full subroutine/function documentation: ``` !&gt;</p><div class="fragment"><div class="line"><span class="comment">!! foo()</span></div>
+<p>Full subroutine/function documentation:</p>
+<p>``` !&gt;</p><div class="fragment"><div class="line"><span class="comment">!! foo()</span></div>
 <div class="line">!! </div>
-</div><!-- fragment --><p> subroutine foo() integer :: bar !&lt; variable description ... </p><div class="fragment"><div class="line">### Documenting Interfaces</div>
-<div class="line">Doxygen supports documenting interfaces, just not Fortran&#39;s version of an interface. As a workaround,</div>
-<div class="line">the `@page interface_name Interface name to display` command can be used to create sections for each</div>
-<div class="line">interface. The descriptions work the same as routines/functions, but any parameters/return values</div>
-<div class="line">must be defined with commands as the interface definition is not actually getting parsed.</div>
-<div class="line"> </div>
-<div class="line">Example:</div>
-</div><!-- fragment --><p>!&gt; </p>
+</div><!-- fragment --><p> subroutine foo() integer :: bar !&lt; variable description ... </p><div class="fragment"><div class="line">&lt;!--- </div>
+</div><!-- fragment --><p> --&gt;</p>
+<h2>Documenting Interfaces</h2>
+<p>Doxygen supports documenting interfaces, just not Fortran's version of an interface. As a workaround, the <code>@page interface_name Interface name to display</code> command can be used to create sections for each interface. The descriptions work the same as routines/functions, but any parameters/return values must be defined with commands as the interface definition is not actually getting parsed.</p>
+<p>Example:</p>
+<p>!&gt; </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->

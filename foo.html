@@ -101,13 +101,11 @@ $(document).ready(function(){initNavTree('foo.html',''); initResizable(); });
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>retval description <div class="fragment"><div class="line">### Documenting Type Definitions</div>
-<div class="line">Type definitions are only parsed through doxygen if they are defined in a certain way. They must</div>
-<div class="line">include the visibility(public or private) and `::` otherwise will likely be missed by the parser.</div>
-<div class="line">Other than that they are documented the same as subroutines.</div>
-<div class="line"> </div>
-<div class="line">Example:</div>
-</div><!-- fragment --></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>retval description <div class="fragment"><div class="line">&lt;!--- </div>
+</div><!-- fragment --> --&gt;</dd></dl>
+<h2>Documenting Type Definitions</h2>
+<p>Type definitions are only parsed through doxygen if they are defined in a certain way. They must include the visibility(public or private) and <code>::</code> otherwise will likely be missed by the parser. Other than that they are documented the same as subroutines.</p>
+<p>Example:</p>
 <p>!&gt; description type, public :: typename integer :: num !&lt; description end type typename ```</p>
 <h2>Module Grouping</h2>
 <p>To get the modules parsed correctly, each module page is created through a grouping defined at the top of the file. Each FMS module is then also in a group corresponding to its subdirectory, with these groups defined in <code><a class="el" href="grouping_8h_source.html">docs/grouping.h</a></code>. The groups can also contain any other relevant files, such as additional documentation files, header, or include files. Files or additional documentation can be added to either directory or module groups by adding <code>@ingroup group_name</code> to a documentation block. </p>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>FMS: Member List</title>
+<title>FMS: lookup_es Interface</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -71,7 +71,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('interfacetime__manager__mod_1_1operator_07_09_08.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('lookup_es.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -89,14 +89,29 @@ $(document).ready(function(){initNavTree('interfacetime__manager__mod_1_1operato
 </iframe>
 </div>
 
-<div class="header">
+<div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">operator(+) Member List</div>  </div>
+<div class="title">lookup_es Interface </div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>This is the complete list of members for <a class="el" href="interfacetime__manager__mod_1_1operator_07_09_08.html">operator(+)</a>, including all inherited members.</p>
-</div><!-- contents -->
+<div class="textblock"><p>For the given temperatures, returns the saturation vapor pressures</p>
+<p>For the given temperatures these routines return the saturation vapor pressure(esat). The return values are derived from lookup tables. Example usage: </p><div class="fragment"><div class="line"><span class="keyword">call </span>lookup_es( temp, esat, err_msg ) </div>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">temp</td><td>Temperature in degrees Kelvin. </td></tr>
+    <tr><td class="paramname">esat</td><td>Saturation vapor pressure in pascals. May be a scalar, 1d, 2d, or 3d array Must have the same order and size as temp. </td></tr>
+    <tr><td class="paramname">err_msg</td><td>Character string containing error message to be returned to calling routine. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">FATAL</td><td>table overflow, nbad=## Temperature(s) provided to the saturation vapor pressure lookup are outside the valid range of the lookup table (-160 to 100 deg C). This may be due to a numerical instability in the model. Information should have been printed to standard output to help determine where the instability may have occurred. If the lookup table needs a larger temperature range, then parameters in the module header must be modified. </td></tr>
+  </table>
+  </dd>
+</dl>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

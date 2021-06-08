@@ -1,5 +1,6 @@
 var group__topography__mod =
 [
+    [ "get_topog_mean Interface", "group__topography__mod.html#get_topog_mean", null ],
     [ "get_topog_stdev Interface", "group__topography__mod.html#get_topog_stdev", null ],
     [ "get_ocean_frac Interfaces", "group__topography__mod.html#get_ocean_frac", null ],
     [ "get_ocean_mask Interface", "group__topography__mod.html#get_ocean_mask", null ],
