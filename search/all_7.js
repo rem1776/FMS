@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['half_5fday_997',['half_day',['../interfaceastronomy__mod_1_1half__day.html',1,'half_day'],['../group__astronomy__mod.html',1,'(Global Namespace)']]],
+  ['half_5fday_997',['half_day',['../interfaceastronomy__mod_1_1half__day.html',1,'astronomy_mod']]],
   ['half_5fday_5f0d_998',['half_day_0d',['../group__astronomy__mod.html#gaba2af2a06c209abb0450ca72202e7d67',1,'astronomy_mod::half_day::half_day_0d()'],['../group__astronomy__mod.html#ga3257c2c989c28308991a0eace3d38e69',1,'astronomy_mod::half_day_0d()']]],
   ['half_5fday_5f2d_999',['half_day_2d',['../group__astronomy__mod.html#gac70ffe953d0db6a3b98088762a9f8fde',1,'astronomy_mod::half_day::half_day_2d()'],['../group__astronomy__mod.html#ga47f0a2733fe061cf8f54e0a13256e42c',1,'astronomy_mod::half_day_2d()']]],
   ['halflevs_1000',['halflevs',['../group__interpolator__mod.html#ga3e51e0c8c91bb688af32882dfeb550a3',1,'interpolator_mod::interpolate_type']]],

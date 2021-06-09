@@ -49,7 +49,7 @@ var searchData=
   ['set_5finitialized_1926',['set_initialized',['../interfacefms__io__mod_1_1set__initialized.html',1,'fms_io_mod']]],
   ['set_5fnetcdf_5fmode_1927',['set_netcdf_mode',['../group__netcdf__io__mod.html#ga56db12e1a539a8e37929119a2796ecb3',1,'netcdf_io_mod']]],
   ['set_5forbital_5fparameters_1928',['set_orbital_parameters',['../group__astronomy__mod.html#ga58ff2b69c33ae8d00c831b2b049e4573',1,'astronomy_mod']]],
-  ['set_5fperiod_1929',['set_period',['../interfaceastronomy__mod_1_1set__period.html',1,'set_period'],['../group__astronomy__mod.html',1,'(Global Namespace)']]],
+  ['set_5fperiod_1929',['set_period',['../interfaceastronomy__mod_1_1set__period.html',1,'astronomy_mod']]],
   ['set_5fperiod_5finteger_1930',['set_period_integer',['../group__astronomy__mod.html#ga873c596f7985745855e27a4f689fedc3',1,'astronomy_mod::set_period::set_period_integer()'],['../group__astronomy__mod.html#gab0623c3af659b6b2bea0f17132597d9b',1,'astronomy_mod::set_period_integer()']]],
   ['set_5fperiod_5ftime_5ftype_1931',['set_period_time_type',['../group__astronomy__mod.html#ga0a58ae7be03563b725fb6c6d1bf31588',1,'astronomy_mod::set_period::set_period_time_type()'],['../group__astronomy__mod.html#ga77dfe2d27540f0298b3e559c1f4a7a98',1,'astronomy_mod::set_period_time_type()']]],
   ['set_5fref_5fdate_5fof_5fae_1932',['set_ref_date_of_ae',['../group__astronomy__mod.html#ga58c5837e3f38565db2c7901d880950f7',1,'astronomy_mod']]],

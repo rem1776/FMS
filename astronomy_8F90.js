@@ -1,5 +1,6 @@
 var astronomy_8F90 =
 [
+    [ "diurnal_solar", "interfaceastronomy__mod_1_1diurnal__solar.html", "interfaceastronomy__mod_1_1diurnal__solar" ],
     [ "angle", "astronomy_8F90.html#gae7804247bd90b8bed01d7769a609f81d", null ],
     [ "annual_mean_solar_1d", "astronomy_8F90.html#ga5d8127b604bbddae17c0d2d658d2a715", null ],
     [ "annual_mean_solar_2d", "astronomy_8F90.html#gab7f32b9b56f90b2506caa6792a5b4061", null ],

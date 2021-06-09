@@ -1,11 +1,10 @@
 var searchData=
 [
-  ['readme_4668',['README',['../group__drifters.html',1,'']]],
-  ['read_5fdata_20interface_4669',['read_data Interface',['../group__fms2__io__mod.html',1,'']]],
-  ['read_5fnew_5frestart_20interface_4670',['read_new_restart Interface',['../group__fms2__io__mod.html',1,'']]],
-  ['read_5frestart_20interface_4671',['read_restart Interface',['../group__fms2__io__mod.html',1,'']]],
-  ['register_5faxis_20interface_4672',['register_axis Interface',['../group__fms2__io__mod.html',1,'']]],
-  ['register_5fdiag_5ffield_20interface_4673',['register_diag_field Interface',['../group__diag__manager__mod.html',1,'']]],
-  ['register_5ffield_20interface_4674',['register_field Interface',['../group__fms2__io__mod.html',1,'']]],
-  ['register_5frestart_5ffield_20interface_4675',['register_restart_field Interface',['../group__fms2__io__mod.html',1,'']]]
+  ['supported_5finterfaces_4670',['supported_interfaces',['../group__libfms.html',1,'']]],
+  ['send_5fdata_20interface_4671',['send_data Interface',['../group__diag__manager__mod.html',1,'']]],
+  ['send_5ftile_5faveraged_5fdata_20interface_4672',['send_tile_averaged_data Interface',['../group__diag__manager__mod.html',1,'']]],
+  ['set_5fdate_20interface_4673',['set_date Interface',['../group__time__manager__mod.html',1,'']]],
+  ['set_5ftime_20interface_4674',['set_time Interface',['../group__time__manager__mod.html',1,'']]],
+  ['string2_20interface_4675',['string2 Interface',['../group__fms__io__utils__mod.html',1,'']]],
+  ['sum_5fdiag_5fintegral_5ffield_20interface_4676',['sum_diag_integral_field Interface',['../group__diag__integral__mod.html',1,'']]]
 ];

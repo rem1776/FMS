@@ -171,7 +171,7 @@ var searchData=
   ['get_5focean_5fmodel_5farea_5felements_923',['get_ocean_model_area_elements',['../group__xgrid__mod.html#ga37d5068bd71e797524542322ed6ad788',1,'xgrid_mod']]],
   ['get_5forbital_5fparameters_924',['get_orbital_parameters',['../group__astronomy__mod.html#ga3878ea3f081f4d89f7f19bd530767897',1,'astronomy_mod']]],
   ['get_5fparser_925',['get_parser',['../argparse_8F90.html#a9f49c9e287e9cff969813f51d321c867',1,'argparse']]],
-  ['get_5fperiod_926',['get_period',['../interfaceastronomy__mod_1_1get__period.html',1,'get_period'],['../group__astronomy__mod.html',1,'(Global Namespace)']]],
+  ['get_5fperiod_926',['get_period',['../interfaceastronomy__mod_1_1get__period.html',1,'astronomy_mod']]],
   ['get_5fperiod_5finteger_927',['get_period_integer',['../group__astronomy__mod.html#gac0b497e04ebb539076ce702cdc3aa85f',1,'astronomy_mod::get_period::get_period_integer()'],['../group__astronomy__mod.html#gae2cdd8e2fb16d2d09083ef51fd9fa5f6',1,'astronomy_mod::get_period_integer()']]],
   ['get_5fperiod_5ftime_5ftype_928',['get_period_time_type',['../group__astronomy__mod.html#ga025f01b43c4d84ce9547886a7dd916c7',1,'astronomy_mod::get_period::get_period_time_type()'],['../group__astronomy__mod.html#gadc97a16dbd669dfb2ba2b36daaf34b79',1,'astronomy_mod::get_period_time_type()']]],
   ['get_5fpeset_929',['get_peset',['../mpp__util__mpi_8inc.html#a948898490a7d1d09fc1043dac561514d',1,'mpp_util_mpi.inc']]],

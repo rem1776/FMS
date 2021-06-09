@@ -126,8 +126,35 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:gae9008a6b5c82e683c2d1745cd28f9d24"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="astronomy_8F90_source.html#l00194">194</a> of file <a class="el" href="astronomy_8F90_source.html">astronomy.F90</a>.</p>
+<div class="textblock"><div class="fragment"><div class="line"><span class="keyword">call </span>daily_mean_solar (lat, time, cosz, fracday, rrsun)</div>
+<div class="line"><span class="keyword">call </span>daily_mean_solar (lat, time_since_ae, cosz, fracday, rrsun)</div>
+<div class="line"><span class="keyword">call </span>daily_mean_solar (lat, time, cosz, solar)</div>
+<div class="line"><span class="keyword">call </span>daily_mean_solar (lat, time_since_ae, cosz, solar)</div>
+</div><!-- fragment --><p>The first option (used in conjunction with time_manager_mod) generates the real variable time_since_ae from the time_type input time, and then calls <a class="el" href="interfaceastronomy__mod_1_1daily__mean__solar.html">daily_mean_solar</a> with this real input (option 2). The third and fourth options correspond to the first and second and are used with then spectral 2-layer model, where only cosz and solar are desired as output. These routines generate dummy arguments and then call option 2, where the calculation is done.</p>
+<p>The time of year is set by </p><div class="fragment"><div class="line"><span class="keywordtype">real</span>, <span class="keywordtype">intent(in)</span> :: time_since_ae</div>
+</div><!-- fragment --><p>With time_type input, the time of year is extracted from </p><div class="fragment"><div class="line"><span class="keywordtype">type</span>(time_type), <span class="keywordtype">intent(in)</span> :: time</div>
+</div><!-- fragment --><p>Separate routines exist within this interface for scalar, 1D or 2D input and output fields:</p>
+<div class="fragment"><div class="line"><span class="keywordtype">real</span>, <span class="keywordtype">intent(in)</span>, <span class="keywordtype">dimension(:,:)</span> :: lat</div>
+<div class="line"><span class="keywordtype">real</span>, <span class="keywordtype">intent(in)</span>, <span class="keywordtype">dimension(:)</span>   :: lat</div>
+<div class="line"><span class="keywordtype">real</span>, <span class="keywordtype">intent(in)</span>                 :: lat</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">real</span>, <span class="keywordtype">intent(out)</span>, <span class="keywordtype">dimension(:,:)</span> :: cosz, fracday</div>
+<div class="line"><span class="keywordtype">real</span>, <span class="keywordtype">intent(out)</span>, <span class="keywordtype">dimension(:)</span>   :: cosz, fracday</div>
+<div class="line"><span class="keywordtype">real</span>, <span class="keywordtype">intent(out)</span>                 :: cosz, fracday</div>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;lat&gt;</td><td>Latitudes of model grid points [radians] </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;time_since_ae&gt;</td><td>Time of year; autumnal equinox = 0.0, one year = 2 * pi [radians] </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;time&gt;</td><td>Time at which astronomical values are desired (time_type variable) [seconds, days] </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">&lt;cosz&gt;</td><td>Cosine of solar zenith angle, set to zero when entire period is in darkness [dimensionless] </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">&lt;fracday&gt;</td><td>Daylight fraction of time interval [dimensionless] </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">&lt;rrsun&gt;</td><td>Earth-Sun distance (r) relative to semi-major axis of orbital ellipse (a):(a/r)**2 [dimensionless] </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">&lt;solar&gt;</td><td>shortwave flux factor: cosine of zenith angle * daylight fraction / (earth-sun distance squared) [dimensionless] </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="astronomy_8F90_source.html#l00188">188</a> of file <a class="el" href="astronomy_8F90_source.html">astronomy.F90</a>.</p>
 </div><hr/>The documentation for this interface was generated from the following file:<ul>
 <li>astronomy/<a class="el" href="astronomy_8F90_source.html">astronomy.F90</a></li>
 </ul>

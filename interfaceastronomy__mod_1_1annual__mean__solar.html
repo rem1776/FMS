@@ -111,8 +111,28 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:gaa834f1a14b5d706c6e18771a37ad0255"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="astronomy_8F90_source.html#l00240">240</a> of file <a class="el" href="astronomy_8F90_source.html">astronomy.F90</a>.</p>
+<div class="textblock"><div class="fragment"><div class="line"><span class="keyword">call </span>annual_mean_solar (js, je, lat, cosz, solar, fracday, rrsun)</div>
+<div class="line"><span class="keyword">call </span>annual_mean_solar (lat, cosz, solar)</div>
+</div><!-- fragment --><p>The second interface above is used by the spectral 2-layer model, which requires only cosz and solar as output arguments, and which makes this call during the initialization phase of the model. Separate routines exist within this interface for 1D or 2D input and output fields:</p>
+<div class="fragment"><div class="line"><span class="keywordtype">real</span>, <span class="keywordtype">intent(in)</span>, <span class="keywordtype">dimension(:,:)</span> :: lat</div>
+<div class="line"><span class="keywordtype">real</span>, <span class="keywordtype">intent(in)</span>, <span class="keywordtype">dimension(:)</span>   :: lat</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">real</span>, <span class="keywordtype">intent(out)</span>, <span class="keywordtype">dimension(:,:)</span> :: cosz, solar, fracday</div>
+<div class="line"><span class="keywordtype">real</span>, <span class="keywordtype">intent(out)</span>, <span class="keywordtype">dimension(:)</span>   :: cosz, solar, fracday</div>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;jst&gt;</td><td>Starting subdomain j indices of data in the physics wiondow being integrated </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;jnd&gt;</td><td>Ending subdomain j indices of data in the physics wiondow being integrated </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;lat&gt;</td><td>Latitudes of model grid points [radians] </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">&lt;cosz&gt;</td><td>cosz is the average over the year of the cosine of an effective zenith angle that would produce the correct daily solar flux if the sun were fixed at that single position for the period of daylight on the given day. in this average, the daily mean effective cosz is weighted by the daily mean solar flux. [dimensionless] </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">&lt;solar&gt;</td><td>Normalized solar flux, averaged over the year, equal to the product of fracday*cosz*rrsun [dimensionless] </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">&lt;fracday&gt;</td><td>Daylight fraction calculated so as to make the average flux (solar) equal to the product of the flux-weighted avg cosz * this fracday * assumed annual mean avg Earth-Sun distance of 1.0. [dimensionless] </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">&lt;rrsun&gt;</td><td>Annual mean Earth-Sun distance (r) relative to semi-major axis of orbital ellipse (a):(a/r)**2 [dimensionless] </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="astronomy_8F90_source.html#l00232">232</a> of file <a class="el" href="astronomy_8F90_source.html">astronomy.F90</a>.</p>
 </div><hr/>The documentation for this interface was generated from the following file:<ul>
 <li>astronomy/<a class="el" href="astronomy_8F90_source.html">astronomy.F90</a></li>
 </ul>

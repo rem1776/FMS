@@ -1,13 +1,5 @@
 var group__astronomy__mod =
 [
-    [ "diurnal_solar", "interfaceastronomy__mod_1_1diurnal__solar.html", [
-      [ "diurnal_solar_0d", "group__astronomy__mod.html#gaf727ae0008bd283364398efdea7288e4", null ],
-      [ "diurnal_solar_1d", "group__astronomy__mod.html#ga3fb0a50161556870c339e51007d72edd", null ],
-      [ "diurnal_solar_2d", "group__astronomy__mod.html#ga577a347753151527ed6046df3b0d1070", null ],
-      [ "diurnal_solar_cal_0d", "group__astronomy__mod.html#ga148595fe7067ec2f578d6a12a40b7bff", null ],
-      [ "diurnal_solar_cal_1d", "group__astronomy__mod.html#gab0f1c0debc10697b183c1b3bf9b3cdc1", null ],
-      [ "diurnal_solar_cal_2d", "group__astronomy__mod.html#ga9f664492701405c3da160cde6568dc82", null ]
-    ] ],
     [ "daily_mean_solar", "interfaceastronomy__mod_1_1daily__mean__solar.html", [
       [ "daily_mean_solar_0d", "group__astronomy__mod.html#gaa30f291a0ea032f3074ce045dc52391d", null ],
       [ "daily_mean_solar_1d", "group__astronomy__mod.html#ga9ec4dfb6faa483b90a44f637d2396ece", null ],
@@ -35,12 +27,6 @@ var group__astronomy__mod =
       [ "half_day_0d", "group__astronomy__mod.html#gaba2af2a06c209abb0450ca72202e7d67", null ],
       [ "half_day_2d", "group__astronomy__mod.html#gac70ffe953d0db6a3b98088762a9f8fde", null ]
     ] ],
-    [ "diurnal_solar Interface", "group__astronomy__mod.html#diurnal_solar", null ],
-    [ "daily_mean_solar Interface", "group__astronomy__mod.html#daily_mean_solar", null ],
-    [ "annual_mean_solar Interface", "group__astronomy__mod.html#annual_mean_solar", null ],
-    [ "get_period Interface", "group__astronomy__mod.html#get_period", null ],
-    [ "set_period Interface", "group__astronomy__mod.html#set_period", null ],
-    [ "half_day Interface", "group__astronomy__mod.html#half_day", null ],
     [ "angle", "group__astronomy__mod.html#gae7804247bd90b8bed01d7769a609f81d", null ],
     [ "annual_mean_solar_1d", "group__astronomy__mod.html#ga73b22023f95ab51738595290b16fc913", null ],
     [ "annual_mean_solar_1d", "group__astronomy__mod.html#ga5d8127b604bbddae17c0d2d658d2a715", null ],

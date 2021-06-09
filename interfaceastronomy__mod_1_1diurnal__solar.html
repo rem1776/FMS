@@ -94,7 +94,7 @@ $(document).ready(function(){initNavTree('interfaceastronomy__mod_1_1diurnal__so
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="interfaceastronomy__mod_1_1diurnal__solar-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">diurnal_solar Interface Reference<div class="ingroups"><a class="el" href="group__astronomy.html">Astronomy</a> &raquo; <a class="el" href="group__astronomy__mod.html">astronomy_mod</a></div></div>  </div>
+<div class="title">diurnal_solar Interface Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
@@ -120,8 +120,42 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:ga148595fe7067ec2f578d6a12a40b7bff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="astronomy_8F90_source.html#l00139">139</a> of file <a class="el" href="astronomy_8F90_source.html">astronomy.F90</a>.</p>
+<div class="textblock"><div class="fragment"><div class="line"><span class="keyword">call </span>diurnal_solar (lat, lon, time, cosz, fracday, rrsun, dt_time)</div>
+<div class="line"><span class="keyword">call </span>diurnal_solar (lat, lon, gmt, time_since_ae, cosz, fracday, rrsun, dt)</div>
+</div><!-- fragment --><p>The first option (used in conjunction with time_manager_mod) generates the real variables gmt and time_since_ae from the time_type input, and then calls <a class="el" href="interfaceastronomy__mod_1_1diurnal__solar.html">diurnal_solar</a> with these real inputs.</p>
+<p>The time of day is set by </p><div class="fragment"><div class="line"><span class="keywordtype">real</span>, <span class="keywordtype">intent(in)</span> :: gmt</div>
+</div><!-- fragment --><p>The time of year is set by </p><div class="fragment"><div class="line"><span class="keywordtype">real</span>, <span class="keywordtype">intent(in)</span> :: time_since_ae</div>
+</div><!-- fragment --><p>with time_type input, both of these are extracted from </p><div class="fragment"><div class="line"><span class="keywordtype">type</span>(time_type), <span class="keywordtype">intent(in)</span> :: time</div>
+</div><!-- fragment --><p>Separate routines exist within this interface for scalar, 1D or 2D input and output fields:</p>
+<div class="fragment"><div class="line"><span class="keywordtype">real</span>, <span class="keywordtype">intent(in)</span>, <span class="keywordtype">dimension(:,:)</span> :: lat, lon</div>
+<div class="line"><span class="keywordtype">real</span>, <span class="keywordtype">intent(in)</span>, <span class="keywordtype">dimension(:)</span>   :: lat, lon</div>
+<div class="line"><span class="keywordtype">real</span>, <span class="keywordtype">intent(in)</span>                 :: lat, lon</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">real</span>, <span class="keywordtype">intent(out)</span>, <span class="keywordtype">dimension(:,:)</span> :: cosz, fracday</div>
+<div class="line"><span class="keywordtype">real</span>, <span class="keywordtype">intent(out)</span>, <span class="keywordtype">dimension(:)</span>   :: cosz, fracday</div>
+<div class="line"><span class="keywordtype">real</span>, <span class="keywordtype">intent(out)</span>                 :: cosz, fracday</div>
+</div><!-- fragment --><p>One may also average the output fields over the time interval between gmt and gmt + dt by including the optional argument dt (or dt_time). dt is measured in radians and must be less than pi (1/2 day). This average is computed analytically, and should be exact except for the fact that changes in earth-sun distance over the time interval dt are ignored. In the context of a diurnal GCM, this option should always be employed to insure that the total flux at the top of the atmosphere is not modified by time truncation error.</p>
+<div class="fragment"><div class="line"><span class="keywordtype">real</span>, <span class="keywordtype">intent(in)</span>, <span class="keywordtype">optional</span> :: dt</div>
+<div class="line"><span class="keywordtype">type</span>(time_type), <span class="keywordtype">optional</span> :: dt_time</div>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;lat&gt;</td><td>Latitudes of model grid points [radians] </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;lon&gt;</td><td>Longitudes of model grid points [radians] </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;gmt&gt;</td><td>Time of day at longitude 0.0; midnight = 0.0, one day = 2 * pi [radians] </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;time_since_ae&gt;</td><td>Time of year; autumnal equinox = 0.0, one year = 2 * pi [radians] </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;time&gt;</td><td>Time at which astronomical values are desired (time_type variable) [seconds, days] </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">&lt;cosz&gt;</td><td>Cosine of solar zenith angle, set to zero when entire period is in darkness [dimensionless] </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">&lt;fracday&gt;</td><td>Daylight fraction of time interval [dimensionless] </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">&lt;rrsun&gt;</td><td>Earth-Sun distance (r) relative to semi-major axis of orbital ellipse (a):(a/r)**2 [dimensionless] </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;dt&gt;</td><td>OPTIONAL: Time interval after gmt over which the astronomical variables are to be averaged. this produces averaged output rather than instantaneous. [radians], (1 day = 2 * pi) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;dt_time&gt;</td><td>OPTIONAL: Time interval after gmt over which the astronomical variables are to be averaged. this produces averaged output rather than instantaneous. time_type, [days, seconds] </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;allow_negative_cosz&gt;</td><td>Allow negative values for cosz? </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">&lt;half_day_out&gt;</td><td>half_day_out </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="astronomy_8F90_source.html#l00135">135</a> of file <a class="el" href="astronomy_8F90_source.html">astronomy.F90</a>.</p>
 </div><hr/>The documentation for this interface was generated from the following file:<ul>
 <li>astronomy/<a class="el" href="astronomy_8F90_source.html">astronomy.F90</a></li>
 </ul>

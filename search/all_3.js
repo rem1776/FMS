@@ -2,7 +2,7 @@ var searchData=
 [
   ['d_5fcomm_348',['d_comm',['../group__mpp__domains__mod.html#gac4adb900ffc350cc350fa5f7d4c146a4',1,'mpp_domains_mod']]],
   ['d_5fcomm_5fidx_349',['d_comm_idx',['../group__mpp__domains__mod.html#ga7dbfa62be3b801c65e170b723fd2f2ca',1,'mpp_domains_mod']]],
-  ['daily_5fmean_5fsolar_350',['daily_mean_solar',['../interfaceastronomy__mod_1_1daily__mean__solar.html',1,'daily_mean_solar'],['../group__astronomy__mod.html',1,'(Global Namespace)']]],
+  ['daily_5fmean_5fsolar_350',['daily_mean_solar',['../interfaceastronomy__mod_1_1daily__mean__solar.html',1,'astronomy_mod']]],
   ['daily_5fmean_5fsolar_5f0d_351',['daily_mean_solar_0d',['../group__astronomy__mod.html#gaa30f291a0ea032f3074ce045dc52391d',1,'astronomy_mod::daily_mean_solar::daily_mean_solar_0d()'],['../group__astronomy__mod.html#ga5a5756a118e2a409d64a7958bc923af2',1,'astronomy_mod::daily_mean_solar_0d()']]],
   ['daily_5fmean_5fsolar_5f1d_352',['daily_mean_solar_1d',['../group__astronomy__mod.html#ga9ec4dfb6faa483b90a44f637d2396ece',1,'astronomy_mod::daily_mean_solar::daily_mean_solar_1d()'],['../group__astronomy__mod.html#gad097b3db07240f4b90b2a34942960f62',1,'astronomy_mod::daily_mean_solar_1d()']]],
   ['daily_5fmean_5fsolar_5f2d_353',['daily_mean_solar_2d',['../group__astronomy__mod.html#gaafceabdc4e0dd4f110fed88e6975ef1d',1,'astronomy_mod::daily_mean_solar::daily_mean_solar_2d()'],['../group__astronomy__mod.html#ga699784bad69d4edfa2551c303acd875c',1,'astronomy_mod::daily_mean_solar_2d()']]],
@@ -130,7 +130,7 @@ var searchData=
   ['dimname_475',['dimname',['../group__netcdf__io__mod.html#ga0d1257cc1befb83531655e9111abab02',1,'netcdf_io_mod::compresseddimension_t']]],
   ['dims_476',['dims',['../group__data__override__mod.html#gafcafa1e016c8520e9c5e2e3900a3572f',1,'data_override_mod::override_type']]],
   ['distancesqrd_477',['distancesqrd',['../group__diag__grid__mod.html#ga19ed6b7dc3d1bf191172f00fef6a7677',1,'diag_grid_mod']]],
-  ['diurnal_5fsolar_478',['diurnal_solar',['../interfaceastronomy__mod_1_1diurnal__solar.html',1,'diurnal_solar'],['../group__astronomy__mod.html',1,'(Global Namespace)']]],
+  ['diurnal_5fsolar_478',['diurnal_solar',['../interfaceastronomy__mod_1_1diurnal__solar.html',1,'astronomy_mod']]],
   ['diurnal_5fsolar_5f0d_479',['diurnal_solar_0d',['../group__astronomy__mod.html#gaf727ae0008bd283364398efdea7288e4',1,'astronomy_mod::diurnal_solar::diurnal_solar_0d()'],['../group__astronomy__mod.html#ga54ac46fdf8eb5cf66f27c8995ce017da',1,'astronomy_mod::diurnal_solar_0d()']]],
   ['diurnal_5fsolar_5f1d_480',['diurnal_solar_1d',['../group__astronomy__mod.html#ga3fb0a50161556870c339e51007d72edd',1,'astronomy_mod::diurnal_solar::diurnal_solar_1d()'],['../group__astronomy__mod.html#ga092642be4e355e43086c904d9fcb8d39',1,'astronomy_mod::diurnal_solar_1d()']]],
   ['diurnal_5fsolar_5f2d_481',['diurnal_solar_2d',['../group__astronomy__mod.html#ga577a347753151527ed6046df3b0d1070',1,'astronomy_mod::diurnal_solar::diurnal_solar_2d()'],['../group__astronomy__mod.html#ga8a9bd207af7b8495bb6768ab44b5a3f6',1,'astronomy_mod::diurnal_solar_2d()']]],

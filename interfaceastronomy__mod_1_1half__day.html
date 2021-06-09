@@ -97,6 +97,9 @@ $(document).ready(function(){initNavTree('interfaceastronomy__mod_1_1half__day.h
 <div class="title">half_day Interface Reference<div class="ingroups"><a class="el" href="group__astronomy.html">Astronomy</a> &raquo; <a class="el" href="group__astronomy__mod.html">astronomy_mod</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Private interface for internal use by dirunal_solar and <a class="el" href="interfaceastronomy__mod_1_1daily__mean__solar.html">daily_mean_solar</a>.  
+ <a href="interfaceastronomy__mod_1_1half__day.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -108,8 +111,24 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:gaba2af2a06c209abb0450ca72202e7d67"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="astronomy_8F90_source.html#l00313">313</a> of file <a class="el" href="astronomy_8F90_source.html">astronomy.F90</a>.</p>
+<div class="textblock"><p>Private interface for internal use by dirunal_solar and <a class="el" href="interfaceastronomy__mod_1_1daily__mean__solar.html">daily_mean_solar</a>. </p>
+<p>Example usage: </p><div class="fragment"><div class="line">half_day(latitude, dec) result(h)</div>
+</div><!-- fragment --><p>Separate routines exist within this interface for scalar, or 2D input and output fields:</p>
+<div class="fragment"><div class="line"><span class="keywordtype">real</span>, <span class="keywordtype">intent(in)</span>, <span class="keywordtype">dimension(:,:)</span> :: latitude</div>
+<div class="line"><span class="keywordtype">real</span>, <span class="keywordtype">intent(in)</span>                 :: latitude</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">real</span>, <span class="keywordtype">dimension(size(latitude,1),size(latitude,2))</span>  :: h</div>
+<div class="line"><span class="keywordtype">real</span>                                                :: h</div>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;latitude&gt;</td><td>Latitudes of model grid points [radians] </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;dec&gt;</td><td>Solar declination [radians] </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">&lt;h&gt;</td><td>Half of the length of daylight at the given latitude and orbital position (dec); value ranges between 0 (all darkness) and pi (all daylight) [dimensionless] </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="astronomy_8F90_source.html#l00304">304</a> of file <a class="el" href="astronomy_8F90_source.html">astronomy.F90</a>.</p>
 </div><hr/>The documentation for this interface was generated from the following file:<ul>
 <li>astronomy/<a class="el" href="astronomy_8F90_source.html">astronomy.F90</a></li>
 </ul>

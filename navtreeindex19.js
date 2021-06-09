@@ -1,13 +1,5 @@
 var NAVTREEINDEX19 =
 {
-"group__mpp__domains__mod.html#gab2c55b41eb158d6a62aac5721f76ab0e":[4,19,1,61,0],
-"group__mpp__domains__mod.html#gab2f93e98e221df4f1f6867373e408158":[4,19,1,6,33],
-"group__mpp__domains__mod.html#gab310b8bd92c60fdad3abc93d93ccb38c":[4,19,1,1,2],
-"group__mpp__domains__mod.html#gab310b8bd92c60fdad3abc93d93ccb38c":[4,19,1,4,9],
-"group__mpp__domains__mod.html#gab353ff7a802bb34b45fefc1dab5db976":[4,19,1,25,1],
-"group__mpp__domains__mod.html#gab38c4cbefe481bef7de8985d4d5bfb7b":[4,19,1,16,11],
-"group__mpp__domains__mod.html#gab3ca83bbae97d6e6318e6d4c0661fda4":[4,19,1,8,19],
-"group__mpp__domains__mod.html#gab495782432ecdaf6ae121bf6618a7e8e":[4,19,1,20,3],
 "group__mpp__domains__mod.html#gab4e315aa7d1685c3adaaed343fe95404":[4,19,1,16,18],
 "group__mpp__domains__mod.html#gab5ce2daa4d3d7de2c3ea1067826d2a09":[4,19,1,44,13],
 "group__mpp__domains__mod.html#gab5d5da2bcb021fafdf1c57487ef2138a":[4,19,1,18,1],
@@ -249,5 +241,13 @@ var NAVTREEINDEX19 =
 "group__mpp__domains__mod.html#mpp_global_max":[4,19,1,91],
 "group__mpp__domains__mod.html#mpp_global_sum":[4,19,1,92],
 "group__mpp__domains__mod.html#mpp_modify_domain":[4,19,1,77],
-"group__mpp__domains__mod.html#mpp_nullify_domain_list":[4,19,1,105]
+"group__mpp__domains__mod.html#mpp_nullify_domain_list":[4,19,1,105],
+"group__mpp__domains__mod.html#mpp_pass_SG_to_UG":[4,19,1,86],
+"group__mpp__domains__mod.html#mpp_redistribute":[4,19,1,88],
+"group__mpp__domains__mod.html#mpp_set_compute_domain":[4,19,1,100],
+"group__mpp__domains__mod.html#mpp_set_data_domain":[4,19,1,101],
+"group__mpp__domains__mod.html#mpp_set_global_domain":[4,19,1,102],
+"group__mpp__domains__mod.html#mpp_start_update_domains":[4,19,1,79],
+"group__mpp__domains__mod.html#mpp_update_domains":[4,19,1,78],
+"group__mpp__domains__mod.html#mpp_update_domains_ad":[4,19,1,85]
 };
