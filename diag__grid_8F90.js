@@ -1,5 +1,6 @@
 var diag__grid_8F90 =
 [
+    [ "diag_global_grid_type", "structdiag__grid__mod_1_1diag__global__grid__type.html", "structdiag__grid__mod_1_1diag__global__grid__type" ],
     [ "deg2rad", "diag__grid_8F90.html#ga7c106eac542c18e69fa010f358067b65", null ],
     [ "diag_grid_end", "diag__grid_8F90.html#ga5e5a7eeabed97e40f69b0167e44b1330", null ],
     [ "diag_grid_init", "diag__grid_8F90.html#ga344fd60b0703604265c527332794df35", null ],

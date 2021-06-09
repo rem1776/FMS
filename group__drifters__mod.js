@@ -30,7 +30,19 @@ var group__drifters__mod =
       [ "zv", "group__drifters__mod.html#ga7609d8bf799afff52a6c8e21f2ef84af", null ],
       [ "zw", "group__drifters__mod.html#gab495eb1bc85a7ec8f5c7c70b2b882a35", null ]
     ] ],
-    [ "drifters_push", "interfacedrifters__mod_1_1drifters__push.html", null ],
+    [ "drifters_push", "interfacedrifters__mod_1_1drifters__push.html", [
+      [ "drifters_push_2", "group__drifters__mod.html#ga42976b1adf1dbcdf0537eed421f4306d", null ],
+      [ "drifters_push_3", "group__drifters__mod.html#gae865a3ca531187f28818ee927c63834d", null ]
+    ] ],
+    [ "drifters_compute_k", "interfacedrifters__mod_1_1drifters__compute__k.html", [
+      [ "drifters_computek2d", "group__drifters__mod.html#ga37fb877997da6bd68a2af1dd8c8a06ab", null ],
+      [ "drifters_computek3d", "group__drifters__mod.html#gaecd7ca7ea74ad130e8b2de3740250901", null ]
+    ] ],
+    [ "drifters_set_field", "interfacedrifters__mod_1_1drifters__set__field.html", [
+      [ "drifters_set_field_2d", "group__drifters__mod.html#ga7da7d5ac12dd348a2ab4e10570ff9db2", null ],
+      [ "drifters_set_field_3d", "group__drifters__mod.html#gae1f0c969eaf49501c179a4174ca555c8", null ]
+    ] ],
+    [ "drifters_copy_new", "group__drifters__mod.html#ga2cc7e1a7540ae440979e31b88f2e733c", null ],
     [ "drifters_del", "group__drifters__mod.html#gabd7a7c5d6f87429d1f125fccbbbf9a5a", null ],
     [ "drifters_distribute", "group__drifters__mod.html#ga9a1aa7c59e21aeab310b3fd722ced015", null ],
     [ "drifters_new", "group__drifters__mod.html#gaddfba33d6e4b7bdc50a58a1be1e3489b", null ],

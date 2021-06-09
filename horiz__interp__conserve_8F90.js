@@ -1,5 +1,6 @@
 var horiz__interp__conserve_8F90 =
 [
+    [ "horiz_interp_conserve_new", "interfacehoriz__interp__conserve__mod_1_1horiz__interp__conserve__new.html", "interfacehoriz__interp__conserve__mod_1_1horiz__interp__conserve__new" ],
     [ "data_sum", "horiz__interp__conserve_8F90.html#a0e3ca8b528b93d6916316114c5c13dbc", null ],
     [ "horiz_interp_conserve", "horiz__interp__conserve_8F90.html#a00723e2b4fac960d03f86ffe0066560b", null ],
     [ "horiz_interp_conserve_del", "horiz__interp__conserve_8F90.html#aae5bc9b6efb0f13f8edab86497797547", null ],

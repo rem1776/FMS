@@ -91,7 +91,8 @@ $(document).ready(function(){initNavTree('horiz__interp__spherical_8F90.html',''
 
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions/Subroutines</a>  </div>
+<a href="#func-members">Functions/Subroutines</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">horiz_interp_spherical.F90 File Reference</div>  </div>
 </div><!--header-->
@@ -120,6 +121,48 @@ subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>horiz_i
 <tr class="memitem:ga7b97dabd2ce5186c47f8cab78eac1fc8"><td class="memItemLeft" align="right" valign="top">
 subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>horiz_interp_spherical_del</b> (Interp)</td></tr>
 <tr class="separator:ga7b97dabd2ce5186c47f8cab78eac1fc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga001a9438168e183c4a95d5c3e342405c"><td class="memItemLeft" align="right" valign="top">
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>radial_search</b> (theta_src, phi_src, theta_dst, phi_dst, map_src_xsize, map_src_ysize, map_src_add, map_src_dist, num_found, num_neighbors, max_src_dist, src_is_modulo)</td></tr>
+<tr class="separator:ga001a9438168e183c4a95d5c3e342405c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaba93fc3aa2a8621b41d3f6a31655c6c6"><td class="memItemLeft" align="right" valign="top">
+logical function&#160;</td><td class="memItemRight" valign="bottom"><b>update_dest_neighbors</b> (map_src_add, map_src_dist, src_add, d, num_found, min_nbrs)</td></tr>
+<tr class="separator:gaba93fc3aa2a8621b41d3f6a31655c6c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae12401afd2eadf8f8998c4d96739cd9d"><td class="memItemLeft" align="right" valign="top">
+real function&#160;</td><td class="memItemRight" valign="bottom"><b>spherical_distance</b> (theta1, phi1, theta2, phi2)</td></tr>
+<tr class="separator:gae12401afd2eadf8f8998c4d96739cd9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga87a32976984e523531c341dd8b59080d"><td class="memItemLeft" align="right" valign="top">
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>full_search</b> (theta_src, phi_src, theta_dst, phi_dst, map_src_add, map_src_dist, num_found, num_neighbors, max_src_dist)</td></tr>
+<tr class="separator:ga87a32976984e523531c341dd8b59080d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ad5ec021db648247e2e825340a2d3fd59"><td class="memItemLeft" align="right" valign="top"><a id="ad5ec021db648247e2e825340a2d3fd59"></a>
+integer, parameter&#160;</td><td class="memItemRight" valign="bottom"><b>max_neighbors</b> = 400</td></tr>
+<tr class="separator:ad5ec021db648247e2e825340a2d3fd59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga973d82fd674e76cef9b20a14bc2abadf"><td class="memItemLeft" align="right" valign="top">
+real, parameter&#160;</td><td class="memItemRight" valign="bottom"><b>max_dist_default</b> = 0.1</td></tr>
+<tr class="separator:ga973d82fd674e76cef9b20a14bc2abadf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaeef2901ef58e73d2f2b9215de5fc2187"><td class="memItemLeft" align="right" valign="top">
+integer, parameter&#160;</td><td class="memItemRight" valign="bottom"><b>num_nbrs_default</b> = 4</td></tr>
+<tr class="separator:gaeef2901ef58e73d2f2b9215de5fc2187"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gada0f320ed2fbd4682d69848e3802f9d2"><td class="memItemLeft" align="right" valign="top">
+real, parameter&#160;</td><td class="memItemRight" valign="bottom"><b>large</b> =1.e20</td></tr>
+<tr class="separator:gada0f320ed2fbd4682d69848e3802f9d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga346dfa0d5fa42a082ffa7681c5755c01"><td class="memItemLeft" align="right" valign="top">
+real, parameter&#160;</td><td class="memItemRight" valign="bottom"><b>epsln</b> =1.e-10</td></tr>
+<tr class="separator:ga346dfa0d5fa42a082ffa7681c5755c01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8a5f299eef1abe4c0df23ebd220ce83e"><td class="memItemLeft" align="right" valign="top">
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>pe</b></td></tr>
+<tr class="separator:ga8a5f299eef1abe4c0df23ebd220ce83e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab96da8c443f9c55ebfefe033da98ab47"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__horiz__interp__spherical__mod.html#gab96da8c443f9c55ebfefe033da98ab47">root_pe</a></td></tr>
+<tr class="memdesc:gab96da8c443f9c55ebfefe033da98ab47"><td class="mdescLeft">&#160;</td><td class="mdescRight">NAMELIST NAME="horiz_interp_spherical_nml"&gt;  <a href="group__horiz__interp__spherical__mod.html#gab96da8c443f9c55ebfefe033da98ab47">More...</a><br /></td></tr>
+<tr class="separator:gab96da8c443f9c55ebfefe033da98ab47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabf353472de82554fcbc7ffdb9ca24a8d"><td class="memItemLeft" align="right" valign="top">
+character(len=32)&#160;</td><td class="memItemRight" valign="bottom"><b>search_method</b> = &quot;radial_search&quot;</td></tr>
+<tr class="separator:gabf353472de82554fcbc7ffdb9ca24a8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad369225c254bc7bda087334ca5d13096"><td class="memItemLeft" align="right" valign="top">
+logical&#160;</td><td class="memItemRight" valign="bottom"><b>module_is_initialized</b> = .FALSE.</td></tr>
+<tr class="separator:gad369225c254bc7bda087334ca5d13096"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>File for <a class="el" href="group__horiz__interp__spherical__mod.html">horiz_interp_spherical_mod</a>. </p>

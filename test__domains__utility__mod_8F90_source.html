@@ -117,7 +117,7 @@ $(document).ready(function(){initNavTree('test__domains__utility__mod_8F90_sourc
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">!&gt; @note Note: the source code of this module is largely originally in test_mpp_domains.F90.</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="namespacetest__domains__utility__mod.html">   22</a></span>&#160;<span class="keyword">module</span> <a class="code" href="namespacetest__domains__utility__mod.html">test_domains_utility_mod</a></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">use </span>mpp_mod,         <span class="keywordtype">only</span> : fatal, warning, mpp_debug, note</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">use </span>mpp_mod, <span class="keywordtype">only</span> : mpp_error</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">use </span>mpp_mod, <span class="keywordtype">only</span> : <a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">use </span>mpp_domains_mod, <span class="keywordtype">only</span> : zero, ninety, minus_ninety</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">use </span>platform_mod, <span class="keywordtype">only</span>: r4_kind, r8_kind</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
@@ -172,7 +172,7 @@ $(document).ready(function(){initNavTree('test__domains__utility__mod_8F90_sourc
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keywordflow">          enddo</span></div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keywordflow">       enddo</span></div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keywordflow">    case default</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;       <span class="keyword">call </span>mpp_error(fatal,<span class="stringliteral">&quot;fill_coarse_data: rotate_coarse must be ZERO, NINETY, MINUS_NINETY&quot;</span>)</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;       <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal,<span class="stringliteral">&quot;fill_coarse_data: rotate_coarse must be ZERO, NINETY, MINUS_NINETY&quot;</span>)</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keywordflow">    end select</span></div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="comment">!---handle cyclic condition</span></div>
@@ -241,7 +241,7 @@ $(document).ready(function(){initNavTree('test__domains__utility__mod_8F90_sourc
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;<span class="keywordflow">          enddo</span></div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="keywordflow">       enddo</span></div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;<span class="keywordflow">    case default</span></div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;       <span class="keyword">call </span>mpp_error(fatal,<span class="stringliteral">&quot;fill_coarse_data: rotate_coarse must be ZERO, NINETY, MINUS_NINETY&quot;</span>)</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;       <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal,<span class="stringliteral">&quot;fill_coarse_data: rotate_coarse must be ZERO, NINETY, MINUS_NINETY&quot;</span>)</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="keywordflow">    end select</span></div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="comment">!---handle cyclic condition</span></div>
@@ -312,7 +312,7 @@ $(document).ready(function(){initNavTree('test__domains__utility__mod_8F90_sourc
 <div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;<span class="keywordflow">                 enddo</span></div>
 <div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;<span class="keywordflow">              enddo</span></div>
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;<span class="keywordflow">           case default</span></div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;              <span class="keyword">call </span>mpp_error(fatal,<span class="stringliteral">&quot;fill_nest_data: rotate must be ZERO, NINETY, MINUS_NINETY&quot;</span>)</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;              <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal,<span class="stringliteral">&quot;fill_nest_data: rotate must be ZERO, NINETY, MINUS_NINETY&quot;</span>)</div>
 <div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;<span class="keywordflow">           end select</span></div>
 <div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;<span class="keywordflow">        enddo</span></div>
 <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;<span class="keywordflow">     enddo</span></div>
@@ -361,7 +361,7 @@ $(document).ready(function(){initNavTree('test__domains__utility__mod_8F90_sourc
 <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;<span class="keywordflow">                 enddo</span></div>
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;<span class="keywordflow">              enddo</span></div>
 <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;<span class="keywordflow">           case default</span></div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;              <span class="keyword">call </span>mpp_error(fatal,<span class="stringliteral">&quot;fill_nest_data: rotate must be ZERO, NINETY, MINUS_NINETY&quot;</span>)</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;              <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal,<span class="stringliteral">&quot;fill_nest_data: rotate must be ZERO, NINETY, MINUS_NINETY&quot;</span>)</div>
 <div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;<span class="keywordflow">           end select</span></div>
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;<span class="keywordflow">        enddo</span></div>
 <div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;<span class="keywordflow">     enddo</span></div>
@@ -372,6 +372,7 @@ $(document).ready(function(){initNavTree('test__domains__utility__mod_8F90_sourc
 <div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;<span class="keyword">end module </span><a class="code" href="namespacetest__domains__utility__mod.html">test_domains_utility_mod</a></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="ainterfacempp__mod_1_1mpp__error_html"><div class="ttname"><a href="interfacempp__mod_1_1mpp__error.html">mpp_mod::mpp_error</a></div><div class="ttdef"><b>Definition:</b> <a href="mpp_8F90_source.html#l00373">mpp.F90:373</a></div></div>
 <div class="ttc" id="anamespacetest__domains__utility__mod_html"><div class="ttname"><a href="namespacetest__domains__utility__mod.html">test_domains_utility_mod</a></div><div class="ttdoc">A module with utility auxiliary interface supporting test_mpp_domains.</div><div class="ttdef"><b>Definition:</b> <a href="test__domains__utility__mod_8F90_source.html#l00022">test_domains_utility_mod.F90:22</a></div></div>
 <div class="ttc" id="ainterfacetest__domains__utility__mod_1_1fill__coarse__data_html"><div class="ttname"><a href="interfacetest__domains__utility__mod_1_1fill__coarse__data.html">test_domains_utility_mod::fill_coarse_data</a></div><div class="ttdef"><b>Definition:</b> <a href="test__domains__utility__mod_8F90_source.html#l00028">test_domains_utility_mod.F90:28</a></div></div>
 <div class="ttc" id="ainterfacetest__domains__utility__mod_1_1fill__nest__data_html"><div class="ttname"><a href="interfacetest__domains__utility__mod_1_1fill__nest__data.html">test_domains_utility_mod::fill_nest_data</a></div><div class="ttdef"><b>Definition:</b> <a href="test__domains__utility__mod_8F90_source.html#l00033">test_domains_utility_mod.F90:33</a></div></div>

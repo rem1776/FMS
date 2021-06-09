@@ -133,20 +133,20 @@ $(document).ready(function(){initNavTree('horiz__interp__bilinear_8F90_source.ht
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="comment">! &lt;HISTORY SRC=&quot;http://www.gfdl.noaa.gov/fms-cgi-bin/cvsweb.cgi/FMS/&quot;/&gt;</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="keywordtype">use </span>mpp_mod,               <span class="keywordtype">only</span>: mpp_error, fatal, <a class="code" href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a>, <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>, mpp_root_pe</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="keywordtype">use </span>mpp_mod,               <span class="keywordtype">only</span>: <a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>, fatal, <a class="code" href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a>, <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>, mpp_root_pe</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="keywordtype">use </span>fms_mod,               <span class="keywordtype">only</span>: <a class="code" href="group__fms__mod.html#ga0c093df98a75dbd9e0f3add67aa6c23a">write_version_number</a></div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keywordtype">use </span>constants_mod,         <span class="keywordtype">only</span>: <a class="code" href="group__constants__mod.html#gadc909cc70e4e20bc99fc3d3c53125808">pi</a></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="keywordtype">use </span>horiz_interp_type_mod, <span class="keywordtype">only</span>: horiz_interp_type, stats</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="keywordtype">use </span>horiz_interp_type_mod, <span class="keywordtype">only</span>: <a class="code" href="structhoriz__interp__type__mod_1_1horiz__interp__type.html">horiz_interp_type</a>, stats</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keywordtype">implicit none</span></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="keywordtype">private</span></div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="keywordtype">public</span> :: horiz_interp_bilinear_new, horiz_interp_bilinear, horiz_interp_bilinear_del</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="keywordtype">public</span> :: <a class="code" href="interfacehoriz__interp__bilinear__mod_1_1horiz__interp__bilinear__new.html">horiz_interp_bilinear_new</a>, horiz_interp_bilinear, horiz_interp_bilinear_del</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <span class="keywordtype">public</span> :: horiz_interp_bilinear_init</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="comment">!--- public interface</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="keyword">interface</span> horiz_interp_bilinear_new</div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="interfacehoriz__interp__bilinear__mod_1_1horiz__interp__bilinear__new.html">   53</a></span>&#160;  <span class="keyword">interface</span> <a class="code" href="interfacehoriz__interp__bilinear__mod_1_1horiz__interp__bilinear__new.html">horiz_interp_bilinear_new</a></div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keyword">module procedure</span> horiz_interp_bilinear_new_1d</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">module procedure</span> horiz_interp_bilinear_new_2d</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="keyword">end interface</span></div>
@@ -229,7 +229,7 @@ $(document).ready(function(){initNavTree('horiz__interp__bilinear_8F90_source.ht
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="keywordflow">if</span>(src_is_modulo) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;       <span class="keywordflow">if</span>(lon_in(nlon_in) - lon_in(1) .gt. tpi + epsln) &amp;</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;            <span class="keyword">call </span>mpp_error(fatal,<span class="stringliteral">&#39;horiz_interp_bilinear_mod: &#39;</span>// &amp;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;            <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal,<span class="stringliteral">&#39;horiz_interp_bilinear_mod: &#39;</span>// &amp;</div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;            <span class="stringliteral">&#39;The range of source grid longitude should be no larger than tpi&#39;</span>)</div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; </div>
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;       <span class="keywordflow">if</span>(lon_in(1) .lt. 0.0 .OR. lon_in(nlon_in) &gt; tpi ) <span class="keywordflow">then</span></div>
@@ -252,7 +252,7 @@ $(document).ready(function(){initNavTree('horiz__interp__bilinear_8F90_source.ht
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;          <span class="keywordflow">else</span>  <span class="comment">! when the input grid is in not cyclic, the output grid should located inside</span></div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;             <span class="comment">! the input grid</span></div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;             <span class="keywordflow">if</span>((lon .lt. lon_in(1)) .or. (lon .gt. lon_in(nlon_in))) &amp;</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;                  <span class="keyword">call </span>mpp_error(fatal,<span class="stringliteral">&#39;horiz_interp_bilinear_mod: &#39;</span> //&amp;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;                  <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal,<span class="stringliteral">&#39;horiz_interp_bilinear_mod: &#39;</span> //&amp;</div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;                  <span class="stringliteral">&#39;when input grid is not modulo, output grid should locate inside input grid&#39;</span>)</div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="keywordflow">          endif</span></div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
@@ -416,11 +416,11 @@ $(document).ready(function(){initNavTree('horiz__interp__bilinear_8F90_source.ht
 <div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160; </div>
 <div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;    <span class="comment">! make sure lon and lat has the same dimension</span></div>
 <div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    <span class="keywordflow">if</span>(<span class="keyword">size</span>(lon_out,1) /= <span class="keyword">size</span>(lat_out,1) .or. <span class="keyword">size</span>(lon_out,2) /= <span class="keyword">size</span>(lat_out,2) ) &amp;</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;         <span class="keyword">call </span>mpp_error(fatal,<span class="stringliteral">&#39;horiz_interp_bilinear_mod: when using bilinear &#39;</span> // &amp;</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;         <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal,<span class="stringliteral">&#39;horiz_interp_bilinear_mod: when using bilinear &#39;</span> // &amp;</div>
 <div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;         <span class="stringliteral">&#39;interplation, the output grids should be geographical grids&#39;</span>)</div>
 <div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160; </div>
 <div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;    <span class="keywordflow">if</span>(<span class="keyword">size</span>(lon_in,1) /= <span class="keyword">size</span>(lat_in,1) .or. <span class="keyword">size</span>(lon_in,2) /= <span class="keyword">size</span>(lat_in,2) ) &amp;</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;         <span class="keyword">call </span>mpp_error(fatal,<span class="stringliteral">&#39;horiz_interp_bilinear_mod: when using bilinear &#39;</span>// &amp;</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;         <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal,<span class="stringliteral">&#39;horiz_interp_bilinear_mod: when using bilinear &#39;</span>// &amp;</div>
 <div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;         <span class="stringliteral">&#39;interplation, the input grids should be geographical grids&#39;</span>)</div>
 <div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160; </div>
 <div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    <span class="comment">!--- get the grid size</span></div>
@@ -515,10 +515,10 @@ $(document).ready(function(){initNavTree('horiz__interp__bilinear_8F90_source.ht
 <div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;          c  = a2*lon-a1*lat+a1*d2-a2*d1</div>
 <div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;          quadra = b*b-4.*a*c</div>
 <div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;          <span class="keywordflow">if</span>(abs(quadra) &lt; epsln) quadra = 0.0</div>
-<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;          <span class="keywordflow">if</span>(quadra &lt; 0.0) <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;          <span class="keywordflow">if</span>(quadra &lt; 0.0) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, &amp;</div>
 <div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;               <span class="stringliteral">&quot;horiz_interp_bilinear_mod: No solution existed for this quadratic equation&quot;</span>)</div>
 <div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;          <span class="keywordflow">if</span> ( abs(a) .lt. epsln2) <span class="keywordflow">then</span>  <span class="comment">! a = 0 is a linear equation</span></div>
-<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;             <span class="keywordflow">if</span>( abs(b) .lt. epsln) <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;             <span class="keywordflow">if</span>( abs(b) .lt. epsln) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, &amp;</div>
 <div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;                  <span class="stringliteral">&quot;horiz_interp_bilinear_mod: no unique solution existed for this linear equation&quot;</span>)</div>
 <div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;             y = -c/b</div>
 <div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;          <span class="keywordflow">else</span></div>
@@ -538,12 +538,12 @@ $(document).ready(function(){initNavTree('horiz__interp__bilinear_8F90_source.ht
 <div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;                num_solution = num_solution + 1</div>
 <div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;<span class="keywordflow">             endif</span></div>
 <div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;             <span class="keywordflow">if</span>(num_solution == 0) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;                <span class="keyword">call </span>mpp_error(fatal, <span class="stringliteral">&quot;horiz_interp_bilinear_mod: No solution found&quot;</span>)</div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;                <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, <span class="stringliteral">&quot;horiz_interp_bilinear_mod: No solution found&quot;</span>)</div>
 <div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;             <span class="keywordflow">else</span> <span class="keywordflow">if</span>(num_solution == 2) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;                <span class="keyword">call </span>mpp_error(fatal, <span class="stringliteral">&quot;horiz_interp_bilinear_mod: Two solutions found&quot;</span>)</div>
+<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;                <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, <span class="stringliteral">&quot;horiz_interp_bilinear_mod: Two solutions found&quot;</span>)</div>
 <div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;<span class="keywordflow">             endif</span></div>
 <div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;<span class="keywordflow">           endif</span></div>
-<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;           <span class="keywordflow">if</span>(abs(a1+c1*y) &lt; epsln) <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
+<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;           <span class="keywordflow">if</span>(abs(a1+c1*y) &lt; epsln) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, &amp;</div>
 <div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;               <span class="stringliteral">&quot;horiz_interp_bilinear_mod: the denomenator is 0&quot;</span>)</div>
 <div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;           <span class="keywordflow">if</span>(abs(y) &lt; epsln2) y = 0.0</div>
 <div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;           <span class="keywordflow">if</span>(abs(1.0-y) &lt; epsln2) y = 1.0</div>
@@ -558,7 +558,7 @@ $(document).ready(function(){initNavTree('horiz__interp__bilinear_8F90_source.ht
 <div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;             <span class="keywordflow">if</span> (x &gt; 1.0) x = 1.0</div>
 <div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;             <span class="keywordflow">if</span> (y &gt; 1.0) y = 1.0</div>
 <div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;<span class="keywordflow">           endif</span></div>
-<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;           <span class="keywordflow">if</span>( x&gt;1. .or. x&lt;0. .or. y&gt;1. .or. y &lt; 0.) <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
+<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;           <span class="keywordflow">if</span>( x&gt;1. .or. x&lt;0. .or. y&gt;1. .or. y &lt; 0.) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, &amp;</div>
 <div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;                <span class="stringliteral">&quot;horiz_interp_bilinear_mod: weight should be between 0 and 1&quot;</span>)</div>
 <div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;           interp % wti(m,n,1)=1.0-x; interp % wti(m,n,2)=x</div>
 <div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;           interp % wtj(m,n,1)=1.0-y; interp % wtj(m,n,2)=y</div>
@@ -608,7 +608,7 @@ $(document).ready(function(){initNavTree('horiz__interp__bilinear_8F90_source.ht
 <div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;<span class="keywordflow">             endif</span></div>
 <div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;          <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;             <span class="keywordflow">if</span>(lon .lt. lon_min .or. lon .gt. lon_max ) &amp;</div>
-<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;             <span class="keyword">call </span>mpp_error(fatal,<span class="stringliteral">&#39;horiz_interp_bilinear_mod: &#39;</span> //&amp;</div>
+<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;             <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal,<span class="stringliteral">&#39;horiz_interp_bilinear_mod: &#39;</span> //&amp;</div>
 <div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;                  <span class="stringliteral">&#39;when input grid is not modulo, output grid should locate inside input grid&#39;</span>)</div>
 <div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;<span class="keywordflow">          endif</span></div>
 <div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;          <span class="comment">!--- search for the surrounding four points locatioon.</span></div>
@@ -684,7 +684,7 @@ $(document).ready(function(){initNavTree('horiz__interp__bilinear_8F90_source.ht
 <div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;                         <span class="keywordflow">else</span> <span class="keywordflow">if</span> (i &gt; nlon_in) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;                            i = i - nlon_in</div>
 <div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;<span class="keywordflow">                         endif</span></div>
-<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;                         <span class="keywordflow">if</span>( i &lt; 1 .or. i &gt; nlon_in) <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
+<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;                         <span class="keywordflow">if</span>( i &lt; 1 .or. i &gt; nlon_in) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, &amp;</div>
 <div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;                              <span class="stringliteral">&#39;horiz_interp_bilinear_mod: max_step is too big, decrease max_step&#39;</span> )</div>
 <div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;                      <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;                         <span class="keywordflow">if</span>( i &lt; 1 .or. i &gt; nlon_in) cycle</div>
@@ -726,7 +726,7 @@ $(document).ready(function(){initNavTree('horiz__interp__bilinear_8F90_source.ht
 <div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;                         <span class="keywordflow">else</span> <span class="keywordflow">if</span> (i &gt; nlon_in) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;                            i = i - nlon_in</div>
 <div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;<span class="keywordflow">                         endif</span></div>
-<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;                         <span class="keywordflow">if</span>( i &lt; 1 .or. i &gt; nlon_in) <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
+<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;                         <span class="keywordflow">if</span>( i &lt; 1 .or. i &gt; nlon_in) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, &amp;</div>
 <div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;                              <span class="stringliteral">&#39;horiz_interp_bilinear_mod: max_step is too big, decrease max_step&#39;</span> )</div>
 <div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;                      <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;                         <span class="keywordflow">if</span>( i &lt; 1 .or. i &gt; nlon_in) cycle</div>
@@ -802,7 +802,7 @@ $(document).ready(function(){initNavTree('horiz__interp__bilinear_8F90_source.ht
 <div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;              print *,<span class="stringliteral">&#39;lat_in(is,je)=&#39;</span>,lat_in(istart,jend)*180./<a class="code" href="group__constants__mod.html#gadc909cc70e4e20bc99fc3d3c53125808">pi</a></div>
 <div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;              print *,<span class="stringliteral">&#39;lat_in(ie,je)=&#39;</span>,lat_in(iend,jend)*180./<a class="code" href="group__constants__mod.html#gadc909cc70e4e20bc99fc3d3c53125808">pi</a></div>
 <div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160; </div>
-<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;             <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
+<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;             <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, &amp;</div>
 <div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;                  <span class="stringliteral">&#39;find_neighbor: the destination point is not inside the source grid&#39;</span> )</div>
 <div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;<span class="keywordflow">          endif</span></div>
 <div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;<span class="keywordflow">       enddo</span></div>
@@ -891,7 +891,7 @@ $(document).ready(function(){initNavTree('horiz__interp__bilinear_8F90_source.ht
 <div class="line"><a name="l00795"></a><span class="lineno">  795</span>&#160;<span class="keywordflow">             endif</span></div>
 <div class="line"><a name="l00796"></a><span class="lineno">  796</span>&#160;          <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00797"></a><span class="lineno">  797</span>&#160;             <span class="keywordflow">if</span>(lon .lt. lon_min .or. lon .gt. lon_max ) &amp;</div>
-<div class="line"><a name="l00798"></a><span class="lineno">  798</span>&#160;             <span class="keyword">call </span>mpp_error(fatal,<span class="stringliteral">&#39;horiz_interp_bilinear_mod: &#39;</span> //&amp;</div>
+<div class="line"><a name="l00798"></a><span class="lineno">  798</span>&#160;             <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal,<span class="stringliteral">&#39;horiz_interp_bilinear_mod: &#39;</span> //&amp;</div>
 <div class="line"><a name="l00799"></a><span class="lineno">  799</span>&#160;                  <span class="stringliteral">&#39;when input grid is not modulo, output grid should locate inside input grid&#39;</span>)</div>
 <div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160;<span class="keywordflow">          endif</span></div>
 <div class="line"><a name="l00801"></a><span class="lineno">  801</span>&#160;          <span class="comment">!--- search for the surrounding four points locatioon.</span></div>
@@ -973,7 +973,7 @@ $(document).ready(function(){initNavTree('horiz__interp__bilinear_8F90_source.ht
 <div class="line"><a name="l00877"></a><span class="lineno">  877</span>&#160;                         <span class="keywordflow">else</span> <span class="keywordflow">if</span> (i &gt; nlon_in) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00878"></a><span class="lineno">  878</span>&#160;                            i = i - nlon_in</div>
 <div class="line"><a name="l00879"></a><span class="lineno">  879</span>&#160;<span class="keywordflow">                         endif</span></div>
-<div class="line"><a name="l00880"></a><span class="lineno">  880</span>&#160;                         <span class="keywordflow">if</span>( i &lt; 1 .or. i &gt; nlon_in) <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
+<div class="line"><a name="l00880"></a><span class="lineno">  880</span>&#160;                         <span class="keywordflow">if</span>( i &lt; 1 .or. i &gt; nlon_in) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, &amp;</div>
 <div class="line"><a name="l00881"></a><span class="lineno">  881</span>&#160;                              <span class="stringliteral">&#39;horiz_interp_bilinear_mod: max_step is too big, decrease max_step&#39;</span> )</div>
 <div class="line"><a name="l00882"></a><span class="lineno">  882</span>&#160;                      <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00883"></a><span class="lineno">  883</span>&#160;                         <span class="keywordflow">if</span>( i &lt; 1 .or. i &gt; nlon_in) cycle</div>
@@ -1043,7 +1043,7 @@ $(document).ready(function(){initNavTree('horiz__interp__bilinear_8F90_source.ht
 <div class="line"><a name="l00947"></a><span class="lineno">  947</span>&#160;                interp % j_lat (m,n,1:2) = dummy</div>
 <div class="line"><a name="l00948"></a><span class="lineno">  948</span>&#160;                print*,<span class="stringliteral">&#39;lon,lat=&#39;</span>,lon,lat <span class="comment">! snz</span></div>
 <div class="line"><a name="l00949"></a><span class="lineno">  949</span>&#160;             <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00950"></a><span class="lineno">  950</span>&#160;                <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
+<div class="line"><a name="l00950"></a><span class="lineno">  950</span>&#160;                <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, &amp;</div>
 <div class="line"><a name="l00951"></a><span class="lineno">  951</span>&#160;                    <span class="stringliteral">&#39;horiz_interp_bilinear_mod: the destination point is not inside the source grid&#39;</span> )</div>
 <div class="line"><a name="l00952"></a><span class="lineno">  952</span>&#160;<span class="keywordflow">             endif</span></div>
 <div class="line"><a name="l00953"></a><span class="lineno">  953</span>&#160;<span class="keywordflow">          endif</span></div>
@@ -1160,19 +1160,19 @@ $(document).ready(function(){initNavTree('horiz__interp__bilinear_8F90_source.ht
 <div class="line"><a name="l01064"></a><span class="lineno"> 1064</span>&#160;       new_handler = .false.</div>
 <div class="line"><a name="l01065"></a><span class="lineno"> 1065</span>&#160;<span class="keywordflow">    endif</span></div>
 <div class="line"><a name="l01066"></a><span class="lineno"> 1066</span>&#160; </div>
-<div class="line"><a name="l01067"></a><span class="lineno"> 1067</span>&#160;    <span class="keywordflow">if</span>(max_missing .gt. 3 .or. max_missing .lt. 0) <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
+<div class="line"><a name="l01067"></a><span class="lineno"> 1067</span>&#160;    <span class="keywordflow">if</span>(max_missing .gt. 3 .or. max_missing .lt. 0) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, &amp;</div>
 <div class="line"><a name="l01068"></a><span class="lineno"> 1068</span>&#160;         <span class="stringliteral">&#39;horiz_interp_bilinear_mod: missing_permit should be between 0 and 3&#39;</span>)</div>
 <div class="line"><a name="l01069"></a><span class="lineno"> 1069</span>&#160; </div>
 <div class="line"><a name="l01070"></a><span class="lineno"> 1070</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">size</span>(data_in,1) /= nlon_in .or. <span class="keyword">size</span>(data_in,2) /= nlat_in) &amp;</div>
-<div class="line"><a name="l01071"></a><span class="lineno"> 1071</span>&#160;         <span class="keyword">call </span>mpp_error(fatal,<span class="stringliteral">&#39;horiz_interp_bilinear_mod: size of input array incorrect&#39;</span>)</div>
+<div class="line"><a name="l01071"></a><span class="lineno"> 1071</span>&#160;         <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal,<span class="stringliteral">&#39;horiz_interp_bilinear_mod: size of input array incorrect&#39;</span>)</div>
 <div class="line"><a name="l01072"></a><span class="lineno"> 1072</span>&#160; </div>
 <div class="line"><a name="l01073"></a><span class="lineno"> 1073</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">size</span>(data_out,1) /= nlon_out .or. <span class="keyword">size</span>(data_out,2) /= nlat_out) &amp;</div>
-<div class="line"><a name="l01074"></a><span class="lineno"> 1074</span>&#160;         <span class="keyword">call </span>mpp_error(fatal,<span class="stringliteral">&#39;horiz_interp_bilinear_mod: size of output array incorrect&#39;</span>)</div>
+<div class="line"><a name="l01074"></a><span class="lineno"> 1074</span>&#160;         <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal,<span class="stringliteral">&#39;horiz_interp_bilinear_mod: size of output array incorrect&#39;</span>)</div>
 <div class="line"><a name="l01075"></a><span class="lineno"> 1075</span>&#160; </div>
 <div class="line"><a name="l01076"></a><span class="lineno"> 1076</span>&#160;    <span class="keywordflow">if</span>(new_handler) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l01077"></a><span class="lineno"> 1077</span>&#160;       <span class="keywordflow">if</span>( .not. <span class="keyword">present</span>(missing_value) )  <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
+<div class="line"><a name="l01077"></a><span class="lineno"> 1077</span>&#160;       <span class="keywordflow">if</span>( .not. <span class="keyword">present</span>(missing_value) )  <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, &amp;</div>
 <div class="line"><a name="l01078"></a><span class="lineno"> 1078</span>&#160;            <span class="stringliteral">&quot;horiz_interp_bilinear_mod: misisng_value must be present when new_handle_missing is .true.&quot;</span>)</div>
-<div class="line"><a name="l01079"></a><span class="lineno"> 1079</span>&#160;       <span class="keywordflow">if</span>( <span class="keyword">present</span>(mask_in) ) <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
+<div class="line"><a name="l01079"></a><span class="lineno"> 1079</span>&#160;       <span class="keywordflow">if</span>( <span class="keyword">present</span>(mask_in) ) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, &amp;</div>
 <div class="line"><a name="l01080"></a><span class="lineno"> 1080</span>&#160;            <span class="stringliteral">&quot;horiz_interp_bilinear_mod: mask_in should not be present when new_handle_missing is .true.&quot;</span>)</div>
 <div class="line"><a name="l01081"></a><span class="lineno"> 1081</span>&#160;       <span class="keywordflow">do</span> n = 1, nlat_out</div>
 <div class="line"><a name="l01082"></a><span class="lineno"> 1082</span>&#160;          <span class="keywordflow">do</span> m = 1, nlon_out</div>
@@ -1315,7 +1315,7 @@ $(document).ready(function(){initNavTree('horiz__interp__bilinear_8F90_source.ht
 <div class="line"><a name="l01219"></a><span class="lineno"> 1219</span>&#160;                      f3 = 0.5*(data_in(ie,je)+data_in(is,je))</div>
 <div class="line"><a name="l01220"></a><span class="lineno"> 1220</span>&#160;<span class="keywordflow">                   endif</span></div>
 <div class="line"><a name="l01221"></a><span class="lineno"> 1221</span>&#160;                <span class="keywordflow">else</span></div>
-<div class="line"><a name="l01222"></a><span class="lineno"> 1222</span>&#160;                   <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
+<div class="line"><a name="l01222"></a><span class="lineno"> 1222</span>&#160;                   <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, &amp;</div>
 <div class="line"><a name="l01223"></a><span class="lineno"> 1223</span>&#160;                      <span class="stringliteral">&quot;horiz_interp_bilinear_mod: the point should be in one of the four zone&quot;</span>)</div>
 <div class="line"><a name="l01224"></a><span class="lineno"> 1224</span>&#160;<span class="keywordflow">                endif</span></div>
 <div class="line"><a name="l01225"></a><span class="lineno"> 1225</span>&#160;<span class="keywordflow">             endif</span></div>
@@ -1509,7 +1509,10 @@ $(document).ready(function(){initNavTree('horiz__interp__bilinear_8F90_source.ht
 <div class="line"><a name="l01413"></a><span class="lineno"> 1413</span>&#160;<span class="comment">! close documentation grouping</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="astructhoriz__interp__type__mod_1_1horiz__interp__type_html"><div class="ttname"><a href="structhoriz__interp__type__mod_1_1horiz__interp__type.html">horiz_interp_type_mod::horiz_interp_type</a></div><div class="ttdef"><b>Definition:</b> <a href="horiz__interp__type_8F90_source.html#l00054">horiz_interp_type.F90:54</a></div></div>
 <div class="ttc" id="ampp__util_8inc_html_a172901d39c9b0cf14aa83b1e94fdf21b"><div class="ttname"><a href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a></div><div class="ttdeci">integer function stdout()</div><div class="ttdoc">This function returns the current standard fortran unit numbers for output.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00065">mpp_util.inc:65</a></div></div>
+<div class="ttc" id="ainterfacempp__mod_1_1mpp__error_html"><div class="ttname"><a href="interfacempp__mod_1_1mpp__error.html">mpp_mod::mpp_error</a></div><div class="ttdef"><b>Definition:</b> <a href="mpp_8F90_source.html#l00373">mpp.F90:373</a></div></div>
+<div class="ttc" id="ainterfacehoriz__interp__bilinear__mod_1_1horiz__interp__bilinear__new_html"><div class="ttname"><a href="interfacehoriz__interp__bilinear__mod_1_1horiz__interp__bilinear__new.html">horiz_interp_bilinear_mod::horiz_interp_bilinear_new</a></div><div class="ttdef"><b>Definition:</b> <a href="horiz__interp__bilinear_8F90_source.html#l00053">horiz_interp_bilinear.F90:53</a></div></div>
 <div class="ttc" id="agroup__constants__mod_html_gadc909cc70e4e20bc99fc3d3c53125808"><div class="ttname"><a href="group__constants__mod.html#gadc909cc70e4e20bc99fc3d3c53125808">constants_mod::pi</a></div><div class="ttdeci">real, parameter, public pi</div><div class="ttdoc">Ratio of circle circumference to diameter [N/A].</div><div class="ttdef"><b>Definition:</b> <a href="constants_8F90_source.html#l00104">constants.F90:104</a></div></div>
 <div class="ttc" id="ampp__util_8inc_html_acfeba7de56f9dd6000b3fd78f9d56c50"><div class="ttname"><a href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a></div><div class="ttdeci">integer function mpp_pe()</div><div class="ttdoc">Returns processor ID. This returns the unique ID associated with a PE. This number runs between 0 and...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00442">mpp_util.inc:442</a></div></div>
 <div class="ttc" id="agroup__fms__mod_html_ga0c093df98a75dbd9e0f3add67aa6c23a"><div class="ttname"><a href="group__fms__mod.html#ga0c093df98a75dbd9e0f3add67aa6c23a">fms_mod::write_version_number</a></div><div class="ttdeci">subroutine, public write_version_number(version, tag, unit)</div><div class="ttdoc">Prints to the log file (or a specified unit) the version id string and tag name.</div><div class="ttdef"><b>Definition:</b> <a href="fms_8F90_source.html#l01028">fms.F90:1028</a></div></div>

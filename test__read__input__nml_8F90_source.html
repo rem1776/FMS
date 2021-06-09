@@ -121,7 +121,7 @@ $(document).ready(function(){initNavTree('test__read__input__nml_8F90_source.htm
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">program</span> test_read_input_nml</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <span class="keywordtype">use </span>mpp_mod, <span class="keywordtype">only</span> : <a class="code" href="mpp__comm__mpi_8inc.html#a889ed63075362dc3a3d3c12385d5a9c7">mpp_init</a>, mpp_init_test_peset_allocated</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <span class="keywordtype">use </span>mpp_mod, <span class="keywordtype">only</span> : mpp_error, fatal, note</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <span class="keywordtype">use </span>mpp_mod, <span class="keywordtype">only</span> : <a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>, fatal, note</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <span class="keywordtype">use </span>mpp_mod, <span class="keywordtype">only</span> : read_input_nml, mpp_get_current_pelist_name</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="keywordtype">use </span>mpp_mod, <span class="keywordtype">only</span> : input_nml_file, input_str_length</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include&lt;file_version.h&gt;</span></div>
@@ -168,7 +168,7 @@ $(document).ready(function(){initNavTree('test__read__input__nml_8F90_source.htm
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;      <span class="keywordflow">exit</span></div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keywordflow">    end if</span></div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordflow">if</span> (input_nml_file(n).ne.line) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;      <span class="keyword">call </span>mpp_error(fatal, <span class="stringliteral">&quot;data resident in ./input.nml does not match&amp;</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;      <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, <span class="stringliteral">&quot;data resident in ./input.nml does not match&amp;</span></div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="stringliteral"></span><span class="stringliteral">                             &amp; that read into input_nml_file by read_input_nml&quot;</span>)</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keywordflow">    end if</span></div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    n = n + 1</div>
@@ -193,6 +193,7 @@ $(document).ready(function(){initNavTree('test__read__input__nml_8F90_source.htm
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="keyword">end program </span>test_read_input_nml</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="ainterfacempp__mod_1_1mpp__error_html"><div class="ttname"><a href="interfacempp__mod_1_1mpp__error.html">mpp_mod::mpp_error</a></div><div class="ttdef"><b>Definition:</b> <a href="mpp_8F90_source.html#l00373">mpp.F90:373</a></div></div>
 <div class="ttc" id="ampp__comm__mpi_8inc_html_a889ed63075362dc3a3d3c12385d5a9c7"><div class="ttname"><a href="mpp__comm__mpi_8inc.html#a889ed63075362dc3a3d3c12385d5a9c7">mpp_init</a></div><div class="ttdeci">subroutine mpp_init(flags, localcomm, test_level)</div><div class="ttdoc">Initialize the mpp_mod module.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__comm__mpi_8inc_source.html#l00034">mpp_comm_mpi.inc:34</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

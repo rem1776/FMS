@@ -341,7 +341,7 @@ $(document).ready(function(){initNavTree('mpp__update__domains2D_8h_source.html'
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;      integer, intent(in), optional :: list_size</div>
 <div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;      integer, intent(in), optional :: position</div>
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;      type(DomainCommunicator2D),pointer,optional :: dc_handle</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;      type(DomainCommunicator2D),pointer,save :: d_comm =&gt;NULL()</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;      type(DomainCommunicator2D),pointer,save :: <a class="code" href="group__mpp__domains__mod.html#gac4adb900ffc350cc350fa5f7d4c146a4">d_comm</a> =&gt;NULL()</div>
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;      logical                       :: do_redist,free_comm</div>
 <div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;      integer                       :: lsize</div>
 <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;      integer(i8_kind),dimension(MAX_DOMAIN_FIELDS),save :: l_addrs_in=-9999, l_addrs_out=-9999</div>
@@ -410,17 +410,17 @@ $(document).ready(function(){initNavTree('mpp__update__domains2D_8h_source.html'
 <div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;            endif</div>
 <div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;         endif</div>
 <div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;         if(do_redist)then</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;            if(PRESENT(dc_handle))d_comm =&gt;dc_handle  ! User has kept pointer to d_comm</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;            if(.not.ASSOCIATED(d_comm))then  ! d_comm needs initialization or lookup</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;               d_comm =&gt;mpp_redistribute_init_comm(domain_in,l_addrs_in(1:l_size),domain_out,l_addrs_out(1:l_size), &amp;</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;            if(PRESENT(dc_handle))<a class="code" href="group__mpp__domains__mod.html#gac4adb900ffc350cc350fa5f7d4c146a4">d_comm</a> =&gt;dc_handle  ! User has kept pointer to <a class="code" href="group__mpp__domains__mod.html#gac4adb900ffc350cc350fa5f7d4c146a4">d_comm</a></div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;            if(.not.ASSOCIATED(<a class="code" href="group__mpp__domains__mod.html#gac4adb900ffc350cc350fa5f7d4c146a4">d_comm</a>))then  ! <a class="code" href="group__mpp__domains__mod.html#gac4adb900ffc350cc350fa5f7d4c146a4">d_comm</a> needs initialization or lookup</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;               <a class="code" href="group__mpp__domains__mod.html#gac4adb900ffc350cc350fa5f7d4c146a4">d_comm</a> =&gt;mpp_redistribute_init_comm(domain_in,l_addrs_in(1:l_size),domain_out,l_addrs_out(1:l_size), &amp;</div>
 <div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;                    isize_in,jsize_in,ke_in,isize_out,jsize_out,ke_out)</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;               if(PRESENT(dc_handle))dc_handle =&gt;d_comm  ! User wants to keep pointer to d_comm</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;               if(PRESENT(dc_handle))dc_handle =&gt;<a class="code" href="group__mpp__domains__mod.html#gac4adb900ffc350cc350fa5f7d4c146a4">d_comm</a>  ! User wants to keep pointer to <a class="code" href="group__mpp__domains__mod.html#gac4adb900ffc350cc350fa5f7d4c146a4">d_comm</a></div>
 <div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;            endif</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;            call mpp_do_redistribute( l_addrs_in(1:l_size), l_addrs_out(1:l_size), d_comm, d_type )</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;            call mpp_do_redistribute( l_addrs_in(1:l_size), l_addrs_out(1:l_size), <a class="code" href="group__mpp__domains__mod.html#gac4adb900ffc350cc350fa5f7d4c146a4">d_comm</a>, d_type )</div>
 <div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;            l_size=0; l_addrs_in=-9999; l_addrs_out=-9999</div>
 <div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;            isize_in=0;  jsize_in=0;  ke_in=0</div>
 <div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;            isize_out=0; jsize_out=0; ke_out=0</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;            d_comm =&gt;NULL()</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;            <a class="code" href="group__mpp__domains__mod.html#gac4adb900ffc350cc350fa5f7d4c146a4">d_comm</a> =&gt;NULL()</div>
 <div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;         endif</div>
 <div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;      endif</div>
 <div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160; </div>
@@ -719,6 +719,7 @@ $(document).ready(function(){initNavTree('mpp__update__domains2D_8h_source.html'
 <div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* VECTOR_FIELD_ */</span><span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="agroup__mpp__domains__mod_html_gac4adb900ffc350cc350fa5f7d4c146a4"><div class="ttname"><a href="group__mpp__domains__mod.html#gac4adb900ffc350cc350fa5f7d4c146a4">mpp_domains_mod::d_comm</a></div><div class="ttdeci">type(domaincommunicator2d), dimension(:), allocatable, target, save d_comm</div><div class="ttdoc">domain communicators</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains_8F90_source.html#l00661">mpp_domains.F90:661</a></div></div>
 <div class="ttc" id="agroup__xgrid__mod_html_ga0d6740065d2355a4ac54b90c8c4545fb"><div class="ttname"><a href="group__xgrid__mod.html#ga0d6740065d2355a4ac54b90c8c4545fb">xgrid_mod::some</a></div><div class="ttdeci">subroutine, public some(xmap, some_arr, grid_id)</div><div class="ttdoc">Returns logical associating exchange grid cells with given side two grid.</div><div class="ttdef"><b>Definition:</b> <a href="xgrid_8F90_source.html#l03556">xgrid.F90:3556</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

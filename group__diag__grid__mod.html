@@ -102,6 +102,12 @@ $(document).ready(function(){initNavTree('group__diag__grid__mod.html',''); init
 <p>diag_grid_mod is a set of procedures to work with the model's global grid to allow regional output.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Data Types</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">type &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdiag__grid__mod_1_1point.html">point</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Private point type to hold the (x,y,z) location for a (lat,lon) location.  <a href="structdiag__grid__mod_1_1point.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
 <tr class="memitem:ga344fd60b0703604265c527332794df35"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__grid__mod.html#ga344fd60b0703604265c527332794df35">diag_grid_init</a> (domain, glo_lat, glo_lon, aglo_lat, aglo_lon)</td></tr>
@@ -116,9 +122,109 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:ga8809db19aeaef7fbd8a30a94017a45af"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__grid__mod.html#ga8809db19aeaef7fbd8a30a94017a45af">get_local_indexes2</a> (lat, lon, iindex, jindex)</td></tr>
 <tr class="memdesc:ga8809db19aeaef7fbd8a30a94017a45af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the indices of the nearest grid point of the a-grid to the specified (lon,lat) location on the local PE. if desired point not within domain of local PE, return (0,0) as the indices.  <a href="group__diag__grid__mod.html#ga8809db19aeaef7fbd8a30a94017a45af">More...</a><br /></td></tr>
 <tr class="separator:ga8809db19aeaef7fbd8a30a94017a45af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafbf2ec20333592de7c79ad330b61ad2f"><td class="memItemLeft" align="right" valign="top">pure elemental real function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__grid__mod.html#gafbf2ec20333592de7c79ad330b61ad2f">rad2deg</a> (angle)</td></tr>
+<tr class="separator:gafbf2ec20333592de7c79ad330b61ad2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7c106eac542c18e69fa010f358067b65"><td class="memItemLeft" align="right" valign="top">pure elemental real function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__grid__mod.html#ga7c106eac542c18e69fa010f358067b65">deg2rad</a> (angle)</td></tr>
+<tr class="memdesc:ga7c106eac542c18e69fa010f358067b65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert an angle in degrees to radians.  <a href="group__diag__grid__mod.html#ga7c106eac542c18e69fa010f358067b65">More...</a><br /></td></tr>
+<tr class="separator:ga7c106eac542c18e69fa010f358067b65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad7bbed343758af1b76821fdf435217c1"><td class="memItemLeft" align="right" valign="top">pure integer function, dimension(2)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__grid__mod.html#gad7bbed343758af1b76821fdf435217c1">find_pole_index_agrid</a> (lat, lon)</td></tr>
+<tr class="memdesc:gad7bbed343758af1b76821fdf435217c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the closest index (i,j) to the given (lat,lon) point.  <a href="group__diag__grid__mod.html#gad7bbed343758af1b76821fdf435217c1">More...</a><br /></td></tr>
+<tr class="separator:gad7bbed343758af1b76821fdf435217c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga300b2a27d9538e7a8df1acfe6eb5313b"><td class="memItemLeft" align="right" valign="top">pure integer function, dimension(2)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__grid__mod.html#ga300b2a27d9538e7a8df1acfe6eb5313b">find_equator_index_agrid</a> (lat, lon)</td></tr>
+<tr class="memdesc:ga300b2a27d9538e7a8df1acfe6eb5313b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the closest index (i,j) to the given (lat,lon) point.  <a href="group__diag__grid__mod.html#ga300b2a27d9538e7a8df1acfe6eb5313b">More...</a><br /></td></tr>
+<tr class="separator:ga300b2a27d9538e7a8df1acfe6eb5313b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga38d32aee9fb2540ffdfb50354b799023"><td class="memItemLeft" align="right" valign="top">pure elemental type(<a class="el" href="structdiag__grid__mod_1_1point.html">point</a>) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__grid__mod.html#ga38d32aee9fb2540ffdfb50354b799023">latlon2xyz</a> (lat, lon)</td></tr>
+<tr class="memdesc:ga38d32aee9fb2540ffdfb50354b799023"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the (x,y,z) position of a given (lat,lon) point.  <a href="group__diag__grid__mod.html#ga38d32aee9fb2540ffdfb50354b799023">More...</a><br /></td></tr>
+<tr class="separator:ga38d32aee9fb2540ffdfb50354b799023"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga19ed6b7dc3d1bf191172f00fef6a7677"><td class="memItemLeft" align="right" valign="top">pure elemental real function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__grid__mod.html#ga19ed6b7dc3d1bf191172f00fef6a7677">distancesqrd</a> (pt1, pt2)</td></tr>
+<tr class="memdesc:ga19ed6b7dc3d1bf191172f00fef6a7677"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the distance between two points in the Cartesian coordinate space.  <a href="group__diag__grid__mod.html#ga19ed6b7dc3d1bf191172f00fef6a7677">More...</a><br /></td></tr>
+<tr class="separator:ga19ed6b7dc3d1bf191172f00fef6a7677"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga455fb5cb69db5917fc63612dcd5088cf"><td class="memItemLeft" align="right" valign="top">pure elemental real function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__grid__mod.html#ga455fb5cb69db5917fc63612dcd5088cf">gcirdistance</a> (lat1, lon1, lat2, lon2)</td></tr>
+<tr class="memdesc:ga455fb5cb69db5917fc63612dcd5088cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the distance, along the geodesic, between two points.  <a href="group__diag__grid__mod.html#ga455fb5cb69db5917fc63612dcd5088cf">More...</a><br /></td></tr>
+<tr class="separator:ga455fb5cb69db5917fc63612dcd5088cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae5f402a0116ea61620bb6d8c5eac36cd"><td class="memItemLeft" align="right" valign="top"><a id="gae5f402a0116ea61620bb6d8c5eac36cd"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__grid__mod.html#gae5f402a0116ea61620bb6d8c5eac36cd">find_nearest_agrid_index</a> (lat, lon, minI, minJ, minimum_distance)</td></tr>
+<tr class="memdesc:gae5f402a0116ea61620bb6d8c5eac36cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the i,j indices and distance of the a-grid point nearest to the inputted lat,lon point. <br /></td></tr>
+<tr class="separator:gae5f402a0116ea61620bb6d8c5eac36cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
+<tr class="memitem:gae3eb4a3d1d9b08f05623c3ae6458e00d"><td class="memItemLeft" align="right" valign="top"><a id="gae3eb4a3d1d9b08f05623c3ae6458e00d"></a>
+real, dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__grid__mod.html#gae3eb4a3d1d9b08f05623c3ae6458e00d">glo_lat</a></td></tr>
+<tr class="memdesc:gae3eb4a3d1d9b08f05623c3ae6458e00d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The latitude values on the global grid. <br /></td></tr>
+<tr class="separator:gae3eb4a3d1d9b08f05623c3ae6458e00d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9969dceb880fc2d80d8d3b961083f0a3"><td class="memItemLeft" align="right" valign="top"><a id="ga9969dceb880fc2d80d8d3b961083f0a3"></a>
+real, dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__grid__mod.html#ga9969dceb880fc2d80d8d3b961083f0a3">glo_lon</a></td></tr>
+<tr class="memdesc:ga9969dceb880fc2d80d8d3b961083f0a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">The longitude values on the global grid. <br /></td></tr>
+<tr class="separator:ga9969dceb880fc2d80d8d3b961083f0a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacf91b0a8ab14c847de6dcf3a75bf7563"><td class="memItemLeft" align="right" valign="top"><a id="gacf91b0a8ab14c847de6dcf3a75bf7563"></a>
+real, dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__grid__mod.html#gacf91b0a8ab14c847de6dcf3a75bf7563">aglo_lat</a></td></tr>
+<tr class="memdesc:gacf91b0a8ab14c847de6dcf3a75bf7563"><td class="mdescLeft">&#160;</td><td class="mdescRight">The latitude values on the global a-grid. Here we expect isc-1:iec+1 and jsc=1:jec+1 to be passed in. <br /></td></tr>
+<tr class="separator:gacf91b0a8ab14c847de6dcf3a75bf7563"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabc738585b21d733c289514d704b31b57"><td class="memItemLeft" align="right" valign="top"><a id="gabc738585b21d733c289514d704b31b57"></a>
+real, dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__grid__mod.html#gabc738585b21d733c289514d704b31b57">aglo_lon</a></td></tr>
+<tr class="memdesc:gabc738585b21d733c289514d704b31b57"><td class="mdescLeft">&#160;</td><td class="mdescRight">The longitude values on the global a-grid. Here we expec isc-1:iec+j and jsc-1:jec+1 to be passed in. <br /></td></tr>
+<tr class="separator:gabc738585b21d733c289514d704b31b57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2d7903f6b52147a70fd397ae37ef8d26"><td class="memItemLeft" align="right" valign="top"><a id="ga2d7903f6b52147a70fd397ae37ef8d26"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__grid__mod.html#ga2d7903f6b52147a70fd397ae37ef8d26">myxbegin</a></td></tr>
+<tr class="memdesc:ga2d7903f6b52147a70fd397ae37ef8d26"><td class="mdescLeft">&#160;</td><td class="mdescRight">The starting index of the compute domain on the current PE. <br /></td></tr>
+<tr class="separator:ga2d7903f6b52147a70fd397ae37ef8d26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6298bdaa8a32dfbe5e64f704995d6bf3"><td class="memItemLeft" align="right" valign="top"><a id="ga6298bdaa8a32dfbe5e64f704995d6bf3"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__grid__mod.html#ga6298bdaa8a32dfbe5e64f704995d6bf3">myybegin</a></td></tr>
+<tr class="memdesc:ga6298bdaa8a32dfbe5e64f704995d6bf3"><td class="mdescLeft">&#160;</td><td class="mdescRight">The starting index of the compute domain on the current PE. <br /></td></tr>
+<tr class="separator:ga6298bdaa8a32dfbe5e64f704995d6bf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga49a0ec2c2044680c58ef6bc811e3ac74"><td class="memItemLeft" align="right" valign="top"><a id="ga49a0ec2c2044680c58ef6bc811e3ac74"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__grid__mod.html#ga49a0ec2c2044680c58ef6bc811e3ac74">dimi</a></td></tr>
+<tr class="memdesc:ga49a0ec2c2044680c58ef6bc811e3ac74"><td class="mdescLeft">&#160;</td><td class="mdescRight">The dimension of the global grid in the 'i' / longitudal direction. <br /></td></tr>
+<tr class="separator:ga49a0ec2c2044680c58ef6bc811e3ac74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae989844e19d85097cd5a13b83a73b890"><td class="memItemLeft" align="right" valign="top"><a id="gae989844e19d85097cd5a13b83a73b890"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__grid__mod.html#gae989844e19d85097cd5a13b83a73b890">dimj</a></td></tr>
+<tr class="memdesc:gae989844e19d85097cd5a13b83a73b890"><td class="mdescLeft">&#160;</td><td class="mdescRight">The dimension of the global grid in the 'j' / latitudal direction. <br /></td></tr>
+<tr class="separator:gae989844e19d85097cd5a13b83a73b890"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac15c33ac089571a954c320ef2c67630a"><td class="memItemLeft" align="right" valign="top"><a id="gac15c33ac089571a954c320ef2c67630a"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__grid__mod.html#gac15c33ac089571a954c320ef2c67630a">adimi</a></td></tr>
+<tr class="memdesc:gac15c33ac089571a954c320ef2c67630a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The dimension of the global a-grid in the 'i' / longitudal direction. Again, the expected dimension for diag_grid_mod is isc-1:iec+1. <br /></td></tr>
+<tr class="separator:gac15c33ac089571a954c320ef2c67630a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga86d68afdf2a37152ab6dfdfef8ac7b8b"><td class="memItemLeft" align="right" valign="top"><a id="ga86d68afdf2a37152ab6dfdfef8ac7b8b"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__grid__mod.html#ga86d68afdf2a37152ab6dfdfef8ac7b8b">adimj</a></td></tr>
+<tr class="memdesc:ga86d68afdf2a37152ab6dfdfef8ac7b8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The dimension of the global a-grid in the 'j' / latitudal direction. Again, the expected dimension for diag_grid_mod is jsc-1:jec+1. <br /></td></tr>
+<tr class="separator:ga86d68afdf2a37152ab6dfdfef8ac7b8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabf2730d777f8dceceb7669cfff23fd20"><td class="memItemLeft" align="right" valign="top"><a id="gabf2730d777f8dceceb7669cfff23fd20"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__grid__mod.html#gabf2730d777f8dceceb7669cfff23fd20">tile_number</a></td></tr>
+<tr class="memdesc:gabf2730d777f8dceceb7669cfff23fd20"><td class="mdescLeft">&#160;</td><td class="mdescRight">The tile the <code>glo_lat</code> and <code>glo_lon</code> define. <br /></td></tr>
+<tr class="separator:gabf2730d777f8dceceb7669cfff23fd20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad647e9d34add429dd842471b09d57723"><td class="memItemLeft" align="right" valign="top"><a id="gad647e9d34add429dd842471b09d57723"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__grid__mod.html#gad647e9d34add429dd842471b09d57723">ntiles</a></td></tr>
+<tr class="memdesc:gad647e9d34add429dd842471b09d57723"><td class="mdescLeft">&#160;</td><td class="mdescRight">The number of tiles. <br /></td></tr>
+<tr class="separator:gad647e9d34add429dd842471b09d57723"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacc94db07ba99997a63533a2b04fe8296"><td class="memItemLeft" align="right" valign="top"><a id="gacc94db07ba99997a63533a2b04fe8296"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__grid__mod.html#gacc94db07ba99997a63533a2b04fe8296">pestart</a></td></tr>
+<tr class="memdesc:gacc94db07ba99997a63533a2b04fe8296"><td class="mdescLeft">&#160;</td><td class="mdescRight">The starting PE number for the current tile. <br /></td></tr>
+<tr class="separator:gacc94db07ba99997a63533a2b04fe8296"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2a770f8073c4c3e7c74940b5598ac113"><td class="memItemLeft" align="right" valign="top"><a id="ga2a770f8073c4c3e7c74940b5598ac113"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__grid__mod.html#ga2a770f8073c4c3e7c74940b5598ac113">peend</a></td></tr>
+<tr class="memdesc:ga2a770f8073c4c3e7c74940b5598ac113"><td class="mdescLeft">&#160;</td><td class="mdescRight">The ending PE number for the current tile. <br /></td></tr>
+<tr class="separator:ga2a770f8073c4c3e7c74940b5598ac113"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6bf0505a03af67deea36dd10b1e059a6"><td class="memItemLeft" align="right" valign="top"><a id="ga6bf0505a03af67deea36dd10b1e059a6"></a>
+character(len=128)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__grid__mod.html#ga6bf0505a03af67deea36dd10b1e059a6">grid_type</a></td></tr>
+<tr class="memdesc:ga6bf0505a03af67deea36dd10b1e059a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">The global grid type. <br /></td></tr>
+<tr class="separator:ga6bf0505a03af67deea36dd10b1e059a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab0aad012248673bbebc1382484d5344a"><td class="memItemLeft" align="right" valign="top"><a id="gab0aad012248673bbebc1382484d5344a"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__grid__mod.html#gab0aad012248673bbebc1382484d5344a">x</a></td></tr>
+<tr class="memdesc:gab0aad012248673bbebc1382484d5344a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The x value of the (x,y,z) coordinates. <br /></td></tr>
+<tr class="separator:gab0aad012248673bbebc1382484d5344a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4b63294f355d7b12de9a25f75a70c5ec"><td class="memItemLeft" align="right" valign="top"><a id="ga4b63294f355d7b12de9a25f75a70c5ec"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__grid__mod.html#ga4b63294f355d7b12de9a25f75a70c5ec">y</a></td></tr>
+<tr class="memdesc:ga4b63294f355d7b12de9a25f75a70c5ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">The y value of the (x,y,z) coordinates. <br /></td></tr>
+<tr class="separator:ga4b63294f355d7b12de9a25f75a70c5ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga10bcf9869cc0e4a13dc5c090991dac34"><td class="memItemLeft" align="right" valign="top"><a id="ga10bcf9869cc0e4a13dc5c090991dac34"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__grid__mod.html#ga10bcf9869cc0e4a13dc5c090991dac34">z</a></td></tr>
+<tr class="memdesc:ga10bcf9869cc0e4a13dc5c090991dac34"><td class="mdescLeft">&#160;</td><td class="mdescRight">The z value of the (x,y,z) coordinates. <br /></td></tr>
+<tr class="separator:ga10bcf9869cc0e4a13dc5c090991dac34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga53e348963b34cc198fb5dcf065d7fcc5"><td class="memItemLeft" align="right" valign="top"><a id="ga53e348963b34cc198fb5dcf065d7fcc5"></a>
+type(<a class="el" href="structdiag__grid__mod_1_1diag__global__grid__type.html">diag_global_grid_type</a>)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__grid__mod.html#ga53e348963b34cc198fb5dcf065d7fcc5">diag_global_grid</a></td></tr>
+<tr class="memdesc:ga53e348963b34cc198fb5dcf065d7fcc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Variable to hold the global grid data. <br /></td></tr>
+<tr class="separator:ga53e348963b34cc198fb5dcf065d7fcc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga5b81ca171d240b2f550afcb9f8cbccdc"><td class="memItemLeft" align="right" valign="top"><a id="ga5b81ca171d240b2f550afcb9f8cbccdc"></a>
 logical&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__grid__mod.html#ga5b81ca171d240b2f550afcb9f8cbccdc">diag_grid_initialized</a> = .FALSE.</td></tr>
 <tr class="memdesc:ga5b81ca171d240b2f550afcb9f8cbccdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates if the diag_grid_mod has been initialized. <br /></td></tr>
@@ -129,6 +235,43 @@ logical&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="g
 <dl class="section author"><dt>Author</dt><dd>Seth Underwood&lt;"seth.underwood@noaa.gov"&gt;</dd></dl>
 <p><code>diag_grid_mod</code> contains useful utilities for dealing with, mostly, regional output for grids other than the standard lat/lon grid. This module contains three public procedures <code> diag_grid_init</code>, which is shared globably in the <code> diag_manager_mod</code>, <code>diag_grid_end</code> which will free up memory used during the register field calls, and <code>get_local_indexes</code>. The <code>send_global_grid</code> procedure is called by the model that creates the global grid. <code>send_global_grid</code> needs to be called before any fields are registered that will output only regions. <code>get_local_indexes</code> is to be called by the <code>diag_manager_mod</code> to discover the global indexes defining a subregion on the tile. </p>
 <h2 class="groupheader">Function/Subroutine Documentation</h2>
+<a id="ga7c106eac542c18e69fa010f358067b65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7c106eac542c18e69fa010f358067b65">&#9670;&nbsp;</a></span>deg2rad()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">pure elemental real function diag_grid_mod::deg2rad </td>
+          <td>(</td>
+          <td class="paramtype">real, intent(in)&#160;</td>
+          <td class="paramname"><em>angle</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Convert an angle in degrees to radians. </p>
+<p>Given a scalar, or an array of angles in degrees this function will return a scalar or array (of the same dimension) of angles in radians. </p><dl class="section return"><dt>Returns</dt><dd>Scalar or array (depending on the size of angle) of angles in radians. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">angle</td><td>Scalar or array of angles in degrees. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="diag__grid_8F90_source.html#l00664">664</a> of file <a class="el" href="diag__grid_8F90_source.html">diag_grid.F90</a>.</p>
+
+</div>
+</div>
 <a id="ga5e5a7eeabed97e40f69b0167e44b1330"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga5e5a7eeabed97e40f69b0167e44b1330">&#9670;&nbsp;</a></span>diag_grid_end()</h2>
 
@@ -206,6 +349,200 @@ logical&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="g
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="diag__grid_8F90_source.html#l00152">152</a> of file <a class="el" href="diag__grid_8F90_source.html">diag_grid.F90</a>.</p>
+
+</div>
+</div>
+<a id="ga19ed6b7dc3d1bf191172f00fef6a7677"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga19ed6b7dc3d1bf191172f00fef6a7677">&#9670;&nbsp;</a></span>distancesqrd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">pure elemental real function diag_grid_mod::distancesqrd </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structdiag__grid__mod_1_1point.html">point</a>), intent(in)&#160;</td>
+          <td class="paramname"><em>pt1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structdiag__grid__mod_1_1point.html">point</a>), intent(in)&#160;</td>
+          <td class="paramname"><em>pt2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Find the distance between two points in the Cartesian coordinate space. </p>
+<p><code>distanceSqrd</code> will find the distance squared between two points in the xyz coordinate space. <code>pt1</code> and <code> pt2</code> can either be both scalars, both arrays of the same size, or one a scalar and one an array. The return value will be a scalar or array of the same size as the input array. </p><dl class="section return"><dt>Returns</dt><dd>The return value will be a scalar or array of the same size as the input array. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="diag__grid_8F90_source.html#l01022">1022</a> of file <a class="el" href="diag__grid_8F90_source.html">diag_grid.F90</a>.</p>
+
+</div>
+</div>
+<a id="ga300b2a27d9538e7a8df1acfe6eb5313b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga300b2a27d9538e7a8df1acfe6eb5313b">&#9670;&nbsp;</a></span>find_equator_index_agrid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">pure integer function, dimension(2) diag_grid_mod::find_equator_index_agrid </td>
+          <td>(</td>
+          <td class="paramtype">real, intent(in)&#160;</td>
+          <td class="paramname"><em>lat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, intent(in)&#160;</td>
+          <td class="paramname"><em>lon</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return the closest index (i,j) to the given (lat,lon) point. </p>
+<p>This function searches a equator grid tile looking for the grid point closest to the give (lat, lon) location, and returns the i and j indexes of the point. </p><dl class="section return"><dt>Returns</dt><dd>The (i, j) location of the closest grid to the given (lat, lon) location. </dd>
+<dd>
+The (i, j) location of the closest grid to the given (lat, lon) location. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">lat</td><td>Latitude location </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">lon</td><td>Longitude location </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="diag__grid_8F90_source.html#l00841">841</a> of file <a class="el" href="diag__grid_8F90_source.html">diag_grid.F90</a>.</p>
+
+</div>
+</div>
+<a id="gad7bbed343758af1b76821fdf435217c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad7bbed343758af1b76821fdf435217c1">&#9670;&nbsp;</a></span>find_pole_index_agrid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">pure integer function, dimension(2) diag_grid_mod::find_pole_index_agrid </td>
+          <td>(</td>
+          <td class="paramtype">real, intent(in)&#160;</td>
+          <td class="paramname"><em>lat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, intent(in)&#160;</td>
+          <td class="paramname"><em>lon</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return the closest index (i,j) to the given (lat,lon) point. </p>
+<p>This function searches a pole a-grid tile looking for the grid point closest to the give (lat, lon) location, and returns the i and j indexes of the point. </p><dl class="section return"><dt>Returns</dt><dd>The (i, j) location of the closest grid to the given (lat, lon) location. </dd>
+<dd>
+The (i, j) location of the closest grid to the given (lat, lon) location. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">lat</td><td>Latitude location </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">lon</td><td>Longitude location </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="diag__grid_8F90_source.html#l00677">677</a> of file <a class="el" href="diag__grid_8F90_source.html">diag_grid.F90</a>.</p>
+
+</div>
+</div>
+<a id="ga455fb5cb69db5917fc63612dcd5088cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga455fb5cb69db5917fc63612dcd5088cf">&#9670;&nbsp;</a></span>gcirdistance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">pure elemental real function diag_grid_mod::gcirdistance </td>
+          <td>(</td>
+          <td class="paramtype">real, intent(in)&#160;</td>
+          <td class="paramname"><em>lat1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, intent(in)&#160;</td>
+          <td class="paramname"><em>lon1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, intent(in)&#160;</td>
+          <td class="paramname"><em>lat2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, intent(in)&#160;</td>
+          <td class="paramname"><em>lon2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Find the distance, along the geodesic, between two points. </p>
+<p><code>gCirDistance</code> will find the distance, along the geodesic, between two points defined by the (lat,lon) position of each point. </p><dl class="section return"><dt>Returns</dt><dd>real </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="diag__grid_8F90_source.html#l01035">1035</a> of file <a class="el" href="diag__grid_8F90_source.html">diag_grid.F90</a>.</p>
 
 </div>
 </div>
@@ -340,6 +677,88 @@ logical&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="g
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="diag__grid_8F90_source.html#l00608">608</a> of file <a class="el" href="diag__grid_8F90_source.html">diag_grid.F90</a>.</p>
+
+</div>
+</div>
+<a id="ga38d32aee9fb2540ffdfb50354b799023"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga38d32aee9fb2540ffdfb50354b799023">&#9670;&nbsp;</a></span>latlon2xyz()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">pure elemental type(<a class="el" href="structdiag__grid__mod_1_1point.html">point</a>) function diag_grid_mod::latlon2xyz </td>
+          <td>(</td>
+          <td class="paramtype">real, intent(in)&#160;</td>
+          <td class="paramname"><em>lat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, intent(in)&#160;</td>
+          <td class="paramname"><em>lon</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return the (x,y,z) position of a given (lat,lon) point. </p>
+<p>Given a specific (lat, lon) point on the Earth, return the corresponding (x,y,z) location. The return of latlon2xyz will be either a scalar or an array of the same size as lat and lon. </p><dl class="section return"><dt>Returns</dt><dd>The return of latlon2xyz will be either a scalar or an array of the same size as lat and lon. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">lat</td><td>The latitude of the (x,y,z) location to find. <code>lat</code> can be either a scalar or array. <code>lat</code> must be of the same rank / size as <code>lon</code>. This function assumes <code>lat</code> is in the range [-90,90]. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">lon</td><td>The longitude of the (x,y,z) location to find. <code>lon</code> can be either a scalar or array. <code>lon</code> must be of the same rank / size as <code>lat</code>. This function assumes <code>lon</code> is in the range [0,360]. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="diag__grid_8F90_source.html#l00986">986</a> of file <a class="el" href="diag__grid_8F90_source.html">diag_grid.F90</a>.</p>
+
+</div>
+</div>
+<a id="gafbf2ec20333592de7c79ad330b61ad2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gafbf2ec20333592de7c79ad330b61ad2f">&#9670;&nbsp;</a></span>rad2deg()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">pure elemental real function diag_grid_mod::rad2deg </td>
+          <td>(</td>
+          <td class="paramtype">real, intent(in)&#160;</td>
+          <td class="paramname"><em>angle</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">angle</td><td>Scalar or array of angles in radians. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="diag__grid_8F90_source.html#l00651">651</a> of file <a class="el" href="diag__grid_8F90_source.html">diag_grid.F90</a>.</p>
 
 </div>
 </div>

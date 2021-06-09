@@ -121,6 +121,24 @@ Data Types</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">type &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfield__manager__mod_1_1fm__list__iter__type.html">fm_list_iter_type</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacefield__manager__mod_1_1find__field__index.html">find_field_index</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacefield__manager__mod_1_1parse.html">parse</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacefield__manager__mod_1_1fm__new__value.html">fm_new_value</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacefield__manager__mod_1_1fm__get__value.html">fm_get_value</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacefield__manager__mod_1_1fm__loop__over__list.html">fm_loop_over_list</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">type &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfield__manager__mod_1_1field__mgr__type.html">field_mgr_type</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">type &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfield__manager__mod_1_1field__names__type.html">field_names_type</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">type &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfield__manager__mod_1_1field__names__type__short.html">field_names_type_short</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">type &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfield__manager__mod_1_1field__def.html">field_def</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
@@ -136,9 +154,18 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:ga8a2e295bd455ae452c73eb4a6ba85e2c"><td class="memItemLeft" align="right" valign="top">
 subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>field_manager_init</b> (nfields, table_name)</td></tr>
 <tr class="separator:ga8a2e295bd455ae452c73eb4a6ba85e2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3474a9ba623c104e65dc5fe72743fad7"><td class="memItemLeft" align="right" valign="top">
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>check_for_name_duplication</b></td></tr>
+<tr class="separator:ga3474a9ba623c104e65dc5fe72743fad7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae13e12ba463946cba61e349c3a4ce2c7"><td class="memItemLeft" align="right" valign="top">
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>new_name</b> (list_name, method_name_in, val_name_in)</td></tr>
+<tr class="separator:gae13e12ba463946cba61e349c3a4ce2c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga776a916be1fc2a7eaf6aacb74bb30fce"><td class="memItemLeft" align="right" valign="top">
 subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>field_manager_end</b></td></tr>
 <tr class="separator:ga776a916be1fc2a7eaf6aacb74bb30fce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga24ea091bcf33c4a098f9bf35043c9641"><td class="memItemLeft" align="right" valign="top">
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>strip_front_blanks</b> (name)</td></tr>
+<tr class="separator:ga24ea091bcf33c4a098f9bf35043c9641"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga8c55a92b0bbd3ba6092e94543930d80d"><td class="memItemLeft" align="right" valign="top">
 integer function, public&#160;</td><td class="memItemRight" valign="bottom"><b>find_field_index_old</b> (model, field_name)</td></tr>
 <tr class="separator:ga8c55a92b0bbd3ba6092e94543930d80d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -154,6 +181,42 @@ subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>get_fie
 <tr class="memitem:ga5efbeebc10113c4b7b7f6476c2b003c9"><td class="memItemLeft" align="right" valign="top">
 subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>get_field_methods</b> (n, methods)</td></tr>
 <tr class="separator:ga5efbeebc10113c4b7b7f6476c2b003c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf63779fc7541583d72aaeb629e71bcf7"><td class="memItemLeft" align="right" valign="top">
+function&#160;</td><td class="memItemRight" valign="bottom"><b>parse_reals</b> (text, label, values)</td></tr>
+<tr class="separator:gaf63779fc7541583d72aaeb629e71bcf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gace4095eef4119de08921292878a467cb"><td class="memItemLeft" align="right" valign="top">
+function&#160;</td><td class="memItemRight" valign="bottom"><b>parse_integers</b> (text, label, values)</td></tr>
+<tr class="separator:gace4095eef4119de08921292878a467cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2d8344440bbfdeebf998b11001223eff"><td class="memItemLeft" align="right" valign="top">
+function&#160;</td><td class="memItemRight" valign="bottom"><b>parse_strings</b> (text, label, values)</td></tr>
+<tr class="separator:ga2d8344440bbfdeebf998b11001223eff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabd1d50fdc432a0db7cdbfd345932ea29"><td class="memItemLeft" align="right" valign="top">
+integer function&#160;</td><td class="memItemRight" valign="bottom"><b>parse_real</b> (text, label, value)</td></tr>
+<tr class="separator:gabd1d50fdc432a0db7cdbfd345932ea29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3a0e1d8013e0c9d83eeb7b1cb1bfad96"><td class="memItemLeft" align="right" valign="top">
+integer function&#160;</td><td class="memItemRight" valign="bottom"><b>parse_integer</b> (text, label, value)</td></tr>
+<tr class="separator:ga3a0e1d8013e0c9d83eeb7b1cb1bfad96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga898bd594b7a0f5691c1555dc603f6d1a"><td class="memItemLeft" align="right" valign="top">
+integer function&#160;</td><td class="memItemRight" valign="bottom"><b>parse_string</b> (text, label, value)</td></tr>
+<tr class="separator:ga898bd594b7a0f5691c1555dc603f6d1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2490331bea59c02616a06b1da832e240"><td class="memItemLeft" align="right" valign="top">
+type(field_def) function, pointer, private&#160;</td><td class="memItemRight" valign="bottom"><b>create_field</b> (parent_p, name)</td></tr>
+<tr class="separator:ga2490331bea59c02616a06b1da832e240"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac45b51b861b6c329454553711d375fed"><td class="memItemLeft" align="right" valign="top">
+logical recursive function, private&#160;</td><td class="memItemRight" valign="bottom"><b>dump_list</b> (list_p, recursive, depth, out_unit)</td></tr>
+<tr class="separator:gac45b51b861b6c329454553711d375fed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga18c210f8d14ba15f1efd045bd91db9be"><td class="memItemLeft" align="right" valign="top">
+subroutine, private&#160;</td><td class="memItemRight" valign="bottom"><b>find_base</b> (name, path, base)</td></tr>
+<tr class="separator:ga18c210f8d14ba15f1efd045bd91db9be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf228412d627dbe7049061d910a77dcb5"><td class="memItemLeft" align="right" valign="top">
+type(field_def) function, pointer, private&#160;</td><td class="memItemRight" valign="bottom"><b>find_field</b> (name, this_list_p)</td></tr>
+<tr class="separator:gaf228412d627dbe7049061d910a77dcb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6d9462f317ef059a16bbbaf1ff3da23d"><td class="memItemLeft" align="right" valign="top">
+subroutine, private&#160;</td><td class="memItemRight" valign="bottom"><b>find_head</b> (name, head, rest)</td></tr>
+<tr class="separator:ga6d9462f317ef059a16bbbaf1ff3da23d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga15985fa88c9702cc0278209ebeb6eab0"><td class="memItemLeft" align="right" valign="top">
+type(field_def) function, pointer, private&#160;</td><td class="memItemRight" valign="bottom"><b>find_list</b> (path, relative_p, create)</td></tr>
+<tr class="separator:ga15985fa88c9702cc0278209ebeb6eab0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga5aec64d0b5503d357d0b4b5c4f73725b"><td class="memItemLeft" align="right" valign="top">
 logical function, public&#160;</td><td class="memItemRight" valign="bottom"><b>fm_change_list</b> (name)</td></tr>
 <tr class="separator:ga5aec64d0b5503d357d0b4b5c4f73725b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -193,9 +256,18 @@ logical function, public&#160;</td><td class="memItemRight" valign="bottom"><b>f
 <tr class="memitem:gafa2a7ddda27e4e6d2525273510ecf8b1"><td class="memItemLeft" align="right" valign="top">
 type(fm_array_list_def) function, pointer, public&#160;</td><td class="memItemRight" valign="bottom"><b>fm_intersection</b> (lists, dim)</td></tr>
 <tr class="separator:gafa2a7ddda27e4e6d2525273510ecf8b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf3e20037c88c52712f4abec8384dc562"><td class="memItemLeft" align="right" valign="top">
+logical function&#160;</td><td class="memItemRight" valign="bottom"><b>fm_loop_over_list_old</b> (list, name, field_type, index)</td></tr>
+<tr class="separator:gaf3e20037c88c52712f4abec8384dc562"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1f8e83ec7b4f8564f4f8d4a4eda84527"><td class="memItemLeft" align="right" valign="top">
+logical function&#160;</td><td class="memItemRight" valign="bottom"><b>set_list_stuff</b> ()</td></tr>
+<tr class="separator:ga1f8e83ec7b4f8564f4f8d4a4eda84527"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gacc86a175c2060ba4695ec35b3ffb8a76"><td class="memItemLeft" align="right" valign="top">
 subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>fm_init_loop</b> (loop_list, iter)</td></tr>
 <tr class="separator:gacc86a175c2060ba4695ec35b3ffb8a76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad442674b099c93b6f4a7427037818d16"><td class="memItemLeft" align="right" valign="top">
+logical function&#160;</td><td class="memItemRight" valign="bottom"><b>fm_loop_over_list_new</b> (iter, name, field_type, index)</td></tr>
+<tr class="separator:gad442674b099c93b6f4a7427037818d16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga5c0b44a2bdd81906dbe5064fff4d9630"><td class="memItemLeft" align="right" valign="top">
 integer function, public&#160;</td><td class="memItemRight" valign="bottom"><b>fm_new_list</b> (name, create, keep)</td></tr>
 <tr class="separator:ga5c0b44a2bdd81906dbe5064fff4d9630"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -217,24 +289,45 @@ subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>fm_rese
 <tr class="memitem:gaca2ccd351328f8a95675746e9d711de1"><td class="memItemLeft" align="right" valign="top">
 subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>fm_return_root</b></td></tr>
 <tr class="separator:gaca2ccd351328f8a95675746e9d711de1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga87477eaf09839bb3f049b7413183948a"><td class="memItemLeft" align="right" valign="top">
+type(field_def) function, pointer, private&#160;</td><td class="memItemRight" valign="bottom"><b>get_field</b> (name, this_list_p)</td></tr>
+<tr class="separator:ga87477eaf09839bb3f049b7413183948a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gabe6324d661c9d1a25b1f60694bf3ed5c"><td class="memItemLeft" align="right" valign="top">
 logical function, public&#160;</td><td class="memItemRight" valign="bottom"><b>fm_modify_name</b> (oldname, newname)</td></tr>
 <tr class="separator:gabe6324d661c9d1a25b1f60694bf3ed5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4f5e42a60332c637e23a587799f6e031"><td class="memItemLeft" align="right" valign="top">
+subroutine, private&#160;</td><td class="memItemRight" valign="bottom"><b>initialize</b></td></tr>
+<tr class="separator:ga4f5e42a60332c637e23a587799f6e031"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa6232500bb846d47777b1f14e14b96dc"><td class="memItemLeft" align="right" valign="top">
+type(field_def) function, pointer, private&#160;</td><td class="memItemRight" valign="bottom"><b>make_list</b> (this_list_p, name)</td></tr>
+<tr class="separator:gaa6232500bb846d47777b1f14e14b96dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga8c0e638a294dd0a396f9e3aa68d10e97"><td class="memItemLeft" align="right" valign="top">
 logical function, public&#160;</td><td class="memItemRight" valign="bottom"><b>fm_query_method</b> (name, method_name, method_control)</td></tr>
 <tr class="separator:ga8c0e638a294dd0a396f9e3aa68d10e97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga16054251842969a40166ac5ad949a605"><td class="memItemLeft" align="right" valign="top">
+recursive logical function&#160;</td><td class="memItemRight" valign="bottom"><b>query_method</b> (list_p, recursive, name, method_name, method_control)</td></tr>
+<tr class="separator:ga16054251842969a40166ac5ad949a605"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2f534e79f92472e66d5a14cbf8297369"><td class="memItemLeft" align="right" valign="top">
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>concat_strings</b> (str1, str2)</td></tr>
+<tr class="separator:ga2f534e79f92472e66d5a14cbf8297369"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga0b1ee36793ccd1b64f967964585b57d1"><td class="memItemLeft" align="right" valign="top">
 integer function, public&#160;</td><td class="memItemRight" valign="bottom"><b>fm_copy_list</b> (list_name, suffix, create)</td></tr>
 <tr class="separator:ga0b1ee36793ccd1b64f967964585b57d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaf24d68b63aef738797fd748c9a6850a6"><td class="memItemLeft" align="right" valign="top">
 logical function, public&#160;</td><td class="memItemRight" valign="bottom"><b>fm_find_methods</b> (list_name, methods, control)</td></tr>
 <tr class="separator:gaf24d68b63aef738797fd748c9a6850a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa79aed917fd2385b4ee827202c6cf84c"><td class="memItemLeft" align="right" valign="top">
+recursive logical function&#160;</td><td class="memItemRight" valign="bottom"><b>find_method</b> (list_p, recursive, num_meth, method, control)</td></tr>
+<tr class="separator:gaa79aed917fd2385b4ee827202c6cf84c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga31ae07f44a3d7c24eb4738fe71538928"><td class="memItemLeft" align="right" valign="top">
 subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>fm_set_verbosity</b> (verbosity)</td></tr>
 <tr class="separator:ga31ae07f44a3d7c24eb4738fe71538928"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
+<tr class="memitem:ad369225c254bc7bda087334ca5d13096"><td class="memItemLeft" align="right" valign="top"><a id="ad369225c254bc7bda087334ca5d13096"></a>
+logical&#160;</td><td class="memItemRight" valign="bottom"><b>module_is_initialized</b> = .false.</td></tr>
+<tr class="separator:ad369225c254bc7bda087334ca5d13096"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga95d681675a9f1f8b752ce1710d2f4185"><td class="memItemLeft" align="right" valign="top">
 integer, parameter, public&#160;</td><td class="memItemRight" valign="bottom"><b>fm_field_name_len</b> = 48</td></tr>
 <tr class="separator:ga95d681675a9f1f8b752ce1710d2f4185"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -274,6 +367,126 @@ character(len=11), dimension(num_models), parameter, public&#160;</td><td class=
 <tr class="memitem:ga279a0782e6dff1667d041dd5b216d4eb"><td class="memItemLeft" align="right" valign="top">
 type(method_type), public&#160;</td><td class="memItemRight" valign="bottom"><b>default_method</b></td></tr>
 <tr class="separator:ga279a0782e6dff1667d041dd5b216d4eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0bfdff4690b0c78282434e1209f6758d"><td class="memItemLeft" align="right" valign="top">
+character(len=17), parameter&#160;</td><td class="memItemRight" valign="bottom"><b>module_name</b> = 'field_manager_mod'</td></tr>
+<tr class="separator:ga0bfdff4690b0c78282434e1209f6758d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7e2c690e34868ad7eea77627084df3c3"><td class="memItemLeft" align="right" valign="top">
+character(len=1), parameter&#160;</td><td class="memItemRight" valign="bottom"><b>bracket_left</b> = '['</td></tr>
+<tr class="separator:ga7e2c690e34868ad7eea77627084df3c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1652547e8296e2ac24695dd0d8a087df"><td class="memItemLeft" align="right" valign="top">
+character(len=1), parameter&#160;</td><td class="memItemRight" valign="bottom"><b>bracket_right</b> = ']'</td></tr>
+<tr class="separator:ga1652547e8296e2ac24695dd0d8a087df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8e388d23d21609216cba6fc1f24313e2"><td class="memItemLeft" align="right" valign="top">
+character(len=1), parameter&#160;</td><td class="memItemRight" valign="bottom"><b>comma</b> = &quot;,&quot;</td></tr>
+<tr class="separator:ga8e388d23d21609216cba6fc1f24313e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga847de5b1dd205f199c377e48bfce8b24"><td class="memItemLeft" align="right" valign="top">
+character(len=1), parameter&#160;</td><td class="memItemRight" valign="bottom"><b>comment</b> = '#'</td></tr>
+<tr class="separator:ga847de5b1dd205f199c377e48bfce8b24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga41fb2c07f97a1be2f29693412abaaaf0"><td class="memItemLeft" align="right" valign="top">
+character(len=1), parameter&#160;</td><td class="memItemRight" valign="bottom"><b>dquote</b> = '&quot;'</td></tr>
+<tr class="separator:ga41fb2c07f97a1be2f29693412abaaaf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga559b9a03c0d129f2d6311f3179ad2ff9"><td class="memItemLeft" align="right" valign="top">
+character(len=1), parameter&#160;</td><td class="memItemRight" valign="bottom"><b>equal</b> = '='</td></tr>
+<tr class="separator:ga559b9a03c0d129f2d6311f3179ad2ff9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga98eb8715d055f78923d271869cb770ff"><td class="memItemLeft" align="right" valign="top">
+character(len=1), parameter&#160;</td><td class="memItemRight" valign="bottom"><b>list_sep</b> = '/'</td></tr>
+<tr class="separator:ga98eb8715d055f78923d271869cb770ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad3c1a52ff717ee968e10d26eec93c546"><td class="memItemLeft" align="right" valign="top">
+character(len=1), parameter&#160;</td><td class="memItemRight" valign="bottom"><b>space</b> = ' '</td></tr>
+<tr class="separator:gad3c1a52ff717ee968e10d26eec93c546"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga68d6f669a0e2991e6ac7f186422ec16f"><td class="memItemLeft" align="right" valign="top">
+character(len=1), parameter&#160;</td><td class="memItemRight" valign="bottom"><b>squote</b> = &quot;'&quot;</td></tr>
+<tr class="separator:ga68d6f669a0e2991e6ac7f186422ec16f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4191f0487910b2361ee125f707880161"><td class="memItemLeft" align="right" valign="top">
+character(len=1), parameter&#160;</td><td class="memItemRight" valign="bottom"><b>tab</b> = char(9)</td></tr>
+<tr class="separator:ga4191f0487910b2361ee125f707880161"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga38cae289dd2234eb3d4c61e66e6bb743"><td class="memItemLeft" align="right" valign="top">
+integer, parameter&#160;</td><td class="memItemRight" valign="bottom"><b>null_type</b> = 0</td></tr>
+<tr class="separator:ga38cae289dd2234eb3d4c61e66e6bb743"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac5627575e34b91f40f69e85eae5bd778"><td class="memItemLeft" align="right" valign="top">
+integer, parameter&#160;</td><td class="memItemRight" valign="bottom"><b>integer_type</b> = 1</td></tr>
+<tr class="separator:gac5627575e34b91f40f69e85eae5bd778"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4dc49ce37e699283534c063f01cdcedc"><td class="memItemLeft" align="right" valign="top">
+integer, parameter&#160;</td><td class="memItemRight" valign="bottom"><b>list_type</b> = 2</td></tr>
+<tr class="separator:ga4dc49ce37e699283534c063f01cdcedc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0094168813cdf86e86989adc950185a6"><td class="memItemLeft" align="right" valign="top">
+integer, parameter&#160;</td><td class="memItemRight" valign="bottom"><b>logical_type</b> = 3</td></tr>
+<tr class="separator:ga0094168813cdf86e86989adc950185a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9fbda8a697c259b7741b80decb32b659"><td class="memItemLeft" align="right" valign="top">
+integer, parameter&#160;</td><td class="memItemRight" valign="bottom"><b>real_type</b> = 4</td></tr>
+<tr class="separator:ga9fbda8a697c259b7741b80decb32b659"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad9270eb66775e20bd0ecab33ea07e033"><td class="memItemLeft" align="right" valign="top">
+integer, parameter&#160;</td><td class="memItemRight" valign="bottom"><b>string_type</b> = 5</td></tr>
+<tr class="separator:gad9270eb66775e20bd0ecab33ea07e033"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga966f29bac45802e2f972fb97e1f794f8"><td class="memItemLeft" align="right" valign="top">
+integer, parameter&#160;</td><td class="memItemRight" valign="bottom"><b>num_types</b> = 5</td></tr>
+<tr class="separator:ga966f29bac45802e2f972fb97e1f794f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga27219557f53d2332cd8789d4a3e2401a"><td class="memItemLeft" align="right" valign="top">
+integer, parameter&#160;</td><td class="memItemRight" valign="bottom"><b>line_len</b> = 256</td></tr>
+<tr class="separator:ga27219557f53d2332cd8789d4a3e2401a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7e1c3b33a7c7e60d79b3c5d0e1b1998e"><td class="memItemLeft" align="right" valign="top">
+integer, parameter&#160;</td><td class="memItemRight" valign="bottom"><b>array_increment</b> = 10</td></tr>
+<tr class="separator:ga7e1c3b33a7c7e60d79b3c5d0e1b1998e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf9fa02d5e1e261e394e7d1aa7880aad8"><td class="memItemLeft" align="right" valign="top">
+integer, parameter&#160;</td><td class="memItemRight" valign="bottom"><b>max_fields</b> = 250</td></tr>
+<tr class="separator:gaf9fa02d5e1e261e394e7d1aa7880aad8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad97301d6c1a11e562bbcd34074faa48a"><td class="memItemLeft" align="right" valign="top">
+integer, parameter&#160;</td><td class="memItemRight" valign="bottom"><b>max_field_methods</b> = 250</td></tr>
+<tr class="separator:gad97301d6c1a11e562bbcd34074faa48a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaba49b5dcddc36cb9e7839583b5c99cdf"><td class="memItemLeft" align="right" valign="top">
+type(field_mgr_type), dimension(max_fields), private&#160;</td><td class="memItemRight" valign="bottom"><b>fields</b></td></tr>
+<tr class="separator:gaba49b5dcddc36cb9e7839583b5c99cdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9a69c46831acb6a7fef0d01b33df58d7"><td class="memItemLeft" align="right" valign="top">
+character(len=fm_path_name_len)&#160;</td><td class="memItemRight" valign="bottom"><b>loop_list</b></td></tr>
+<tr class="separator:ga9a69c46831acb6a7fef0d01b33df58d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad20c9415215f25058e8884841b2b379a"><td class="memItemLeft" align="right" valign="top">
+character(len=fm_type_name_len), dimension(num_types)&#160;</td><td class="memItemRight" valign="bottom"><b>field_type_name</b></td></tr>
+<tr class="separator:gad20c9415215f25058e8884841b2b379a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf0025f05c62f5119d8d86e153379783b"><td class="memItemLeft" align="right" valign="top">
+character(len=fm_field_name_len)&#160;</td><td class="memItemRight" valign="bottom"><b>save_root_name</b></td></tr>
+<tr class="separator:gaf0025f05c62f5119d8d86e153379783b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga296f92f18dbda93d823411bbf7e7d4e5"><td class="memItemLeft" align="right" valign="top">
+character(len=52)&#160;</td><td class="memItemRight" valign="bottom"><b>set</b> = &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz&quot;</td></tr>
+<tr class="separator:ga296f92f18dbda93d823411bbf7e7d4e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab1a3d1f94c355f4ec335a75e08e537f0"><td class="memItemLeft" align="right" valign="top">
+character(len=50)&#160;</td><td class="memItemRight" valign="bottom"><b>set_nonexp</b> = &quot;ABCDFGHIJKLMNOPQRSTUVWXYZabcdfghijklmnopqrstuvwxyz&quot;</td></tr>
+<tr class="separator:gab1a3d1f94c355f4ec335a75e08e537f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8e29a47a210232e8689cc8a419c85bd9"><td class="memItemLeft" align="right" valign="top">
+character(len=13)&#160;</td><td class="memItemRight" valign="bottom"><b>setnum</b> = &quot;0123456789+-.&quot;</td></tr>
+<tr class="separator:ga8e29a47a210232e8689cc8a419c85bd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabfaffcec6d80f4f9dd8232df6671d99b"><td class="memItemLeft" align="right" valign="top">
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>num_fields</b> = 0</td></tr>
+<tr class="separator:gabfaffcec6d80f4f9dd8232df6671d99b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga182926d8ebe3de18e0a59daa5095cd25"><td class="memItemLeft" align="right" valign="top">
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>verb</b> = 0</td></tr>
+<tr class="separator:ga182926d8ebe3de18e0a59daa5095cd25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacbfb4224cc1a9146d1fe30e32787a416"><td class="memItemLeft" align="right" valign="top">
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>verb_level_warn</b> = 0</td></tr>
+<tr class="separator:gacbfb4224cc1a9146d1fe30e32787a416"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8ed0efcc1961e0349923e7374bf68ec3"><td class="memItemLeft" align="right" valign="top">
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>verb_level_note</b> = 0</td></tr>
+<tr class="separator:ga8ed0efcc1961e0349923e7374bf68ec3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga049fd4a1ead479fd0860f28c4270c1f0"><td class="memItemLeft" align="right" valign="top">
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>default_verbosity</b> = 0</td></tr>
+<tr class="separator:ga049fd4a1ead479fd0860f28c4270c1f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga18695b24cdf363aa67c19e61e525a47e"><td class="memItemLeft" align="right" valign="top">
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>max_verbosity</b> = 1</td></tr>
+<tr class="separator:ga18695b24cdf363aa67c19e61e525a47e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9fa12e719349e733e898c95717475fac"><td class="memItemLeft" align="right" valign="top">
+type(field_def), pointer&#160;</td><td class="memItemRight" valign="bottom"><b>loop_list_p</b> =&gt; NULL()</td></tr>
+<tr class="separator:ga9fa12e719349e733e898c95717475fac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga08c4adcf3935f039c20551a2663cc48d"><td class="memItemLeft" align="right" valign="top">
+type(field_def), pointer&#160;</td><td class="memItemRight" valign="bottom"><b>current_list_p</b> =&gt; NULL()</td></tr>
+<tr class="separator:ga08c4adcf3935f039c20551a2663cc48d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1bc4994e74c672782b567153601ce890"><td class="memItemLeft" align="right" valign="top">
+type(field_def), pointer&#160;</td><td class="memItemRight" valign="bottom"><b>root_p</b> =&gt; NULL()</td></tr>
+<tr class="separator:ga1bc4994e74c672782b567153601ce890"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac026315b908062a55bbc6bee52282aec"><td class="memItemLeft" align="right" valign="top">
+type(field_def), pointer&#160;</td><td class="memItemRight" valign="bottom"><b>save_root_parent_p</b> =&gt; NULL()</td></tr>
+<tr class="separator:gac026315b908062a55bbc6bee52282aec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa3dd16a43def374217ef7afe4cbc5529"><td class="memItemLeft" align="right" valign="top">
+type(field_def), target, save&#160;</td><td class="memItemRight" valign="bottom"><b>root</b></td></tr>
+<tr class="separator:gaa3dd16a43def374217ef7afe4cbc5529"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>File for <a class="el" href="group__field__manager__mod.html">Field_manager_mod</a>. </p>

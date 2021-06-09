@@ -91,7 +91,8 @@ $(document).ready(function(){initNavTree('group__mosaic__mod.html',''); initResi
 
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions/Subroutines</a>  </div>
+<a href="#func-members">Functions/Subroutines</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">mosaic_mod<div class="ingroups"><a class="el" href="group__mosaic.html">Mosaic</a></div></div>  </div>
 </div><!--header-->
@@ -102,6 +103,9 @@ $(document).ready(function(){initNavTree('group__mosaic__mod.html',''); initResi
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
+<tr class="memitem:gae7e9878b21e789b9c82ef0c90953f5a0"><td class="memItemLeft" align="right" valign="top"><a id="gae7e9878b21e789b9c82ef0c90953f5a0"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>mosaic_init</b> ()</td></tr>
+<tr class="separator:gae7e9878b21e789b9c82ef0c90953f5a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga9fc53f63a04cfa5b7db5c35a7e20ff64"><td class="memItemLeft" align="right" valign="top"><a id="ga9fc53f63a04cfa5b7db5c35a7e20ff64"></a>
 integer function, public&#160;</td><td class="memItemRight" valign="bottom"><b>get_mosaic_xgrid_size</b> (xgrid_file)</td></tr>
 <tr class="separator:ga9fc53f63a04cfa5b7db5c35a7e20ff64"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -120,6 +124,9 @@ subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>get_mos
 <tr class="memitem:ga45cd8908e6214c21ee8cff33a44faa24"><td class="memItemLeft" align="right" valign="top"><a id="ga45cd8908e6214c21ee8cff33a44faa24"></a>
 subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>get_mosaic_contact</b> (mosaic_file, tile1, tile2, istart1, iend1, jstart1, jend1, istart2, iend2, jstart2, jend2)</td></tr>
 <tr class="separator:ga45cd8908e6214c21ee8cff33a44faa24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga347b163d27605cd2bd09d999aca119b0"><td class="memItemLeft" align="right" valign="top"><a id="ga347b163d27605cd2bd09d999aca119b0"></a>
+integer function&#160;</td><td class="memItemRight" valign="bottom"><b>transfer_to_model_index</b> (istart, iend, refine_ratio)</td></tr>
+<tr class="separator:ga347b163d27605cd2bd09d999aca119b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga8db535add98187f20cc1536aea5c5375"><td class="memItemLeft" align="right" valign="top"><a id="ga8db535add98187f20cc1536aea5c5375"></a>
 subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>calc_mosaic_grid_area</b> (lon, lat, area)</td></tr>
 <tr class="separator:ga8db535add98187f20cc1536aea5c5375"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -129,6 +136,27 @@ subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>calc_mo
 <tr class="memitem:gaa383575e5a216fc381a88a8a2e316df8"><td class="memItemLeft" align="right" valign="top"><a id="gaa383575e5a216fc381a88a8a2e316df8"></a>
 logical function, public&#160;</td><td class="memItemRight" valign="bottom"><b>is_inside_polygon</b> (lon1, lat1, lon2, lat2)</td></tr>
 <tr class="separator:gaa383575e5a216fc381a88a8a2e316df8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaffe450199d0979b2f344e18a29b0af46"><td class="memItemLeft" align="right" valign="top"><a id="gaffe450199d0979b2f344e18a29b0af46"></a>
+integer function&#160;</td><td class="memItemRight" valign="bottom"><b>parse_string</b> (string, set, value)</td></tr>
+<tr class="separator:gaffe450199d0979b2f344e18a29b0af46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:gad1433095b0086ee21c4476545fd9c456"><td class="memItemLeft" align="right" valign="top"><a id="gad1433095b0086ee21c4476545fd9c456"></a>
+integer, parameter&#160;</td><td class="memItemRight" valign="bottom"><b>max_name</b> = 256</td></tr>
+<tr class="separator:gad1433095b0086ee21c4476545fd9c456"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga90a4dac6149a9c8accf45db2598d1b92"><td class="memItemLeft" align="right" valign="top"><a id="ga90a4dac6149a9c8accf45db2598d1b92"></a>
+integer, parameter&#160;</td><td class="memItemRight" valign="bottom"><b>max_file</b> = 1024</td></tr>
+<tr class="separator:ga90a4dac6149a9c8accf45db2598d1b92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0476f9a9f2ae4d039b659d413c6690a7"><td class="memItemLeft" align="right" valign="top"><a id="ga0476f9a9f2ae4d039b659d413c6690a7"></a>
+integer, parameter&#160;</td><td class="memItemRight" valign="bottom"><b>x_refine</b> = 2</td></tr>
+<tr class="separator:ga0476f9a9f2ae4d039b659d413c6690a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga67f7d0ba3a2d6da6c666dcf827ec0990"><td class="memItemLeft" align="right" valign="top"><a id="ga67f7d0ba3a2d6da6c666dcf827ec0990"></a>
+integer, parameter&#160;</td><td class="memItemRight" valign="bottom"><b>y_refine</b> = 2</td></tr>
+<tr class="separator:ga67f7d0ba3a2d6da6c666dcf827ec0990"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad369225c254bc7bda087334ca5d13096"><td class="memItemLeft" align="right" valign="top"><a id="gad369225c254bc7bda087334ca5d13096"></a>
+logical&#160;</td><td class="memItemRight" valign="bottom"><b>module_is_initialized</b> = .true.</td></tr>
+<tr class="separator:gad369225c254bc7bda087334ca5d13096"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Implements some utility routines to read mosaic information. </p>

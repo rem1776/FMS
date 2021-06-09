@@ -128,9 +128,9 @@ $(document).ready(function(){initNavTree('mosaic_8F90_source.html',''); initResi
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">!&gt; @{</span></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">module</span> mosaic_mod</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keywordtype">use </span>mpp_mod,    <span class="keywordtype">only</span> : mpp_error, fatal, <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>, mpp_root_pe</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keywordtype">use </span>mpp_mod,    <span class="keywordtype">only</span> : <a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>, fatal, <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>, mpp_root_pe</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keywordtype">use </span>mpp_io_mod, <span class="keywordtype">only</span> : mpp_multi</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keywordtype">use </span>fms_io_mod, <span class="keywordtype">only</span> : dimension_size, field_exist, <a class="code" href="interfacefms__io__mod_1_1read__data.html">read_data</a>, read_compressed</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keywordtype">use </span>fms_io_mod, <span class="keywordtype">only</span> : dimension_size, field_exist, <a class="code" href="interfacefms__io__mod_1_1read__data.html">read_data</a>, <a class="code" href="interfacefms__io__mod_1_1read__compressed.html">read_compressed</a></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keywordtype">use </span>constants_mod, <span class="keywordtype">only</span> : <a class="code" href="group__constants__mod.html#gadc909cc70e4e20bc99fc3d3c53125808">pi</a>, <a class="code" href="group__constants__mod.html#ga4a9bc4832415870f8640fd6d3f81e346">radius</a></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keywordtype">implicit none</span></div>
@@ -254,11 +254,11 @@ $(document).ready(function(){initNavTree('mosaic_8F90_source.html',''); initResi
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <span class="keywordflow">if</span>(<span class="keyword">present</span>(ibegin) .and. <span class="keyword">present</span>(iend)) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;       istart = ibegin</div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;       nxgrid = iend - ibegin + 1</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;       <span class="keywordflow">if</span>(nxgrid .NE. <span class="keyword">size</span>(i1(:))) <span class="keyword">call </span>mpp_error(fatal, .NE.<span class="stringliteral">&quot;get_mosaic_xgrid: nxgrid  size(i1(:))&quot;</span>)</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;       <span class="keywordflow">if</span>(nxgrid .NE. <span class="keyword">size</span>(j1(:))) <span class="keyword">call </span>mpp_error(fatal, .NE.<span class="stringliteral">&quot;get_mosaic_xgrid: nxgrid  size(j1(:))&quot;</span>)</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;       <span class="keywordflow">if</span>(nxgrid .NE. <span class="keyword">size</span>(i2(:))) <span class="keyword">call </span>mpp_error(fatal, .NE.<span class="stringliteral">&quot;get_mosaic_xgrid: nxgrid  size(i2(:))&quot;</span>)</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;       <span class="keywordflow">if</span>(nxgrid .NE. <span class="keyword">size</span>(j2(:))) <span class="keyword">call </span>mpp_error(fatal, .NE.<span class="stringliteral">&quot;get_mosaic_xgrid: nxgrid  size(j2(:))&quot;</span>)</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;       <span class="keywordflow">if</span>(nxgrid .NE. <span class="keyword">size</span>(area(:))) <span class="keyword">call </span>mpp_error(fatal, .NE.<span class="stringliteral">&quot;get_mosaic_xgrid: nxgrid  size(area(:))&quot;</span>)</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;       <span class="keywordflow">if</span>(nxgrid .NE. <span class="keyword">size</span>(i1(:))) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, .NE.<span class="stringliteral">&quot;get_mosaic_xgrid: nxgrid  size(i1(:))&quot;</span>)</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;       <span class="keywordflow">if</span>(nxgrid .NE. <span class="keyword">size</span>(j1(:))) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, .NE.<span class="stringliteral">&quot;get_mosaic_xgrid: nxgrid  size(j1(:))&quot;</span>)</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;       <span class="keywordflow">if</span>(nxgrid .NE. <span class="keyword">size</span>(i2(:))) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, .NE.<span class="stringliteral">&quot;get_mosaic_xgrid: nxgrid  size(i2(:))&quot;</span>)</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;       <span class="keywordflow">if</span>(nxgrid .NE. <span class="keyword">size</span>(j2(:))) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, .NE.<span class="stringliteral">&quot;get_mosaic_xgrid: nxgrid  size(j2(:))&quot;</span>)</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;       <span class="keywordflow">if</span>(nxgrid .NE. <span class="keyword">size</span>(area(:))) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, .NE.<span class="stringliteral">&quot;get_mosaic_xgrid: nxgrid  size(area(:))&quot;</span>)</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;       istart = 1</div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;       nxgrid = <span class="keyword">size</span>(i1(:))</div>
@@ -266,12 +266,12 @@ $(document).ready(function(){initNavTree('mosaic_8F90_source.html',''); initResi
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160; </div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    start  = 1; nread = 1</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    start(1) = istart; nread(1) = nxgrid</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="keyword">call </span>read_compressed(xgrid_file, <span class="stringliteral">&#39;xgrid_area&#39;</span>, area, start=start, nread=nread, threading=mpp_multi)</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacefms__io__mod_1_1read__compressed.html">read_compressed</a>(xgrid_file, <span class="stringliteral">&#39;xgrid_area&#39;</span>, area, start=start, nread=nread, threading=mpp_multi)</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    start = 1; nread = 1</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    nread(1) = 2</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    start(2) = istart; nread(2) = nxgrid</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <span class="keyword">call </span>read_compressed(xgrid_file, <span class="stringliteral">&#39;tile1_cell&#39;</span>, tile1_cell, start=start, nread=nread, threading=mpp_multi)</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="keyword">call </span>read_compressed(xgrid_file, <span class="stringliteral">&#39;tile2_cell&#39;</span>, tile2_cell, start=start, nread=nread, threading=mpp_multi)</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacefms__io__mod_1_1read__compressed.html">read_compressed</a>(xgrid_file, <span class="stringliteral">&#39;tile1_cell&#39;</span>, tile1_cell, start=start, nread=nread, threading=mpp_multi)</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacefms__io__mod_1_1read__compressed.html">read_compressed</a>(xgrid_file, <span class="stringliteral">&#39;tile2_cell&#39;</span>, tile2_cell, start=start, nread=nread, threading=mpp_multi)</div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160; </div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;     <span class="keywordflow">do</span> n = 1, nxgrid</div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;       i1(n) = tile1_cell(1,n)</div>
@@ -374,15 +374,15 @@ $(document).ready(function(){initNavTree('mosaic_8F90_source.html',''); initResi
 <div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160; </div>
 <div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    ntiles = get_mosaic_ntiles(mosaic_file)</div>
 <div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    <span class="keywordflow">if</span>(ntiles .NE. <span class="keyword">size</span>(nx(:)) .OR. ntiles .NE. <span class="keyword">size</span>(ny(:)) ) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;      <span class="keyword">call </span>mpp_error(fatal, <span class="stringliteral">&quot;get_mosaic_grid_sizes: size of nx/ny does not equal to ntiles&quot;</span>)</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;      <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, <span class="stringliteral">&quot;get_mosaic_grid_sizes: size of nx/ny does not equal to ntiles&quot;</span>)</div>
 <div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;<span class="keywordflow">    endif</span></div>
 <div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    <span class="keywordflow">do</span> n = 1, ntiles</div>
 <div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;      <span class="keyword">call </span><a class="code" href="interfacefms__io__mod_1_1read__data.html">read_data</a>(mosaic_file, <span class="stringliteral">&#39;gridfiles&#39;</span>, gridfile, level=n)</div>
 <div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;      gridfile = grid_dir//trim(gridfile)</div>
 <div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;      nx(n) = dimension_size(gridfile, <span class="stringliteral">&quot;nx&quot;</span>)</div>
 <div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;      ny(n) = dimension_size(gridfile, <span class="stringliteral">&quot;ny&quot;</span>)</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;      <span class="keywordflow">if</span>(mod(nx(n),x_refine) .NE. 0) <span class="keyword">call </span>mpp_error(fatal, <span class="stringliteral">&quot;get_mosaic_grid_sizes: nx is not divided by x_refine&quot;</span>);</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;      <span class="keywordflow">if</span>(mod(ny(n),y_refine) .NE. 0) <span class="keyword">call </span>mpp_error(fatal, <span class="stringliteral">&quot;get_mosaic_grid_sizes: ny is not divided by y_refine&quot;</span>);</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;      <span class="keywordflow">if</span>(mod(nx(n),x_refine) .NE. 0) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, <span class="stringliteral">&quot;get_mosaic_grid_sizes: nx is not divided by x_refine&quot;</span>);</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;      <span class="keywordflow">if</span>(mod(ny(n),y_refine) .NE. 0) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, <span class="stringliteral">&quot;get_mosaic_grid_sizes: ny is not divided by y_refine&quot;</span>);</div>
 <div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;      nx(n) = nx(n)/x_refine;</div>
 <div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;      ny(n) = ny(n)/y_refine;</div>
 <div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;<span class="keywordflow">    enddo</span></div>
@@ -461,7 +461,7 @@ $(document).ready(function(){initNavTree('mosaic_8F90_source.html',''); initResi
 <div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;    <span class="keywordflow">do</span> n = 1, ncontacts</div>
 <div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;      <span class="keyword">call </span><a class="code" href="interfacefms__io__mod_1_1read__data.html">read_data</a>(mosaic_file, <span class="stringliteral">&quot;contacts&quot;</span>, contacts, level=n)</div>
 <div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;      nstr = parse_string(contacts, <span class="stringliteral">&quot;:&quot;</span>, strlist)</div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;      <span class="keywordflow">if</span>(nstr .NE. 4) <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;      <span class="keywordflow">if</span>(nstr .NE. 4) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, &amp;</div>
 <div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;         <span class="stringliteral">&quot;mosaic_mod(get_mosaic_contact): number of elements in contact seperated by :/:: should be 4&quot;</span>)</div>
 <div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;      found = .false.</div>
 <div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;      <span class="keywordflow">do</span> m = 1, ntiles</div>
@@ -472,7 +472,7 @@ $(document).ready(function(){initNavTree('mosaic_8F90_source.html',''); initResi
 <div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;<span class="keywordflow">        endif</span></div>
 <div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;<span class="keywordflow">      enddo</span></div>
 <div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160; </div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;      <span class="keywordflow">if</span>(.not.found) <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;      <span class="keywordflow">if</span>(.not.found) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, &amp;</div>
 <div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;         <span class="stringliteral">&quot;mosaic_mod(get_mosaic_contact):the first tile name specified in contact is not found in tile list&quot;</span>)</div>
 <div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160; </div>
 <div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;      found = .false.</div>
@@ -484,7 +484,7 @@ $(document).ready(function(){initNavTree('mosaic_8F90_source.html',''); initResi
 <div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;<span class="keywordflow">        endif</span></div>
 <div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;<span class="keywordflow">      enddo</span></div>
 <div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160; </div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;      <span class="keywordflow">if</span>(.not.found) <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;      <span class="keywordflow">if</span>(.not.found) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, &amp;</div>
 <div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;         <span class="stringliteral">&quot;mosaic_mod(get_mosaic_contact):the second tile name specified in contact is not found in tile list&quot;</span>)</div>
 <div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160; </div>
 <div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;      <span class="keyword">call </span><a class="code" href="interfacefms__io__mod_1_1read__data.html">read_data</a>(mosaic_file, <span class="stringliteral">&quot;contact_index&quot;</span>, contacts, level=n)</div>
@@ -497,32 +497,32 @@ $(document).ready(function(){initNavTree('mosaic_8F90_source.html',''); initResi
 <div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;            print*, <span class="stringliteral">&quot;strlist is &quot;</span>, trim(strlist(m))</div>
 <div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;<span class="keywordflow">          enddo</span></div>
 <div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;<span class="keywordflow">        endif</span></div>
-<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;        <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;        <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, &amp;</div>
 <div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;               <span class="stringliteral">&quot;mosaic_mod(get_mosaic_contact): number of elements in contact_index seperated by :/, should be 8&quot;</span>)</div>
 <div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;<span class="keywordflow">      endif</span></div>
 <div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;      <span class="keyword">read</span>(strlist(1), *, iostat=ios) istart1(n)</div>
-<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;      <span class="keywordflow">if</span>(ios .NE. 0) <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;      <span class="keywordflow">if</span>(ios .NE. 0) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, &amp;</div>
 <div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;         <span class="stringliteral">&quot;mosaic_mod(get_mosaic_contact): Error in reading istart1&quot;</span>)</div>
 <div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;      <span class="keyword">read</span>(strlist(2), *, iostat=ios) iend1(n)</div>
-<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;      <span class="keywordflow">if</span>(ios .NE. 0) <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;      <span class="keywordflow">if</span>(ios .NE. 0) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, &amp;</div>
 <div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;         <span class="stringliteral">&quot;mosaic_mod(get_mosaic_contact): Error in reading iend1&quot;</span>)</div>
 <div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;      <span class="keyword">read</span>(strlist(3), *, iostat=ios) jstart1(n)</div>
-<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;      <span class="keywordflow">if</span>(ios .NE. 0) <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;      <span class="keywordflow">if</span>(ios .NE. 0) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, &amp;</div>
 <div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;         <span class="stringliteral">&quot;mosaic_mod(get_mosaic_contact): Error in reading jstart1&quot;</span>)</div>
 <div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;      <span class="keyword">read</span>(strlist(4), *, iostat=ios) jend1(n)</div>
-<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;      <span class="keywordflow">if</span>(ios .NE. 0) <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;      <span class="keywordflow">if</span>(ios .NE. 0) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, &amp;</div>
 <div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;         <span class="stringliteral">&quot;mosaic_mod(get_mosaic_contact): Error in reading jend1&quot;</span>)</div>
 <div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;      <span class="keyword">read</span>(strlist(5), *, iostat=ios) istart2(n)</div>
-<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;      <span class="keywordflow">if</span>(ios .NE. 0) <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;      <span class="keywordflow">if</span>(ios .NE. 0) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, &amp;</div>
 <div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;         <span class="stringliteral">&quot;mosaic_mod(get_mosaic_contact): Error in reading istart2&quot;</span>)</div>
 <div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;      <span class="keyword">read</span>(strlist(6), *, iostat=ios) iend2(n)</div>
-<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;      <span class="keywordflow">if</span>(ios .NE. 0) <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;      <span class="keywordflow">if</span>(ios .NE. 0) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, &amp;</div>
 <div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;         <span class="stringliteral">&quot;mosaic_mod(get_mosaic_contact): Error in reading iend2&quot;</span>)</div>
 <div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;      <span class="keyword">read</span>(strlist(7), *, iostat=ios) jstart2(n)</div>
-<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;      <span class="keywordflow">if</span>(ios .NE. 0) <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;      <span class="keywordflow">if</span>(ios .NE. 0) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, &amp;</div>
 <div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;         <span class="stringliteral">&quot;mosaic_mod(get_mosaic_contact): Error in reading jstart2&quot;</span>)</div>
 <div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;      <span class="keyword">read</span>(strlist(8), *, iostat=ios) jend2(n)</div>
-<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;      <span class="keywordflow">if</span>(ios .NE. 0) <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;      <span class="keywordflow">if</span>(ios .NE. 0) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, &amp;</div>
 <div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;         <span class="stringliteral">&quot;mosaic_mod(get_mosaic_contact): Error in reading jend2&quot;</span>)</div>
 <div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160; </div>
 <div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;      i1_type = transfer_to_model_index(istart1(n), iend1(n), x_refine)</div>
@@ -530,11 +530,11 @@ $(document).ready(function(){initNavTree('mosaic_8F90_source.html',''); initResi
 <div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;      i2_type = transfer_to_model_index(istart2(n), iend2(n), x_refine)</div>
 <div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;      j2_type = transfer_to_model_index(jstart2(n), jend2(n), y_refine)</div>
 <div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160; </div>
-<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;      <span class="keywordflow">if</span>( i1_type == 0 .AND. j1_type == 0 ) <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;      <span class="keywordflow">if</span>( i1_type == 0 .AND. j1_type == 0 ) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, &amp;</div>
 <div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;         <span class="stringliteral">&quot;mosaic_mod(get_mosaic_contact): istart1==iend1 and jstart1==jend1&quot;</span>)</div>
-<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;      <span class="keywordflow">if</span>( i2_type == 0 .AND. j2_type == 0 ) <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;      <span class="keywordflow">if</span>( i2_type == 0 .AND. j2_type == 0 ) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, &amp;</div>
 <div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;         <span class="stringliteral">&quot;mosaic_mod(get_mosaic_contact): istart2==iend2 and jstart2==jend2&quot;</span>)</div>
-<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;      <span class="keywordflow">if</span>( i1_type + j1_type .NE. i2_type + j2_type ) <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;      <span class="keywordflow">if</span>( i1_type + j1_type .NE. i2_type + j2_type ) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, &amp;</div>
 <div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;         <span class="stringliteral">&quot;mosaic_mod(get_mosaic_contact): It is not a line or overlap contact&quot;</span>)</div>
 <div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160; </div>
 <div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;<span class="keywordflow">   enddo</span></div>
@@ -567,7 +567,7 @@ $(document).ready(function(){initNavTree('mosaic_8F90_source.html',''); initResi
 <div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;        istart = istart_in</div>
 <div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;        iend   = iend_in + 1</div>
 <div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;<span class="keywordflow">      endif</span></div>
-<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;      <span class="keywordflow">if</span>( mod(istart, refine_ratio) .NE. 0 .OR. mod(iend,refine_ratio) .NE. 0) <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
+<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;      <span class="keywordflow">if</span>( mod(istart, refine_ratio) .NE. 0 .OR. mod(iend,refine_ratio) .NE. 0) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, &amp;</div>
 <div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;         <span class="stringliteral">&quot;mosaic_mod(transfer_to_model_index): mismatch between refine_ratio and istart/iend&quot;</span>)</div>
 <div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;      istart = istart/refine_ratio</div>
 <div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;      iend = iend/refine_ratio</div>
@@ -609,9 +609,9 @@ $(document).ready(function(){initNavTree('mosaic_8F90_source.html',''); initResi
 <div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;     nlat = <span class="keyword">size</span>(area,2)</div>
 <div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;     <span class="comment">! make sure size of lon, lat and area are consitency</span></div>
 <div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;     <span class="keywordflow">if</span>( <span class="keyword">size</span>(lon,1) .NE. nlon+1 .OR. <span class="keyword">size</span>(lat,1) .NE. nlon+1 ) &amp;</div>
-<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;        <span class="keyword">call </span>mpp_error(fatal, <span class="stringliteral">&quot;mosaic_mod: size(lon,1) and size(lat,1) should equal to size(area,1)+1&quot;</span>)</div>
+<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;        <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, <span class="stringliteral">&quot;mosaic_mod: size(lon,1) and size(lat,1) should equal to size(area,1)+1&quot;</span>)</div>
 <div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;     <span class="keywordflow">if</span>( <span class="keyword">size</span>(lon,2) .NE. nlat+1 .OR. <span class="keyword">size</span>(lat,2) .NE. nlat+1 ) &amp;</div>
-<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;        <span class="keyword">call </span>mpp_error(fatal, <span class="stringliteral">&quot;mosaic_mod: size(lon,2) and size(lat,2) should equal to size(area,2)+1&quot;</span>)</div>
+<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;        <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, <span class="stringliteral">&quot;mosaic_mod: size(lon,2) and size(lat,2) should equal to size(area,2)+1&quot;</span>)</div>
 <div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160; </div>
 <div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;     <span class="keyword">call </span>get_grid_area( nlon, nlat, lon, lat, area)</div>
 <div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160; </div>
@@ -650,9 +650,9 @@ $(document).ready(function(){initNavTree('mosaic_8F90_source.html',''); initResi
 <div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;     nlat = <span class="keyword">size</span>(area,2)</div>
 <div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;     <span class="comment">! make sure size of lon, lat and area are consitency</span></div>
 <div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;     <span class="keywordflow">if</span>( <span class="keyword">size</span>(lon,1) .NE. nlon+1 .OR. <span class="keyword">size</span>(lat,1) .NE. nlon+1 ) &amp;</div>
-<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;        <span class="keyword">call </span>mpp_error(fatal, <span class="stringliteral">&quot;mosaic_mod: size(lon,1) and size(lat,1) should equal to size(area,1)+1&quot;</span>)</div>
+<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;        <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, <span class="stringliteral">&quot;mosaic_mod: size(lon,1) and size(lat,1) should equal to size(area,1)+1&quot;</span>)</div>
 <div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;     <span class="keywordflow">if</span>( <span class="keyword">size</span>(lon,2) .NE. nlat+1 .OR. <span class="keyword">size</span>(lat,2) .NE. nlat+1 ) &amp;</div>
-<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;        <span class="keyword">call </span>mpp_error(fatal, <span class="stringliteral">&quot;mosaic_mod: size(lon,2) and size(lat,2) should equal to size(area,2)+1&quot;</span>)</div>
+<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;        <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, <span class="stringliteral">&quot;mosaic_mod: size(lon,2) and size(lat,2) should equal to size(area,2)+1&quot;</span>)</div>
 <div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160; </div>
 <div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;     <span class="keyword">call </span>get_grid_great_circle_area( nlon, nlat, lon, lat, area)</div>
 <div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160; </div>
@@ -691,7 +691,7 @@ $(document).ready(function(){initNavTree('mosaic_8F90_source.html',''); initResi
 <div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;  <span class="keywordtype">integer</span> :: nelem, length, first, last</div>
 <div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160; </div>
 <div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;     nelem = <span class="keyword">size</span>(value(:))</div>
-<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;     length = len_trim(string)</div>
+<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;     length = len_trim(<a class="code" href="interfacefms__io__mod_1_1string.html">string</a>)</div>
 <div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160; </div>
 <div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;     first = 1; last = 0</div>
 <div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;     parse_string = 0</div>
@@ -699,21 +699,21 @@ $(document).ready(function(){initNavTree('mosaic_8F90_source.html',''); initResi
 <div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;     <span class="keywordflow">do</span> <span class="keywordflow">while</span>(first .LE. length)</div>
 <div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;       parse_string = parse_string + 1</div>
 <div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;       <span class="keywordflow">if</span>(parse_string&gt;nelem) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;         <span class="keyword">call </span>mpp_error(fatal, <span class="stringliteral">&quot;mosaic_mod(parse_string) : number of element is greater than size(value(:))&quot;</span>)</div>
+<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;         <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, <span class="stringliteral">&quot;mosaic_mod(parse_string) : number of element is greater than size(value(:))&quot;</span>)</div>
 <div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;<span class="keywordflow">       endif</span></div>
-<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;       last = first - 1 + scan(string(first:length), set)</div>
+<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;       last = first - 1 + scan(<a class="code" href="interfacefms__io__mod_1_1string.html">string</a>(first:length), set)</div>
 <div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;       <span class="keywordflow">if</span>(last == first-1 ) <span class="keywordflow">then</span>  <span class="comment">! not found, end of string</span></div>
-<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;         value(parse_string) = string(first:length)</div>
+<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;         value(parse_string) = <a class="code" href="interfacefms__io__mod_1_1string.html">string</a>(first:length)</div>
 <div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;         <span class="keywordflow">exit</span></div>
 <div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;       <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;         <span class="keywordflow">if</span>(last &lt;= first) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;           <span class="keyword">call </span>mpp_error(fatal, <span class="stringliteral">&quot;mosaic_mod(parse_string) : last &lt;= first&quot;</span>)</div>
+<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;           <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, <span class="stringliteral">&quot;mosaic_mod(parse_string) : last &lt;= first&quot;</span>)</div>
 <div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;<span class="keywordflow">         endif</span></div>
-<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;         value(parse_string) = string(first:(last-1))</div>
+<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;         value(parse_string) = <a class="code" href="interfacefms__io__mod_1_1string.html">string</a>(first:(last-1))</div>
 <div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;         first = last + 1</div>
 <div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;         <span class="comment">! scan to make sure the next is not the character in the set</span></div>
 <div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;         <span class="keywordflow">do</span> <span class="keywordflow">while</span> (first == last+1)</div>
-<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;           last = first - 1 + scan(string(first:length), set)</div>
+<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;           last = first - 1 + scan(<a class="code" href="interfacefms__io__mod_1_1string.html">string</a>(first:length), set)</div>
 <div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;           <span class="keywordflow">if</span>(last == first) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;             first = first+1</div>
 <div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;           <span class="keywordflow">else</span></div>
@@ -737,9 +737,12 @@ $(document).ready(function(){initNavTree('mosaic_8F90_source.html',''); initResi
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="ainterfacefms__io__mod_1_1read__data_html"><div class="ttname"><a href="interfacefms__io__mod_1_1read__data.html">fms_io_mod::read_data</a></div><div class="ttdef"><b>Definition:</b> <a href="fms__io_8F90_source.html#l00314">fms_io.F90:314</a></div></div>
+<div class="ttc" id="ainterfacempp__mod_1_1mpp__error_html"><div class="ttname"><a href="interfacempp__mod_1_1mpp__error.html">mpp_mod::mpp_error</a></div><div class="ttdef"><b>Definition:</b> <a href="mpp_8F90_source.html#l00373">mpp.F90:373</a></div></div>
+<div class="ttc" id="ainterfacefms__io__mod_1_1string_html"><div class="ttname"><a href="interfacefms__io__mod_1_1string.html">fms_io_mod::string</a></div><div class="ttdef"><b>Definition:</b> <a href="fms__io_8F90_source.html#l00516">fms_io.F90:516</a></div></div>
 <div class="ttc" id="agroup__constants__mod_html_ga4a9bc4832415870f8640fd6d3f81e346"><div class="ttname"><a href="group__constants__mod.html#ga4a9bc4832415870f8640fd6d3f81e346">constants_mod::radius</a></div><div class="ttdeci">real, parameter, public radius</div><div class="ttdoc">Radius of the Earth [m].</div><div class="ttdef"><b>Definition:</b> <a href="constants_8F90_source.html#l00102">constants.F90:102</a></div></div>
 <div class="ttc" id="agroup__constants__mod_html_gadc909cc70e4e20bc99fc3d3c53125808"><div class="ttname"><a href="group__constants__mod.html#gadc909cc70e4e20bc99fc3d3c53125808">constants_mod::pi</a></div><div class="ttdeci">real, parameter, public pi</div><div class="ttdoc">Ratio of circle circumference to diameter [N/A].</div><div class="ttdef"><b>Definition:</b> <a href="constants_8F90_source.html#l00104">constants.F90:104</a></div></div>
 <div class="ttc" id="ampp__util_8inc_html_acfeba7de56f9dd6000b3fd78f9d56c50"><div class="ttname"><a href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a></div><div class="ttdeci">integer function mpp_pe()</div><div class="ttdoc">Returns processor ID. This returns the unique ID associated with a PE. This number runs between 0 and...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00442">mpp_util.inc:442</a></div></div>
+<div class="ttc" id="ainterfacefms__io__mod_1_1read__compressed_html"><div class="ttname"><a href="interfacefms__io__mod_1_1read__compressed.html">fms_io_mod::read_compressed</a></div><div class="ttdef"><b>Definition:</b> <a href="fms__io_8F90_source.html#l00350">fms_io.F90:350</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

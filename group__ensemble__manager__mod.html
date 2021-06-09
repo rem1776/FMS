@@ -91,7 +91,8 @@ $(document).ready(function(){initNavTree('group__ensemble__manager__mod.html',''
 
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions/Subroutines</a>  </div>
+<a href="#func-members">Functions/Subroutines</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">ensemble_manager_mod<div class="ingroups"><a class="el" href="group__coupler.html">Coupler</a></div></div>  </div>
 </div><!--header-->
@@ -120,6 +121,60 @@ subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>get_ens
 <tr class="memitem:ga978f35356297a1a43c77c2467bdcbfc9"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ensemble__manager__mod.html#ga978f35356297a1a43c77c2467bdcbfc9">ensemble_pelist_setup</a> (concurrent, atmos_npes, ocean_npes, land_npes, ice_npes, Atm_pelist, Ocean_pelist, Land_pelist, Ice_pelist)</td></tr>
 <tr class="memdesc:ga978f35356297a1a43c77c2467bdcbfc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">ensemble_pelist_setup  <a href="group__ensemble__manager__mod.html#ga978f35356297a1a43c77c2467bdcbfc9">More...</a><br /></td></tr>
 <tr class="separator:ga978f35356297a1a43c77c2467bdcbfc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:gaf29f92ec246ea304a505b528279aed36"><td class="memItemLeft" align="right" valign="top"><a id="gaf29f92ec246ea304a505b528279aed36"></a>
+integer, dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><b>ensemble_pelist</b></td></tr>
+<tr class="separator:gaf29f92ec246ea304a505b528279aed36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2c894085d8480edba061122300b9c5ff"><td class="memItemLeft" align="right" valign="top"><a id="ga2c894085d8480edba061122300b9c5ff"></a>
+integer, dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><b>ensemble_pelist_ocean</b></td></tr>
+<tr class="separator:ga2c894085d8480edba061122300b9c5ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8daedf0a683c36e51c99c513c1ecb3d1"><td class="memItemLeft" align="right" valign="top"><a id="ga8daedf0a683c36e51c99c513c1ecb3d1"></a>
+integer, dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><b>ensemble_pelist_atmos</b></td></tr>
+<tr class="separator:ga8daedf0a683c36e51c99c513c1ecb3d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac3c9db790ff0006e7bb9f0d35e348fa5"><td class="memItemLeft" align="right" valign="top"><a id="gac3c9db790ff0006e7bb9f0d35e348fa5"></a>
+integer, dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><b>ensemble_pelist_land</b></td></tr>
+<tr class="separator:gac3c9db790ff0006e7bb9f0d35e348fa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaebb6b8a0b8a5e000955ff51a5260e1cf"><td class="memItemLeft" align="right" valign="top"><a id="gaebb6b8a0b8a5e000955ff51a5260e1cf"></a>
+integer, dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><b>ensemble_pelist_ice</b></td></tr>
+<tr class="separator:gaebb6b8a0b8a5e000955ff51a5260e1cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga87de8c63ae50a2c94361b8e4be080d8e"><td class="memItemLeft" align="right" valign="top"><a id="ga87de8c63ae50a2c94361b8e4be080d8e"></a>
+integer, dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><b>ensemble_pelist_ocean_filter</b></td></tr>
+<tr class="separator:ga87de8c63ae50a2c94361b8e4be080d8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga214b8b770c94687fb57370f534238b03"><td class="memItemLeft" align="right" valign="top"><a id="ga214b8b770c94687fb57370f534238b03"></a>
+integer, dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><b>ensemble_pelist_atmos_filter</b></td></tr>
+<tr class="separator:ga214b8b770c94687fb57370f534238b03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadb97b5aef2a9b90bef89c60c883c3973"><td class="memItemLeft" align="right" valign="top"><a id="gadb97b5aef2a9b90bef89c60c883c3973"></a>
+integer, dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><b>ensemble_pelist_land_filter</b></td></tr>
+<tr class="separator:gadb97b5aef2a9b90bef89c60c883c3973"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9d945eaf83b4da55732ee258488275c9"><td class="memItemLeft" align="right" valign="top"><a id="ga9d945eaf83b4da55732ee258488275c9"></a>
+integer, dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><b>ensemble_pelist_ice_filter</b></td></tr>
+<tr class="separator:ga9d945eaf83b4da55732ee258488275c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga218e1bdeea95dbc911dfb3c9714589d6"><td class="memItemLeft" align="right" valign="top"><a id="ga218e1bdeea95dbc911dfb3c9714589d6"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>ensemble_size</b> = 1</td></tr>
+<tr class="separator:ga218e1bdeea95dbc911dfb3c9714589d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5770c27d428ce2681e1fe88bc5fef387"><td class="memItemLeft" align="right" valign="top"><a id="ga5770c27d428ce2681e1fe88bc5fef387"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>ensemble_id</b> = 1</td></tr>
+<tr class="separator:ga5770c27d428ce2681e1fe88bc5fef387"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8a5f299eef1abe4c0df23ebd220ce83e"><td class="memItemLeft" align="right" valign="top"><a id="ga8a5f299eef1abe4c0df23ebd220ce83e"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>pe</b></td></tr>
+<tr class="separator:ga8a5f299eef1abe4c0df23ebd220ce83e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga74c8127165e8cfc823f0cddb994bf53a"><td class="memItemLeft" align="right" valign="top"><a id="ga74c8127165e8cfc823f0cddb994bf53a"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>total_npes_pm</b> =0</td></tr>
+<tr class="separator:ga74c8127165e8cfc823f0cddb994bf53a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga56296b1c3a79a350a3852a6a49fb671b"><td class="memItemLeft" align="right" valign="top"><a id="ga56296b1c3a79a350a3852a6a49fb671b"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>ocean_npes_pm</b> =0</td></tr>
+<tr class="separator:ga56296b1c3a79a350a3852a6a49fb671b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4590685d2151cf5b0b9f173d8538b6d8"><td class="memItemLeft" align="right" valign="top"><a id="ga4590685d2151cf5b0b9f173d8538b6d8"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>atmos_npes_pm</b> =0</td></tr>
+<tr class="separator:ga4590685d2151cf5b0b9f173d8538b6d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0c8a77df6a5386bdf6431f35d60c3d00"><td class="memItemLeft" align="right" valign="top"><a id="ga0c8a77df6a5386bdf6431f35d60c3d00"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>land_npes_pm</b> =0</td></tr>
+<tr class="separator:ga0c8a77df6a5386bdf6431f35d60c3d00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9f375b1c171b916a66bfb36fc4a68c90"><td class="memItemLeft" align="right" valign="top"><a id="ga9f375b1c171b916a66bfb36fc4a68c90"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>ice_npes_pm</b> =0</td></tr>
+<tr class="separator:ga9f375b1c171b916a66bfb36fc4a68c90"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Routines for setting up and managing ensembles and ensemble pe lists. </p>

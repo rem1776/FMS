@@ -93,7 +93,8 @@ $(document).ready(function(){initNavTree('drifters_8F90.html',''); initResizable
   <div class="summary">
 <a href="#nested-classes">Data Types</a> &#124;
 <a href="#define-members">Macros</a> &#124;
-<a href="#func-members">Functions/Subroutines</a>  </div>
+<a href="#func-members">Functions/Subroutines</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">drifters.F90 File Reference</div>  </div>
 </div><!--header-->
@@ -115,6 +116,10 @@ Data Types</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">type to hold drifter data  <a href="structdrifters__mod_1_1drifters__type.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacedrifters__mod_1_1drifters__push.html">drifters_push</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacedrifters__mod_1_1drifters__compute__k.html">drifters_compute_k</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacedrifters__mod_1_1drifters__set__field.html">drifters_set_field</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
@@ -179,12 +184,18 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:gabd7a7c5d6f87429d1f125fccbbbf9a5a"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__drifters__mod.html#gabd7a7c5d6f87429d1f125fccbbbf9a5a">drifters_del</a> (self, ermesg)</td></tr>
 <tr class="memdesc:gabd7a7c5d6f87429d1f125fccbbbf9a5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor, Call this to reclaim memory.  <a href="group__drifters__mod.html#gabd7a7c5d6f87429d1f125fccbbbf9a5a">More...</a><br /></td></tr>
 <tr class="separator:gabd7a7c5d6f87429d1f125fccbbbf9a5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2cc7e1a7540ae440979e31b88f2e733c"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__drifters__mod.html#ga2cc7e1a7540ae440979e31b88f2e733c">drifters_copy_new</a> (new_instance, old_instance)</td></tr>
+<tr class="memdesc:ga2cc7e1a7540ae440979e31b88f2e733c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy a drifter state into a new state. Note: this will not open new files; this will copy all members into a new container.  <a href="group__drifters__mod.html#ga2cc7e1a7540ae440979e31b88f2e733c">More...</a><br /></td></tr>
+<tr class="separator:ga2cc7e1a7540ae440979e31b88f2e733c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaf48b96da0cba62052592800e59ec7529"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__drifters__mod.html#gaf48b96da0cba62052592800e59ec7529">drifters_set_domain</a> (self, xmin_comp, xmax_comp, ymin_comp, ymax_comp, xmin_data, xmax_data, ymin_data, ymax_data, xmin_glob, xmax_glob, ymin_glob, ymax_glob, ermesg)</td></tr>
 <tr class="memdesc:gaf48b96da0cba62052592800e59ec7529"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the compute, data, and global domain boundaries.  <a href="group__drifters__mod.html#gaf48b96da0cba62052592800e59ec7529">More...</a><br /></td></tr>
 <tr class="separator:gaf48b96da0cba62052592800e59ec7529"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaa90f5c5c61f3e1f0a686b87cece0c1d6"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__drifters__mod.html#gaa90f5c5c61f3e1f0a686b87cece0c1d6">drifters_set_pe_neighbors</a> (self, domain, ermesg)</td></tr>
 <tr class="memdesc:gaa90f5c5c61f3e1f0a686b87cece0c1d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Given an MPP based deomposition, set the PE numbers that are adjacent to this processor.  <a href="group__drifters__mod.html#gaa90f5c5c61f3e1f0a686b87cece0c1d6">More...</a><br /></td></tr>
 <tr class="separator:gaa90f5c5c61f3e1f0a686b87cece0c1d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae97237a2fd63598ca12ba28f35ecef58"><td class="memItemLeft" align="right" valign="top">
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>drifters_modulo</b> (self, positions, ermesg)</td></tr>
+<tr class="separator:gae97237a2fd63598ca12ba28f35ecef58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae5f4a850b28c0132197541725ed0a933"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__drifters__mod.html#gae5f4a850b28c0132197541725ed0a933">drifters_save</a> (self, ermesg)</td></tr>
 <tr class="memdesc:gae5f4a850b28c0132197541725ed0a933"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to append the new trajectory positions and the interpolated probe fields to a netCDF file.  <a href="group__drifters__mod.html#gae5f4a850b28c0132197541725ed0a933">More...</a><br /></td></tr>
 <tr class="separator:gae5f4a850b28c0132197541725ed0a933"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -206,6 +217,18 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:gaf2ba8c08ff285a71fa0879270f0e2096"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__drifters__mod.html#gaf2ba8c08ff285a71fa0879270f0e2096">drifters_print_checksums</a> (self, pe, ermesg)</td></tr>
 <tr class="memdesc:gaf2ba8c08ff285a71fa0879270f0e2096"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print Runge-Kutta check sums. Useful for debugging only.  <a href="group__drifters__mod.html#gaf2ba8c08ff285a71fa0879270f0e2096">More...</a><br /></td></tr>
 <tr class="separator:gaf2ba8c08ff285a71fa0879270f0e2096"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga60e0589346eb7f6df4aea3c623b79455"><td class="memItemLeft" align="right" valign="top">
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>drifters_reset_rk4</b> (self, ermesg)</td></tr>
+<tr class="separator:ga60e0589346eb7f6df4aea3c623b79455"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a1deae3499c01f406598cfab42c72fc63"><td class="memItemLeft" align="right" valign="top"><a id="a1deae3499c01f406598cfab42c72fc63"></a>
+integer, parameter, private&#160;</td><td class="memItemRight" valign="bottom"><b>max_str_len</b> = 128</td></tr>
+<tr class="separator:a1deae3499c01f406598cfab42c72fc63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf26fa2821e2ce97bfea449e938765130"><td class="memItemLeft" align="right" valign="top">
+real, dimension(0)&#160;</td><td class="memItemRight" valign="bottom"><b>drft_empty_array</b></td></tr>
+<tr class="separator:gaf26fa2821e2ce97bfea449e938765130"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>File for <a class="el" href="group__drifters__mod.html">drifters_mod</a>. </p>

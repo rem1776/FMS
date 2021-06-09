@@ -91,7 +91,8 @@ $(document).ready(function(){initNavTree('group__cloud__interpolator__mod.html',
 
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions/Subroutines</a>  </div>
+<a href="#func-members">Functions/Subroutines</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">cloud_interpolator_mod<div class="ingroups"><a class="el" href="group__drifters.html">Drifters</a></div></div>  </div>
 </div><!--header-->
@@ -113,8 +114,16 @@ Functions/Subroutines</h2></td></tr>
 <tr class="separator:ga544591c80f628d74dbb9c5c2479368de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga535a9271b6d47d6f756c2cbeef913ac0"><td class="memItemLeft" align="right" valign="top">pure subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cloud__interpolator__mod.html#ga535a9271b6d47d6f756c2cbeef913ac0">cld_ntrp_locate_cell</a> (axis, x, index, ier)</td></tr>
 <tr class="separator:ga535a9271b6d47d6f756c2cbeef913ac0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga64f87afa745779fe641fbe830e32920a"><td class="memItemLeft" align="right" valign="top">pure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cloud__interpolator__mod.html#ga64f87afa745779fe641fbe830e32920a">cld_ntrp_get_flat_index</a> (nsizes, indices, flat_index, ier)</td></tr>
+<tr class="separator:ga64f87afa745779fe641fbe830e32920a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaf824c7ee6ea44be83ffe789e4f378a74"><td class="memItemLeft" align="right" valign="top">pure subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cloud__interpolator__mod.html#gaf824c7ee6ea44be83ffe789e4f378a74">cld_ntrp_get_cell_values</a> (nsizes, fnodes, indices, fvals, ier)</td></tr>
 <tr class="separator:gaf824c7ee6ea44be83ffe789e4f378a74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ga4bf2c732a4052dff6731fee1c3e1d0c2"><td class="memItemLeft" align="right" valign="top"><a id="ga4bf2c732a4052dff6731fee1c3e1d0c2"></a>
+real, parameter&#160;</td><td class="memItemRight" valign="bottom"><b>tol</b> = 10.0*epsilon(1.)</td></tr>
+<tr class="separator:ga4bf2c732a4052dff6731fee1c3e1d0c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Cloud interpolation routines for use in <a class="el" href="group__drifters__mod.html">drifters_mod</a>. </p>
@@ -266,6 +275,65 @@ Functions/Subroutines</h2></td></tr>
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="cloud__interpolator_8F90_source.html#l00251">251</a> of file <a class="el" href="cloud__interpolator_8F90_source.html">cloud_interpolator.F90</a>.</p>
+
+</div>
+</div>
+<a id="ga64f87afa745779fe641fbe830e32920a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga64f87afa745779fe641fbe830e32920a">&#9670;&nbsp;</a></span>cld_ntrp_get_flat_index()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">pure subroutine cloud_interpolator_mod::cld_ntrp_get_flat_index </td>
+          <td>(</td>
+          <td class="paramtype">integer, dimension(:), intent(in)&#160;</td>
+          <td class="paramname"><em>nsizes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(:), intent(in)&#160;</td>
+          <td class="paramname"><em>indices</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(out)&#160;</td>
+          <td class="paramname"><em>flat_index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(out)&#160;</td>
+          <td class="paramname"><em>ier</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">nsizes</td><td>size of array along each axis</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">indices</td><td>cell indices</td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">flat_index</td><td>index into flattened array</td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">ier</td><td>error flag (0=ok) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="cloud__interpolator_8F90_source.html#l00224">224</a> of file <a class="el" href="cloud__interpolator_8F90_source.html">cloud_interpolator.F90</a>.</p>
 
 </div>
 </div>

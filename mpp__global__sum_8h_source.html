@@ -227,7 +227,7 @@ $(document).ready(function(){initNavTree('mpp__global__sum_8h_source.html',''); 
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;          end do</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;       end do</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;       !--- using efp sum.</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;       if(efp_sum_overflow_check) then</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;       if(<a class="code" href="group__mpp__domains__mod.html#ga2b08b24e39f94583715e908ba013b2f1">efp_sum_overflow_check</a>) then</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;          MPP_GLOBAL_SUM_ = mpp_reproducing_sum(field2D, overflow_check=.true.)</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;       else</div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;          MPP_GLOBAL_SUM_ = mpp_reproducing_sum(field2D, overflow_check=overflow_check)</div>
@@ -249,6 +249,7 @@ $(document).ready(function(){initNavTree('mpp__global__sum_8h_source.html',''); 
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="ampp__util__mpi_8inc_html_a09e69243d8c67e6a6e6e4fd9e93d0870"><div class="ttname"><a href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a></div><div class="ttdeci">subroutine mpp_sync_self(pelist, check, request, msg_size, msg_type)</div><div class="ttdoc">This is to check if current PE's outstanding puts are complete but we can't use shmem_fence because w...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util__mpi_8inc_source.html#l00169">mpp_util_mpi.inc:169</a></div></div>
+<div class="ttc" id="agroup__mpp__domains__mod_html_ga2b08b24e39f94583715e908ba013b2f1"><div class="ttname"><a href="group__mpp__domains__mod.html#ga2b08b24e39f94583715e908ba013b2f1">mpp_domains_mod::efp_sum_overflow_check</a></div><div class="ttdeci">logical efp_sum_overflow_check</div><div class="ttdoc">If .true., always do overflow_check when doing EFP bitwise mpp_global_sum.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains_8F90_source.html#l00705">mpp_domains.F90:705</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

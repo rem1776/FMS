@@ -115,6 +115,9 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:ga39332ee09eea6463ddaba374dfed2c88"><td class="memItemLeft" align="right" valign="top"><a id="ga39332ee09eea6463ddaba374dfed2c88"></a>
 subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>drifters_input_new</b> (self, filename, ermesg)</td></tr>
 <tr class="separator:ga39332ee09eea6463ddaba374dfed2c88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga185c909df9748e8674955eae9916aea6"><td class="memItemLeft" align="right" valign="top"><a id="ga185c909df9748e8674955eae9916aea6"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>drifters_input_copy_new</b> (new_instance, old_instance)</td></tr>
+<tr class="separator:ga185c909df9748e8674955eae9916aea6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaae187e546ead8938590c8943b3dad943"><td class="memItemLeft" align="right" valign="top"><a id="gaae187e546ead8938590c8943b3dad943"></a>
 subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__drifters__input__mod.html#gaae187e546ead8938590c8943b3dad943">drifters_input_save</a> (self, filename, geolon, geolat, ermesg)</td></tr>
 <tr class="memdesc:gaae187e546ead8938590c8943b3dad943"><td class="mdescLeft">&#160;</td><td class="mdescRight">save state in netcdf file. can be used as restart file. <br /></td></tr>
@@ -144,6 +147,12 @@ subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>drifter
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
+<tr class="memitem:ga1deae3499c01f406598cfab42c72fc63"><td class="memItemLeft" align="right" valign="top"><a id="ga1deae3499c01f406598cfab42c72fc63"></a>
+integer, parameter, private&#160;</td><td class="memItemRight" valign="bottom"><b>max_str_len</b> = 128</td></tr>
+<tr class="separator:ga1deae3499c01f406598cfab42c72fc63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7178a00e80bbf4c94c43b169ec0755b7"><td class="memItemLeft" align="right" valign="top"><a id="ga7178a00e80bbf4c94c43b169ec0755b7"></a>
+character, parameter, private&#160;</td><td class="memItemRight" valign="bottom"><b>separator</b> = ' '</td></tr>
+<tr class="separator:ga7178a00e80bbf4c94c43b169ec0755b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga1822e66d02b917d25948c6b67e49137e"><td class="memItemLeft" align="right" valign="top"><a id="ga1822e66d02b917d25948c6b67e49137e"></a>
 character(len=max_str_len), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><b>position_names</b></td></tr>
 <tr class="separator:ga1822e66d02b917d25948c6b67e49137e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -174,6 +183,9 @@ character(len=max_str_len)&#160;</td><td class="memItemRight" valign="bottom"><b
 <tr class="memitem:gafc71d11fe90105a6c48f6cbe5ae0bd5e"><td class="memItemLeft" align="right" valign="top"><a id="gafc71d11fe90105a6c48f6cbe5ae0bd5e"></a>
 character(len=max_str_len)&#160;</td><td class="memItemRight" valign="bottom"><b>version</b></td></tr>
 <tr class="separator:gafc71d11fe90105a6c48f6cbe5ae0bd5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gace6467e00cca5b4adafeb7002f9b14e4"><td class="memItemLeft" align="right" valign="top"><a id="gace6467e00cca5b4adafeb7002f9b14e4"></a>
+real&#160;</td><td class="memItemRight" valign="bottom"><b>drfts_eps_t</b> = 10.*epsilon(1.)</td></tr>
+<tr class="separator:gace6467e00cca5b4adafeb7002f9b14e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaf1d4f29e7f0a2828126f4ea8335d7f17"><td class="memItemLeft" align="right" valign="top"><a id="gaf1d4f29e7f0a2828126f4ea8335d7f17"></a>
 real&#160;</td><td class="memItemRight" valign="bottom"><b>time</b></td></tr>
 <tr class="separator:gaf1d4f29e7f0a2828126f4ea8335d7f17"><td class="memSeparator" colspan="2">&#160;</td></tr>

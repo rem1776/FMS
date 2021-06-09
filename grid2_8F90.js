@@ -1,5 +1,6 @@
 var grid2_8F90 =
 [
+    [ "get_grid_size", "interfacegrid2__mod_1_1get__grid__size.html", "interfacegrid2__mod_1_1get__grid__size" ],
     [ "assign_component_mosaics", "grid2_8F90.html#ga8c49f19a624a1e4f1ad1a51d3e871242", null ],
     [ "close_component_mosaics", "grid2_8F90.html#gaaa243c1ccd6b308cfb368c888237376b", null ],
     [ "define_cube_mosaic", "grid2_8F90.html#gaec6eddaff601537ee537032087e0663b", null ],

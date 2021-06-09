@@ -123,7 +123,7 @@ $(document).ready(function(){initNavTree('mpp__do__global__field_8h_source.html'
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;      integer, intent(in), optional :: flags</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;      MPP_TYPE_, intent(in), optional :: default_data</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;      integer :: i, j, k, m, n, nd, nwords, lpos, rpos, ioff, joff, from_pe, root_pe, tile_id</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;      integer :: i, j, k, m, n, <a class="code" href="group__diag__integral__mod.html#gaefa2e4790371f23d032dee1e40081d73">nd</a>, nwords, lpos, rpos, ioff, joff, from_pe, root_pe, tile_id</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;      integer :: ke, isc, iec, jsc, jec, is, ie, js, je, nword_me</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;      integer :: ipos, jpos</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;      logical :: xonly, yonly, root_only, global_on_this_pe</div>
@@ -252,10 +252,10 @@ $(document).ready(function(){initNavTree('mpp__do__global__field_8h_source.html'
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160; </div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;!fill off-domains (note loops begin at an offset of 1)</div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;      if( xonly )then</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;          nd = size(domain%x(1)%list(:))</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;          do n = 1,nd-1</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;             lpos = mod(domain%x(1)%pos+nd-n,nd)</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;             rpos = mod(domain%x(1)%pos   +n,nd)</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;          <a class="code" href="group__diag__integral__mod.html#gaefa2e4790371f23d032dee1e40081d73">nd</a> = size(domain%x(1)%list(:))</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;          do n = 1,<a class="code" href="group__diag__integral__mod.html#gaefa2e4790371f23d032dee1e40081d73">nd</a>-1</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;             lpos = mod(domain%x(1)%pos+<a class="code" href="group__diag__integral__mod.html#gaefa2e4790371f23d032dee1e40081d73">nd</a>-n,<a class="code" href="group__diag__integral__mod.html#gaefa2e4790371f23d032dee1e40081d73">nd</a>)</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;             rpos = mod(domain%x(1)%pos   +n,<a class="code" href="group__diag__integral__mod.html#gaefa2e4790371f23d032dee1e40081d73">nd</a>)</div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;             from_pe = domain%x(1)%list(rpos)%pe</div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;             rpos = from_pe - root_pe ! for concurrent run, root_pe may not be 0.</div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;             if (from_pe == NULL_PE) then</div>
@@ -282,10 +282,10 @@ $(document).ready(function(){initNavTree('mpp__do__global__field_8h_source.html'
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;             call <a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>()  !-ensure MPI_ISEND is done.</div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;          end do</div>
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;      else if( yonly )then</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;          nd = size(domain%y(1)%list(:))</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;          do n = 1,nd-1</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;             lpos = mod(domain%y(1)%pos+nd-n,nd)</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;             rpos = mod(domain%y(1)%pos   +n,nd)</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;          <a class="code" href="group__diag__integral__mod.html#gaefa2e4790371f23d032dee1e40081d73">nd</a> = size(domain%y(1)%list(:))</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;          do n = 1,<a class="code" href="group__diag__integral__mod.html#gaefa2e4790371f23d032dee1e40081d73">nd</a>-1</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;             lpos = mod(domain%y(1)%pos+<a class="code" href="group__diag__integral__mod.html#gaefa2e4790371f23d032dee1e40081d73">nd</a>-n,<a class="code" href="group__diag__integral__mod.html#gaefa2e4790371f23d032dee1e40081d73">nd</a>)</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;             rpos = mod(domain%y(1)%pos   +n,<a class="code" href="group__diag__integral__mod.html#gaefa2e4790371f23d032dee1e40081d73">nd</a>)</div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;             from_pe = domain%y(1)%list(rpos)%pe</div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;             rpos = from_pe - root_pe</div>
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;             if (from_pe == NULL_PE) then</div>
@@ -313,13 +313,13 @@ $(document).ready(function(){initNavTree('mpp__do__global__field_8h_source.html'
 <div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;          end do</div>
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;      else</div>
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;         tile_id = domain%tile_id(1)</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;         nd = size(domain%list(:))</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;         <a class="code" href="group__diag__integral__mod.html#gaefa2e4790371f23d032dee1e40081d73">nd</a> = size(domain%list(:))</div>
 <div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;         if(root_only) then</div>
 <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;            if(domain%pe .NE. domain%tile_root_pe) then</div>
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;               call mpp_send( clocal(1), plen=nword_me, to_pe=domain%tile_root_pe, tag=COMM_TAG_1 )</div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;            else</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;               do n = 1,nd-1</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;                  rpos = mod(domain%pos+n,nd)</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;               do n = 1,<a class="code" href="group__diag__integral__mod.html#gaefa2e4790371f23d032dee1e40081d73">nd</a>-1</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;                  rpos = mod(domain%pos+n,<a class="code" href="group__diag__integral__mod.html#gaefa2e4790371f23d032dee1e40081d73">nd</a>)</div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;                  if( domain%list(rpos)%tile_id(1) .NE. tile_id ) cycle</div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;                  nwords = (domain%list(rpos)%x(1)%compute%size+ishift) * (domain%list(rpos)%y(1)%compute%size+jshift) * ke</div>
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;                  call mpp_recv(cremote(1), glen=nwords, from_pe=domain%list(rpos)%pe, tag=COMM_TAG_1 )</div>
@@ -338,13 +338,13 @@ $(document).ready(function(){initNavTree('mpp__do__global__field_8h_source.html'
 <div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;               end do</div>
 <div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;            endif</div>
 <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;         else</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;            do n = 1,nd-1</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;               lpos = mod(domain%pos+nd-n,nd)</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;            do n = 1,<a class="code" href="group__diag__integral__mod.html#gaefa2e4790371f23d032dee1e40081d73">nd</a>-1</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;               lpos = mod(domain%pos+<a class="code" href="group__diag__integral__mod.html#gaefa2e4790371f23d032dee1e40081d73">nd</a>-n,<a class="code" href="group__diag__integral__mod.html#gaefa2e4790371f23d032dee1e40081d73">nd</a>)</div>
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;               if( domain%list(lpos)%tile_id(1).NE. tile_id ) cycle ! global field only within tile</div>
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;               call mpp_send( clocal(1), plen=nword_me, to_pe=domain%list(lpos)%pe, tag=COMM_TAG_2 )</div>
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;            end do</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;            do n = 1,nd-1</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;               rpos = mod(domain%pos+n,nd)</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;            do n = 1,<a class="code" href="group__diag__integral__mod.html#gaefa2e4790371f23d032dee1e40081d73">nd</a>-1</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;               rpos = mod(domain%pos+n,<a class="code" href="group__diag__integral__mod.html#gaefa2e4790371f23d032dee1e40081d73">nd</a>)</div>
 <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;               if( domain%list(rpos)%tile_id(1) .NE. tile_id ) cycle ! global field only within tile</div>
 <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;               nwords = (domain%list(rpos)%x(1)%compute%size+ishift) * (domain%list(rpos)%y(1)%compute%size+jshift) * ke</div>
 <div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;               call mpp_recv( cremote(1), glen=nwords, from_pe=domain%list(rpos)%pe, tag=COMM_TAG_2 )</div>
@@ -380,7 +380,7 @@ $(document).ready(function(){initNavTree('mpp__do__global__field_8h_source.html'
 <div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;      integer, intent(in), optional :: flags</div>
 <div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;      MPP_TYPE_, intent(in), optional :: default_data</div>
 <div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160; </div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;      integer :: i, j, k, m, n, nd, nwords, lpos, rpos, ioff, joff, from_pe, root_pe, tile_id</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;      integer :: i, j, k, m, n, <a class="code" href="group__diag__integral__mod.html#gaefa2e4790371f23d032dee1e40081d73">nd</a>, nwords, lpos, rpos, ioff, joff, from_pe, root_pe, tile_id</div>
 <div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;      integer :: ke, isc, iec, jsc, jec, is, ie, js, je</div>
 <div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;      integer :: ipos, jpos</div>
 <div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;      logical :: xonly, yonly, root_only, global_on_this_pe</div>
@@ -495,8 +495,8 @@ $(document).ready(function(){initNavTree('mpp__do__global__field_8h_source.html'
 <div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;          allocate(axis_pelist(n_ax))</div>
 <div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;          axis_pelist = [ (domain%x(1)%list(i)%pe, i = 0, n_ax-1) ]</div>
 <div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160; </div>
-<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;          nd = count(axis_pelist &gt;= 0)</div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;          allocate(pelist(nd), pelist_idx(0:nd-1))</div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;          <a class="code" href="group__diag__integral__mod.html#gaefa2e4790371f23d032dee1e40081d73">nd</a> = count(axis_pelist &gt;= 0)</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;          allocate(pelist(<a class="code" href="group__diag__integral__mod.html#gaefa2e4790371f23d032dee1e40081d73">nd</a>), pelist_idx(0:<a class="code" href="group__diag__integral__mod.html#gaefa2e4790371f23d032dee1e40081d73">nd</a>-1))</div>
 <div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;          pelist = pack(axis_pelist, mask=(axis_pelist &gt;= 0))</div>
 <div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;          pelist_idx = pack([(i, i=0, n_ax-1)], mask=(axis_pelist &gt;= 0))</div>
 <div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160; </div>
@@ -506,30 +506,30 @@ $(document).ready(function(){initNavTree('mpp__do__global__field_8h_source.html'
 <div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;          allocate(axis_pelist(n_ax))</div>
 <div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;          axis_pelist = [ (domain%y(1)%list(i)%pe, i = 0, n_ax-1) ]</div>
 <div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160; </div>
-<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;          nd = count(axis_pelist &gt;= 0)</div>
-<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;          allocate(pelist(nd), pelist_idx(0:nd-1))</div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;          <a class="code" href="group__diag__integral__mod.html#gaefa2e4790371f23d032dee1e40081d73">nd</a> = count(axis_pelist &gt;= 0)</div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;          allocate(pelist(<a class="code" href="group__diag__integral__mod.html#gaefa2e4790371f23d032dee1e40081d73">nd</a>), pelist_idx(0:<a class="code" href="group__diag__integral__mod.html#gaefa2e4790371f23d032dee1e40081d73">nd</a>-1))</div>
 <div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;          pelist = pack(axis_pelist, mask=(axis_pelist &gt;= 0))</div>
 <div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;          pelist_idx = pack([(i, i=0, n_ax-1)], mask=(axis_pelist &gt;= 0))</div>
 <div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160; </div>
 <div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;          deallocate(axis_pelist)</div>
 <div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;      else</div>
-<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;          nd = size(domain%list(:))</div>
-<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;          allocate(pelist(nd), pelist_idx(0:nd-1))</div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;          <a class="code" href="group__diag__integral__mod.html#gaefa2e4790371f23d032dee1e40081d73">nd</a> = size(domain%list(:))</div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;          allocate(pelist(<a class="code" href="group__diag__integral__mod.html#gaefa2e4790371f23d032dee1e40081d73">nd</a>), pelist_idx(0:<a class="code" href="group__diag__integral__mod.html#gaefa2e4790371f23d032dee1e40081d73">nd</a>-1))</div>
 <div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;          call mpp_get_pelist(domain, pelist)</div>
-<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;          pelist_idx = [ (i, i=0, nd-1) ]</div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;          pelist_idx = [ (i, i=0, <a class="code" href="group__diag__integral__mod.html#gaefa2e4790371f23d032dee1e40081d73">nd</a>-1) ]</div>
 <div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;      end if</div>
 <div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160; </div>
 <div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;      ! Allocate message data buffers</div>
-<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;      allocate(sendcounts(0:nd-1))</div>
-<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;      allocate(sdispls(0:nd-1))</div>
-<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;      allocate(sendtypes(0:nd-1))</div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;      allocate(sendcounts(0:<a class="code" href="group__diag__integral__mod.html#gaefa2e4790371f23d032dee1e40081d73">nd</a>-1))</div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;      allocate(sdispls(0:<a class="code" href="group__diag__integral__mod.html#gaefa2e4790371f23d032dee1e40081d73">nd</a>-1))</div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;      allocate(sendtypes(0:<a class="code" href="group__diag__integral__mod.html#gaefa2e4790371f23d032dee1e40081d73">nd</a>-1))</div>
 <div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;      sendcounts(:) = 0</div>
 <div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;      sdispls(:) = 0</div>
 <div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;      sendtypes(:) = mpp_byte</div>
 <div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160; </div>
-<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;      allocate(recvcounts(0:nd-1))</div>
-<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;      allocate(rdispls(0:nd-1))</div>
-<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;      allocate(recvtypes(0:nd-1))</div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;      allocate(recvcounts(0:<a class="code" href="group__diag__integral__mod.html#gaefa2e4790371f23d032dee1e40081d73">nd</a>-1))</div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;      allocate(rdispls(0:<a class="code" href="group__diag__integral__mod.html#gaefa2e4790371f23d032dee1e40081d73">nd</a>-1))</div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;      allocate(recvtypes(0:<a class="code" href="group__diag__integral__mod.html#gaefa2e4790371f23d032dee1e40081d73">nd</a>-1))</div>
 <div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;      recvcounts(:) = 0</div>
 <div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;      rdispls(:) = 0</div>
 <div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;      recvtypes(:) = mpp_byte</div>
@@ -537,7 +537,7 @@ $(document).ready(function(){initNavTree('mpp__do__global__field_8h_source.html'
 <div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;      array_of_subsizes = [iec - isc + 1, jec - jsc + 1, size(local, 3)]</div>
 <div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;      array_of_starts = [isc + ioff, jsc + joff, 0]</div>
 <div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160; </div>
-<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;      n_sends = merge(1, nd, root_only) ! 1 if root_only else nd</div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;      n_sends = merge(1, <a class="code" href="group__diag__integral__mod.html#gaefa2e4790371f23d032dee1e40081d73">nd</a>, root_only) ! 1 if root_only else <a class="code" href="group__diag__integral__mod.html#gaefa2e4790371f23d032dee1e40081d73">nd</a></div>
 <div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;      do n = 0, n_sends - 1</div>
 <div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;          sendcounts(n) = 1</div>
 <div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160; </div>
@@ -551,7 +551,7 @@ $(document).ready(function(){initNavTree('mpp__do__global__field_8h_source.html'
 <div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160; </div>
 <div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;      ! Receive configuration</div>
 <div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;      if (global_on_this_pe) then</div>
-<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;          do n = 0, nd - 1</div>
+<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;          do n = 0, <a class="code" href="group__diag__integral__mod.html#gaefa2e4790371f23d032dee1e40081d73">nd</a> - 1</div>
 <div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;              recvcounts(n) = 1</div>
 <div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;              pe = pelist_idx(n)</div>
 <div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160; </div>
@@ -602,6 +602,7 @@ $(document).ready(function(){initNavTree('mpp__do__global__field_8h_source.html'
 <div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;    end subroutine MPP_DO_GLOBAL_FIELD_A2A_3D_</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="agroup__diag__integral__mod_html_gaefa2e4790371f23d032dee1e40081d73"><div class="ttname"><a href="group__diag__integral__mod.html#gaefa2e4790371f23d032dee1e40081d73">diag_integral_mod::nd</a></div><div class="ttdeci">integer nd</div><div class="ttdoc">number of characters in data format statement</div><div class="ttdef"><b>Definition:</b> <a href="diag__integral_8F90_source.html#l00265">diag_integral.F90:265</a></div></div>
 <div class="ttc" id="ampp__util__mpi_8inc_html_a09e69243d8c67e6a6e6e4fd9e93d0870"><div class="ttname"><a href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a></div><div class="ttdeci">subroutine mpp_sync_self(pelist, check, request, msg_size, msg_type)</div><div class="ttdoc">This is to check if current PE's outstanding puts are complete but we can't use shmem_fence because w...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util__mpi_8inc_source.html#l00169">mpp_util_mpi.inc:169</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

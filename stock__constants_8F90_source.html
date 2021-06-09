@@ -123,11 +123,11 @@ $(document).ready(function(){initNavTree('stock__constants_8F90_source.html','')
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">!&gt; @{</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">module</span> stock_constants_mod</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="keywordtype">use </span>mpp_mod, <span class="keywordtype">only</span> : <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>, mpp_root_pe, mpp_sum</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="keywordtype">use </span>mpp_mod, <span class="keywordtype">only</span> : <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>, mpp_root_pe, <a class="code" href="interfacempp__mod_1_1mpp__sum.html">mpp_sum</a></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="keywordtype">use </span>fms_mod, <span class="keywordtype">only</span> : <a class="code" href="group__fms__mod.html#ga0c093df98a75dbd9e0f3add67aa6c23a">write_version_number</a></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="keywordtype">use </span>time_manager_mod, <span class="keywordtype">only</span> : <a class="code" href="structtime__manager__mod_1_1time__type.html">time_type</a>, <a class="code" href="group__time__manager__mod.html#ga2b9c941f38e33eba67ee151fe3bd8ee6">get_time</a></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keywordtype">use </span>time_manager_mod, <span class="keywordtype">only</span> : <span class="keyword">operator</span>(+), <span class="keyword">operator</span>(-)</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keywordtype">use </span>diag_manager_mod, <span class="keywordtype">only</span> : register_diag_field,send_data</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keywordtype">use </span>diag_manager_mod, <span class="keywordtype">only</span> : <a class="code" href="interfacediag__manager__mod_1_1register__diag__field.html">register_diag_field</a>,<a class="code" href="interfacediag__manager__mod_1_1send__data.html">send_data</a></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="keywordtype">implicit none</span></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
@@ -146,18 +146,18 @@ $(document).ready(function(){initNavTree('stock__constants_8F90_source.html','')
 <div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="group__stock__constants__mod.html#gaf58e9da841d22fb8927f19008ee4beb5">   50</a></span>&#160;  <span class="keywordtype">integer</span>, <span class="keywordtype">parameter</span> :: <a class="code" href="group__stock__constants__mod.html#gaf58e9da841d22fb8927f19008ee4beb5">nsides</a>  = 3<span class="comment">         !&lt; top, bottom, side</span></div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">  !&gt; @brief per PE values</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="keyword">type</span>, <span class="keyword">private</span> stock_type <span class="comment">! per PE values</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keywordtype">     real</span>  :: q_start = 0.0<span class="comment">    !&lt; total stocks at start time</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keywordtype">     real</span>  :: q_now   = 0.0<span class="comment">    !&lt; total stocks at time t</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="structstock__constants__mod_1_1stock__type.html">   53</a></span>&#160;  <span class="keyword">type</span>, <span class="keyword">private</span> <a class="code" href="structstock__constants__mod_1_1stock__type.html">stock_type</a> <span class="comment">! per PE values</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="group__stock__constants__mod.html#ga14b6c27bac0e5df5e35a6067bf1031d2">   54</a></span>&#160;<span class="keywordtype">     real</span>  :: q_start = 0.0<span class="comment">    !&lt; total stocks at start time</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="group__stock__constants__mod.html#gabd16f11b5766f2615166ed233c147711">   55</a></span>&#160;<span class="keywordtype">     real</span>  :: q_now   = 0.0<span class="comment">    !&lt; total stocks at time t</span></div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;     <span class="comment">! The dq&#39;s below are the stocks increments at the present time</span></div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;     <span class="comment">! delta_t * surf integr of flux</span></div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;     <span class="comment">! one for each side (ISTOCK_TOP, ISTOCK_BOTTOM, ISTOCK_SIDE)</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keywordtype">     real</span>  :: dq(<a class="code" href="group__stock__constants__mod.html#gaf58e9da841d22fb8927f19008ee4beb5">nsides</a>)    = 0.0<span class="comment">    !&lt; stock increments at present time on the Ice   grid</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keywordtype">     real</span>  :: dq_in(<a class="code" href="group__stock__constants__mod.html#gaf58e9da841d22fb8927f19008ee4beb5">nsides</a>) = 0.0<span class="comment">    !&lt; stock increments at present time on the Ocean grid</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <span class="keyword">end type </span>stock_type</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="group__stock__constants__mod.html#gaf43c501a29ae174776cd0a27ab08f25b">   60</a></span>&#160;<span class="keywordtype">     real</span>  :: dq(<a class="code" href="group__stock__constants__mod.html#gaf58e9da841d22fb8927f19008ee4beb5">nsides</a>)    = 0.0<span class="comment">    !&lt; stock increments at present time on the Ice   grid</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="group__stock__constants__mod.html#ga0fd9e142d56c59d10655606fb4a41adf">   61</a></span>&#160;<span class="keywordtype">     real</span>  :: dq_in(<a class="code" href="group__stock__constants__mod.html#gaf58e9da841d22fb8927f19008ee4beb5">nsides</a>) = 0.0<span class="comment">    !&lt; stock increments at present time on the Ocean grid</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <span class="keyword">end type </span><a class="code" href="structstock__constants__mod_1_1stock__type.html">stock_type</a></div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <span class="keywordtype">type</span>(stock_type), <span class="keywordtype">save</span>, <span class="keywordtype">public</span>, <span class="keywordtype">dimension(NELEMS)</span> :: atm_stock, ocn_stock, lnd_stock, ice_stock</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <span class="keywordtype">type</span>(<a class="code" href="structstock__constants__mod_1_1stock__type.html">stock_type</a>), <span class="keywordtype">save</span>, <span class="keywordtype">public</span>, <span class="keywordtype">dimension(NELEMS)</span> :: atm_stock, ocn_stock, lnd_stock, ice_stock</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="keywordtype">type</span>(<a class="code" href="structtime__manager__mod_1_1time__type.html">time_type</a>), <span class="keywordtype">save</span> :: init_time</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <span class="keywordtype">public</span> stocks_report</div>
@@ -191,10 +191,10 @@ $(document).ready(function(){initNavTree('stock__constants_8F90_source.html','')
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;       val_lnd(i) = lnd_stock(i)%q_start</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;       val_ice(i) = ice_stock(i)%q_start</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;       val_ocn(i) = ocn_stock(i)%q_start</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;       <span class="keyword">call </span>mpp_sum(val_atm(i))</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;       <span class="keyword">call </span>mpp_sum(val_lnd(i))</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;       <span class="keyword">call </span>mpp_sum(val_ice(i))</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;       <span class="keyword">call </span>mpp_sum(val_ocn(i))</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;       <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__sum.html">mpp_sum</a>(val_atm(i))</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;       <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__sum.html">mpp_sum</a>(val_lnd(i))</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;       <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__sum.html">mpp_sum</a>(val_ice(i))</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;       <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__sum.html">mpp_sum</a>(val_ocn(i))</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="keywordflow">    enddo</span></div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
@@ -265,7 +265,7 @@ $(document).ready(function(){initNavTree('stock__constants_8F90_source.html','')
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structtime__manager__mod_1_1time__type.html">time_type</a>)               , <span class="keywordtype">intent(in)</span> :: time</div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160; </div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structtime__manager__mod_1_1time__type.html">time_type</a>) :: timesincestart</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    <span class="keywordtype">type</span>(stock_type) :: stck</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structstock__constants__mod_1_1stock__type.html">stock_type</a>) :: stck</div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;<span class="keywordtype">    real</span>, <span class="keywordtype">dimension(NCOMPS)</span> :: f_value, f_ice_grid, f_ocn_grid, f_ocn_btf, q_start, q_now,c_value</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <span class="keywordtype">character(len=80)</span> :: formatstring</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <span class="keywordtype">integer</span> :: iday0, isec0, iday, isec, hours</div>
@@ -312,11 +312,11 @@ $(document).ready(function(){initNavTree('stock__constants_8F90_source.html','')
 <div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;          q_start(comp) = stck%q_start</div>
 <div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;          q_now(comp)   = stck%q_now</div>
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160; </div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;          <span class="keyword">call </span>mpp_sum(f_ice_grid(comp))</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;          <span class="keyword">call </span>mpp_sum(f_ocn_grid(comp))</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;          <span class="keyword">call </span>mpp_sum(f_ocn_btf(comp))</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;          <span class="keyword">call </span>mpp_sum(q_start(comp))</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;          <span class="keyword">call </span>mpp_sum(q_now(comp))</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;          <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__sum.html">mpp_sum</a>(f_ice_grid(comp))</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;          <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__sum.html">mpp_sum</a>(f_ocn_grid(comp))</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;          <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__sum.html">mpp_sum</a>(f_ocn_btf(comp))</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;          <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__sum.html">mpp_sum</a>(q_start(comp))</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;          <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__sum.html">mpp_sum</a>(q_now(comp))</div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160; </div>
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;          c_value(comp) = q_now(comp) - q_start(comp)</div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160; </div>
@@ -326,7 +326,7 @@ $(document).ready(function(){initNavTree('stock__constants_8F90_source.html','')
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;                field_name = trim(comp_names(comp)) // trim(stock_names(elem))</div>
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;                field_name  = trim(field_name) // <span class="stringliteral">&#39;StocksChange_Flux&#39;</span></div>
 <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;                units = trim(stock_units(elem))</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;                f_valuediagid(comp,elem) = register_diag_field(<span class="stringliteral">&#39;stock_print&#39;</span>, field_name, time, &amp;</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;                f_valuediagid(comp,elem) = <a class="code" href="interfacediag__manager__mod_1_1register__diag__field.html">register_diag_field</a>(<span class="stringliteral">&#39;stock_print&#39;</span>, field_name, time, &amp;</div>
 <div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;                     units=units)</div>
 <div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;<span class="keywordflow">             endif</span></div>
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160; </div>
@@ -334,7 +334,7 @@ $(document).ready(function(){initNavTree('stock__constants_8F90_source.html','')
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;                field_name = trim(comp_names(comp)) // trim(stock_names(elem))</div>
 <div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;                field_name = trim(field_name) // <span class="stringliteral">&#39;StocksChange_Comp&#39;</span></div>
 <div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;                units = trim(stock_units(elem))</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;                c_valuediagid(comp,elem) = register_diag_field(<span class="stringliteral">&#39;stock_print&#39;</span>, field_name, time, &amp;</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;                c_valuediagid(comp,elem) = <a class="code" href="interfacediag__manager__mod_1_1register__diag__field.html">register_diag_field</a>(<span class="stringliteral">&#39;stock_print&#39;</span>, field_name, time, &amp;</div>
 <div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;                     units=units)</div>
 <div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;<span class="keywordflow">             endif</span></div>
 <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160; </div>
@@ -342,7 +342,7 @@ $(document).ready(function(){initNavTree('stock__constants_8F90_source.html','')
 <div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;                field_name = trim(comp_names(comp)) // trim(stock_names(elem))</div>
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;                field_name = trim(field_name) // <span class="stringliteral">&#39;StocksChange_Diff&#39;</span></div>
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;                units = trim(stock_units(elem))</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;                fmc_valuediagid(comp,elem) = register_diag_field(<span class="stringliteral">&#39;stock_print&#39;</span>, field_name, time, &amp;</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;                fmc_valuediagid(comp,elem) = <a class="code" href="interfacediag__manager__mod_1_1register__diag__field.html">register_diag_field</a>(<span class="stringliteral">&#39;stock_print&#39;</span>, field_name, time, &amp;</div>
 <div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;                     units=units)</div>
 <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;<span class="keywordflow">             endif</span></div>
 <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160; </div>
@@ -356,26 +356,26 @@ $(document).ready(function(){initNavTree('stock__constants_8F90_source.html','')
 <div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;                   field_name = trim(comp_names(comp)) // trim(stock_names(elem))</div>
 <div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;                   field_name = trim(field_name) // <span class="stringliteral">&#39;StocksExchangeLost&#39;</span></div>
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;                   units = trim(stock_units(elem))</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;                   f_lostdiagid(comp,elem) = register_diag_field(<span class="stringliteral">&#39;stock_print&#39;</span>, field_name, time, &amp;</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;                   f_lostdiagid(comp,elem) = <a class="code" href="interfacediag__manager__mod_1_1register__diag__field.html">register_diag_field</a>(<span class="stringliteral">&#39;stock_print&#39;</span>, field_name, time, &amp;</div>
 <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;                        units=units)</div>
 <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;<span class="keywordflow">                endif</span></div>
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160; </div>
 <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;                diagid=f_lostdiagid(comp,elem)</div>
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;                diagfield = f_ice_grid(comp) - f_ocn_grid(comp)</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;                <span class="keywordflow">if</span> (diagid &gt; 0)  used = send_data(diagid, diagfield, time)</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;                <span class="keywordflow">if</span> (diagid &gt; 0)  used = <a class="code" href="interfacediag__manager__mod_1_1send__data.html">send_data</a>(diagid, diagfield, time)</div>
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160; </div>
 <div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;<span class="keywordflow">             endif</span></div>
 <div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160; </div>
 <div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160; </div>
 <div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;             diagid=f_valuediagid(comp,elem)</div>
 <div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;             diagfield = f_value(comp)</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;             <span class="keywordflow">if</span> (diagid &gt; 0)  used = send_data(diagid, diagfield, time)</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;             <span class="keywordflow">if</span> (diagid &gt; 0)  used = <a class="code" href="interfacediag__manager__mod_1_1send__data.html">send_data</a>(diagid, diagfield, time)</div>
 <div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;             diagid=c_valuediagid(comp,elem)</div>
 <div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;             diagfield = c_value(comp)</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;             <span class="keywordflow">if</span> (diagid &gt; 0)  used = send_data(diagid, diagfield, time)</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;             <span class="keywordflow">if</span> (diagid &gt; 0)  used = <a class="code" href="interfacediag__manager__mod_1_1send__data.html">send_data</a>(diagid, diagfield, time)</div>
 <div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;             diagid=fmc_valuediagid(comp,elem)</div>
 <div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;             diagfield = f_value(comp)-c_value(comp)</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;             <span class="keywordflow">if</span> (diagid &gt; 0)  used = send_data(diagid, diagfield, time)</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;             <span class="keywordflow">if</span> (diagid &gt; 0)  used = <a class="code" href="interfacediag__manager__mod_1_1send__data.html">send_data</a>(diagid, diagfield, time)</div>
 <div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160; </div>
 <div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160; </div>
 <div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;             <span class="comment">!             formatString = &#39;(a,a,a,i16,2x,es22.15,2x,es22.15,2x,es22.15,2x,es22.15,2x,es22.15,2x,es22.15)&#39;</span></div>
@@ -434,7 +434,11 @@ $(document).ready(function(){initNavTree('stock__constants_8F90_source.html','')
 <div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;<span class="comment">! close documentation grouping</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="ainterfacediag__manager__mod_1_1register__diag__field_html"><div class="ttname"><a href="interfacediag__manager__mod_1_1register__diag__field.html">diag_manager_mod::register_diag_field</a></div><div class="ttdef"><b>Definition:</b> <a href="diag__manager_8F90_source.html#l00560">diag_manager.F90:560</a></div></div>
+<div class="ttc" id="ainterfacempp__mod_1_1mpp__sum_html"><div class="ttname"><a href="interfacempp__mod_1_1mpp__sum.html">mpp_mod::mpp_sum</a></div><div class="ttdef"><b>Definition:</b> <a href="mpp_8F90_source.html#l00575">mpp.F90:575</a></div></div>
+<div class="ttc" id="ainterfacediag__manager__mod_1_1send__data_html"><div class="ttname"><a href="interfacediag__manager__mod_1_1send__data.html">diag_manager_mod::send_data</a></div><div class="ttdef"><b>Definition:</b> <a href="diag__manager_8F90_source.html#l00544">diag_manager.F90:544</a></div></div>
 <div class="ttc" id="agroup__stock__constants__mod_html_gaf58e9da841d22fb8927f19008ee4beb5"><div class="ttname"><a href="group__stock__constants__mod.html#gaf58e9da841d22fb8927f19008ee4beb5">stock_constants_mod::nsides</a></div><div class="ttdeci">integer, parameter nsides</div><div class="ttdoc">top, bottom, side</div><div class="ttdef"><b>Definition:</b> <a href="stock__constants_8F90_source.html#l00050">stock_constants.F90:50</a></div></div>
+<div class="ttc" id="astructstock__constants__mod_1_1stock__type_html"><div class="ttname"><a href="structstock__constants__mod_1_1stock__type.html">stock_constants_mod::stock_type</a></div><div class="ttdoc">per PE values</div><div class="ttdef"><b>Definition:</b> <a href="stock__constants_8F90_source.html#l00053">stock_constants.F90:53</a></div></div>
 <div class="ttc" id="astructtime__manager__mod_1_1time__type_html"><div class="ttname"><a href="structtime__manager__mod_1_1time__type.html">time_manager_mod::time_type</a></div><div class="ttdoc">Type to represent amounts of time. Implemented as seconds and days to allow for larger intervals.</div><div class="ttdef"><b>Definition:</b> <a href="time__manager_8F90_source.html#l00167">time_manager.F90:167</a></div></div>
 <div class="ttc" id="agroup__time__manager__mod_html_ga2b9c941f38e33eba67ee151fe3bd8ee6"><div class="ttname"><a href="group__time__manager__mod.html#ga2b9c941f38e33eba67ee151fe3bd8ee6">time_manager_mod::get_time</a></div><div class="ttdeci">subroutine, public get_time(Time, seconds, days, ticks, err_msg)</div><div class="ttdoc">Returns days and seconds ( &lt; 86400 ) corresponding to a time. err_msg should be checked for any error...</div><div class="ttdef"><b>Definition:</b> <a href="time__manager_8F90_source.html#l00572">time_manager.F90:572</a></div></div>
 <div class="ttc" id="ampp__util_8inc_html_acfeba7de56f9dd6000b3fd78f9d56c50"><div class="ttname"><a href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a></div><div class="ttdeci">integer function mpp_pe()</div><div class="ttdoc">Returns processor ID. This returns the unique ID associated with a PE. This number runs between 0 and...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00442">mpp_util.inc:442</a></div></div>

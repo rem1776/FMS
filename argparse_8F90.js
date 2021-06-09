@@ -1,5 +1,6 @@
 var argparse_8F90 =
 [
+    [ "argument_t", "structargparse_1_1argument__t.html", "structargparse_1_1argument__t" ],
     [ "parser_t", "structargparse_1_1parser__t.html", "structargparse_1_1parser__t" ],
     [ "add_argument", "argparse_8F90.html#a446bd247f45bfa2f640156f09a4424de", null ],
     [ "catch_duplicate_args", "argparse_8F90.html#a447e23db96ee077db81f11687b5ee279", null ],

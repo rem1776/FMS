@@ -199,7 +199,7 @@ $(document).ready(function(){initNavTree('time__manager_8F90_source.html',''); i
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;       <span class="keyword">operator</span>(&lt;),  <span class="keyword">operator</span>(&lt;=),  <span class="keyword">operator</span>(//),  <span class="keyword">assignment</span>(=)</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="comment">! Subroutines and functions operating on time_type</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="keywordtype">public</span> set_time, <a class="code" href="group__time__manager__mod.html#ga4ae4f2e68d2cf722dd93aa5cd8cdc56b">increment_time</a>, <a class="code" href="group__time__manager__mod.html#ga1479e62dcf63419f83ba7dbe33e0f03a">decrement_time</a>, <a class="code" href="group__time__manager__mod.html#ga2b9c941f38e33eba67ee151fe3bd8ee6">get_time</a>, <a class="code" href="group__time__manager__mod.html#gabd5f3b7a1ac6fab11649aca606fdbb8f">interval_alarm</a></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="keywordtype">public</span> <a class="code" href="interfacetime__manager__mod_1_1set__time.html">set_time</a>, <a class="code" href="group__time__manager__mod.html#ga4ae4f2e68d2cf722dd93aa5cd8cdc56b">increment_time</a>, <a class="code" href="group__time__manager__mod.html#ga1479e62dcf63419f83ba7dbe33e0f03a">decrement_time</a>, <a class="code" href="group__time__manager__mod.html#ga2b9c941f38e33eba67ee151fe3bd8ee6">get_time</a>, <a class="code" href="group__time__manager__mod.html#gabd5f3b7a1ac6fab11649aca606fdbb8f">interval_alarm</a></div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="keywordtype">public</span> <a class="code" href="group__time__manager__mod.html#gaba77face96aefbbb2c754b5830938793">repeat_alarm</a>, time_type_to_real, <a class="code" href="group__time__manager__mod.html#gafff6475f8827e27cedfca66a1396e6ab">real_to_time_type</a></div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="keywordtype">public</span> <a class="code" href="group__time__manager__mod.html#gaf822bea03a375fc7a3f1d8d1fd82e187">time_list_error</a></div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
@@ -211,7 +211,7 @@ $(document).ready(function(){initNavTree('time__manager_8F90_source.html',''); i
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="keywordtype">public</span> <a class="code" href="group__time__manager__mod.html#gad4d5cb71942ebf3f1bb9d4a29a6d9a04">get_calendar_type</a></div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="keywordtype">public</span> <a class="code" href="group__time__manager__mod.html#ga3f9d6b19f82929805f6983974e93e462">set_ticks_per_second</a></div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="keywordtype">public</span> <a class="code" href="group__time__manager__mod.html#ga07edc2aeb8850b3371e504f83d0285d1">get_ticks_per_second</a></div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="keywordtype">public</span> set_date</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="keywordtype">public</span> <a class="code" href="interfacetime__manager__mod_1_1set__date.html">set_date</a></div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="keywordtype">public</span> <a class="code" href="group__time__manager__mod.html#ga6c708ea801247812b41b305ee5aeea13">get_date</a></div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="keywordtype">public</span> increment_date</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="keywordtype">public</span> decrement_date</div>
@@ -285,20 +285,20 @@ $(document).ready(function(){initNavTree('time__manager_8F90_source.html',''); i
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160; </div>
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="comment">! excludes incorrect parse in docs</span><span class="comment"></span></div>
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="comment">!&gt; @cond</span></div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;<span class="keyword">interface</span> <span class="keyword">operator</span> (+);   module <span class="keywordtype">procedure</span> time_plus;        end interface</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;<span class="keyword">interface</span> <span class="keyword">operator</span> (-);   module <span class="keywordtype">procedure</span> time_minus;       end interface</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;<span class="keyword">interface</span> <span class="keyword">operator</span> (*);   module <span class="keywordtype">procedure</span> time_scalar_mult</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;                          <span class="keyword">module procedure</span> scalar_time_mult; <span class="keyword">end interface</span></div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;<span class="keyword">interface</span> <span class="keyword">operator</span> (+);   module <span class="keywordtype">procedure</span> <a class="code" href="group__time__manager__mod.html#ga2805ba04b464c0143fe0bdd63065c3b9">time_plus</a>;        end interface</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;<span class="keyword">interface</span> <span class="keyword">operator</span> (-);   module <span class="keywordtype">procedure</span> <a class="code" href="group__time__manager__mod.html#gab0abd73a9fb0897d92398afff8b743d9">time_minus</a>;       end interface</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;<span class="keyword">interface</span> <span class="keyword">operator</span> (*);   module <span class="keywordtype">procedure</span> <a class="code" href="group__time__manager__mod.html#ga330ff6e3e8408cd8c0d3d703d56b3fa4">time_scalar_mult</a></div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;                          <span class="keyword">module procedure</span> <a class="code" href="group__time__manager__mod.html#ga48c9db18080295254bd46b0908598a5c">scalar_time_mult</a>; <span class="keyword">end interface</span></div>
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;<span class="keyword">interface</span> <span class="keyword">operator</span> (/);   module <span class="keywordtype">procedure</span> time_scalar_divide</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;                          <span class="keyword">module procedure</span> time_divide;      <span class="keyword">end interface</span></div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;<span class="keyword">interface</span> <span class="keyword">operator</span> (&gt;);   module <span class="keywordtype">procedure</span> time_gt;          end interface</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;                          <span class="keyword">module procedure</span> <a class="code" href="group__time__manager__mod.html#gad42e283bb36efd703751796d30f07275">time_divide</a>;      <span class="keyword">end interface</span></div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;<span class="keyword">interface</span> <span class="keyword">operator</span> (&gt;);   module <span class="keywordtype">procedure</span> <a class="code" href="group__time__manager__mod.html#ga5fcc77f0861723f917c0a1fb91a16245">time_gt</a>;          end interface</div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;<span class="keyword">interface</span> <span class="keyword">operator</span> (&gt;=);  module <span class="keywordtype">procedure</span> time_ge;          end interface</div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;<span class="keyword">interface</span> <span class="keyword">operator</span> (&lt;);   module <span class="keywordtype">procedure</span> time_lt;          end interface</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="keyword">interface</span> <span class="keyword">operator</span> (&lt;=);  module <span class="keywordtype">procedure</span> time_le;          end interface</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="keyword">interface</span> <span class="keyword">operator</span> (&lt;=);  module <span class="keywordtype">procedure</span> <a class="code" href="group__time__manager__mod.html#ga68e8eb8c14b3a8e2a5c00b87b263650d">time_le</a>;          end interface</div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;<span class="keyword">interface</span> <span class="keyword">operator</span> (==);  module <span class="keywordtype">procedure</span> time_eq;          end interface</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;<span class="keyword">interface</span> <span class="keyword">operator</span> (/=);  module <span class="keywordtype">procedure</span> time_ne;          end interface</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;<span class="keyword">interface</span> <span class="keyword">operator</span> (//);  module <span class="keywordtype">procedure</span> time_real_divide; end interface</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;<span class="keyword">interface</span> <span class="keyword">assignment</span>(=);  module <span class="keywordtype">procedure</span> time_assignment;  end interface<span class="comment"></span></div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;<span class="keyword">interface</span> <span class="keyword">operator</span> (/=);  module <span class="keywordtype">procedure</span> <a class="code" href="group__time__manager__mod.html#gaf038eafffcbfd654b42dcc74b6b110c3">time_ne</a>;          end interface</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;<span class="keyword">interface</span> <span class="keyword">operator</span> (//);  module <span class="keywordtype">procedure</span> <a class="code" href="group__time__manager__mod.html#gab0eb6ef695a956e0f7522a1f8879c967">time_real_divide</a>; end interface</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;<span class="keyword">interface</span> <span class="keyword">assignment</span>(=);  module <span class="keywordtype">procedure</span> <a class="code" href="group__time__manager__mod.html#gaa5b77870a71375dc460f34d862f49325">time_assignment</a>;  end interface<span class="comment"></span></div>
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;<span class="comment">!&gt; @endcond</span></div>
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160; </div>
 <div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;<span class="comment">!======================================================================</span></div>
@@ -319,8 +319,8 @@ $(document).ready(function(){initNavTree('time__manager_8F90_source.html',''); i
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;<span class="comment">!! @code{.F90}</span></div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;<span class="comment">!! set_time(seconds, days, ticks, err_msg)</span></div>
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;<span class="comment">!! set_time(time_string, err_msg, allow_rounding)</span></div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;<span class="comment">!! @endcode</span></div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;<span class="keyword">interface</span> set_time</div>
+<div class="line"><a name="l00226"></a><span class="lineno"><a class="line" href="interfacetime__manager__mod_1_1set__time.html">  226</a></span>&#160;<span class="comment">!! @endcode</span></div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;<span class="keyword">interface</span> <a class="code" href="interfacetime__manager__mod_1_1set__time.html">set_time</a></div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;  <span class="keyword">module procedure</span> set_time_i, set_time_c</div>
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;<span class="keyword">end interface</span></div>
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;<span class="comment"></span> </div>
@@ -359,9 +359,9 @@ $(document).ready(function(){initNavTree('time__manager_8F90_source.html',''); i
 <div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;<span class="comment">!! @code{.F90} </span></div>
 <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;<span class="comment">!! if(err_msg /= &#39;&#39;) call error_mesg(&#39;my_routine&#39;,&#39;additional info: &#39;//trim(err_msg) ,FATAL)</span></div>
 <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;<span class="comment">!! @endcode</span></div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;<span class="comment">!!</span></div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;<span class="keyword">interface</span> set_date</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;  <span class="keyword">module procedure</span> set_date_i, set_date_c</div>
+<div class="line"><a name="l00266"></a><span class="lineno"><a class="line" href="interfacetime__manager__mod_1_1set__date.html">  266</a></span>&#160;<span class="comment">!!</span></div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;<span class="keyword">interface</span> <a class="code" href="interfacetime__manager__mod_1_1set__date.html">set_date</a></div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;  <span class="keyword">module procedure</span> <a class="code" href="group__time__manager__mod.html#ga0682ab24c004c2e4373e2dc3d4d8d075">set_date_i</a>, <a class="code" href="group__time__manager__mod.html#ga1fe4b3c2c79a5a4d698c65d659443369">set_date_c</a></div>
 <div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;<span class="keyword">end interface</span></div>
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160; </div>
 <div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;<span class="comment">!======================================================================</span></div>
@@ -461,7 +461,7 @@ $(document).ready(function(){initNavTree('time__manager_8F90_source.html',''); i
 <div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160; </div>
 <div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160; <span class="keywordtype">logical</span>                       :: set_time_private</div>
 <div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160; <span class="keywordtype">integer</span>, <span class="keywordtype">intent(in)</span>           :: seconds, days, ticks</div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160; <span class="keywordtype">type</span>(<a class="code" href="structtime__manager__mod_1_1time__type.html">time_type</a>),  <span class="keywordtype">intent(out)</span> :: time_out</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160; <span class="keywordtype">type</span>(time_type),  <span class="keywordtype">intent(out)</span> :: Time_out</div>
 <div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160; <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(out)</span> :: err_msg</div>
 <div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160; <span class="keywordtype">integer</span>            :: seconds_new, days_new, ticks_new</div>
 <div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160; </div>
@@ -489,7 +489,7 @@ $(document).ready(function(){initNavTree('time__manager_8F90_source.html',''); i
 <div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;<span class="comment">!---------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160; </div>
 <div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160; <span class="keyword">function </span>set_time_i(seconds, days, ticks, err_msg)</div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160; <span class="keywordtype">type</span>(<a class="code" href="structtime__manager__mod_1_1time__type.html">time_type</a>)               :: set_time_i</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160; <span class="keywordtype">type</span>(time_type)               :: set_time_i</div>
 <div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160; <span class="keywordtype">integer</span>, <span class="keywordtype">intent(in)</span>           :: seconds</div>
 <div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160; <span class="keywordtype">integer</span>, <span class="keywordtype">intent(in)</span>, <span class="keywordtype">optional</span> :: days, ticks</div>
 <div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160; <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(out)</span>, <span class="keywordtype">optional</span> :: err_msg</div>
@@ -511,7 +511,7 @@ $(document).ready(function(){initNavTree('time__manager_8F90_source.html',''); i
 <div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160; </div>
 <div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160; <span class="keyword">function </span>set_time_c(string, err_msg, allow_rounding)</div>
 <div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160; </div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160; <span class="keywordtype">type</span>(<a class="code" href="structtime__manager__mod_1_1time__type.html">time_type</a>) :: set_time_c</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160; <span class="keywordtype">type</span>(time_type) :: set_time_c</div>
 <div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160; <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: string</div>
 <div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160; <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(out)</span>, <span class="keywordtype">optional</span> :: err_msg</div>
 <div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160; <span class="keywordtype">logical</span>, <span class="keywordtype">intent(in)</span>, <span class="keywordtype">optional</span> :: allow_rounding</div>
@@ -526,14 +526,14 @@ $(document).ready(function(){initNavTree('time__manager_8F90_source.html',''); i
 <div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160; <span class="keywordflow">if</span>(<span class="keyword">present</span>(err_msg)) err_msg = <span class="stringliteral">&#39;&#39;</span></div>
 <div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160; allow_rounding_local=.true.; <span class="keywordflow">if</span>(<span class="keyword">present</span>(allow_rounding)) allow_rounding_local=allow_rounding</div>
 <div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160; </div>
-<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160; err_msg_local = <span class="stringliteral">&#39;Form of character time stamp is incorrect. The character time stamp is: &#39;</span>//trim(string)</div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160; err_msg_local = <span class="stringliteral">&#39;Form of character time stamp is incorrect. The character time stamp is: &#39;</span>//trim(<a class="code" href="interfacefms__mod_1_1string.html">string</a>)</div>
 <div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160; </div>
-<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160; string_sifted_left = adjustl(string)</div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160; string_sifted_left = adjustl(<a class="code" href="interfacefms__mod_1_1string.html">string</a>)</div>
 <div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160; i1 = index(trim(string_sifted_left),<span class="stringliteral">&#39; &#39;</span>)</div>
 <div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160; <span class="keywordflow">if</span>(i1 == 0) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;   <span class="keywordflow">if</span>(error_handler(<span class="stringliteral">&#39;function set_time_c&#39;</span>, err_msg_local, err_msg)) <span class="keywordflow">return</span></div>
 <div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;<span class="keywordflow"> endif</span></div>
-<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160; <span class="keywordflow">if</span>(index(string,<span class="stringliteral">&#39;-&#39;</span>) /= 0 .or. index(string,<span class="stringliteral">&#39;:&#39;</span>) /= 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160; <span class="keywordflow">if</span>(index(<a class="code" href="interfacefms__mod_1_1string.html">string</a>,<span class="stringliteral">&#39;-&#39;</span>) /= 0 .or. index(<a class="code" href="interfacefms__mod_1_1string.html">string</a>,<span class="stringliteral">&#39;:&#39;</span>) /= 0) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;   <span class="keywordflow">if</span>(error_handler(<span class="stringliteral">&#39;function set_time_c&#39;</span>, err_msg_local, err_msg)) <span class="keywordflow">return</span></div>
 <div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;<span class="keywordflow"> endif</span></div>
 <div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160; </div>
@@ -594,13 +594,13 @@ $(document).ready(function(){initNavTree('time__manager_8F90_source.html',''); i
 <div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160; </div>
 <div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160; err_msg = <span class="stringliteral">&#39;&#39;</span></div>
 <div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160; get_tick_from_string = .true.</div>
-<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160; i3 = len_trim(string)</div>
+<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160; i3 = len_trim(<a class="code" href="interfacefms__mod_1_1string.html">string</a>)</div>
 <div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160; nspf = i3 - 1 <span class="comment">! nspf = spaces occupied by fractional seconds, excluding decimal point</span></div>
 <div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160; <span class="keywordflow">if</span>(nspf == 0) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;   tick = 0 <span class="comment">! Nothing to the right of the decimal point</span></div>
 <div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160; <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;   <span class="keyword">write</span>(formt(3:3),<span class="stringliteral">&#39;(i1)&#39;</span>) nspf</div>
-<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;   <span class="keyword">read</span>(string(2:i3),formt) fraction</div>
+<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;   <span class="keyword">read</span>(<a class="code" href="interfacefms__mod_1_1string.html">string</a>(2:i3),formt) fraction</div>
 <div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;   <span class="keywordflow">if</span>(fraction == 0) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;     tick = 0 <span class="comment">! All zeros to the right of the decimal point</span></div>
 <div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;   <span class="keywordflow">else</span></div>
@@ -613,7 +613,7 @@ $(document).ready(function(){initNavTree('time__manager_8F90_source.html',''); i
 <div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;         tick = tpsfrac/magnitude</div>
 <div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;       <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;         <span class="keyword">write</span>(err_msg,<span class="stringliteral">&#39;(a,i6)&#39;</span>) <span class="stringliteral">&#39;Second fraction cannot be exactly represented with ticks.  &#39;</span>// &amp;</div>
-<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;                                 <span class="stringliteral">&#39;fraction=&#39;</span>//trim(string)//<span class="stringliteral">&#39;  ticks_per_second=&#39;</span>,ticks_per_second</div>
+<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;                                 <span class="stringliteral">&#39;fraction=&#39;</span>//trim(<a class="code" href="interfacefms__mod_1_1string.html">string</a>)//<span class="stringliteral">&#39;  ticks_per_second=&#39;</span>,ticks_per_second</div>
 <div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;         get_tick_from_string = .false.</div>
 <div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;<span class="keywordflow">       endif</span></div>
 <div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;<span class="keywordflow">     endif</span></div>
@@ -921,22 +921,22 @@ $(document).ready(function(){initNavTree('time__manager_8F90_source.html',''); i
 <div class="line"><a name="l00825"></a><span class="lineno">  825</span>&#160;<span class="comment">!   &lt;/TEMPLATE&gt;</span></div>
 <div class="line"><a name="l00826"></a><span class="lineno">  826</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00827"></a><span class="lineno">  827</span>&#160;<span class="comment">!&gt; Returns true if time1 &gt; time2</span></div>
-<div class="line"><a name="l00828"></a><span class="lineno">  828</span>&#160;<span class="keyword">function </span>time_gt(time1, time2)</div>
+<div class="line"><a name="l00828"></a><span class="lineno"><a class="line" href="group__time__manager__mod.html#ga5fcc77f0861723f917c0a1fb91a16245">  828</a></span>&#160;<span class="keyword">function </span><a class="code" href="group__time__manager__mod.html#ga5fcc77f0861723f917c0a1fb91a16245">time_gt</a>(time1, time2)</div>
 <div class="line"><a name="l00829"></a><span class="lineno">  829</span>&#160; </div>
 <div class="line"><a name="l00830"></a><span class="lineno">  830</span>&#160; </div>
-<div class="line"><a name="l00831"></a><span class="lineno">  831</span>&#160;<span class="keywordtype">logical</span> :: time_gt</div>
+<div class="line"><a name="l00831"></a><span class="lineno">  831</span>&#160;<span class="keywordtype">logical</span> :: <a class="code" href="group__time__manager__mod.html#ga5fcc77f0861723f917c0a1fb91a16245">time_gt</a></div>
 <div class="line"><a name="l00832"></a><span class="lineno">  832</span>&#160;<span class="keywordtype">type</span>(<a class="code" href="structtime__manager__mod_1_1time__type.html">time_type</a>), <span class="keywordtype">intent(in)</span> :: time1, time2</div>
 <div class="line"><a name="l00833"></a><span class="lineno">  833</span>&#160; </div>
-<div class="line"><a name="l00834"></a><span class="lineno">  834</span>&#160;time_gt = (time1%days &gt; time2%days)</div>
+<div class="line"><a name="l00834"></a><span class="lineno">  834</span>&#160;<a class="code" href="group__time__manager__mod.html#ga5fcc77f0861723f917c0a1fb91a16245">time_gt</a> = (time1%days &gt; time2%days)</div>
 <div class="line"><a name="l00835"></a><span class="lineno">  835</span>&#160;<span class="keywordflow">if</span>(time1%days == time2%days) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00836"></a><span class="lineno">  836</span>&#160;   <span class="keywordflow">if</span>(time1%seconds == time2%seconds) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00837"></a><span class="lineno">  837</span>&#160;      time_gt = (time1%ticks &gt; time2%ticks)</div>
+<div class="line"><a name="l00837"></a><span class="lineno">  837</span>&#160;      <a class="code" href="group__time__manager__mod.html#ga5fcc77f0861723f917c0a1fb91a16245">time_gt</a> = (time1%ticks &gt; time2%ticks)</div>
 <div class="line"><a name="l00838"></a><span class="lineno">  838</span>&#160;   <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00839"></a><span class="lineno">  839</span>&#160;      time_gt = (time1%seconds &gt; time2%seconds)</div>
+<div class="line"><a name="l00839"></a><span class="lineno">  839</span>&#160;      <a class="code" href="group__time__manager__mod.html#ga5fcc77f0861723f917c0a1fb91a16245">time_gt</a> = (time1%seconds &gt; time2%seconds)</div>
 <div class="line"><a name="l00840"></a><span class="lineno">  840</span>&#160;<span class="keywordflow">   endif</span></div>
 <div class="line"><a name="l00841"></a><span class="lineno">  841</span>&#160;<span class="keywordflow">endif</span></div>
 <div class="line"><a name="l00842"></a><span class="lineno">  842</span>&#160; </div>
-<div class="line"><a name="l00843"></a><span class="lineno">  843</span>&#160;<span class="keyword">end function </span>time_gt</div>
+<div class="line"><a name="l00843"></a><span class="lineno">  843</span>&#160;<span class="keyword">end function </span><a class="code" href="group__time__manager__mod.html#ga5fcc77f0861723f917c0a1fb91a16245">time_gt</a></div>
 <div class="line"><a name="l00844"></a><span class="lineno">  844</span>&#160;<span class="comment">! &lt;/FUNCTION&gt;</span></div>
 <div class="line"><a name="l00845"></a><span class="lineno">  845</span>&#160; </div>
 <div class="line"><a name="l00846"></a><span class="lineno">  846</span>&#160;<span class="comment">!--------------------------------------------------------------------------</span></div>
@@ -969,7 +969,7 @@ $(document).ready(function(){initNavTree('time__manager_8F90_source.html',''); i
 <div class="line"><a name="l00873"></a><span class="lineno">  873</span>&#160;<span class="keywordtype">logical</span> :: time_ge</div>
 <div class="line"><a name="l00874"></a><span class="lineno">  874</span>&#160;<span class="keywordtype">type</span>(<a class="code" href="structtime__manager__mod_1_1time__type.html">time_type</a>), <span class="keywordtype">intent(in)</span> :: time1, time2</div>
 <div class="line"><a name="l00875"></a><span class="lineno">  875</span>&#160; </div>
-<div class="line"><a name="l00876"></a><span class="lineno">  876</span>&#160;time_ge = (time_gt(time1, time2) .or. time_eq(time1, time2))</div>
+<div class="line"><a name="l00876"></a><span class="lineno">  876</span>&#160;time_ge = (<a class="code" href="group__time__manager__mod.html#ga5fcc77f0861723f917c0a1fb91a16245">time_gt</a>(time1, time2) .or. time_eq(time1, time2))</div>
 <div class="line"><a name="l00877"></a><span class="lineno">  877</span>&#160; </div>
 <div class="line"><a name="l00878"></a><span class="lineno">  878</span>&#160;<span class="keyword">end function </span>time_ge</div>
 <div class="line"><a name="l00879"></a><span class="lineno">  879</span>&#160;<span class="comment">! &lt;/FUNCTION&gt;</span></div>
@@ -1039,15 +1039,15 @@ $(document).ready(function(){initNavTree('time__manager_8F90_source.html',''); i
 <div class="line"><a name="l00943"></a><span class="lineno">  943</span>&#160;<span class="comment">!   &lt;/OUT&gt;</span></div>
 <div class="line"><a name="l00944"></a><span class="lineno">  944</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00945"></a><span class="lineno">  945</span>&#160;<span class="comment">!&gt; Returns true if time1 &lt;= time2</span></div>
-<div class="line"><a name="l00946"></a><span class="lineno">  946</span>&#160;<span class="keyword">function </span>time_le(time1, time2)</div>
+<div class="line"><a name="l00946"></a><span class="lineno"><a class="line" href="group__time__manager__mod.html#ga68e8eb8c14b3a8e2a5c00b87b263650d">  946</a></span>&#160;<span class="keyword">function </span><a class="code" href="group__time__manager__mod.html#ga68e8eb8c14b3a8e2a5c00b87b263650d">time_le</a>(time1, time2)</div>
 <div class="line"><a name="l00947"></a><span class="lineno">  947</span>&#160; </div>
 <div class="line"><a name="l00948"></a><span class="lineno">  948</span>&#160; </div>
-<div class="line"><a name="l00949"></a><span class="lineno">  949</span>&#160;<span class="keywordtype">logical</span> :: time_le</div>
+<div class="line"><a name="l00949"></a><span class="lineno">  949</span>&#160;<span class="keywordtype">logical</span> :: <a class="code" href="group__time__manager__mod.html#ga68e8eb8c14b3a8e2a5c00b87b263650d">time_le</a></div>
 <div class="line"><a name="l00950"></a><span class="lineno">  950</span>&#160;<span class="keywordtype">type</span>(<a class="code" href="structtime__manager__mod_1_1time__type.html">time_type</a>), <span class="keywordtype">intent(in)</span> :: time1, time2</div>
 <div class="line"><a name="l00951"></a><span class="lineno">  951</span>&#160; </div>
-<div class="line"><a name="l00952"></a><span class="lineno">  952</span>&#160;time_le = (time_lt(time1, time2) .or. time_eq(time1, time2))</div>
+<div class="line"><a name="l00952"></a><span class="lineno">  952</span>&#160;<a class="code" href="group__time__manager__mod.html#ga68e8eb8c14b3a8e2a5c00b87b263650d">time_le</a> = (time_lt(time1, time2) .or. time_eq(time1, time2))</div>
 <div class="line"><a name="l00953"></a><span class="lineno">  953</span>&#160; </div>
-<div class="line"><a name="l00954"></a><span class="lineno">  954</span>&#160;<span class="keyword">end function </span>time_le</div>
+<div class="line"><a name="l00954"></a><span class="lineno">  954</span>&#160;<span class="keyword">end function </span><a class="code" href="group__time__manager__mod.html#ga68e8eb8c14b3a8e2a5c00b87b263650d">time_le</a></div>
 <div class="line"><a name="l00955"></a><span class="lineno">  955</span>&#160;<span class="comment">! &lt;/FUNCTION&gt;</span></div>
 <div class="line"><a name="l00956"></a><span class="lineno">  956</span>&#160; </div>
 <div class="line"><a name="l00957"></a><span class="lineno">  957</span>&#160;<span class="comment">!--------------------------------------------------------------------------</span></div>
@@ -1112,14 +1112,14 @@ $(document).ready(function(){initNavTree('time__manager_8F90_source.html',''); i
 <div class="line"><a name="l01016"></a><span class="lineno"> 1016</span>&#160;<span class="comment">!   &lt;/OUT&gt;</span></div>
 <div class="line"><a name="l01017"></a><span class="lineno"> 1017</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l01018"></a><span class="lineno"> 1018</span>&#160;<span class="comment">!&gt; Returns true if time1 /= time2</span></div>
-<div class="line"><a name="l01019"></a><span class="lineno"> 1019</span>&#160;<span class="keyword">function </span>time_ne(time1, time2)</div>
+<div class="line"><a name="l01019"></a><span class="lineno"><a class="line" href="group__time__manager__mod.html#gaf038eafffcbfd654b42dcc74b6b110c3"> 1019</a></span>&#160;<span class="keyword">function </span><a class="code" href="group__time__manager__mod.html#gaf038eafffcbfd654b42dcc74b6b110c3">time_ne</a>(time1, time2)</div>
 <div class="line"><a name="l01020"></a><span class="lineno"> 1020</span>&#160; </div>
-<div class="line"><a name="l01021"></a><span class="lineno"> 1021</span>&#160;<span class="keywordtype">logical</span> :: time_ne</div>
+<div class="line"><a name="l01021"></a><span class="lineno"> 1021</span>&#160;<span class="keywordtype">logical</span> :: <a class="code" href="group__time__manager__mod.html#gaf038eafffcbfd654b42dcc74b6b110c3">time_ne</a></div>
 <div class="line"><a name="l01022"></a><span class="lineno"> 1022</span>&#160;<span class="keywordtype">type</span>(<a class="code" href="structtime__manager__mod_1_1time__type.html">time_type</a>), <span class="keywordtype">intent(in)</span> :: time1, time2</div>
 <div class="line"><a name="l01023"></a><span class="lineno"> 1023</span>&#160; </div>
-<div class="line"><a name="l01024"></a><span class="lineno"> 1024</span>&#160;time_ne = (.not. time_eq(time1, time2))</div>
+<div class="line"><a name="l01024"></a><span class="lineno"> 1024</span>&#160;<a class="code" href="group__time__manager__mod.html#gaf038eafffcbfd654b42dcc74b6b110c3">time_ne</a> = (.not. time_eq(time1, time2))</div>
 <div class="line"><a name="l01025"></a><span class="lineno"> 1025</span>&#160; </div>
-<div class="line"><a name="l01026"></a><span class="lineno"> 1026</span>&#160;<span class="keyword">end function </span>time_ne</div>
+<div class="line"><a name="l01026"></a><span class="lineno"> 1026</span>&#160;<span class="keyword">end function </span><a class="code" href="group__time__manager__mod.html#gaf038eafffcbfd654b42dcc74b6b110c3">time_ne</a></div>
 <div class="line"><a name="l01027"></a><span class="lineno"> 1027</span>&#160;<span class="comment">! &lt;/FUNCTION&gt;</span></div>
 <div class="line"><a name="l01028"></a><span class="lineno"> 1028</span>&#160; </div>
 <div class="line"><a name="l01029"></a><span class="lineno"> 1029</span>&#160;<span class="comment">!-------------------------------------------------------------------------</span></div>
@@ -1146,17 +1146,17 @@ $(document).ready(function(){initNavTree('time__manager_8F90_source.html',''); i
 <div class="line"><a name="l01050"></a><span class="lineno"> 1050</span>&#160;<span class="comment">!   &lt;/OUT&gt;</span></div>
 <div class="line"><a name="l01051"></a><span class="lineno"> 1051</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l01052"></a><span class="lineno"> 1052</span>&#160;<span class="comment">!&gt; Returns sum of two time_types</span></div>
-<div class="line"><a name="l01053"></a><span class="lineno"> 1053</span>&#160;<span class="keyword">function </span>time_plus(time1, time2)</div>
+<div class="line"><a name="l01053"></a><span class="lineno"><a class="line" href="group__time__manager__mod.html#ga2805ba04b464c0143fe0bdd63065c3b9"> 1053</a></span>&#160;<span class="keyword">function </span><a class="code" href="group__time__manager__mod.html#ga2805ba04b464c0143fe0bdd63065c3b9">time_plus</a>(time1, time2)</div>
 <div class="line"><a name="l01054"></a><span class="lineno"> 1054</span>&#160; </div>
 <div class="line"><a name="l01055"></a><span class="lineno"> 1055</span>&#160; </div>
-<div class="line"><a name="l01056"></a><span class="lineno"> 1056</span>&#160;<span class="keywordtype">type</span>(<a class="code" href="structtime__manager__mod_1_1time__type.html">time_type</a>) :: time_plus</div>
+<div class="line"><a name="l01056"></a><span class="lineno"> 1056</span>&#160;<span class="keywordtype">type</span>(<a class="code" href="structtime__manager__mod_1_1time__type.html">time_type</a>) :: <a class="code" href="group__time__manager__mod.html#ga2805ba04b464c0143fe0bdd63065c3b9">time_plus</a></div>
 <div class="line"><a name="l01057"></a><span class="lineno"> 1057</span>&#160;<span class="keywordtype">type</span>(<a class="code" href="structtime__manager__mod_1_1time__type.html">time_type</a>), <span class="keywordtype">intent(in)</span> :: time1, time2</div>
 <div class="line"><a name="l01058"></a><span class="lineno"> 1058</span>&#160; </div>
 <div class="line"><a name="l01059"></a><span class="lineno"> 1059</span>&#160;<span class="keywordflow">if</span>(.not.module_is_initialized) <span class="keyword">call </span>time_manager_init</div>
 <div class="line"><a name="l01060"></a><span class="lineno"> 1060</span>&#160; </div>
-<div class="line"><a name="l01061"></a><span class="lineno"> 1061</span>&#160;time_plus = <a class="code" href="group__time__manager__mod.html#ga4ae4f2e68d2cf722dd93aa5cd8cdc56b">increment_time</a>(time1, time2%seconds, time2%days, time2%ticks)</div>
+<div class="line"><a name="l01061"></a><span class="lineno"> 1061</span>&#160;<a class="code" href="group__time__manager__mod.html#ga2805ba04b464c0143fe0bdd63065c3b9">time_plus</a> = <a class="code" href="group__time__manager__mod.html#ga4ae4f2e68d2cf722dd93aa5cd8cdc56b">increment_time</a>(time1, time2%seconds, time2%days, time2%ticks)</div>
 <div class="line"><a name="l01062"></a><span class="lineno"> 1062</span>&#160; </div>
-<div class="line"><a name="l01063"></a><span class="lineno"> 1063</span>&#160;<span class="keyword">end function </span>time_plus</div>
+<div class="line"><a name="l01063"></a><span class="lineno"> 1063</span>&#160;<span class="keyword">end function </span><a class="code" href="group__time__manager__mod.html#ga2805ba04b464c0143fe0bdd63065c3b9">time_plus</a></div>
 <div class="line"><a name="l01064"></a><span class="lineno"> 1064</span>&#160;<span class="comment">! &lt;/FUNCTION&gt;</span></div>
 <div class="line"><a name="l01065"></a><span class="lineno"> 1065</span>&#160; </div>
 <div class="line"><a name="l01066"></a><span class="lineno"> 1066</span>&#160;<span class="comment">!-------------------------------------------------------------------------</span></div>
@@ -1188,21 +1188,21 @@ $(document).ready(function(){initNavTree('time__manager_8F90_source.html',''); i
 <div class="line"><a name="l01092"></a><span class="lineno"> 1092</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l01093"></a><span class="lineno"> 1093</span>&#160;<span class="comment">!&gt; Returns difference of two time_types. WARNING: a time type is positive</span></div>
 <div class="line"><a name="l01094"></a><span class="lineno"> 1094</span>&#160;<span class="comment">!! so by definition time1 - time2  is the same as time2 - time1.</span></div>
-<div class="line"><a name="l01095"></a><span class="lineno"> 1095</span>&#160;<span class="keyword">function </span>time_minus(time1, time2)</div>
+<div class="line"><a name="l01095"></a><span class="lineno"><a class="line" href="group__time__manager__mod.html#gab0abd73a9fb0897d92398afff8b743d9"> 1095</a></span>&#160;<span class="keyword">function </span><a class="code" href="group__time__manager__mod.html#gab0abd73a9fb0897d92398afff8b743d9">time_minus</a>(time1, time2)</div>
 <div class="line"><a name="l01096"></a><span class="lineno"> 1096</span>&#160; </div>
 <div class="line"><a name="l01097"></a><span class="lineno"> 1097</span>&#160; </div>
-<div class="line"><a name="l01098"></a><span class="lineno"> 1098</span>&#160;<span class="keywordtype">type</span>(<a class="code" href="structtime__manager__mod_1_1time__type.html">time_type</a>) :: time_minus</div>
+<div class="line"><a name="l01098"></a><span class="lineno"> 1098</span>&#160;<span class="keywordtype">type</span>(<a class="code" href="structtime__manager__mod_1_1time__type.html">time_type</a>) :: <a class="code" href="group__time__manager__mod.html#gab0abd73a9fb0897d92398afff8b743d9">time_minus</a></div>
 <div class="line"><a name="l01099"></a><span class="lineno"> 1099</span>&#160;<span class="keywordtype">type</span>(<a class="code" href="structtime__manager__mod_1_1time__type.html">time_type</a>), <span class="keywordtype">intent(in)</span> :: time1, time2</div>
 <div class="line"><a name="l01100"></a><span class="lineno"> 1100</span>&#160; </div>
 <div class="line"><a name="l01101"></a><span class="lineno"> 1101</span>&#160;<span class="keywordflow">if</span>(.not.module_is_initialized) <span class="keyword">call </span>time_manager_init</div>
 <div class="line"><a name="l01102"></a><span class="lineno"> 1102</span>&#160; </div>
 <div class="line"><a name="l01103"></a><span class="lineno"> 1103</span>&#160;<span class="keywordflow">if</span>(time1 &gt; time2) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l01104"></a><span class="lineno"> 1104</span>&#160;   time_minus = <a class="code" href="group__time__manager__mod.html#ga1479e62dcf63419f83ba7dbe33e0f03a">decrement_time</a>(time1, time2%seconds, time2%days, time2%ticks)</div>
+<div class="line"><a name="l01104"></a><span class="lineno"> 1104</span>&#160;   <a class="code" href="group__time__manager__mod.html#gab0abd73a9fb0897d92398afff8b743d9">time_minus</a> = <a class="code" href="group__time__manager__mod.html#ga1479e62dcf63419f83ba7dbe33e0f03a">decrement_time</a>(time1, time2%seconds, time2%days, time2%ticks)</div>
 <div class="line"><a name="l01105"></a><span class="lineno"> 1105</span>&#160;<span class="keywordflow">else</span></div>
-<div class="line"><a name="l01106"></a><span class="lineno"> 1106</span>&#160;   time_minus = <a class="code" href="group__time__manager__mod.html#ga1479e62dcf63419f83ba7dbe33e0f03a">decrement_time</a>(time2, time1%seconds, time1%days, time1%ticks)</div>
+<div class="line"><a name="l01106"></a><span class="lineno"> 1106</span>&#160;   <a class="code" href="group__time__manager__mod.html#gab0abd73a9fb0897d92398afff8b743d9">time_minus</a> = <a class="code" href="group__time__manager__mod.html#ga1479e62dcf63419f83ba7dbe33e0f03a">decrement_time</a>(time2, time1%seconds, time1%days, time1%ticks)</div>
 <div class="line"><a name="l01107"></a><span class="lineno"> 1107</span>&#160;<span class="keywordflow">endif</span></div>
 <div class="line"><a name="l01108"></a><span class="lineno"> 1108</span>&#160; </div>
-<div class="line"><a name="l01109"></a><span class="lineno"> 1109</span>&#160;<span class="keyword">end function </span>time_minus</div>
+<div class="line"><a name="l01109"></a><span class="lineno"> 1109</span>&#160;<span class="keyword">end function </span><a class="code" href="group__time__manager__mod.html#gab0abd73a9fb0897d92398afff8b743d9">time_minus</a></div>
 <div class="line"><a name="l01110"></a><span class="lineno"> 1110</span>&#160;<span class="comment">! &lt;/FUNCTION&gt;</span></div>
 <div class="line"><a name="l01111"></a><span class="lineno"> 1111</span>&#160; </div>
 <div class="line"><a name="l01112"></a><span class="lineno"> 1112</span>&#160;<span class="comment">!--------------------------------------------------------------------------</span></div>
@@ -1229,10 +1229,10 @@ $(document).ready(function(){initNavTree('time__manager_8F90_source.html',''); i
 <div class="line"><a name="l01133"></a><span class="lineno"> 1133</span>&#160;<span class="comment">!   &lt;/OUT&gt;</span></div>
 <div class="line"><a name="l01134"></a><span class="lineno"> 1134</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l01135"></a><span class="lineno"> 1135</span>&#160;<span class="comment">!&gt; Returns time multiplied by integer factor n</span></div>
-<div class="line"><a name="l01136"></a><span class="lineno"> 1136</span>&#160;<span class="keyword">function </span>time_scalar_mult(time, n)</div>
+<div class="line"><a name="l01136"></a><span class="lineno"><a class="line" href="group__time__manager__mod.html#ga330ff6e3e8408cd8c0d3d703d56b3fa4"> 1136</a></span>&#160;<span class="keyword">function </span><a class="code" href="group__time__manager__mod.html#ga330ff6e3e8408cd8c0d3d703d56b3fa4">time_scalar_mult</a>(time, n)</div>
 <div class="line"><a name="l01137"></a><span class="lineno"> 1137</span>&#160; </div>
 <div class="line"><a name="l01138"></a><span class="lineno"> 1138</span>&#160; </div>
-<div class="line"><a name="l01139"></a><span class="lineno"> 1139</span>&#160;<span class="keywordtype">type</span>(<a class="code" href="structtime__manager__mod_1_1time__type.html">time_type</a>)             :: time_scalar_mult</div>
+<div class="line"><a name="l01139"></a><span class="lineno"> 1139</span>&#160;<span class="keywordtype">type</span>(<a class="code" href="structtime__manager__mod_1_1time__type.html">time_type</a>)             :: <a class="code" href="group__time__manager__mod.html#ga330ff6e3e8408cd8c0d3d703d56b3fa4">time_scalar_mult</a></div>
 <div class="line"><a name="l01140"></a><span class="lineno"> 1140</span>&#160;<span class="keywordtype">type</span>(<a class="code" href="structtime__manager__mod_1_1time__type.html">time_type</a>), <span class="keywordtype">intent(in)</span> :: time</div>
 <div class="line"><a name="l01141"></a><span class="lineno"> 1141</span>&#160;<span class="keywordtype">integer</span>, <span class="keywordtype">intent(in)</span>         :: n</div>
 <div class="line"><a name="l01142"></a><span class="lineno"> 1142</span>&#160;<span class="keywordtype">integer</span>                     :: days, seconds, ticks, num_sec</div>
@@ -1263,9 +1263,9 @@ $(document).ready(function(){initNavTree('time__manager_8F90_source.html',''); i
 <div class="line"><a name="l01167"></a><span class="lineno"> 1167</span>&#160;days = sec_prod / dble(seconds_per_day)</div>
 <div class="line"><a name="l01168"></a><span class="lineno"> 1168</span>&#160;seconds = sec_prod - dble(days) * dble(seconds_per_day)</div>
 <div class="line"><a name="l01169"></a><span class="lineno"> 1169</span>&#160; </div>
-<div class="line"><a name="l01170"></a><span class="lineno"> 1170</span>&#160;time_scalar_mult = set_time(seconds, time%days * n + days, ticks)</div>
+<div class="line"><a name="l01170"></a><span class="lineno"> 1170</span>&#160;<a class="code" href="group__time__manager__mod.html#ga330ff6e3e8408cd8c0d3d703d56b3fa4">time_scalar_mult</a> = <a class="code" href="interfacetime__manager__mod_1_1set__time.html">set_time</a>(seconds, time%days * n + days, ticks)</div>
 <div class="line"><a name="l01171"></a><span class="lineno"> 1171</span>&#160; </div>
-<div class="line"><a name="l01172"></a><span class="lineno"> 1172</span>&#160;<span class="keyword">end function </span>time_scalar_mult</div>
+<div class="line"><a name="l01172"></a><span class="lineno"> 1172</span>&#160;<span class="keyword">end function </span><a class="code" href="group__time__manager__mod.html#ga330ff6e3e8408cd8c0d3d703d56b3fa4">time_scalar_mult</a></div>
 <div class="line"><a name="l01173"></a><span class="lineno"> 1173</span>&#160;<span class="comment">! &lt;/FUNCTION&gt;</span></div>
 <div class="line"><a name="l01174"></a><span class="lineno"> 1174</span>&#160; </div>
 <div class="line"><a name="l01175"></a><span class="lineno"> 1175</span>&#160;<span class="comment">!-------------------------------------------------------------------------</span></div>
@@ -1289,15 +1289,15 @@ $(document).ready(function(){initNavTree('time__manager_8F90_source.html',''); i
 <div class="line"><a name="l01193"></a><span class="lineno"> 1193</span>&#160;<span class="comment">!   &lt;/OUT&gt;</span></div>
 <div class="line"><a name="l01194"></a><span class="lineno"> 1194</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l01195"></a><span class="lineno"> 1195</span>&#160;<span class="comment">!&gt; Returns time multipled by integer factor n</span></div>
-<div class="line"><a name="l01196"></a><span class="lineno"> 1196</span>&#160;<span class="keyword">function </span>scalar_time_mult(n, time)</div>
+<div class="line"><a name="l01196"></a><span class="lineno"><a class="line" href="group__time__manager__mod.html#ga48c9db18080295254bd46b0908598a5c"> 1196</a></span>&#160;<span class="keyword">function </span><a class="code" href="group__time__manager__mod.html#ga48c9db18080295254bd46b0908598a5c">scalar_time_mult</a>(n, time)</div>
 <div class="line"><a name="l01197"></a><span class="lineno"> 1197</span>&#160; </div>
-<div class="line"><a name="l01198"></a><span class="lineno"> 1198</span>&#160;<span class="keywordtype">type</span>(<a class="code" href="structtime__manager__mod_1_1time__type.html">time_type</a>) :: scalar_time_mult</div>
+<div class="line"><a name="l01198"></a><span class="lineno"> 1198</span>&#160;<span class="keywordtype">type</span>(<a class="code" href="structtime__manager__mod_1_1time__type.html">time_type</a>) :: <a class="code" href="group__time__manager__mod.html#ga48c9db18080295254bd46b0908598a5c">scalar_time_mult</a></div>
 <div class="line"><a name="l01199"></a><span class="lineno"> 1199</span>&#160;<span class="keywordtype">type</span>(<a class="code" href="structtime__manager__mod_1_1time__type.html">time_type</a>), <span class="keywordtype">intent(in)</span> :: time</div>
 <div class="line"><a name="l01200"></a><span class="lineno"> 1200</span>&#160;<span class="keywordtype">integer</span>, <span class="keywordtype">intent(in)</span> :: n</div>
 <div class="line"><a name="l01201"></a><span class="lineno"> 1201</span>&#160; </div>
-<div class="line"><a name="l01202"></a><span class="lineno"> 1202</span>&#160;scalar_time_mult = time_scalar_mult(time, n)</div>
+<div class="line"><a name="l01202"></a><span class="lineno"> 1202</span>&#160;<a class="code" href="group__time__manager__mod.html#ga48c9db18080295254bd46b0908598a5c">scalar_time_mult</a> = <a class="code" href="group__time__manager__mod.html#ga330ff6e3e8408cd8c0d3d703d56b3fa4">time_scalar_mult</a>(time, n)</div>
 <div class="line"><a name="l01203"></a><span class="lineno"> 1203</span>&#160; </div>
-<div class="line"><a name="l01204"></a><span class="lineno"> 1204</span>&#160;<span class="keyword">end function </span>scalar_time_mult</div>
+<div class="line"><a name="l01204"></a><span class="lineno"> 1204</span>&#160;<span class="keyword">end function </span><a class="code" href="group__time__manager__mod.html#ga48c9db18080295254bd46b0908598a5c">scalar_time_mult</a></div>
 <div class="line"><a name="l01205"></a><span class="lineno"> 1205</span>&#160;<span class="comment">! &lt;/FUNCTION&gt;</span></div>
 <div class="line"><a name="l01206"></a><span class="lineno"> 1206</span>&#160; </div>
 <div class="line"><a name="l01207"></a><span class="lineno"> 1207</span>&#160;<span class="comment">!-------------------------------------------------------------------------</span></div>
@@ -1325,9 +1325,9 @@ $(document).ready(function(){initNavTree('time__manager_8F90_source.html',''); i
 <div class="line"><a name="l01229"></a><span class="lineno"> 1229</span>&#160;<span class="comment">!   &lt;/OUT&gt;</span></div>
 <div class="line"><a name="l01230"></a><span class="lineno"> 1230</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l01231"></a><span class="lineno"> 1231</span>&#160;<span class="comment">!&gt; Returns the largest integer, n, for which time1 &gt;= time2 * n.</span></div>
-<div class="line"><a name="l01232"></a><span class="lineno"> 1232</span>&#160;<span class="keyword">function </span>time_divide(time1, time2)</div>
+<div class="line"><a name="l01232"></a><span class="lineno"><a class="line" href="group__time__manager__mod.html#gad42e283bb36efd703751796d30f07275"> 1232</a></span>&#160;<span class="keyword">function </span><a class="code" href="group__time__manager__mod.html#gad42e283bb36efd703751796d30f07275">time_divide</a>(time1, time2)</div>
 <div class="line"><a name="l01233"></a><span class="lineno"> 1233</span>&#160; </div>
-<div class="line"><a name="l01234"></a><span class="lineno"> 1234</span>&#160;<span class="keywordtype">integer</span>                     :: time_divide</div>
+<div class="line"><a name="l01234"></a><span class="lineno"> 1234</span>&#160;<span class="keywordtype">integer</span>                     :: <a class="code" href="group__time__manager__mod.html#gad42e283bb36efd703751796d30f07275">time_divide</a></div>
 <div class="line"><a name="l01235"></a><span class="lineno"> 1235</span>&#160;<span class="keywordtype">type</span>(<a class="code" href="structtime__manager__mod_1_1time__type.html">time_type</a>), <span class="keywordtype">intent(in)</span> :: time1, time2</div>
 <div class="line"><a name="l01236"></a><span class="lineno"> 1236</span>&#160;<span class="keywordtype">double precision</span>            :: d1, d2</div>
 <div class="line"><a name="l01237"></a><span class="lineno"> 1237</span>&#160; </div>
@@ -1338,13 +1338,13 @@ $(document).ready(function(){initNavTree('time__manager_8F90_source.html',''); i
 <div class="line"><a name="l01242"></a><span class="lineno"> 1242</span>&#160;d2 = time2%days * dble(seconds_per_day) + dble(time2%seconds) + time2%ticks/dble(ticks_per_second)</div>
 <div class="line"><a name="l01243"></a><span class="lineno"> 1243</span>&#160; </div>
 <div class="line"><a name="l01244"></a><span class="lineno"> 1244</span>&#160;<span class="comment">! Get integer quotient of this, check carefully to avoid round-off problems.</span></div>
-<div class="line"><a name="l01245"></a><span class="lineno"> 1245</span>&#160;time_divide = d1 / d2</div>
+<div class="line"><a name="l01245"></a><span class="lineno"> 1245</span>&#160;<a class="code" href="group__time__manager__mod.html#gad42e283bb36efd703751796d30f07275">time_divide</a> = d1 / d2</div>
 <div class="line"><a name="l01246"></a><span class="lineno"> 1246</span>&#160; </div>
 <div class="line"><a name="l01247"></a><span class="lineno"> 1247</span>&#160;<span class="comment">! Verify time_divide*time2 is &lt;= time1 and (time_divide + 1)*time2 is &gt; time1</span></div>
-<div class="line"><a name="l01248"></a><span class="lineno"> 1248</span>&#160;<span class="keywordflow">if</span>(time_divide * time2 &gt; time1 .or. (time_divide + 1) * time2 &lt;= time1) &amp;</div>
+<div class="line"><a name="l01248"></a><span class="lineno"> 1248</span>&#160;<span class="keywordflow">if</span>(<a class="code" href="group__time__manager__mod.html#gad42e283bb36efd703751796d30f07275">time_divide</a> * time2 &gt; time1 .or. (<a class="code" href="group__time__manager__mod.html#gad42e283bb36efd703751796d30f07275">time_divide</a> + 1) * time2 &lt;= time1) &amp;</div>
 <div class="line"><a name="l01249"></a><span class="lineno"> 1249</span>&#160;   <span class="keyword">call </span><a class="code" href="group__fms__mod.html#gae5c7420e421293e2be14717dd7b3d97f">error_mesg</a>(<span class="stringliteral">&#39;time_divide&#39;</span>,<span class="stringliteral">&#39; quotient error :: notify developer&#39;</span>,fatal)</div>
 <div class="line"><a name="l01250"></a><span class="lineno"> 1250</span>&#160; </div>
-<div class="line"><a name="l01251"></a><span class="lineno"> 1251</span>&#160;<span class="keyword">end function </span>time_divide</div>
+<div class="line"><a name="l01251"></a><span class="lineno"> 1251</span>&#160;<span class="keyword">end function </span><a class="code" href="group__time__manager__mod.html#gad42e283bb36efd703751796d30f07275">time_divide</a></div>
 <div class="line"><a name="l01252"></a><span class="lineno"> 1252</span>&#160;<span class="comment">! &lt;/FUNCTION&gt;</span></div>
 <div class="line"><a name="l01253"></a><span class="lineno"> 1253</span>&#160; </div>
 <div class="line"><a name="l01254"></a><span class="lineno"> 1254</span>&#160;<span class="comment">!-------------------------------------------------------------------------</span></div>
@@ -1372,9 +1372,9 @@ $(document).ready(function(){initNavTree('time__manager_8F90_source.html',''); i
 <div class="line"><a name="l01276"></a><span class="lineno"> 1276</span>&#160;<span class="comment">!   &lt;/OUT&gt;</span></div>
 <div class="line"><a name="l01277"></a><span class="lineno"> 1277</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l01278"></a><span class="lineno"> 1278</span>&#160;<span class="comment">!&gt; Returns the double precision quotient of two times</span></div>
-<div class="line"><a name="l01279"></a><span class="lineno"> 1279</span>&#160;<span class="keyword">function </span>time_real_divide(time1, time2)</div>
+<div class="line"><a name="l01279"></a><span class="lineno"><a class="line" href="group__time__manager__mod.html#gab0eb6ef695a956e0f7522a1f8879c967"> 1279</a></span>&#160;<span class="keyword">function </span><a class="code" href="group__time__manager__mod.html#gab0eb6ef695a956e0f7522a1f8879c967">time_real_divide</a>(time1, time2)</div>
 <div class="line"><a name="l01280"></a><span class="lineno"> 1280</span>&#160; </div>
-<div class="line"><a name="l01281"></a><span class="lineno"> 1281</span>&#160;<span class="keywordtype">double precision</span> :: time_real_divide</div>
+<div class="line"><a name="l01281"></a><span class="lineno"> 1281</span>&#160;<span class="keywordtype">double precision</span> :: <a class="code" href="group__time__manager__mod.html#gab0eb6ef695a956e0f7522a1f8879c967">time_real_divide</a></div>
 <div class="line"><a name="l01282"></a><span class="lineno"> 1282</span>&#160;<span class="keywordtype">type</span>(<a class="code" href="structtime__manager__mod_1_1time__type.html">time_type</a>), <span class="keywordtype">intent(in)</span> :: time1, time2</div>
 <div class="line"><a name="l01283"></a><span class="lineno"> 1283</span>&#160;<span class="keywordtype">double precision</span> :: d1, d2</div>
 <div class="line"><a name="l01284"></a><span class="lineno"> 1284</span>&#160; </div>
@@ -1384,9 +1384,9 @@ $(document).ready(function(){initNavTree('time__manager_8F90_source.html',''); i
 <div class="line"><a name="l01288"></a><span class="lineno"> 1288</span>&#160;d1 = time1%days * dble(seconds_per_day) + dble(time1%seconds) + dble(time1%ticks)/dble(ticks_per_second)</div>
 <div class="line"><a name="l01289"></a><span class="lineno"> 1289</span>&#160;d2 = time2%days * dble(seconds_per_day) + dble(time2%seconds) + dble(time2%ticks)/dble(ticks_per_second)</div>
 <div class="line"><a name="l01290"></a><span class="lineno"> 1290</span>&#160; </div>
-<div class="line"><a name="l01291"></a><span class="lineno"> 1291</span>&#160;time_real_divide = d1 / d2</div>
+<div class="line"><a name="l01291"></a><span class="lineno"> 1291</span>&#160;<a class="code" href="group__time__manager__mod.html#gab0eb6ef695a956e0f7522a1f8879c967">time_real_divide</a> = d1 / d2</div>
 <div class="line"><a name="l01292"></a><span class="lineno"> 1292</span>&#160; </div>
-<div class="line"><a name="l01293"></a><span class="lineno"> 1293</span>&#160;<span class="keyword">end function </span>time_real_divide</div>
+<div class="line"><a name="l01293"></a><span class="lineno"> 1293</span>&#160;<span class="keyword">end function </span><a class="code" href="group__time__manager__mod.html#gab0eb6ef695a956e0f7522a1f8879c967">time_real_divide</a></div>
 <div class="line"><a name="l01294"></a><span class="lineno"> 1294</span>&#160;<span class="comment">! &lt;/FUNCTION&gt;</span></div>
 <div class="line"><a name="l01295"></a><span class="lineno"> 1295</span>&#160; </div>
 <div class="line"><a name="l01296"></a><span class="lineno"> 1296</span>&#160;<span class="comment">!-------------------------------------------------------------------------</span></div>
@@ -1413,13 +1413,13 @@ $(document).ready(function(){initNavTree('time__manager_8F90_source.html',''); i
 <div class="line"><a name="l01317"></a><span class="lineno"> 1317</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l01318"></a><span class="lineno"> 1318</span>&#160;<span class="comment">!&gt; Assigns all components of the time_type variable on</span></div>
 <div class="line"><a name="l01319"></a><span class="lineno"> 1319</span>&#160;<span class="comment">!! RHS to same components of time_type variable on LHS.</span></div>
-<div class="line"><a name="l01320"></a><span class="lineno"> 1320</span>&#160;<span class="keyword">subroutine </span>time_assignment(time1, time2)</div>
+<div class="line"><a name="l01320"></a><span class="lineno"><a class="line" href="group__time__manager__mod.html#gaa5b77870a71375dc460f34d862f49325"> 1320</a></span>&#160;<span class="keyword">subroutine </span><a class="code" href="group__time__manager__mod.html#gaa5b77870a71375dc460f34d862f49325">time_assignment</a>(time1, time2)</div>
 <div class="line"><a name="l01321"></a><span class="lineno"> 1321</span>&#160;<span class="keywordtype">type</span>(<a class="code" href="structtime__manager__mod_1_1time__type.html">time_type</a>), <span class="keywordtype">intent(out)</span> :: time1</div>
 <div class="line"><a name="l01322"></a><span class="lineno"> 1322</span>&#160;<span class="keywordtype">type</span>(<a class="code" href="structtime__manager__mod_1_1time__type.html">time_type</a>), <span class="keywordtype">intent(in)</span>  :: time2</div>
 <div class="line"><a name="l01323"></a><span class="lineno"> 1323</span>&#160;   time1%seconds = time2%seconds</div>
 <div class="line"><a name="l01324"></a><span class="lineno"> 1324</span>&#160;   time1%days    = time2%days</div>
 <div class="line"><a name="l01325"></a><span class="lineno"> 1325</span>&#160;   time1%ticks   = time2%ticks</div>
-<div class="line"><a name="l01326"></a><span class="lineno"> 1326</span>&#160;<span class="keyword">end subroutine </span>time_assignment</div>
+<div class="line"><a name="l01326"></a><span class="lineno"> 1326</span>&#160;<span class="keyword">end subroutine </span><a class="code" href="group__time__manager__mod.html#gaa5b77870a71375dc460f34d862f49325">time_assignment</a></div>
 <div class="line"><a name="l01327"></a><span class="lineno"> 1327</span>&#160;<span class="comment">! &lt;/SUBROUTINE&gt;</span></div>
 <div class="line"><a name="l01328"></a><span class="lineno"> 1328</span>&#160; </div>
 <div class="line"><a name="l01329"></a><span class="lineno"> 1329</span>&#160;<span class="comment">!-------------------------------------------------------------------------</span></div>
@@ -1465,11 +1465,11 @@ $(document).ready(function(){initNavTree('time__manager_8F90_source.html',''); i
 <div class="line"><a name="l01369"></a><span class="lineno"> 1369</span>&#160;<span class="keywordtype">  real</span> :: a</div>
 <div class="line"><a name="l01370"></a><span class="lineno"> 1370</span>&#160;  tps = real(ticks_per_second)</div>
 <div class="line"><a name="l01371"></a><span class="lineno"> 1371</span>&#160;  a = x/spd</div>
-<div class="line"><a name="l01372"></a><span class="lineno"> 1372</span>&#160;  days = safe_rtoi(a,do_floor)</div>
+<div class="line"><a name="l01372"></a><span class="lineno"> 1372</span>&#160;  days = <a class="code" href="group__time__manager__mod.html#gaaf3ed18ce9c9142e0f038189c4ac6a21">safe_rtoi</a>(a,do_floor)</div>
 <div class="line"><a name="l01373"></a><span class="lineno"> 1373</span>&#160;  a = x - real(days)*spd</div>
-<div class="line"><a name="l01374"></a><span class="lineno"> 1374</span>&#160;  seconds = safe_rtoi(a,do_floor)</div>
+<div class="line"><a name="l01374"></a><span class="lineno"> 1374</span>&#160;  seconds = <a class="code" href="group__time__manager__mod.html#gaaf3ed18ce9c9142e0f038189c4ac6a21">safe_rtoi</a>(a,do_floor)</div>
 <div class="line"><a name="l01375"></a><span class="lineno"> 1375</span>&#160;  a = (a - real(seconds))*tps</div>
-<div class="line"><a name="l01376"></a><span class="lineno"> 1376</span>&#160;  ticks = safe_rtoi(a,do_nearest)</div>
+<div class="line"><a name="l01376"></a><span class="lineno"> 1376</span>&#160;  ticks = <a class="code" href="group__time__manager__mod.html#gaaf3ed18ce9c9142e0f038189c4ac6a21">safe_rtoi</a>(a,do_nearest)</div>
 <div class="line"><a name="l01377"></a><span class="lineno"> 1377</span>&#160;  <span class="keywordflow">if</span> (.not. set_time_private(seconds,days,ticks,t,err_msg_local)) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l01378"></a><span class="lineno"> 1378</span>&#160;    <span class="keywordflow">if</span> (error_handler(<span class="stringliteral">&#39;function real_to_time_type&#39;</span>,err_msg_local,err_msg)) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l01379"></a><span class="lineno"> 1379</span>&#160;      <span class="keywordflow">return</span></div>
@@ -1479,7 +1479,7 @@ $(document).ready(function(){initNavTree('time__manager_8F90_source.html',''); i
 <div class="line"><a name="l01383"></a><span class="lineno"> 1383</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l01384"></a><span class="lineno"> 1384</span>&#160;<span class="comment">!&gt; @brief Convert a floating point value to an integer value.</span></div>
 <div class="line"><a name="l01385"></a><span class="lineno"> 1385</span>&#160;<span class="comment">!! @return The integer value, using the input rounding mode.</span></div>
-<div class="line"><a name="l01386"></a><span class="lineno"> 1386</span>&#160;<span class="keyword">function </span>safe_rtoi(rval,mode) <span class="keyword">result</span>(ival)</div>
+<div class="line"><a name="l01386"></a><span class="lineno"><a class="line" href="group__time__manager__mod.html#gaaf3ed18ce9c9142e0f038189c4ac6a21"> 1386</a></span>&#160;<span class="keyword">function </span><a class="code" href="group__time__manager__mod.html#gaaf3ed18ce9c9142e0f038189c4ac6a21">safe_rtoi</a>(rval,mode) <span class="keyword">result</span>(ival)</div>
 <div class="line"><a name="l01387"></a><span class="lineno"> 1387</span>&#160;<span class="keywordtype">  real</span>,<span class="keywordtype">intent(in)</span> :: rval<span class="comment"> !&lt; A floating point value.</span></div>
 <div class="line"><a name="l01388"></a><span class="lineno"> 1388</span>&#160;  <span class="keywordtype">integer</span>,<span class="keywordtype">intent(in)</span> :: mode<span class="comment"> !&lt; A rouding mode (either &quot;do_floor&quot; or</span></div>
 <div class="line"><a name="l01389"></a><span class="lineno"> 1389</span>&#160;<span class="comment">                             !! &quot;do_nearest&quot;)</span></div>
@@ -1499,7 +1499,7 @@ $(document).ready(function(){initNavTree('time__manager_8F90_source.html',''); i
 <div class="line"><a name="l01403"></a><span class="lineno"> 1403</span>&#160;    <span class="keyword">call </span><a class="code" href="group__fms__mod.html#gae5c7420e421293e2be14717dd7b3d97f">error_mesg</a>(<span class="stringliteral">&quot;safe_rtoi&quot;</span>,<span class="stringliteral">&quot;input value cannot be safely&quot;</span> &amp;</div>
 <div class="line"><a name="l01404"></a><span class="lineno"> 1404</span>&#160;                   //<span class="stringliteral">&quot; converted to a 32-bit integer.&quot;</span>,fatal)</div>
 <div class="line"><a name="l01405"></a><span class="lineno"> 1405</span>&#160;<span class="keywordflow">  endif</span></div>
-<div class="line"><a name="l01406"></a><span class="lineno"> 1406</span>&#160;<span class="keyword">end function </span>safe_rtoi</div>
+<div class="line"><a name="l01406"></a><span class="lineno"> 1406</span>&#160;<span class="keyword">end function </span><a class="code" href="group__time__manager__mod.html#gaaf3ed18ce9c9142e0f038189c4ac6a21">safe_rtoi</a></div>
 <div class="line"><a name="l01407"></a><span class="lineno"> 1407</span>&#160; </div>
 <div class="line"><a name="l01408"></a><span class="lineno"> 1408</span>&#160;<span class="comment">!-------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l01409"></a><span class="lineno"> 1409</span>&#160;<span class="comment">! &lt;FUNCTION NAME=&quot;time_scalar_divide; operator(/)&quot;&gt;</span></div>
@@ -1546,7 +1546,7 @@ $(document).ready(function(){initNavTree('time__manager_8F90_source.html',''); i
 <div class="line"><a name="l01450"></a><span class="lineno"> 1450</span>&#160;days = div/(dseconds_per_day*dticks_per_second)</div>
 <div class="line"><a name="l01451"></a><span class="lineno"> 1451</span>&#160;seconds = div/dticks_per_second - days*dseconds_per_day</div>
 <div class="line"><a name="l01452"></a><span class="lineno"> 1452</span>&#160;ticks = div - (days*dseconds_per_day + dble(seconds))*dticks_per_second</div>
-<div class="line"><a name="l01453"></a><span class="lineno"> 1453</span>&#160;time_scalar_divide = set_time(seconds, days, ticks)</div>
+<div class="line"><a name="l01453"></a><span class="lineno"> 1453</span>&#160;time_scalar_divide = <a class="code" href="interfacetime__manager__mod_1_1set__time.html">set_time</a>(seconds, days, ticks)</div>
 <div class="line"><a name="l01454"></a><span class="lineno"> 1454</span>&#160; </div>
 <div class="line"><a name="l01455"></a><span class="lineno"> 1455</span>&#160;<span class="comment">! Need to make sure that roundoff isn&#39;t killing this</span></div>
 <div class="line"><a name="l01456"></a><span class="lineno"> 1456</span>&#160;prod1 = n * time_scalar_divide</div>
@@ -1890,9 +1890,9 @@ $(document).ready(function(){initNavTree('time__manager_8F90_source.html',''); i
 <div class="line"><a name="l01794"></a><span class="lineno"> 1794</span>&#160;   old_method_local=.false.</div>
 <div class="line"><a name="l01795"></a><span class="lineno"> 1795</span>&#160;   <span class="keywordflow">if</span>(<span class="keyword">present</span>(old_method)) old_method_local=old_method</div>
 <div class="line"><a name="l01796"></a><span class="lineno"> 1796</span>&#160;   <span class="keywordflow">if</span>(old_method_local) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l01797"></a><span class="lineno"> 1797</span>&#160;     <span class="keyword">call </span>get_date_gregorian_old(time, year, month, day, hour, minute, second, tick1)</div>
+<div class="line"><a name="l01797"></a><span class="lineno"> 1797</span>&#160;     <span class="keyword">call </span><a class="code" href="group__time__manager__mod.html#ga20cf64e1cd18a3542e1339d2645c919c">get_date_gregorian_old</a>(time, year, month, day, hour, minute, second, tick1)</div>
 <div class="line"><a name="l01798"></a><span class="lineno"> 1798</span>&#160;   <span class="keywordflow">else</span></div>
-<div class="line"><a name="l01799"></a><span class="lineno"> 1799</span>&#160;     <span class="keyword">call </span>get_date_gregorian(time, year, month, day, hour, minute, second, tick1)</div>
+<div class="line"><a name="l01799"></a><span class="lineno"> 1799</span>&#160;     <span class="keyword">call </span><a class="code" href="group__time__manager__mod.html#ga598caa0b76f256ade3f0fe120f6a5c91">get_date_gregorian</a>(time, year, month, day, hour, minute, second, tick1)</div>
 <div class="line"><a name="l01800"></a><span class="lineno"> 1800</span>&#160;<span class="keywordflow">   end if</span></div>
 <div class="line"><a name="l01801"></a><span class="lineno"> 1801</span>&#160; <span class="keywordflow">case</span>(julian)</div>
 <div class="line"><a name="l01802"></a><span class="lineno"> 1802</span>&#160;   <span class="keyword">call </span>get_date_julian_private   (time, year, month, day, hour, minute, second, tick1)</div>
@@ -1921,7 +1921,7 @@ $(document).ready(function(){initNavTree('time__manager_8F90_source.html',''); i
 <div class="line"><a name="l01825"></a><span class="lineno"> 1825</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l01826"></a><span class="lineno"> 1826</span>&#160;<span class="comment">!&gt; @brief Gets the date on a Gregorian calendar.</span></div>
 <div class="line"><a name="l01827"></a><span class="lineno"> 1827</span>&#160;<span class="comment">!! Computes the year, month, day on the fly from the quantity time%days</span></div>
-<div class="line"><a name="l01828"></a><span class="lineno"> 1828</span>&#160; <span class="keyword">subroutine </span>get_date_gregorian(time, year, month, day, hour, minute, second, tick)</div>
+<div class="line"><a name="l01828"></a><span class="lineno"><a class="line" href="group__time__manager__mod.html#ga598caa0b76f256ade3f0fe120f6a5c91"> 1828</a></span>&#160; <span class="keyword">subroutine </span><a class="code" href="group__time__manager__mod.html#ga598caa0b76f256ade3f0fe120f6a5c91">get_date_gregorian</a>(time, year, month, day, hour, minute, second, tick)</div>
 <div class="line"><a name="l01829"></a><span class="lineno"> 1829</span>&#160; </div>
 <div class="line"><a name="l01830"></a><span class="lineno"> 1830</span>&#160; <span class="keywordtype">type</span>(<a class="code" href="structtime__manager__mod_1_1time__type.html">time_type</a>), <span class="keywordtype">intent(in)</span> :: time</div>
 <div class="line"><a name="l01831"></a><span class="lineno"> 1831</span>&#160; <span class="keywordtype">integer</span>, <span class="keywordtype">intent(out)</span> :: year, month, day, hour, minute, second</div>
@@ -1996,13 +1996,13 @@ $(document).ready(function(){initNavTree('time__manager_8F90_source.html',''); i
 <div class="line"><a name="l01900"></a><span class="lineno"> 1900</span>&#160; second = isec - 60*minute</div>
 <div class="line"><a name="l01901"></a><span class="lineno"> 1901</span>&#160; tick   = time%ticks</div>
 <div class="line"><a name="l01902"></a><span class="lineno"> 1902</span>&#160; </div>
-<div class="line"><a name="l01903"></a><span class="lineno"> 1903</span>&#160; <span class="keyword">end subroutine </span>get_date_gregorian</div>
+<div class="line"><a name="l01903"></a><span class="lineno"> 1903</span>&#160; <span class="keyword">end subroutine </span><a class="code" href="group__time__manager__mod.html#ga598caa0b76f256ade3f0fe120f6a5c91">get_date_gregorian</a></div>
 <div class="line"><a name="l01904"></a><span class="lineno"> 1904</span>&#160;<span class="comment">!------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l01905"></a><span class="lineno"> 1905</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l01906"></a><span class="lineno"> 1906</span>&#160;<span class="comment">!&gt; @brief Gets the date on a Gregorian calendar.  This is the original/old subroutine.</span></div>
 <div class="line"><a name="l01907"></a><span class="lineno"> 1907</span>&#160;<span class="comment">!! Looks up the year, month, day from the coded_date array</span></div>
 <div class="line"><a name="l01908"></a><span class="lineno"> 1908</span>&#160;<span class="comment">!! This subroutine is kept in order to test the new get_date_gregorian</span></div>
-<div class="line"><a name="l01909"></a><span class="lineno"> 1909</span>&#160; <span class="keyword">subroutine </span>get_date_gregorian_old(time, year, month, day, hour, minute, second, tick)</div>
+<div class="line"><a name="l01909"></a><span class="lineno"><a class="line" href="group__time__manager__mod.html#ga20cf64e1cd18a3542e1339d2645c919c"> 1909</a></span>&#160; <span class="keyword">subroutine </span><a class="code" href="group__time__manager__mod.html#ga20cf64e1cd18a3542e1339d2645c919c">get_date_gregorian_old</a>(time, year, month, day, hour, minute, second, tick)</div>
 <div class="line"><a name="l01910"></a><span class="lineno"> 1910</span>&#160; </div>
 <div class="line"><a name="l01911"></a><span class="lineno"> 1911</span>&#160;<span class="comment">! Computes date corresponding to time for gregorian calendar</span></div>
 <div class="line"><a name="l01912"></a><span class="lineno"> 1912</span>&#160; </div>
@@ -2030,17 +2030,17 @@ $(document).ready(function(){initNavTree('time__manager_8F90_source.html',''); i
 <div class="line"><a name="l01934"></a><span class="lineno"> 1934</span>&#160; second = isec - 60*minute</div>
 <div class="line"><a name="l01935"></a><span class="lineno"> 1935</span>&#160; tick = time%ticks</div>
 <div class="line"><a name="l01936"></a><span class="lineno"> 1936</span>&#160; </div>
-<div class="line"><a name="l01937"></a><span class="lineno"> 1937</span>&#160; <span class="keyword">end subroutine </span>get_date_gregorian_old</div>
+<div class="line"><a name="l01937"></a><span class="lineno"> 1937</span>&#160; <span class="keyword">end subroutine </span><a class="code" href="group__time__manager__mod.html#ga20cf64e1cd18a3542e1339d2645c919c">get_date_gregorian_old</a></div>
 <div class="line"><a name="l01938"></a><span class="lineno"> 1938</span>&#160;<span class="comment">!------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l01939"></a><span class="lineno"> 1939</span>&#160; <span class="keyword">function </span>cut0(string)</div>
 <div class="line"><a name="l01940"></a><span class="lineno"> 1940</span>&#160; <span class="keywordtype">character(len=256)</span> :: cut0</div>
 <div class="line"><a name="l01941"></a><span class="lineno"> 1941</span>&#160; <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: string</div>
 <div class="line"><a name="l01942"></a><span class="lineno"> 1942</span>&#160; <span class="keywordtype">integer</span> :: i</div>
 <div class="line"><a name="l01943"></a><span class="lineno"> 1943</span>&#160; </div>
-<div class="line"><a name="l01944"></a><span class="lineno"> 1944</span>&#160; cut0 = string</div>
+<div class="line"><a name="l01944"></a><span class="lineno"> 1944</span>&#160; cut0 = <a class="code" href="interfacefms__mod_1_1string.html">string</a></div>
 <div class="line"><a name="l01945"></a><span class="lineno"> 1945</span>&#160; </div>
-<div class="line"><a name="l01946"></a><span class="lineno"> 1946</span>&#160; <span class="keywordflow">do</span> i=1,len(string)</div>
-<div class="line"><a name="l01947"></a><span class="lineno"> 1947</span>&#160;   <span class="keywordflow">if</span>(ichar(string(i:i)) == 0 ) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l01946"></a><span class="lineno"> 1946</span>&#160; <span class="keywordflow">do</span> i=1,len(<a class="code" href="interfacefms__mod_1_1string.html">string</a>)</div>
+<div class="line"><a name="l01947"></a><span class="lineno"> 1947</span>&#160;   <span class="keywordflow">if</span>(ichar(<a class="code" href="interfacefms__mod_1_1string.html">string</a>(i:i)) == 0 ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l01948"></a><span class="lineno"> 1948</span>&#160;     cut0(i:i) = <span class="stringliteral">&#39; &#39;</span></div>
 <div class="line"><a name="l01949"></a><span class="lineno"> 1949</span>&#160;<span class="keywordflow">   endif</span></div>
 <div class="line"><a name="l01950"></a><span class="lineno"> 1950</span>&#160;<span class="keywordflow"> enddo</span></div>
@@ -2240,14 +2240,14 @@ $(document).ready(function(){initNavTree('time__manager_8F90_source.html',''); i
 <div class="line"><a name="l02144"></a><span class="lineno"> 2144</span>&#160;<span class="comment">!&gt; @brief Sets days for different calendar types.</span></div>
 <div class="line"><a name="l02145"></a><span class="lineno"> 2145</span>&#160;<span class="comment">!! The added optional argument old_method allows user to choose either the new or old version</span></div>
 <div class="line"><a name="l02146"></a><span class="lineno"> 2146</span>&#160;<span class="comment">!! of set_date_gregorian.  The variable old_method is only useful if the calendar type is Gregorian</span></div>
-<div class="line"><a name="l02147"></a><span class="lineno"> 2147</span>&#160; <span class="keyword">function </span>set_date_private(year, month, day, hour, minute, second, tick, Time_out, err_msg, old_method)</div>
+<div class="line"><a name="l02147"></a><span class="lineno"><a class="line" href="group__time__manager__mod.html#ga4340e5b65a48fe77e2602d205418f3e9"> 2147</a></span>&#160; <span class="keyword">function </span><a class="code" href="group__time__manager__mod.html#ga4340e5b65a48fe77e2602d205418f3e9">set_date_private</a>(year, month, day, hour, minute, second, tick, Time_out, err_msg, old_method)</div>
 <div class="line"><a name="l02148"></a><span class="lineno"> 2148</span>&#160; </div>
 <div class="line"><a name="l02149"></a><span class="lineno"> 2149</span>&#160;<span class="comment">! Given a date, computes the corresponding time given the selected</span></div>
 <div class="line"><a name="l02150"></a><span class="lineno"> 2150</span>&#160;<span class="comment">! date time mapping algorithm.  Note that it is possible to specify</span></div>
 <div class="line"><a name="l02151"></a><span class="lineno"> 2151</span>&#160;<span class="comment">! any number of illegal dates; these are checked for and generate</span></div>
 <div class="line"><a name="l02152"></a><span class="lineno"> 2152</span>&#160;<span class="comment">! errors as appropriate.</span></div>
 <div class="line"><a name="l02153"></a><span class="lineno"> 2153</span>&#160; </div>
-<div class="line"><a name="l02154"></a><span class="lineno"> 2154</span>&#160; <span class="keywordtype">logical</span> :: set_date_private</div>
+<div class="line"><a name="l02154"></a><span class="lineno"> 2154</span>&#160; <span class="keywordtype">logical</span> :: <a class="code" href="group__time__manager__mod.html#ga4340e5b65a48fe77e2602d205418f3e9">set_date_private</a></div>
 <div class="line"><a name="l02155"></a><span class="lineno"> 2155</span>&#160; <span class="keywordtype">integer</span>, <span class="keywordtype">intent(in)</span> :: year, month, day, hour, minute, second, tick</div>
 <div class="line"><a name="l02156"></a><span class="lineno"> 2156</span>&#160; <span class="keywordtype">type</span>(<a class="code" href="structtime__manager__mod_1_1time__type.html">time_type</a>) :: time_out</div>
 <div class="line"><a name="l02157"></a><span class="lineno"> 2157</span>&#160; <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(out)</span> :: err_msg</div>
@@ -2263,28 +2263,28 @@ $(document).ready(function(){initNavTree('time__manager_8F90_source.html',''); i
 <div class="line"><a name="l02167"></a><span class="lineno"> 2167</span>&#160; </div>
 <div class="line"><a name="l02168"></a><span class="lineno"> 2168</span>&#160; <span class="keywordflow">select case</span>(calendar_type)</div>
 <div class="line"><a name="l02169"></a><span class="lineno"> 2169</span>&#160; <span class="keywordflow">case</span>(thirty_day_months)</div>
-<div class="line"><a name="l02170"></a><span class="lineno"> 2170</span>&#160;   set_date_private = set_date_thirty(year, month, day, hour, minute, second, tick, time_out, err_msg)</div>
+<div class="line"><a name="l02170"></a><span class="lineno"> 2170</span>&#160;   <a class="code" href="group__time__manager__mod.html#ga4340e5b65a48fe77e2602d205418f3e9">set_date_private</a> = set_date_thirty(year, month, day, hour, minute, second, tick, time_out, err_msg)</div>
 <div class="line"><a name="l02171"></a><span class="lineno"> 2171</span>&#160; <span class="keywordflow">case</span>(gregorian)</div>
 <div class="line"><a name="l02172"></a><span class="lineno"> 2172</span>&#160;   old_method_local = .false.</div>
 <div class="line"><a name="l02173"></a><span class="lineno"> 2173</span>&#160;   <span class="keywordflow">if</span>( <span class="keyword">present</span>(old_method) ) old_method_local=old_method</div>
 <div class="line"><a name="l02174"></a><span class="lineno"> 2174</span>&#160;   <span class="keywordflow">if</span>( old_method_local ) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l02175"></a><span class="lineno"> 2175</span>&#160;     set_date_private = set_date_gregorian_old(year, month, day, hour, minute, second, tick, time_out, err_msg)</div>
+<div class="line"><a name="l02175"></a><span class="lineno"> 2175</span>&#160;     <a class="code" href="group__time__manager__mod.html#ga4340e5b65a48fe77e2602d205418f3e9">set_date_private</a> = <a class="code" href="group__time__manager__mod.html#gac33d06e47ab40f140cc813d6e494700f">set_date_gregorian_old</a>(year, month, day, hour, minute, second, tick, time_out, err_msg)</div>
 <div class="line"><a name="l02176"></a><span class="lineno"> 2176</span>&#160;   <span class="keywordflow">else</span></div>
-<div class="line"><a name="l02177"></a><span class="lineno"> 2177</span>&#160;     set_date_private = set_date_gregorian(year, month, day, hour, minute, second, tick, time_out, err_msg)</div>
+<div class="line"><a name="l02177"></a><span class="lineno"> 2177</span>&#160;     <a class="code" href="group__time__manager__mod.html#ga4340e5b65a48fe77e2602d205418f3e9">set_date_private</a> = <a class="code" href="group__time__manager__mod.html#ga7f34ca591384ab30f3451c2ee7e28d31">set_date_gregorian</a>(year, month, day, hour, minute, second, tick, time_out, err_msg)</div>
 <div class="line"><a name="l02178"></a><span class="lineno"> 2178</span>&#160;<span class="keywordflow">   end if</span></div>
 <div class="line"><a name="l02179"></a><span class="lineno"> 2179</span>&#160; <span class="keywordflow">case</span>(julian)</div>
-<div class="line"><a name="l02180"></a><span class="lineno"> 2180</span>&#160;   set_date_private = set_date_julian_private(year, month, day, hour, minute, second, tick, time_out, err_msg)</div>
+<div class="line"><a name="l02180"></a><span class="lineno"> 2180</span>&#160;   <a class="code" href="group__time__manager__mod.html#ga4340e5b65a48fe77e2602d205418f3e9">set_date_private</a> = set_date_julian_private(year, month, day, hour, minute, second, tick, time_out, err_msg)</div>
 <div class="line"><a name="l02181"></a><span class="lineno"> 2181</span>&#160; <span class="keywordflow">case</span>(noleap)</div>
-<div class="line"><a name="l02182"></a><span class="lineno"> 2182</span>&#160;   set_date_private = set_date_no_leap_private(year, month, day, hour, minute, second, tick, time_out, err_msg)</div>
+<div class="line"><a name="l02182"></a><span class="lineno"> 2182</span>&#160;   <a class="code" href="group__time__manager__mod.html#ga4340e5b65a48fe77e2602d205418f3e9">set_date_private</a> = set_date_no_leap_private(year, month, day, hour, minute, second, tick, time_out, err_msg)</div>
 <div class="line"><a name="l02183"></a><span class="lineno"> 2183</span>&#160; <span class="keywordflow">case</span> (no_calendar)</div>
 <div class="line"><a name="l02184"></a><span class="lineno"> 2184</span>&#160;   err_msg = <span class="stringliteral">&#39;Cannot produce a date when calendar type is NO_CALENDAR&#39;</span></div>
-<div class="line"><a name="l02185"></a><span class="lineno"> 2185</span>&#160;   set_date_private = .false.</div>
+<div class="line"><a name="l02185"></a><span class="lineno"> 2185</span>&#160;   <a class="code" href="group__time__manager__mod.html#ga4340e5b65a48fe77e2602d205418f3e9">set_date_private</a> = .false.</div>
 <div class="line"><a name="l02186"></a><span class="lineno"> 2186</span>&#160;<span class="keywordflow"> case default</span></div>
 <div class="line"><a name="l02187"></a><span class="lineno"> 2187</span>&#160;   err_msg = <span class="stringliteral">&#39;Invalid calendar type&#39;</span></div>
-<div class="line"><a name="l02188"></a><span class="lineno"> 2188</span>&#160;   set_date_private = .false.</div>
+<div class="line"><a name="l02188"></a><span class="lineno"> 2188</span>&#160;   <a class="code" href="group__time__manager__mod.html#ga4340e5b65a48fe77e2602d205418f3e9">set_date_private</a> = .false.</div>
 <div class="line"><a name="l02189"></a><span class="lineno"> 2189</span>&#160;<span class="keywordflow"> end select</span></div>
 <div class="line"><a name="l02190"></a><span class="lineno"> 2190</span>&#160; </div>
-<div class="line"><a name="l02191"></a><span class="lineno"> 2191</span>&#160; <span class="keyword">end function </span>set_date_private</div>
+<div class="line"><a name="l02191"></a><span class="lineno"> 2191</span>&#160; <span class="keyword">end function </span><a class="code" href="group__time__manager__mod.html#ga4340e5b65a48fe77e2602d205418f3e9">set_date_private</a></div>
 <div class="line"><a name="l02192"></a><span class="lineno"> 2192</span>&#160;<span class="comment">! &lt;/FUNCTION&gt;</span></div>
 <div class="line"><a name="l02193"></a><span class="lineno"> 2193</span>&#160; </div>
 <div class="line"><a name="l02194"></a><span class="lineno"> 2194</span>&#160;<span class="comment">!------------------------------------------------------------------------</span></div>
@@ -2292,8 +2292,8 @@ $(document).ready(function(){initNavTree('time__manager_8F90_source.html',''); i
 <div class="line"><a name="l02196"></a><span class="lineno"> 2196</span>&#160;<span class="comment"> !&gt; @brief Calls set_date_private to set days for different calendar types.</span></div>
 <div class="line"><a name="l02197"></a><span class="lineno"> 2197</span>&#160;<span class="comment"> !! The added optional argument old_method allows user to choose either the new or old version</span></div>
 <div class="line"><a name="l02198"></a><span class="lineno"> 2198</span>&#160;<span class="comment"> !! of set_date_gregorian. The variable old_method is only useful if the calendar type is Gregorian</span></div>
-<div class="line"><a name="l02199"></a><span class="lineno"> 2199</span>&#160; <span class="keyword">function </span>set_date_i(year, month, day, hour, minute, second, tick, err_msg, old_method)</div>
-<div class="line"><a name="l02200"></a><span class="lineno"> 2200</span>&#160; <span class="keywordtype">type</span>(<a class="code" href="structtime__manager__mod_1_1time__type.html">time_type</a>) :: set_date_i</div>
+<div class="line"><a name="l02199"></a><span class="lineno"><a class="line" href="group__time__manager__mod.html#ga0682ab24c004c2e4373e2dc3d4d8d075"> 2199</a></span>&#160; <span class="keyword">function </span><a class="code" href="group__time__manager__mod.html#ga0682ab24c004c2e4373e2dc3d4d8d075">set_date_i</a>(year, month, day, hour, minute, second, tick, err_msg, old_method)</div>
+<div class="line"><a name="l02200"></a><span class="lineno"> 2200</span>&#160; <span class="keywordtype">type</span>(<a class="code" href="structtime__manager__mod_1_1time__type.html">time_type</a>) :: <a class="code" href="group__time__manager__mod.html#ga0682ab24c004c2e4373e2dc3d4d8d075">set_date_i</a></div>
 <div class="line"><a name="l02201"></a><span class="lineno"> 2201</span>&#160; <span class="keywordtype">integer</span>, <span class="keywordtype">intent(in)</span> :: day, month, year</div>
 <div class="line"><a name="l02202"></a><span class="lineno"> 2202</span>&#160; <span class="keywordtype">integer</span>, <span class="keywordtype">intent(in)</span>, <span class="keywordtype">optional</span> :: second, minute, hour, tick</div>
 <div class="line"><a name="l02203"></a><span class="lineno"> 2203</span>&#160; <span class="keywordtype">logical</span>, <span class="keywordtype">intent(in)</span>, <span class="keywordtype">optional</span> :: old_method<span class="comment"> !&lt; option to choose betw the new and old ver of get_date_gregorian subroutine.</span></div>
@@ -2316,17 +2316,17 @@ $(document).ready(function(){initNavTree('time__manager_8F90_source.html',''); i
 <div class="line"><a name="l02220"></a><span class="lineno"> 2220</span>&#160; </div>
 <div class="line"><a name="l02221"></a><span class="lineno"> 2221</span>&#160; old_method_local = .false.</div>
 <div class="line"><a name="l02222"></a><span class="lineno"> 2222</span>&#160; <span class="keywordflow">if</span>( <span class="keyword">present</span>(old_method) ) old_method_local=old_method</div>
-<div class="line"><a name="l02223"></a><span class="lineno"> 2223</span>&#160; <span class="keywordflow">if</span>(.not.set_date_private(year, month, day, ohour, ominute, osecond, otick, set_date_i, err_msg_local, old_method=old_method_local)) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l02223"></a><span class="lineno"> 2223</span>&#160; <span class="keywordflow">if</span>(.not.<a class="code" href="group__time__manager__mod.html#ga4340e5b65a48fe77e2602d205418f3e9">set_date_private</a>(year, month, day, ohour, ominute, osecond, otick, <a class="code" href="group__time__manager__mod.html#ga0682ab24c004c2e4373e2dc3d4d8d075">set_date_i</a>, err_msg_local, old_method=old_method_local)) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l02224"></a><span class="lineno"> 2224</span>&#160;   <span class="keywordflow">if</span>(error_handler(<span class="stringliteral">&#39;function set_date_i&#39;</span>, err_msg_local, err_msg)) <span class="keywordflow">return</span></div>
 <div class="line"><a name="l02225"></a><span class="lineno"> 2225</span>&#160;<span class="keywordflow"> end if</span></div>
 <div class="line"><a name="l02226"></a><span class="lineno"> 2226</span>&#160; </div>
-<div class="line"><a name="l02227"></a><span class="lineno"> 2227</span>&#160; <span class="keyword">end function </span>set_date_i</div>
+<div class="line"><a name="l02227"></a><span class="lineno"> 2227</span>&#160; <span class="keyword">end function </span><a class="code" href="group__time__manager__mod.html#ga0682ab24c004c2e4373e2dc3d4d8d075">set_date_i</a></div>
 <div class="line"><a name="l02228"></a><span class="lineno"> 2228</span>&#160;<span class="comment">!------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l02229"></a><span class="lineno"> 2229</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l02230"></a><span class="lineno"> 2230</span>&#160;<span class="comment"> !&gt; @brief Calls set_date_private for different calendar types when given a string input.</span></div>
 <div class="line"><a name="l02231"></a><span class="lineno"> 2231</span>&#160;<span class="comment"> !! The added optional argument old_method allows user to choose either the new or old version</span></div>
 <div class="line"><a name="l02232"></a><span class="lineno"> 2232</span>&#160;<span class="comment"> !! of set_date_gregorian. The variable old_method is only useful if the calendar type is Gregorian</span></div>
-<div class="line"><a name="l02233"></a><span class="lineno"> 2233</span>&#160; <span class="keyword">function </span>set_date_c(string, zero_year_warning, err_msg, allow_rounding, old_method)</div>
+<div class="line"><a name="l02233"></a><span class="lineno"><a class="line" href="group__time__manager__mod.html#ga1fe4b3c2c79a5a4d698c65d659443369"> 2233</a></span>&#160; <span class="keyword">function </span><a class="code" href="group__time__manager__mod.html#ga1fe4b3c2c79a5a4d698c65d659443369">set_date_c</a>(string, zero_year_warning, err_msg, allow_rounding, old_method)</div>
 <div class="line"><a name="l02234"></a><span class="lineno"> 2234</span>&#160; </div>
 <div class="line"><a name="l02235"></a><span class="lineno"> 2235</span>&#160; <span class="comment">! Examples of acceptable forms of string:</span></div>
 <div class="line"><a name="l02236"></a><span class="lineno"> 2236</span>&#160; </div>
@@ -2347,8 +2347,8 @@ $(document).ready(function(){initNavTree('time__manager_8F90_source.html',''); i
 <div class="line"><a name="l02251"></a><span class="lineno"> 2251</span>&#160; <span class="comment">! unless zero_year_warning=.true., in which case a WARNING message</span></div>
 <div class="line"><a name="l02252"></a><span class="lineno"> 2252</span>&#160; <span class="comment">! will also be issued</span></div>
 <div class="line"><a name="l02253"></a><span class="lineno"> 2253</span>&#160; </div>
-<div class="line"><a name="l02254"></a><span class="lineno"> 2254</span>&#160; <span class="keywordtype">type</span>(<a class="code" href="structtime__manager__mod_1_1time__type.html">time_type</a>) :: set_date_c</div>
-<div class="line"><a name="l02255"></a><span class="lineno"> 2255</span>&#160; <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: string</div>
+<div class="line"><a name="l02254"></a><span class="lineno"> 2254</span>&#160; <span class="keywordtype">type</span>(<a class="code" href="structtime__manager__mod_1_1time__type.html">time_type</a>) :: <a class="code" href="group__time__manager__mod.html#ga1fe4b3c2c79a5a4d698c65d659443369">set_date_c</a></div>
+<div class="line"><a name="l02255"></a><span class="lineno"> 2255</span>&#160; <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: <a class="code" href="interfacefms__mod_1_1string.html">string</a></div>
 <div class="line"><a name="l02256"></a><span class="lineno"> 2256</span>&#160; <span class="keywordtype">logical</span>,          <span class="keywordtype">intent(in)</span>,  <span class="keywordtype">optional</span> :: zero_year_warning</div>
 <div class="line"><a name="l02257"></a><span class="lineno"> 2257</span>&#160; <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(out)</span>, <span class="keywordtype">optional</span> :: err_msg</div>
 <div class="line"><a name="l02258"></a><span class="lineno"> 2258</span>&#160; <span class="keywordtype">logical</span>,          <span class="keywordtype">intent(in)</span>,  <span class="keywordtype">optional</span> :: allow_rounding</div>
@@ -2377,7 +2377,7 @@ $(document).ready(function(){initNavTree('time__manager_8F90_source.html',''); i
 <div class="line"><a name="l02281"></a><span class="lineno"> 2281</span>&#160;   allow_rounding_local = .true.</div>
 <div class="line"><a name="l02282"></a><span class="lineno"> 2282</span>&#160;<span class="keywordflow"> endif</span></div>
 <div class="line"><a name="l02283"></a><span class="lineno"> 2283</span>&#160; </div>
-<div class="line"><a name="l02284"></a><span class="lineno"> 2284</span>&#160; string_sifted_left = adjustl(string)</div>
+<div class="line"><a name="l02284"></a><span class="lineno"> 2284</span>&#160; string_sifted_left = adjustl(<a class="code" href="interfacefms__mod_1_1string.html">string</a>)</div>
 <div class="line"><a name="l02285"></a><span class="lineno"> 2285</span>&#160; i1 = index(string_sifted_left,<span class="stringliteral">&#39;-&#39;</span>)</div>
 <div class="line"><a name="l02286"></a><span class="lineno"> 2286</span>&#160; i2 = index(string_sifted_left,<span class="stringliteral">&#39;-&#39;</span>,back=.true.)</div>
 <div class="line"><a name="l02287"></a><span class="lineno"> 2287</span>&#160; i3 = index(string_sifted_left,<span class="stringliteral">&#39;:&#39;</span>)</div>
@@ -2387,7 +2387,7 @@ $(document).ready(function(){initNavTree('time__manager_8F90_source.html',''); i
 <div class="line"><a name="l02291"></a><span class="lineno"> 2291</span>&#160; correct_form = (i1 &gt; 1) <span class="comment">! year number must occupy at least 1 space</span></div>
 <div class="line"><a name="l02292"></a><span class="lineno"> 2292</span>&#160; correct_form = correct_form .and. (i2-i1 == 2 .or. i2-i1 == 3) <span class="comment">! month number must occupy 1 or 2 spaces</span></div>
 <div class="line"><a name="l02293"></a><span class="lineno"> 2293</span>&#160; <span class="keywordflow">if</span>(.not.correct_form) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l02294"></a><span class="lineno"> 2294</span>&#160;   err_msg_local = <span class="stringliteral">&#39;Form of character time stamp is incorrect. The character time stamp is: &#39;</span>//trim(string)</div>
+<div class="line"><a name="l02294"></a><span class="lineno"> 2294</span>&#160;   err_msg_local = <span class="stringliteral">&#39;Form of character time stamp is incorrect. The character time stamp is: &#39;</span>//trim(<a class="code" href="interfacefms__mod_1_1string.html">string</a>)</div>
 <div class="line"><a name="l02295"></a><span class="lineno"> 2295</span>&#160;   <span class="keywordflow">if</span>(error_handler(<span class="stringliteral">&#39;function set_date_c&#39;</span>, err_msg_local, err_msg)) <span class="keywordflow">return</span></div>
 <div class="line"><a name="l02296"></a><span class="lineno"> 2296</span>&#160;<span class="keywordflow"> endif</span></div>
 <div class="line"><a name="l02297"></a><span class="lineno"> 2297</span>&#160; <span class="keyword">write</span>(formt(3:3),<span class="stringliteral">&#39;(i1)&#39;</span>) i1-1</div>
@@ -2447,18 +2447,18 @@ $(document).ready(function(){initNavTree('time__manager_8F90_source.html',''); i
 <div class="line"><a name="l02351"></a><span class="lineno"> 2351</span>&#160; </div>
 <div class="line"><a name="l02352"></a><span class="lineno"> 2352</span>&#160; old_method_local = .false.</div>
 <div class="line"><a name="l02353"></a><span class="lineno"> 2353</span>&#160; <span class="keywordflow">if</span>( <span class="keyword">present</span>(old_method) ) old_method_local = old_method</div>
-<div class="line"><a name="l02354"></a><span class="lineno"> 2354</span>&#160; <span class="keywordflow">if</span>(.not.set_date_private(year, month, day, hour, minute, second, tick, set_date_c, err_msg_local,old_method=old_method_local)) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l02354"></a><span class="lineno"> 2354</span>&#160; <span class="keywordflow">if</span>(.not.<a class="code" href="group__time__manager__mod.html#ga4340e5b65a48fe77e2602d205418f3e9">set_date_private</a>(year, month, day, hour, minute, second, tick, <a class="code" href="group__time__manager__mod.html#ga1fe4b3c2c79a5a4d698c65d659443369">set_date_c</a>, err_msg_local,old_method=old_method_local)) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l02355"></a><span class="lineno"> 2355</span>&#160;   <span class="keywordflow">if</span>(error_handler(<span class="stringliteral">&#39;function set_date_c&#39;</span>, err_msg_local, err_msg)) <span class="keywordflow">return</span></div>
 <div class="line"><a name="l02356"></a><span class="lineno"> 2356</span>&#160;<span class="keywordflow"> end if</span></div>
 <div class="line"><a name="l02357"></a><span class="lineno"> 2357</span>&#160; </div>
-<div class="line"><a name="l02358"></a><span class="lineno"> 2358</span>&#160; <span class="keyword">end function </span>set_date_c</div>
+<div class="line"><a name="l02358"></a><span class="lineno"> 2358</span>&#160; <span class="keyword">end function </span><a class="code" href="group__time__manager__mod.html#ga1fe4b3c2c79a5a4d698c65d659443369">set_date_c</a></div>
 <div class="line"><a name="l02359"></a><span class="lineno"> 2359</span>&#160; </div>
 <div class="line"><a name="l02360"></a><span class="lineno"> 2360</span>&#160;<span class="comment">!------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l02361"></a><span class="lineno"> 2361</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l02362"></a><span class="lineno"> 2362</span>&#160;<span class="comment">!&gt; @brief Sets Time_out%days on a Gregorian calendar</span></div>
 <div class="line"><a name="l02363"></a><span class="lineno"> 2363</span>&#160;<span class="comment">!! Computes the total number of days between 1/1/0001 to the current month/day/year</span></div>
-<div class="line"><a name="l02364"></a><span class="lineno"> 2364</span>&#160; <span class="keyword">function </span>set_date_gregorian(year, month, day, hour, minute, second, tick, Time_out, err_msg)</div>
-<div class="line"><a name="l02365"></a><span class="lineno"> 2365</span>&#160; <span class="keywordtype">logical</span> :: set_date_gregorian</div>
+<div class="line"><a name="l02364"></a><span class="lineno"><a class="line" href="group__time__manager__mod.html#ga7f34ca591384ab30f3451c2ee7e28d31"> 2364</a></span>&#160; <span class="keyword">function </span><a class="code" href="group__time__manager__mod.html#ga7f34ca591384ab30f3451c2ee7e28d31">set_date_gregorian</a>(year, month, day, hour, minute, second, tick, Time_out, err_msg)</div>
+<div class="line"><a name="l02365"></a><span class="lineno"> 2365</span>&#160; <span class="keywordtype">logical</span> :: <a class="code" href="group__time__manager__mod.html#ga7f34ca591384ab30f3451c2ee7e28d31">set_date_gregorian</a></div>
 <div class="line"><a name="l02366"></a><span class="lineno"> 2366</span>&#160; </div>
 <div class="line"><a name="l02367"></a><span class="lineno"> 2367</span>&#160;<span class="comment">! Computes time corresponding to date for gregorian calendar.</span></div>
 <div class="line"><a name="l02368"></a><span class="lineno"> 2368</span>&#160; </div>
@@ -2468,7 +2468,7 @@ $(document).ready(function(){initNavTree('time__manager_8F90_source.html',''); i
 <div class="line"><a name="l02372"></a><span class="lineno"> 2372</span>&#160; <span class="keywordtype">integer</span> :: yearx, monthx, dayx, hrx, minx, secx, tickx, ncenturies, nlpyrs, l</div>
 <div class="line"><a name="l02373"></a><span class="lineno"> 2373</span>&#160; </div>
 <div class="line"><a name="l02374"></a><span class="lineno"> 2374</span>&#160; <span class="keywordflow">if</span>( .not.valid_increments(year,month,day,hour,minute,second,tick,err_msg) ) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l02375"></a><span class="lineno"> 2375</span>&#160;   set_date_gregorian = .false.</div>
+<div class="line"><a name="l02375"></a><span class="lineno"> 2375</span>&#160;   <a class="code" href="group__time__manager__mod.html#ga7f34ca591384ab30f3451c2ee7e28d31">set_date_gregorian</a> = .false.</div>
 <div class="line"><a name="l02376"></a><span class="lineno"> 2376</span>&#160;   <span class="keywordflow">return</span></div>
 <div class="line"><a name="l02377"></a><span class="lineno"> 2377</span>&#160;<span class="keywordflow"> endif</span></div>
 <div class="line"><a name="l02378"></a><span class="lineno"> 2378</span>&#160; </div>
@@ -2478,13 +2478,13 @@ $(document).ready(function(){initNavTree('time__manager_8F90_source.html',''); i
 <div class="line"><a name="l02382"></a><span class="lineno"> 2382</span>&#160; <span class="keywordflow">if</span>(month.eq.2) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l02383"></a><span class="lineno"> 2383</span>&#160;   <span class="keywordflow">if</span>(day.gt.days_per_month(month)+l .or. day.lt.1) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l02384"></a><span class="lineno"> 2384</span>&#160;     err_msg = <span class="stringliteral">&#39;Invalid_date. Date=&#39;</span>//convert_integer_date_to_char(year,month,day,hour,minute,second)</div>
-<div class="line"><a name="l02385"></a><span class="lineno"> 2385</span>&#160;     set_date_gregorian = .false.</div>
+<div class="line"><a name="l02385"></a><span class="lineno"> 2385</span>&#160;     <a class="code" href="group__time__manager__mod.html#ga7f34ca591384ab30f3451c2ee7e28d31">set_date_gregorian</a> = .false.</div>
 <div class="line"><a name="l02386"></a><span class="lineno"> 2386</span>&#160;     <span class="keywordflow">return</span></div>
 <div class="line"><a name="l02387"></a><span class="lineno"> 2387</span>&#160;<span class="keywordflow">   end if</span></div>
 <div class="line"><a name="l02388"></a><span class="lineno"> 2388</span>&#160; <span class="keywordflow">else</span></div>
 <div class="line"><a name="l02389"></a><span class="lineno"> 2389</span>&#160;   <span class="keywordflow">if</span>(day.gt.days_per_month(month) .or. day.lt.1) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l02390"></a><span class="lineno"> 2390</span>&#160;     err_msg = <span class="stringliteral">&#39;Invalid_date. Date=&#39;</span>//convert_integer_date_to_char(year,month,day,hour,minute,second)</div>
-<div class="line"><a name="l02391"></a><span class="lineno"> 2391</span>&#160;     set_date_gregorian = .false.</div>
+<div class="line"><a name="l02391"></a><span class="lineno"> 2391</span>&#160;     <a class="code" href="group__time__manager__mod.html#ga7f34ca591384ab30f3451c2ee7e28d31">set_date_gregorian</a> = .false.</div>
 <div class="line"><a name="l02392"></a><span class="lineno"> 2392</span>&#160;     <span class="keywordflow">return</span></div>
 <div class="line"><a name="l02393"></a><span class="lineno"> 2393</span>&#160;<span class="keywordflow">   end if</span></div>
 <div class="line"><a name="l02394"></a><span class="lineno"> 2394</span>&#160;<span class="keywordflow"> end if</span></div>
@@ -2520,31 +2520,31 @@ $(document).ready(function(){initNavTree('time__manager_8F90_source.html',''); i
 <div class="line"><a name="l02424"></a><span class="lineno"> 2424</span>&#160; time_out%ticks = tick</div>
 <div class="line"><a name="l02425"></a><span class="lineno"> 2425</span>&#160; </div>
 <div class="line"><a name="l02426"></a><span class="lineno"> 2426</span>&#160; err_msg = <span class="stringliteral">&#39;&#39;</span></div>
-<div class="line"><a name="l02427"></a><span class="lineno"> 2427</span>&#160; set_date_gregorian = .true.</div>
+<div class="line"><a name="l02427"></a><span class="lineno"> 2427</span>&#160; <a class="code" href="group__time__manager__mod.html#ga7f34ca591384ab30f3451c2ee7e28d31">set_date_gregorian</a> = .true.</div>
 <div class="line"><a name="l02428"></a><span class="lineno"> 2428</span>&#160; </div>
 <div class="line"><a name="l02429"></a><span class="lineno"> 2429</span>&#160; <span class="comment">! check</span></div>
 <div class="line"><a name="l02430"></a><span class="lineno"> 2430</span>&#160; yearx = year ; monthx = month ; dayx = day</div>
 <div class="line"><a name="l02431"></a><span class="lineno"> 2431</span>&#160; hrx = hour ; minx = minute ; secx = second ; tickx = tick</div>
-<div class="line"><a name="l02432"></a><span class="lineno"> 2432</span>&#160; <span class="keyword">call </span>get_date_gregorian(time_out, yearx, monthx, dayx, hrx, minx, secx, tickx)</div>
+<div class="line"><a name="l02432"></a><span class="lineno"> 2432</span>&#160; <span class="keyword">call </span><a class="code" href="group__time__manager__mod.html#ga598caa0b76f256ade3f0fe120f6a5c91">get_date_gregorian</a>(time_out, yearx, monthx, dayx, hrx, minx, secx, tickx)</div>
 <div class="line"><a name="l02433"></a><span class="lineno"> 2433</span>&#160; l = 0 ; <span class="keywordflow">if</span>( leap_year_gregorian_int(yearx) ) l = 1</div>
 <div class="line"><a name="l02434"></a><span class="lineno"> 2434</span>&#160; <span class="keywordflow">if</span>( monthx.lt.1 .or. monthx.gt.12 ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l02435"></a><span class="lineno"> 2435</span>&#160;   err_msg = <span class="stringliteral">&#39;Invalid_date. Date=&#39;</span>//convert_integer_date_to_char(yearx,monthx,dayx,hour,minute,second)</div>
-<div class="line"><a name="l02436"></a><span class="lineno"> 2436</span>&#160;   set_date_gregorian = .false.</div>
+<div class="line"><a name="l02436"></a><span class="lineno"> 2436</span>&#160;   <a class="code" href="group__time__manager__mod.html#ga7f34ca591384ab30f3451c2ee7e28d31">set_date_gregorian</a> = .false.</div>
 <div class="line"><a name="l02437"></a><span class="lineno"> 2437</span>&#160; <span class="keywordflow">else</span> <span class="keywordflow">if</span>( dayx.lt.1 .or. dayx.gt.days_per_month(monthx) ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l02438"></a><span class="lineno"> 2438</span>&#160;   <span class="keywordflow">if</span>( monthx.eq.2 .and. dayx.le.days_per_month(monthx)+l ) <span class="keywordflow">return</span></div>
 <div class="line"><a name="l02439"></a><span class="lineno"> 2439</span>&#160;   err_msg = <span class="stringliteral">&#39;Invalid_date. Date=&#39;</span>//convert_integer_date_to_char(yearx,monthx,dayx,hour,minute,second)</div>
-<div class="line"><a name="l02440"></a><span class="lineno"> 2440</span>&#160;   set_date_gregorian = .false.</div>
+<div class="line"><a name="l02440"></a><span class="lineno"> 2440</span>&#160;   <a class="code" href="group__time__manager__mod.html#ga7f34ca591384ab30f3451c2ee7e28d31">set_date_gregorian</a> = .false.</div>
 <div class="line"><a name="l02441"></a><span class="lineno"> 2441</span>&#160;<span class="keywordflow"> end if</span></div>
 <div class="line"><a name="l02442"></a><span class="lineno"> 2442</span>&#160; </div>
-<div class="line"><a name="l02443"></a><span class="lineno"> 2443</span>&#160; <span class="keyword">end function </span>set_date_gregorian</div>
+<div class="line"><a name="l02443"></a><span class="lineno"> 2443</span>&#160; <span class="keyword">end function </span><a class="code" href="group__time__manager__mod.html#ga7f34ca591384ab30f3451c2ee7e28d31">set_date_gregorian</a></div>
 <div class="line"><a name="l02444"></a><span class="lineno"> 2444</span>&#160; </div>
 <div class="line"><a name="l02445"></a><span class="lineno"> 2445</span>&#160;<span class="comment">!------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l02446"></a><span class="lineno"> 2446</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l02447"></a><span class="lineno"> 2447</span>&#160;<span class="comment">!&gt; @brief Sets Time_out%days on a Gregorian calendar.  This is the original/old subroutine.</span></div>
 <div class="line"><a name="l02448"></a><span class="lineno"> 2448</span>&#160;<span class="comment">!! Look up the total number of days between 1/1/0001 to the current month/day/year in the array date_to_day</span></div>
 <div class="line"><a name="l02449"></a><span class="lineno"> 2449</span>&#160;<span class="comment">!! This function is kept in order to test the new set_date_gregorian</span></div>
-<div class="line"><a name="l02450"></a><span class="lineno"> 2450</span>&#160; <span class="keyword">function </span>set_date_gregorian_old(year, month, day, hour, minute, second, tick, Time_out, err_msg)</div>
-<div class="line"><a name="l02451"></a><span class="lineno"> 2451</span>&#160; <span class="keywordtype">logical</span> :: set_date_gregorian_old</div>
+<div class="line"><a name="l02450"></a><span class="lineno"><a class="line" href="group__time__manager__mod.html#gac33d06e47ab40f140cc813d6e494700f"> 2450</a></span>&#160; <span class="keyword">function </span><a class="code" href="group__time__manager__mod.html#gac33d06e47ab40f140cc813d6e494700f">set_date_gregorian_old</a>(year, month, day, hour, minute, second, tick, Time_out, err_msg)</div>
+<div class="line"><a name="l02451"></a><span class="lineno"> 2451</span>&#160; <span class="keywordtype">logical</span> :: <a class="code" href="group__time__manager__mod.html#gac33d06e47ab40f140cc813d6e494700f">set_date_gregorian_old</a></div>
 <div class="line"><a name="l02452"></a><span class="lineno"> 2452</span>&#160; </div>
 <div class="line"><a name="l02453"></a><span class="lineno"> 2453</span>&#160;<span class="comment">! Computes time corresponding to date for gregorian calendar.</span></div>
 <div class="line"><a name="l02454"></a><span class="lineno"> 2454</span>&#160; </div>
@@ -2554,7 +2554,7 @@ $(document).ready(function(){initNavTree('time__manager_8F90_source.html',''); i
 <div class="line"><a name="l02458"></a><span class="lineno"> 2458</span>&#160; <span class="keywordtype">integer</span> :: yr1, day1</div>
 <div class="line"><a name="l02459"></a><span class="lineno"> 2459</span>&#160; </div>
 <div class="line"><a name="l02460"></a><span class="lineno"> 2460</span>&#160; <span class="keywordflow">if</span>( .not.valid_increments(year,month,day,hour,minute,second,tick,err_msg) ) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l02461"></a><span class="lineno"> 2461</span>&#160;   set_date_gregorian_old = .false.</div>
+<div class="line"><a name="l02461"></a><span class="lineno"> 2461</span>&#160;   <a class="code" href="group__time__manager__mod.html#gac33d06e47ab40f140cc813d6e494700f">set_date_gregorian_old</a> = .false.</div>
 <div class="line"><a name="l02462"></a><span class="lineno"> 2462</span>&#160;   <span class="keywordflow">return</span></div>
 <div class="line"><a name="l02463"></a><span class="lineno"> 2463</span>&#160;<span class="keywordflow"> endif</span></div>
 <div class="line"><a name="l02464"></a><span class="lineno"> 2464</span>&#160; </div>
@@ -2565,16 +2565,16 @@ $(document).ready(function(){initNavTree('time__manager_8F90_source.html',''); i
 <div class="line"><a name="l02469"></a><span class="lineno"> 2469</span>&#160; day1 = date_to_day(yr1,month,day)</div>
 <div class="line"><a name="l02470"></a><span class="lineno"> 2470</span>&#160;  <span class="keywordflow">if</span>(day1 == invalid_date) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l02471"></a><span class="lineno"> 2471</span>&#160;   err_msg = <span class="stringliteral">&#39;Invalid_date. Date=&#39;</span>//convert_integer_date_to_char(year,month,day,hour,minute,second)</div>
-<div class="line"><a name="l02472"></a><span class="lineno"> 2472</span>&#160;   set_date_gregorian_old = .false.</div>
+<div class="line"><a name="l02472"></a><span class="lineno"> 2472</span>&#160;   <a class="code" href="group__time__manager__mod.html#gac33d06e47ab40f140cc813d6e494700f">set_date_gregorian_old</a> = .false.</div>
 <div class="line"><a name="l02473"></a><span class="lineno"> 2473</span>&#160;   <span class="keywordflow">return</span></div>
 <div class="line"><a name="l02474"></a><span class="lineno"> 2474</span>&#160;<span class="keywordflow"> endif</span></div>
 <div class="line"><a name="l02475"></a><span class="lineno"> 2475</span>&#160; </div>
 <div class="line"><a name="l02476"></a><span class="lineno"> 2476</span>&#160; time_out%days = day1 + days_in_400_year_period*((year-1)/400)</div>
 <div class="line"><a name="l02477"></a><span class="lineno"> 2477</span>&#160; time_out%ticks = tick</div>
 <div class="line"><a name="l02478"></a><span class="lineno"> 2478</span>&#160; err_msg = <span class="stringliteral">&#39;&#39;</span></div>
-<div class="line"><a name="l02479"></a><span class="lineno"> 2479</span>&#160; set_date_gregorian_old = .true.</div>
+<div class="line"><a name="l02479"></a><span class="lineno"> 2479</span>&#160; <a class="code" href="group__time__manager__mod.html#gac33d06e47ab40f140cc813d6e494700f">set_date_gregorian_old</a> = .true.</div>
 <div class="line"><a name="l02480"></a><span class="lineno"> 2480</span>&#160; </div>
-<div class="line"><a name="l02481"></a><span class="lineno"> 2481</span>&#160; <span class="keyword">end function </span>set_date_gregorian_old</div>
+<div class="line"><a name="l02481"></a><span class="lineno"> 2481</span>&#160; <span class="keyword">end function </span><a class="code" href="group__time__manager__mod.html#gac33d06e47ab40f140cc813d6e494700f">set_date_gregorian_old</a></div>
 <div class="line"><a name="l02482"></a><span class="lineno"> 2482</span>&#160; </div>
 <div class="line"><a name="l02483"></a><span class="lineno"> 2483</span>&#160;<span class="comment">!------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l02484"></a><span class="lineno"> 2484</span>&#160; <span class="keyword">function </span>set_date_julian_private(year, month, day, hour, minute, second, tick, Time_out, err_msg)</div>
@@ -2699,7 +2699,7 @@ $(document).ready(function(){initNavTree('time__manager_8F90_source.html',''); i
 <div class="line"><a name="l02603"></a><span class="lineno"> 2603</span>&#160;<span class="keywordflow"> enddo</span></div>
 <div class="line"><a name="l02604"></a><span class="lineno"> 2604</span>&#160; </div>
 <div class="line"><a name="l02605"></a><span class="lineno"> 2605</span>&#160;<span class="comment">! No need for err_msg in call to set_time because previous checks ensure positive value of time.</span></div>
-<div class="line"><a name="l02606"></a><span class="lineno"> 2606</span>&#160; time_out = set_time(second + 60 * (minute + 60 * hour), day -1 + ndays + 365 * (year - 1), tick)</div>
+<div class="line"><a name="l02606"></a><span class="lineno"> 2606</span>&#160; time_out = <a class="code" href="interfacetime__manager__mod_1_1set__time.html">set_time</a>(second + 60 * (minute + 60 * hour), day -1 + ndays + 365 * (year - 1), tick)</div>
 <div class="line"><a name="l02607"></a><span class="lineno"> 2607</span>&#160; err_msg = <span class="stringliteral">&#39;&#39;</span></div>
 <div class="line"><a name="l02608"></a><span class="lineno"> 2608</span>&#160; set_date_no_leap_private = .true.</div>
 <div class="line"><a name="l02609"></a><span class="lineno"> 2609</span>&#160; </div>
@@ -2919,7 +2919,7 @@ $(document).ready(function(){initNavTree('time__manager_8F90_source.html',''); i
 <div class="line"><a name="l02823"></a><span class="lineno"> 2823</span>&#160;   <span class="keywordflow">case</span>(julian)</div>
 <div class="line"><a name="l02824"></a><span class="lineno"> 2824</span>&#160;     <span class="keyword">call </span>get_date_julian_private   (time, cyear, cmonth, cday, chour, cminute, csecond, ctick)</div>
 <div class="line"><a name="l02825"></a><span class="lineno"> 2825</span>&#160;   <span class="keywordflow">case</span>(gregorian)</div>
-<div class="line"><a name="l02826"></a><span class="lineno"> 2826</span>&#160;     <span class="keyword">call </span>get_date_gregorian(time, cyear, cmonth, cday, chour, cminute, csecond, ctick)</div>
+<div class="line"><a name="l02826"></a><span class="lineno"> 2826</span>&#160;     <span class="keyword">call </span><a class="code" href="group__time__manager__mod.html#ga598caa0b76f256ade3f0fe120f6a5c91">get_date_gregorian</a>(time, cyear, cmonth, cday, chour, cminute, csecond, ctick)</div>
 <div class="line"><a name="l02827"></a><span class="lineno"> 2827</span>&#160;   <span class="keywordflow">case</span>(no_calendar)</div>
 <div class="line"><a name="l02828"></a><span class="lineno"> 2828</span>&#160;     err_msg = <span class="stringliteral">&#39;Cannot increment a date when the calendar type is NO_CALENDAR&#39;</span></div>
 <div class="line"><a name="l02829"></a><span class="lineno"> 2829</span>&#160;     increment_date_private = .false.</div>
@@ -2949,7 +2949,7 @@ $(document).ready(function(){initNavTree('time__manager_8F90_source.html',''); i
 <div class="line"><a name="l02853"></a><span class="lineno"> 2853</span>&#160;   <span class="keywordflow">case</span>(julian)</div>
 <div class="line"><a name="l02854"></a><span class="lineno"> 2854</span>&#160;     increment_date_private = set_date_julian_private(cyear, cmonth, cday, chour, cminute, csecond, ctick, time_out, err_msg)</div>
 <div class="line"><a name="l02855"></a><span class="lineno"> 2855</span>&#160;   <span class="keywordflow">case</span>(gregorian)</div>
-<div class="line"><a name="l02856"></a><span class="lineno"> 2856</span>&#160;     increment_date_private = set_date_gregorian(cyear, cmonth, cday, chour, cminute, csecond, ctick, time_out, err_msg)</div>
+<div class="line"><a name="l02856"></a><span class="lineno"> 2856</span>&#160;     increment_date_private = <a class="code" href="group__time__manager__mod.html#ga7f34ca591384ab30f3451c2ee7e28d31">set_date_gregorian</a>(cyear, cmonth, cday, chour, cminute, csecond, ctick, time_out, err_msg)</div>
 <div class="line"><a name="l02857"></a><span class="lineno"> 2857</span>&#160;<span class="keywordflow">   end select</span></div>
 <div class="line"><a name="l02858"></a><span class="lineno"> 2858</span>&#160;<span class="keywordflow"> endif</span> <span class="comment">! if(mode_2)</span></div>
 <div class="line"><a name="l02859"></a><span class="lineno"> 2859</span>&#160; </div>
@@ -3104,7 +3104,7 @@ $(document).ready(function(){initNavTree('time__manager_8F90_source.html',''); i
 <div class="line"><a name="l03008"></a><span class="lineno"> 3008</span>&#160;<span class="keywordtype">type</span>(<a class="code" href="structtime__manager__mod_1_1time__type.html">time_type</a>), <span class="keywordtype">intent(in)</span> :: time</div>
 <div class="line"><a name="l03009"></a><span class="lineno"> 3009</span>&#160;<span class="keywordtype">integer</span> :: year, month, day, hour, minute, second, ticks</div>
 <div class="line"><a name="l03010"></a><span class="lineno"> 3010</span>&#160; </div>
-<div class="line"><a name="l03011"></a><span class="lineno"> 3011</span>&#160;<span class="keyword">call </span>get_date_gregorian(time, year, month, day, hour, minute, second, ticks)</div>
+<div class="line"><a name="l03011"></a><span class="lineno"> 3011</span>&#160;<span class="keyword">call </span><a class="code" href="group__time__manager__mod.html#ga598caa0b76f256ade3f0fe120f6a5c91">get_date_gregorian</a>(time, year, month, day, hour, minute, second, ticks)</div>
 <div class="line"><a name="l03012"></a><span class="lineno"> 3012</span>&#160;days_in_month_gregorian = days_per_month(month)</div>
 <div class="line"><a name="l03013"></a><span class="lineno"> 3013</span>&#160;<span class="keywordflow">if</span>(leap_year_gregorian_int(year) .and. month == 2) days_in_month_gregorian = 29</div>
 <div class="line"><a name="l03014"></a><span class="lineno"> 3014</span>&#160; </div>
@@ -3309,7 +3309,7 @@ $(document).ready(function(){initNavTree('time__manager_8F90_source.html',''); i
 <div class="line"><a name="l03213"></a><span class="lineno"> 3213</span>&#160; </div>
 <div class="line"><a name="l03214"></a><span class="lineno"> 3214</span>&#160;<span class="keywordtype">type</span>(<a class="code" href="structtime__manager__mod_1_1time__type.html">time_type</a>) :: length_of_year_thirty</div>
 <div class="line"><a name="l03215"></a><span class="lineno"> 3215</span>&#160; </div>
-<div class="line"><a name="l03216"></a><span class="lineno"> 3216</span>&#160;length_of_year_thirty = set_time(0, 360)</div>
+<div class="line"><a name="l03216"></a><span class="lineno"> 3216</span>&#160;length_of_year_thirty = <a class="code" href="interfacetime__manager__mod_1_1set__time.html">set_time</a>(0, 360)</div>
 <div class="line"><a name="l03217"></a><span class="lineno"> 3217</span>&#160; </div>
 <div class="line"><a name="l03218"></a><span class="lineno"> 3218</span>&#160;<span class="keyword">end function </span>length_of_year_thirty</div>
 <div class="line"><a name="l03219"></a><span class="lineno"> 3219</span>&#160; </div>
@@ -3322,7 +3322,7 @@ $(document).ready(function(){initNavTree('time__manager_8F90_source.html',''); i
 <div class="line"><a name="l03226"></a><span class="lineno"> 3226</span>&#160; </div>
 <div class="line"><a name="l03227"></a><span class="lineno"> 3227</span>&#160;days = days_in_400_year_period / 400</div>
 <div class="line"><a name="l03228"></a><span class="lineno"> 3228</span>&#160;seconds = 86400*(days_in_400_year_period/400. - days)</div>
-<div class="line"><a name="l03229"></a><span class="lineno"> 3229</span>&#160;length_of_year_gregorian = set_time(seconds, days)</div>
+<div class="line"><a name="l03229"></a><span class="lineno"> 3229</span>&#160;length_of_year_gregorian = <a class="code" href="interfacetime__manager__mod_1_1set__time.html">set_time</a>(seconds, days)</div>
 <div class="line"><a name="l03230"></a><span class="lineno"> 3230</span>&#160; </div>
 <div class="line"><a name="l03231"></a><span class="lineno"> 3231</span>&#160;<span class="keyword">end function </span>length_of_year_gregorian</div>
 <div class="line"><a name="l03232"></a><span class="lineno"> 3232</span>&#160; </div>
@@ -3332,7 +3332,7 @@ $(document).ready(function(){initNavTree('time__manager_8F90_source.html',''); i
 <div class="line"><a name="l03236"></a><span class="lineno"> 3236</span>&#160; </div>
 <div class="line"><a name="l03237"></a><span class="lineno"> 3237</span>&#160;<span class="keywordtype">type</span>(<a class="code" href="structtime__manager__mod_1_1time__type.html">time_type</a>) :: length_of_year_julian</div>
 <div class="line"><a name="l03238"></a><span class="lineno"> 3238</span>&#160; </div>
-<div class="line"><a name="l03239"></a><span class="lineno"> 3239</span>&#160;length_of_year_julian = set_time((24 / 4) * 60 * 60, 365)</div>
+<div class="line"><a name="l03239"></a><span class="lineno"> 3239</span>&#160;length_of_year_julian = <a class="code" href="interfacetime__manager__mod_1_1set__time.html">set_time</a>((24 / 4) * 60 * 60, 365)</div>
 <div class="line"><a name="l03240"></a><span class="lineno"> 3240</span>&#160; </div>
 <div class="line"><a name="l03241"></a><span class="lineno"> 3241</span>&#160;<span class="keyword">end function </span>length_of_year_julian</div>
 <div class="line"><a name="l03242"></a><span class="lineno"> 3242</span>&#160; </div>
@@ -3342,7 +3342,7 @@ $(document).ready(function(){initNavTree('time__manager_8F90_source.html',''); i
 <div class="line"><a name="l03246"></a><span class="lineno"> 3246</span>&#160; </div>
 <div class="line"><a name="l03247"></a><span class="lineno"> 3247</span>&#160;<span class="keywordtype">type</span>(<a class="code" href="structtime__manager__mod_1_1time__type.html">time_type</a>) :: length_of_year_no_leap</div>
 <div class="line"><a name="l03248"></a><span class="lineno"> 3248</span>&#160; </div>
-<div class="line"><a name="l03249"></a><span class="lineno"> 3249</span>&#160;length_of_year_no_leap = set_time(0, 365)</div>
+<div class="line"><a name="l03249"></a><span class="lineno"> 3249</span>&#160;length_of_year_no_leap = <a class="code" href="interfacetime__manager__mod_1_1set__time.html">set_time</a>(0, 365)</div>
 <div class="line"><a name="l03250"></a><span class="lineno"> 3250</span>&#160; </div>
 <div class="line"><a name="l03251"></a><span class="lineno"> 3251</span>&#160;<span class="keyword">end function </span>length_of_year_no_leap</div>
 <div class="line"><a name="l03252"></a><span class="lineno"> 3252</span>&#160; </div>
@@ -3361,7 +3361,7 @@ $(document).ready(function(){initNavTree('time__manager_8F90_source.html',''); i
 <div class="line"><a name="l03265"></a><span class="lineno"> 3265</span>&#160;  <span class="keywordtype">type</span>(<a class="code" href="structtime__manager__mod_1_1time__type.html">time_type</a>) :: t</div>
 <div class="line"><a name="l03266"></a><span class="lineno"> 3266</span>&#160; </div>
 <div class="line"><a name="l03267"></a><span class="lineno"> 3267</span>&#160;  <span class="keyword">call </span><a class="code" href="group__time__manager__mod.html#ga6c708ea801247812b41b305ee5aeea13">get_date</a>(time,year,month,day,hour,minute,second)</div>
-<div class="line"><a name="l03268"></a><span class="lineno"> 3268</span>&#160;  t = time-set_date(year,1,1,0,0,0)</div>
+<div class="line"><a name="l03268"></a><span class="lineno"> 3268</span>&#160;  t = time-<a class="code" href="interfacetime__manager__mod_1_1set__date.html">set_date</a>(year,1,1,0,0,0)</div>
 <div class="line"><a name="l03269"></a><span class="lineno"> 3269</span>&#160;  day_of_year = t%days + 1</div>
 <div class="line"><a name="l03270"></a><span class="lineno"> 3270</span>&#160;<span class="keyword">end</span></div>
 <div class="line"><a name="l03271"></a><span class="lineno"> 3271</span>&#160; </div>
@@ -3842,23 +3842,44 @@ $(document).ready(function(){initNavTree('time__manager_8F90_source.html',''); i
 <div class="line"><a name="l03746"></a><span class="lineno"> 3746</span>&#160;<span class="comment">! close documentation grouping</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="agroup__time__manager__mod_html_gab0eb6ef695a956e0f7522a1f8879c967"><div class="ttname"><a href="group__time__manager__mod.html#gab0eb6ef695a956e0f7522a1f8879c967">time_manager_mod::time_real_divide</a></div><div class="ttdeci">double precision function time_real_divide(time1, time2)</div><div class="ttdoc">Returns the double precision quotient of two times.</div><div class="ttdef"><b>Definition:</b> <a href="time__manager_8F90_source.html#l01279">time_manager.F90:1279</a></div></div>
 <div class="ttc" id="agroup__constants__mod_html_ga41b907cfe1f072d57b937529f0c8334a"><div class="ttname"><a href="group__constants__mod.html#ga41b907cfe1f072d57b937529f0c8334a">constants_mod::seconds_per_day</a></div><div class="ttdeci">real, parameter, public seconds_per_day</div><div class="ttdoc">Seconds in a day [s].</div><div class="ttdef"><b>Definition:</b> <a href="constants_8F90_source.html#l00146">constants.F90:146</a></div></div>
+<div class="ttc" id="agroup__time__manager__mod_html_ga48c9db18080295254bd46b0908598a5c"><div class="ttname"><a href="group__time__manager__mod.html#ga48c9db18080295254bd46b0908598a5c">time_manager_mod::scalar_time_mult</a></div><div class="ttdeci">type(time_type) function scalar_time_mult(n, time)</div><div class="ttdoc">Returns time multipled by integer factor n.</div><div class="ttdef"><b>Definition:</b> <a href="time__manager_8F90_source.html#l01196">time_manager.F90:1196</a></div></div>
+<div class="ttc" id="agroup__time__manager__mod_html_ga2805ba04b464c0143fe0bdd63065c3b9"><div class="ttname"><a href="group__time__manager__mod.html#ga2805ba04b464c0143fe0bdd63065c3b9">time_manager_mod::time_plus</a></div><div class="ttdeci">type(time_type) function time_plus(time1, time2)</div><div class="ttdoc">Returns sum of two time_types.</div><div class="ttdef"><b>Definition:</b> <a href="time__manager_8F90_source.html#l01053">time_manager.F90:1053</a></div></div>
 <div class="ttc" id="ampp__util_8inc_html_a172901d39c9b0cf14aa83b1e94fdf21b"><div class="ttname"><a href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a></div><div class="ttdeci">integer function stdout()</div><div class="ttdoc">This function returns the current standard fortran unit numbers for output.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00065">mpp_util.inc:65</a></div></div>
+<div class="ttc" id="agroup__time__manager__mod_html_ga1fe4b3c2c79a5a4d698c65d659443369"><div class="ttname"><a href="group__time__manager__mod.html#ga1fe4b3c2c79a5a4d698c65d659443369">time_manager_mod::set_date_c</a></div><div class="ttdeci">type(time_type) function set_date_c(string, zero_year_warning, err_msg, allow_rounding, old_method)</div><div class="ttdoc">Calls set_date_private for different calendar types when given a string input. The added optional arg...</div><div class="ttdef"><b>Definition:</b> <a href="time__manager_8F90_source.html#l02233">time_manager.F90:2233</a></div></div>
 <div class="ttc" id="agroup__time__manager__mod_html_ga07edc2aeb8850b3371e504f83d0285d1"><div class="ttname"><a href="group__time__manager__mod.html#ga07edc2aeb8850b3371e504f83d0285d1">time_manager_mod::get_ticks_per_second</a></div><div class="ttdeci">integer function, public get_ticks_per_second()</div><div class="ttdoc">Returns the number of ticks per second.</div><div class="ttdef"><b>Definition:</b> <a href="time__manager_8F90_source.html#l01726">time_manager.F90:1726</a></div></div>
+<div class="ttc" id="agroup__time__manager__mod_html_gaf038eafffcbfd654b42dcc74b6b110c3"><div class="ttname"><a href="group__time__manager__mod.html#gaf038eafffcbfd654b42dcc74b6b110c3">time_manager_mod::time_ne</a></div><div class="ttdeci">logical function time_ne(time1, time2)</div><div class="ttdoc">Returns true if time1 /= time2.</div><div class="ttdef"><b>Definition:</b> <a href="time__manager_8F90_source.html#l01019">time_manager.F90:1019</a></div></div>
+<div class="ttc" id="agroup__time__manager__mod_html_ga68e8eb8c14b3a8e2a5c00b87b263650d"><div class="ttname"><a href="group__time__manager__mod.html#ga68e8eb8c14b3a8e2a5c00b87b263650d">time_manager_mod::time_le</a></div><div class="ttdeci">logical function time_le(time1, time2)</div><div class="ttdoc">Returns true if time1 &lt;= time2.</div><div class="ttdef"><b>Definition:</b> <a href="time__manager_8F90_source.html#l00946">time_manager.F90:946</a></div></div>
+<div class="ttc" id="agroup__time__manager__mod_html_gaa5b77870a71375dc460f34d862f49325"><div class="ttname"><a href="group__time__manager__mod.html#gaa5b77870a71375dc460f34d862f49325">time_manager_mod::time_assignment</a></div><div class="ttdeci">subroutine time_assignment(time1, time2)</div><div class="ttdoc">Assigns all components of the time_type variable on RHS to same components of time_type variable on L...</div><div class="ttdef"><b>Definition:</b> <a href="time__manager_8F90_source.html#l01320">time_manager.F90:1320</a></div></div>
+<div class="ttc" id="agroup__time__manager__mod_html_gab0abd73a9fb0897d92398afff8b743d9"><div class="ttname"><a href="group__time__manager__mod.html#gab0abd73a9fb0897d92398afff8b743d9">time_manager_mod::time_minus</a></div><div class="ttdeci">type(time_type) function time_minus(time1, time2)</div><div class="ttdoc">Returns difference of two time_types. WARNING: a time type is positive so by definition time1 - time2...</div><div class="ttdef"><b>Definition:</b> <a href="time__manager_8F90_source.html#l01095">time_manager.F90:1095</a></div></div>
+<div class="ttc" id="ainterfacefms__mod_1_1string_html"><div class="ttname"><a href="interfacefms__mod_1_1string.html">fms_mod::string</a></div><div class="ttdoc">Converts a number to a string.</div><div class="ttdef"><b>Definition:</b> <a href="fms_8F90_source.html#l00317">fms.F90:317</a></div></div>
+<div class="ttc" id="agroup__time__manager__mod_html_ga0682ab24c004c2e4373e2dc3d4d8d075"><div class="ttname"><a href="group__time__manager__mod.html#ga0682ab24c004c2e4373e2dc3d4d8d075">time_manager_mod::set_date_i</a></div><div class="ttdeci">type(time_type) function set_date_i(year, month, day, hour, minute, second, tick, err_msg, old_method)</div><div class="ttdoc">Calls set_date_private to set days for different calendar types. The added optional argument old_meth...</div><div class="ttdef"><b>Definition:</b> <a href="time__manager_8F90_source.html#l02199">time_manager.F90:2199</a></div></div>
+<div class="ttc" id="agroup__time__manager__mod_html_gaaf3ed18ce9c9142e0f038189c4ac6a21"><div class="ttname"><a href="group__time__manager__mod.html#gaaf3ed18ce9c9142e0f038189c4ac6a21">time_manager_mod::safe_rtoi</a></div><div class="ttdeci">integer function safe_rtoi(rval, mode)</div><div class="ttdoc">Convert a floating point value to an integer value.</div><div class="ttdef"><b>Definition:</b> <a href="time__manager_8F90_source.html#l01386">time_manager.F90:1386</a></div></div>
 <div class="ttc" id="agroup__time__manager__mod_html_gafff6475f8827e27cedfca66a1396e6ab"><div class="ttname"><a href="group__time__manager__mod.html#gafff6475f8827e27cedfca66a1396e6ab">time_manager_mod::real_to_time_type</a></div><div class="ttdeci">type(time_type) function, public real_to_time_type(x, err_msg)</div><div class="ttdoc">Convert a real number of seconds into a time_type variable.</div><div class="ttdef"><b>Definition:</b> <a href="time__manager_8F90_source.html#l01359">time_manager.F90:1359</a></div></div>
 <div class="ttc" id="agroup__time__manager__mod_html_ga4ae4f2e68d2cf722dd93aa5cd8cdc56b"><div class="ttname"><a href="group__time__manager__mod.html#ga4ae4f2e68d2cf722dd93aa5cd8cdc56b">time_manager_mod::increment_time</a></div><div class="ttdeci">type(time_type) function, public increment_time(Time, seconds, days, ticks, err_msg, allow_neg_inc)</div><div class="ttdoc">Given a time and an increment of days and seconds, returns a time that adds this increment to an inpu...</div><div class="ttdef"><b>Definition:</b> <a href="time__manager_8F90_source.html#l00658">time_manager.F90:658</a></div></div>
 <div class="ttc" id="agroup__time__manager__mod_html_ga1479e62dcf63419f83ba7dbe33e0f03a"><div class="ttname"><a href="group__time__manager__mod.html#ga1479e62dcf63419f83ba7dbe33e0f03a">time_manager_mod::decrement_time</a></div><div class="ttdeci">type(time_type) function, public decrement_time(Time, seconds, days, ticks, err_msg, allow_neg_inc)</div><div class="ttdoc">Decrements a time by seconds and days.</div><div class="ttdef"><b>Definition:</b> <a href="time__manager_8F90_source.html#l00768">time_manager.F90:768</a></div></div>
 <div class="ttc" id="agroup__time__manager__mod_html_gad4d5cb71942ebf3f1bb9d4a29a6d9a04"><div class="ttname"><a href="group__time__manager__mod.html#gad4d5cb71942ebf3f1bb9d4a29a6d9a04">time_manager_mod::get_calendar_type</a></div><div class="ttdeci">integer function, public get_calendar_type()</div><div class="ttdoc">Returns default calendar type for mapping from time to date.</div><div class="ttdef"><b>Definition:</b> <a href="time__manager_8F90_source.html#l01681">time_manager.F90:1681</a></div></div>
+<div class="ttc" id="ainterfacetime__manager__mod_1_1set__time_html"><div class="ttname"><a href="interfacetime__manager__mod_1_1set__time.html">time_manager_mod::set_time</a></div><div class="ttdef"><b>Definition:</b> <a href="time__manager_8F90_source.html#l00226">time_manager.F90:226</a></div></div>
+<div class="ttc" id="agroup__time__manager__mod_html_gac33d06e47ab40f140cc813d6e494700f"><div class="ttname"><a href="group__time__manager__mod.html#gac33d06e47ab40f140cc813d6e494700f">time_manager_mod::set_date_gregorian_old</a></div><div class="ttdeci">logical function set_date_gregorian_old(year, month, day, hour, minute, second, tick, Time_out, err_msg)</div><div class="ttdoc">Sets Time_outdays on a Gregorian calendar. This is the original/old subroutine. Look up the total num...</div><div class="ttdef"><b>Definition:</b> <a href="time__manager_8F90_source.html#l02450">time_manager.F90:2450</a></div></div>
+<div class="ttc" id="agroup__time__manager__mod_html_gad42e283bb36efd703751796d30f07275"><div class="ttname"><a href="group__time__manager__mod.html#gad42e283bb36efd703751796d30f07275">time_manager_mod::time_divide</a></div><div class="ttdeci">integer function time_divide(time1, time2)</div><div class="ttdoc">Returns the largest integer, n, for which time1 &gt;= time2 * n.</div><div class="ttdef"><b>Definition:</b> <a href="time__manager_8F90_source.html#l01232">time_manager.F90:1232</a></div></div>
 <div class="ttc" id="agroup__fms__mod_html_gae5c7420e421293e2be14717dd7b3d97f"><div class="ttname"><a href="group__fms__mod.html#gae5c7420e421293e2be14717dd7b3d97f">fms_mod::error_mesg</a></div><div class="ttdeci">subroutine, public error_mesg(routine, message, level)</div><div class="ttdoc">Print notes, warnings and error messages; terminates program for warning and error messages....</div><div class="ttdef"><b>Definition:</b> <a href="fms_8F90_source.html#l00569">fms.F90:569</a></div></div>
 <div class="ttc" id="agroup__time__manager__mod_html_gabd5f3b7a1ac6fab11649aca606fdbb8f"><div class="ttname"><a href="group__time__manager__mod.html#gabd5f3b7a1ac6fab11649aca606fdbb8f">time_manager_mod::interval_alarm</a></div><div class="ttdeci">logical function, public interval_alarm(time, time_interval, alarm, alarm_interval)</div><div class="ttdoc">Supports a commonly used type of test on times for models. Given the current time,...</div><div class="ttdef"><b>Definition:</b> <a href="time__manager_8F90_source.html#l01513">time_manager.F90:1513</a></div></div>
+<div class="ttc" id="agroup__time__manager__mod_html_ga20cf64e1cd18a3542e1339d2645c919c"><div class="ttname"><a href="group__time__manager__mod.html#ga20cf64e1cd18a3542e1339d2645c919c">time_manager_mod::get_date_gregorian_old</a></div><div class="ttdeci">subroutine get_date_gregorian_old(time, year, month, day, hour, minute, second, tick)</div><div class="ttdoc">Gets the date on a Gregorian calendar. This is the original/old subroutine. Looks up the year,...</div><div class="ttdef"><b>Definition:</b> <a href="time__manager_8F90_source.html#l01909">time_manager.F90:1909</a></div></div>
+<div class="ttc" id="agroup__time__manager__mod_html_ga7f34ca591384ab30f3451c2ee7e28d31"><div class="ttname"><a href="group__time__manager__mod.html#ga7f34ca591384ab30f3451c2ee7e28d31">time_manager_mod::set_date_gregorian</a></div><div class="ttdeci">logical function set_date_gregorian(year, month, day, hour, minute, second, tick, Time_out, err_msg)</div><div class="ttdoc">Sets Time_outdays on a Gregorian calendar Computes the total number of days between 1/1/0001 to the c...</div><div class="ttdef"><b>Definition:</b> <a href="time__manager_8F90_source.html#l02364">time_manager.F90:2364</a></div></div>
+<div class="ttc" id="agroup__time__manager__mod_html_ga5fcc77f0861723f917c0a1fb91a16245"><div class="ttname"><a href="group__time__manager__mod.html#ga5fcc77f0861723f917c0a1fb91a16245">time_manager_mod::time_gt</a></div><div class="ttdeci">logical function time_gt(time1, time2)</div><div class="ttdoc">Returns true if time1 &gt; time2.</div><div class="ttdef"><b>Definition:</b> <a href="time__manager_8F90_source.html#l00828">time_manager.F90:828</a></div></div>
 <div class="ttc" id="agroup__time__manager__mod_html_ga3f9d6b19f82929805f6983974e93e462"><div class="ttname"><a href="group__time__manager__mod.html#ga3f9d6b19f82929805f6983974e93e462">time_manager_mod::set_ticks_per_second</a></div><div class="ttdeci">subroutine, public set_ticks_per_second(tps)</div><div class="ttdoc">Sets the number of ticks per second.</div><div class="ttdef"><b>Definition:</b> <a href="time__manager_8F90_source.html#l01703">time_manager.F90:1703</a></div></div>
 <div class="ttc" id="astructtime__manager__mod_1_1time__type_html"><div class="ttname"><a href="structtime__manager__mod_1_1time__type.html">time_manager_mod::time_type</a></div><div class="ttdoc">Type to represent amounts of time. Implemented as seconds and days to allow for larger intervals.</div><div class="ttdef"><b>Definition:</b> <a href="time__manager_8F90_source.html#l00167">time_manager.F90:167</a></div></div>
+<div class="ttc" id="agroup__time__manager__mod_html_ga598caa0b76f256ade3f0fe120f6a5c91"><div class="ttname"><a href="group__time__manager__mod.html#ga598caa0b76f256ade3f0fe120f6a5c91">time_manager_mod::get_date_gregorian</a></div><div class="ttdeci">subroutine get_date_gregorian(time, year, month, day, hour, minute, second, tick)</div><div class="ttdoc">Gets the date on a Gregorian calendar. Computes the year, month, day on the fly from the quantity tim...</div><div class="ttdef"><b>Definition:</b> <a href="time__manager_8F90_source.html#l01828">time_manager.F90:1828</a></div></div>
+<div class="ttc" id="agroup__time__manager__mod_html_ga330ff6e3e8408cd8c0d3d703d56b3fa4"><div class="ttname"><a href="group__time__manager__mod.html#ga330ff6e3e8408cd8c0d3d703d56b3fa4">time_manager_mod::time_scalar_mult</a></div><div class="ttdeci">type(time_type) function time_scalar_mult(time, n)</div><div class="ttdoc">Returns time multiplied by integer factor n.</div><div class="ttdef"><b>Definition:</b> <a href="time__manager_8F90_source.html#l01136">time_manager.F90:1136</a></div></div>
 <div class="ttc" id="agroup__time__manager__mod_html_gae4ed023b8077a6f14fffb764d642e55a"><div class="ttname"><a href="group__time__manager__mod.html#gae4ed023b8077a6f14fffb764d642e55a">time_manager_mod::set_calendar_type</a></div><div class="ttdeci">subroutine, public set_calendar_type(type, err_msg)</div><div class="ttdoc">Sets calendar_type. The arrays coded_date and days_this_month used for the Gregorian calendar are ass...</div><div class="ttdef"><b>Definition:</b> <a href="time__manager_8F90_source.html#l01617">time_manager.F90:1617</a></div></div>
 <div class="ttc" id="agroup__time__manager__mod_html_ga6c708ea801247812b41b305ee5aeea13"><div class="ttname"><a href="group__time__manager__mod.html#ga6c708ea801247812b41b305ee5aeea13">time_manager_mod::get_date</a></div><div class="ttdeci">subroutine, public get_date(time, year, month, day, hour, minute, second, tick, err_msg, old_method)</div><div class="ttdoc">Gets the date for different calendar types. The added optional argument old_method allows user to cho...</div><div class="ttdef"><b>Definition:</b> <a href="time__manager_8F90_source.html#l01771">time_manager.F90:1771</a></div></div>
 <div class="ttc" id="agroup__time__manager__mod_html_ga2b9c941f38e33eba67ee151fe3bd8ee6"><div class="ttname"><a href="group__time__manager__mod.html#ga2b9c941f38e33eba67ee151fe3bd8ee6">time_manager_mod::get_time</a></div><div class="ttdeci">subroutine, public get_time(Time, seconds, days, ticks, err_msg)</div><div class="ttdoc">Returns days and seconds ( &lt; 86400 ) corresponding to a time. err_msg should be checked for any error...</div><div class="ttdef"><b>Definition:</b> <a href="time__manager_8F90_source.html#l00572">time_manager.F90:572</a></div></div>
+<div class="ttc" id="ainterfacetime__manager__mod_1_1set__date_html"><div class="ttname"><a href="interfacetime__manager__mod_1_1set__date.html">time_manager_mod::set_date</a></div><div class="ttdef"><b>Definition:</b> <a href="time__manager_8F90_source.html#l00266">time_manager.F90:266</a></div></div>
 <div class="ttc" id="agroup__time__manager__mod_html_gaba77face96aefbbb2c754b5830938793"><div class="ttname"><a href="group__time__manager__mod.html#gaba77face96aefbbb2c754b5830938793">time_manager_mod::repeat_alarm</a></div><div class="ttdeci">logical function, public repeat_alarm(time, alarm_frequency, alarm_length)</div><div class="ttdoc">Repeat_alarm supports an alarm that goes off with alarm_frequency and lasts for alarm_length....</div><div class="ttdef"><b>Definition:</b> <a href="time__manager_8F90_source.html#l01565">time_manager.F90:1565</a></div></div>
 <div class="ttc" id="agroup__time__manager__mod_html_gaf822bea03a375fc7a3f1d8d1fd82e187"><div class="ttname"><a href="group__time__manager__mod.html#gaf822bea03a375fc7a3f1d8d1fd82e187">time_manager_mod::time_list_error</a></div><div class="ttdeci">subroutine, public time_list_error(T, Terr)</div><div class="ttdoc">This routine converts the integer tdays to a string.</div><div class="ttdef"><b>Definition:</b> <a href="time__manager_8F90_source.html#l03626">time_manager.F90:3626</a></div></div>
 <div class="ttc" id="agroup__fms__mod_html_ga0c093df98a75dbd9e0f3add67aa6c23a"><div class="ttname"><a href="group__fms__mod.html#ga0c093df98a75dbd9e0f3add67aa6c23a">fms_mod::write_version_number</a></div><div class="ttdeci">subroutine, public write_version_number(version, tag, unit)</div><div class="ttdoc">Prints to the log file (or a specified unit) the version id string and tag name.</div><div class="ttdef"><b>Definition:</b> <a href="fms_8F90_source.html#l01028">fms.F90:1028</a></div></div>
+<div class="ttc" id="agroup__time__manager__mod_html_ga4340e5b65a48fe77e2602d205418f3e9"><div class="ttname"><a href="group__time__manager__mod.html#ga4340e5b65a48fe77e2602d205418f3e9">time_manager_mod::set_date_private</a></div><div class="ttdeci">logical function set_date_private(year, month, day, hour, minute, second, tick, Time_out, err_msg, old_method)</div><div class="ttdoc">Sets days for different calendar types. The added optional argument old_method allows user to choose ...</div><div class="ttdef"><b>Definition:</b> <a href="time__manager_8F90_source.html#l02147">time_manager.F90:2147</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

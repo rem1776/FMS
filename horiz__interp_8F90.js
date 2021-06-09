@@ -1,5 +1,7 @@
 var horiz__interp_8F90 =
 [
+    [ "horiz_interp_new", "interfacehoriz__interp__mod_1_1horiz__interp__new.html", "interfacehoriz__interp__mod_1_1horiz__interp__new" ],
+    [ "horiz_interp", "interfacehoriz__interp__mod_1_1horiz__interp.html", "interfacehoriz__interp__mod_1_1horiz__interp" ],
     [ "horiz_interp_base_2d", "horiz__interp_8F90.html#afb979f294a3aac82ecd686b67806cd16", null ],
     [ "horiz_interp_base_3d", "horiz__interp_8F90.html#a20ee6293f42627b3deabf7c4743aceb5", null ],
     [ "horiz_interp_del", "horiz__interp_8F90.html#a01331e97bf44a5092a0a174a71b0029a", null ],

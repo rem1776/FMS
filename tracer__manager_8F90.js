@@ -1,5 +1,6 @@
 var tracer__manager_8F90 =
 [
+    [ "get_tracer_index", "interfacetracer__manager__mod_1_1get__tracer__index.html", "interfacetracer__manager__mod_1_1get__tracer__index" ],
     [ "adjust_mass", "tracer__manager_8F90.html#ga672fa8babfa045b22792c270dcaef9e9", null ],
     [ "adjust_positive_def", "tracer__manager_8F90.html#gae99a576c58386d871ea17a84415230d6", null ],
     [ "check_if_prognostic", "tracer__manager_8F90.html#gaaf9f0433a57359e74f51a2c4a0927078", null ],

@@ -1,5 +1,6 @@
 var diag__util_8F90 =
 [
+    [ "prepend_attribute", "interfacediag__util__mod_1_1prepend__attribute.html", "interfacediag__util__mod_1_1prepend__attribute" ],
     [ "attribute_init_field", "diag__util_8F90.html#gae50021eac70f2c1d81935b584d1f4da9", null ],
     [ "attribute_init_file", "diag__util_8F90.html#gad7672a732b7b5e54cdddd13e9155583f", null ],
     [ "check_and_open", "diag__util_8F90.html#gacc85f996fad682a6bc41f95259c9d656", null ],

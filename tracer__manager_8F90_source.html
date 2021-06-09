@@ -144,7 +144,7 @@ $(document).ready(function(){initNavTree('tracer__manager_8F90_source.html','');
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">!----------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keywordtype">use           </span>mpp_mod, <span class="keywordtype">only</span> : mpp_error,          &amp;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keywordtype">use           </span>mpp_mod, <span class="keywordtype">only</span> : <a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>,          &amp;</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                              <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>,             &amp;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                              mpp_root_pe,        &amp;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                              fatal,              &amp;</div>
@@ -165,12 +165,12 @@ $(document).ready(function(){initNavTree('tracer__manager_8F90_source.html','');
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                              num_models,         &amp;</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                              <a class="code" href="structfield__manager__mod_1_1method__type.html">method_type</a>,        &amp;</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                              default_method,     &amp;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                              parse,              &amp;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                              <a class="code" href="interfacefield__manager__mod_1_1parse.html">parse</a>,              &amp;</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                              fm_copy_list,       &amp;</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                              fm_change_list,     &amp;</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                              fm_modify_name,     &amp;</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                              fm_query_method,    &amp;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                              fm_new_value,       &amp;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                              <a class="code" href="interfacefield__manager__mod_1_1fm__new__value.html">fm_new_value</a>,       &amp;</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                              fm_exists,          &amp;</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                              model_names</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
@@ -183,7 +183,7 @@ $(document).ready(function(){initNavTree('tracer__manager_8F90_source.html','');
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        tracer_manager_end,  &amp;</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        check_if_prognostic, &amp;</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <a class="code" href="group__tracer__manager__mod.html#ga26e85fcca1424ed8d44db196af9b80ed">get_tracer_indices</a>,  &amp;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        get_tracer_index,    &amp;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <a class="code" href="interfacetracer__manager__mod_1_1get__tracer__index.html">get_tracer_index</a>,    &amp;</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        get_tracer_names,    &amp;</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        get_tracer_name,     &amp;</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        query_method,        &amp;</div>
@@ -197,7 +197,7 @@ $(document).ready(function(){initNavTree('tracer__manager_8F90_source.html','');
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        max_tracer_fields</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="comment">!-----------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="keyword">interface</span> get_tracer_index</div>
+<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="interfacetracer__manager__mod_1_1get__tracer__index.html">  104</a></span>&#160;<span class="keyword">interface</span> <a class="code" href="interfacetracer__manager__mod_1_1get__tracer__index.html">get_tracer_index</a></div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  <span class="keyword">module procedure</span> get_tracer_index_integer, get_tracer_index_logical</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="keyword">end interface</span></div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="comment">!-----------------------------------------------------------------------</span></div>
@@ -211,7 +211,7 @@ $(document).ready(function(){initNavTree('tracer__manager_8F90_source.html','');
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="keywordtype">integer</span> :: total_tracers(NUM_MODELS), prog_tracers(NUM_MODELS), diag_tracers(NUM_MODELS)</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="keywordtype">logical</span> :: model_registered(NUM_MODELS) = .false.</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="keyword">type</span>, <span class="keyword">private</span> ::  tracer_type</div>
+<div class="line"><a name="l00118"></a><span class="lineno"><a class="line" href="structtracer__manager__mod_1_1tracer__type.html">  118</a></span>&#160;<span class="keyword">type</span>, <span class="keyword">private</span> ::  <a class="code" href="structtracer__manager__mod_1_1tracer__type.html">tracer_type</a></div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;   <span class="keywordtype">character(len=32)</span>        :: tracer_name, tracer_units</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;   <span class="keywordtype">character(len=128)</span>       :: tracer_longname</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;   <span class="keywordtype">integer</span>                  :: num_methods, model, instances</div>
@@ -221,18 +221,18 @@ $(document).ready(function(){initNavTree('tracer__manager_8F90_source.html','');
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="comment">!    (true by default for both)</span></div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;   <span class="keywordtype">logical</span>                  :: needs_mass_adjust</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;   <span class="keywordtype">logical</span>                  :: needs_positive_adjust</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="keyword">end type </span>tracer_type</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="keyword">end type </span><a class="code" href="structtracer__manager__mod_1_1tracer__type.html">tracer_type</a></div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="keyword">type</span>, <span class="keyword">private</span> ::  tracer_name_type</div>
+<div class="line"><a name="l00130"></a><span class="lineno"><a class="line" href="structtracer__manager__mod_1_1tracer__name__type.html">  130</a></span>&#160;<span class="keyword">type</span>, <span class="keyword">private</span> ::  <a class="code" href="structtracer__manager__mod_1_1tracer__name__type.html">tracer_name_type</a></div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;   <span class="keywordtype">character(len=32)</span>  :: model_name, tracer_name, tracer_units</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;   <span class="keywordtype">character(len=128)</span> :: tracer_longname</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="keyword">end type </span>tracer_name_type</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="keyword">end type </span><a class="code" href="structtracer__manager__mod_1_1tracer__name__type.html">tracer_name_type</a></div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="keyword">type</span>, <span class="keyword">private</span> :: inst_type</div>
+<div class="line"><a name="l00136"></a><span class="lineno"><a class="line" href="structtracer__manager__mod_1_1inst__type.html">  136</a></span>&#160;<span class="keyword">type</span>, <span class="keyword">private</span> :: <a class="code" href="structtracer__manager__mod_1_1inst__type.html">inst_type</a></div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;   <span class="keywordtype">character(len=128)</span> :: name</div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;   <span class="keywordtype">integer</span>            :: instances</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="keyword">end type </span>inst_type</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="keyword">end type </span><a class="code" href="structtracer__manager__mod_1_1inst__type.html">inst_type</a></div>
 <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
 <div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;<span class="keywordtype">type</span>(tracer_type), <span class="keywordtype">save</span>  :: tracers(MAX_TRACER_FIELDS)</div>
 <div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="keywordtype">type</span>(inst_type)  , <span class="keywordtype">save</span>  :: instantiations(MAX_TRACER_FIELDS)</div>
@@ -275,7 +275,7 @@ $(document).ready(function(){initNavTree('tracer__manager_8F90_source.html','');
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;  <span class="keyword">call </span>field_manager_init()</div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;  tracer_array = notracer</div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;  <span class="keywordflow">do</span> model=1,num_models</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    <span class="keyword">call </span>get_tracer_meta_data(model, num_tracers, num_prog, num_diag)</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    <span class="keyword">call </span><a class="code" href="group__tracer__manager__mod.html#gab9c02b4ca2361964c77b42469e85a636">get_tracer_meta_data</a>(model, num_tracers, num_prog, num_diag)</div>
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;<span class="keywordflow">  enddo</span></div>
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160; </div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;<span class="keyword">end subroutine </span><a class="code" href="group__tracer__manager__mod.html#gad8158f9c1b49acb5c1d4e7e544af3628">tracer_manager_init</a></div>
@@ -288,8 +288,8 @@ $(document).ready(function(){initNavTree('tracer__manager_8F90_source.html','');
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;<span class="comment">! in &quot;tracers&quot; array.</span></div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;<span class="comment">!   &lt;/OVERVIEW&gt;</span><span class="comment"></span></div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;<span class="comment">!&gt; @brief Read in tracer table and store tracer information associated with &quot;model&quot;</span></div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<span class="keyword">subroutine </span>get_tracer_meta_data(model, num_tracers,num_prog,num_diag)</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160; </div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<span class="keyword">subroutine </span><a class="code" href="group__tracer__manager__mod.html#gab9c02b4ca2361964c77b42469e85a636">get_tracer_meta_data</a>(model, num_tracers,num_prog,num_diag)</div>
+<div class="line"><a name="l00196"></a><span class="lineno"><a class="line" href="group__tracer__manager__mod.html#gab9c02b4ca2361964c77b42469e85a636">  196</a></span>&#160; </div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;<span class="keywordtype">integer</span>,  <span class="keywordtype">intent(in)</span> :: model<span class="comment"> !&lt; model being used</span></div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;<span class="keywordtype">integer</span>, <span class="keywordtype">intent(out)</span> :: num_tracers, num_prog, num_diag</div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;<span class="keywordtype">character(len=256)</span>    :: warnmesg</div>
@@ -311,7 +311,7 @@ $(document).ready(function(){initNavTree('tracer__manager_8F90_source.html','');
 <div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;<span class="comment">!   &lt;/ERROR&gt;</span></div>
 <div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;<span class="keywordflow">if</span> (model .ne. model_atmos .and. model .ne. model_land .and. &amp;</div>
 <div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    model .ne. model_ocean .and. model .ne. model_ice  .and. &amp;</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    model .ne. model_coupler) <span class="keyword">call </span>mpp_error(fatal,<span class="stringliteral">&#39;tracer_manager_init : invalid model type&#39;</span>)</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    model .ne. model_coupler) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal,<span class="stringliteral">&#39;tracer_manager_init : invalid model type&#39;</span>)</div>
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160; </div>
 <div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;<span class="comment">! One should only call get_tracer_meta_data once for each model type</span></div>
 <div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;<span class="comment">! Therefore need to set up an array to stop the subroutine being</span></div>
@@ -337,7 +337,7 @@ $(document).ready(function(){initNavTree('tracer__manager_8F90_source.html','');
 <div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;<span class="comment">!   &lt;/ERROR&gt;</span></div>
 <div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;<span class="keywordflow">if</span> (nfields == 0 ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;<span class="keywordflow">if</span> (<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe()) &amp;</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;  <span class="keyword">call </span>mpp_error(note,<span class="stringliteral">&#39;tracer_manager_init : No tracers are available to be registered.&#39;</span>)</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;  <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(note,<span class="stringliteral">&#39;tracer_manager_init : No tracers are available to be registered.&#39;</span>)</div>
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;  <span class="keywordflow">return</span></div>
 <div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;<span class="keywordflow">endif</span></div>
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160; </div>
@@ -353,7 +353,7 @@ $(document).ready(function(){initNavTree('tracer__manager_8F90_source.html','');
 <div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;<span class="comment">!   &lt;ERROR MSG=&quot;MAX_TRACER_FIELDS exceeded&quot; STATUS=&quot;FATAL&quot;&gt;</span></div>
 <div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;<span class="comment">!     The maximum number of tracer fields has been exceeded.</span></div>
 <div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;<span class="comment">!   &lt;/ERROR&gt;</span></div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;         <span class="keywordflow">if</span>(num_tracer_fields &gt; max_tracer_fields) <span class="keyword">call </span>mpp_error(fatal,<span class="stringliteral">&#39;tracer_manager_init: MAX_TRACER_FIELDS exceeded&#39;</span>)</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;         <span class="keywordflow">if</span>(num_tracer_fields &gt; max_tracer_fields) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal,<span class="stringliteral">&#39;tracer_manager_init: MAX_TRACER_FIELDS exceeded&#39;</span>)</div>
 <div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;         tracer_array(model,total_tracers(model))  = num_tracer_fields</div>
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;         tracers(num_tracer_fields)%model          = model</div>
 <div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;         tracers(num_tracer_fields)%tracer_name    = name</div>
@@ -383,7 +383,7 @@ $(document).ready(function(){initNavTree('tracer__manager_8F90_source.html','');
 <div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;               tracers(num_tracer_fields)%tracer_longname = methods(j)%method_name</div>
 <div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;            <span class="keywordflow">case</span> (<span class="stringliteral">&#39;instances&#39;</span>)</div>
 <div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;<span class="comment">!               tracers(num_tracer_fields)%instances = methods(j)%method_name</span></div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;               siz_inst = parse(methods(j)%method_name,<span class="stringliteral">&quot;&quot;</span>,instances)</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;               siz_inst = <a class="code" href="interfacefield__manager__mod_1_1parse.html">parse</a>(methods(j)%method_name,<span class="stringliteral">&quot;&quot;</span>,instances)</div>
 <div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;               tracers(num_tracer_fields)%instances = instances</div>
 <div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;               tracers(num_tracer_fields)%instances_set   = .true.</div>
 <div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;            <span class="keywordflow">case</span> (<span class="stringliteral">&#39;adjust_mass&#39;</span>)</div>
@@ -425,7 +425,7 @@ $(document).ready(function(){initNavTree('tracer__manager_8F90_source.html','');
 <div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    <span class="keywordflow">if</span> ( num_tracer_fields + tracers(n)%instances &gt; max_tracer_fields ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;      <span class="keyword">write</span>(warnmesg, <span class="stringliteral">&#39;(&quot;tracer_manager_init: Number of tracers will exceed MAX_TRACER_FIELDS with &amp;</span></div>
 <div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;<span class="stringliteral"></span><span class="stringliteral">                       &amp;multiple (&quot;,I3,&quot; instances) setup of tracer &quot;,A)&#39;</span>) tracers(n)%instances,tracers(n)%tracer_name</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;      <span class="keyword">call </span>mpp_error(fatal, warnmesg)</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;      <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, warnmesg)</div>
 <div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;<span class="keywordflow">    endif</span></div>
 <div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160; </div>
 <div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    <span class="keywordflow">do</span> i = 2, tracers(n)%instances <span class="comment">!{</span></div>
@@ -438,7 +438,7 @@ $(document).ready(function(){initNavTree('tracer__manager_8F90_source.html','');
 <div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160; </div>
 <div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;        <span class="keywordflow">if</span> (i .lt. 10) <span class="keywordflow">then</span>  <span class="comment">!{</span></div>
 <div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;           <span class="keyword">write</span> (suffnam,<span class="stringliteral">&#39;(&#39;</span><span class="stringliteral">&#39;suffix&#39;</span><span class="stringliteral">&#39;,i1)&#39;</span>) i</div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;           siz_inst = parse(control, suffnam,digit)</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;           siz_inst = <a class="code" href="interfacefield__manager__mod_1_1parse.html">parse</a>(control, suffnam,digit)</div>
 <div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;           <span class="keywordflow">if</span> (siz_inst == 0 ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;             <span class="keyword">write</span> (digit,<span class="stringliteral">&#39;(&#39;</span><span class="stringliteral">&#39;_&#39;</span><span class="stringliteral">&#39;,i1)&#39;</span>) i</div>
 <div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;           <span class="keywordflow">else</span></div>
@@ -446,14 +446,14 @@ $(document).ready(function(){initNavTree('tracer__manager_8F90_source.html','');
 <div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;<span class="keywordflow">           endif</span></div>
 <div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;        <span class="keywordflow">elseif</span> (i .lt. 100) <span class="keywordflow">then</span>  <span class="comment">!}{</span></div>
 <div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;           <span class="keyword">write</span> (suffnam,<span class="stringliteral">&#39;(&#39;</span><span class="stringliteral">&#39;suffix&#39;</span><span class="stringliteral">&#39;,i2)&#39;</span>) i</div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;           siz_inst = parse(control, suffnam,digit)</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;           siz_inst = <a class="code" href="interfacefield__manager__mod_1_1parse.html">parse</a>(control, suffnam,digit)</div>
 <div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;           <span class="keywordflow">if</span> (siz_inst == 0 ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;             <span class="keyword">write</span> (digit,<span class="stringliteral">&#39;(&#39;</span><span class="stringliteral">&#39;_&#39;</span><span class="stringliteral">&#39;,i2)&#39;</span>) i</div>
 <div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;           <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;             digit = <span class="stringliteral">&quot;_&quot;</span>//trim(digit)</div>
 <div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;<span class="keywordflow">           endif</span></div>
 <div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;        <span class="keywordflow">else</span>  <span class="comment">!}{</span></div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;          <span class="keyword">call </span>mpp_error(fatal, <span class="stringliteral">&#39;tracer_manager_init: MULTIPLE_TRACER_SET_UP exceeds 100 for &#39;</span>//tracers(n)%tracer_name )</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;          <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, <span class="stringliteral">&#39;tracer_manager_init: MULTIPLE_TRACER_SET_UP exceeds 100 for &#39;</span>//tracers(n)%tracer_name )</div>
 <div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;<span class="keywordflow">        endif</span>  <span class="comment">!}</span></div>
 <div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160; </div>
 <div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;        <span class="keywordflow">select case</span>(model)</div>
@@ -485,7 +485,7 @@ $(document).ready(function(){initNavTree('tracer__manager_8F90_source.html','');
 <div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;<span class="keywordflow">    enddo</span> <span class="comment">!}</span></div>
 <div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;    <span class="comment">! Multiple instances of tracers were found so need to rename the original tracer.</span></div>
 <div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;    digit = <span class="stringliteral">&quot;_1&quot;</span></div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;    siz_inst = parse(control, <span class="stringliteral">&quot;suffix1&quot;</span>,digit)</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;    siz_inst = <a class="code" href="interfacefield__manager__mod_1_1parse.html">parse</a>(control, <span class="stringliteral">&quot;suffix1&quot;</span>,digit)</div>
 <div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;    <span class="keywordflow">if</span> (siz_inst &gt; 0 ) <span class="keywordflow">then</span> <span class="comment">!{</span></div>
 <div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;      digit = <span class="stringliteral">&quot;_&quot;</span>//trim(digit)</div>
 <div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;<span class="keywordflow">    endif</span> <span class="comment">!}</span></div>
@@ -502,27 +502,27 @@ $(document).ready(function(){initNavTree('tracer__manager_8F90_source.html','');
 <div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;      <span class="keyword">call </span>get_field_methods(n,methods)</div>
 <div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;      <span class="keywordflow">do</span> j=1,num_methods</div>
 <div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160; </div>
-<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;         <span class="keywordflow">if</span> (.not.get_tracer_index(mod,methods(j)%method_type,m)) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;           <span class="keyword">call </span>mpp_error(fatal,<span class="stringliteral">&#39;tracer_manager_init: The instances keyword was found for undefined tracer &#39;</span>&amp;</div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;         <span class="keywordflow">if</span> (.not.<a class="code" href="interfacetracer__manager__mod_1_1get__tracer__index.html">get_tracer_index</a>(mod,methods(j)%method_type,m)) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;           <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal,<span class="stringliteral">&#39;tracer_manager_init: The instances keyword was found for undefined tracer &#39;</span>&amp;</div>
 <div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;           //trim(methods(j)%method_type))</div>
 <div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;         <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;           <span class="keywordflow">if</span> ( tracers(m)%instances_set ) &amp;</div>
-<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;              <span class="keyword">call </span>mpp_error(fatal,<span class="stringliteral">&#39;tracer_manager_init: The instances keyword was found for &#39;</span>&amp;</div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;              <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal,<span class="stringliteral">&#39;tracer_manager_init: The instances keyword was found for &#39;</span>&amp;</div>
 <div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;              //trim(methods(j)%method_type)//<span class="stringliteral">&#39; but has previously been defined in the tracer entry&#39;</span>)</div>
-<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;           siz_inst = parse(methods(j)%method_name,<span class="stringliteral">&quot;&quot;</span>,instances)</div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;           siz_inst = <a class="code" href="interfacefield__manager__mod_1_1parse.html">parse</a>(methods(j)%method_name,<span class="stringliteral">&quot;&quot;</span>,instances)</div>
 <div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;           tracers(m)%instances = instances</div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;           <span class="keyword">call </span>mpp_error(note,<span class="stringliteral">&#39;tracer_manager_init: &#39;</span>//trim(instantiations(j)%name)// &amp;</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;           <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(note,<span class="stringliteral">&#39;tracer_manager_init: &#39;</span>//trim(instantiations(j)%name)// &amp;</div>
 <div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;                               <span class="stringliteral">&#39; will have &#39;</span>//trim(methods(j)%method_name)//<span class="stringliteral">&#39; instances&#39;</span>)</div>
 <div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;<span class="keywordflow">         endif</span></div>
 <div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;         <span class="keywordflow">if</span> ( num_tracer_fields + instances &gt; max_tracer_fields ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;           <span class="keyword">write</span>(warnmesg, <span class="stringliteral">&#39;(&quot;tracer_manager_init: Number of tracers will exceed MAX_TRACER_FIELDS with &amp;</span></div>
 <div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;<span class="stringliteral"></span><span class="stringliteral">                       &amp;multiple (&quot;,I3,&quot; instances) setup of tracer &quot;,A)&#39;</span>) tracers(m)%instances,tracers(m)%tracer_name</div>
-<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;           <span class="keyword">call </span>mpp_error(fatal, warnmesg)</div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;           <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, warnmesg)</div>
 <div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;<span class="keywordflow">         endif</span></div>
 <div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;<span class="comment">! We have found a valid tracer that has more than one instantiation.</span></div>
 <div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;<span class="comment">! We need to modify that tracer name to tracer_1 and add extra tracers for the extra instantiations.</span></div>
 <div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;         <span class="keywordflow">if</span> (instances .eq. 1) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;           siz_inst = parse(methods(j)%method_control, <span class="stringliteral">&#39;suffix1&#39;</span>,digit)</div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;           siz_inst = <a class="code" href="interfacefield__manager__mod_1_1parse.html">parse</a>(methods(j)%method_control, <span class="stringliteral">&#39;suffix1&#39;</span>,digit)</div>
 <div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;           <span class="keywordflow">if</span> (siz_inst == 0 ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;             digit = <span class="stringliteral">&#39;_1&#39;</span></div>
 <div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;           <span class="keywordflow">else</span></div>
@@ -537,7 +537,7 @@ $(document).ready(function(){initNavTree('tracer__manager_8F90_source.html','');
 <div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160; </div>
 <div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;           <span class="keywordflow">if</span> (i .lt. 10) <span class="keywordflow">then</span>  <span class="comment">!{</span></div>
 <div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;             <span class="keyword">write</span> (suffnam,<span class="stringliteral">&#39;(&#39;</span><span class="stringliteral">&#39;suffix&#39;</span><span class="stringliteral">&#39;,i1)&#39;</span>) i</div>
-<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;             siz_inst = parse(methods(j)%method_control, suffnam,digit)</div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;             siz_inst = <a class="code" href="interfacefield__manager__mod_1_1parse.html">parse</a>(methods(j)%method_control, suffnam,digit)</div>
 <div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;             <span class="keywordflow">if</span> (siz_inst == 0 ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;               <span class="keyword">write</span> (digit,<span class="stringliteral">&#39;(&#39;</span><span class="stringliteral">&#39;_&#39;</span><span class="stringliteral">&#39;,i1)&#39;</span>) i</div>
 <div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;             <span class="keywordflow">else</span></div>
@@ -545,14 +545,14 @@ $(document).ready(function(){initNavTree('tracer__manager_8F90_source.html','');
 <div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;<span class="keywordflow">             endif</span></div>
 <div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;          <span class="keywordflow">elseif</span> (i .lt. 100) <span class="keywordflow">then</span>  <span class="comment">!}{</span></div>
 <div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;             <span class="keyword">write</span> (suffnam,<span class="stringliteral">&#39;(&#39;</span><span class="stringliteral">&#39;suffix&#39;</span><span class="stringliteral">&#39;,i2)&#39;</span>) i</div>
-<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;             siz_inst = parse(methods(j)%method_control, suffnam,digit)</div>
+<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;             siz_inst = <a class="code" href="interfacefield__manager__mod_1_1parse.html">parse</a>(methods(j)%method_control, suffnam,digit)</div>
 <div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;             <span class="keywordflow">if</span> (siz_inst == 0 ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;               <span class="keyword">write</span> (digit,<span class="stringliteral">&#39;(&#39;</span><span class="stringliteral">&#39;_&#39;</span><span class="stringliteral">&#39;,i2)&#39;</span>) i</div>
 <div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;             <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;               digit = <span class="stringliteral">&quot;_&quot;</span>//trim(digit)</div>
 <div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;<span class="keywordflow">             endif</span></div>
 <div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;          <span class="keywordflow">else</span>  <span class="comment">!}{</span></div>
-<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;            <span class="keyword">call </span>mpp_error(fatal, <span class="stringliteral">&#39;tracer_manager_init: MULTIPLE_TRACER_SET_UP exceeds 100 for &#39;</span>&amp;</div>
+<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;            <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, <span class="stringliteral">&#39;tracer_manager_init: MULTIPLE_TRACER_SET_UP exceeds 100 for &#39;</span>&amp;</div>
 <div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;                                  //tracers(num_tracer_fields)%tracer_name )</div>
 <div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;<span class="keywordflow">          endif</span>  <span class="comment">!}</span></div>
 <div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160; </div>
@@ -583,7 +583,7 @@ $(document).ready(function(){initNavTree('tracer__manager_8F90_source.html','');
 <div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;<span class="keywordflow">          endif</span></div>
 <div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;<span class="keywordflow">        enddo</span></div>
 <div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;<span class="comment">!Now rename the original tracer to tracer_1 (or if suffix1 present to tracer_&#39;value_of_suffix1&#39;)</span></div>
-<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;        siz_inst = parse(methods(j)%method_control, <span class="stringliteral">&#39;suffix1&#39;</span>,digit)</div>
+<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;        siz_inst = <a class="code" href="interfacefield__manager__mod_1_1parse.html">parse</a>(methods(j)%method_control, <span class="stringliteral">&#39;suffix1&#39;</span>,digit)</div>
 <div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;        <span class="keywordflow">if</span> (siz_inst == 0 ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;          digit = <span class="stringliteral">&#39;_1&#39;</span></div>
 <div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;        <span class="keywordflow">else</span></div>
@@ -630,7 +630,7 @@ $(document).ready(function(){initNavTree('tracer__manager_8F90_source.html','');
 <div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160; </div>
 <div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;15 <span class="keyword">format</span> (<span class="stringliteral">&#39;Number of tracers in field table for &#39;</span>,a,<span class="stringliteral">&#39; model = &#39;</span>,i4)</div>
 <div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160; </div>
-<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;<span class="keyword">end subroutine </span>get_tracer_meta_data</div>
+<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;<span class="keyword">end subroutine </span><a class="code" href="group__tracer__manager__mod.html#gab9c02b4ca2361964c77b42469e85a636">get_tracer_meta_data</a></div>
 <div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;<span class="comment">!&lt;/SUBROUTINE&gt;</span></div>
 <div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160; </div>
 <div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160; </div>
@@ -745,7 +745,7 @@ $(document).ready(function(){initNavTree('tracer__manager_8F90_source.html','');
 <div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;<span class="keywordflow">if</span> (model .ne. model_atmos .and. model .ne. model_land .and. &amp;</div>
 <div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;    model .ne. model_ocean .and. model .ne. model_ice  .and. &amp;</div>
 <div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;    model .ne. model_coupler)  &amp;</div>
-<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;    <span class="keyword">call </span>mpp_error(fatal,<span class="stringliteral">&quot;get_number_tracers : Model number is invalid.&quot;</span>)</div>
+<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal,<span class="stringliteral">&quot;get_number_tracers : Model number is invalid.&quot;</span>)</div>
 <div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160; </div>
 <div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;<span class="keywordflow">if</span> (<span class="keyword">present</span>(num_tracers)) num_tracers = total_tracers(model)</div>
 <div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;<span class="keywordflow">if</span> (<span class="keyword">present</span>(num_prog))    num_prog    = prog_tracers(model)</div>
@@ -829,7 +829,7 @@ $(document).ready(function(){initNavTree('tracer__manager_8F90_source.html','');
 <div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;<span class="comment">!   &lt;ERROR MSG=&quot;index array size too small in get_tracer_indices&quot; STATUS=&quot;FATAL&quot;&gt;</span></div>
 <div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;<span class="comment">!     The global index array is too small and cannot contain all the tracer numbers.</span></div>
 <div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;<span class="comment">!   &lt;/ERROR&gt;</span></div>
-<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;         <span class="keywordflow">if</span> (n &gt; <span class="keyword">size</span>(ind(:))) <span class="keyword">call </span>mpp_error(fatal,<span class="stringliteral">&#39;get_tracer_indices : index array size too small in get_tracer_indices&#39;</span>)</div>
+<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;         <span class="keywordflow">if</span> (n &gt; <span class="keyword">size</span>(ind(:))) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal,<span class="stringliteral">&#39;get_tracer_indices : index array size too small in get_tracer_indices&#39;</span>)</div>
 <div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;         ind(n) = i</div>
 <div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;<span class="keywordflow">      endif</span></div>
 <div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160; </div>
@@ -838,7 +838,7 @@ $(document).ready(function(){initNavTree('tracer__manager_8F90_source.html','');
 <div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;<span class="comment">!   &lt;ERROR MSG=&quot;prognostic array size too small in get_tracer_indices&quot; STATUS=&quot;FATAL&quot;&gt;</span></div>
 <div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;<span class="comment">!     The prognostic index array is too small and cannot contain all the tracer numbers.</span></div>
 <div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;<span class="comment">!   &lt;/ERROR&gt;</span></div>
-<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;         <span class="keywordflow">if</span> ( np &gt; <span class="keyword">size</span>( prog_ind(:)))<span class="keyword">call </span>mpp_error(fatal,&amp;</div>
+<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;         <span class="keywordflow">if</span> ( np &gt; <span class="keyword">size</span>( prog_ind(:)))<span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal,&amp;</div>
 <div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;                                          <span class="stringliteral">&#39;get_tracer_indices : prognostic array size too small in get_tracer_indices&#39;</span>)</div>
 <div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;         prog_ind(np) = i</div>
 <div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;      <span class="keywordflow">else</span> <span class="keywordflow">if</span> (.not.tracers(j)%is_prognostic .and. <span class="keyword">PRESENT</span>(diag_ind)) <span class="keywordflow">then</span></div>
@@ -846,7 +846,7 @@ $(document).ready(function(){initNavTree('tracer__manager_8F90_source.html','');
 <div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;<span class="comment">!   &lt;ERROR MSG=&quot;diagnostic array size too small in get_tracer_indices&quot; STATUS=&quot;FATAL&quot;&gt;</span></div>
 <div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;<span class="comment">!     The diagnostic index array is too small and cannot contain all the tracer numbers.</span></div>
 <div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;<span class="comment">!   &lt;/ERROR&gt;</span></div>
-<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;         <span class="keywordflow">if</span> (nd &gt; <span class="keyword">size</span>(diag_ind(:))) <span class="keyword">call </span>mpp_error(fatal,&amp;</div>
+<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;         <span class="keywordflow">if</span> (nd &gt; <span class="keyword">size</span>(diag_ind(:))) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal,&amp;</div>
 <div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;                                         <span class="stringliteral">&#39;get_tracer_indices : diagnostic array size too small in get_tracer_indices&#39;</span>)</div>
 <div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;         diag_ind(nd) = i</div>
 <div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;<span class="keywordflow">      endif</span></div>
@@ -933,7 +933,7 @@ $(document).ready(function(){initNavTree('tracer__manager_8F90_source.html','');
 <div class="line"><a name="l00837"></a><span class="lineno">  837</span>&#160;<span class="keywordflow">if</span> (verbose_local) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00838"></a><span class="lineno">  838</span>&#160;<span class="comment">! &lt;ERROR MSG=&quot;tracer with this name not found: X&quot; STATUS=&quot;NOTE&quot;&gt;</span></div>
 <div class="line"><a name="l00839"></a><span class="lineno">  839</span>&#160;  <span class="keywordflow">if</span> (get_tracer_index_integer == no_tracer ) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00840"></a><span class="lineno">  840</span>&#160;    <span class="keyword">call </span>mpp_error(note,<span class="stringliteral">&#39;get_tracer_index : tracer with this name not found: &#39;</span>//trim(name))</div>
+<div class="line"><a name="l00840"></a><span class="lineno">  840</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(note,<span class="stringliteral">&#39;get_tracer_index : tracer with this name not found: &#39;</span>//trim(name))</div>
 <div class="line"><a name="l00841"></a><span class="lineno">  841</span>&#160;<span class="keywordflow">  endif</span></div>
 <div class="line"><a name="l00842"></a><span class="lineno">  842</span>&#160;<span class="comment">! &lt;/ERROR&gt;</span></div>
 <div class="line"><a name="l00843"></a><span class="lineno">  843</span>&#160;<span class="keywordflow">endif</span></div>
@@ -1333,26 +1333,26 @@ $(document).ready(function(){initNavTree('tracer__manager_8F90_source.html','');
 <div class="line"><a name="l01237"></a><span class="lineno"> 1237</span>&#160; </div>
 <div class="line"><a name="l01238"></a><span class="lineno"> 1238</span>&#160;  <span class="keywordflow">if</span>(lowercase(trim(scheme(1:5))).eq.<span class="stringliteral">&#39;fixed&#39;</span>) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l01239"></a><span class="lineno"> 1239</span>&#160;    profile_type                   = <span class="stringliteral">&#39;Fixed&#39;</span></div>
-<div class="line"><a name="l01240"></a><span class="lineno"> 1240</span>&#160;    flag =parse(control,<span class="stringliteral">&#39;surface_value&#39;</span>,surf_value)</div>
+<div class="line"><a name="l01240"></a><span class="lineno"> 1240</span>&#160;    flag =<a class="code" href="interfacefield__manager__mod_1_1parse.html">parse</a>(control,<span class="stringliteral">&#39;surface_value&#39;</span>,surf_value)</div>
 <div class="line"><a name="l01241"></a><span class="lineno"> 1241</span>&#160;    multiplier = 1.0</div>
 <div class="line"><a name="l01242"></a><span class="lineno"> 1242</span>&#160;    tracer = surf_value</div>
 <div class="line"><a name="l01243"></a><span class="lineno"> 1243</span>&#160;<span class="keywordflow">  endif</span></div>
 <div class="line"><a name="l01244"></a><span class="lineno"> 1244</span>&#160; </div>
 <div class="line"><a name="l01245"></a><span class="lineno"> 1245</span>&#160;  <span class="keywordflow">if</span>(lowercase(trim(scheme(1:7))).eq.<span class="stringliteral">&#39;profile&#39;</span>) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l01246"></a><span class="lineno"> 1246</span>&#160;    profile_type                   = <span class="stringliteral">&#39;Profile&#39;</span></div>
-<div class="line"><a name="l01247"></a><span class="lineno"> 1247</span>&#160;    flag=parse(control,<span class="stringliteral">&#39;surface_value&#39;</span>,surf_value)</div>
+<div class="line"><a name="l01247"></a><span class="lineno"> 1247</span>&#160;    flag=<a class="code" href="interfacefield__manager__mod_1_1parse.html">parse</a>(control,<span class="stringliteral">&#39;surface_value&#39;</span>,surf_value)</div>
 <div class="line"><a name="l01248"></a><span class="lineno"> 1248</span>&#160;    <span class="keywordflow">if</span> (surf_value .eq. 0.0) &amp;</div>
-<div class="line"><a name="l01249"></a><span class="lineno"> 1249</span>&#160;      <span class="keyword">call </span>mpp_error(fatal,<span class="stringliteral">&#39;set_tracer_profile : Cannot have a zero surface value for an exponential profile. Tracer &#39;</span>&amp;</div>
+<div class="line"><a name="l01249"></a><span class="lineno"> 1249</span>&#160;      <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal,<span class="stringliteral">&#39;set_tracer_profile : Cannot have a zero surface value for an exponential profile. Tracer &#39;</span>&amp;</div>
 <div class="line"><a name="l01250"></a><span class="lineno"> 1250</span>&#160;                           //tracers(n1)%tracer_name//<span class="stringliteral">&quot; &quot;</span>//control//<span class="stringliteral">&quot; &quot;</span>//scheme)</div>
 <div class="line"><a name="l01251"></a><span class="lineno"> 1251</span>&#160;    <span class="keywordflow">select case</span> (tracers(n1)%model)</div>
 <div class="line"><a name="l01252"></a><span class="lineno"> 1252</span>&#160;      <span class="keywordflow">case</span> (model_atmos)</div>
-<div class="line"><a name="l01253"></a><span class="lineno"> 1253</span>&#160;        flag=parse(control,<span class="stringliteral">&#39;top_value&#39;</span>,top_value)</div>
+<div class="line"><a name="l01253"></a><span class="lineno"> 1253</span>&#160;        flag=<a class="code" href="interfacefield__manager__mod_1_1parse.html">parse</a>(control,<span class="stringliteral">&#39;top_value&#39;</span>,top_value)</div>
 <div class="line"><a name="l01254"></a><span class="lineno"> 1254</span>&#160;        <span class="keywordflow">if</span>(<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()==mpp_root_pe() .and. flag == 0) &amp;</div>
-<div class="line"><a name="l01255"></a><span class="lineno"> 1255</span>&#160;           <span class="keyword">call </span>mpp_error(note,<span class="stringliteral">&#39;set_tracer_profile : Parameter top_value needs to be defined for the tracer profile.&#39;</span>)</div>
+<div class="line"><a name="l01255"></a><span class="lineno"> 1255</span>&#160;           <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(note,<span class="stringliteral">&#39;set_tracer_profile : Parameter top_value needs to be defined for the tracer profile.&#39;</span>)</div>
 <div class="line"><a name="l01256"></a><span class="lineno"> 1256</span>&#160;      <span class="keywordflow">case</span> (model_ocean)</div>
-<div class="line"><a name="l01257"></a><span class="lineno"> 1257</span>&#160;        flag =parse(control,<span class="stringliteral">&#39;bottom_value&#39;</span>,bottom_value)</div>
+<div class="line"><a name="l01257"></a><span class="lineno"> 1257</span>&#160;        flag =<a class="code" href="interfacefield__manager__mod_1_1parse.html">parse</a>(control,<span class="stringliteral">&#39;bottom_value&#39;</span>,bottom_value)</div>
 <div class="line"><a name="l01258"></a><span class="lineno"> 1258</span>&#160;        <span class="keywordflow">if</span>(<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe() .and. flag == 0) &amp;</div>
-<div class="line"><a name="l01259"></a><span class="lineno"> 1259</span>&#160;           <span class="keyword">call </span>mpp_error(note,<span class="stringliteral">&#39;set_tracer_profile : Parameter bottom_value needs to be defined for the tracer profile.&#39;</span>)</div>
+<div class="line"><a name="l01259"></a><span class="lineno"> 1259</span>&#160;           <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(note,<span class="stringliteral">&#39;set_tracer_profile : Parameter bottom_value needs to be defined for the tracer profile.&#39;</span>)</div>
 <div class="line"><a name="l01260"></a><span class="lineno"> 1260</span>&#160;<span class="keywordflow">      case default</span></div>
 <div class="line"><a name="l01261"></a><span class="lineno"> 1261</span>&#160;<span class="comment">!   Should there be a NOTE or WARNING message here?</span></div>
 <div class="line"><a name="l01262"></a><span class="lineno"> 1262</span>&#160;<span class="keywordflow">    end select</span></div>
@@ -1569,7 +1569,7 @@ $(document).ready(function(){initNavTree('tracer__manager_8F90_source.html','');
 <div class="line"><a name="l01473"></a><span class="lineno"> 1473</span>&#160;<span class="keywordtype">logical</span> :: success</div>
 <div class="line"><a name="l01474"></a><span class="lineno"> 1474</span>&#160;<span class="keywordtype">character(len=128)</span> :: list_name</div>
 <div class="line"><a name="l01475"></a><span class="lineno"> 1475</span>&#160; </div>
-<div class="line"><a name="l01476"></a><span class="lineno"> 1476</span>&#160;<span class="keywordflow">if</span> ( get_tracer_index(model,name,n) ) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l01476"></a><span class="lineno"> 1476</span>&#160;<span class="keywordflow">if</span> ( <a class="code" href="interfacetracer__manager__mod_1_1get__tracer__index.html">get_tracer_index</a>(model,name,n) ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l01477"></a><span class="lineno"> 1477</span>&#160;    tracers(tracer_array(model,n))%tracer_units   = units</div>
 <div class="line"><a name="l01478"></a><span class="lineno"> 1478</span>&#160;    tracers(tracer_array(model,n))%tracer_longname = longname</div>
 <div class="line"><a name="l01479"></a><span class="lineno"> 1479</span>&#160;  <span class="keywordflow">select case</span>(model)</div>
@@ -1592,15 +1592,15 @@ $(document).ready(function(){initNavTree('tracer__manager_8F90_source.html','');
 <div class="line"><a name="l01496"></a><span class="lineno"> 1496</span>&#160;  <span class="keywordflow">if</span> ( fm_exists(list_name)) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l01497"></a><span class="lineno"> 1497</span>&#160;    success = fm_change_list(list_name)</div>
 <div class="line"><a name="l01498"></a><span class="lineno"> 1498</span>&#160;    <span class="keywordflow">if</span> ( <span class="keyword">present</span>(longname) ) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l01499"></a><span class="lineno"> 1499</span>&#160;      <span class="keywordflow">if</span> ( longname .ne. <span class="stringliteral">&quot;&quot;</span> ) index = fm_new_value(<span class="stringliteral">&#39;longname&#39;</span>,longname)</div>
+<div class="line"><a name="l01499"></a><span class="lineno"> 1499</span>&#160;      <span class="keywordflow">if</span> ( longname .ne. <span class="stringliteral">&quot;&quot;</span> ) index = <a class="code" href="interfacefield__manager__mod_1_1fm__new__value.html">fm_new_value</a>(<span class="stringliteral">&#39;longname&#39;</span>,longname)</div>
 <div class="line"><a name="l01500"></a><span class="lineno"> 1500</span>&#160;<span class="keywordflow">    endif</span></div>
 <div class="line"><a name="l01501"></a><span class="lineno"> 1501</span>&#160;    <span class="keywordflow">if</span> ( <span class="keyword">present</span>(units) ) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l01502"></a><span class="lineno"> 1502</span>&#160;      <span class="keywordflow">if</span> (units .ne. <span class="stringliteral">&quot;&quot;</span> ) index = fm_new_value(<span class="stringliteral">&#39;units&#39;</span>,units)</div>
+<div class="line"><a name="l01502"></a><span class="lineno"> 1502</span>&#160;      <span class="keywordflow">if</span> (units .ne. <span class="stringliteral">&quot;&quot;</span> ) index = <a class="code" href="interfacefield__manager__mod_1_1fm__new__value.html">fm_new_value</a>(<span class="stringliteral">&#39;units&#39;</span>,units)</div>
 <div class="line"><a name="l01503"></a><span class="lineno"> 1503</span>&#160;<span class="keywordflow">    endif</span></div>
 <div class="line"><a name="l01504"></a><span class="lineno"> 1504</span>&#160;<span class="keywordflow">  endif</span></div>
 <div class="line"><a name="l01505"></a><span class="lineno"> 1505</span>&#160; </div>
 <div class="line"><a name="l01506"></a><span class="lineno"> 1506</span>&#160;<span class="keywordflow">else</span></div>
-<div class="line"><a name="l01507"></a><span class="lineno"> 1507</span>&#160;    <span class="keyword">call </span>mpp_error(note,<span class="stringliteral">&#39;set_tracer_atts : Trying to set longname and/or units for non-existent tracer : &#39;</span>//trim(name))</div>
+<div class="line"><a name="l01507"></a><span class="lineno"> 1507</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(note,<span class="stringliteral">&#39;set_tracer_atts : Trying to set longname and/or units for non-existent tracer : &#39;</span>//trim(name))</div>
 <div class="line"><a name="l01508"></a><span class="lineno"> 1508</span>&#160;<span class="keywordflow">endif</span></div>
 <div class="line"><a name="l01509"></a><span class="lineno"> 1509</span>&#160; </div>
 <div class="line"><a name="l01510"></a><span class="lineno"> 1510</span>&#160;<span class="keyword">end subroutine </span>set_tracer_atts</div>
@@ -1645,7 +1645,7 @@ $(document).ready(function(){initNavTree('tracer__manager_8F90_source.html','');
 <div class="line"><a name="l01549"></a><span class="lineno"> 1549</span>&#160;<span class="keywordtype">logical</span> :: success</div>
 <div class="line"><a name="l01550"></a><span class="lineno"> 1550</span>&#160;<span class="keywordtype">character(len=128)</span> :: list_name</div>
 <div class="line"><a name="l01551"></a><span class="lineno"> 1551</span>&#160; </div>
-<div class="line"><a name="l01552"></a><span class="lineno"> 1552</span>&#160;<span class="keywordflow">if</span> ( get_tracer_index(model,name,n) ) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l01552"></a><span class="lineno"> 1552</span>&#160;<span class="keywordflow">if</span> ( <a class="code" href="interfacetracer__manager__mod_1_1get__tracer__index.html">get_tracer_index</a>(model,name,n) ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l01553"></a><span class="lineno"> 1553</span>&#160;  tracers(n)%num_methods = tracers(n)%num_methods + 1</div>
 <div class="line"><a name="l01554"></a><span class="lineno"> 1554</span>&#160;  num_method = tracers(n)%num_methods</div>
 <div class="line"><a name="l01555"></a><span class="lineno"> 1555</span>&#160; </div>
@@ -1669,10 +1669,10 @@ $(document).ready(function(){initNavTree('tracer__manager_8F90_source.html','');
 <div class="line"><a name="l01573"></a><span class="lineno"> 1573</span>&#160;    list_name = trim(list_name)//<span class="stringliteral">&quot;/&quot;</span>//trim(<a class="code" href="structfield__manager__mod_1_1method__type.html">method_type</a>)</div>
 <div class="line"><a name="l01574"></a><span class="lineno"> 1574</span>&#160;    <span class="keywordflow">if</span> ( fm_exists(list_name)) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l01575"></a><span class="lineno"> 1575</span>&#160;      success = fm_change_list(list_name)</div>
-<div class="line"><a name="l01576"></a><span class="lineno"> 1576</span>&#160;      index = fm_new_value(<a class="code" href="structfield__manager__mod_1_1method__type.html">method_type</a>,method_control)</div>
+<div class="line"><a name="l01576"></a><span class="lineno"> 1576</span>&#160;      index = <a class="code" href="interfacefield__manager__mod_1_1fm__new__value.html">fm_new_value</a>(<a class="code" href="structfield__manager__mod_1_1method__type.html">method_type</a>,method_control)</div>
 <div class="line"><a name="l01577"></a><span class="lineno"> 1577</span>&#160;<span class="keywordflow">    endif</span></div>
 <div class="line"><a name="l01578"></a><span class="lineno"> 1578</span>&#160;  <span class="keywordflow">else</span></div>
-<div class="line"><a name="l01579"></a><span class="lineno"> 1579</span>&#160;    <span class="keyword">call </span>mpp_error(note,<span class="stringliteral">&#39;set_tracer_method : Trying to set a method for non-existent tracer : &#39;</span>//trim(name))</div>
+<div class="line"><a name="l01579"></a><span class="lineno"> 1579</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(note,<span class="stringliteral">&#39;set_tracer_method : Trying to set a method for non-existent tracer : &#39;</span>//trim(name))</div>
 <div class="line"><a name="l01580"></a><span class="lineno"> 1580</span>&#160;<span class="keywordflow">  endif</span></div>
 <div class="line"><a name="l01581"></a><span class="lineno"> 1581</span>&#160;<span class="keywordflow">endif</span></div>
 <div class="line"><a name="l01582"></a><span class="lineno"> 1582</span>&#160; </div>
@@ -1688,7 +1688,7 @@ $(document).ready(function(){initNavTree('tracer__manager_8F90_source.html','');
 <div class="line"><a name="l01592"></a><span class="lineno"> 1592</span>&#160;  err_msg = err_msg_local</div>
 <div class="line"><a name="l01593"></a><span class="lineno"> 1593</span>&#160;  error_handler = .true.</div>
 <div class="line"><a name="l01594"></a><span class="lineno"> 1594</span>&#160;<span class="keywordflow">else</span></div>
-<div class="line"><a name="l01595"></a><span class="lineno"> 1595</span>&#160;  <span class="keyword">call </span>mpp_error(fatal,trim(routine)//<span class="stringliteral">&#39;: &#39;</span>//trim(err_msg_local))</div>
+<div class="line"><a name="l01595"></a><span class="lineno"> 1595</span>&#160;  <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal,trim(routine)//<span class="stringliteral">&#39;: &#39;</span>//trim(err_msg_local))</div>
 <div class="line"><a name="l01596"></a><span class="lineno"> 1596</span>&#160;<span class="keywordflow">endif</span></div>
 <div class="line"><a name="l01597"></a><span class="lineno"> 1597</span>&#160; </div>
 <div class="line"><a name="l01598"></a><span class="lineno"> 1598</span>&#160;<span class="keyword">end function </span>error_handler</div>
@@ -1699,10 +1699,18 @@ $(document).ready(function(){initNavTree('tracer__manager_8F90_source.html','');
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="agroup__tracer__manager__mod_html_gad941fe5f25fe02eb5e9cd1f34a6a77d9"><div class="ttname"><a href="group__tracer__manager__mod.html#gad941fe5f25fe02eb5e9cd1f34a6a77d9">tracer_manager_mod::get_number_tracers</a></div><div class="ttdeci">subroutine, public get_number_tracers(model, num_tracers, num_prog, num_diag, num_family)</div><div class="ttdoc">A routine to return the number of tracers included in a component model.</div><div class="ttdef"><b>Definition:</b> <a href="tracer__manager_8F90_source.html#l00634">tracer_manager.F90:634</a></div></div>
+<div class="ttc" id="agroup__tracer__manager__mod_html_gab9c02b4ca2361964c77b42469e85a636"><div class="ttname"><a href="group__tracer__manager__mod.html#gab9c02b4ca2361964c77b42469e85a636">tracer_manager_mod::get_tracer_meta_data</a></div><div class="ttdeci">subroutine get_tracer_meta_data(model, num_tracers, num_prog, num_diag)</div><div class="ttdoc">Read in tracer table and store tracer information associated with &quot;model&quot;.</div><div class="ttdef"><b>Definition:</b> <a href="tracer__manager_8F90_source.html#l00196">tracer_manager.F90:196</a></div></div>
 <div class="ttc" id="agroup__tracer__manager__mod_html_gac4a2b2cfb680df283bf8419f8151d336"><div class="ttname"><a href="group__tracer__manager__mod.html#gac4a2b2cfb680df283bf8419f8151d336">tracer_manager_mod::register_tracers</a></div><div class="ttdeci">subroutine, public register_tracers(model, num_tracers, num_prog, num_diag, num_family)</div><div class="ttdoc">Not necessary to call, only needed for backward compatability.</div><div class="ttdef"><b>Definition:</b> <a href="tracer__manager_8F90_source.html#l00590">tracer_manager.F90:590</a></div></div>
+<div class="ttc" id="astructtracer__manager__mod_1_1tracer__name__type_html"><div class="ttname"><a href="structtracer__manager__mod_1_1tracer__name__type.html">tracer_manager_mod::tracer_name_type</a></div><div class="ttdef"><b>Definition:</b> <a href="tracer__manager_8F90_source.html#l00130">tracer_manager.F90:130</a></div></div>
+<div class="ttc" id="ainterfacempp__mod_1_1mpp__error_html"><div class="ttname"><a href="interfacempp__mod_1_1mpp__error.html">mpp_mod::mpp_error</a></div><div class="ttdef"><b>Definition:</b> <a href="mpp_8F90_source.html#l00373">mpp.F90:373</a></div></div>
 <div class="ttc" id="astructfield__manager__mod_1_1method__type_html"><div class="ttname"><a href="structfield__manager__mod_1_1method__type.html">field_manager_mod::method_type</a></div><div class="ttdoc">This method_type is a way to allow a component module to alter the parameters it needs for various tr...</div><div class="ttdef"><b>Definition:</b> <a href="field__manager_8F90_source.html#l00347">field_manager.F90:347</a></div></div>
+<div class="ttc" id="astructtracer__manager__mod_1_1tracer__type_html"><div class="ttname"><a href="structtracer__manager__mod_1_1tracer__type.html">tracer_manager_mod::tracer_type</a></div><div class="ttdef"><b>Definition:</b> <a href="tracer__manager_8F90_source.html#l00118">tracer_manager.F90:118</a></div></div>
+<div class="ttc" id="ainterfacefield__manager__mod_1_1fm__new__value_html"><div class="ttname"><a href="interfacefield__manager__mod_1_1fm__new__value.html">field_manager_mod::fm_new_value</a></div><div class="ttdef"><b>Definition:</b> <a href="field__manager_8F90_source.html#l00436">field_manager.F90:436</a></div></div>
+<div class="ttc" id="ainterfacefield__manager__mod_1_1parse_html"><div class="ttname"><a href="interfacefield__manager__mod_1_1parse.html">field_manager_mod::parse</a></div><div class="ttdef"><b>Definition:</b> <a href="field__manager_8F90_source.html#l00427">field_manager.F90:427</a></div></div>
 <div class="ttc" id="agroup__tracer__manager__mod_html_ga26e85fcca1424ed8d44db196af9b80ed"><div class="ttname"><a href="group__tracer__manager__mod.html#ga26e85fcca1424ed8d44db196af9b80ed">tracer_manager_mod::get_tracer_indices</a></div><div class="ttdeci">subroutine, public get_tracer_indices(model, ind, prog_ind, diag_ind, fam_ind)</div><div class="ttdoc">Routine to return the component model tracer indices as defined within the tracer manager.</div><div class="ttdef"><b>Definition:</b> <a href="tracer__manager_8F90_source.html#l00711">tracer_manager.F90:711</a></div></div>
+<div class="ttc" id="ainterfacetracer__manager__mod_1_1get__tracer__index_html"><div class="ttname"><a href="interfacetracer__manager__mod_1_1get__tracer__index.html">tracer_manager_mod::get_tracer_index</a></div><div class="ttdef"><b>Definition:</b> <a href="tracer__manager_8F90_source.html#l00104">tracer_manager.F90:104</a></div></div>
 <div class="ttc" id="agroup__tracer__manager__mod_html_gad8158f9c1b49acb5c1d4e7e544af3628"><div class="ttname"><a href="group__tracer__manager__mod.html#gad8158f9c1b49acb5c1d4e7e544af3628">tracer_manager_mod::tracer_manager_init</a></div><div class="ttdeci">subroutine, public tracer_manager_init</div><div class="ttdoc">Not necessary to call, only needed for backward compatability.</div><div class="ttdef"><b>Definition:</b> <a href="tracer__manager_8F90_source.html#l00173">tracer_manager.F90:173</a></div></div>
+<div class="ttc" id="astructtracer__manager__mod_1_1inst__type_html"><div class="ttname"><a href="structtracer__manager__mod_1_1inst__type.html">tracer_manager_mod::inst_type</a></div><div class="ttdef"><b>Definition:</b> <a href="tracer__manager_8F90_source.html#l00136">tracer_manager.F90:136</a></div></div>
 <div class="ttc" id="ampp__util_8inc_html_a8e5518df9532bae0241f53ab542294a2"><div class="ttname"><a href="mpp__util_8inc.html#a8e5518df9532bae0241f53ab542294a2">stdlog</a></div><div class="ttdeci">integer function stdlog()</div><div class="ttdoc">This function returns the current standard fortran unit numbers for log messages. Log messages,...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00106">mpp_util.inc:106</a></div></div>
 <div class="ttc" id="ampp__util_8inc_html_acfeba7de56f9dd6000b3fd78f9d56c50"><div class="ttname"><a href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a></div><div class="ttdeci">integer function mpp_pe()</div><div class="ttdoc">Returns processor ID. This returns the unique ID associated with a PE. This number runs between 0 and...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00442">mpp_util.inc:442</a></div></div>
 <div class="ttc" id="agroup__fms__mod_html_ga0c093df98a75dbd9e0f3add67aa6c23a"><div class="ttname"><a href="group__fms__mod.html#ga0c093df98a75dbd9e0f3add67aa6c23a">fms_mod::write_version_number</a></div><div class="ttdeci">subroutine, public write_version_number(version, tag, unit)</div><div class="ttdoc">Prints to the log file (or a specified unit) the version id string and tag name.</div><div class="ttdef"><b>Definition:</b> <a href="fms_8F90_source.html#l01028">fms.F90:1028</a></div></div>

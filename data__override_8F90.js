@@ -1,5 +1,6 @@
 var data__override_8F90 =
 [
+    [ "data_type", "structdata__override__mod_1_1data__type.html", "structdata__override__mod_1_1data__type" ],
     [ "count_ne_1", "data__override_8F90.html#ga48be2d6d899c3c7c4e3d1e9bb599641d", null ],
     [ "data_override_0d", "data__override_8F90.html#ga755e344bff837fddf7d6228ac5a29560", null ],
     [ "data_override_2d", "data__override_8F90.html#ga10a705be2480cc365529671393403a58", null ],

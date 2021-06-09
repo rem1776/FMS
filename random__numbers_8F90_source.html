@@ -127,26 +127,26 @@ $(document).ready(function(){initNavTree('random__numbers_8F90_source.html','');
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">!&gt; @{</span></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">module</span> random_numbers_mod</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keywordtype">use </span>mersennetwister_mod, <span class="keywordtype">only</span>: randomnumbersequence, &amp; <span class="comment">! The random number engine.</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                                 new_randomnumbersequence, getrandomreal</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keywordtype">use </span>mersennetwister_mod, <span class="keywordtype">only</span>: <a class="code" href="structmersennetwister__mod_1_1randomnumbersequence.html">randomnumbersequence</a>, &amp; <span class="comment">! The random number engine.</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                                 <a class="code" href="interfacemersennetwister__mod_1_1new__randomnumbersequence.html">new_randomnumbersequence</a>, getrandomreal</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="keywordtype">use </span>time_manager_mod, <span class="keywordtype">only</span>: <a class="code" href="structtime__manager__mod_1_1time__type.html">time_type</a>, <a class="code" href="group__time__manager__mod.html#ga6c708ea801247812b41b305ee5aeea13">get_date</a></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="keywordtype">implicit none</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keywordtype">private</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="keyword">type</span> randomnumberstream</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="structrandom__numbers__mod_1_1randomnumberstream.html">   40</a></span>&#160;  <span class="keyword">type</span> <a class="code" href="structrandom__numbers__mod_1_1randomnumberstream.html">randomnumberstream</a></div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">type</span>(randomNumberSequence) :: theNumbers</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keyword">end type </span>randomnumberstream</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keyword">end type </span><a class="code" href="structrandom__numbers__mod_1_1randomnumberstream.html">randomnumberstream</a></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keyword">interface</span> getrandomnumbers</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="interfacerandom__numbers__mod_1_1getrandomnumbers.html">   44</a></span>&#160;  <span class="keyword">interface</span> <a class="code" href="interfacerandom__numbers__mod_1_1getrandomnumbers.html">getrandomnumbers</a></div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">module procedure</span> getrandomnumber_scalar, getrandomnumber_1d, getrandomnumber_2d</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="keyword">end interface </span>getrandomnumbers</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="keyword">end interface </span><a class="code" href="interfacerandom__numbers__mod_1_1getrandomnumbers.html">getrandomnumbers</a></div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="keyword">interface</span> initializerandomnumberstream</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="interfacerandom__numbers__mod_1_1initializerandomnumberstream.html">   48</a></span>&#160;  <span class="keyword">interface</span> <a class="code" href="interfacerandom__numbers__mod_1_1initializerandomnumberstream.html">initializerandomnumberstream</a></div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">module procedure</span> initializerandomnumberstream_s, initializerandomnumberstream_v</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <span class="keyword">end interface </span>initializerandomnumberstream</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <span class="keyword">end interface </span><a class="code" href="interfacerandom__numbers__mod_1_1initializerandomnumberstream.html">initializerandomnumberstream</a></div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="keywordtype">public</span> :: randomnumberstream,                             &amp;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            initializerandomnumberstream, getrandomnumbers, &amp;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="keywordtype">public</span> :: <a class="code" href="structrandom__numbers__mod_1_1randomnumberstream.html">randomnumberstream</a>,                             &amp;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            <a class="code" href="interfacerandom__numbers__mod_1_1initializerandomnumberstream.html">initializerandomnumberstream</a>, <a class="code" href="interfacerandom__numbers__mod_1_1getrandomnumbers.html">getrandomnumbers</a>, &amp;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            constructseed</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">contains</span></div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="comment">! ---------------------------------------------------------</span></div>
@@ -156,7 +156,7 @@ $(document).ready(function(){initNavTree('random__numbers_8F90_source.html','');
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">integer</span>, <span class="keywordtype">intent( in)</span>     :: seed</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">type</span>(randomNumberStream) :: new</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    new%theNumbers = new_randomnumbersequence(seed)</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    new%theNumbers = <a class="code" href="interfacemersennetwister__mod_1_1new__randomnumbersequence.html">new_randomnumbersequence</a>(seed)</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="keyword">end function </span>initializerandomnumberstream_s</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  <span class="comment">! ---------------------------------------------------------</span></div>
@@ -164,7 +164,7 @@ $(document).ready(function(){initNavTree('random__numbers_8F90_source.html','');
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">integer</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">intent( in)</span> :: seed</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">type</span>(randomNumberStream)           :: new</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    new%theNumbers = new_randomnumbersequence(seed)</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    new%theNumbers = <a class="code" href="interfacemersennetwister__mod_1_1new__randomnumbersequence.html">new_randomnumbersequence</a>(seed)</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <span class="keyword">end function </span>initializerandomnumberstream_v</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  <span class="comment">! ---------------------------------------------------------</span></div>
@@ -228,8 +228,13 @@ $(document).ready(function(){initNavTree('random__numbers_8F90_source.html','');
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="comment">! close documentation grouping</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="ainterfacerandom__numbers__mod_1_1getrandomnumbers_html"><div class="ttname"><a href="interfacerandom__numbers__mod_1_1getrandomnumbers.html">random_numbers_mod::getrandomnumbers</a></div><div class="ttdef"><b>Definition:</b> <a href="random__numbers_8F90_source.html#l00044">random_numbers.F90:44</a></div></div>
+<div class="ttc" id="astructmersennetwister__mod_1_1randomnumbersequence_html"><div class="ttname"><a href="structmersennetwister__mod_1_1randomnumbersequence.html">mersennetwister_mod::randomnumbersequence</a></div><div class="ttdef"><b>Definition:</b> <a href="mersennetwister_8F90_source.html#l00115">mersennetwister.F90:115</a></div></div>
+<div class="ttc" id="ainterfacerandom__numbers__mod_1_1initializerandomnumberstream_html"><div class="ttname"><a href="interfacerandom__numbers__mod_1_1initializerandomnumberstream.html">random_numbers_mod::initializerandomnumberstream</a></div><div class="ttdef"><b>Definition:</b> <a href="random__numbers_8F90_source.html#l00048">random_numbers.F90:48</a></div></div>
 <div class="ttc" id="astructtime__manager__mod_1_1time__type_html"><div class="ttname"><a href="structtime__manager__mod_1_1time__type.html">time_manager_mod::time_type</a></div><div class="ttdoc">Type to represent amounts of time. Implemented as seconds and days to allow for larger intervals.</div><div class="ttdef"><b>Definition:</b> <a href="time__manager_8F90_source.html#l00167">time_manager.F90:167</a></div></div>
+<div class="ttc" id="ainterfacemersennetwister__mod_1_1new__randomnumbersequence_html"><div class="ttname"><a href="interfacemersennetwister__mod_1_1new__randomnumbersequence.html">mersennetwister_mod::new_randomnumbersequence</a></div><div class="ttdef"><b>Definition:</b> <a href="mersennetwister_8F90_source.html#l00120">mersennetwister.F90:120</a></div></div>
 <div class="ttc" id="agroup__time__manager__mod_html_ga6c708ea801247812b41b305ee5aeea13"><div class="ttname"><a href="group__time__manager__mod.html#ga6c708ea801247812b41b305ee5aeea13">time_manager_mod::get_date</a></div><div class="ttdeci">subroutine, public get_date(time, year, month, day, hour, minute, second, tick, err_msg, old_method)</div><div class="ttdoc">Gets the date for different calendar types. The added optional argument old_method allows user to cho...</div><div class="ttdef"><b>Definition:</b> <a href="time__manager_8F90_source.html#l01771">time_manager.F90:1771</a></div></div>
+<div class="ttc" id="astructrandom__numbers__mod_1_1randomnumberstream_html"><div class="ttname"><a href="structrandom__numbers__mod_1_1randomnumberstream.html">random_numbers_mod::randomnumberstream</a></div><div class="ttdef"><b>Definition:</b> <a href="random__numbers_8F90_source.html#l00040">random_numbers.F90:40</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

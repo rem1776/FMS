@@ -120,15 +120,15 @@ $(document).ready(function(){initNavTree('test__redistribute__int_8F90_source.ht
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">program</span> test_mpp_redistribute</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keywordtype">use </span>mpp_mod,         <span class="keywordtype">only</span> : fatal, warning, note, mpp_init_test_init_true_only</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <span class="keywordtype">use </span>mpp_mod,         <span class="keywordtype">only</span> : <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>, <a class="code" href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>, mpp_error</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <span class="keywordtype">use </span>mpp_mod,         <span class="keywordtype">only</span> : <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>, <a class="code" href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>, <a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <span class="keywordtype">use </span>mpp_mod,         <span class="keywordtype">only</span> : mpp_declare_pelist, mpp_set_current_pelist, <a class="code" href="mpp__util__mpi_8inc.html#ad75482ebfad2337cd236ef0998accdc4">mpp_sync</a>, <a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <span class="keywordtype">use </span>mpp_mod,         <span class="keywordtype">only</span> : <a class="code" href="mpp__comm__mpi_8inc.html#a889ed63075362dc3a3d3c12385d5a9c7">mpp_init</a>, <a class="code" href="mpp__comm__mpi_8inc.html#a8d0366d81b9701ccaaf3612b666aada1">mpp_exit</a>, <a class="code" href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a>, <a class="code" href="mpp__util_8inc.html#a285ef180624257148d85af894928844b">stderr</a></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="keywordtype">use </span>mpp_domains_mod, <span class="keywordtype">only</span> : <a class="code" href="structmpp__domains__mod_1_1domain1d.html">domain1d</a>, domain2d, domaincommunicator2d, mpp_global_field</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="keywordtype">use </span>mpp_domains_mod, <span class="keywordtype">only</span> : mpp_get_compute_domain, mpp_get_data_domain, <a class="code" href="mpp__domains__util_8inc.html#ae1f3c0c5c574686aac6c1595b1ca0b66">mpp_domains_set_stack_size</a></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="keywordtype">use </span>mpp_domains_mod, <span class="keywordtype">only</span> : mpp_domains_init, mpp_domains_exit, mpp_broadcast_domain</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keywordtype">use </span>mpp_domains_mod, <span class="keywordtype">only</span> : mpp_update_domains, mpp_check_field, mpp_redistribute, mpp_get_memory_domain</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keywordtype">use </span>mpp_domains_mod, <span class="keywordtype">only</span> : mpp_define_layout, mpp_define_domains, mpp_deallocate_domain</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <span class="keywordtype">use </span>mpp_domains_mod, <span class="keywordtype">only</span> : mpp_define_mosaic, mpp_nullify_domain_list</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="keywordtype">use </span>mpp_domains_mod, <span class="keywordtype">only</span> : <a class="code" href="structmpp__domains__mod_1_1domain1d.html">domain1d</a>, domain2d, domaincommunicator2d, <a class="code" href="interfacempp__domains__mod_1_1mpp__global__field.html">mpp_global_field</a></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="keywordtype">use </span>mpp_domains_mod, <span class="keywordtype">only</span> : <a class="code" href="interfacempp__domains__mod_1_1mpp__get__compute__domain.html">mpp_get_compute_domain</a>, <a class="code" href="interfacempp__domains__mod_1_1mpp__get__data__domain.html">mpp_get_data_domain</a>, <a class="code" href="mpp__domains__util_8inc.html#ae1f3c0c5c574686aac6c1595b1ca0b66">mpp_domains_set_stack_size</a></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="keywordtype">use </span>mpp_domains_mod, <span class="keywordtype">only</span> : mpp_domains_init, mpp_domains_exit, <a class="code" href="interfacempp__domains__mod_1_1mpp__broadcast__domain.html">mpp_broadcast_domain</a></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keywordtype">use </span>mpp_domains_mod, <span class="keywordtype">only</span> : <a class="code" href="interfacempp__domains__mod_1_1mpp__update__domains.html">mpp_update_domains</a>, <a class="code" href="interfacempp__domains__mod_1_1mpp__check__field.html">mpp_check_field</a>, <a class="code" href="interfacempp__domains__mod_1_1mpp__redistribute.html">mpp_redistribute</a>, <a class="code" href="interfacempp__domains__mod_1_1mpp__get__memory__domain.html">mpp_get_memory_domain</a></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keywordtype">use </span>mpp_domains_mod, <span class="keywordtype">only</span> : <a class="code" href="interfacempp__domains__mod_1_1mpp__define__layout.html">mpp_define_layout</a>, <a class="code" href="interfacempp__domains__mod_1_1mpp__define__domains.html">mpp_define_domains</a>, <a class="code" href="interfacempp__domains__mod_1_1mpp__deallocate__domain.html">mpp_deallocate_domain</a></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <span class="keywordtype">use </span>mpp_domains_mod, <span class="keywordtype">only</span> : mpp_define_mosaic, <a class="code" href="interfacempp__domains__mod_1_1mpp__nullify__domain__list.html">mpp_nullify_domain_list</a></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="keywordtype">use </span>platform_mod</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keywordtype">implicit none</span></div>
@@ -141,16 +141,16 @@ $(document).ready(function(){initNavTree('test__redistribute__int_8F90_source.ht
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keyword">call </span>mpp_domains_init()</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="keyword">call </span><a class="code" href="mpp__domains__util_8inc.html#ae1f3c0c5c574686aac6c1595b1ca0b66">mpp_domains_set_stack_size</a>(stackmax)</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="keyword">call </span>mpp_error(note, <span class="stringliteral">&quot;----------Starting tests----------&quot;</span>)</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(note, <span class="stringliteral">&quot;----------Starting tests----------&quot;</span>)</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="keyword">call </span>test_redistribute_i4()</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <span class="keyword">call </span>mpp_error(note, <span class="stringliteral">&quot;test_mpp_redistribute: 32-bit integer test passed&quot;</span>)</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(note, <span class="stringliteral">&quot;test_mpp_redistribute: 32-bit integer test passed&quot;</span>)</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="keyword">call </span>test_redistribute_i8()</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="keyword">call </span>mpp_error(note, <span class="stringliteral">&quot;test_mpp_redistribute: 64-bit integer test passed&quot;</span>)</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(note, <span class="stringliteral">&quot;test_mpp_redistribute: 64-bit integer test passed&quot;</span>)</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="keyword">call </span>cubic_grid_redistribute_i4()</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="keyword">call </span>mpp_error(note, <span class="stringliteral">&quot;test_mpp_redistribute: 32-bit integer cubic grid test passed&quot;</span>)</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(note, <span class="stringliteral">&quot;test_mpp_redistribute: 32-bit integer cubic grid test passed&quot;</span>)</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <span class="keyword">call </span>cubic_grid_redistribute_i8()</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="keyword">call </span>mpp_error(note, <span class="stringliteral">&quot;test_mpp_redistribute: 64-bit integer cubic grid test passed&quot;</span>)</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="keyword">call </span>mpp_error(note, <span class="stringliteral">&quot;----------Tests Complete----------&quot;</span>)</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(note, <span class="stringliteral">&quot;test_mpp_redistribute: 64-bit integer cubic grid test passed&quot;</span>)</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(note, <span class="stringliteral">&quot;----------Tests Complete----------&quot;</span>)</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="keyword">call </span>mpp_domains_exit()</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <span class="keyword">call </span>mpi_finalize(ierr)</div>
@@ -167,8 +167,8 @@ $(document).ready(function(){initNavTree('test__redistribute__int_8F90_source.ht
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">integer</span>                                      :: k, j, i, layout(2), id</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">integer</span>                                      :: is, ie, js, je, isd, ied, jsd, jed</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="comment">! nullify domain list otherwise it retains memory between calls.</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keyword">call </span>mpp_nullify_domain_list(domainx)</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keyword">call </span>mpp_nullify_domain_list(domainy)</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__nullify__domain__list.html">mpp_nullify_domain_list</a>(domainx)</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__nullify__domain__list.html">mpp_nullify_domain_list</a>(domainy)</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="comment">!fill in glbl array with kiiijjj</span></div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keyword">allocate</span>( gcheck(nx,ny,nz), glbl(nx,ny,nz) )</div>
@@ -181,10 +181,10 @@ $(document).ready(function(){initNavTree('test__redistribute__int_8F90_source.ht
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keywordflow">    end do</span></div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="comment">! set up x arrays</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keyword">call </span>mpp_define_layout( (/1,nx,1,ny/), npes, layout )</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keyword">call </span>mpp_define_domains( (/1,nx,1,ny/), layout, domainx )</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keyword">call </span>mpp_get_compute_domain( domainx, is,  ie,  js,  je  )</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keyword">call </span>mpp_get_data_domain   ( domainx, isd, ied, jsd, jed )</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__define__layout.html">mpp_define_layout</a>( (/1,nx,1,ny/), npes, layout )</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__define__domains.html">mpp_define_domains</a>( (/1,nx,1,ny/), layout, domainx )</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__get__compute__domain.html">mpp_get_compute_domain</a>( domainx, is,  ie,  js,  je  )</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__get__data__domain.html">mpp_get_data_domain</a>   ( domainx, isd, ied, jsd, jed )</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keyword">allocate</span>( x(isd:ied,jsd:jed,nz) )</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keyword">allocate</span>( x2(isd:ied,jsd:jed,nz) )</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keyword">allocate</span>( x3(isd:ied,jsd:jed,nz) )</div>
@@ -196,9 +196,9 @@ $(document).ready(function(){initNavTree('test__redistribute__int_8F90_source.ht
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    x2 = x;  x3 = x; x4 = x; x5 = x; x6 = x</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="comment">!set up y arrays</span></div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keyword">call </span>mpp_define_domains( (/1,nx,1,ny/), (/npes,1/), domainy)</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keyword">call </span>mpp_get_data_domain   ( domainy, isd, ied, jsd, jed )</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keyword">call </span>mpp_get_compute_domain( domainy, is,  ie,  js,  je  )</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__define__domains.html">mpp_define_domains</a>( (/1,nx,1,ny/), (/npes,1/), domainy)</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__get__data__domain.html">mpp_get_data_domain</a>   ( domainy, isd, ied, jsd, jed )</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__get__compute__domain.html">mpp_get_compute_domain</a>( domainy, is,  ie,  js,  je  )</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keyword">allocate</span>( y(isd:ied,jsd:jed,nz) )</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keyword">allocate</span>( y2(isd:ied,jsd:jed,nz) )</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keyword">allocate</span>( y3(isd:ied,jsd:jed,nz) )</div>
@@ -209,73 +209,73 @@ $(document).ready(function(){initNavTree('test__redistribute__int_8F90_source.ht
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    y2 = 0.;y3 = 0.;y4 = 0.;y5 = 0.;y6 = 0.</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="comment">!go global and redistribute</span></div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keyword">call </span>mpp_broadcast_domain(domainx)</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keyword">call </span>mpp_broadcast_domain(domainy)</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keyword">call </span>mpp_redistribute( domainx, x, domainy, y )</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__broadcast__domain.html">mpp_broadcast_domain</a>(domainx)</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__broadcast__domain.html">mpp_broadcast_domain</a>(domainy)</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__redistribute.html">mpp_redistribute</a>( domainx, x, domainy, y )</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="comment">!check answers on pelist</span></div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keyword">call </span>mpp_global_field( domainy, y(:,:,:), gcheck )</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordflow">if</span>(.not. compare_result4( glbl(1:nx,1:ny,:), gcheck )) <span class="keyword">call </span>mpp_error(fatal , &amp;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__global__field.html">mpp_global_field</a>( domainy, y(:,:,:), gcheck )</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordflow">if</span>(.not. compare_result4( glbl(1:nx,1:ny,:), gcheck )) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal , &amp;</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;             <span class="stringliteral">&quot;test_mpp_redistribute: incorrect results in global array&quot;</span>)</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="comment">! redistribute and check x answers</span></div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="keywordflow">if</span>(<span class="keyword">ALLOCATED</span>(y))y=0.</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keyword">call </span>mpp_redistribute( domainx, x,  domainy, y,  complete=.false. )</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keyword">call </span>mpp_redistribute( domainx, x2, domainy, y2, complete=.false. )</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keyword">call </span>mpp_redistribute( domainx, x3, domainy, y3, complete=.false. )</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keyword">call </span>mpp_redistribute( domainx, x4, domainy, y4, complete=.false. )</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keyword">call </span>mpp_redistribute( domainx, x5, domainy, y5, complete=.false. )</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keyword">call </span>mpp_redistribute( domainx, x6, domainy, y6, complete=.true., dc_handle=dch )</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keyword">call </span>mpp_global_field( domainx, x(:,:,:), gcheck )</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <span class="keywordflow">if</span>(.not. compare_result4( glbl(1:nx,1:ny,:), gcheck )) <span class="keyword">call </span>mpp_error(fatal,&amp;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__redistribute.html">mpp_redistribute</a>( domainx, x,  domainy, y,  complete=.false. )</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__redistribute.html">mpp_redistribute</a>( domainx, x2, domainy, y2, complete=.false. )</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__redistribute.html">mpp_redistribute</a>( domainx, x3, domainy, y3, complete=.false. )</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__redistribute.html">mpp_redistribute</a>( domainx, x4, domainy, y4, complete=.false. )</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__redistribute.html">mpp_redistribute</a>( domainx, x5, domainy, y5, complete=.false. )</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__redistribute.html">mpp_redistribute</a>( domainx, x6, domainy, y6, complete=.true., dc_handle=dch )</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__global__field.html">mpp_global_field</a>( domainx, x(:,:,:), gcheck )</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <span class="keywordflow">if</span>(.not. compare_result4( glbl(1:nx,1:ny,:), gcheck )) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal,&amp;</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;            <span class="stringliteral">&quot;test_mpp_redistribute: global array differs for x&quot;</span>)</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="keyword">call </span>mpp_global_field( domainx, x2, gcheck )</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <span class="keywordflow">if</span>(.not. compare_result4( glbl(1:nx,1:ny,:), gcheck )) <span class="keyword">call </span>mpp_error(fatal,&amp;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__global__field.html">mpp_global_field</a>( domainx, x2, gcheck )</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <span class="keywordflow">if</span>(.not. compare_result4( glbl(1:nx,1:ny,:), gcheck )) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal,&amp;</div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;            <span class="stringliteral">&quot;test_mpp_redistribute: global array differs for x2&quot;</span>)</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <span class="keyword">call </span>mpp_global_field( domainx, x3, gcheck )</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    <span class="keywordflow">if</span>(.not. compare_result4( glbl(1:nx,1:ny,:), gcheck )) <span class="keyword">call </span>mpp_error(fatal,&amp;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__global__field.html">mpp_global_field</a>( domainx, x3, gcheck )</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    <span class="keywordflow">if</span>(.not. compare_result4( glbl(1:nx,1:ny,:), gcheck )) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal,&amp;</div>
 <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;            <span class="stringliteral">&quot;test_mpp_redistribute: global array differs for x3&quot;</span>)</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    <span class="keyword">call </span>mpp_global_field( domainx, x4, gcheck )</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <span class="keywordflow">if</span>(.not. compare_result4( glbl(1:nx,1:ny,:), gcheck )) <span class="keyword">call </span>mpp_error(fatal,&amp;</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__global__field.html">mpp_global_field</a>( domainx, x4, gcheck )</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <span class="keywordflow">if</span>(.not. compare_result4( glbl(1:nx,1:ny,:), gcheck )) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal,&amp;</div>
 <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;            <span class="stringliteral">&quot;test_mpp_redistribute: global array differs for x4&quot;</span>)</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    <span class="keyword">call </span>mpp_global_field( domainx, x5, gcheck )</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <span class="keywordflow">if</span>(.not. compare_result4( glbl(1:nx,1:ny,:), gcheck )) <span class="keyword">call </span>mpp_error(fatal,&amp;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__global__field.html">mpp_global_field</a>( domainx, x5, gcheck )</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <span class="keywordflow">if</span>(.not. compare_result4( glbl(1:nx,1:ny,:), gcheck )) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal,&amp;</div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;             <span class="stringliteral">&quot;test_mpp_redistribute: global array differs for x5&quot;</span>)</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    <span class="keyword">call </span>mpp_global_field( domainx, x6, gcheck )</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keywordflow">if</span>(.not. compare_result4( glbl(1:nx,1:ny,:), gcheck )) <span class="keyword">call </span>mpp_error(fatal,&amp;</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__global__field.html">mpp_global_field</a>( domainx, x6, gcheck )</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keywordflow">if</span>(.not. compare_result4( glbl(1:nx,1:ny,:), gcheck )) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal,&amp;</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;            <span class="stringliteral">&quot;test_mpp_redistribute: global array differs for x6&quot;</span>)</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="comment">! redistribute and check y answers</span></div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="keywordflow">if</span>(<span class="keyword">ALLOCATED</span>(y))<span class="keywordflow">then</span></div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;      y=0.; y2=0.; y3=0.; y4=0.; y5=0.; y6=0.</div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="keywordflow">    endif</span></div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="keyword">call </span>mpp_redistribute( domainx, x, domainy, y, complete=.false. )</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="keyword">call </span>mpp_redistribute( domainx, x2, domainy, y2, complete=.false. )</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <span class="keyword">call </span>mpp_redistribute( domainx, x3, domainy, y3, complete=.false. )</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <span class="keyword">call </span>mpp_redistribute( domainx, x4, domainy, y4, complete=.false. )</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <span class="keyword">call </span>mpp_redistribute( domainx, x5, domainy, y5, complete=.false. )</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <span class="keyword">call </span>mpp_redistribute( domainx, x6, domainy, y6, complete=.true., dc_handle=dch )</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <span class="keyword">call </span>mpp_global_field( domainy, y, gcheck )</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    <span class="keywordflow">if</span>(.not. compare_result4( glbl(1:nx,1:ny,:), gcheck )) <span class="keyword">call </span>mpp_error(fatal,&amp;</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__redistribute.html">mpp_redistribute</a>( domainx, x, domainy, y, complete=.false. )</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__redistribute.html">mpp_redistribute</a>( domainx, x2, domainy, y2, complete=.false. )</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__redistribute.html">mpp_redistribute</a>( domainx, x3, domainy, y3, complete=.false. )</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__redistribute.html">mpp_redistribute</a>( domainx, x4, domainy, y4, complete=.false. )</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__redistribute.html">mpp_redistribute</a>( domainx, x5, domainy, y5, complete=.false. )</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__redistribute.html">mpp_redistribute</a>( domainx, x6, domainy, y6, complete=.true., dc_handle=dch )</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__global__field.html">mpp_global_field</a>( domainy, y, gcheck )</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    <span class="keywordflow">if</span>(.not. compare_result4( glbl(1:nx,1:ny,:), gcheck )) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal,&amp;</div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;            <span class="stringliteral">&quot;test_mpp_redistribute: global array differs for y&quot;</span>)</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <span class="keyword">call </span>mpp_global_field( domainy, y2, gcheck )</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keywordflow">if</span>(.not. compare_result4( glbl(1:nx,1:ny,:), gcheck )) <span class="keyword">call </span>mpp_error(fatal,&amp;</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__global__field.html">mpp_global_field</a>( domainy, y2, gcheck )</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keywordflow">if</span>(.not. compare_result4( glbl(1:nx,1:ny,:), gcheck )) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal,&amp;</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;            <span class="stringliteral">&quot;test_mpp_redistribute: global array differs for y2&quot;</span>)</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <span class="keyword">call </span>mpp_global_field( domainy, y3, gcheck )</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="keywordflow">if</span>(.not. compare_result4( glbl(1:nx,1:ny,:), gcheck )) <span class="keyword">call </span>mpp_error(fatal,&amp;</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__global__field.html">mpp_global_field</a>( domainy, y3, gcheck )</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="keywordflow">if</span>(.not. compare_result4( glbl(1:nx,1:ny,:), gcheck )) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal,&amp;</div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;            <span class="stringliteral">&quot;test_mpp_redistribute: global array differs for y3&quot;</span>)</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    <span class="keyword">call </span>mpp_global_field( domainy, y4, gcheck )</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="keywordflow">if</span>(.not. compare_result4( glbl(1:nx,1:ny,:), gcheck )) <span class="keyword">call </span>mpp_error(fatal,&amp;</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__global__field.html">mpp_global_field</a>( domainy, y4, gcheck )</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="keywordflow">if</span>(.not. compare_result4( glbl(1:nx,1:ny,:), gcheck )) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal,&amp;</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;            <span class="stringliteral">&quot;test_mpp_redistribute: global array differs for y4&quot;</span>)</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="keyword">call </span>mpp_global_field( domainy, y5, gcheck )</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <span class="keywordflow">if</span>(.not. compare_result4( glbl(1:nx,1:ny,:), gcheck )) <span class="keyword">call </span>mpp_error(fatal,&amp;</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__global__field.html">mpp_global_field</a>( domainy, y5, gcheck )</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <span class="keywordflow">if</span>(.not. compare_result4( glbl(1:nx,1:ny,:), gcheck )) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal,&amp;</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;            <span class="stringliteral">&quot;test_mpp_redistribute: global array differs for y5&quot;</span>)</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <span class="keyword">call </span>mpp_global_field( domainy, y6, gcheck )</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <span class="keywordflow">if</span>(.not. compare_result4( glbl(1:nx,1:ny,:), gcheck )) <span class="keyword">call </span>mpp_error(fatal,&amp;</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__global__field.html">mpp_global_field</a>( domainy, y6, gcheck )</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <span class="keywordflow">if</span>(.not. compare_result4( glbl(1:nx,1:ny,:), gcheck )) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal,&amp;</div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;            <span class="stringliteral">&quot;test_mpp_redistribute: global array differs for y6&quot;</span>)</div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160; </div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    dch =&gt;null()</div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160; </div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    <span class="keyword">call </span>mpp_redistribute( domainx, x, domainy, y, free=.true.,list_size=6 )</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__redistribute.html">mpp_redistribute</a>( domainx, x, domainy, y, free=.true.,list_size=6 )</div>
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    <span class="keyword">deallocate</span>(gcheck, glbl)</div>
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <span class="keyword">deallocate</span>(x,x2,x3,x4,x5,x6)</div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    <span class="keyword">deallocate</span>(y,y2,y3,y4,y5,y6)</div>
@@ -292,8 +292,8 @@ $(document).ready(function(){initNavTree('test__redistribute__int_8F90_source.ht
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="keywordtype">integer</span>                                      :: k, j, i, layout(2), id</div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    <span class="keywordtype">integer</span>                                      :: is, ie, js, je, isd, ied, jsd, jed</div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    <span class="comment">! nullify domain list otherwise it retains memory between calls.</span></div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <span class="keyword">call </span>mpp_nullify_domain_list(domainx)</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    <span class="keyword">call </span>mpp_nullify_domain_list(domainy)</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__nullify__domain__list.html">mpp_nullify_domain_list</a>(domainx)</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__nullify__domain__list.html">mpp_nullify_domain_list</a>(domainy)</div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160; </div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    <span class="comment">!fill in glbl array with kiiijjj</span></div>
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    <span class="keyword">allocate</span>( gcheck(nx,ny,nz), glbl(nx,ny,nz) )</div>
@@ -306,10 +306,10 @@ $(document).ready(function(){initNavTree('test__redistribute__int_8F90_source.ht
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;<span class="keywordflow">    end do</span></div>
 <div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160; </div>
 <div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    <span class="comment">! set up x arrays</span></div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    <span class="keyword">call </span>mpp_define_layout( (/1,nx,1,ny/), npes, layout )</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    <span class="keyword">call </span>mpp_define_domains( (/1,nx,1,ny/), layout, domainx )</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    <span class="keyword">call </span>mpp_get_compute_domain( domainx, is,  ie,  js,  je  )</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    <span class="keyword">call </span>mpp_get_data_domain   ( domainx, isd, ied, jsd, jed )</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__define__layout.html">mpp_define_layout</a>( (/1,nx,1,ny/), npes, layout )</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__define__domains.html">mpp_define_domains</a>( (/1,nx,1,ny/), layout, domainx )</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__get__compute__domain.html">mpp_get_compute_domain</a>( domainx, is,  ie,  js,  je  )</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__get__data__domain.html">mpp_get_data_domain</a>   ( domainx, isd, ied, jsd, jed )</div>
 <div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    <span class="keyword">allocate</span>( x(isd:ied,jsd:jed,nz) )</div>
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    <span class="keyword">allocate</span>( x2(isd:ied,jsd:jed,nz) )</div>
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    <span class="keyword">allocate</span>( x3(isd:ied,jsd:jed,nz) )</div>
@@ -321,9 +321,9 @@ $(document).ready(function(){initNavTree('test__redistribute__int_8F90_source.ht
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    x2 = x;  x3 = x; x4 = x; x5 = x; x6 = x</div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160; </div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    <span class="comment">!set up y arrays</span></div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    <span class="keyword">call </span>mpp_define_domains( (/1,nx,1,ny/), (/npes,1/), domainy)</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    <span class="keyword">call </span>mpp_get_data_domain   ( domainy, isd, ied, jsd, jed )</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    <span class="keyword">call </span>mpp_get_compute_domain( domainy, is,  ie,  js,  je  )</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__define__domains.html">mpp_define_domains</a>( (/1,nx,1,ny/), (/npes,1/), domainy)</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__get__data__domain.html">mpp_get_data_domain</a>   ( domainy, isd, ied, jsd, jed )</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__get__compute__domain.html">mpp_get_compute_domain</a>( domainy, is,  ie,  js,  je  )</div>
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    <span class="keyword">allocate</span>( y(isd:ied,jsd:jed,nz) )</div>
 <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    <span class="keyword">allocate</span>( y2(isd:ied,jsd:jed,nz) )</div>
 <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    <span class="keyword">allocate</span>( y3(isd:ied,jsd:jed,nz) )</div>
@@ -334,73 +334,73 @@ $(document).ready(function(){initNavTree('test__redistribute__int_8F90_source.ht
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    y2 = 0.;y3 = 0.;y4 = 0.;y5 = 0.;y6 = 0.</div>
 <div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160; </div>
 <div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    <span class="comment">!go global and redistribute</span></div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    <span class="keyword">call </span>mpp_broadcast_domain(domainx)</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    <span class="keyword">call </span>mpp_broadcast_domain(domainy)</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    <span class="keyword">call </span>mpp_redistribute( domainx, x, domainy, y )</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__broadcast__domain.html">mpp_broadcast_domain</a>(domainx)</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__broadcast__domain.html">mpp_broadcast_domain</a>(domainy)</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__redistribute.html">mpp_redistribute</a>( domainx, x, domainy, y )</div>
 <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160; </div>
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    <span class="comment">!check answers on pelist</span></div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    <span class="keyword">call </span>mpp_global_field( domainy, y(:,:,:), gcheck )</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    <span class="keywordflow">if</span>(.not. compare_result8( glbl(1:nx,1:ny,:), gcheck )) <span class="keyword">call </span>mpp_error(fatal , &amp;</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__global__field.html">mpp_global_field</a>( domainy, y(:,:,:), gcheck )</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    <span class="keywordflow">if</span>(.not. compare_result8( glbl(1:nx,1:ny,:), gcheck )) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal , &amp;</div>
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;             <span class="stringliteral">&quot;test_mpp_redistribute: incorrect results in global array&quot;</span>)</div>
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    <span class="comment">! redistribute and check x answers</span></div>
 <div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    <span class="keywordflow">if</span>(<span class="keyword">ALLOCATED</span>(y))y=0.</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    <span class="keyword">call </span>mpp_redistribute( domainx, x,  domainy, y,  complete=.false. )</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    <span class="keyword">call </span>mpp_redistribute( domainx, x2, domainy, y2, complete=.false. )</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    <span class="keyword">call </span>mpp_redistribute( domainx, x3, domainy, y3, complete=.false. )</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    <span class="keyword">call </span>mpp_redistribute( domainx, x4, domainy, y4, complete=.false. )</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    <span class="keyword">call </span>mpp_redistribute( domainx, x5, domainy, y5, complete=.false. )</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    <span class="keyword">call </span>mpp_redistribute( domainx, x6, domainy, y6, complete=.true., dc_handle=dch )</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    <span class="keyword">call </span>mpp_global_field( domainx, x(:,:,:), gcheck )</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    <span class="keywordflow">if</span>(.not. compare_result8( glbl(1:nx,1:ny,:), gcheck )) <span class="keyword">call </span>mpp_error(fatal,&amp;</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__redistribute.html">mpp_redistribute</a>( domainx, x,  domainy, y,  complete=.false. )</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__redistribute.html">mpp_redistribute</a>( domainx, x2, domainy, y2, complete=.false. )</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__redistribute.html">mpp_redistribute</a>( domainx, x3, domainy, y3, complete=.false. )</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__redistribute.html">mpp_redistribute</a>( domainx, x4, domainy, y4, complete=.false. )</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__redistribute.html">mpp_redistribute</a>( domainx, x5, domainy, y5, complete=.false. )</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__redistribute.html">mpp_redistribute</a>( domainx, x6, domainy, y6, complete=.true., dc_handle=dch )</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__global__field.html">mpp_global_field</a>( domainx, x(:,:,:), gcheck )</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    <span class="keywordflow">if</span>(.not. compare_result8( glbl(1:nx,1:ny,:), gcheck )) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal,&amp;</div>
 <div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;            <span class="stringliteral">&quot;test_mpp_redistribute: global array differs for x&quot;</span>)</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    <span class="keyword">call </span>mpp_global_field( domainx, x2, gcheck )</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    <span class="keywordflow">if</span>(.not. compare_result8( glbl(1:nx,1:ny,:), gcheck )) <span class="keyword">call </span>mpp_error(fatal,&amp;</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__global__field.html">mpp_global_field</a>( domainx, x2, gcheck )</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    <span class="keywordflow">if</span>(.not. compare_result8( glbl(1:nx,1:ny,:), gcheck )) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal,&amp;</div>
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;            <span class="stringliteral">&quot;test_mpp_redistribute: global array differs for x2&quot;</span>)</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    <span class="keyword">call </span>mpp_global_field( domainx, x3, gcheck )</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    <span class="keywordflow">if</span>(.not. compare_result8( glbl(1:nx,1:ny,:), gcheck )) <span class="keyword">call </span>mpp_error(fatal,&amp;</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__global__field.html">mpp_global_field</a>( domainx, x3, gcheck )</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    <span class="keywordflow">if</span>(.not. compare_result8( glbl(1:nx,1:ny,:), gcheck )) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal,&amp;</div>
 <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;            <span class="stringliteral">&quot;test_mpp_redistribute: global array differs for x3&quot;</span>)</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    <span class="keyword">call </span>mpp_global_field( domainx, x4, gcheck )</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    <span class="keywordflow">if</span>(.not. compare_result8( glbl(1:nx,1:ny,:), gcheck )) <span class="keyword">call </span>mpp_error(fatal,&amp;</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__global__field.html">mpp_global_field</a>( domainx, x4, gcheck )</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    <span class="keywordflow">if</span>(.not. compare_result8( glbl(1:nx,1:ny,:), gcheck )) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal,&amp;</div>
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;            <span class="stringliteral">&quot;test_mpp_redistribute: global array differs for x4&quot;</span>)</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    <span class="keyword">call </span>mpp_global_field( domainx, x5, gcheck )</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    <span class="keywordflow">if</span>(.not. compare_result8( glbl(1:nx,1:ny,:), gcheck )) <span class="keyword">call </span>mpp_error(fatal,&amp;</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__global__field.html">mpp_global_field</a>( domainx, x5, gcheck )</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    <span class="keywordflow">if</span>(.not. compare_result8( glbl(1:nx,1:ny,:), gcheck )) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal,&amp;</div>
 <div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;             <span class="stringliteral">&quot;test_mpp_redistribute: global array differs for x5&quot;</span>)</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    <span class="keyword">call </span>mpp_global_field( domainx, x6, gcheck )</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    <span class="keywordflow">if</span>(.not. compare_result8( glbl(1:nx,1:ny,:), gcheck )) <span class="keyword">call </span>mpp_error(fatal,&amp;</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__global__field.html">mpp_global_field</a>( domainx, x6, gcheck )</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    <span class="keywordflow">if</span>(.not. compare_result8( glbl(1:nx,1:ny,:), gcheck )) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal,&amp;</div>
 <div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;            <span class="stringliteral">&quot;test_mpp_redistribute: global array differs for x6&quot;</span>)</div>
 <div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160; </div>
 <div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    <span class="comment">! redistribute and check y answers</span></div>
 <div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    <span class="keywordflow">if</span>(<span class="keyword">ALLOCATED</span>(y))<span class="keywordflow">then</span></div>
 <div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;      y=0.; y2=0.; y3=0.; y4=0.; y5=0.; y6=0.</div>
 <div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;<span class="keywordflow">    endif</span></div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    <span class="keyword">call </span>mpp_redistribute( domainx, x, domainy, y, complete=.false. )</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    <span class="keyword">call </span>mpp_redistribute( domainx, x2, domainy, y2, complete=.false. )</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    <span class="keyword">call </span>mpp_redistribute( domainx, x3, domainy, y3, complete=.false. )</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    <span class="keyword">call </span>mpp_redistribute( domainx, x4, domainy, y4, complete=.false. )</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    <span class="keyword">call </span>mpp_redistribute( domainx, x5, domainy, y5, complete=.false. )</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    <span class="keyword">call </span>mpp_redistribute( domainx, x6, domainy, y6, complete=.true., dc_handle=dch )</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    <span class="keyword">call </span>mpp_global_field( domainy, y, gcheck )</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    <span class="keywordflow">if</span>(.not. compare_result8( glbl(1:nx,1:ny,:), gcheck )) <span class="keyword">call </span>mpp_error(fatal,&amp;</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__redistribute.html">mpp_redistribute</a>( domainx, x, domainy, y, complete=.false. )</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__redistribute.html">mpp_redistribute</a>( domainx, x2, domainy, y2, complete=.false. )</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__redistribute.html">mpp_redistribute</a>( domainx, x3, domainy, y3, complete=.false. )</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__redistribute.html">mpp_redistribute</a>( domainx, x4, domainy, y4, complete=.false. )</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__redistribute.html">mpp_redistribute</a>( domainx, x5, domainy, y5, complete=.false. )</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__redistribute.html">mpp_redistribute</a>( domainx, x6, domainy, y6, complete=.true., dc_handle=dch )</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__global__field.html">mpp_global_field</a>( domainy, y, gcheck )</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    <span class="keywordflow">if</span>(.not. compare_result8( glbl(1:nx,1:ny,:), gcheck )) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal,&amp;</div>
 <div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;            <span class="stringliteral">&quot;test_mpp_redistribute: global array differs for y&quot;</span>)</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    <span class="keyword">call </span>mpp_global_field( domainy, y2, gcheck )</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    <span class="keywordflow">if</span>(.not. compare_result8( glbl(1:nx,1:ny,:), gcheck )) <span class="keyword">call </span>mpp_error(fatal,&amp;</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__global__field.html">mpp_global_field</a>( domainy, y2, gcheck )</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    <span class="keywordflow">if</span>(.not. compare_result8( glbl(1:nx,1:ny,:), gcheck )) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal,&amp;</div>
 <div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;            <span class="stringliteral">&quot;test_mpp_redistribute: global array differs for y2&quot;</span>)</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    <span class="keyword">call </span>mpp_global_field( domainy, y3, gcheck )</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;    <span class="keywordflow">if</span>(.not. compare_result8( glbl(1:nx,1:ny,:), gcheck )) <span class="keyword">call </span>mpp_error(fatal,&amp;</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__global__field.html">mpp_global_field</a>( domainy, y3, gcheck )</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;    <span class="keywordflow">if</span>(.not. compare_result8( glbl(1:nx,1:ny,:), gcheck )) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal,&amp;</div>
 <div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;            <span class="stringliteral">&quot;test_mpp_redistribute: global array differs for y3&quot;</span>)</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    <span class="keyword">call </span>mpp_global_field( domainy, y4, gcheck )</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;    <span class="keywordflow">if</span>(.not. compare_result8( glbl(1:nx,1:ny,:), gcheck )) <span class="keyword">call </span>mpp_error(fatal,&amp;</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__global__field.html">mpp_global_field</a>( domainy, y4, gcheck )</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;    <span class="keywordflow">if</span>(.not. compare_result8( glbl(1:nx,1:ny,:), gcheck )) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal,&amp;</div>
 <div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;            <span class="stringliteral">&quot;test_mpp_redistribute: global array differs for y4&quot;</span>)</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    <span class="keyword">call </span>mpp_global_field( domainy, y5, gcheck )</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    <span class="keywordflow">if</span>(.not. compare_result8( glbl(1:nx,1:ny,:), gcheck )) <span class="keyword">call </span>mpp_error(fatal,&amp;</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__global__field.html">mpp_global_field</a>( domainy, y5, gcheck )</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    <span class="keywordflow">if</span>(.not. compare_result8( glbl(1:nx,1:ny,:), gcheck )) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal,&amp;</div>
 <div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;            <span class="stringliteral">&quot;test_mpp_redistribute: global array differs for y5&quot;</span>)</div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    <span class="keyword">call </span>mpp_global_field( domainy, y6, gcheck )</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    <span class="keywordflow">if</span>(.not. compare_result8( glbl(1:nx,1:ny,:), gcheck )) <span class="keyword">call </span>mpp_error(fatal,&amp;</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__global__field.html">mpp_global_field</a>( domainy, y6, gcheck )</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    <span class="keywordflow">if</span>(.not. compare_result8( glbl(1:nx,1:ny,:), gcheck )) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal,&amp;</div>
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;            <span class="stringliteral">&quot;test_mpp_redistribute: global array differs for y6&quot;</span>)</div>
 <div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160; </div>
 <div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    dch =&gt;null()</div>
 <div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160; </div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    <span class="keyword">call </span>mpp_redistribute( domainx, x, domainy, y, free=.true.,list_size=6 )</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__redistribute.html">mpp_redistribute</a>( domainx, x, domainy, y, free=.true.,list_size=6 )</div>
 <div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    <span class="keyword">deallocate</span>(gcheck, glbl)</div>
 <div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;    <span class="keyword">deallocate</span>(x,x2,x3,x4,x5,x6)</div>
 <div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    <span class="keyword">deallocate</span>(y,y2,y3,y4,y5,y6)</div>
@@ -428,7 +428,7 @@ $(document).ready(function(){initNavTree('test__redistribute__int_8F90_source.ht
 <div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;     <span class="keywordtype">logical</span> :: check</div>
 <div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;     <span class="comment">! set up pelist</span></div>
 <div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;     npes = <a class="code" href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>()</div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;     <span class="keywordflow">if</span>(mod(npes, ensemble_size) .NE. 0) <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;     <span class="keywordflow">if</span>(mod(npes, ensemble_size) .NE. 0) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, &amp;</div>
 <div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;         <span class="stringliteral">&quot;test_mpp_domains: npes is not divisible by ensemble_size&quot;</span>)</div>
 <div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;     npes_per_ensemble = npes/ensemble_size</div>
 <div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;     <span class="keyword">allocate</span>(my_ensemble_pelist(0:npes_per_ensemble-1))</div>
@@ -442,7 +442,7 @@ $(document).ready(function(){initNavTree('test__redistribute__int_8F90_source.ht
 <div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;     <span class="comment">! set tile count</span></div>
 <div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;     ntiles = 6</div>
 <div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160; </div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;     <span class="keywordflow">if</span>( mod(npes, ntiles) .NE. 0 ) <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;     <span class="keywordflow">if</span>( mod(npes, ntiles) .NE. 0 ) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, &amp;</div>
 <div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;          <span class="stringliteral">&quot;test_mpp_domains: npes is not divisible by ntiles&quot;</span>)</div>
 <div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160; </div>
 <div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;     npes_per_tile = npes/ntiles</div>
@@ -450,7 +450,7 @@ $(document).ready(function(){initNavTree('test__redistribute__int_8F90_source.ht
 <div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;     <span class="keywordflow">if</span>( npes_per_tile == layout_cubic(1) * layout_cubic(2) ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;        layout = layout_cubic</div>
 <div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;     <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;        <span class="keyword">call </span>mpp_define_layout( (/1,nx_cubic,1,ny_cubic/), npes_per_tile, layout )</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;        <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__define__layout.html">mpp_define_layout</a>( (/1,nx_cubic,1,ny_cubic/), npes_per_tile, layout )</div>
 <div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;<span class="keywordflow">     endif</span></div>
 <div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;     <span class="keyword">allocate</span>(global_indices(4, ntiles))</div>
 <div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;     <span class="keyword">allocate</span>(layout2d(2, ntiles))</div>
@@ -472,7 +472,7 @@ $(document).ready(function(){initNavTree('test__redistribute__int_8F90_source.ht
 <div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;     <span class="keyword">allocate</span>(domain_ensemble(ensemble_size))</div>
 <div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;     <span class="comment">!-- define domain for each ensemble</span></div>
 <div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;     <span class="keyword">call </span>mpp_set_current_pelist( my_ensemble_pelist )</div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;     <span class="keywordflow">if</span>( mod(npes_per_ensemble, ntiles) .NE. 0 ) <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;     <span class="keywordflow">if</span>( mod(npes_per_ensemble, ntiles) .NE. 0 ) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, &amp;</div>
 <div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;          <span class="stringliteral">&quot;test_mpp_domains: npes_per_ensemble is not divisible by ntiles&quot;</span>)</div>
 <div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;     npes_per_tile = npes_per_ensemble/ntiles</div>
 <div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;     my_root_pe = my_ensemble_pelist(0)</div>
@@ -481,7 +481,7 @@ $(document).ready(function(){initNavTree('test__redistribute__int_8F90_source.ht
 <div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;     <span class="keywordflow">if</span>( npes_per_tile == layout_ensemble(1) * layout_ensemble(2) ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;        layout = layout_ensemble</div>
 <div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;     <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;        <span class="keyword">call </span>mpp_define_layout( (/1,nx_cubic,1,ny_cubic/), npes_per_tile, layout )</div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;        <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__define__layout.html">mpp_define_layout</a>( (/1,nx_cubic,1,ny_cubic/), npes_per_tile, layout )</div>
 <div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;<span class="keywordflow">     endif</span></div>
 <div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;     <span class="keywordflow">do</span> n = 1, ntiles</div>
 <div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;       global_indices(:,n) = (/1,nx_cubic,1,ny_cubic/)</div>
@@ -499,13 +499,13 @@ $(document).ready(function(){initNavTree('test__redistribute__int_8F90_source.ht
 <div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160; </div>
 <div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;     <span class="keyword">call </span>mpp_set_current_pelist()</div>
 <div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;     <span class="keywordflow">do</span> n = 1, ensemble_size</div>
-<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;        <span class="keyword">call </span>mpp_broadcast_domain(domain_ensemble(n))</div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;        <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__broadcast__domain.html">mpp_broadcast_domain</a>(domain_ensemble(n))</div>
 <div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;<span class="keywordflow">     enddo</span></div>
 <div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160; </div>
-<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;     <span class="keyword">call </span>mpp_get_data_domain( domain_ensemble(ensemble_id), isd_ens, ied_ens, jsd_ens, jed_ens)</div>
-<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;     <span class="keyword">call </span>mpp_get_compute_domain( domain_ensemble(ensemble_id), isc_ens, iec_ens, jsc_ens, jec_ens)</div>
-<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;     <span class="keyword">call </span>mpp_get_data_domain( domain, isd, ied, jsd, jed)</div>
-<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;     <span class="keyword">call </span>mpp_get_compute_domain( domain, isc, iec, jsc, jec)</div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;     <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__get__data__domain.html">mpp_get_data_domain</a>( domain_ensemble(ensemble_id), isd_ens, ied_ens, jsd_ens, jed_ens)</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;     <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__get__compute__domain.html">mpp_get_compute_domain</a>( domain_ensemble(ensemble_id), isc_ens, iec_ens, jsc_ens, jec_ens)</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;     <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__get__data__domain.html">mpp_get_data_domain</a>( domain, isd, ied, jsd, jed)</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;     <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__get__compute__domain.html">mpp_get_compute_domain</a>( domain, isc, iec, jsc, jec)</div>
 <div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160; </div>
 <div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;     <span class="keyword">allocate</span>(x_ens(isd_ens:ied_ens, jsd_ens:jed_ens, nz))</div>
 <div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;     <span class="keyword">allocate</span>(x(isd:ied, jsd:jed, nz, ensemble_size))</div>
@@ -522,7 +522,7 @@ $(document).ready(function(){initNavTree('test__redistribute__int_8F90_source.ht
 <div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160; </div>
 <div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;     <span class="keywordflow">do</span> n = 1, ensemble_size</div>
 <div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;        x = 0</div>
-<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;        <span class="keyword">call </span>mpp_redistribute( domain_ensemble(n), x_ens, domain, x(:,:,:,n) )</div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;        <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__redistribute.html">mpp_redistribute</a>( domain_ensemble(n), x_ens, domain, x(:,:,:,n) )</div>
 <div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;        y = 0</div>
 <div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;        <span class="keywordflow">do</span> k = 1, nz</div>
 <div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;           <span class="keywordflow">do</span> j = jsc, jec</div>
@@ -533,7 +533,7 @@ $(document).ready(function(){initNavTree('test__redistribute__int_8F90_source.ht
 <div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;<span class="keywordflow">        enddo</span></div>
 <div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;       <span class="keyword">write</span>(mesg,<span class="stringliteral">&#39;(a,i4)&#39;</span>) <span class="stringliteral">&quot;cubic_grid redistribute from ensemble&quot;</span>, n</div>
 <div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;       <span class="keywordflow">if</span>(.not.compare_result4( x(isc:iec,jsc:jec,:,n), y(isc:iec,jsc:jec,:))) <span class="keyword">call </span>&amp;</div>
-<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;           mpp_error(fatal, <span class="stringliteral">&quot;test_mpp_redistribute: failed cubic grid 32-bit check&quot;</span>)</div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;           <a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, <span class="stringliteral">&quot;test_mpp_redistribute: failed cubic grid 32-bit check&quot;</span>)</div>
 <div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;<span class="keywordflow">     enddo</span></div>
 <div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160; </div>
 <div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;     <span class="comment">! redistribute data to each ensemble.</span></div>
@@ -553,7 +553,7 @@ $(document).ready(function(){initNavTree('test__redistribute__int_8F90_source.ht
 <div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160; </div>
 <div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;     <span class="keywordflow">do</span> n = 1, ensemble_size</div>
 <div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;        x_ens = 0</div>
-<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;        <span class="keyword">call </span>mpp_redistribute(domain, x(:,:,:,n), domain_ensemble(n), x_ens)</div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;        <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__redistribute.html">mpp_redistribute</a>(domain, x(:,:,:,n), domain_ensemble(n), x_ens)</div>
 <div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;        y = 0</div>
 <div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;        <span class="keywordflow">if</span>( ensemble_id == n ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;           <span class="keywordflow">do</span> k = 1, nz</div>
@@ -566,13 +566,13 @@ $(document).ready(function(){initNavTree('test__redistribute__int_8F90_source.ht
 <div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;<span class="keywordflow">        endif</span></div>
 <div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;        <span class="keyword">write</span>(mesg,<span class="stringliteral">&#39;(a,i4)&#39;</span>) <span class="stringliteral">&quot;cubic_grid redistribute to ensemble&quot;</span>, n</div>
 <div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;        <span class="keywordflow">if</span>(.not.compare_result4( x_ens(isc_ens:iec_ens,jsc_ens:jec_ens,:), y(isc_ens:iec_ens,jsc_ens:jec_ens,:))) <span class="keyword">call </span>&amp;</div>
-<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;           mpp_error(fatal, <span class="stringliteral">&quot;test_mpp_redistribute: failed cubic grid 32-bit check&quot;</span>)</div>
+<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;           <a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, <span class="stringliteral">&quot;test_mpp_redistribute: failed cubic grid 32-bit check&quot;</span>)</div>
 <div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;<span class="keywordflow">     enddo</span></div>
 <div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160; </div>
 <div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;     <span class="keyword">deallocate</span>(x, y, x_ens)</div>
-<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;     <span class="keyword">call </span>mpp_deallocate_domain(domain)</div>
+<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;     <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__deallocate__domain.html">mpp_deallocate_domain</a>(domain)</div>
 <div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;     <span class="keywordflow">do</span> n = 1, ensemble_size</div>
-<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;        <span class="keyword">call </span>mpp_deallocate_domain(domain_ensemble(n))</div>
+<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;        <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__deallocate__domain.html">mpp_deallocate_domain</a>(domain_ensemble(n))</div>
 <div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;<span class="keywordflow">     enddo</span></div>
 <div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;     <span class="keyword">deallocate</span>(domain_ensemble)</div>
 <div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160; </div>
@@ -600,7 +600,7 @@ $(document).ready(function(){initNavTree('test__redistribute__int_8F90_source.ht
 <div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160; </div>
 <div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;     <span class="comment">! --- set up pelist</span></div>
 <div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;     npes = <a class="code" href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>()</div>
-<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;     <span class="keywordflow">if</span>(mod(npes, ensemble_size) .NE. 0) <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
+<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;     <span class="keywordflow">if</span>(mod(npes, ensemble_size) .NE. 0) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, &amp;</div>
 <div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;         <span class="stringliteral">&quot;test_mpp_domains: npes is not divisible by ensemble_size&quot;</span>)</div>
 <div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;     npes_per_ensemble = npes/ensemble_size</div>
 <div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;     <span class="keyword">allocate</span>(my_ensemble_pelist(0:npes_per_ensemble-1))</div>
@@ -615,7 +615,7 @@ $(document).ready(function(){initNavTree('test__redistribute__int_8F90_source.ht
 <div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;     ntiles = 6</div>
 <div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160; </div>
 <div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160; </div>
-<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;     <span class="keywordflow">if</span>( mod(npes, ntiles) .NE. 0 ) <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
+<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;     <span class="keywordflow">if</span>( mod(npes, ntiles) .NE. 0 ) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, &amp;</div>
 <div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;          <span class="stringliteral">&quot;test_mpp_domains: npes is not divisible by ntiles&quot;</span>)</div>
 <div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160; </div>
 <div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;     npes_per_tile = npes/ntiles</div>
@@ -623,7 +623,7 @@ $(document).ready(function(){initNavTree('test__redistribute__int_8F90_source.ht
 <div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;     <span class="keywordflow">if</span>( npes_per_tile == layout_cubic(1) * layout_cubic(2) ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;        layout = layout_cubic</div>
 <div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;     <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;        <span class="keyword">call </span>mpp_define_layout( (/1,nx_cubic,1,ny_cubic/), npes_per_tile, layout )</div>
+<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;        <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__define__layout.html">mpp_define_layout</a>( (/1,nx_cubic,1,ny_cubic/), npes_per_tile, layout )</div>
 <div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;<span class="keywordflow">     endif</span></div>
 <div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;     <span class="keyword">allocate</span>(global_indices(4, ntiles))</div>
 <div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;     <span class="keyword">allocate</span>(layout2d(2, ntiles))</div>
@@ -645,7 +645,7 @@ $(document).ready(function(){initNavTree('test__redistribute__int_8F90_source.ht
 <div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;     <span class="keyword">allocate</span>(domain_ensemble(ensemble_size))</div>
 <div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;     <span class="comment">!-- define domain for each ensemble</span></div>
 <div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;     <span class="keyword">call </span>mpp_set_current_pelist( my_ensemble_pelist )</div>
-<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;     <span class="keywordflow">if</span>( mod(npes_per_ensemble, ntiles) .NE. 0 ) <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
+<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;     <span class="keywordflow">if</span>( mod(npes_per_ensemble, ntiles) .NE. 0 ) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, &amp;</div>
 <div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;          <span class="stringliteral">&quot;test_mpp_domains: npes_per_ensemble is not divisible by ntiles&quot;</span>)</div>
 <div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;     npes_per_tile = npes_per_ensemble/ntiles</div>
 <div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;     my_root_pe = my_ensemble_pelist(0)</div>
@@ -654,7 +654,7 @@ $(document).ready(function(){initNavTree('test__redistribute__int_8F90_source.ht
 <div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;     <span class="keywordflow">if</span>( npes_per_tile == layout_ensemble(1) * layout_ensemble(2) ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;        layout = layout_ensemble</div>
 <div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;     <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;        <span class="keyword">call </span>mpp_define_layout( (/1,nx_cubic,1,ny_cubic/), npes_per_tile, layout )</div>
+<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;        <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__define__layout.html">mpp_define_layout</a>( (/1,nx_cubic,1,ny_cubic/), npes_per_tile, layout )</div>
 <div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;<span class="keywordflow">     endif</span></div>
 <div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;     <span class="keywordflow">do</span> n = 1, ntiles</div>
 <div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;       global_indices(:,n) = (/1,nx_cubic,1,ny_cubic/)</div>
@@ -672,13 +672,13 @@ $(document).ready(function(){initNavTree('test__redistribute__int_8F90_source.ht
 <div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160; </div>
 <div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;     <span class="keyword">call </span>mpp_set_current_pelist()</div>
 <div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;     <span class="keywordflow">do</span> n = 1, ensemble_size</div>
-<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;        <span class="keyword">call </span>mpp_broadcast_domain(domain_ensemble(n))</div>
+<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;        <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__broadcast__domain.html">mpp_broadcast_domain</a>(domain_ensemble(n))</div>
 <div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;<span class="keywordflow">     enddo</span></div>
 <div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160; </div>
-<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;     <span class="keyword">call </span>mpp_get_data_domain( domain_ensemble(ensemble_id), isd_ens, ied_ens, jsd_ens, jed_ens)</div>
-<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;     <span class="keyword">call </span>mpp_get_compute_domain( domain_ensemble(ensemble_id), isc_ens, iec_ens, jsc_ens, jec_ens)</div>
-<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;     <span class="keyword">call </span>mpp_get_data_domain( domain, isd, ied, jsd, jed)</div>
-<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;     <span class="keyword">call </span>mpp_get_compute_domain( domain, isc, iec, jsc, jec)</div>
+<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;     <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__get__data__domain.html">mpp_get_data_domain</a>( domain_ensemble(ensemble_id), isd_ens, ied_ens, jsd_ens, jed_ens)</div>
+<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;     <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__get__compute__domain.html">mpp_get_compute_domain</a>( domain_ensemble(ensemble_id), isc_ens, iec_ens, jsc_ens, jec_ens)</div>
+<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;     <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__get__data__domain.html">mpp_get_data_domain</a>( domain, isd, ied, jsd, jed)</div>
+<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;     <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__get__compute__domain.html">mpp_get_compute_domain</a>( domain, isc, iec, jsc, jec)</div>
 <div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160; </div>
 <div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;     <span class="keyword">allocate</span>(x_ens(isd_ens:ied_ens, jsd_ens:jed_ens, nz))</div>
 <div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;     <span class="keyword">allocate</span>(x(isd:ied, jsd:jed, nz, ensemble_size))</div>
@@ -695,7 +695,7 @@ $(document).ready(function(){initNavTree('test__redistribute__int_8F90_source.ht
 <div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160; </div>
 <div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;     <span class="keywordflow">do</span> n = 1, ensemble_size</div>
 <div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;        x = 0</div>
-<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;        <span class="keyword">call </span>mpp_redistribute( domain_ensemble(n), x_ens, domain, x(:,:,:,n) )</div>
+<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;        <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__redistribute.html">mpp_redistribute</a>( domain_ensemble(n), x_ens, domain, x(:,:,:,n) )</div>
 <div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;        y = 0</div>
 <div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;        <span class="keywordflow">do</span> k = 1, nz</div>
 <div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;           <span class="keywordflow">do</span> j = jsc, jec</div>
@@ -706,7 +706,7 @@ $(document).ready(function(){initNavTree('test__redistribute__int_8F90_source.ht
 <div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;<span class="keywordflow">        enddo</span></div>
 <div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;       <span class="keyword">write</span>(mesg,<span class="stringliteral">&#39;(a,i4)&#39;</span>) <span class="stringliteral">&quot;cubic_grid redistribute from ensemble&quot;</span>, n</div>
 <div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;       <span class="keywordflow">if</span>(.not.compare_result8( x(isc:iec,jsc:jec,:,n), y(isc:iec,jsc:jec,:))) <span class="keyword">call </span>&amp;</div>
-<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;           mpp_error(fatal, <span class="stringliteral">&quot;test_mpp_redistribute: failed cubic grid 32-bit check&quot;</span>)</div>
+<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;           <a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, <span class="stringliteral">&quot;test_mpp_redistribute: failed cubic grid 32-bit check&quot;</span>)</div>
 <div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;<span class="keywordflow">     enddo</span></div>
 <div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160; </div>
 <div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;     <span class="comment">! redistribute data to each ensemble.</span></div>
@@ -726,7 +726,7 @@ $(document).ready(function(){initNavTree('test__redistribute__int_8F90_source.ht
 <div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160; </div>
 <div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;     <span class="keywordflow">do</span> n = 1, ensemble_size</div>
 <div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;        x_ens = 0</div>
-<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;        <span class="keyword">call </span>mpp_redistribute(domain, x(:,:,:,n), domain_ensemble(n), x_ens)</div>
+<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;        <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__redistribute.html">mpp_redistribute</a>(domain, x(:,:,:,n), domain_ensemble(n), x_ens)</div>
 <div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;        y = 0</div>
 <div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;        <span class="keywordflow">if</span>( ensemble_id == n ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;           <span class="keywordflow">do</span> k = 1, nz</div>
@@ -739,13 +739,13 @@ $(document).ready(function(){initNavTree('test__redistribute__int_8F90_source.ht
 <div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;<span class="keywordflow">        endif</span></div>
 <div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;        <span class="keyword">write</span>(mesg,<span class="stringliteral">&#39;(a,i4)&#39;</span>) <span class="stringliteral">&quot;cubic_grid redistribute to ensemble&quot;</span>, n</div>
 <div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;        <span class="keywordflow">if</span>(.not.compare_result8( x_ens(isc_ens:iec_ens,jsc_ens:jec_ens,:), y(isc_ens:iec_ens,jsc_ens:jec_ens,:))) <span class="keyword">call </span>&amp;</div>
-<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;           mpp_error(fatal, <span class="stringliteral">&quot;test_mpp_redistribute: failed cubic grid 32-bit check&quot;</span>)</div>
+<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;           <a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, <span class="stringliteral">&quot;test_mpp_redistribute: failed cubic grid 32-bit check&quot;</span>)</div>
 <div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;<span class="keywordflow">     enddo</span></div>
 <div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160; </div>
 <div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;     <span class="keyword">deallocate</span>(x, y, x_ens)</div>
-<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;     <span class="keyword">call </span>mpp_deallocate_domain(domain)</div>
+<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;     <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__deallocate__domain.html">mpp_deallocate_domain</a>(domain)</div>
 <div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;     <span class="keywordflow">do</span> n = 1, ensemble_size</div>
-<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;        <span class="keyword">call </span>mpp_deallocate_domain(domain_ensemble(n))</div>
+<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;        <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__deallocate__domain.html">mpp_deallocate_domain</a>(domain_ensemble(n))</div>
 <div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;<span class="keywordflow">     enddo</span></div>
 <div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;     <span class="keyword">deallocate</span>(domain_ensemble)</div>
 <div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160; </div>
@@ -765,17 +765,17 @@ $(document).ready(function(){initNavTree('test__redistribute__int_8F90_source.ht
 <div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160; </div>
 <div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;    ntiles = 6</div>
 <div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;    num_contact = 12</div>
-<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;    <span class="keywordflow">if</span>(<span class="keyword">size</span>(pe_start(:)) .NE. 6 .OR. <span class="keyword">size</span>(pe_end(:)) .NE. 6 ) <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
+<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;    <span class="keywordflow">if</span>(<span class="keyword">size</span>(pe_start(:)) .NE. 6 .OR. <span class="keyword">size</span>(pe_end(:)) .NE. 6 ) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, &amp;</div>
 <div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;         <span class="stringliteral">&quot;define_cubic_mosaic: size of pe_start and pe_end should be 6&quot;</span>)</div>
-<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;    <span class="keywordflow">if</span>(<span class="keyword">size</span>(global_indices,1) .NE. 4) <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
+<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;    <span class="keywordflow">if</span>(<span class="keyword">size</span>(global_indices,1) .NE. 4) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, &amp;</div>
 <div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;         <span class="stringliteral">&quot;define_cubic_mosaic: size of first dimension of global_indices should be 4&quot;</span>)</div>
-<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;    <span class="keywordflow">if</span>(<span class="keyword">size</span>(global_indices,2) .NE. 6) <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
+<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;    <span class="keywordflow">if</span>(<span class="keyword">size</span>(global_indices,2) .NE. 6) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, &amp;</div>
 <div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;         <span class="stringliteral">&quot;define_cubic_mosaic: size of second dimension of global_indices should be 6&quot;</span>)</div>
-<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;    <span class="keywordflow">if</span>(<span class="keyword">size</span>(layout,1) .NE. 2) <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
+<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;    <span class="keywordflow">if</span>(<span class="keyword">size</span>(layout,1) .NE. 2) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, &amp;</div>
 <div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;         <span class="stringliteral">&quot;define_cubic_mosaic: size of first dimension of layout should be 2&quot;</span>)</div>
-<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;    <span class="keywordflow">if</span>(<span class="keyword">size</span>(layout,2) .NE. 6) <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
+<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;    <span class="keywordflow">if</span>(<span class="keyword">size</span>(layout,2) .NE. 6) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, &amp;</div>
 <div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;         <span class="stringliteral">&quot;define_cubic_mosaic: size of second dimension of layout should be 6&quot;</span>)</div>
-<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;    <span class="keywordflow">if</span>(<span class="keyword">size</span>(ni(:)) .NE. 6 .OR. <span class="keyword">size</span>(nj(:)) .NE. 6) <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
+<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;    <span class="keywordflow">if</span>(<span class="keyword">size</span>(ni(:)) .NE. 6 .OR. <span class="keyword">size</span>(nj(:)) .NE. 6) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, &amp;</div>
 <div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;         <span class="stringliteral">&quot;define_cubic_mosaic: size of ni and nj should be 6&quot;</span>)</div>
 <div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160; </div>
 <div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;    <span class="comment">!--- Contact line 1, between tile 1 (EAST) and tile 2 (WEST)</span></div>
@@ -841,7 +841,7 @@ $(document).ready(function(){initNavTree('test__redistribute__int_8F90_source.ht
 <div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;    <span class="keywordtype">integer(i4_kind)</span>, <span class="keywordtype">intent(in)</span>, <span class="keywordtype">dimension(:,:,:)</span>  :: a, b</div>
 <div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;    <span class="keywordtype">logical</span>                                         :: compare_result4</div>
 <div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;    <span class="keywordflow">if</span>(<span class="keyword">size</span>(a,1).ne.<span class="keyword">size</span>(b,1) .or. <span class="keyword">size</span>(a,2).ne.<span class="keyword">size</span>(b,2) .or. <span class="keyword">size</span>(a,3).ne.<span class="keyword">size</span>(b,3)) <span class="keyword">call </span>&amp;</div>
-<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;                        mpp_error(fatal, <span class="stringliteral">&quot;test_mpp_redistribute: comparing different sized arrays&quot;</span>)</div>
+<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;                        <a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, <span class="stringliteral">&quot;test_mpp_redistribute: comparing different sized arrays&quot;</span>)</div>
 <div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;    compare_result4 = all(a.eq.b)</div>
 <div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;  <span class="keyword">end function </span>compare_result4</div>
 <div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;<span class="comment"></span> </div>
@@ -850,22 +850,35 @@ $(document).ready(function(){initNavTree('test__redistribute__int_8F90_source.ht
 <div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;    <span class="keywordtype">integer(i8_kind)</span>, <span class="keywordtype">intent(in)</span>, <span class="keywordtype">dimension(:,:,:)</span>  :: a, b</div>
 <div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;    <span class="keywordtype">logical</span>                                         :: compare_result8</div>
 <div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;    <span class="keywordflow">if</span>(<span class="keyword">size</span>(a,1).ne.<span class="keyword">size</span>(b,1) .or. <span class="keyword">size</span>(a,2).ne.<span class="keyword">size</span>(b,2) .or. <span class="keyword">size</span>(a,3).ne.<span class="keyword">size</span>(b,3)) <span class="keyword">call </span>&amp;</div>
-<div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;                        mpp_error(fatal, <span class="stringliteral">&quot;test_mpp_redistribute: comparing different sized arrays&quot;</span>)</div>
+<div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;                        <a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, <span class="stringliteral">&quot;test_mpp_redistribute: comparing different sized arrays&quot;</span>)</div>
 <div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;    compare_result8 = all(a.eq.b)</div>
 <div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;  <span class="keyword">end function </span>compare_result8</div>
 <div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160;<span class="keyword">end program </span>test_mpp_redistribute</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="ainterfacempp__domains__mod_1_1mpp__get__memory__domain_html"><div class="ttname"><a href="interfacempp__domains__mod_1_1mpp__get__memory__domain.html">mpp_domains_mod::mpp_get_memory_domain</a></div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains_8F90_source.html#l02193">mpp_domains.F90:2193</a></div></div>
+<div class="ttc" id="ainterfacempp__domains__mod_1_1mpp__broadcast__domain_html"><div class="ttname"><a href="interfacempp__domains__mod_1_1mpp__broadcast__domain.html">mpp_domains_mod::mpp_broadcast_domain</a></div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains_8F90_source.html#l01423">mpp_domains.F90:1423</a></div></div>
 <div class="ttc" id="ampp__util_8inc_html_a172901d39c9b0cf14aa83b1e94fdf21b"><div class="ttname"><a href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a></div><div class="ttdeci">integer function stdout()</div><div class="ttdoc">This function returns the current standard fortran unit numbers for output.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00065">mpp_util.inc:65</a></div></div>
+<div class="ttc" id="ainterfacempp__domains__mod_1_1mpp__nullify__domain__list_html"><div class="ttname"><a href="interfacempp__domains__mod_1_1mpp__nullify__domain__list.html">mpp_domains_mod::mpp_nullify_domain_list</a></div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains_8F90_source.html#l02282">mpp_domains.F90:2282</a></div></div>
+<div class="ttc" id="ainterfacempp__domains__mod_1_1mpp__global__field_html"><div class="ttname"><a href="interfacempp__domains__mod_1_1mpp__global__field.html">mpp_domains_mod::mpp_global_field</a></div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains_8F90_source.html#l01736">mpp_domains.F90:1736</a></div></div>
+<div class="ttc" id="ainterfacempp__domains__mod_1_1mpp__deallocate__domain_html"><div class="ttname"><a href="interfacempp__domains__mod_1_1mpp__deallocate__domain.html">mpp_domains_mod::mpp_deallocate_domain</a></div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains_8F90_source.html#l00871">mpp_domains.F90:871</a></div></div>
 <div class="ttc" id="ampp__comm__mpi_8inc_html_a8d0366d81b9701ccaaf3612b666aada1"><div class="ttname"><a href="mpp__comm__mpi_8inc.html#a8d0366d81b9701ccaaf3612b666aada1">mpp_exit</a></div><div class="ttdeci">subroutine mpp_exit()</div><div class="ttdoc">To be called at the end of a run.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__comm__mpi_8inc_source.html#l00235">mpp_comm_mpi.inc:235</a></div></div>
+<div class="ttc" id="ainterfacempp__domains__mod_1_1mpp__get__compute__domain_html"><div class="ttname"><a href="interfacempp__domains__mod_1_1mpp__get__compute__domain.html">mpp_domains_mod::mpp_get_compute_domain</a></div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains_8F90_source.html#l02131">mpp_domains.F90:2131</a></div></div>
+<div class="ttc" id="ainterfacempp__mod_1_1mpp__error_html"><div class="ttname"><a href="interfacempp__mod_1_1mpp__error.html">mpp_mod::mpp_error</a></div><div class="ttdef"><b>Definition:</b> <a href="mpp_8F90_source.html#l00373">mpp.F90:373</a></div></div>
 <div class="ttc" id="ampp__util__mpi_8inc_html_a09e69243d8c67e6a6e6e4fd9e93d0870"><div class="ttname"><a href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a></div><div class="ttdeci">subroutine mpp_sync_self(pelist, check, request, msg_size, msg_type)</div><div class="ttdoc">This is to check if current PE's outstanding puts are complete but we can't use shmem_fence because w...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util__mpi_8inc_source.html#l00169">mpp_util_mpi.inc:169</a></div></div>
+<div class="ttc" id="ainterfacempp__domains__mod_1_1mpp__check__field_html"><div class="ttname"><a href="interfacempp__domains__mod_1_1mpp__check__field.html">mpp_domains_mod::mpp_check_field</a></div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains_8F90_source.html#l01681">mpp_domains.F90:1681</a></div></div>
 <div class="ttc" id="ampp__domains__util_8inc_html_ae1f3c0c5c574686aac6c1595b1ca0b66"><div class="ttname"><a href="mpp__domains__util_8inc.html#ae1f3c0c5c574686aac6c1595b1ca0b66">mpp_domains_set_stack_size</a></div><div class="ttdeci">subroutine mpp_domains_set_stack_size(n)</div><div class="ttdoc">Set user stack size.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__util_8inc_source.html#l00052">mpp_domains_util.inc:52</a></div></div>
 <div class="ttc" id="ampp__util_8inc_html_a285ef180624257148d85af894928844b"><div class="ttname"><a href="mpp__util_8inc.html#a285ef180624257148d85af894928844b">stderr</a></div><div class="ttdeci">integer function stderr()</div><div class="ttdoc">This function returns the current standard fortran unit numbers for error messages.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00085">mpp_util.inc:85</a></div></div>
-<div class="ttc" id="astructmpp__domains__mod_1_1domain1d_html"><div class="ttname"><a href="structmpp__domains__mod_1_1domain1d.html">mpp_domains_mod::domain1d</a></div><div class="ttdoc">One dimensional domain used to manage shared data access between pes.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains_8F90_source.html#l00285">mpp_domains.F90:285</a></div></div>
+<div class="ttc" id="astructmpp__domains__mod_1_1domain1d_html"><div class="ttname"><a href="structmpp__domains__mod_1_1domain1d.html">mpp_domains_mod::domain1d</a></div><div class="ttdoc">One dimensional domain used to manage shared data access between pes.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains_8F90_source.html#l00288">mpp_domains.F90:288</a></div></div>
 <div class="ttc" id="ampp__comm__mpi_8inc_html_a889ed63075362dc3a3d3c12385d5a9c7"><div class="ttname"><a href="mpp__comm__mpi_8inc.html#a889ed63075362dc3a3d3c12385d5a9c7">mpp_init</a></div><div class="ttdeci">subroutine mpp_init(flags, localcomm, test_level)</div><div class="ttdoc">Initialize the mpp_mod module.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__comm__mpi_8inc_source.html#l00034">mpp_comm_mpi.inc:34</a></div></div>
 <div class="ttc" id="ampp__util__mpi_8inc_html_ad75482ebfad2337cd236ef0998accdc4"><div class="ttname"><a href="mpp__util__mpi_8inc.html#ad75482ebfad2337cd236ef0998accdc4">mpp_sync</a></div><div class="ttdeci">subroutine mpp_sync(pelist, do_self)</div><div class="ttdoc">Synchronize PEs in list.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util__mpi_8inc_source.html#l00146">mpp_util_mpi.inc:146</a></div></div>
+<div class="ttc" id="ainterfacempp__domains__mod_1_1mpp__redistribute_html"><div class="ttname"><a href="interfacempp__domains__mod_1_1mpp__redistribute.html">mpp_domains_mod::mpp_redistribute</a></div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains_8F90_source.html#l01584">mpp_domains.F90:1584</a></div></div>
+<div class="ttc" id="ainterfacempp__domains__mod_1_1mpp__define__domains_html"><div class="ttname"><a href="interfacempp__domains__mod_1_1mpp__define__domains.html">mpp_domains_mod::mpp_define_domains</a></div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains_8F90_source.html#l00849">mpp_domains.F90:849</a></div></div>
 <div class="ttc" id="ampp__util_8inc_html_abf546cd336d5c539e445fb884f98ab6b"><div class="ttname"><a href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a></div><div class="ttdeci">integer function mpp_npes()</div><div class="ttdoc">Returns processor count for current pelist.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00467">mpp_util.inc:467</a></div></div>
+<div class="ttc" id="ainterfacempp__domains__mod_1_1mpp__update__domains_html"><div class="ttname"><a href="interfacempp__domains__mod_1_1mpp__update__domains.html">mpp_domains_mod::mpp_update_domains</a></div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains_8F90_source.html#l00964">mpp_domains.F90:964</a></div></div>
 <div class="ttc" id="ampp__util_8inc_html_acfeba7de56f9dd6000b3fd78f9d56c50"><div class="ttname"><a href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a></div><div class="ttdeci">integer function mpp_pe()</div><div class="ttdoc">Returns processor ID. This returns the unique ID associated with a PE. This number runs between 0 and...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00442">mpp_util.inc:442</a></div></div>
+<div class="ttc" id="ainterfacempp__domains__mod_1_1mpp__define__layout_html"><div class="ttname"><a href="interfacempp__domains__mod_1_1mpp__define__layout.html">mpp_domains_mod::mpp_define_layout</a></div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains_8F90_source.html#l00731">mpp_domains.F90:731</a></div></div>
+<div class="ttc" id="ainterfacempp__domains__mod_1_1mpp__get__data__domain_html"><div class="ttname"><a href="interfacempp__domains__mod_1_1mpp__get__data__domain.html">mpp_domains_mod::mpp_get_data_domain</a></div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains_8F90_source.html#l02165">mpp_domains.F90:2165</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
