@@ -39,8 +39,6 @@ var group__amip__interp__mod =
     [ "amip_interp_new_1d", "group__amip__interp__mod.html#gabd2d93a46d61e06656c1d6fb0bc860ed", null ],
     [ "amip_interp_new_2d", "group__amip__interp__mod.html#gaa1b090c156ea2e60936d5da08fb84dba", null ],
     [ "amip_interp_new_2d", "group__amip__interp__mod.html#ga2caba36ff0a5bdd0ae2bc334a05465e3", null ],
-    [ "date_equals", "group__amip__interp__mod.html#gac649fa336040cfb37034b4612093d574", null ],
-    [ "date_equals", "group__amip__interp__mod.html#ga78cc915a2f75e5194c47758fb9cb1654", null ],
     [ "date_gt", "group__amip__interp__mod.html#gaa0a36d51ed8a5fcb5d0413349ead8c4a", null ],
     [ "date_gt", "group__amip__interp__mod.html#gae2ca4248791964f82f9a57dd37d893fa", null ],
     [ "date_not_equals", "group__amip__interp__mod.html#ga3c40cf9b8032cf49729e129ba7f82ee6", null ],
