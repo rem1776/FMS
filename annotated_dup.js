@@ -113,15 +113,18 @@ var annotated_dup =
       [ "drifters_comm_type", "structdrifters__comm__mod_1_1drifters__comm__type.html", "structdrifters__comm__mod_1_1drifters__comm__type" ]
     ] ],
     [ "drifters_core_mod", null, [
+      [ "assignment(=)", "interfacedrifters__core__mod_1_1assignment_07_0a_08.html", "interfacedrifters__core__mod_1_1assignment_07_0a_08" ],
       [ "drifters_core_type", "structdrifters__core__mod_1_1drifters__core__type.html", "structdrifters__core__mod_1_1drifters__core__type" ]
     ] ],
     [ "drifters_input_mod", null, [
+      [ "assignment(=)", "interfacedrifters__input__mod_1_1assignment_07_0a_08.html", "interfacedrifters__input__mod_1_1assignment_07_0a_08" ],
       [ "drifters_input_type", "structdrifters__input__mod_1_1drifters__input__type.html", "structdrifters__input__mod_1_1drifters__input__type" ]
     ] ],
     [ "drifters_io_mod", null, [
       [ "drifters_io_type", "structdrifters__io__mod_1_1drifters__io__type.html", "structdrifters__io__mod_1_1drifters__io__type" ]
     ] ],
     [ "drifters_mod", null, [
+      [ "assignment(=)", "interfacedrifters__mod_1_1assignment_07_0a_08.html", "interfacedrifters__mod_1_1assignment_07_0a_08" ],
       [ "drifters_compute_k", "interfacedrifters__mod_1_1drifters__compute__k.html", "interfacedrifters__mod_1_1drifters__compute__k" ],
       [ "drifters_push", "interfacedrifters__mod_1_1drifters__push.html", "interfacedrifters__mod_1_1drifters__push" ],
       [ "drifters_set_field", "interfacedrifters__mod_1_1drifters__set__field.html", "interfacedrifters__mod_1_1drifters__set__field" ],

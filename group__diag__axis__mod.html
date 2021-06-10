@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>FMS: Diag_axis_mod</title>
+<title>FMS: diag_axis_mod</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -95,7 +95,7 @@ $(document).ready(function(){initNavTree('group__diag__axis__mod.html',''); init
 <a href="#func-members">Functions/Subroutines</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
-<div class="title">Diag_axis_mod<div class="ingroups"><a class="el" href="group__diag__manager.html">Diag Manager</a></div></div>  </div>
+<div class="title">diag_axis_mod<div class="ingroups"><a class="el" href="group__diag__manager.html">Diag Manager</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -105,6 +105,7 @@ $(document).ready(function(){initNavTree('group__diag__axis__mod.html',''); init
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Types</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacediag__axis__mod_1_1diag__axis__add__attribute.html">diag_axis_add_attribute</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add an arbitrary attribute and value to the diagnostic axis.  <a href="interfacediag__axis__mod_1_1diag__axis__add__attribute.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -249,12 +250,7 @@ logical&#160;</td><td class="memItemRight" valign="bottom"><b>module_is_initiali
 <p>An integral part of <a class="el" href="group__diag__manager__mod.html">diag_manager_mod</a>. It helps to create axis IDs that are used in register_diag_field. </p>
 <dl class="section author"><dt>Author</dt><dd>Seth Underwood</dd></dl>
 <p>Users first create axis ID by calling diag_axis_init, then use this axis ID in register_diag_field. </p>
-
-
-<h3><a id="diag_axis_add_attribute"></a>diag_axis_add_attribute Interface</h3><div class="textblock">Add an arbitrary attribute and value to the diagnostic axis. Any number of attributes can be added to a given axis. All attribute addition must be done before first <code>send_data</code> call.<br  />
-If a real or integer attribute is already defined, a FATAL error will be called. If a character attribute is already defined, then it will be prepended to the existing attribute value. <br  />
-Example usage: </p><pre class="fragment">                       call diag_axis_add_attribute(diag_axis_id, att_name, att_value)
-</pre> </div><h2 class="groupheader">Function/Subroutine Documentation</h2>
+<h2 class="groupheader">Function/Subroutine Documentation</h2>
 <a id="ga52728abc762146731925f0c2ed7bfe93"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga52728abc762146731925f0c2ed7bfe93">&#9670;&nbsp;</a></span>attribute_init_axis()</h2>
 
@@ -544,8 +540,9 @@ Example usage: </p><pre class="fragment">                       call diag_axis_a
 </div><div class="memdoc">
 
 <p>Initialize the axis, and return the axis ID. </p>
-<dl class="section return"><dt>Returns</dt><dd>integer axis ID</dd></dl>
-<p><code>diag_axis_init</code> initializes an axis and returns the axis ID that is to be used with <code>register_diag_field</code>. This function also increments the axis counter and fills in the axes </p><dl class="params"><dt>Parameters</dt><dd>
+<p><code>diag_axis_init</code> initializes an axis and returns the axis ID that is to be used with <code>register_diag_field</code>. This function also increments the axis counter and fills in the axes</p>
+<dl class="section return"><dt>Returns</dt><dd>integer axis ID </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>Short name for axis </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>Array of coordinate values </td></tr>

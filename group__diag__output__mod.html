@@ -99,22 +99,25 @@ $(document).ready(function(){initNavTree('group__diag__output__mod.html',''); in
 </div><!--header-->
 <div class="contents">
 
-<p>diag_output_mod is an integral part of diag_manager_mod&lt;. Its function is to write axis-meta-data, field-meta-data and field data  
+<p>diag_output_mod is an integral part of diag_manager_mod. Its function is to write axis-meta-data, field-meta-data and field data.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Types</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacediag__output__mod_1_1diag__field__write.html">diag_field_write</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This interface is exclusive to fms2_io output.  <a href="interfacediag__output__mod_1_1diag__field__write.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write diag field using <a class="el" href="group__fms2__io.html">FMS2 IO</a>.  <a href="interfacediag__output__mod_1_1diag__field__write.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacediag__output__mod_1_1diag__output__init.html">diag_output_init</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The following interfaces are used in conjuctions with use_mpp_io.  <a href="interfacediag__output__mod_1_1diag__output__init.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize output for writing.  <a href="interfacediag__output__mod_1_1diag__output__init.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacediag__output__mod_1_1write__axis__meta__data.html">write_axis_meta_data</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes axis metadata to a file.  <a href="interfacediag__output__mod_1_1write__axis__meta__data.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacediag__output__mod_1_1write__field__meta__data.html">write_field_meta_data</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes field metadata to a file.  <a href="interfacediag__output__mod_1_1write__field__meta__data.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacediag__output__mod_1_1write__attribute__meta.html">write_attribute_meta</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes metadata for an attribute to a file.  <a href="interfacediag__output__mod_1_1write__attribute__meta.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -134,7 +137,7 @@ subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href
 subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>diag_output_init_use_mpp_io</b> (file_name, FORMAT, file_title, file_unit, all_scalar_or_1d, domain, domainU, attributes)</td></tr>
 <tr class="separator:ga0b83af04798e7e05bd02879d0e27c14a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga31ad67fcc2d2a3a3917a468026adfd4a"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__output__mod.html#ga31ad67fcc2d2a3a3917a468026adfd4a">write_axis_meta_data_fms2_io</a> (file_unit, axes, fileob, time_ops, time_axis_registered)</td></tr>
-<tr class="memdesc:ga31ad67fcc2d2a3a3917a468026adfd4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the axes meta data to file.  <a href="group__diag__output__mod.html#ga31ad67fcc2d2a3a3917a468026adfd4a">More...</a><br /></td></tr>
+<tr class="memdesc:ga31ad67fcc2d2a3a3917a468026adfd4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the axis meta data to file.  <a href="group__diag__output__mod.html#ga31ad67fcc2d2a3a3917a468026adfd4a">More...</a><br /></td></tr>
 <tr class="separator:ga31ad67fcc2d2a3a3917a468026adfd4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga0d9ce861d70c35c885bd60231e888f19"><td class="memItemLeft" align="right" valign="top"><a id="ga0d9ce861d70c35c885bd60231e888f19"></a>
 subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>write_axis_meta_data_use_mpp_io</b> (file_unit, axes, time_ops)</td></tr>
@@ -155,7 +158,7 @@ type(<a class="el" href="structdiag__data__mod_1_1diag__fieldtype.html">diag_fie
 <tr class="memdesc:ga76ad7ec293a0815119e9ef5dab351f25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers the time axis and opens the output file.  <a href="group__diag__output__mod.html#ga76ad7ec293a0815119e9ef5dab351f25">More...</a><br /></td></tr>
 <tr class="separator:ga76ad7ec293a0815119e9ef5dab351f25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaff47be1208377e0143a8e043420d0465"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__output__mod.html#gaff47be1208377e0143a8e043420d0465">write_axis_meta_data_fms2_io</a> (file_unit, axes, fileob, time_ops, time_axis_registered)</td></tr>
-<tr class="memdesc:gaff47be1208377e0143a8e043420d0465"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the axes meta data to file.  <a href="group__diag__output__mod.html#gaff47be1208377e0143a8e043420d0465">More...</a><br /></td></tr>
+<tr class="memdesc:gaff47be1208377e0143a8e043420d0465"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the axis meta data to file.  <a href="group__diag__output__mod.html#gaff47be1208377e0143a8e043420d0465">More...</a><br /></td></tr>
 <tr class="separator:gaff47be1208377e0143a8e043420d0465"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gadd968acf9ce82dc9063009e41eecda7a"><td class="memItemLeft" align="right" valign="top">type(<a class="el" href="structdiag__data__mod_1_1diag__fieldtype.html">diag_fieldtype</a>) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__output__mod.html#gadd968acf9ce82dc9063009e41eecda7a">write_field_meta_data_fms2_io</a> (file_unit, name, axes, units, long_name, range, pack, mval, avg_name, time_method, standard_name, interp_method, attributes, num_attributes, use_UGdomain, fileob)</td></tr>
 <tr class="memdesc:gadd968acf9ce82dc9063009e41eecda7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the field meta data to file.  <a href="group__diag__output__mod.html#gadd968acf9ce82dc9063009e41eecda7a">More...</a><br /></td></tr>
@@ -253,7 +256,7 @@ character(len= *), parameter&#160;</td><td class="memItemRight" valign="bottom">
 <tr class="separator:gaf792cbce79e2f7b8dfcb1bfa182a91c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>diag_output_mod is an integral part of diag_manager_mod&lt;. Its function is to write axis-meta-data, field-meta-data and field data </p>
+<p>diag_output_mod is an integral part of diag_manager_mod. Its function is to write axis-meta-data, field-meta-data and field data. </p>
 <dl class="section author"><dt>Author</dt><dd>Seth Underwood </dd></dl>
 <h2 class="groupheader">Function/Subroutine Documentation</h2>
 <a id="gad99a258efd56f01927b3ec1ad6f61c45"></a>
@@ -342,7 +345,7 @@ character(len= *), parameter&#160;</td><td class="memItemRight" valign="bottom">
 <p>Write output to the fileob file</p>
 <p>Figure out which file object to write output to</p>
 
-<p class="definition">Definition at line <a class="el" href="diag__output_8F90_source.html#l01167">1167</a> of file <a class="el" href="diag__output_8F90_source.html">diag_output.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__output_8F90_source.html#l01173">1173</a> of file <a class="el" href="diag__output_8F90_source.html">diag_output.F90</a>.</p>
 
 </div>
 </div>
@@ -433,7 +436,7 @@ character(len= *), parameter&#160;</td><td class="memItemRight" valign="bottom">
 <p>Write output to the fileob file</p>
 <p>Figure out which file object to write output to</p>
 
-<p class="definition">Definition at line <a class="el" href="diag__output_8F90_source.html#l01241">1241</a> of file <a class="el" href="diag__output_8F90_source.html">diag_output.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__output_8F90_source.html#l01247">1247</a> of file <a class="el" href="diag__output_8F90_source.html">diag_output.F90</a>.</p>
 
 </div>
 </div>
@@ -571,7 +574,7 @@ Check to make sure that only domain2D or domainUG is used.  If both are not null
 Check if there is an io_domain
  
 </pre>
-<p class="definition">Definition at line <a class="el" href="diag__output_8F90_source.html#l00142">142</a> of file <a class="el" href="diag__output_8F90_source.html">diag_output.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__output_8F90_source.html#l00148">148</a> of file <a class="el" href="diag__output_8F90_source.html">diag_output.F90</a>.</p>
 
 </div>
 </div>
@@ -681,7 +684,7 @@ Check if there is an io_domain
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__output_8F90_source.html#l00142">142</a> of file <a class="el" href="diag__output_8F90_source.html">diag_output.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__output_8F90_source.html#l00148">148</a> of file <a class="el" href="diag__output_8F90_source.html">diag_output.F90</a>.</p>
 
 </div>
 </div>
@@ -756,7 +759,7 @@ Check if there is an io_domain
 </div><div class="memdoc">
 <p>Check to make sure that only domain2D or domainUG is used. If both are not null, then FATAL</p>
 
-<p class="definition">Definition at line <a class="el" href="diag__output_8F90_source.html#l01345">1345</a> of file <a class="el" href="diag__output_8F90_source.html">diag_output.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__output_8F90_source.html#l01351">1351</a> of file <a class="el" href="diag__output_8F90_source.html">diag_output.F90</a>.</p>
 
 </div>
 </div>
@@ -812,7 +815,7 @@ Check if there is an io_domain
 <p>Write the time data</p>
 <p>Cleanup</p>
 
-<p class="definition">Definition at line <a class="el" href="diag__output_8F90_source.html#l01300">1300</a> of file <a class="el" href="diag__output_8F90_source.html">diag_output.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__output_8F90_source.html#l01306">1306</a> of file <a class="el" href="diag__output_8F90_source.html">diag_output.F90</a>.</p>
 
 </div>
 </div>
@@ -840,7 +843,7 @@ Check if there is an io_domain
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__output_8F90_source.html#l01157">1157</a> of file <a class="el" href="diag__output_8F90_source.html">diag_output.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__output_8F90_source.html#l01163">1163</a> of file <a class="el" href="diag__output_8F90_source.html">diag_output.F90</a>.</p>
 
 </div>
 </div>
@@ -871,7 +874,7 @@ Check if there is an io_domain
 <p>End of use_mpp_io = true routines/functions everything else is shared by both. </p>
 <p>Return the axis index number. </p><dl class="section return"><dt>Returns</dt><dd>Integer index </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__output_8F90_source.html#l02116">2116</a> of file <a class="el" href="diag__output_8F90_source.html">diag_output.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__output_8F90_source.html#l02122">2122</a> of file <a class="el" href="diag__output_8F90_source.html">diag_output.F90</a>.</p>
 
 </div>
 </div>
@@ -959,7 +962,7 @@ Check if there is an io_domain
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__output_8F90_source.html#l01097">1097</a> of file <a class="el" href="diag__output_8F90_source.html">diag_output.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__output_8F90_source.html#l01103">1103</a> of file <a class="el" href="diag__output_8F90_source.html">diag_output.F90</a>.</p>
 
 </div>
 </div>
@@ -1047,7 +1050,7 @@ Check if there is an io_domain
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__output_8F90_source.html#l01097">1097</a> of file <a class="el" href="diag__output_8F90_source.html">diag_output.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__output_8F90_source.html#l01103">1103</a> of file <a class="el" href="diag__output_8F90_source.html">diag_output.F90</a>.</p>
 
 </div>
 </div>
@@ -1122,7 +1125,7 @@ Check if there is an io_domain
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__output_8F90_source.html#l01960">1960</a> of file <a class="el" href="diag__output_8F90_source.html">diag_output.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__output_8F90_source.html#l01966">1966</a> of file <a class="el" href="diag__output_8F90_source.html">diag_output.F90</a>.</p>
 
 </div>
 </div>
@@ -1197,7 +1200,7 @@ Check if there is an io_domain
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__output_8F90_source.html#l01960">1960</a> of file <a class="el" href="diag__output_8F90_source.html">diag_output.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__output_8F90_source.html#l01966">1966</a> of file <a class="el" href="diag__output_8F90_source.html">diag_output.F90</a>.</p>
 
 </div>
 </div>
@@ -1253,7 +1256,7 @@ Check if there is an io_domain
 </table>
 </div><div class="memdoc">
 
-<p>Write the axes meta data to file. </p>
+<p>Write the axis meta data to file. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">file_unit</td><td>File unit number </td></tr>
@@ -1263,7 +1266,7 @@ Check if there is an io_domain
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__output_8F90_source.html#l00322">322</a> of file <a class="el" href="diag__output_8F90_source.html">diag_output.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__output_8F90_source.html#l00328">328</a> of file <a class="el" href="diag__output_8F90_source.html">diag_output.F90</a>.</p>
 
 </div>
 </div>
@@ -1319,7 +1322,7 @@ Check if there is an io_domain
 </table>
 </div><div class="memdoc">
 
-<p>Write the axes meta data to file. </p>
+<p>Write the axis meta data to file. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">file_unit</td><td>File unit number </td></tr>
@@ -1331,7 +1334,7 @@ Check if there is an io_domain
 <dl class="section note"><dt>Note</dt><dd>Check if the time variable is registered. It's possible that is_time_axis_registered is set to true if using time-templated files because they aren't closed when done writing. An alternative to this set up would be to put variable_exists into the if statement with an .or. so that it gets registered.</dd></dl>
 <p>Add edges axis with fms2_io</p>
 
-<p class="definition">Definition at line <a class="el" href="diag__output_8F90_source.html#l00322">322</a> of file <a class="el" href="diag__output_8F90_source.html">diag_output.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__output_8F90_source.html#l00328">328</a> of file <a class="el" href="diag__output_8F90_source.html">diag_output.F90</a>.</p>
 
 </div>
 </div>
@@ -1484,7 +1487,7 @@ Check if there is an io_domain
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__output_8F90_source.html#l00803">803</a> of file <a class="el" href="diag__output_8F90_source.html">diag_output.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__output_8F90_source.html#l00809">809</a> of file <a class="el" href="diag__output_8F90_source.html">diag_output.F90</a>.</p>
 
 </div>
 </div>
@@ -1637,7 +1640,7 @@ Check if there is an io_domain
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__output_8F90_source.html#l00803">803</a> of file <a class="el" href="diag__output_8F90_source.html">diag_output.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__output_8F90_source.html#l00809">809</a> of file <a class="el" href="diag__output_8F90_source.html">diag_output.F90</a>.</p>
 
 </div>
 </div>

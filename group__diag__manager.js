@@ -1,6 +1,6 @@
 var group__diag__manager =
 [
-    [ "Diag_axis_mod", "group__diag__axis__mod.html", "group__diag__axis__mod" ],
+    [ "diag_axis_mod", "group__diag__axis__mod.html", "group__diag__axis__mod" ],
     [ "diag_data_mod", "group__diag__data__mod.html", "group__diag__data__mod" ],
     [ "diag_grid_mod", "group__diag__grid__mod.html", "group__diag__grid__mod" ],
     [ "diag_manager_mod", "group__diag__manager__mod.html", "group__diag__manager__mod" ],

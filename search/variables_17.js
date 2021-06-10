@@ -1,14 +1,21 @@
 var searchData=
 [
-  ['x_4422',['x',['../group__diag__grid__mod.html#gab0aad012248673bbebc1382484d5344a',1,'diag_grid_mod::point::x()'],['../group__xgrid__mod.html#ga46116168b7761760f4188909ac03589b',1,'xgrid_mod::grid_type::x()']]],
-  ['x1_4423',['x1',['../group__xgrid__mod.html#gaeae3101216812dacb59a76ad86bc62c7',1,'xgrid_mod::xmap_type']]],
-  ['x1_5fput_4424',['x1_put',['../group__xgrid__mod.html#ga7fec775ff6d43fc26797acab3f63c8e2',1,'xgrid_mod::xmap_type']]],
-  ['x2_4425',['x2',['../group__xgrid__mod.html#ga92024cf0024e8c57fab9bd23dc89e979',1,'xgrid_mod::xmap_type']]],
-  ['x2_5fget_4426',['x2_get',['../group__xgrid__mod.html#gaed7320b532ba202187b2de6497ded52d',1,'xgrid_mod::xmap_type']]],
-  ['x_5fhalo_4427',['x_halo',['../group__netcdf__io__mod.html#ga19a65113470aa762db83e551c29fcafb',1,'netcdf_io_mod::bc_information']]],
-  ['x_5frepro_4428',['x_repro',['../group__xgrid__mod.html#ga71d8dac3214803c8ab7d2f7db389f94f',1,'xgrid_mod::grid_type']]],
-  ['xdims_4429',['xdims',['../group__fms__netcdf__domain__io__mod.html#gaa31d4c0413543bc019258235ba00ba2d',1,'fms_netcdf_domain_io_mod::fmsnetcdfdomainfile_t']]],
-  ['xu_4430',['xu',['../group__drifters__mod.html#gab14cbecd886ff26189d30b96592fb680',1,'drifters_mod::drifters_type']]],
-  ['xv_4431',['xv',['../group__drifters__mod.html#gacfcbedb22d1546d33ee1a9483f37a9b6',1,'drifters_mod::drifters_type']]],
-  ['xw_4432',['xw',['../group__drifters__mod.html#ga601ac90d9061ba9877a140c5396a80bd',1,'drifters_mod::drifters_type']]]
+  ['x_4498',['x',['../group__diag__grid__mod.html#gab0aad012248673bbebc1382484d5344a',1,'diag_grid_mod::point::x()'],['../group__xgrid__mod.html#ga46116168b7761760f4188909ac03589b',1,'xgrid_mod::grid_type::x()']]],
+  ['x1_4499',['x1',['../group__xgrid__mod.html#gaeae3101216812dacb59a76ad86bc62c7',1,'xgrid_mod::xmap_type']]],
+  ['x1_5fput_4500',['x1_put',['../group__xgrid__mod.html#ga7fec775ff6d43fc26797acab3f63c8e2',1,'xgrid_mod::xmap_type']]],
+  ['x2_4501',['x2',['../group__xgrid__mod.html#ga92024cf0024e8c57fab9bd23dc89e979',1,'xgrid_mod::xmap_type']]],
+  ['x2_5fget_4502',['x2_get',['../group__xgrid__mod.html#gaed7320b532ba202187b2de6497ded52d',1,'xgrid_mod::xmap_type']]],
+  ['x_5fhalo_4503',['x_halo',['../group__netcdf__io__mod.html#ga19a65113470aa762db83e551c29fcafb',1,'netcdf_io_mod::bc_information']]],
+  ['x_5frepro_4504',['x_repro',['../group__xgrid__mod.html#ga71d8dac3214803c8ab7d2f7db389f94f',1,'xgrid_mod::grid_type']]],
+  ['xcmax_4505',['xcmax',['../group__drifters__comm__mod.html#gaa79118f30f51245bff6eca48fa137b22',1,'drifters_comm_mod::drifters_comm_type']]],
+  ['xcmin_4506',['xcmin',['../group__drifters__comm__mod.html#ga99497d0511e6c3c0e52a2c007aef6e41',1,'drifters_comm_mod::drifters_comm_type']]],
+  ['xdims_4507',['xdims',['../group__fms__netcdf__domain__io__mod.html#gaa31d4c0413543bc019258235ba00ba2d',1,'fms_netcdf_domain_io_mod::fmsnetcdfdomainfile_t']]],
+  ['xdmax_4508',['xdmax',['../group__drifters__comm__mod.html#ga6c9175b8cc92b2694cde7d3a3a1df9bf',1,'drifters_comm_mod::drifters_comm_type']]],
+  ['xdmin_4509',['xdmin',['../group__drifters__comm__mod.html#ga1012e864441d93e2209e5f9934fff559',1,'drifters_comm_mod::drifters_comm_type']]],
+  ['xgmax_4510',['xgmax',['../group__drifters__comm__mod.html#ga0e95b8cbe6cf0a10d04de338c1524083',1,'drifters_comm_mod::drifters_comm_type']]],
+  ['xgmin_4511',['xgmin',['../group__drifters__comm__mod.html#ga59ef58548d561ad6f55bc514028c8fd5',1,'drifters_comm_mod::drifters_comm_type']]],
+  ['xperiodic_4512',['xperiodic',['../group__drifters__comm__mod.html#gaa2df955c2a9cce8d03ecebc3c20f12b6',1,'drifters_comm_mod::drifters_comm_type']]],
+  ['xu_4513',['xu',['../group__drifters__mod.html#gab14cbecd886ff26189d30b96592fb680',1,'drifters_mod::drifters_type']]],
+  ['xv_4514',['xv',['../group__drifters__mod.html#gacfcbedb22d1546d33ee1a9483f37a9b6',1,'drifters_mod::drifters_type']]],
+  ['xw_4515',['xw',['../group__drifters__mod.html#ga601ac90d9061ba9877a140c5396a80bd',1,'drifters_mod::drifters_type']]]
 ];

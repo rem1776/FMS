@@ -105,7 +105,10 @@ $(document).ready(function(){initNavTree('group__drifters__mod.html',''); initRe
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Types</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">type &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdrifters__mod_1_1drifters__type.html">drifters_type</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">type to hold drifter data  <a href="structdrifters__mod_1_1drifters__type.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds all data needed for drifters communication, io, and input.  <a href="structdrifters__mod_1_1drifters__type.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacedrifters__mod_1_1assignment_07_0a_08.html">assignment(=)</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assignment override for <a class="el" href="structdrifters__mod_1_1drifters__type.html">drifters_type</a>.  <a href="interfacedrifters__mod_1_1assignment_07_0a_08.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacedrifters__mod_1_1drifters__push.html">drifters_push</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -116,6 +119,9 @@ Data Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
+<tr class="memitem:ga77df2c07e38b6a17074208a8e6dc6827"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__drifters__mod.html#ga77df2c07e38b6a17074208a8e6dc6827">drifters_copy_new</a> (new_instance, old_instance)</td></tr>
+<tr class="memdesc:ga77df2c07e38b6a17074208a8e6dc6827"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy a drifter state into a new state. Note: this will not open new files; this will copy all members into a new container.  <a href="group__drifters__mod.html#ga77df2c07e38b6a17074208a8e6dc6827">More...</a><br /></td></tr>
+<tr class="separator:ga77df2c07e38b6a17074208a8e6dc6827"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga42976b1adf1dbcdf0537eed421f4306d"><td class="memItemLeft" align="right" valign="top"><a id="ga42976b1adf1dbcdf0537eed421f4306d"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>drifters_push_2</b></td></tr>
 <tr class="separator:ga42976b1adf1dbcdf0537eed421f4306d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -294,8 +300,55 @@ logical, dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bo
 <p>There are a number of basic assumptions which could make the drifters' module ill-suited for some tasks. First and foremost, it is assumed that the motion of drifters is not erratic but follows deterministic trajectories. Furthermore, drifters should not cross both compute and data domain boundaries within less than a time step. This limitation is imposed by the Runge-Kutta integration scheme, which must be able to complete, within a time step, a trajectory calculation that starts inside the compute domain and ends inside the data domain. Therefore, the drifters, as they are presently modelled, are unlikely to work for very fast objects. This constraint also puts a upper limit to the domain decomposition, although it can often be remedied by increasing the number of ghost nodes.</p>
 <p>Another fundamental assumption is that the (e.g. velocity) fields are structured, on a per PE domain basis. There is no support for locally nested or unstrucured meshes. Meshes need not be smooth and continuous across PE domains, however. </p>
 <h2 class="groupheader">Function/Subroutine Documentation</h2>
+<a id="ga77df2c07e38b6a17074208a8e6dc6827"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga77df2c07e38b6a17074208a8e6dc6827">&#9670;&nbsp;</a></span>drifters_copy_new() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine drifters_copy_new </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structdrifters__mod_1_1drifters__type.html">drifters_type</a>), intent(inout)&#160;</td>
+          <td class="paramname"><em>new_instance</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structdrifters__mod_1_1drifters__type.html">drifters_type</a>), intent(in)&#160;</td>
+          <td class="paramname"><em>old_instance</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copy a drifter state into a new state. Note: this will not open new files; this will copy all members into a new container. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">old_instance</td><td>Old data structure. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">new_instance</td><td>New data structure. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="drifters_8F90_source.html#l00376">376</a> of file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
+
+</div>
+</div>
 <a id="ga2cc7e1a7540ae440979e31b88f2e733c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga2cc7e1a7540ae440979e31b88f2e733c">&#9670;&nbsp;</a></span>drifters_copy_new()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2cc7e1a7540ae440979e31b88f2e733c">&#9670;&nbsp;</a></span>drifters_copy_new() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">

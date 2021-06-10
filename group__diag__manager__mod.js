@@ -22,10 +22,6 @@ var group__diag__manager__mod =
       [ "diag_field_add_attribute_scalar_i", "group__diag__manager__mod.html#ga79049d61a5019dc2e57c022f55ed8bc9", null ],
       [ "diag_field_add_attribute_scalar_r", "group__diag__manager__mod.html#ga7cf98598f27c8f80db618771255f3c12", null ]
     ] ],
-    [ "send_data Interface", "group__diag__manager__mod.html#send_data", null ],
-    [ "register_diag_field Interface", "group__diag__manager__mod.html#register_diag_field", null ],
-    [ "send_tile_averaged_data Interface", "group__diag__manager__mod.html#send_tile_averaged_data", null ],
-    [ "diag_field_add_attribute Interface", "group__diag__manager__mod.html#diag_field_add_attribute", null ],
     [ "add_associated_files", "group__diag__manager__mod.html#gaa80b10875fe293f5d1d2dc0dc27940bc", null ],
     [ "average_tiles", "group__diag__manager__mod.html#ga92cac6ff74dff1387dc8352e33004aa8", null ],
     [ "average_tiles1d", "group__diag__manager__mod.html#gacfae2b80cc7823bc8b6a4c5960d58165", null ],

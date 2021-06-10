@@ -79,5 +79,13 @@ var group__field__manager__mod =
       [ "prev", "group__field__manager__mod.html#ga891c1bf9a92c1d5f5d4024144de27f18", null ],
       [ "r_value", "group__field__manager__mod.html#ga179802a5069bc69f7fd65537746fcaeb", null ],
       [ "s_value", "group__field__manager__mod.html#gab8403bbfc8e2fc53ca9326844f7b82c6", null ]
-    ] ]
+    ] ],
+    [ "field_manager_end", "group__field__manager__mod.html#ga776a916be1fc2a7eaf6aacb74bb30fce", null ],
+    [ "field_manager_init", "group__field__manager__mod.html#ga8a2e295bd455ae452c73eb4a6ba85e2c", null ],
+    [ "new_name", "group__field__manager__mod.html#gae13e12ba463946cba61e349c3a4ce2c7", null ],
+    [ "strip_front_blanks", "group__field__manager__mod.html#ga24ea091bcf33c4a098f9bf35043c9641", null ],
+    [ "method_control", "group__field__manager__mod.html#ga781981a9bcaabce7bd12fc11cd5b28a8", null ],
+    [ "method_name", "group__field__manager__mod.html#gaccdbc7774bba3d7f91245e572fe7a434", null ],
+    [ "method_type", "group__field__manager__mod.html#ga5933ec40d096d918a0eb56cba325fe8f", null ],
+    [ "ptr", "group__field__manager__mod.html#gaee2f66e27a36faabfaf3cdc5578c4fbe", null ]
 ];

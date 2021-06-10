@@ -7,7 +7,6 @@ var group__diag__axis__mod =
       [ "diag_axis_add_attribute_scalar_i", "group__diag__axis__mod.html#gaec0ae5a49fe24b6b36263fcb8810caa5", null ],
       [ "diag_axis_add_attribute_scalar_r", "group__diag__axis__mod.html#ga7c43387dd3801c36a874d54bc5806b2a", null ]
     ] ],
-    [ "diag_axis_add_attribute Interface", "group__diag__axis__mod.html#diag_axis_add_attribute", null ],
     [ "attribute_init_axis", "group__diag__axis__mod.html#ga52728abc762146731925f0c2ed7bfe93", null ],
     [ "axis_compatible_check", "group__diag__axis__mod.html#ga241aaf31afd11ff2c6ffbfc746487f0f", null ],
     [ "axis_is_compressed", "group__diag__axis__mod.html#gac03680db8c3e54bc0547b4d68668e791", null ],

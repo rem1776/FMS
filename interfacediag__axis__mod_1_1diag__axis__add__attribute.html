@@ -94,9 +94,12 @@ $(document).ready(function(){initNavTree('interfacediag__axis__mod_1_1diag__axis
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="interfacediag__axis__mod_1_1diag__axis__add__attribute-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">diag_axis_add_attribute Interface Reference<div class="ingroups"><a class="el" href="group__diag__manager.html">Diag Manager</a> &raquo; <a class="el" href="group__diag__axis__mod.html">Diag_axis_mod</a></div></div>  </div>
+<div class="title">diag_axis_add_attribute Interface Reference<div class="ingroups"><a class="el" href="group__diag__manager.html">Diag Manager</a> &raquo; <a class="el" href="group__diag__axis__mod.html">diag_axis_mod</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Add an arbitrary attribute and value to the diagnostic axis.  
+ <a href="interfacediag__axis__mod_1_1diag__axis__add__attribute.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -117,8 +120,13 @@ subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>diag_axis_add_a
 <tr class="separator:ga8f022a3cfde8bd4e3781b98b96514fab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l00110">110</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
+<div class="textblock"><p>Add an arbitrary attribute and value to the diagnostic axis. </p>
+<p>Any number of attributes can be added to a given axis. All attribute addition must be done before first <code>send_data</code> call.<br  />
+</p>
+<p>If a real or integer attribute is already defined, a FATAL error will be called. If a character attribute is already defined, then it will be prepended to the existing attribute value. <br  />
+Example usage: </p><div class="fragment"><div class="line"><span class="keyword">call </span>diag_axis_add_attribute(diag_axis_id, att_name, att_value) </div>
+</div><!-- fragment --> 
+<p class="definition">Definition at line <a class="el" href="diag__axis_8F90_source.html#l00109">109</a> of file <a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a>.</p>
 </div><hr/>The documentation for this interface was generated from the following file:<ul>
 <li>diag_manager/<a class="el" href="diag__axis_8F90_source.html">diag_axis.F90</a></li>
 </ul>

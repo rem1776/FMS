@@ -94,15 +94,15 @@ $(document).ready(function(){initNavTree('interfacediag__integral__mod_1_1sum__d
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="interfacediag__integral__mod_1_1sum__diag__integral__field-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">sum_diag_integral_field Interface Reference<div class="ingroups"><a class="el" href="group__diag__integral.html">Diag Integral</a> &raquo; <a class="el" href="group__diag__integral__mod.html">diag_integral_mod</a></div></div>  </div>
+<div class="title">sum_diag_integral_field Interface Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>This interface can be called in any one of three ways:  
+ <a href="interfacediag__integral__mod_1_1sum__diag__integral__field.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:gac0f831362d6a97202f1b4b1968fc9cdd"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__integral__mod.html#gac0f831362d6a97202f1b4b1968fc9cdd">sum_field_2d</a> (name, data, is, js)</td></tr>
-<tr class="memdesc:gac0f831362d6a97202f1b4b1968fc9cdd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform a 2 dimensional summation of named field.  <a href="group__diag__integral__mod.html#gac0f831362d6a97202f1b4b1968fc9cdd">More...</a><br /></td></tr>
-<tr class="separator:gac0f831362d6a97202f1b4b1968fc9cdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga0e424c6e37720e27f2e0c906e41f90c9"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__integral__mod.html#ga0e424c6e37720e27f2e0c906e41f90c9">sum_field_2d_hemi</a> (name, data, is, ie, js, je)</td></tr>
 <tr class="memdesc:ga0e424c6e37720e27f2e0c906e41f90c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform a 2 dimensional hemispherical summation of named field.  <a href="group__diag__integral__mod.html#ga0e424c6e37720e27f2e0c906e41f90c9">More...</a><br /></td></tr>
 <tr class="separator:ga0e424c6e37720e27f2e0c906e41f90c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -114,8 +114,27 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:ga8ac6f60841cf9d590071aa3133a90481"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="diag__integral_8F90_source.html#l00139">139</a> of file <a class="el" href="diag__integral_8F90_source.html">diag_integral.F90</a>.</p>
+<div class="textblock"><p>This interface can be called in any one of three ways: </p>
+<div class="fragment"><div class="line"><span class="keyword">call </span>sum_diag_integral_field (name, <span class="keyword">data</span>, is, js)</div>
+<div class="line"><span class="keyword">call </span>sum_diag_integral_field (name, <span class="keyword">data</span>, wt, is, js)</div>
+<div class="line"><span class="keyword">call </span>sum_diag_integral_field (name, <span class="keyword">data</span>, is, ie, js, je)</div>
+</div><!-- fragment --><p>in the first option above, <code>data</code> may be either </p><div class="fragment"><div class="line"><span class="keywordtype">real</span>, <span class="keywordtype">intent(in)</span> :: data(:,:)   <span class="comment">![ sum_field_2d ]</span></div>
+<div class="line"><span class="keywordtype">real</span>, <span class="keywordtype">intent(in)</span> :: data(:,:,:) ![ sum_field_3d ]</div>
+</div><!-- fragment --><p><b> Parameters: </b></p>
+<div class="fragment"><div class="line"><span class="keywordtype">character(len=*)</span>,  <span class="keywordtype">intent(in)</span> :: name</div>
+<div class="line"><span class="keywordtype">real</span>,              <span class="keywordtype">intent(in)</span> :: wt(:,:,:)</div>
+<div class="line"><span class="keywordtype">integer</span>, <span class="keywordtype">optional</span>, <span class="keywordtype">intent(in)</span> :: is, ie, js, je</div>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;name&gt;</td><td>name associated with integral </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;data&gt;</td><td>field of integrands to be summed over </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;wt&gt;</td><td>vertical weighting factor to be applied to integrands when summing </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;is,ie,js,je&gt;</td><td>starting/ending i,j indices over which summation is to occur </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="diag__integral_8F90_source.html#l00136">136</a> of file <a class="el" href="diag__integral_8F90_source.html">diag_integral.F90</a>.</p>
 </div><hr/>The documentation for this interface was generated from the following file:<ul>
 <li>diag_integral/<a class="el" href="diag__integral_8F90_source.html">diag_integral.F90</a></li>
 </ul>

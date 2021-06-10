@@ -27,8 +27,6 @@ var group__data__override__mod =
       [ "data_override_ug_1d", "group__data__override__mod.html#ga131bfed766bd0e1634e33252fa154d27", null ],
       [ "data_override_ug_2d", "group__data__override__mod.html#ga8d44f0d204a28d7b7ad53fc76a819929", null ]
     ] ],
-    [ "data_override Interface", "group__data__override__mod.html#data_override_interface", null ],
-    [ "data_override_UG Interface", "group__data__override__mod.html#data_override_ug", null ],
     [ "data_override_0d", "group__data__override__mod.html#gaf96935254adf9244126eac38447749da", null ],
     [ "data_override_0d", "group__data__override__mod.html#ga755e344bff837fddf7d6228ac5a29560", null ],
     [ "data_override_2d", "group__data__override__mod.html#gaadc22eb1ca02590bc16a32f96d3df485", null ],

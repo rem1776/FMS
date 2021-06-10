@@ -97,6 +97,9 @@ $(document).ready(function(){initNavTree('interfacediag__manager__mod_1_1send__d
 <div class="title">send_data Interface Reference<div class="ingroups"><a class="el" href="group__diag__manager.html">Diag Manager</a> &raquo; <a class="el" href="group__diag__manager__mod.html">diag_manager_mod</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Send data over to output fields.  
+ <a href="interfacediag__manager__mod_1_1send__data.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -110,7 +113,23 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:gadc7730140b949d91e2bd2c3342b3a407"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
+<div class="textblock"><p>Send data over to output fields. </p>
+<p><code><a class="el" href="interfacediag__manager__mod_1_1send__data.html" title="Send data over to output fields.">send_data</a></code> is overloaded for fields having zero dimension (scalars) to 3 dimension. <code>diag_field_id</code> corresponds to the id returned from a previous call to <code><a class="el" href="interfacediag__manager__mod_1_1register__diag__field.html" title="Register a diagnostic field for a given module.">register_diag_field</a></code>. The field array is restricted to the computational range of the array. Optional argument <code>is_in</code> can be used to update sub-arrays of the entire field. Additionally, an optional logical or real mask can be used to apply missing values to the array.</p>
+<p>If a field is declared to be <code>mask_variant</code> in <code><a class="el" href="interfacediag__manager__mod_1_1register__diag__field.html" title="Register a diagnostic field for a given module.">register_diag_field</a></code> logical mask should be mandatory.</p>
+<p>For the real mask, the mask is applied if the mask value is less than 0.5.</p>
+<p>By default, a field will be written out entirely in its global grid. Users can also specify regions in which the field will be output. The region is specified in diag-table just before the end of output_field replacing "none".</p>
+<p>For example, by default:</p>
+<p>"ocean_mod","Vorticity","vorticity","file1","all",.false.,"none",2</p>
+<p>for regional output:</p>
+<p>"ocean_mod","Vorticity","vorticity_local","file2","all",.false.,"0.5 53.5 -89.5 -28.5 -1 -1",2</p>
+<p>The format of a region is "&lt;TT&gt;xbegin xend ybegin yend zbegin zend&lt;/TT&gt;". If it is a 2D field use (-1 -1) for (zbegin zend) as in the example above. For a 3D field use (-1 -1) for (zbegin zend) when you want to write the entire vertical extent, otherwise specify real coordinates. The units used for region are the actual units used in grid_spec.nc (for example degrees for lat, lon). <b><em>NOTE:</em></b> A FATAL error will occur if the region's boundaries are not found in grid_spec.nc.</p>
+<p>Regional output on the cubed sphere grid is also supported. To use regional output on the cubed sphere grid, first the grid information needs to be sent to <code>diag_manager_mod</code> using the diag_grid::diag_grid_init subroutine.</p>
+<dl class="section note"><dt>Note</dt><dd>When using regional output the files containing regional outputs should be different from files containing global (default) output. It is a FATAL error to have one file containing both regional and global results. For maximum flexibility and independence from PE counts one file should contain just one region.</dd></dl>
+<p>Time averaging is supported in regional output.</p>
+<p>Physical fields (written in "physics windows" of atmospheric code) are fully supported for regional outputs.</p>
+<p><b><em>NOTE:</em></b> Most fields are defined in the data domain but use the compute domain. In <code><a class="el" href="interfacediag__manager__mod_1_1send__data.html" title="Send data over to output fields.">send_data</a></code> the field can be passed in either the data domain or in the compute domain. If the data domain is used, the start and end indicies of the compute domain (isc, iec, . . .) should be passed. If the compute domain is used no indices are needed. The indices are for determining halo exclusively. If users want to output the field partially they should use regional output as mentioned above.</p>
+<p>Weight in Time averaging is now supported, each time level may have a different weight. The default of weight is 1. </p>
+
 <p class="definition">Definition at line <a class="el" href="diag__manager_8F90_source.html#l00544">544</a> of file <a class="el" href="diag__manager_8F90_source.html">diag_manager.F90</a>.</p>
 </div><hr/>The documentation for this interface was generated from the following file:<ul>
 <li>diag_manager/<a class="el" href="diag__manager_8F90_source.html">diag_manager.F90</a></li>

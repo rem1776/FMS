@@ -1,12 +1,5 @@
 var group__diag__integral__mod =
 [
-    [ "sum_diag_integral_field", "interfacediag__integral__mod_1_1sum__diag__integral__field.html", [
-      [ "sum_field_2d", "group__diag__integral__mod.html#gac0f831362d6a97202f1b4b1968fc9cdd", null ],
-      [ "sum_field_2d_hemi", "group__diag__integral__mod.html#ga0e424c6e37720e27f2e0c906e41f90c9", null ],
-      [ "sum_field_3d", "group__diag__integral__mod.html#ga1cba6dfb87e5ecd7777e639a839744a7", null ],
-      [ "sum_field_wght_3d", "group__diag__integral__mod.html#ga8ac6f60841cf9d590071aa3133a90481", null ]
-    ] ],
-    [ "sum_diag_integral_field Interface", "group__diag__integral__mod.html#sum_diag_integral_field", null ],
     [ "diag_integral_alarm", "group__diag__integral__mod.html#gafa172fde50423184584c72dba95637ba", null ],
     [ "diag_integral_end", "group__diag__integral__mod.html#gae242cb7883e5522984b902a09680fce8", null ],
     [ "diag_integral_field_init", "group__diag__integral__mod.html#ga38c31ccb17c6433d4228180ea57ac312", null ],
@@ -18,14 +11,13 @@ var group__diag__integral__mod =
     [ "get_axis_time", "group__diag__integral__mod.html#ga540264ce75871d1d3292481babb8f3c6", null ],
     [ "get_field_index", "group__diag__integral__mod.html#gab2168ca36ffd9b5e365fb5c7e61ee250", null ],
     [ "set_axis_time", "group__diag__integral__mod.html#ga00d45acfb42ff2414dd441f2cdc333ff", null ],
-    [ "sum_field_2d", "group__diag__integral__mod.html#gac0f831362d6a97202f1b4b1968fc9cdd", null ],
     [ "sum_field_2d", "group__diag__integral__mod.html#ga0c2751f24f506c64c23f0daf2e73f568", null ],
     [ "sum_field_2d_hemi", "group__diag__integral__mod.html#ga0e424c6e37720e27f2e0c906e41f90c9", null ],
     [ "sum_field_2d_hemi", "group__diag__integral__mod.html#gaa45714569a3ecc9c6abd791fe89592a3", null ],
-    [ "sum_field_3d", "group__diag__integral__mod.html#gacef93068c7216775b7463fefbb612d1c", null ],
     [ "sum_field_3d", "group__diag__integral__mod.html#ga1cba6dfb87e5ecd7777e639a839744a7", null ],
-    [ "sum_field_wght_3d", "group__diag__integral__mod.html#ga8ac6f60841cf9d590071aa3133a90481", null ],
+    [ "sum_field_3d", "group__diag__integral__mod.html#gacef93068c7216775b7463fefbb612d1c", null ],
     [ "sum_field_wght_3d", "group__diag__integral__mod.html#gac4ed56fbaeb378f3c7963bf3db8aa005", null ],
+    [ "sum_field_wght_3d", "group__diag__integral__mod.html#ga8ac6f60841cf9d590071aa3133a90481", null ],
     [ "vert_diag_integral", "group__diag__integral__mod.html#gae023636a7094ca5b81f52e41cd283db1", null ],
     [ "write_field_averages", "group__diag__integral__mod.html#gabe5084a54ef60e332571b9144be196b6", null ],
     [ "alarm_interval", "group__diag__integral__mod.html#gab3abaf1f650ff20ae8283804245794b0", null ],

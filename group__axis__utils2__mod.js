@@ -5,7 +5,6 @@ var group__axis__utils2__mod =
       [ "interp_1d_2d", "group__axis__utils2__mod.html#ga64e4ffe9078c6d8aa841f35968211e09", null ],
       [ "interp_1d_3d", "group__axis__utils2__mod.html#ga6c7bb4e4b93559a972ac8337f1f23581", null ]
     ] ],
-    [ "interp_1d Interface", "group__axis__utils2__mod.html#interp_1d_2", null ],
     [ "axis_edges", "group__axis__utils2__mod.html#ga1e29570b4df28d09b209b5ce4afb13bb", null ],
     [ "frac_index", "group__axis__utils2__mod.html#ga66cb5a2069d0ed24abe8681758ec4133", null ],
     [ "get_axis_cart", "group__axis__utils2__mod.html#ga66e6c18dfe1a034cec361cfdf195b2d3", null ],
