@@ -5,7 +5,7 @@ var amip__interp_8F90 =
     [ "amip_interp_init", "amip__interp_8F90.html#ga6da33323528930f4680012957d27d6db", null ],
     [ "amip_interp_new_1d", "amip__interp_8F90.html#gabd2d93a46d61e06656c1d6fb0bc860ed", null ],
     [ "amip_interp_new_2d", "amip__interp_8F90.html#gaa1b090c156ea2e60936d5da08fb84dba", null ],
-    [ "amip_interp_type_eq", "amip__interp_8F90.html#gaeba1dc21cf01a9f9feebae218b3b4f65", null ],
+    [ "amip_interp_type_eq", "amip__interp_8F90.html#aeba1dc21cf01a9f9feebae218b3b4f65", null ],
     [ "clip_data", "amip__interp_8F90.html#ga7390f897433888970a63a6db8225fe1e", null ],
     [ "date_equals", "amip__interp_8F90.html#ga78cc915a2f75e5194c47758fb9cb1654", null ],
     [ "date_gt", "amip__interp_8F90.html#gae2ca4248791964f82f9a57dd37d893fa", null ],
