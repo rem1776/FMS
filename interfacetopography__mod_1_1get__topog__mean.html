@@ -94,7 +94,7 @@ $(document).ready(function(){initNavTree('interfacetopography__mod_1_1get__topog
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="interfacetopography__mod_1_1get__topog__mean-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">get_topog_mean Interface Reference</div>  </div>
+<div class="title">get_topog_mean Interface Reference<div class="ingroups"><a class="el" href="group__topography.html">Topography</a> &raquo; <a class="el" href="group__topography__mod.html">topography_mod</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -103,12 +103,12 @@ $(document).ready(function(){initNavTree('interfacetopography__mod_1_1get__topog
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:ga30d0b28c29803722eb8ad928d79107de"><td class="memItemLeft" align="right" valign="top">logical function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__topography__mod.html#ga30d0b28c29803722eb8ad928d79107de">get_topog_mean_1d</a> (blon, blat, zmean)</td></tr>
-<tr class="memdesc:ga30d0b28c29803722eb8ad928d79107de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a "realistic" mean surface height field.  <a href="group__topography__mod.html#ga30d0b28c29803722eb8ad928d79107de">More...</a><br /></td></tr>
-<tr class="separator:ga30d0b28c29803722eb8ad928d79107de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gacceb546ce02f4b3e7ee5d9ad08982981"><td class="memItemLeft" align="right" valign="top">
+<tr class="memitem:a30d0b28c29803722eb8ad928d79107de"><td class="memItemLeft" align="right" valign="top">logical function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacetopography__mod_1_1get__topog__mean.html#a30d0b28c29803722eb8ad928d79107de">get_topog_mean_1d</a> (blon, blat, zmean)</td></tr>
+<tr class="memdesc:a30d0b28c29803722eb8ad928d79107de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a "realistic" mean surface height field.  <a href="interfacetopography__mod_1_1get__topog__mean.html#a30d0b28c29803722eb8ad928d79107de">More...</a><br /></td></tr>
+<tr class="separator:a30d0b28c29803722eb8ad928d79107de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acceb546ce02f4b3e7ee5d9ad08982981"><td class="memItemLeft" align="right" valign="top"><a id="acceb546ce02f4b3e7ee5d9ad08982981"></a>
 logical function&#160;</td><td class="memItemRight" valign="bottom"><b>get_topog_mean_2d</b> (blon, blat, zmean)</td></tr>
-<tr class="separator:gacceb546ce02f4b3e7ee5d9ad08982981"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:acceb546ce02f4b3e7ee5d9ad08982981"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Returns a "realistic" mean surface height field. </p>
@@ -125,8 +125,56 @@ logical function&#160;</td><td class="memItemRight" valign="bottom"><b>get_topog
 <p><br  />
 Example usage: </p><div class="fragment"><div class="line">flag = get_topog_mean( blon, blat, zmean )</div>
 </div><!-- fragment --> 
-<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00089">89</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
-</div><hr/>The documentation for this interface was generated from the following file:<ul>
+<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00088">88</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
+</div><h2 class="groupheader">Member Function/Subroutine Documentation</h2>
+<a id="a30d0b28c29803722eb8ad928d79107de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30d0b28c29803722eb8ad928d79107de">&#9670;&nbsp;</a></span>get_topog_mean_1d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">logical function get_topog_mean_1d </td>
+          <td>(</td>
+          <td class="paramtype">real, dimension(:), intent(in)&#160;</td>
+          <td class="paramname"><em>blon</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:), intent(in)&#160;</td>
+          <td class="paramname"><em>blat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:,:), intent(out)&#160;</td>
+          <td class="paramname"><em>zmean</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a "realistic" mean surface height field. </p>
+<p>Returns realistic mountains on a latitude-longtude grid. The returned field is the mean topography for the given grid boxes. Computed using a conserving area-weighted interpolation. The current input data set is the 1/6 degree Navy mean topography. </p>
+
+<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00321">321</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this interface was generated from the following file:<ul>
 <li>topography/<a class="el" href="topography_8F90_source.html">topography.F90</a></li>
 </ul>
 </div><!-- contents -->

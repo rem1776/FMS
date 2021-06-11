@@ -25,7 +25,6 @@ var modules =
     [ "Monin Obukhov", "group__monin__obukhov.html", "group__monin__obukhov" ],
     [ "Mosaic", "group__mosaic.html", "group__mosaic" ],
     [ "Mosaic2", "group__mosaic2.html", "group__mosaic2" ],
-    [ "Mpp_domains", "group__mpp__domains.html", "group__mpp__domains" ],
     [ "Platform", "group__platform.html", "group__platform" ],
     [ "Random Numbers", "group__random__numbers.html", "group__random__numbers" ],
     [ "Saturation Vapor Pressure", "group__sat__vapor__pres.html", "group__sat__vapor__pres" ],

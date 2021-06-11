@@ -103,11 +103,11 @@ $(document).ready(function(){initNavTree('interfacetopography__mod_1_1get__water
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:ga85bd52cef9a7da2a91d58b90182d48af"><td class="memItemLeft" align="right" valign="top">logical function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__topography__mod.html#ga85bd52cef9a7da2a91d58b90182d48af">get_water_frac_1d</a> (blon, blat, water_frac)</td></tr>
-<tr class="memdesc:ga85bd52cef9a7da2a91d58b90182d48af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the percent of water in a grid box.  <a href="group__topography__mod.html#ga85bd52cef9a7da2a91d58b90182d48af">More...</a><br /></td></tr>
-<tr class="separator:ga85bd52cef9a7da2a91d58b90182d48af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga431446ac6d5de8dc48c022f00cd58114"><td class="memItemLeft" align="right" valign="top">logical function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__topography__mod.html#ga431446ac6d5de8dc48c022f00cd58114">get_water_frac_2d</a> (blon, blat, water_frac)</td></tr>
-<tr class="separator:ga431446ac6d5de8dc48c022f00cd58114"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85bd52cef9a7da2a91d58b90182d48af"><td class="memItemLeft" align="right" valign="top">logical function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacetopography__mod_1_1get__water__frac.html#a85bd52cef9a7da2a91d58b90182d48af">get_water_frac_1d</a> (blon, blat, water_frac)</td></tr>
+<tr class="memdesc:a85bd52cef9a7da2a91d58b90182d48af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the percent of water in a grid box.  <a href="interfacetopography__mod_1_1get__water__frac.html#a85bd52cef9a7da2a91d58b90182d48af">More...</a><br /></td></tr>
+<tr class="separator:a85bd52cef9a7da2a91d58b90182d48af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a431446ac6d5de8dc48c022f00cd58114"><td class="memItemLeft" align="right" valign="top">logical function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacetopography__mod_1_1get__water__frac.html#a431446ac6d5de8dc48c022f00cd58114">get_water_frac_2d</a> (blon, blat, water_frac)</td></tr>
+<tr class="separator:a431446ac6d5de8dc48c022f00cd58114"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Returns fractional area covered by water. </p>
@@ -125,8 +125,115 @@ Private Member Functions</h2></td></tr>
 Example usage:<br  />
 </p><div class="fragment"><div class="line">flag = get_water_frac( blon, blat, water_frac ) </div>
 </div><!-- fragment --> 
-<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00168">168</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
-</div><hr/>The documentation for this interface was generated from the following file:<ul>
+<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00171">171</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
+</div><h2 class="groupheader">Member Function/Subroutine Documentation</h2>
+<a id="a85bd52cef9a7da2a91d58b90182d48af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85bd52cef9a7da2a91d58b90182d48af">&#9670;&nbsp;</a></span>get_water_frac_1d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">logical function get_water_frac_1d </td>
+          <td>(</td>
+          <td class="paramtype">real, dimension(:), intent(in)&#160;</td>
+          <td class="paramname"><em>blon</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:), intent(in)&#160;</td>
+          <td class="paramname"><em>blat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:,:), intent(out)&#160;</td>
+          <td class="paramname"><em>water_frac</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the percent of water in a grid box. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">blon</td><td>The longitude (in radians) at grid box boundaries. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">blat</td><td>The latitude (in radians) at grid box boundaries. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">water_frac</td><td>The fractional amount (0 to 1) of water in a grid box. The size of this field must be size(blon)-1 by size(blat)-1. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00665">665</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
+
+</div>
+</div>
+<a id="a431446ac6d5de8dc48c022f00cd58114"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a431446ac6d5de8dc48c022f00cd58114">&#9670;&nbsp;</a></span>get_water_frac_2d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">logical function get_water_frac_2d </td>
+          <td>(</td>
+          <td class="paramtype">real, dimension(:,:), intent(in)&#160;</td>
+          <td class="paramname"><em>blon</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:,:), intent(in)&#160;</td>
+          <td class="paramname"><em>blat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:,:), intent(out)&#160;</td>
+          <td class="paramname"><em>water_frac</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">blon</td><td>The longitude (in radians) at grid box boundaries.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">blat</td><td>The latitude (in radians) at grid box boundaries.</td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">water_frac</td><td>The fractional amount (0 to 1) of water in a grid box. The size of this field must be size(blon)-1 by size(blat)-1. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00693">693</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this interface was generated from the following file:<ul>
 <li>topography/<a class="el" href="topography_8F90_source.html">topography.F90</a></li>
 </ul>
 </div><!-- contents -->

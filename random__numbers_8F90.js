@@ -1,6 +1,5 @@
 var random__numbers_8F90 =
 [
-    [ "randomnumberstream", "structrandom__numbers__mod_1_1randomnumberstream.html", "structrandom__numbers__mod_1_1randomnumberstream" ],
     [ "constructseed", "random__numbers_8F90.html#ga26dcee1382874932265d81f685e89737", null ],
     [ "getrandomnumber_1d", "random__numbers_8F90.html#ga2c80a6c2e9df2929326e8f5fc740585b", null ],
     [ "getrandomnumber_2d", "random__numbers_8F90.html#ga4aa41473d77b2a7dfd79e9485aa6b4df", null ],

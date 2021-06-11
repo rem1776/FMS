@@ -104,7 +104,8 @@ $(document).ready(function(){initNavTree('group__topography__mod.html',''); init
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Types</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacetopography__mod_1_1get__topog__stdev.html">get_topog_stdev</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacetopography__mod_1_1get__topog__mean.html">get_topog_mean</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a "realistic" mean surface height field.  <a href="interfacetopography__mod_1_1get__topog__mean.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacetopography__mod_1_1get__ocean__frac.html">get_ocean_frac</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns fractional area covered by ocean in a grid box. Returns fractional area covered by ocean in the given model grid boxes.  <a href="interfacetopography__mod_1_1get__ocean__frac.html#details">More...</a><br /></td></tr>
@@ -121,40 +122,6 @@ Data Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
-<tr class="memitem:ga30d0b28c29803722eb8ad928d79107de"><td class="memItemLeft" align="right" valign="top">logical function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__topography__mod.html#ga30d0b28c29803722eb8ad928d79107de">get_topog_mean_1d</a> (blon, blat, zmean)</td></tr>
-<tr class="memdesc:ga30d0b28c29803722eb8ad928d79107de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a "realistic" mean surface height field.  <a href="group__topography__mod.html#ga30d0b28c29803722eb8ad928d79107de">More...</a><br /></td></tr>
-<tr class="separator:ga30d0b28c29803722eb8ad928d79107de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gacceb546ce02f4b3e7ee5d9ad08982981"><td class="memItemLeft" align="right" valign="top"><a id="gacceb546ce02f4b3e7ee5d9ad08982981"></a>
-logical function&#160;</td><td class="memItemRight" valign="bottom"><b>get_topog_mean_2d</b> (blon, blat, zmean)</td></tr>
-<tr class="separator:gacceb546ce02f4b3e7ee5d9ad08982981"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae5409478fb7e12f6b23447bcf4e8695b"><td class="memItemLeft" align="right" valign="top">logical function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__topography__mod.html#gae5409478fb7e12f6b23447bcf4e8695b">get_topog_stdev_1d</a> (blon, blat, stdev)</td></tr>
-<tr class="memdesc:gae5409478fb7e12f6b23447bcf4e8695b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a standard deviation of higher resolution topography with the given model grid boxes.  <a href="group__topography__mod.html#gae5409478fb7e12f6b23447bcf4e8695b">More...</a><br /></td></tr>
-<tr class="separator:gae5409478fb7e12f6b23447bcf4e8695b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga630bf9090ebd271bdb36d563b050c383"><td class="memItemLeft" align="right" valign="top"><a id="ga630bf9090ebd271bdb36d563b050c383"></a>
-logical function&#160;</td><td class="memItemRight" valign="bottom"><b>get_topog_stdev_2d</b> (blon, blat, stdev)</td></tr>
-<tr class="separator:ga630bf9090ebd271bdb36d563b050c383"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6ab7a51d3c6fcf9bacd89b7db354395b"><td class="memItemLeft" align="right" valign="top">logical function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__topography__mod.html#ga6ab7a51d3c6fcf9bacd89b7db354395b">get_ocean_frac_1d</a> (blon, blat, ocean_frac)</td></tr>
-<tr class="memdesc:ga6ab7a51d3c6fcf9bacd89b7db354395b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns fractional area covered by ocean in a grid box.  <a href="group__topography__mod.html#ga6ab7a51d3c6fcf9bacd89b7db354395b">More...</a><br /></td></tr>
-<tr class="separator:ga6ab7a51d3c6fcf9bacd89b7db354395b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga30f39857221cb781d1615755692ef505"><td class="memItemLeft" align="right" valign="top"><a id="ga30f39857221cb781d1615755692ef505"></a>
-logical function&#160;</td><td class="memItemRight" valign="bottom"><b>get_ocean_frac_2d</b> (blon, blat, ocean_frac)</td></tr>
-<tr class="separator:ga30f39857221cb781d1615755692ef505"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa1ee1022af7fcabe640b49e8d9ce4215"><td class="memItemLeft" align="right" valign="top">logical function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__topography__mod.html#gaa1ee1022af7fcabe640b49e8d9ce4215">get_ocean_mask_1d</a> (blon, blat, ocean_mask)</td></tr>
-<tr class="memdesc:gaa1ee1022af7fcabe640b49e8d9ce4215"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a land-ocean mask in a grid box.  <a href="group__topography__mod.html#gaa1ee1022af7fcabe640b49e8d9ce4215">More...</a><br /></td></tr>
-<tr class="separator:gaa1ee1022af7fcabe640b49e8d9ce4215"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga49f672a4ce2621a2f19ed60bb0a10c18"><td class="memItemLeft" align="right" valign="top"><a id="ga49f672a4ce2621a2f19ed60bb0a10c18"></a>
-logical function&#160;</td><td class="memItemRight" valign="bottom"><b>get_ocean_mask_2d</b> (blon, blat, ocean_mask)</td></tr>
-<tr class="separator:ga49f672a4ce2621a2f19ed60bb0a10c18"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga85bd52cef9a7da2a91d58b90182d48af"><td class="memItemLeft" align="right" valign="top">logical function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__topography__mod.html#ga85bd52cef9a7da2a91d58b90182d48af">get_water_frac_1d</a> (blon, blat, water_frac)</td></tr>
-<tr class="memdesc:ga85bd52cef9a7da2a91d58b90182d48af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the percent of water in a grid box.  <a href="group__topography__mod.html#ga85bd52cef9a7da2a91d58b90182d48af">More...</a><br /></td></tr>
-<tr class="separator:ga85bd52cef9a7da2a91d58b90182d48af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga431446ac6d5de8dc48c022f00cd58114"><td class="memItemLeft" align="right" valign="top">logical function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__topography__mod.html#ga431446ac6d5de8dc48c022f00cd58114">get_water_frac_2d</a> (blon, blat, water_frac)</td></tr>
-<tr class="separator:ga431446ac6d5de8dc48c022f00cd58114"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga59536a57dc425f61ff10e9b286f3d78d"><td class="memItemLeft" align="right" valign="top">logical function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__topography__mod.html#ga59536a57dc425f61ff10e9b286f3d78d">get_water_mask_1d</a> (blon, blat, water_mask)</td></tr>
-<tr class="memdesc:ga59536a57dc425f61ff10e9b286f3d78d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a land-water mask in the given model grid boxes.  <a href="group__topography__mod.html#ga59536a57dc425f61ff10e9b286f3d78d">More...</a><br /></td></tr>
-<tr class="separator:ga59536a57dc425f61ff10e9b286f3d78d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga57c33c99fae2fe0277e21f46ff17416a"><td class="memItemLeft" align="right" valign="top">logical function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__topography__mod.html#ga57c33c99fae2fe0277e21f46ff17416a">get_water_mask_2d</a> (blon, blat, water_mask)</td></tr>
-<tr class="separator:ga57c33c99fae2fe0277e21f46ff17416a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga3cb105e8714bc35f304ba71cfd89c15c"><td class="memItemLeft" align="right" valign="top"><a id="ga3cb105e8714bc35f304ba71cfd89c15c"></a>
 subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>topography_init</b> ()</td></tr>
 <tr class="separator:ga3cb105e8714bc35f304ba71cfd89c15c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -318,21 +285,9 @@ logical&#160;</td><td class="memItemRight" valign="bottom"><b>module_is_initiali
 <p>This module generates realistic mountains and land-water masks on a specified latitude-longitude grid by interpolating from the 1/6 degree Navy mean topography and percent water data sets. The fields that can be generated are mean and standard deviation of topography within the specified grid boxes; and land-ocean (or water) mask and land-ocean (or water) fractional area.</p>
 <p>The interpolation scheme conserves the area-weighted average of the input data by using module horiz_interp.</p>
 <p>The interfaces get_gaussian_topog and gaussian_topog_init are documented in <a class="el" href="group__gaussian__topog__mod.html">gaussian_topog_mod</a> </p>
-
-
-<h3><a id="get_topog_stdev"></a>get_topog_stdev Interface</h3><div class="textblock">Returns a standard deviation of higher resolution topography with the given model grid boxes.Returns the standard deviation of the "finer" input topography data set, currently the Navy 1/6 degree mean topography data, within the boundaries of the given input grid.<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">blon</td><td>The longitude (in radians) at grid box boundaries. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">blat</td><td>The latitude (in radians) at grid box boundaries. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">stdev</td><td>The standard deviation of surface height (in meters) within given input model grid boxes. The size of this field must be size(blon)-1 by size(blat)-1.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A logical value of TRUE is returned if the output field was successfully created. A value of FALSE may be returned if the input topography data set was not readable.</dd></dl>
-<p>Example usage: </p><div class="fragment"><div class="line">flag = get_topog_stdev( blon, blat, stdev ) @code</div>
-</div><!-- fragment --></div><h2 class="groupheader">Function/Subroutine Documentation</h2>
+<h2 class="groupheader">Function/Subroutine Documentation</h2>
 <a id="ga12004841b831fc17a8ac6c682f39d066"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga12004841b831fc17a8ac6c682f39d066">&#9670;&nbsp;</a></span>get_ocean_frac_1d() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ga12004841b831fc17a8ac6c682f39d066">&#9670;&nbsp;</a></span>get_ocean_frac_1d()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -374,59 +329,12 @@ logical&#160;</td><td class="memItemRight" valign="bottom"><b>module_is_initiali
 <p>Returns fractional area covered by ocean in a grid box. </p>
 <dl class="section return"><dt>Returns</dt><dd>ocean_frac The fractional area covered by ocean in the given model grid boxes. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00489">489</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
-
-</div>
-</div>
-<a id="ga6ab7a51d3c6fcf9bacd89b7db354395b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga6ab7a51d3c6fcf9bacd89b7db354395b">&#9670;&nbsp;</a></span>get_ocean_frac_1d() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">logical function get_ocean_frac_1d </td>
-          <td>(</td>
-          <td class="paramtype">real, dimension(:), intent(in)&#160;</td>
-          <td class="paramname"><em>blon</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real, dimension(:), intent(in)&#160;</td>
-          <td class="paramname"><em>blat</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real, dimension(:,:), intent(out)&#160;</td>
-          <td class="paramname"><em>ocean_frac</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns fractional area covered by ocean in a grid box. </p>
-<dl class="section return"><dt>Returns</dt><dd>ocean_frac The fractional area covered by ocean in the given model grid boxes. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00489">489</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00495">495</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
 
 </div>
 </div>
 <a id="ga46e8e70b2a4eac6ee224b3a7a3ddf097"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga46e8e70b2a4eac6ee224b3a7a3ddf097">&#9670;&nbsp;</a></span>get_ocean_mask_1d() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ga46e8e70b2a4eac6ee224b3a7a3ddf097">&#9670;&nbsp;</a></span>get_ocean_mask_1d()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -468,106 +376,12 @@ logical&#160;</td><td class="memItemRight" valign="bottom"><b>module_is_initiali
 <p>Returns a land-ocean mask in a grid box. </p>
 <dl class="section return"><dt>Returns</dt><dd>ocean_mask A land-ocean mask in the given model grid boxes. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00576">576</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
-
-</div>
-</div>
-<a id="gaa1ee1022af7fcabe640b49e8d9ce4215"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaa1ee1022af7fcabe640b49e8d9ce4215">&#9670;&nbsp;</a></span>get_ocean_mask_1d() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">logical function get_ocean_mask_1d </td>
-          <td>(</td>
-          <td class="paramtype">real, dimension(:), intent(in)&#160;</td>
-          <td class="paramname"><em>blon</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real, dimension(:), intent(in)&#160;</td>
-          <td class="paramname"><em>blat</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">logical, dimension(:,:), intent(out)&#160;</td>
-          <td class="paramname"><em>ocean_mask</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns a land-ocean mask in a grid box. </p>
-<dl class="section return"><dt>Returns</dt><dd>ocean_mask A land-ocean mask in the given model grid boxes. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00576">576</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
-
-</div>
-</div>
-<a id="ga30d0b28c29803722eb8ad928d79107de"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga30d0b28c29803722eb8ad928d79107de">&#9670;&nbsp;</a></span>get_topog_mean_1d() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">logical function get_topog_mean_1d </td>
-          <td>(</td>
-          <td class="paramtype">real, dimension(:), intent(in)&#160;</td>
-          <td class="paramname"><em>blon</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real, dimension(:), intent(in)&#160;</td>
-          <td class="paramname"><em>blat</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real, dimension(:,:), intent(out)&#160;</td>
-          <td class="paramname"><em>zmean</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns a "realistic" mean surface height field. </p>
-<p>Returns realistic mountains on a latitude-longtude grid. The returned field is the mean topography for the given grid boxes. Computed using a conserving area-weighted interpolation. The current input data set is the 1/6 degree Navy mean topography. </p>
-
-<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00315">315</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00582">582</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
 
 </div>
 </div>
 <a id="ga09fe24f3dafa596c267b95a3b469f301"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga09fe24f3dafa596c267b95a3b469f301">&#9670;&nbsp;</a></span>get_topog_mean_1d() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ga09fe24f3dafa596c267b95a3b469f301">&#9670;&nbsp;</a></span>get_topog_mean_1d()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -609,12 +423,12 @@ logical&#160;</td><td class="memItemRight" valign="bottom"><b>module_is_initiali
 <p>Returns a "realistic" mean surface height field. </p>
 <p>Returns realistic mountains on a latitude-longtude grid. The returned field is the mean topography for the given grid boxes. Computed using a conserving area-weighted interpolation. The current input data set is the 1/6 degree Navy mean topography. </p>
 
-<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00315">315</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00321">321</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
 
 </div>
 </div>
 <a id="ga8dfc06175bed5760949b23b5523595fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga8dfc06175bed5760949b23b5523595fe">&#9670;&nbsp;</a></span>get_topog_stdev_1d() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8dfc06175bed5760949b23b5523595fe">&#9670;&nbsp;</a></span>get_topog_stdev_1d()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -656,113 +470,12 @@ logical&#160;</td><td class="memItemRight" valign="bottom"><b>module_is_initiali
 <p>Returns a standard deviation of higher resolution topography with the given model grid boxes. </p>
 <p>Returns the standard deviation of the "finer" input topography data set, currently the Navy 1/6 degree mean topography data, within the boundaries of the given input grid. </p>
 
-<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00406">406</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
-
-</div>
-</div>
-<a id="gae5409478fb7e12f6b23447bcf4e8695b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gae5409478fb7e12f6b23447bcf4e8695b">&#9670;&nbsp;</a></span>get_topog_stdev_1d() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">logical function get_topog_stdev_1d </td>
-          <td>(</td>
-          <td class="paramtype">real, dimension(:), intent(in)&#160;</td>
-          <td class="paramname"><em>blon</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real, dimension(:), intent(in)&#160;</td>
-          <td class="paramname"><em>blat</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real, dimension(:,:), intent(out)&#160;</td>
-          <td class="paramname"><em>stdev</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns a standard deviation of higher resolution topography with the given model grid boxes. </p>
-<p>Returns the standard deviation of the "finer" input topography data set, currently the Navy 1/6 degree mean topography data, within the boundaries of the given input grid. </p>
-
-<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00406">406</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
-
-</div>
-</div>
-<a id="ga85bd52cef9a7da2a91d58b90182d48af"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga85bd52cef9a7da2a91d58b90182d48af">&#9670;&nbsp;</a></span>get_water_frac_1d() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">logical function get_water_frac_1d </td>
-          <td>(</td>
-          <td class="paramtype">real, dimension(:), intent(in)&#160;</td>
-          <td class="paramname"><em>blon</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real, dimension(:), intent(in)&#160;</td>
-          <td class="paramname"><em>blat</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real, dimension(:,:), intent(out)&#160;</td>
-          <td class="paramname"><em>water_frac</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the percent of water in a grid box. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">blon</td><td>The longitude (in radians) at grid box boundaries. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">blat</td><td>The latitude (in radians) at grid box boundaries. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">water_frac</td><td>The fractional amount (0 to 1) of water in a grid box. The size of this field must be size(blon)-1 by size(blat)-1. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00659">659</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00412">412</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
 
 </div>
 </div>
 <a id="ga8f6023f3f9642f052adce17be3d06f8e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga8f6023f3f9642f052adce17be3d06f8e">&#9670;&nbsp;</a></span>get_water_frac_1d() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8f6023f3f9642f052adce17be3d06f8e">&#9670;&nbsp;</a></span>get_water_frac_1d()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -811,64 +524,12 @@ logical&#160;</td><td class="memItemRight" valign="bottom"><b>module_is_initiali
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00659">659</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
-
-</div>
-</div>
-<a id="ga431446ac6d5de8dc48c022f00cd58114"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga431446ac6d5de8dc48c022f00cd58114">&#9670;&nbsp;</a></span>get_water_frac_2d() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">logical function get_water_frac_2d </td>
-          <td>(</td>
-          <td class="paramtype">real, dimension(:,:), intent(in)&#160;</td>
-          <td class="paramname"><em>blon</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real, dimension(:,:), intent(in)&#160;</td>
-          <td class="paramname"><em>blat</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real, dimension(:,:), intent(out)&#160;</td>
-          <td class="paramname"><em>water_frac</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">blon</td><td>The longitude (in radians) at grid box boundaries.</td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">blat</td><td>The latitude (in radians) at grid box boundaries.</td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">water_frac</td><td>The fractional amount (0 to 1) of water in a grid box. The size of this field must be size(blon)-1 by size(blat)-1. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00687">687</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00665">665</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
 
 </div>
 </div>
 <a id="gab81ac0a2946c1fbb836d52f9c479cb6b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gab81ac0a2946c1fbb836d52f9c479cb6b">&#9670;&nbsp;</a></span>get_water_frac_2d() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#gab81ac0a2946c1fbb836d52f9c479cb6b">&#9670;&nbsp;</a></span>get_water_frac_2d()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -915,65 +576,12 @@ logical&#160;</td><td class="memItemRight" valign="bottom"><b>module_is_initiali
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00687">687</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
-
-</div>
-</div>
-<a id="ga59536a57dc425f61ff10e9b286f3d78d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga59536a57dc425f61ff10e9b286f3d78d">&#9670;&nbsp;</a></span>get_water_mask_1d() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">logical function get_water_mask_1d </td>
-          <td>(</td>
-          <td class="paramtype">real, dimension(:), intent(in)&#160;</td>
-          <td class="paramname"><em>blon</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real, dimension(:), intent(in)&#160;</td>
-          <td class="paramname"><em>blat</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>water_mask</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns a land-water mask in the given model grid boxes. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">blon</td><td>The longitude (in radians) at grid box boundaries. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">blat</td><td>The latitude (in radians) at grid box boundaries. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00746">746</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00693">693</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
 
 </div>
 </div>
 <a id="ga18bfdd82b8b721ce76d4ec7cb8b5582d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga18bfdd82b8b721ce76d4ec7cb8b5582d">&#9670;&nbsp;</a></span>get_water_mask_1d() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ga18bfdd82b8b721ce76d4ec7cb8b5582d">&#9670;&nbsp;</a></span>get_water_mask_1d()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1021,12 +629,12 @@ logical&#160;</td><td class="memItemRight" valign="bottom"><b>module_is_initiali
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00746">746</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00752">752</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
 
 </div>
 </div>
 <a id="ga8613d2fe80592d54cb724bf8179d3fd1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga8613d2fe80592d54cb724bf8179d3fd1">&#9670;&nbsp;</a></span>get_water_mask_2d() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8613d2fe80592d54cb724bf8179d3fd1">&#9670;&nbsp;</a></span>get_water_mask_2d()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1072,58 +680,7 @@ logical&#160;</td><td class="memItemRight" valign="bottom"><b>module_is_initiali
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00787">787</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
-
-</div>
-</div>
-<a id="ga57c33c99fae2fe0277e21f46ff17416a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga57c33c99fae2fe0277e21f46ff17416a">&#9670;&nbsp;</a></span>get_water_mask_2d() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">logical function get_water_mask_2d </td>
-          <td>(</td>
-          <td class="paramtype">real, dimension(:,:), intent(in)&#160;</td>
-          <td class="paramname"><em>blon</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real, dimension(:,:), intent(in)&#160;</td>
-          <td class="paramname"><em>blat</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>water_mask</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">blon</td><td>The longitude (in radians) at grid box boundaries.</td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">blat</td><td>The latitude (in radians) at grid box boundaries. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00787">787</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00793">793</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
 
 </div>
 </div>

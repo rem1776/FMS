@@ -350,8 +350,11 @@ var annotated_dup =
       [ "unstruct_pass_type", "structmpp__domains__mod_1_1unstruct__pass__type.html", "structmpp__domains__mod_1_1unstruct__pass__type" ]
     ] ],
     [ "mpp_efp_mod", null, [
+      [ "assignment(=)", "interfacempp__efp__mod_1_1assignment_07_0a_08.html", "interfacempp__efp__mod_1_1assignment_07_0a_08" ],
       [ "mpp_efp_type", "structmpp__efp__mod_1_1mpp__efp__type.html", "structmpp__efp__mod_1_1mpp__efp__type" ],
-      [ "mpp_reproducing_sum", "interfacempp__efp__mod_1_1mpp__reproducing__sum.html", "interfacempp__efp__mod_1_1mpp__reproducing__sum" ]
+      [ "mpp_reproducing_sum", "interfacempp__efp__mod_1_1mpp__reproducing__sum.html", "interfacempp__efp__mod_1_1mpp__reproducing__sum" ],
+      [ "operator(+)", "interfacempp__efp__mod_1_1operator_07_09_08.html", "interfacempp__efp__mod_1_1operator_07_09_08" ],
+      [ "operator(-)", "interfacempp__efp__mod_1_1operator_07-_08.html", "interfacempp__efp__mod_1_1operator_07-_08" ]
     ] ],
     [ "mpp_io_mod", null, [
       [ "atttype", "structmpp__io__mod_1_1atttype.html", "structmpp__io__mod_1_1atttype" ],
@@ -476,6 +479,18 @@ var annotated_dup =
       [ "time_interp", "interfacetime__interp__mod_1_1time__interp.html", "interfacetime__interp__mod_1_1time__interp" ]
     ] ],
     [ "time_manager_mod", null, [
+      [ "assignment(=)", "interfacetime__manager__mod_1_1assignment_07_0a_08.html", "interfacetime__manager__mod_1_1assignment_07_0a_08" ],
+      [ "operator(*)", "interfacetime__manager__mod_1_1operator_07_5_08.html", "interfacetime__manager__mod_1_1operator_07_5_08" ],
+      [ "operator(+)", "interfacetime__manager__mod_1_1operator_07_09_08.html", "interfacetime__manager__mod_1_1operator_07_09_08" ],
+      [ "operator(-)", "interfacetime__manager__mod_1_1operator_07-_08.html", "interfacetime__manager__mod_1_1operator_07-_08" ],
+      [ "operator(/)", "interfacetime__manager__mod_1_1operator_07_2_08.html", "interfacetime__manager__mod_1_1operator_07_2_08" ],
+      [ "operator(//)", "interfacetime__manager__mod_1_1operator_07_2_2_08.html", "interfacetime__manager__mod_1_1operator_07_2_2_08" ],
+      [ "operator(/=)", "interfacetime__manager__mod_1_1operator_07_2_0a_08.html", "interfacetime__manager__mod_1_1operator_07_2_0a_08" ],
+      [ "operator(<)", "interfacetime__manager__mod_1_1operator_07_3_08.html", "interfacetime__manager__mod_1_1operator_07_3_08" ],
+      [ "operator(<=)", "interfacetime__manager__mod_1_1operator_07_3_0a_08.html", "interfacetime__manager__mod_1_1operator_07_3_0a_08" ],
+      [ "operator(==)", "interfacetime__manager__mod_1_1operator_07_0a_0a_08.html", "interfacetime__manager__mod_1_1operator_07_0a_0a_08" ],
+      [ "operator(>)", "interfacetime__manager__mod_1_1operator_07_4_08.html", "interfacetime__manager__mod_1_1operator_07_4_08" ],
+      [ "operator(>=)", "interfacetime__manager__mod_1_1operator_07_4_0a_08.html", "interfacetime__manager__mod_1_1operator_07_4_0a_08" ],
       [ "set_date", "interfacetime__manager__mod_1_1set__date.html", "interfacetime__manager__mod_1_1set__date" ],
       [ "set_time", "interfacetime__manager__mod_1_1set__time.html", "interfacetime__manager__mod_1_1set__time" ],
       [ "time_type", "structtime__manager__mod_1_1time__type.html", "structtime__manager__mod_1_1time__type" ]

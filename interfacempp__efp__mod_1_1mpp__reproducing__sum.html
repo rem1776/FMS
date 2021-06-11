@@ -103,22 +103,263 @@ $(document).ready(function(){initNavTree('interfacempp__efp__mod_1_1mpp__reprodu
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:ga7c9a28dcc73069f1c0d5c341b841c868"><td class="memItemLeft" align="right" valign="top">real(r8_kind) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mpp__efp__mod.html#ga7c9a28dcc73069f1c0d5c341b841c868">mpp_reproducing_sum_r8_2d</a> (array, isr, ier, jsr, jer, EFP_sum, reproducing, overflow_check, err)</td></tr>
-<tr class="memdesc:ga7c9a28dcc73069f1c0d5c341b841c868"><td class="mdescLeft">&#160;</td><td class="mdescRight">Override interfaces are provided for addition and subtraction between mpp_efp_types, as well as assignment. <br  />
- Example usage:  <a href="group__mpp__efp__mod.html#ga7c9a28dcc73069f1c0d5c341b841c868">More...</a><br /></td></tr>
-<tr class="separator:ga7c9a28dcc73069f1c0d5c341b841c868"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9e86224280e7922b54baf2a4e9bbf58d"><td class="memItemLeft" align="right" valign="top">real(r8_kind) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mpp__efp__mod.html#ga9e86224280e7922b54baf2a4e9bbf58d">mpp_reproducing_sum_r8_3d</a> (array, isr, ier, jsr, jer, sums, EFP_sum, err)</td></tr>
-<tr class="memdesc:ga9e86224280e7922b54baf2a4e9bbf58d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reproducing sum for 3d arrays of 8-bit reals.  <a href="group__mpp__efp__mod.html#ga9e86224280e7922b54baf2a4e9bbf58d">More...</a><br /></td></tr>
-<tr class="separator:ga9e86224280e7922b54baf2a4e9bbf58d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gada1ee3f4fe23ef0fc77a46b36e62cba0"><td class="memItemLeft" align="right" valign="top">real(r4_kind) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mpp__efp__mod.html#gada1ee3f4fe23ef0fc77a46b36e62cba0">mpp_reproducing_sum_r4_2d</a> (array, isr, ier, jsr, jer, EFP_sum, reproducing, overflow_check, err)</td></tr>
-<tr class="separator:gada1ee3f4fe23ef0fc77a46b36e62cba0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c9a28dcc73069f1c0d5c341b841c868"><td class="memItemLeft" align="right" valign="top">real(r8_kind) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacempp__efp__mod_1_1mpp__reproducing__sum.html#a7c9a28dcc73069f1c0d5c341b841c868">mpp_reproducing_sum_r8_2d</a> (array, isr, ier, jsr, jer, EFP_sum, reproducing, overflow_check, err)</td></tr>
+<tr class="memdesc:a7c9a28dcc73069f1c0d5c341b841c868"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates a reproducing sum for a 2D, 8-byte real array.  <a href="interfacempp__efp__mod_1_1mpp__reproducing__sum.html#a7c9a28dcc73069f1c0d5c341b841c868">More...</a><br /></td></tr>
+<tr class="separator:a7c9a28dcc73069f1c0d5c341b841c868"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e86224280e7922b54baf2a4e9bbf58d"><td class="memItemLeft" align="right" valign="top">real(r8_kind) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacempp__efp__mod_1_1mpp__reproducing__sum.html#a9e86224280e7922b54baf2a4e9bbf58d">mpp_reproducing_sum_r8_3d</a> (array, isr, ier, jsr, jer, sums, EFP_sum, err)</td></tr>
+<tr class="memdesc:a9e86224280e7922b54baf2a4e9bbf58d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reproducing sum for 3d arrays of 8-bit reals.  <a href="interfacempp__efp__mod_1_1mpp__reproducing__sum.html#a9e86224280e7922b54baf2a4e9bbf58d">More...</a><br /></td></tr>
+<tr class="separator:a9e86224280e7922b54baf2a4e9bbf58d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada1ee3f4fe23ef0fc77a46b36e62cba0"><td class="memItemLeft" align="right" valign="top">real(r4_kind) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacempp__efp__mod_1_1mpp__reproducing__sum.html#ada1ee3f4fe23ef0fc77a46b36e62cba0">mpp_reproducing_sum_r4_2d</a> (array, isr, ier, jsr, jer, EFP_sum, reproducing, overflow_check, err)</td></tr>
+<tr class="separator:ada1ee3f4fe23ef0fc77a46b36e62cba0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This interface uses a conversion to an integer representation of real numbers to give order-invariant sums that will reproduce across PE count. </p>
 <p>This idea comes from R. Hallberg and A. Adcroft. </p>
 
-<p class="definition">Definition at line <a class="el" href="mpp__efp_8F90_source.html#l00071">71</a> of file <a class="el" href="mpp__efp_8F90_source.html">mpp_efp.F90</a>.</p>
-</div><hr/>The documentation for this interface was generated from the following file:<ul>
+<p class="definition">Definition at line <a class="el" href="mpp__efp_8F90_source.html#l00074">74</a> of file <a class="el" href="mpp__efp_8F90_source.html">mpp_efp.F90</a>.</p>
+</div><h2 class="groupheader">Member Function/Subroutine Documentation</h2>
+<a id="ada1ee3f4fe23ef0fc77a46b36e62cba0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada1ee3f4fe23ef0fc77a46b36e62cba0">&#9670;&nbsp;</a></span>mpp_reproducing_sum_r4_2d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(r4_kind) function mpp_reproducing_sum_r4_2d </td>
+          <td>(</td>
+          <td class="paramtype">real(r4_kind), dimension(:,:), intent(in)&#160;</td>
+          <td class="paramname"><em>array</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>isr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>ier</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>jsr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>jer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structmpp__efp__mod_1_1mpp__efp__type.html">mpp_efp_type</a>), intent(out), optional&#160;</td>
+          <td class="paramname"><em>EFP_sum</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, intent(in), optional&#160;</td>
+          <td class="paramname"><em>reproducing</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, intent(in), optional&#160;</td>
+          <td class="paramname"><em>overflow_check</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(out), optional&#160;</td>
+          <td class="paramname"><em>err</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>Result </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="mpp__efp_8F90_source.html#l00248">248</a> of file <a class="el" href="mpp__efp_8F90_source.html">mpp_efp.F90</a>.</p>
+
+</div>
+</div>
+<a id="a7c9a28dcc73069f1c0d5c341b841c868"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c9a28dcc73069f1c0d5c341b841c868">&#9670;&nbsp;</a></span>mpp_reproducing_sum_r8_2d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(r8_kind) function mpp_reproducing_sum_r8_2d </td>
+          <td>(</td>
+          <td class="paramtype">real(r8_kind), dimension(:,:), intent(in)&#160;</td>
+          <td class="paramname"><em>array</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>isr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>ier</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>jsr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>jer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structmpp__efp__mod_1_1mpp__efp__type.html">mpp_efp_type</a>), intent(out), optional&#160;</td>
+          <td class="paramname"><em>EFP_sum</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, intent(in), optional&#160;</td>
+          <td class="paramname"><em>reproducing</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, intent(in), optional&#160;</td>
+          <td class="paramname"><em>overflow_check</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(out), optional&#160;</td>
+          <td class="paramname"><em>err</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calculates a reproducing sum for a 2D, 8-byte real array. </p>
+<dl class="section return"><dt>Returns</dt><dd>Result </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="mpp__efp_8F90_source.html#l00107">107</a> of file <a class="el" href="mpp__efp_8F90_source.html">mpp_efp.F90</a>.</p>
+
+</div>
+</div>
+<a id="a9e86224280e7922b54baf2a4e9bbf58d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e86224280e7922b54baf2a4e9bbf58d">&#9670;&nbsp;</a></span>mpp_reproducing_sum_r8_3d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(r8_kind) function mpp_reproducing_sum_r8_3d </td>
+          <td>(</td>
+          <td class="paramtype">real(r8_kind), dimension(:,:,:), intent(in)&#160;</td>
+          <td class="paramname"><em>array</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>isr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>ier</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>jsr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>jer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(r8_kind), dimension(:), intent(out), optional&#160;</td>
+          <td class="paramname"><em>sums</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structmpp__efp__mod_1_1mpp__efp__type.html">mpp_efp_type</a>), intent(out), optional&#160;</td>
+          <td class="paramname"><em>EFP_sum</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(out), optional&#160;</td>
+          <td class="paramname"><em>err</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reproducing sum for 3d arrays of 8-bit reals. </p>
+<p>This function uses a conversion to an integer representation of real numbers to give order-invariant sums that will reproduce across PE count. This idea comes from R. Hallberg and A. Adcroft. </p><dl class="section return"><dt>Returns</dt><dd>Result </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="mpp__efp_8F90_source.html#l00274">274</a> of file <a class="el" href="mpp__efp_8F90_source.html">mpp_efp.F90</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this interface was generated from the following file:<ul>
 <li>mpp/<a class="el" href="mpp__efp_8F90_source.html">mpp_efp.F90</a></li>
 </ul>
 </div><!-- contents -->

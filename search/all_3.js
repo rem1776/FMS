@@ -11,7 +11,7 @@ var searchData=
   ['daily_5fmean_5fsolar_5fcal_5f1d_362',['daily_mean_solar_cal_1d',['../interfaceastronomy__mod_1_1daily__mean__solar.html#a291cd887ea14e1b13369236a91753aba',1,'astronomy_mod::daily_mean_solar::daily_mean_solar_cal_1d()'],['../group__astronomy__mod.html#ga6a985f1ba0f71868c80cd95b9f4de668',1,'astronomy_mod::daily_mean_solar_cal_1d()']]],
   ['daily_5fmean_5fsolar_5fcal_5f2d_363',['daily_mean_solar_cal_2d',['../interfaceastronomy__mod_1_1daily__mean__solar.html#a92dfe81382f7d242b8c92a4dd1f78e85',1,'astronomy_mod::daily_mean_solar::daily_mean_solar_cal_2d()'],['../group__astronomy__mod.html#gaf6094e628e630913842bcb468f8d39a2',1,'astronomy_mod::daily_mean_solar_cal_2d()']]],
   ['daily_5fmean_5fsolar_5fcal_5f2level_364',['daily_mean_solar_cal_2level',['../interfaceastronomy__mod_1_1daily__mean__solar.html#aa786db4c86665571434f881c4af5c75a',1,'astronomy_mod::daily_mean_solar::daily_mean_solar_cal_2level()'],['../group__astronomy__mod.html#gab81094cd66751b014bb2179d6d3667b6',1,'astronomy_mod::daily_mean_solar_cal_2level()']]],
-  ['data_365',['data',['../structfms__io__mod_1_1ax__type.html#afb312662706647947ce5c3c86f894a90',1,'fms_io_mod::ax_type::data()'],['../structinterpolator__mod_1_1interpolate__type.html#a368cb842650be6d3003fd60d3117aee2',1,'interpolator_mod::interpolate_type::data()'],['../group__time__interp__external2__mod.html#ga85fb0692af6ab5513a546edfc583eee9',1,'time_interp_external2_mod::ext_fieldtype::data()']]],
+  ['data_365',['data',['../structfms__io__mod_1_1ax__type.html#afb312662706647947ce5c3c86f894a90',1,'fms_io_mod::ax_type::data()'],['../structinterpolator__mod_1_1interpolate__type.html#a368cb842650be6d3003fd60d3117aee2',1,'interpolator_mod::interpolate_type::data()'],['../structtime__interp__external2__mod_1_1ext__fieldtype.html#a85fb0692af6ab5513a546edfc583eee9',1,'time_interp_external2_mod::ext_fieldtype::data()']]],
   ['data0d_366',['data0d',['../structnetcdf__io__mod_1_1restartvariable__t.html#aeff307f84b5088c03e4726f69d1d19cd',1,'netcdf_io_mod::restartvariable_t']]],
   ['data1d_367',['data1d',['../structnetcdf__io__mod_1_1restartvariable__t.html#a9afe2b36228c9b409e4333687f34b632',1,'netcdf_io_mod::restartvariable_t']]],
   ['data2d_368',['data2d',['../structnetcdf__io__mod_1_1restartvariable__t.html#a29d9cbab6f66134a2b236df99273d072',1,'netcdf_io_mod::restartvariable_t']]],
@@ -209,7 +209,7 @@ var searchData=
   ['drifters_5ftype_560',['drifters_type',['../structdrifters__mod_1_1drifters__type.html',1,'drifters_mod']]],
   ['drifters_5fwrite_5frestart_561',['drifters_write_restart',['../group__drifters__mod.html#ga3e7db869b8b17f17d7c07b3c2b0cc5c2',1,'drifters_mod']]],
   ['dt_562',['dt',['../structdrifters__mod_1_1drifters__type.html#a0d83938800a951e18c7a96a4d5ff7a07',1,'drifters_mod::drifters_type']]],
-  ['dummy_563',['dummy',['../group__time__manager__mod.html#gafeb5ed6c013d8c98695c30ab926547db',1,'time_manager_mod::time_type']]],
+  ['dummy_563',['dummy',['../structtime__manager__mod_1_1time__type.html#afeb5ed6c013d8c98695c30ab926547db',1,'time_manager_mod::time_type']]],
   ['diag_5ftable_564',['diag_table',['../group__diag__manager.html',1,'']]],
   ['documentation_20style_20guide_565',['Documentation Style Guide',['../md_docs_doxygenGuide.html',1,'']]]
 ];

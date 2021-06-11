@@ -103,12 +103,12 @@ $(document).ready(function(){initNavTree('interfacetopography__mod_1_1get__ocean
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:ga6ab7a51d3c6fcf9bacd89b7db354395b"><td class="memItemLeft" align="right" valign="top">logical function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__topography__mod.html#ga6ab7a51d3c6fcf9bacd89b7db354395b">get_ocean_frac_1d</a> (blon, blat, ocean_frac)</td></tr>
-<tr class="memdesc:ga6ab7a51d3c6fcf9bacd89b7db354395b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns fractional area covered by ocean in a grid box.  <a href="group__topography__mod.html#ga6ab7a51d3c6fcf9bacd89b7db354395b">More...</a><br /></td></tr>
-<tr class="separator:ga6ab7a51d3c6fcf9bacd89b7db354395b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga30f39857221cb781d1615755692ef505"><td class="memItemLeft" align="right" valign="top">
+<tr class="memitem:a6ab7a51d3c6fcf9bacd89b7db354395b"><td class="memItemLeft" align="right" valign="top">logical function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacetopography__mod_1_1get__ocean__frac.html#a6ab7a51d3c6fcf9bacd89b7db354395b">get_ocean_frac_1d</a> (blon, blat, ocean_frac)</td></tr>
+<tr class="memdesc:a6ab7a51d3c6fcf9bacd89b7db354395b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns fractional area covered by ocean in a grid box.  <a href="interfacetopography__mod_1_1get__ocean__frac.html#a6ab7a51d3c6fcf9bacd89b7db354395b">More...</a><br /></td></tr>
+<tr class="separator:a6ab7a51d3c6fcf9bacd89b7db354395b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30f39857221cb781d1615755692ef505"><td class="memItemLeft" align="right" valign="top"><a id="a30f39857221cb781d1615755692ef505"></a>
 logical function&#160;</td><td class="memItemRight" valign="bottom"><b>get_ocean_frac_2d</b> (blon, blat, ocean_frac)</td></tr>
-<tr class="separator:ga30f39857221cb781d1615755692ef505"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a30f39857221cb781d1615755692ef505"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Returns fractional area covered by ocean in a grid box. Returns fractional area covered by ocean in the given model grid boxes. </p>
@@ -123,8 +123,56 @@ logical function&#160;</td><td class="memItemRight" valign="bottom"><b>get_ocean
 <dl class="section return"><dt>Returns</dt><dd>A logical value of TRUE is returned if the output field was successfully created. A value of FALSE may be returned if the Navy 1/6 degree percent water data set was not readable.</dd></dl>
 <p>Example usage: </p><div class="fragment"><div class="line">flag = get_ocean_frac( blon, blat, ocean_frac ) </div>
 </div><!-- fragment --> 
-<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00131">131</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
-</div><hr/>The documentation for this interface was generated from the following file:<ul>
+<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00132">132</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
+</div><h2 class="groupheader">Member Function/Subroutine Documentation</h2>
+<a id="a6ab7a51d3c6fcf9bacd89b7db354395b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ab7a51d3c6fcf9bacd89b7db354395b">&#9670;&nbsp;</a></span>get_ocean_frac_1d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">logical function get_ocean_frac_1d </td>
+          <td>(</td>
+          <td class="paramtype">real, dimension(:), intent(in)&#160;</td>
+          <td class="paramname"><em>blon</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:), intent(in)&#160;</td>
+          <td class="paramname"><em>blat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:,:), intent(out)&#160;</td>
+          <td class="paramname"><em>ocean_frac</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns fractional area covered by ocean in a grid box. </p>
+<dl class="section return"><dt>Returns</dt><dd>ocean_frac The fractional area covered by ocean in the given model grid boxes. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00495">495</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this interface was generated from the following file:<ul>
 <li>topography/<a class="el" href="topography_8F90_source.html">topography.F90</a></li>
 </ul>
 </div><!-- contents -->

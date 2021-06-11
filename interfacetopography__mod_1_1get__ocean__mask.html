@@ -103,12 +103,12 @@ $(document).ready(function(){initNavTree('interfacetopography__mod_1_1get__ocean
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:gaa1ee1022af7fcabe640b49e8d9ce4215"><td class="memItemLeft" align="right" valign="top">logical function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__topography__mod.html#gaa1ee1022af7fcabe640b49e8d9ce4215">get_ocean_mask_1d</a> (blon, blat, ocean_mask)</td></tr>
-<tr class="memdesc:gaa1ee1022af7fcabe640b49e8d9ce4215"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a land-ocean mask in a grid box.  <a href="group__topography__mod.html#gaa1ee1022af7fcabe640b49e8d9ce4215">More...</a><br /></td></tr>
-<tr class="separator:gaa1ee1022af7fcabe640b49e8d9ce4215"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga49f672a4ce2621a2f19ed60bb0a10c18"><td class="memItemLeft" align="right" valign="top">
+<tr class="memitem:aa1ee1022af7fcabe640b49e8d9ce4215"><td class="memItemLeft" align="right" valign="top">logical function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacetopography__mod_1_1get__ocean__mask.html#aa1ee1022af7fcabe640b49e8d9ce4215">get_ocean_mask_1d</a> (blon, blat, ocean_mask)</td></tr>
+<tr class="memdesc:aa1ee1022af7fcabe640b49e8d9ce4215"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a land-ocean mask in a grid box.  <a href="interfacetopography__mod_1_1get__ocean__mask.html#aa1ee1022af7fcabe640b49e8d9ce4215">More...</a><br /></td></tr>
+<tr class="separator:aa1ee1022af7fcabe640b49e8d9ce4215"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49f672a4ce2621a2f19ed60bb0a10c18"><td class="memItemLeft" align="right" valign="top"><a id="a49f672a4ce2621a2f19ed60bb0a10c18"></a>
 logical function&#160;</td><td class="memItemRight" valign="bottom"><b>get_ocean_mask_2d</b> (blon, blat, ocean_mask)</td></tr>
-<tr class="separator:ga49f672a4ce2621a2f19ed60bb0a10c18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a49f672a4ce2621a2f19ed60bb0a10c18"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Returns a land-ocean mask in a grid box. </p>
@@ -124,8 +124,56 @@ logical function&#160;</td><td class="memItemRight" valign="bottom"><b>get_ocean
 <dl class="section return"><dt>Returns</dt><dd>A logical value of TRUE is returned if the output field was successfully created. A value of FALSE may be returned if the Navy 1/6 degree percent water data set was not readable.</dd></dl>
 <p>Example code: </p><div class="fragment"><div class="line">flag = get_ocean_mask( blon, blat, ocean_mask ) </div>
 </div><!-- fragment --> 
-<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00150">150</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
-</div><hr/>The documentation for this interface was generated from the following file:<ul>
+<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00152">152</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
+</div><h2 class="groupheader">Member Function/Subroutine Documentation</h2>
+<a id="aa1ee1022af7fcabe640b49e8d9ce4215"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1ee1022af7fcabe640b49e8d9ce4215">&#9670;&nbsp;</a></span>get_ocean_mask_1d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">logical function get_ocean_mask_1d </td>
+          <td>(</td>
+          <td class="paramtype">real, dimension(:), intent(in)&#160;</td>
+          <td class="paramname"><em>blon</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:), intent(in)&#160;</td>
+          <td class="paramname"><em>blat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, dimension(:,:), intent(out)&#160;</td>
+          <td class="paramname"><em>ocean_mask</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a land-ocean mask in a grid box. </p>
+<dl class="section return"><dt>Returns</dt><dd>ocean_mask A land-ocean mask in the given model grid boxes. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00582">582</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this interface was generated from the following file:<ul>
 <li>topography/<a class="el" href="topography_8F90_source.html">topography.F90</a></li>
 </ul>
 </div><!-- contents -->

@@ -7,7 +7,7 @@ var searchData=
   ['bc_5finformation_124',['bc_information',['../structnetcdf__io__mod_1_1bc__information.html',1,'netcdf_io_mod']]],
   ['bcfile_5fne_5fopen_125',['bcfile_ne_open',['../structatm__type.html#a2cacfcecd0c0e6dfe15fa48f26539a36',1,'atm_type']]],
   ['bcfile_5fsw_5fopen_126',['bcfile_sw_open',['../structatm__type.html#af874353dae09c60ea6c61e31cd6965df',1,'atm_type']]],
-  ['begin_127',['begin',['../structmpp__domains__mod_1_1domain__axis__spec.html#a88e49475748526c3b64450b6a6093e31',1,'mpp_domains_mod::domain_axis_spec']]],
+  ['begin_127',['begin',['../group__mpp__domains__mod.html#ga88e49475748526c3b64450b6a6093e31',1,'mpp_domains_mod::domain_axis_spec']]],
   ['bisect_128',['bisect',['../group__time__interp__mod.html#ga2ff024fdfe3ac7dfd4fdb56fa741c86e',1,'time_interp_mod']]],
   ['blackboxio_129',['blackboxio',['../group__blackboxio.html',1,'']]],
   ['blackboxio_2ef90_130',['blackboxio.F90',['../blackboxio_8F90.html',1,'']]],
