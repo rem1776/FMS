@@ -117,11 +117,11 @@ $(document).ready(function(){initNavTree('mpp__scatter_8h_source.html',''); init
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  !     Scatter data from one pe to the specified pes.</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  !   &lt;/OVERVIEW&gt;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  !   &lt;TEMPLATE&gt;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  !     SUBROUTINE MPP_SCATTER_PELIST_2D_(is, ie, js, je, pelist, array_seg, data, is_root_pe, &amp;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  !     SUBROUTINE MPP_SCATTER_PELIST_2D_(is, ie, js, <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>, pelist, array_seg, data, is_root_pe, &amp;</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  !                   ishift, jshift)</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  !   &lt;/TEMPLATE&gt;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  !   &lt;DESCRIPTION&gt;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  !        Scatter (ie - is) * (je - js) contiguous elements of array data from the designated root pe</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  !        Scatter (ie - is) * (<a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a> - js) contiguous elements of array data from the designated root pe</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  !        into contigous members of array segment in each pe that is included in the pelist argument.</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  !   &lt;/DESCRIPTION&gt;</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  !   &lt;IN NAME=<span class="stringliteral">&quot;is, ie&quot;</span> TYPE=<span class="stringliteral">&quot;INTEGER&quot;</span>&gt;Start and end index of the first dimension of the segment array&lt;/IN&gt;</div>
@@ -133,11 +133,11 @@ $(document).ready(function(){initNavTree('mpp__scatter_8h_source.html',''); init
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  !   &lt;IN NAME=<span class="stringliteral">&quot;data&quot;</span> TYPE=<span class="stringliteral">&quot;REAL(:)&quot;</span>&gt;The source array.&lt;/IN&gt;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  !   &lt;IN NAME=<span class="stringliteral">&quot;is_root_pe&quot;</span> TYPE=<span class="stringliteral">&quot;LOGICAL&quot;</span> &gt; True <span class="keywordflow">if</span> the calee is root pe, <span class="keyword">false</span> otherwise. &lt;/IN&gt;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  !   &lt;IN NAME=<span class="stringliteral">&quot;ishift, jshift&quot;</span> TYPE=<span class="stringliteral">&quot;INTEGER&quot;</span> &gt; Offsets specifying the first element in data array.&lt;/IN&gt;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;subroutine MPP_SCATTER_PELIST_2D_(is, ie, js, je, pelist, array_seg, data, is_root_pe, &amp;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;subroutine MPP_SCATTER_PELIST_2D_(is, ie, js, <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>, pelist, array_seg, data, is_root_pe, &amp;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                                  ishift, jshift)</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;   integer,                           intent(in)    :: is, ie, js, je</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;   integer,                           intent(in)    :: is, ie, js, <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;   integer,   dimension(:),           intent(in)    :: pelist</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;   MPP_TYPE_, dimension(is:ie,js:je), intent(inout)    :: array_seg</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;   MPP_TYPE_, dimension(is:ie,js:<a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>), intent(inout)    :: array_seg</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;   MPP_TYPE_, dimension(:,:),         intent(in) :: data</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;   logical,                           intent(in)    :: is_root_pe</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;   integer,   optional,               intent(in)    :: ishift, jshift</div>
@@ -149,18 +149,18 @@ $(document).ready(function(){initNavTree('mpp__scatter_8h_source.html',''); init
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;   aptr = LOC(array_seg)</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;   dptr = LOC(     data)</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;   call mpp_scatter(is, ie, js, je, 1, pelist, arr3D, data3D, is_root_pe, &amp;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;   call mpp_scatter(is, ie, js, <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>, 1, pelist, arr3D, data3D, is_root_pe, &amp;</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                    ishift, jshift)</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;   return</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;end subroutine MPP_SCATTER_PELIST_2D_</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;subroutine MPP_SCATTER_PELIST_3D_(is, ie, js, je, nk, pelist, array_seg, data, is_root_pe, &amp;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;subroutine MPP_SCATTER_PELIST_3D_(is, ie, js, <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>, nk, pelist, array_seg, data, is_root_pe, &amp;</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                                  ishift, jshift)</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;   integer,                                intent(in)    :: is, ie, js, je, nk</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;   integer,                                intent(in)    :: is, ie, js, <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>, nk</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;   integer,   dimension(:),                intent(in)    :: pelist</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;   MPP_TYPE_, dimension(is:ie,js:je,1:nk), intent(inout)    :: array_seg</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;   MPP_TYPE_, dimension(is:ie,js:<a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>,1:nk), intent(inout)    :: array_seg</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;   MPP_TYPE_, dimension(:,:,:),            intent(in) :: data</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;   logical,                                intent(in)    :: is_root_pe</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;   integer,   optional,                    intent(in)    :: ishift, jshift</div>
@@ -202,7 +202,7 @@ $(document).ready(function(){initNavTree('mpp__scatter_8h_source.html',''); init
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;   my_ind(1) = is</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;   my_ind(2) = ie</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;   my_ind(3) = js</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;   my_ind(4) = je</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;   my_ind(4) = <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a></div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;! scatter indices into global index on root_pe</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;   if (is_root_pe) then</div>
@@ -267,6 +267,7 @@ $(document).ready(function(){initNavTree('mpp__scatter_8h_source.html',''); init
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="ampp__util__mpi_8inc_html_a09e69243d8c67e6a6e6e4fd9e93d0870"><div class="ttname"><a href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a></div><div class="ttdeci">subroutine mpp_sync_self(pelist, check, request, msg_size, msg_type)</div><div class="ttdoc">This is to check if current PE's outstanding puts are complete but we can't use shmem_fence because w...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util__mpi_8inc_source.html#l00169">mpp_util_mpi.inc:169</a></div></div>
+<div class="ttc" id="agroup__fms__io__mod_html_gae85b018bca1141b3510db6f38fdc50bf"><div class="ttname"><a href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">fms_io_mod::je</a></div><div class="ttdeci">integer, private je</div><div class="ttdoc">compute domain</div><div class="ttdef"><b>Definition:</b> <a href="fms__io_8F90_source.html#l00518">fms_io.F90:518</a></div></div>
 <div class="ttc" id="ampp__util_8inc_html_acfeba7de56f9dd6000b3fd78f9d56c50"><div class="ttname"><a href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a></div><div class="ttdeci">integer function mpp_pe()</div><div class="ttdoc">Returns processor ID. This returns the unique ID associated with a PE. This number runs between 0 and...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00442">mpp_util.inc:442</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

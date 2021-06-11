@@ -116,7 +116,7 @@ $(document).ready(function(){initNavTree('mpp__write__2Ddecomp_8h_source.html','
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;!routine that is <span class="keywordflow">finally</span> called by all mpp_write routines to perform the write</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;!a non-netCDF record contains:</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;!      field ID</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;!      a set of 4 coordinates (is:ie,js:je) giving the data subdomain</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;!      a set of 4 coordinates (is:ie,js:<a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>) giving the data subdomain</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;!      a timelevel and a timestamp (=NULLTIME <span class="keywordflow">if</span> field is <span class="keyword">static</span>)</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;!      3D real data (stored as 1D)</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;!<span class="keywordflow">if</span> you are <span class="keyword">using</span> direct access I/O, the RECL argument to OPEN must be large enough <span class="keywordflow">for</span> the above</div>
@@ -141,7 +141,7 @@ $(document).ready(function(){initNavTree('mpp__write__2Ddecomp_8h_source.html','
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;      logical :: newtime</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;      integer :: subdomain(4)</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;      integer :: packed_data(nwords)</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;      integer :: i, is, ie, js, je</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;      integer :: i, is, ie, js, <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a></div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;      real(r4_kind) :: data_r4(nwords)</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;      pointer( ptr1, data_r4)</div>
@@ -244,10 +244,10 @@ $(document).ready(function(){initNavTree('mpp__write__2Ddecomp_8h_source.html','
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;      <span class="keywordflow">else</span>                      !non-netCDF</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;          ptr1 = LOC(mpp_io_stack(1))</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;!subdomain contains (/is,ie,js,je/)</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;!subdomain contains (/is,ie,js,<a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>/)</div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;          if( PRESENT(domain) )then</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;              call mpp_get_compute_domain(domain, is, ie, js, je)</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;              subdomain(:) = (/ is, ie, js, je /)</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;              call mpp_get_compute_domain(domain, is, ie, js, <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>)</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;              subdomain(:) = (/ is, ie, js, <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a> /)</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;          else</div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;              subdomain(:) = -1    ! -1 means use global value from axis metadata</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;          end if</div>
@@ -309,7 +309,7 @@ $(document).ready(function(){initNavTree('mpp__write__2Ddecomp_8h_source.html','
 <div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;      MPP_TYPE_, allocatable, dimension(:,:,:) :: cdata, gdata</div>
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;!NEW: data may be on compute OR data domain</div>
 <div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;      logical :: data_has_halos, halos_are_global, x_is_global, y_is_global</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;      integer :: is, ie, js, je, isd, ied, jsd, jed, isg, ieg, jsg, jeg, ism, iem, jsm, jem</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;      integer :: is, ie, js, <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>, isd, ied, jsd, <a class="code" href="group__fms__io__mod.html#gad4afab643d50b32ca35e2995dae649fa">jed</a>, isg, ieg, jsg, <a class="code" href="group__fms__io__mod.html#gacdcb373c251e060179c3f0508c2929e6">jeg</a>, ism, iem, jsm, jem</div>
 <div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;      integer :: position, errunit</div>
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;      type(domain2d), pointer :: io_domain=&gt;NULL()</div>
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160; </div>
@@ -321,19 +321,19 @@ $(document).ready(function(){initNavTree('mpp__write__2Ddecomp_8h_source.html','
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160; </div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;      position = field%position</div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160; </div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;      call mpp_get_compute_domain( domain, is,  ie,  js,  je, tile_count=tile_count, position=position  )</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;      call mpp_get_data_domain   ( domain, isd, ied, jsd, jed, x_is_global=x_is_global, &amp;</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;      call mpp_get_compute_domain( domain, is,  ie,  js,  <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>, tile_count=tile_count, position=position  )</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;      call mpp_get_data_domain   ( domain, isd, ied, jsd, <a class="code" href="group__fms__io__mod.html#gad4afab643d50b32ca35e2995dae649fa">jed</a>, x_is_global=x_is_global, &amp;</div>
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;                                   y_is_global=y_is_global, tile_count=tile_count, position=position )</div>
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;      call mpp_get_memory_domain ( domain, ism, iem, jsm, jem, position=position )</div>
 <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160; </div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;      if( size(data,1).EQ.ie-is+1 .AND. size(data,2).EQ.je-js+1 )then</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;      if( size(data,1).EQ.ie-is+1 .AND. size(data,2).EQ.<a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>-js+1 )then</div>
 <div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;          data_has_halos = .FALSE.</div>
 <div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;      else if( size(data,1).EQ.iem-ism+1 .AND. size(data,2).EQ.jem-jsm+1 )then</div>
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;          data_has_halos = .TRUE.</div>
 <div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;      else</div>
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;          write( errunit,&#39;(a,10i5)&#39; )&#39;MPP_WRITE_2DDECOMP fails on field &#39;<span class="comment">//trim(field%name)// &amp;</span></div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;               &#39;: is,ie,js,je, ism,iem,jsm,jem, size(data,1), size(data,2)=&#39;, &amp;</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;               is,ie,js,je, ism,iem,jsm,jem, size(data,1), size(data,2)</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;               &#39;: is,ie,js,<a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>, ism,iem,jsm,jem, size(data,1), size(data,2)=&#39;, &amp;</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;               is,ie,js,<a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>, ism,iem,jsm,jem, size(data,1), size(data,2)</div>
 <div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;          call mpp_error( FATAL, &#39;MPP_WRITE: data must be either on compute domain or data domain.&#39; )</div>
 <div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;      end if</div>
 <div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;      halos_are_global = x_is_global .AND. y_is_global</div>
@@ -346,9 +346,9 @@ $(document).ready(function(){initNavTree('mpp__write__2Ddecomp_8h_source.html','
 <div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;              endif</div>
 <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;          else</div>
 <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;!put field onto global domain</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;              call mpp_get_global_domain ( domain, isg, ieg, jsg, jeg, tile_count=tile_count, position=position )</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;              call mpp_get_global_domain ( domain, isg, ieg, jsg, <a class="code" href="group__fms__io__mod.html#gacdcb373c251e060179c3f0508c2929e6">jeg</a>, tile_count=tile_count, position=position )</div>
 <div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;              if(mpp_file(unit)%write_on_this_pe .OR. .NOT. global_field_on_root_pe) then</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;                  allocate( gdata(isg:ieg,jsg:jeg,size(data,3)) )</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;                  allocate( gdata(isg:ieg,jsg:<a class="code" href="group__fms__io__mod.html#gacdcb373c251e060179c3f0508c2929e6">jeg</a>,size(data,3)) )</div>
 <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;              else</div>
 <div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;                  allocate( gdata(1,1,1))</div>
 <div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;              endif</div>
@@ -374,9 +374,9 @@ $(document).ready(function(){initNavTree('mpp__write__2Ddecomp_8h_source.html','
 <div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;              endif</div>
 <div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;          else</div>
 <div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;              io_domain=&gt;mpp_get_io_domain(mpp_file(unit)%domain)</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;              call mpp_get_global_domain ( io_domain, isg, ieg, jsg, jeg, tile_count=tile_count, position=position )</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;              call mpp_get_global_domain ( io_domain, isg, ieg, jsg, <a class="code" href="group__fms__io__mod.html#gacdcb373c251e060179c3f0508c2929e6">jeg</a>, tile_count=tile_count, position=position )</div>
 <div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;              if(mpp_file(unit)%write_on_this_pe .OR. .NOT. global_field_on_root_pe) then</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;                 allocate( gdata(isg:ieg,jsg:jeg,size(data,3)) )</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;                 allocate( gdata(isg:ieg,jsg:<a class="code" href="group__fms__io__mod.html#gacdcb373c251e060179c3f0508c2929e6">jeg</a>,size(data,3)) )</div>
 <div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;              else</div>
 <div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;                 allocate( gdata(1,1,1))</div>
 <div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;              endif</div>
@@ -396,8 +396,8 @@ $(document).ready(function(){initNavTree('mpp__write__2Ddecomp_8h_source.html','
 <div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;          endif</div>
 <div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;      else if( data_has_halos )then</div>
 <div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;!store compute domain as contiguous data and pass to write_record</div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;          allocate( cdata(is:ie,js:je,size(data,3)) )</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;          cdata(:,:,:) = data(is-isd+1:ie-isd+1,js-jsd+1:je-jsd+1,:)</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;          allocate( cdata(is:ie,js:<a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>,size(data,3)) )</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;          cdata(:,:,:) = data(is-isd+1:ie-isd+1,js-jsd+1:<a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>-jsd+1,:)</div>
 <div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;          call WRITE_RECORD_( unit, field, size(cdata(:,:,:)), cdata, tstamp, domain, tile_count )</div>
 <div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;      else</div>
 <div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;!data is already contiguous</div>
@@ -424,7 +424,7 @@ $(document).ready(function(){initNavTree('mpp__write__2Ddecomp_8h_source.html','
 <div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;      MPP_TYPE_, allocatable, dimension(:,:,:,:) :: cdata, gdata</div>
 <div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;!NEW: data may be on compute OR data domain</div>
 <div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;      logical :: data_has_halos, halos_are_global, x_is_global, y_is_global</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;      integer :: is, ie, js, je, isd, ied, jsd, jed, isg, ieg, jsg, jeg, ism, iem, jsm, jem</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;      integer :: is, ie, js, <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>, isd, ied, jsd, <a class="code" href="group__fms__io__mod.html#gad4afab643d50b32ca35e2995dae649fa">jed</a>, isg, ieg, jsg, <a class="code" href="group__fms__io__mod.html#gacdcb373c251e060179c3f0508c2929e6">jeg</a>, ism, iem, jsm, jem</div>
 <div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;      integer :: position, errunit</div>
 <div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;      type(domain2d), pointer :: io_domain=&gt;NULL()</div>
 <div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160; </div>
@@ -436,19 +436,19 @@ $(document).ready(function(){initNavTree('mpp__write__2Ddecomp_8h_source.html','
 <div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160; </div>
 <div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;      position = field%position</div>
 <div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160; </div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;      call mpp_get_compute_domain( domain, is,  ie,  js,  je, tile_count=tile_count, position=position  )</div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;      call mpp_get_data_domain   ( domain, isd, ied, jsd, jed, x_is_global=x_is_global, &amp;</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;      call mpp_get_compute_domain( domain, is,  ie,  js,  <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>, tile_count=tile_count, position=position  )</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;      call mpp_get_data_domain   ( domain, isd, ied, jsd, <a class="code" href="group__fms__io__mod.html#gad4afab643d50b32ca35e2995dae649fa">jed</a>, x_is_global=x_is_global, &amp;</div>
 <div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;                                   y_is_global=y_is_global, tile_count=tile_count, position=position )</div>
 <div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;      call mpp_get_memory_domain ( domain, ism, iem, jsm, jem, position=position )</div>
 <div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160; </div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;      if( size(data,1).EQ.ie-is+1 .AND. size(data,2).EQ.je-js+1 )then</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;      if( size(data,1).EQ.ie-is+1 .AND. size(data,2).EQ.<a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>-js+1 )then</div>
 <div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;          data_has_halos = .FALSE.</div>
 <div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;      else if( size(data,1).EQ.iem-ism+1 .AND. size(data,2).EQ.jem-jsm+1 )then</div>
 <div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;          data_has_halos = .TRUE.</div>
 <div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;      else</div>
 <div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;          write( errunit,&#39;(a,10i5)&#39; )&#39;MPP_WRITE_2DDECOMP fails on field &#39;<span class="comment">//trim(field%name)// &amp;</span></div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;               &#39;: is,ie,js,je, ism,iem,jsm,jem, size(data,1), size(data,2)=&#39;, &amp;</div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;               is,ie,js,je, ism,iem,jsm,jem, size(data,1), size(data,2)</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;               &#39;: is,ie,js,<a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>, ism,iem,jsm,jem, size(data,1), size(data,2)=&#39;, &amp;</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;               is,ie,js,<a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>, ism,iem,jsm,jem, size(data,1), size(data,2)</div>
 <div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;          call mpp_error( FATAL, &#39;MPP_WRITE: data must be either on compute domain or data domain.&#39; )</div>
 <div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;      end if</div>
 <div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;      halos_are_global = x_is_global .AND. y_is_global</div>
@@ -461,9 +461,9 @@ $(document).ready(function(){initNavTree('mpp__write__2Ddecomp_8h_source.html','
 <div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;              endif</div>
 <div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;          else</div>
 <div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;!put field onto global domain</div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;              call mpp_get_global_domain ( domain, isg, ieg, jsg, jeg, tile_count=tile_count, position=position )</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;              call mpp_get_global_domain ( domain, isg, ieg, jsg, <a class="code" href="group__fms__io__mod.html#gacdcb373c251e060179c3f0508c2929e6">jeg</a>, tile_count=tile_count, position=position )</div>
 <div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;              if(mpp_file(unit)%write_on_this_pe .OR. .NOT. global_field_on_root_pe) then</div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;                  allocate( gdata(isg:ieg,jsg:jeg,size(data,3),size(data,4)) )</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;                  allocate( gdata(isg:ieg,jsg:<a class="code" href="group__fms__io__mod.html#gacdcb373c251e060179c3f0508c2929e6">jeg</a>,size(data,3),size(data,4)) )</div>
 <div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;              else</div>
 <div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;                  allocate( gdata(1,1,1,1))</div>
 <div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;              endif</div>
@@ -489,9 +489,9 @@ $(document).ready(function(){initNavTree('mpp__write__2Ddecomp_8h_source.html','
 <div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;              endif</div>
 <div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;          else</div>
 <div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;              io_domain=&gt;mpp_get_io_domain(mpp_file(unit)%domain)</div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;              call mpp_get_global_domain ( io_domain, isg, ieg, jsg, jeg, tile_count=tile_count, position=position )</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;              call mpp_get_global_domain ( io_domain, isg, ieg, jsg, <a class="code" href="group__fms__io__mod.html#gacdcb373c251e060179c3f0508c2929e6">jeg</a>, tile_count=tile_count, position=position )</div>
 <div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;              if(mpp_file(unit)%write_on_this_pe .OR. .NOT. global_field_on_root_pe) then</div>
-<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;                 allocate( gdata(isg:ieg,jsg:jeg,size(data,3),size(data,4)) )</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;                 allocate( gdata(isg:ieg,jsg:<a class="code" href="group__fms__io__mod.html#gacdcb373c251e060179c3f0508c2929e6">jeg</a>,size(data,3),size(data,4)) )</div>
 <div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;              else</div>
 <div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;                 allocate( gdata(1,1,1,1))</div>
 <div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;              endif</div>
@@ -511,8 +511,8 @@ $(document).ready(function(){initNavTree('mpp__write__2Ddecomp_8h_source.html','
 <div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;          endif</div>
 <div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;      else if( data_has_halos )then</div>
 <div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;!store compute domain as contiguous data and pass to write_record</div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;          allocate( cdata(is:ie,js:je,size(data,3),size(data,4)) )</div>
-<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;          cdata(:,:,:,:) = data(is-isd+1:ie-isd+1,js-jsd+1:je-jsd+1,:,:)</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;          allocate( cdata(is:ie,js:<a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>,size(data,3),size(data,4)) )</div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;          cdata(:,:,:,:) = data(is-isd+1:ie-isd+1,js-jsd+1:<a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>-jsd+1,:,:)</div>
 <div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;          call WRITE_RECORD_( unit, field, size(cdata(:,:,:,:)), cdata, tstamp, domain, tile_count )</div>
 <div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;      else</div>
 <div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;!data is already contiguous</div>
@@ -526,10 +526,13 @@ $(document).ready(function(){initNavTree('mpp__write__2Ddecomp_8h_source.html','
 <div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="agroup__fms2__io__mod_html_ga6a6e9d8fc157d60fba739ab572e55b7b"><div class="ttname"><a href="group__fms2__io__mod.html#ga6a6e9d8fc157d60fba739ab572e55b7b">fms2_io_mod::header_buffer_val</a></div><div class="ttdeci">integer header_buffer_val</div><div class="ttdoc">Use defined netCDF header buffer size(in bytes) used in NF__ENDDEF.</div><div class="ttdef"><b>Definition:</b> <a href="fms2__io_8F90_source.html#l00344">fms2_io.F90:344</a></div></div>
-<div class="ttc" id="agroup__amip__interp__mod_html_ga9e8dcf56a77b1b156ccc0fa7e082a46b"><div class="ttname"><a href="group__amip__interp__mod.html#ga9e8dcf56a77b1b156ccc0fa7e082a46b">amip_interp_mod::verbose</a></div><div class="ttdeci">integer verbose</div><div class="ttdoc">0 &lt;= verbose &lt;= 3</div><div class="ttdef"><b>Definition:</b> <a href="amip__interp_8F90_source.html#l00277">amip_interp.F90:277</a></div></div>
+<div class="ttc" id="agroup__fms__io__mod_html_gad4afab643d50b32ca35e2995dae649fa"><div class="ttname"><a href="group__fms__io__mod.html#gad4afab643d50b32ca35e2995dae649fa">fms_io_mod::jed</a></div><div class="ttdeci">integer, private jed</div><div class="ttdoc">data domain</div><div class="ttdef"><b>Definition:</b> <a href="fms__io_8F90_source.html#l00519">fms_io.F90:519</a></div></div>
+<div class="ttc" id="agroup__fms2__io__mod_html_ga6a6e9d8fc157d60fba739ab572e55b7b"><div class="ttname"><a href="group__fms2__io__mod.html#ga6a6e9d8fc157d60fba739ab572e55b7b">fms2_io_mod::header_buffer_val</a></div><div class="ttdeci">integer header_buffer_val</div><div class="ttdoc">Use defined netCDF header buffer size(in bytes) used in NF__ENDDEF.</div><div class="ttdef"><b>Definition:</b> <a href="fms2__io_8F90_source.html#l00356">fms2_io.F90:356</a></div></div>
+<div class="ttc" id="agroup__fms__io__mod_html_gacdcb373c251e060179c3f0508c2929e6"><div class="ttname"><a href="group__fms__io__mod.html#gacdcb373c251e060179c3f0508c2929e6">fms_io_mod::jeg</a></div><div class="ttdeci">integer, private jeg</div><div class="ttdoc">global domain</div><div class="ttdef"><b>Definition:</b> <a href="fms__io_8F90_source.html#l00520">fms_io.F90:520</a></div></div>
+<div class="ttc" id="agroup__amip__interp__mod_html_ga9e8dcf56a77b1b156ccc0fa7e082a46b"><div class="ttname"><a href="group__amip__interp__mod.html#ga9e8dcf56a77b1b156ccc0fa7e082a46b">amip_interp_mod::verbose</a></div><div class="ttdeci">integer verbose</div><div class="ttdoc">0 &lt;= verbose &lt;= 3</div><div class="ttdef"><b>Definition:</b> <a href="amip__interp_8F90_source.html#l00280">amip_interp.F90:280</a></div></div>
 <div class="ttc" id="ampp__util_8inc_html_a285ef180624257148d85af894928844b"><div class="ttname"><a href="mpp__util_8inc.html#a285ef180624257148d85af894928844b">stderr</a></div><div class="ttdeci">integer function stderr()</div><div class="ttdoc">This function returns the current standard fortran unit numbers for error messages.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00085">mpp_util.inc:85</a></div></div>
 <div class="ttc" id="agroup__diag__axis__mod_html_gaaeb334bb35e9472f0707b4cca84eede6"><div class="ttname"><a href="group__diag__axis__mod.html#gaaeb334bb35e9472f0707b4cca84eede6">diag_axis_mod::axes</a></div><div class="ttdeci">type(diag_axis_type), dimension(:), allocatable, save axes</div><div class="ttdoc">-— global storage for all defined axes -—</div><div class="ttdef"><b>Definition:</b> <a href="diag__axis_8F90_source.html#l00096">diag_axis.F90:96</a></div></div>
+<div class="ttc" id="agroup__fms__io__mod_html_gae85b018bca1141b3510db6f38fdc50bf"><div class="ttname"><a href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">fms_io_mod::je</a></div><div class="ttdeci">integer, private je</div><div class="ttdoc">compute domain</div><div class="ttdef"><b>Definition:</b> <a href="fms__io_8F90_source.html#l00518">fms_io.F90:518</a></div></div>
 <div class="ttc" id="ampp__io__util_8inc_html_a23cb28bd7f446ed5c0a8aea9d0a4ae49"><div class="ttname"><a href="mpp__io__util_8inc.html#a23cb28bd7f446ed5c0a8aea9d0a4ae49">mpp_io_set_stack_size</a></div><div class="ttdeci">subroutine mpp_io_set_stack_size(n)</div><div class="ttdoc">Set the mpp_io_stack variable to be at least n LONG words long.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__io__util_8inc_source.html#l00592">mpp_io_util.inc:592</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

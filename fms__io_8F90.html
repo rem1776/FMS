@@ -139,10 +139,12 @@ Data Types</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">type &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfms__io__mod_1_1restart__file__type.html">restart_file_type</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacefms__io__mod_1_1read__data.html">read_data</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read data from a file.  <a href="interfacefms__io__mod_1_1read__data.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacefms__io__mod_1_1read__distributed.html">read_distributed</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacefms__io__mod_1_1read__compressed.html">read_compressed</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Only need read compressed att; write is handled in with mpp_io calls in save_compressed_restart.  <a href="interfacefms__io__mod_1_1read__compressed.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacefms__io__mod_1_1write__data.html">write_data</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -690,16 +692,20 @@ integer, parameter, private&#160;</td><td class="memItemRight" valign="bottom"><
 logical, private&#160;</td><td class="memItemRight" valign="bottom"><b>warn_string_function</b> = .true.</td></tr>
 <tr class="separator:ga96795ba11293fcf89cc2af5d5b1bc4c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga84517c9b8834dadf783405fe081af39f"><td class="memItemLeft" align="right" valign="top">
-integer&#160;</td><td class="memItemRight" valign="bottom"><b>num_files_r</b> = 0</td></tr>
+integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms__io__mod.html#ga84517c9b8834dadf783405fe081af39f">num_files_r</a> = 0</td></tr>
+<tr class="memdesc:ga84517c9b8834dadf783405fe081af39f"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of currently opened files for reading <br /></td></tr>
 <tr class="separator:ga84517c9b8834dadf783405fe081af39f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaea8e047817f371c2f6a4dec8d3e648f5"><td class="memItemLeft" align="right" valign="top">
-integer&#160;</td><td class="memItemRight" valign="bottom"><b>num_files_w</b> = 0</td></tr>
+integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms__io__mod.html#gaea8e047817f371c2f6a4dec8d3e648f5">num_files_w</a> = 0</td></tr>
+<tr class="memdesc:gaea8e047817f371c2f6a4dec8d3e648f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of currently opened files for writing <br /></td></tr>
 <tr class="separator:gaea8e047817f371c2f6a4dec8d3e648f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga7f6f062bc19fdeba658c8d91ad466a58"><td class="memItemLeft" align="right" valign="top">
-integer&#160;</td><td class="memItemRight" valign="bottom"><b>num_domains</b> = 0</td></tr>
+integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms__io__mod.html#ga7f6f062bc19fdeba658c8d91ad466a58">num_domains</a> = 0</td></tr>
+<tr class="memdesc:ga7f6f062bc19fdeba658c8d91ad466a58"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of domains in array_domain <br /></td></tr>
 <tr class="separator:ga7f6f062bc19fdeba658c8d91ad466a58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6b15231403403742dceb83fa35b43050"><td class="memItemLeft" align="right" valign="top">
-integer&#160;</td><td class="memItemRight" valign="bottom"><b>num_registered_files</b> = 0</td></tr>
+integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms__io__mod.html#ga6b15231403403742dceb83fa35b43050">num_registered_files</a> = 0</td></tr>
+<tr class="memdesc:ga6b15231403403742dceb83fa35b43050"><td class="mdescLeft">&#160;</td><td class="mdescRight">mumber of files registered by calling register_restart_file <br /></td></tr>
 <tr class="separator:ga6b15231403403742dceb83fa35b43050"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga9da80295d0e8e2943732ae02a3fc945c"><td class="memItemLeft" align="right" valign="top">
 integer&#160;</td><td class="memItemRight" valign="bottom"><b>thread_r</b></td></tr>
@@ -729,7 +735,8 @@ integer, private&#160;</td><td class="memItemRight" valign="bottom"><b>ie</b></t
 integer, private&#160;</td><td class="memItemRight" valign="bottom"><b>js</b></td></tr>
 <tr class="separator:ga0a7eacbfb60b584602ec68602e342556"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae85b018bca1141b3510db6f38fdc50bf"><td class="memItemLeft" align="right" valign="top">
-integer, private&#160;</td><td class="memItemRight" valign="bottom"><b>je</b></td></tr>
+integer, private&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a></td></tr>
+<tr class="memdesc:gae85b018bca1141b3510db6f38fdc50bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">compute domain <br /></td></tr>
 <tr class="separator:gae85b018bca1141b3510db6f38fdc50bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4c89783eca3b3007ab7cbbbcc0496f9e"><td class="memItemLeft" align="right" valign="top">
 integer, private&#160;</td><td class="memItemRight" valign="bottom"><b>isd</b></td></tr>
@@ -741,7 +748,8 @@ integer, private&#160;</td><td class="memItemRight" valign="bottom"><b>ied</b></
 integer, private&#160;</td><td class="memItemRight" valign="bottom"><b>jsd</b></td></tr>
 <tr class="separator:gacee5d406a6a4f983f83865809822d625"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad4afab643d50b32ca35e2995dae649fa"><td class="memItemLeft" align="right" valign="top">
-integer, private&#160;</td><td class="memItemRight" valign="bottom"><b>jed</b></td></tr>
+integer, private&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms__io__mod.html#gad4afab643d50b32ca35e2995dae649fa">jed</a></td></tr>
+<tr class="memdesc:gad4afab643d50b32ca35e2995dae649fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">data domain <br /></td></tr>
 <tr class="separator:gad4afab643d50b32ca35e2995dae649fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga56e8bc08146aaa815806c83b4c334cf0"><td class="memItemLeft" align="right" valign="top">
 integer, private&#160;</td><td class="memItemRight" valign="bottom"><b>isg</b></td></tr>
@@ -753,16 +761,20 @@ integer, private&#160;</td><td class="memItemRight" valign="bottom"><b>ieg</b></
 integer, private&#160;</td><td class="memItemRight" valign="bottom"><b>jsg</b></td></tr>
 <tr class="separator:gadcaa269041761b3892ae00ad94616ec7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gacdcb373c251e060179c3f0508c2929e6"><td class="memItemLeft" align="right" valign="top">
-integer, private&#160;</td><td class="memItemRight" valign="bottom"><b>jeg</b></td></tr>
+integer, private&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms__io__mod.html#gacdcb373c251e060179c3f0508c2929e6">jeg</a></td></tr>
+<tr class="memdesc:gacdcb373c251e060179c3f0508c2929e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">global domain <br /></td></tr>
 <tr class="separator:gacdcb373c251e060179c3f0508c2929e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4ecdc182d2e711a1abb278519fd43281"><td class="memItemLeft" align="right" valign="top">
-character(len=128), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><b>registered_file</b></td></tr>
+character(len=128), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms__io__mod.html#ga4ecdc182d2e711a1abb278519fd43281">registered_file</a></td></tr>
+<tr class="memdesc:ga4ecdc182d2e711a1abb278519fd43281"><td class="mdescLeft">&#160;</td><td class="mdescRight">file names registered through register_restart_file <br /></td></tr>
 <tr class="separator:ga4ecdc182d2e711a1abb278519fd43281"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaa3908ad0a6769d1fec3e9b6415baaf0c"><td class="memItemLeft" align="right" valign="top">
-type(restart_file_type), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><b>files_read</b></td></tr>
+type(restart_file_type), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms__io__mod.html#gaa3908ad0a6769d1fec3e9b6415baaf0c">files_read</a></td></tr>
+<tr class="memdesc:gaa3908ad0a6769d1fec3e9b6415baaf0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">store files that are read through <a class="el" href="interfacefms__io__mod_1_1read__data.html" title="Read data from a file.">read_data</a> <br /></td></tr>
 <tr class="separator:gaa3908ad0a6769d1fec3e9b6415baaf0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae2f0fd538a0abca6e701ca2569d0901b"><td class="memItemLeft" align="right" valign="top">
-type(restart_file_type), dimension(:), allocatable, target&#160;</td><td class="memItemRight" valign="bottom"><b>files_write</b></td></tr>
+type(restart_file_type), dimension(:), allocatable, target&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms__io__mod.html#gae2f0fd538a0abca6e701ca2569d0901b">files_write</a></td></tr>
+<tr class="memdesc:gae2f0fd538a0abca6e701ca2569d0901b"><td class="mdescLeft">&#160;</td><td class="mdescRight">store files that are written through <a class="el" href="interfacefms__io__mod_1_1write__data.html">write_data</a> <br /></td></tr>
 <tr class="separator:gae2f0fd538a0abca6e701ca2569d0901b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga2f1014b594f126780835b28cb9844c54"><td class="memItemLeft" align="right" valign="top">
 type(domain2d), dimension(max_domains), target, save&#160;</td><td class="memItemRight" valign="bottom"><b>array_domain</b></td></tr>

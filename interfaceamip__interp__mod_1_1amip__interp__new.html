@@ -103,10 +103,10 @@ $(document).ready(function(){initNavTree('interfaceamip__interp__mod_1_1amip__in
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:gaefdaa09f371957b7436b7b5549e1ba41"><td class="memItemLeft" align="right" valign="top">type(<a class="el" href="structamip__interp__mod_1_1amip__interp__type.html">amip_interp_type</a>) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__amip__interp__mod.html#gaefdaa09f371957b7436b7b5549e1ba41">amip_interp_new_1d</a> (lon, lat, mask, use_climo, use_annual, interp_method)</td></tr>
-<tr class="separator:gaefdaa09f371957b7436b7b5549e1ba41"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2caba36ff0a5bdd0ae2bc334a05465e3"><td class="memItemLeft" align="right" valign="top">type(<a class="el" href="structamip__interp__mod_1_1amip__interp__type.html">amip_interp_type</a>) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__amip__interp__mod.html#ga2caba36ff0a5bdd0ae2bc334a05465e3">amip_interp_new_2d</a> (lon, lat, mask, use_climo, use_annual, interp_method)</td></tr>
-<tr class="separator:ga2caba36ff0a5bdd0ae2bc334a05465e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefdaa09f371957b7436b7b5549e1ba41"><td class="memItemLeft" align="right" valign="top">type(<a class="el" href="structamip__interp__mod_1_1amip__interp__type.html">amip_interp_type</a>) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfaceamip__interp__mod_1_1amip__interp__new.html#aefdaa09f371957b7436b7b5549e1ba41">amip_interp_new_1d</a> (lon, lat, mask, use_climo, use_annual, interp_method)</td></tr>
+<tr class="separator:aefdaa09f371957b7436b7b5549e1ba41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2caba36ff0a5bdd0ae2bc334a05465e3"><td class="memItemLeft" align="right" valign="top">type(<a class="el" href="structamip__interp__mod_1_1amip__interp__type.html">amip_interp_type</a>) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfaceamip__interp__mod_1_1amip__interp__new.html#a2caba36ff0a5bdd0ae2bc334a05465e3">amip_interp_new_2d</a> (lon, lat, mask, use_climo, use_annual, interp_method)</td></tr>
+<tr class="separator:a2caba36ff0a5bdd0ae2bc334a05465e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Initializes data needed for the horizontal interpolation between the sst grid and model grid. </p>
@@ -138,7 +138,134 @@ Private Member Functions</h2></td></tr>
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="amip__interp_8F90_source.html#l00226">226</a> of file <a class="el" href="amip__interp_8F90_source.html">amip_interp.F90</a>.</p>
-</div><hr/>The documentation for this interface was generated from the following file:<ul>
+</div><h2 class="groupheader">Member Function/Subroutine Documentation</h2>
+<a id="aefdaa09f371957b7436b7b5549e1ba41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefdaa09f371957b7436b7b5549e1ba41">&#9670;&nbsp;</a></span>amip_interp_new_1d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">type (<a class="el" href="structamip__interp__mod_1_1amip__interp__type.html">amip_interp_type</a>) function amip_interp_new_1d </td>
+          <td>(</td>
+          <td class="paramtype">real, dimension(:), intent(in)&#160;</td>
+          <td class="paramname"><em>lon</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:), intent(in)&#160;</td>
+          <td class="paramname"><em>lat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, dimension(:,:), intent(in)&#160;</td>
+          <td class="paramname"><em>mask</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, intent(in), optional&#160;</td>
+          <td class="paramname"><em>use_climo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, intent(in), optional&#160;</td>
+          <td class="paramname"><em>use_annual</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in), optional&#160;</td>
+          <td class="paramname"><em>interp_method</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="structamip__interp__mod_1_1amip__interp__type.html" title="Contains information needed by the interpolation module (exchange_mod) and buffers data.">amip_interp_type</a> Interp </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="amip__interp_8F90_source.html#l00833">833</a> of file <a class="el" href="amip__interp_8F90_source.html">amip_interp.F90</a>.</p>
+
+</div>
+</div>
+<a id="a2caba36ff0a5bdd0ae2bc334a05465e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2caba36ff0a5bdd0ae2bc334a05465e3">&#9670;&nbsp;</a></span>amip_interp_new_2d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">type (<a class="el" href="structamip__interp__mod_1_1amip__interp__type.html">amip_interp_type</a>) function amip_interp_new_2d </td>
+          <td>(</td>
+          <td class="paramtype">real, dimension(:,:), intent(in)&#160;</td>
+          <td class="paramname"><em>lon</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:,:), intent(in)&#160;</td>
+          <td class="paramname"><em>lat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, dimension(:,:), intent(in)&#160;</td>
+          <td class="paramname"><em>mask</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, intent(in), optional&#160;</td>
+          <td class="paramname"><em>use_climo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, intent(in), optional&#160;</td>
+          <td class="paramname"><em>use_annual</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in), optional&#160;</td>
+          <td class="paramname"><em>interp_method</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="structamip__interp__mod_1_1amip__interp__type.html" title="Contains information needed by the interpolation module (exchange_mod) and buffers data.">amip_interp_type</a> Interp </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="amip__interp_8F90_source.html#l00884">884</a> of file <a class="el" href="amip__interp_8F90_source.html">amip_interp.F90</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this interface was generated from the following file:<ul>
 <li>amip_interp/<a class="el" href="amip__interp_8F90_source.html">amip_interp.F90</a></li>
 </ul>
 </div><!-- contents -->

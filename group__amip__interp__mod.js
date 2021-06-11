@@ -1,9 +1,9 @@
 var group__amip__interp__mod =
 [
     [ "date_type", "structamip__interp__mod_1_1date__type.html", [
-      [ "day", "group__amip__interp__mod.html#ga56743fca26ba2f2daa8fbc740ae412de", null ],
-      [ "month", "group__amip__interp__mod.html#gad9851d0826f6ba80aeb81c34d6e29b50", null ],
-      [ "year", "group__amip__interp__mod.html#ga14514b729794038873fad0f73c1ed648", null ]
+      [ "day", "structamip__interp__mod_1_1date__type.html#a56743fca26ba2f2daa8fbc740ae412de", null ],
+      [ "month", "structamip__interp__mod_1_1date__type.html#ad9851d0826f6ba80aeb81c34d6e29b50", null ],
+      [ "year", "structamip__interp__mod_1_1date__type.html#a14514b729794038873fad0f73c1ed648", null ]
     ] ],
     [ "assignment(=)", "interfaceamip__interp__mod_1_1assignment_07_0a_08.html", [
       [ "amip_interp_type_eq", "interfaceamip__interp__mod_1_1assignment_07_0a_08.html#a5af76df22471110045a0e6a8f856cb92", null ]
@@ -18,26 +18,24 @@ var group__amip__interp__mod =
       [ "date_gt", "interfaceamip__interp__mod_1_1operator_07_4_08.html#aa0a36d51ed8a5fcb5d0413349ead8c4a", null ]
     ] ],
     [ "amip_interp_new", "interfaceamip__interp__mod_1_1amip__interp__new.html", [
-      [ "amip_interp_new_1d", "group__amip__interp__mod.html#gaefdaa09f371957b7436b7b5549e1ba41", null ],
-      [ "amip_interp_new_2d", "group__amip__interp__mod.html#ga2caba36ff0a5bdd0ae2bc334a05465e3", null ]
+      [ "amip_interp_new_1d", "interfaceamip__interp__mod_1_1amip__interp__new.html#aefdaa09f371957b7436b7b5549e1ba41", null ],
+      [ "amip_interp_new_2d", "interfaceamip__interp__mod_1_1amip__interp__new.html#a2caba36ff0a5bdd0ae2bc334a05465e3", null ]
     ] ],
     [ "amip_interp_type", "structamip__interp__mod_1_1amip__interp__type.html", [
-      [ "data1", "group__amip__interp__mod.html#gaa46d014f9ee64f1448e201fb8c19e37a", null ],
-      [ "data2", "group__amip__interp__mod.html#ga1352daad8fcd286b8cf6d05b2f2acbbf", null ],
-      [ "date1", "group__amip__interp__mod.html#gab3f72349a482edc1ca14bbf16d352324", null ],
-      [ "date2", "group__amip__interp__mod.html#gad940823a251d96df7993d5087405d93a", null ],
-      [ "hintrp", "group__amip__interp__mod.html#gab91b47a8a7e82257eb181a6319dfcf9d", null ],
-      [ "hintrp2", "group__amip__interp__mod.html#ga82310f0abc475d8cdc374c0256f8865a", null ],
-      [ "i_am_initialized", "group__amip__interp__mod.html#gaf0f2929b6647910d13f49730716c6e8e", null ],
-      [ "use_annual", "group__amip__interp__mod.html#ga2d40f504c9fe4b01eb7a769fbc46d8a8", null ],
-      [ "use_climo", "group__amip__interp__mod.html#ga4deb7b50610ca6140cfd775bb47c879f", null ]
+      [ "data1", "structamip__interp__mod_1_1amip__interp__type.html#aa46d014f9ee64f1448e201fb8c19e37a", null ],
+      [ "data2", "structamip__interp__mod_1_1amip__interp__type.html#a1352daad8fcd286b8cf6d05b2f2acbbf", null ],
+      [ "date1", "structamip__interp__mod_1_1amip__interp__type.html#ab3f72349a482edc1ca14bbf16d352324", null ],
+      [ "date2", "structamip__interp__mod_1_1amip__interp__type.html#ad940823a251d96df7993d5087405d93a", null ],
+      [ "hintrp", "structamip__interp__mod_1_1amip__interp__type.html#ab91b47a8a7e82257eb181a6319dfcf9d", null ],
+      [ "hintrp2", "structamip__interp__mod_1_1amip__interp__type.html#a82310f0abc475d8cdc374c0256f8865a", null ],
+      [ "i_am_initialized", "structamip__interp__mod_1_1amip__interp__type.html#af0f2929b6647910d13f49730716c6e8e", null ],
+      [ "use_annual", "structamip__interp__mod_1_1amip__interp__type.html#a2d40f504c9fe4b01eb7a769fbc46d8a8", null ],
+      [ "use_climo", "structamip__interp__mod_1_1amip__interp__type.html#a4deb7b50610ca6140cfd775bb47c879f", null ]
     ] ],
     [ "a2a_bilinear", "group__amip__interp__mod.html#gae83cd779d19f1e9bda44b5b958cbe56b", null ],
     [ "amip_interp_del", "group__amip__interp__mod.html#gaa680c8750f89c6444c6caf3d93b54cb4", null ],
     [ "amip_interp_init", "group__amip__interp__mod.html#ga6da33323528930f4680012957d27d6db", null ],
     [ "amip_interp_new_1d", "group__amip__interp__mod.html#gabd2d93a46d61e06656c1d6fb0bc860ed", null ],
-    [ "amip_interp_new_1d", "group__amip__interp__mod.html#gaefdaa09f371957b7436b7b5549e1ba41", null ],
-    [ "amip_interp_new_2d", "group__amip__interp__mod.html#ga2caba36ff0a5bdd0ae2bc334a05465e3", null ],
     [ "amip_interp_new_2d", "group__amip__interp__mod.html#gaa1b090c156ea2e60936d5da08fb84dba", null ],
     [ "date_equals", "group__amip__interp__mod.html#ga78cc915a2f75e5194c47758fb9cb1654", null ],
     [ "date_gt", "group__amip__interp__mod.html#gae2ca4248791964f82f9a57dd37d893fa", null ],

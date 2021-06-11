@@ -130,7 +130,7 @@ $(document).ready(function(){initNavTree('mpp__global__sum__ad_8h_source.html','
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    MPP_TYPE_, dimension(:,:),       allocatable :: global2D</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    MPP_TYPE_, dimension(MAX_TILES), save        :: gsum, nbrgsum, mygsum</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    integer :: i,j, ioff,joff, isc, iec, jsc, jec, is, ie, js, je, ishift, jshift, ioffset, joffset</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    integer :: i,j, ioff,joff, isc, iec, jsc, jec, is, ie, js, <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>, ishift, jshift, ioffset, joffset</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    integer :: gxsize, gysize</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    integer :: global_flag, tile, ntile, nlist, n, list, m</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
@@ -159,8 +159,8 @@ $(document).ready(function(){initNavTree('mpp__global__sum__ad_8h_source.html','
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    if(domain%ntiles &gt; MAX_TILES)  call mpp_error( FATAL,  &amp;</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;         <span class="stringliteral">&#39;MPP_GLOBAL_SUM_: number of tiles on this mosaic is greater than MAXTILES&#39;</span>)</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    call mpp_get_compute_domain( domain, is,  ie,  js,  je,  tile_count = tile_count )</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    isc = is; iec = ie + ishift; jsc = js; jec = je + jshift</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    call mpp_get_compute_domain( domain, is,  ie,  js,  <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>,  tile_count = tile_count )</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    isc = is; iec = ie + ishift; jsc = js; jec = <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a> + jshift</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    call mpp_get_global_domain(domain, xsize = gxsize, ysize = gysize )</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    MPP_GLOBAL_SUM_ = 0</div>
@@ -243,7 +243,7 @@ $(document).ready(function(){initNavTree('mpp__global__sum__ad_8h_source.html','
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;          call mpp_sum_ad( MPP_GLOBAL_SUM_, domain%list(:)%pe )</div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;          mygsum(1:ntile) = MPP_GLOBAL_SUM_</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;       end <span class="keywordflow">if</span></div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;       field(is+ioff:ie+ioff+ioffset, js+joff:je+joff+joffset MPP_EXTRA_INDICES_) = mygsum(tile)</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;       field(is+ioff:ie+ioff+ioffset, js+joff:<a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>+joff+joffset MPP_EXTRA_INDICES_) = mygsum(tile)</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    end <span class="keywordflow">if</span></div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; </div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="keywordflow">return</span></div>
@@ -251,6 +251,7 @@ $(document).ready(function(){initNavTree('mpp__global__sum__ad_8h_source.html','
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="ampp__util__mpi_8inc_html_a09e69243d8c67e6a6e6e4fd9e93d0870"><div class="ttname"><a href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a></div><div class="ttdeci">subroutine mpp_sync_self(pelist, check, request, msg_size, msg_type)</div><div class="ttdoc">This is to check if current PE's outstanding puts are complete but we can't use shmem_fence because w...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util__mpi_8inc_source.html#l00169">mpp_util_mpi.inc:169</a></div></div>
+<div class="ttc" id="agroup__fms__io__mod_html_gae85b018bca1141b3510db6f38fdc50bf"><div class="ttname"><a href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">fms_io_mod::je</a></div><div class="ttdeci">integer, private je</div><div class="ttdoc">compute domain</div><div class="ttdef"><b>Definition:</b> <a href="fms__io_8F90_source.html#l00518">fms_io.F90:518</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

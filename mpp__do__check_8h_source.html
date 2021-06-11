@@ -142,7 +142,7 @@ $(document).ready(function(){initNavTree('mpp__do__check_8h_source.html',''); in
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;!for non-blocking version, could be recomputed</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;      integer :: to_pe, from_pe, pos, msgsize</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;      integer :: n, l_size, l, m, i, j, k</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;      integer :: is, ie, js, je, tMe</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;      integer :: is, ie, js, <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>, tMe</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;      integer :: buffer_recv_size, nlist</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;      integer :: outunit</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
@@ -176,8 +176,8 @@ $(document).ready(function(){initNavTree('mpp__do__check_8h_source.html',''); in
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            msgsize = 0</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            do n = 1, check%recv(m)%count</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;               is = check%recv(m)%is(n); ie = check%recv(m)%ie(n)</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;               js = check%recv(m)%js(n); je = check%recv(m)%je(n)</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;               msgsize = msgsize + (ie-is+1)*(je-js+1)</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;               js = check%recv(m)%js(n); <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a> = check%recv(m)%<a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>(n)</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;               msgsize = msgsize + (ie-is+1)*(<a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>-js+1)</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            end do</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            from_pe = check%recv(m)%pe</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            l = from_pe-mpp_root_pe()</div>
@@ -189,8 +189,8 @@ $(document).ready(function(){initNavTree('mpp__do__check_8h_source.html',''); in
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            msgsize = 0</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            do n = 1, check%send(m)%count</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;               is = check%send(m)%is(n); ie = check%send(m)%ie(n)</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;               js = check%send(m)%js(n); je = check%send(m)%je(n)</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;               msgsize = msgsize + (ie-is+1)*(je-js+1)</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;               js = check%send(m)%js(n); <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a> = check%send(m)%<a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>(n)</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;               msgsize = msgsize + (ie-is+1)*(<a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>-js+1)</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            end do</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            call mpp_send(msgsize, plen=1, to_pe=check%send(m)%pe, tag=COMM_TAG_1)</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;         enddo</div>
@@ -215,8 +215,8 @@ $(document).ready(function(){initNavTree('mpp__do__check_8h_source.html',''); in
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;         msgsize = 0</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;         do n = 1, check%recv(m)%count</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            is = check%recv(m)%is(n); ie = check%recv(m)%ie(n)</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            js = check%recv(m)%js(n); je = check%recv(m)%je(n)</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            msgsize = msgsize + (ie-is+1)*(je-js+1)</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            js = check%recv(m)%js(n); <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a> = check%recv(m)%<a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>(n)</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            msgsize = msgsize + (ie-is+1)*(<a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>-js+1)</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;         end do</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;         msgsize = msgsize*ke*l_size</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
@@ -239,14 +239,14 @@ $(document).ready(function(){initNavTree('mpp__do__check_8h_source.html',''); in
 <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;         pos = buffer_pos</div>
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;         do n = 1, check%recv(m)%count</div>
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;            is = check%recv(m)%is(n); ie = check%recv(m)%ie(n)</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;            js = check%recv(m)%js(n); je = check%recv(m)%je(n)</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;            js = check%recv(m)%js(n); <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a> = check%recv(m)%<a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>(n)</div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;            tMe = check%recv(m)%tileMe(n)</div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;            select case( check%recv(m)%rotation(n) )</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;            case(ZERO)</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;               do l = 1, l_size ! loop over number of fields</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;                  ptr_field = f_addrs(l, tMe)</div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;                  do k = 1,ke</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;                     do j = js, je</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;                     do j = js, <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a></div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;                        do i = is, ie</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;                           pos = pos + 1</div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;                           buffer(pos) = field(i,j,k)</div>
@@ -258,7 +258,7 @@ $(document).ready(function(){initNavTree('mpp__do__check_8h_source.html',''); in
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;               do l = 1, l_size ! loop over number of fields</div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;                  ptr_field = f_addrs(l, tMe)</div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;                  do k = 1,ke</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;                     do j = je, js, -1</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;                     do j = <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>, js, -1</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;                        do i = is, ie</div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160; </div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;                           pos = pos + 1</div>
@@ -271,7 +271,7 @@ $(document).ready(function(){initNavTree('mpp__do__check_8h_source.html',''); in
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;               do l = 1, l_size ! loop over number of fields</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;                  ptr_field = f_addrs(l, tMe)</div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;                  do k = 1,ke</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;                     do j = js, je</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;                     do j = js, <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a></div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;                        do i = ie, is, -1</div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160; </div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;                           pos = pos + 1</div>
@@ -284,7 +284,7 @@ $(document).ready(function(){initNavTree('mpp__do__check_8h_source.html',''); in
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;               do l = 1, l_size ! loop over number of fields</div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;                  ptr_field = f_addrs(l, tMe)</div>
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;                  do k = 1,ke</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;                     do j = je, js, -1</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;                     do j = <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>, js, -1</div>
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;                        do i = ie, is, -1</div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;                           pos = pos + 1</div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;                           buffer(pos) = field(i,j,k)</div>
@@ -314,15 +314,15 @@ $(document).ready(function(){initNavTree('mpp__do__check_8h_source.html',''); in
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;      CHECK_LOOP: do m = check%nrecv, 1, -1</div>
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;         do n = check%recv(m)%count, 1, -1</div>
 <div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;            is = check%recv(m)%is(n); ie = check%recv(m)%ie(n)</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;            js = check%recv(m)%js(n); je = check%recv(m)%je(n)</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;            msgsize = (ie-is+1)*(je-js+1)*ke*l_size</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;            js = check%recv(m)%js(n); <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a> = check%recv(m)%<a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>(n)</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;            msgsize = (ie-is+1)*(<a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>-js+1)*ke*l_size</div>
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;            pos = buffer_pos - msgsize</div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;            buffer_pos = pos</div>
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;            tMe = check%recv(m)%tileMe(n)</div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;            do l=1, l_size  ! loop over number of fields</div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;               ptr_field = f_addrs(l, tMe)</div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;               do k = 1,ke</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;                  do j = js, je</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;                  do j = js, <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a></div>
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;                     do i = is, ie</div>
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;                        pos = pos + 1</div>
 <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;                        if( field(i,j,k) .NE. buffer(pos) ) then</div>
@@ -349,6 +349,7 @@ $(document).ready(function(){initNavTree('mpp__do__check_8h_source.html',''); in
 <div class="ttc" id="agroup__mpp__domains__mod_html_ga640f19150a4437d553bd0ba3f4dbc7e6"><div class="ttname"><a href="group__mpp__domains__mod.html#ga640f19150a4437d553bd0ba3f4dbc7e6">mpp_domains_mod::debug_message_passing</a></div><div class="ttdeci">logical debug_message_passing</div><div class="ttdoc">Will check the consistency on the boundary between processor/tile when updating domain for symmetric ...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains_8F90_source.html#l00696">mpp_domains.F90:696</a></div></div>
 <div class="ttc" id="ampp__util__mpi_8inc_html_a09e69243d8c67e6a6e6e4fd9e93d0870"><div class="ttname"><a href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a></div><div class="ttdeci">subroutine mpp_sync_self(pelist, check, request, msg_size, msg_type)</div><div class="ttdoc">This is to check if current PE's outstanding puts are complete but we can't use shmem_fence because w...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util__mpi_8inc_source.html#l00169">mpp_util_mpi.inc:169</a></div></div>
 <div class="ttc" id="ampp__domains__util_8inc_html_ae1f3c0c5c574686aac6c1595b1ca0b66"><div class="ttname"><a href="mpp__domains__util_8inc.html#ae1f3c0c5c574686aac6c1595b1ca0b66">mpp_domains_set_stack_size</a></div><div class="ttdeci">subroutine mpp_domains_set_stack_size(n)</div><div class="ttdoc">Set user stack size.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__util_8inc_source.html#l00052">mpp_domains_util.inc:52</a></div></div>
+<div class="ttc" id="agroup__fms__io__mod_html_gae85b018bca1141b3510db6f38fdc50bf"><div class="ttname"><a href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">fms_io_mod::je</a></div><div class="ttdeci">integer, private je</div><div class="ttdoc">compute domain</div><div class="ttdef"><b>Definition:</b> <a href="fms__io_8F90_source.html#l00518">fms_io.F90:518</a></div></div>
 <div class="ttc" id="ampp__util_8inc_html_acfeba7de56f9dd6000b3fd78f9d56c50"><div class="ttname"><a href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a></div><div class="ttdeci">integer function mpp_pe()</div><div class="ttdoc">Returns processor ID. This returns the unique ID associated with a PE. This number runs between 0 and...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00442">mpp_util.inc:442</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

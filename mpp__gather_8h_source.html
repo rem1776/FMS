@@ -201,11 +201,11 @@ $(document).ready(function(){initNavTree('mpp__gather_8h_source.html',''); initR
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;end subroutine MPP_GATHER_1DV_</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;subroutine MPP_GATHER_PELIST_2D_(is, ie, js, je, pelist, array_seg, data, is_root_pe, &amp;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;subroutine MPP_GATHER_PELIST_2D_(is, ie, js, <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>, pelist, array_seg, data, is_root_pe, &amp;</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                                 ishift, jshift)</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;   integer,                           intent(in)    :: is, ie, js, je</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;   integer,                           intent(in)    :: is, ie, js, <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a></div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;   integer,   dimension(:),           intent(in)    :: pelist</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;   MPP_TYPE_, dimension(is:ie,js:je), intent(in)    :: array_seg</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;   MPP_TYPE_, dimension(is:ie,js:<a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>), intent(in)    :: array_seg</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;   MPP_TYPE_, dimension(:,:),         intent(inout) :: data</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;   logical,                           intent(in)    :: is_root_pe</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;   integer,   optional,               intent(in)    :: ishift, jshift</div>
@@ -217,18 +217,18 @@ $(document).ready(function(){initNavTree('mpp__gather_8h_source.html',''); initR
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;   aptr = LOC(array_seg)</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;   dptr = LOC(     data)</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;   call mpp_gather(is, ie, js, je, 1, pelist, arr3D, data3D, is_root_pe, &amp;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;   call mpp_gather(is, ie, js, <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>, 1, pelist, arr3D, data3D, is_root_pe, &amp;</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                   ishift, jshift)</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;   return</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;end subroutine MPP_GATHER_PELIST_2D_</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;subroutine MPP_GATHER_PELIST_3D_(is, ie, js, je, nk, pelist, array_seg, data, is_root_pe, &amp;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;subroutine MPP_GATHER_PELIST_3D_(is, ie, js, <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>, nk, pelist, array_seg, data, is_root_pe, &amp;</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                                 ishift, jshift)</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;   integer,                                intent(in)    :: is, ie, js, je, nk</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;   integer,                                intent(in)    :: is, ie, js, <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>, nk</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;   integer,   dimension(:),                intent(in)    :: pelist</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;   MPP_TYPE_, dimension(is:ie,js:je,1:nk), intent(in)    :: array_seg</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;   MPP_TYPE_, dimension(is:ie,js:<a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>,1:nk), intent(in)    :: array_seg</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;   MPP_TYPE_, dimension(:,:,:),            intent(inout) :: data</div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;   logical,                                intent(in)    :: is_root_pe</div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;   integer,   optional,                    intent(in)    :: ishift, jshift</div>
@@ -270,7 +270,7 @@ $(document).ready(function(){initNavTree('mpp__gather_8h_source.html',''); initR
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;   my_ind(1) = is</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;   my_ind(2) = ie</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;   my_ind(3) = js</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;   my_ind(4) = je</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;   my_ind(4) = <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a></div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160; </div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;! gather indices into global index on root_pe</div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;   if (is_root_pe) then</div>
@@ -341,6 +341,7 @@ $(document).ready(function(){initNavTree('mpp__gather_8h_source.html',''); initR
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="ampp__util__mpi_8inc_html_a09e69243d8c67e6a6e6e4fd9e93d0870"><div class="ttname"><a href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a></div><div class="ttdeci">subroutine mpp_sync_self(pelist, check, request, msg_size, msg_type)</div><div class="ttdoc">This is to check if current PE's outstanding puts are complete but we can't use shmem_fence because w...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util__mpi_8inc_source.html#l00169">mpp_util_mpi.inc:169</a></div></div>
+<div class="ttc" id="agroup__fms__io__mod_html_gae85b018bca1141b3510db6f38fdc50bf"><div class="ttname"><a href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">fms_io_mod::je</a></div><div class="ttdeci">integer, private je</div><div class="ttdoc">compute domain</div><div class="ttdef"><b>Definition:</b> <a href="fms__io_8F90_source.html#l00518">fms_io.F90:518</a></div></div>
 <div class="ttc" id="ampp__util_8inc_html_abf546cd336d5c539e445fb884f98ab6b"><div class="ttname"><a href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a></div><div class="ttdeci">integer function mpp_npes()</div><div class="ttdoc">Returns processor count for current pelist.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00467">mpp_util.inc:467</a></div></div>
 <div class="ttc" id="ampp__util_8inc_html_acfeba7de56f9dd6000b3fd78f9d56c50"><div class="ttname"><a href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a></div><div class="ttdeci">integer function mpp_pe()</div><div class="ttdoc">Returns processor ID. This returns the unique ID associated with a PE. This number runs between 0 and...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00442">mpp_util.inc:442</a></div></div>
 <!-- start footer part -->

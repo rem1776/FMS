@@ -103,18 +103,147 @@ $(document).ready(function(){initNavTree('interfacegrid2__mod_1_1get__grid__cell
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:ga8be5de6fd8d271b96f21f63368181b93"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__grid2__mod.html#ga8be5de6fd8d271b96f21f63368181b93">get_grid_cell_area_sg</a> (component, tile, cellarea, domain)</td></tr>
-<tr class="memdesc:ga8be5de6fd8d271b96f21f63368181b93"><td class="mdescLeft">&#160;</td><td class="mdescRight">return grid cell area for the specified model component and tile  <a href="group__grid2__mod.html#ga8be5de6fd8d271b96f21f63368181b93">More...</a><br /></td></tr>
-<tr class="separator:ga8be5de6fd8d271b96f21f63368181b93"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga929e4f79a77b5469060a0eb211fff6be"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__grid2__mod.html#ga929e4f79a77b5469060a0eb211fff6be">get_grid_cell_area_ug</a> (component, tile, cellarea, SG_domain, UG_domain)</td></tr>
-<tr class="memdesc:ga929e4f79a77b5469060a0eb211fff6be"><td class="mdescLeft">&#160;</td><td class="mdescRight">return grid cell area for the specified model component and tile on an unstructured domain  <a href="group__grid2__mod.html#ga929e4f79a77b5469060a0eb211fff6be">More...</a><br /></td></tr>
-<tr class="separator:ga929e4f79a77b5469060a0eb211fff6be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8be5de6fd8d271b96f21f63368181b93"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacegrid2__mod_1_1get__grid__cell__area.html#a8be5de6fd8d271b96f21f63368181b93">get_grid_cell_area_sg</a> (component, tile, cellarea, domain)</td></tr>
+<tr class="memdesc:a8be5de6fd8d271b96f21f63368181b93"><td class="mdescLeft">&#160;</td><td class="mdescRight">return grid cell area for the specified model component and tile  <a href="interfacegrid2__mod_1_1get__grid__cell__area.html#a8be5de6fd8d271b96f21f63368181b93">More...</a><br /></td></tr>
+<tr class="separator:a8be5de6fd8d271b96f21f63368181b93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a929e4f79a77b5469060a0eb211fff6be"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacegrid2__mod_1_1get__grid__cell__area.html#a929e4f79a77b5469060a0eb211fff6be">get_grid_cell_area_ug</a> (component, tile, cellarea, SG_domain, UG_domain)</td></tr>
+<tr class="memdesc:a929e4f79a77b5469060a0eb211fff6be"><td class="mdescLeft">&#160;</td><td class="mdescRight">return grid cell area for the specified model component and tile on an unstructured domain  <a href="interfacegrid2__mod_1_1get__grid__cell__area.html#a929e4f79a77b5469060a0eb211fff6be">More...</a><br /></td></tr>
+<tr class="separator:a929e4f79a77b5469060a0eb211fff6be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Finds area of a grid cell. </p>
 
-<p class="definition">Definition at line <a class="el" href="grid2_8F90_source.html#l00085">85</a> of file <a class="el" href="grid2_8F90_source.html">grid2.F90</a>.</p>
-</div><hr/>The documentation for this interface was generated from the following file:<ul>
+<p class="definition">Definition at line <a class="el" href="grid2_8F90_source.html#l00087">87</a> of file <a class="el" href="grid2_8F90_source.html">grid2.F90</a>.</p>
+</div><h2 class="groupheader">Member Function/Subroutine Documentation</h2>
+<a id="a8be5de6fd8d271b96f21f63368181b93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8be5de6fd8d271b96f21f63368181b93">&#9670;&nbsp;</a></span>get_grid_cell_area_sg()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine get_grid_cell_area_sg </td>
+          <td>(</td>
+          <td class="paramtype">character(len=*), intent(in)&#160;</td>
+          <td class="paramname"><em>component</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)&#160;</td>
+          <td class="paramname"><em>tile</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:,:), intent(inout)&#160;</td>
+          <td class="paramname"><em>cellarea</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(domain2d), intent(in), optional&#160;</td>
+          <td class="paramname"><em>domain</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>return grid cell area for the specified model component and tile </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">component</td><td>Component model (atm, lnd, ocn) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">tile</td><td>Tile number </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">cellarea</td><td>Cell area </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="grid2_8F90_source.html#l00326">326</a> of file <a class="el" href="grid2_8F90_source.html">grid2.F90</a>.</p>
+
+</div>
+</div>
+<a id="a929e4f79a77b5469060a0eb211fff6be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a929e4f79a77b5469060a0eb211fff6be">&#9670;&nbsp;</a></span>get_grid_cell_area_ug()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine get_grid_cell_area_ug </td>
+          <td>(</td>
+          <td class="paramtype">character(len=*), intent(in)&#160;</td>
+          <td class="paramname"><em>component</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)&#160;</td>
+          <td class="paramname"><em>tile</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:), intent(inout)&#160;</td>
+          <td class="paramname"><em>cellarea</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(domain2d), intent(in)&#160;</td>
+          <td class="paramname"><em>SG_domain</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(domainug), intent(in)&#160;</td>
+          <td class="paramname"><em>UG_domain</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>return grid cell area for the specified model component and tile on an unstructured domain </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">component</td><td>Component model (atm, lnd, ocn) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">tile</td><td>Tile number </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">cellarea</td><td>Cell area </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">sg_domain</td><td>Structured Domain </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ug_domain</td><td>Unstructured Domain </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="grid2_8F90_source.html#l00530">530</a> of file <a class="el" href="grid2_8F90_source.html">grid2.F90</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this interface was generated from the following file:<ul>
 <li>mosaic2/<a class="el" href="grid2_8F90_source.html">grid2.F90</a></li>
 </ul>
 </div><!-- contents -->

@@ -90,6 +90,10 @@ $(document).ready(function(){initNavTree('group__horiz__interp__conserve__mod.ht
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#nested-classes">Data Types</a> &#124;
+<a href="#func-members">Functions/Subroutines</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">horiz_interp_conserve_mod<div class="ingroups"><a class="el" href="group__horiz__interp.html">Horizontal Interpolator</a></div></div>  </div>
 </div><!--header-->
@@ -97,8 +101,373 @@ $(document).ready(function(){initNavTree('group__horiz__interp__conserve__mod.ht
 
 <p>Performs spatial interpolation between grids using conservative interpolation.  
 <a href="#details">More...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Data Types</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacehoriz__interp__conserve__mod_1_1horiz__interp__conserve__new.html">horiz_interp_conserve_new</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocates space and initializes a derived-type variable that contains pre-computed interpolation indices and weights.  <a href="interfacehoriz__interp__conserve__mod_1_1horiz__interp__conserve__new.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions/Subroutines</h2></td></tr>
+<tr class="memitem:ga35f55bcdce44e601e1b23e6da4d0d2c5"><td class="memItemLeft" align="right" valign="top"><a id="ga35f55bcdce44e601e1b23e6da4d0d2c5"></a>
+subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__horiz__interp__conserve__mod.html#ga35f55bcdce44e601e1b23e6da4d0d2c5">horiz_interp_conserve_init</a></td></tr>
+<tr class="memdesc:ga35f55bcdce44e601e1b23e6da4d0d2c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes version number to logfile. <br /></td></tr>
+<tr class="separator:ga35f55bcdce44e601e1b23e6da4d0d2c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad280d363aeaf48565b409487658570e1"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__horiz__interp__conserve__mod.html#gad280d363aeaf48565b409487658570e1">horiz_interp_conserve_new_1dx1d</a> (Interp, lon_in, lat_in, lon_out, lat_out, verbose)</td></tr>
+<tr class="separator:gad280d363aeaf48565b409487658570e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad7e2d6d7a143ca9ea4040769faf96b53"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__horiz__interp__conserve__mod.html#gad7e2d6d7a143ca9ea4040769faf96b53">horiz_interp_conserve_new_1dx2d</a> (Interp, lon_in, lat_in, lon_out, lat_out, mask_in, mask_out, verbose)</td></tr>
+<tr class="separator:gad7e2d6d7a143ca9ea4040769faf96b53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaffba9d7786ac0ca38ff10a3a04418355"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__horiz__interp__conserve__mod.html#gaffba9d7786ac0ca38ff10a3a04418355">horiz_interp_conserve_new_2dx1d</a> (Interp, lon_in, lat_in, lon_out, lat_out, mask_in, mask_out, verbose)</td></tr>
+<tr class="separator:gaffba9d7786ac0ca38ff10a3a04418355"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga30d1bdb3c371b403ac028fcd16d38dc4"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__horiz__interp__conserve__mod.html#ga30d1bdb3c371b403ac028fcd16d38dc4">horiz_interp_conserve_new_2dx2d</a> (Interp, lon_in, lat_in, lon_out, lat_out, mask_in, mask_out, verbose)</td></tr>
+<tr class="separator:ga30d1bdb3c371b403ac028fcd16d38dc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga00723e2b4fac960d03f86ffe0066560b"><td class="memItemLeft" align="right" valign="top"><a id="ga00723e2b4fac960d03f86ffe0066560b"></a>
+subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>horiz_interp_conserve</b> (Interp, data_in, data_out, verbose, mask_in, mask_out)</td></tr>
+<tr class="separator:ga00723e2b4fac960d03f86ffe0066560b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga15bbae5e9451b8956b1accaad634a3c2"><td class="memItemLeft" align="right" valign="top"><a id="ga15bbae5e9451b8956b1accaad634a3c2"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>horiz_interp_conserve_version1</b> (Interp, data_in, data_out, verbose, mask_in, mask_out)</td></tr>
+<tr class="separator:ga15bbae5e9451b8956b1accaad634a3c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga250dd29f62e63c4c571a72893b848a79"><td class="memItemLeft" align="right" valign="top"><a id="ga250dd29f62e63c4c571a72893b848a79"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>horiz_interp_conserve_version2</b> (Interp, data_in, data_out, verbose)</td></tr>
+<tr class="separator:ga250dd29f62e63c4c571a72893b848a79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaae5bc9b6efb0f13f8edab86497797547"><td class="memItemLeft" align="right" valign="top"><a id="gaae5bc9b6efb0f13f8edab86497797547"></a>
+subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>horiz_interp_conserve_del</b> (Interp)</td></tr>
+<tr class="separator:gaae5bc9b6efb0f13f8edab86497797547"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafd9cc753d9a541287dad520889eb44d8"><td class="memItemLeft" align="right" valign="top"><a id="gafd9cc753d9a541287dad520889eb44d8"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>stats</b> (dat, area, asum, dsum, wsum, low, high, miss, mask)</td></tr>
+<tr class="separator:gafd9cc753d9a541287dad520889eb44d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0e3ca8b528b93d6916316114c5c13dbc"><td class="memItemLeft" align="right" valign="top"><a id="ga0e3ca8b528b93d6916316114c5c13dbc"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>data_sum</b> (data, area, facis, facie, facjs, facje, dwtsum, wtsum, arsum, mask)</td></tr>
+<tr class="separator:ga0e3ca8b528b93d6916316114c5c13dbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ga8a5f299eef1abe4c0df23ebd220ce83e"><td class="memItemLeft" align="right" valign="top"><a id="ga8a5f299eef1abe4c0df23ebd220ce83e"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>pe</b></td></tr>
+<tr class="separator:ga8a5f299eef1abe4c0df23ebd220ce83e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab96da8c443f9c55ebfefe033da98ab47"><td class="memItemLeft" align="right" valign="top"><a id="gab96da8c443f9c55ebfefe033da98ab47"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>root_pe</b></td></tr>
+<tr class="separator:gab96da8c443f9c55ebfefe033da98ab47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad369225c254bc7bda087334ca5d13096"><td class="memItemLeft" align="right" valign="top"><a id="gad369225c254bc7bda087334ca5d13096"></a>
+logical&#160;</td><td class="memItemRight" valign="bottom"><b>module_is_initialized</b> = .FALSE.</td></tr>
+<tr class="separator:gad369225c254bc7bda087334ca5d13096"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8f09dffd1d295d3cfc4a2bc5f76ff2e8"><td class="memItemLeft" align="right" valign="top"><a id="ga8f09dffd1d295d3cfc4a2bc5f76ff2e8"></a>
+logical&#160;</td><td class="memItemRight" valign="bottom"><b>great_circle_algorithm</b> = .false.</td></tr>
+<tr class="separator:ga8f09dffd1d295d3cfc4a2bc5f76ff2e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Performs spatial interpolation between grids using conservative interpolation. </p>
 <dl class="section author"><dt>Author</dt><dd>Bruce Wyman, Zhi Liang This module can conservatively interpolate data from any logically rectangular grid to any rectangular grid. The interpolation scheme is area-averaging conservative scheme. There is an optional mask field for missing input data in both horiz_interp__conserveinit and horiz_interp_conserve. For efficiency purpose, mask should only be kept in horiz_interp_init (will remove the mask in horiz_interp in the future). There are 1-D and 2-D version of horiz_interp_conserve_init for 1-D and 2-D grid. There is a optional argument mask in horiz_interp_conserve_init_2d and no mask should to passed into horiz_interp_conserv. optional argument mask will not be passed into horiz_interp_conserve_init_1d and optional argument mask may be passed into horiz_interp_conserve (For the purpose of reproduce Memphis??? results). An optional output mask field may be used in conjunction with the input mask to show where output data exists. </dd></dl>
+<h2 class="groupheader">Function/Subroutine Documentation</h2>
+<a id="gad280d363aeaf48565b409487658570e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad280d363aeaf48565b409487658570e1">&#9670;&nbsp;</a></span>horiz_interp_conserve_new_1dx1d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine horiz_interp_conserve_mod::horiz_interp_conserve_new_1dx1d </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structhoriz__interp__type__mod_1_1horiz__interp__type.html">horiz_interp_type</a>), intent(inout)&#160;</td>
+          <td class="paramname"><em>Interp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:), intent(in)&#160;</td>
+          <td class="paramname"><em>lon_in</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:), intent(in)&#160;</td>
+          <td class="paramname"><em>lat_in</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:), intent(in)&#160;</td>
+          <td class="paramname"><em>lon_out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:), intent(in)&#160;</td>
+          <td class="paramname"><em>lat_out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>verbose</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">verbose</td><td>/PUBLICROUTINE&gt; </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="horiz__interp__conserve_8F90_source.html#l00140">140</a> of file <a class="el" href="horiz__interp__conserve_8F90_source.html">horiz_interp_conserve.F90</a>.</p>
+
+</div>
+</div>
+<a id="gad7e2d6d7a143ca9ea4040769faf96b53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad7e2d6d7a143ca9ea4040769faf96b53">&#9670;&nbsp;</a></span>horiz_interp_conserve_new_1dx2d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine horiz_interp_conserve_mod::horiz_interp_conserve_new_1dx2d </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structhoriz__interp__type__mod_1_1horiz__interp__type.html">horiz_interp_type</a>), intent(inout)&#160;</td>
+          <td class="paramname"><em>Interp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:), intent(in)&#160;</td>
+          <td class="paramname"><em>lon_in</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:), intent(in)&#160;</td>
+          <td class="paramname"><em>lat_in</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:,:), intent(in)&#160;</td>
+          <td class="paramname"><em>lon_out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:,:), intent(in)&#160;</td>
+          <td class="paramname"><em>lat_out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:,:), intent(in), optional&#160;</td>
+          <td class="paramname"><em>mask_in</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:,:), intent(inout), optional&#160;</td>
+          <td class="paramname"><em>mask_out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>verbose</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">verbose</td><td>/PUBLICROUTINE&gt; </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="horiz__interp__conserve_8F90_source.html#l00342">342</a> of file <a class="el" href="horiz__interp__conserve_8F90_source.html">horiz_interp_conserve.F90</a>.</p>
+
+</div>
+</div>
+<a id="gaffba9d7786ac0ca38ff10a3a04418355"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaffba9d7786ac0ca38ff10a3a04418355">&#9670;&nbsp;</a></span>horiz_interp_conserve_new_2dx1d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine horiz_interp_conserve_mod::horiz_interp_conserve_new_2dx1d </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structhoriz__interp__type__mod_1_1horiz__interp__type.html">horiz_interp_type</a>), intent(inout)&#160;</td>
+          <td class="paramname"><em>Interp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:,:), intent(in)&#160;</td>
+          <td class="paramname"><em>lon_in</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:,:), intent(in)&#160;</td>
+          <td class="paramname"><em>lat_in</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:), intent(in)&#160;</td>
+          <td class="paramname"><em>lon_out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:), intent(in)&#160;</td>
+          <td class="paramname"><em>lat_out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:,:), intent(in), optional&#160;</td>
+          <td class="paramname"><em>mask_in</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:,:), intent(inout), optional&#160;</td>
+          <td class="paramname"><em>mask_out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>verbose</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">verbose</td><td>/PUBLICROUTINE&gt; </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="horiz__interp__conserve_8F90_source.html#l00509">509</a> of file <a class="el" href="horiz__interp__conserve_8F90_source.html">horiz_interp_conserve.F90</a>.</p>
+
+</div>
+</div>
+<a id="ga30d1bdb3c371b403ac028fcd16d38dc4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga30d1bdb3c371b403ac028fcd16d38dc4">&#9670;&nbsp;</a></span>horiz_interp_conserve_new_2dx2d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine horiz_interp_conserve_mod::horiz_interp_conserve_new_2dx2d </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structhoriz__interp__type__mod_1_1horiz__interp__type.html">horiz_interp_type</a>), intent(inout)&#160;</td>
+          <td class="paramname"><em>Interp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:,:), intent(in)&#160;</td>
+          <td class="paramname"><em>lon_in</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:,:), intent(in)&#160;</td>
+          <td class="paramname"><em>lat_in</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:,:), intent(in)&#160;</td>
+          <td class="paramname"><em>lon_out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:,:), intent(in)&#160;</td>
+          <td class="paramname"><em>lat_out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:,:), intent(in), optional&#160;</td>
+          <td class="paramname"><em>mask_in</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:,:), intent(inout), optional&#160;</td>
+          <td class="paramname"><em>mask_out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>verbose</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">verbose</td><td>/PUBLICROUTINE&gt; </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="horiz__interp__conserve_8F90_source.html#l00617">617</a> of file <a class="el" href="horiz__interp__conserve_8F90_source.html">horiz_interp_conserve.F90</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

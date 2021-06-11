@@ -22,7 +22,7 @@ var fms_8F90 =
     [ "make", "fms_8F90.html#ga1e152f2e27b87c2897f6e016cb508c83", null ],
     [ "module_is_initialized", "fms_8F90.html#gad369225c254bc7bda087334ca5d13096", null ],
     [ "nml_error_codes", "fms_8F90.html#ga12c1ce70bb3b9275cc49b79e75de0d8d", null ],
-    [ "nml_errors", "fms_8F90.html#gad0983e62757ba0f7771ba039794b746a", null ],
+    [ "nml_errors", "fms_8F90.html#ad0983e62757ba0f7771ba039794b746a", null ],
     [ "num_nml_error_codes", "fms_8F90.html#ga02cde751a71d9b42ced5e3c300805f2e", null ],
     [ "only", "fms_8F90.html#ga75f6af47ddac380527238a1be183d2ff", null ],
     [ "print_memory_usage", "fms_8F90.html#ga78f0d71e88638662c5f3ee5175f24d85", null ],

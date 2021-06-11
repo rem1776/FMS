@@ -1,6 +1,5 @@
 var monin__obukhov_8F90 =
 [
-    [ "mo_drag", "interfacemonin__obukhov__mod_1_1mo__drag.html", "interfacemonin__obukhov__mod_1_1mo__drag" ],
     [ "mo_derivative_m", "monin__obukhov_8F90.html#ga031aba5ff8f2f16e41515dc47b84d287", null ],
     [ "mo_derivative_t", "monin__obukhov_8F90.html#gac69ffbb5b917e4c9896ef2de10e73634", null ],
     [ "mo_diff_0d_1", "monin__obukhov_8F90.html#ga9bec9eb8a28be9e2977c0d5526aa7021", null ],

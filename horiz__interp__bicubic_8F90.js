@@ -1,6 +1,5 @@
 var horiz__interp__bicubic_8F90 =
 [
-    [ "horiz_interp_bicubic_new", "interfacehoriz__interp__bicubic__mod_1_1horiz__interp__bicubic__new.html", "interfacehoriz__interp__bicubic__mod_1_1horiz__interp__bicubic__new" ],
     [ "bcucof", "horiz__interp__bicubic_8F90.html#ga64177a8d83b6d97bf0bbe9829cb9bcb5", null ],
     [ "bcuint", "horiz__interp__bicubic_8F90.html#gaefa12c33b39ddbd4662e767e97bcbee3", null ],
     [ "fill_xy", "horiz__interp__bicubic_8F90.html#gac95ca65cdf9cba8c9c8243936fa188ca", null ],

@@ -130,8 +130,8 @@ $(document).ready(function(){initNavTree('mpp__do__updateV_8h_source.html',''); 
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;      pointer(ptr_fieldy, fieldy)</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;      integer :: update_flags</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;      integer :: l_size, l, i, j, k, is, ie, js, je, n, m</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;      integer :: pos, nlist, msgsize, isd, ied, jsd, jed</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;      integer :: l_size, l, i, j, k, is, ie, js, <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>, n, m</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;      integer :: pos, nlist, msgsize, isd, ied, jsd, <a class="code" href="group__fms__io__mod.html#gad4afab643d50b32ca35e2995dae649fa">jed</a></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;      integer :: to_pe, from_pe, midpoint</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;      integer :: tMe, dir</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
@@ -211,8 +211,8 @@ $(document).ready(function(){initNavTree('mpp__do__updateV_8h_source.html',''); 
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                  dir = update_x%recv(ind_x)%dir(n)</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                  if(recv(dir)) then</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                     is = update_x%recv(ind_x)%is(n); ie = update_x%recv(ind_x)%ie(n)</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                     js = update_x%recv(ind_x)%js(n); je = update_x%recv(ind_x)%je(n)</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                     msgsize = msgsize + (ie-is+1)*(je-js+1)</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                     js = update_x%recv(ind_x)%js(n); <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a> = update_x%recv(ind_x)%<a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>(n)</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                     msgsize = msgsize + (ie-is+1)*(<a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>-js+1)</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                  end if</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;               end do</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;               ind_x = ind_x+1</div>
@@ -229,8 +229,8 @@ $(document).ready(function(){initNavTree('mpp__do__updateV_8h_source.html',''); 
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                  dir = update_y%recv(ind_y)%dir(n)</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;                  if(recv(dir)) then</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;                     is = update_y%recv(ind_y)%is(n); ie = update_y%recv(ind_y)%ie(n)</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;                     js = update_y%recv(ind_y)%js(n); je = update_y%recv(ind_y)%je(n)</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;                     msgsize = msgsize + (ie-is+1)*(je-js+1)</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;                     js = update_y%recv(ind_y)%js(n); <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a> = update_y%recv(ind_y)%<a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>(n)</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;                     msgsize = msgsize + (ie-is+1)*(<a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>-js+1)</div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;                  end if</div>
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;               end do</div>
 <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;               ind_y = ind_y+1</div>
@@ -255,8 +255,8 @@ $(document).ready(function(){initNavTree('mpp__do__updateV_8h_source.html',''); 
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;                  dir = update_x%send(ind_x)%dir(n)</div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;                  if( send(dir) ) then</div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;                     is = update_x%send(ind_x)%is(n); ie = update_x%send(ind_x)%ie(n)</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;                     js = update_x%send(ind_x)%js(n); je = update_x%send(ind_x)%je(n)</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;                     msgsize = msgsize + (ie-is+1)*(je-js+1)</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;                     js = update_x%send(ind_x)%js(n); <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a> = update_x%send(ind_x)%<a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>(n)</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;                     msgsize = msgsize + (ie-is+1)*(<a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>-js+1)</div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;                  end if</div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;               end do</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;               ind_x = ind_x+1</div>
@@ -273,8 +273,8 @@ $(document).ready(function(){initNavTree('mpp__do__updateV_8h_source.html',''); 
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;                  dir = update_y%send(ind_y)%dir(n)</div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;                  if( send(dir) ) then</div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;                     is = update_y%send(ind_y)%is(n); ie = update_y%send(ind_y)%ie(n)</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;                     js = update_y%send(ind_y)%js(n); je = update_y%send(ind_y)%je(n)</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;                     msgsize = msgsize + (ie-is+1)*(je-js+1)</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;                     js = update_y%send(ind_y)%js(n); <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a> = update_y%send(ind_y)%<a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>(n)</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;                     msgsize = msgsize + (ie-is+1)*(<a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>-js+1)</div>
 <div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;                  end if</div>
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;               end do</div>
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;               ind_y = ind_y+1</div>
@@ -320,8 +320,8 @@ $(document).ready(function(){initNavTree('mpp__do__updateV_8h_source.html',''); 
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;                  if(recv(dir)) then</div>
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;                     tMe = update_x%recv(ind_x)%tileMe(n)</div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;                     is = update_x%recv(ind_x)%is(n); ie = update_x%recv(ind_x)%ie(n)</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;                     js = update_x%recv(ind_x)%js(n); je = update_x%recv(ind_x)%je(n)</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;                     msgsize = msgsize + (ie-is+1)*(je-js+1)</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;                     js = update_x%recv(ind_x)%js(n); <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a> = update_x%recv(ind_x)%<a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>(n)</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;                     msgsize = msgsize + (ie-is+1)*(<a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>-js+1)</div>
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;                  end if</div>
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;               end do</div>
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;               msgsize = msgsize*2</div>
@@ -342,8 +342,8 @@ $(document).ready(function(){initNavTree('mpp__do__updateV_8h_source.html',''); 
 <div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;                  dir = update_x%recv(ind_x)%dir(n)</div>
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;                  if(recv(dir)) then</div>
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;                     is = update_x%recv(ind_x)%is(n); ie = update_x%recv(ind_x)%ie(n)</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;                     js = update_x%recv(ind_x)%js(n); je = update_x%recv(ind_x)%je(n)</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;                     msgsize = msgsize + (ie-is+1)*(je-js+1)</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;                     js = update_x%recv(ind_x)%js(n); <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a> = update_x%recv(ind_x)%<a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>(n)</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;                     msgsize = msgsize + (ie-is+1)*(<a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>-js+1)</div>
 <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;                  end if</div>
 <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;               end do</div>
 <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;               ind_x = ind_x+1</div>
@@ -360,8 +360,8 @@ $(document).ready(function(){initNavTree('mpp__do__updateV_8h_source.html',''); 
 <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;                  dir = update_y%recv(ind_y)%dir(n)</div>
 <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;                  if(recv(dir)) then</div>
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;                     is = update_y%recv(ind_y)%is(n); ie = update_y%recv(ind_y)%ie(n)</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;                     js = update_y%recv(ind_y)%js(n); je = update_y%recv(ind_y)%je(n)</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;                     msgsize = msgsize + (ie-is+1)*(je-js+1)</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;                     js = update_y%recv(ind_y)%js(n); <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a> = update_y%recv(ind_y)%<a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>(n)</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;                     msgsize = msgsize + (ie-is+1)*(<a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>-js+1)</div>
 <div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;                  end if</div>
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;               end do</div>
 <div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;               ind_y = ind_y+1</div>
@@ -431,14 +431,14 @@ $(document).ready(function(){initNavTree('mpp__do__updateV_8h_source.html',''); 
 <div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;                     tMe = update_x%send(ind_x)%tileMe(n)</div>
 <div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160; </div>
 <div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;                     is = update_x%send(ind_x)%is(n); ie = update_x%send(ind_x)%ie(n)</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;                     js = update_x%send(ind_x)%js(n); je = update_x%send(ind_x)%je(n)</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;                     js = update_x%send(ind_x)%js(n); <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a> = update_x%send(ind_x)%<a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>(n)</div>
 <div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;                     select case( update_x%send(ind_x)%rotation(n) )</div>
 <div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;                     case(ZERO)</div>
 <div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;                        do l=1,l_size  ! loop over number of fields</div>
 <div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;                           ptr_fieldx = f_addrsx(l,tMe)</div>
 <div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;                           ptr_fieldy = f_addrsy(l,tMe)</div>
 <div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;                           do k = 1,ke</div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;                              do j = js, je</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;                              do j = js, <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a></div>
 <div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;                                 do i = is, ie</div>
 <div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;                                    pos = pos + 2</div>
 <div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;                                    buffer(pos-1) = fieldx(i,j,k)</div>
@@ -454,7 +454,7 @@ $(document).ready(function(){initNavTree('mpp__do__updateV_8h_source.html',''); 
 <div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;                              ptr_fieldy = f_addrsy(l,tMe)</div>
 <div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;                              do k = 1,ke</div>
 <div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;                                 do i = is, ie</div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;                                    do j = je, js, -1</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;                                    do j = <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>, js, -1</div>
 <div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;                                       pos = pos + 2</div>
 <div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;                                       buffer(pos-1) = fieldy(i,j,k)</div>
 <div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;                                       buffer(pos)   = fieldx(i,j,k)</div>
@@ -468,7 +468,7 @@ $(document).ready(function(){initNavTree('mpp__do__updateV_8h_source.html',''); 
 <div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;                              ptr_fieldy = f_addrsy(l,tMe)</div>
 <div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;                              do k = 1,ke</div>
 <div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;                                 do i = is, ie</div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;                                    do j = je, js, -1</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;                                    do j = <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>, js, -1</div>
 <div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;                                       pos = pos + 2</div>
 <div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;                                       buffer(pos-1) = -fieldy(i,j,k)</div>
 <div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;                                       buffer(pos)   =  fieldx(i,j,k)</div>
@@ -484,7 +484,7 @@ $(document).ready(function(){initNavTree('mpp__do__updateV_8h_source.html',''); 
 <div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;                              ptr_fieldy = f_addrsy(l,tMe)</div>
 <div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;                              do k = 1,ke</div>
 <div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;                                 do i = ie, is, -1</div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;                                    do j = js, je</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;                                    do j = js, <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a></div>
 <div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;                                       pos = pos + 2</div>
 <div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;                                       buffer(pos-1) = fieldy(i,j,k)</div>
 <div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;                                       buffer(pos)   = fieldx(i,j,k)</div>
@@ -498,7 +498,7 @@ $(document).ready(function(){initNavTree('mpp__do__updateV_8h_source.html',''); 
 <div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;                              ptr_fieldy = f_addrsy(l,tMe)</div>
 <div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;                              do k = 1,ke</div>
 <div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;                                 do i = ie, is, -1</div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;                                    do j = js, je</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;                                    do j = js, <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a></div>
 <div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;                                       pos = pos + 2</div>
 <div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;                                       buffer(pos-1) = fieldy(i,j,k)</div>
 <div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;                                       buffer(pos)   = -fieldx(i,j,k)</div>
@@ -513,7 +513,7 @@ $(document).ready(function(){initNavTree('mpp__do__updateV_8h_source.html',''); 
 <div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;                              ptr_fieldx = f_addrsx(l,tMe)</div>
 <div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;                              ptr_fieldy = f_addrsy(l,tMe)</div>
 <div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;                              do k = 1,ke</div>
-<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;                                 do j = je, js, -1</div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;                                 do j = <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>, js, -1</div>
 <div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;                                    do i = ie, is, -1</div>
 <div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;                                       pos = pos + 2</div>
 <div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;                                       buffer(pos-1) =  fieldx(i,j,k)</div>
@@ -527,7 +527,7 @@ $(document).ready(function(){initNavTree('mpp__do__updateV_8h_source.html',''); 
 <div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;                              ptr_fieldx = f_addrsx(l,tMe)</div>
 <div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;                              ptr_fieldy = f_addrsy(l,tMe)</div>
 <div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;                              do k = 1,ke</div>
-<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;                                 do j = je, js, -1</div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;                                 do j = <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>, js, -1</div>
 <div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;                                    do i = ie, is, -1</div>
 <div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;                                       pos = pos + 2</div>
 <div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;                                       buffer(pos-1) =  -fieldx(i,j,k)</div>
@@ -558,14 +558,14 @@ $(document).ready(function(){initNavTree('mpp__do__updateV_8h_source.html',''); 
 <div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;                  if( send(dir) ) then</div>
 <div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;                     tMe = update_x%send(ind_x)%tileMe(n)</div>
 <div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;                     is = update_x%send(ind_x)%is(n); ie = update_x%send(ind_x)%ie(n)</div>
-<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;                     js = update_x%send(ind_x)%js(n); je = update_x%send(ind_x)%je(n)</div>
+<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;                     js = update_x%send(ind_x)%js(n); <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a> = update_x%send(ind_x)%<a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>(n)</div>
 <div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;                     select case( update_x%send(ind_x)%rotation(n) )</div>
 <div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;                     case(ZERO)</div>
 <div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;                        do l=1,l_size  ! loop over number of fields</div>
 <div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;                           ptr_fieldx = f_addrsx(l, tMe)</div>
 <div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;                           ptr_fieldy = f_addrsy(l, tMe)</div>
 <div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;                           do k = 1,ke</div>
-<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;                              do j = js, je</div>
+<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;                              do j = js, <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a></div>
 <div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;                                 do i = is, ie</div>
 <div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;                                    pos = pos + 1</div>
 <div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;                                    buffer(pos) = fieldx(i,j,k)</div>
@@ -580,7 +580,7 @@ $(document).ready(function(){initNavTree('mpp__do__updateV_8h_source.html',''); 
 <div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;                              ptr_fieldy = f_addrsy(l, tMe)</div>
 <div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;                              do k = 1,ke</div>
 <div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;                                 do i = is, ie</div>
-<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;                                    do j = je, js, -1</div>
+<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;                                    do j = <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>, js, -1</div>
 <div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;                                       pos = pos + 1</div>
 <div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;                                       buffer(pos) = fieldy(i,j,k)</div>
 <div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;                                    end do</div>
@@ -593,7 +593,7 @@ $(document).ready(function(){initNavTree('mpp__do__updateV_8h_source.html',''); 
 <div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;                              ptr_fieldy = f_addrsy(l, tMe)</div>
 <div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;                              do k = 1,ke</div>
 <div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;                                 do i = is, ie</div>
-<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;                                    do j = je, js, -1</div>
+<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;                                    do j = <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>, js, -1</div>
 <div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;                                       pos = pos + 1</div>
 <div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;                                       buffer(pos) = -fieldy(i,j,k)</div>
 <div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;                                    end do</div>
@@ -607,7 +607,7 @@ $(document).ready(function(){initNavTree('mpp__do__updateV_8h_source.html',''); 
 <div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;                           ptr_fieldy = f_addrsy(l, tMe)</div>
 <div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;                           do k = 1, ke</div>
 <div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;                              do i = ie, is, -1</div>
-<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;                                 do j = js, je</div>
+<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;                                 do j = js, <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a></div>
 <div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;                                    pos = pos + 1</div>
 <div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;                                    buffer(pos) = fieldy(i,j,k)</div>
 <div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;                                 end do</div>
@@ -620,7 +620,7 @@ $(document).ready(function(){initNavTree('mpp__do__updateV_8h_source.html',''); 
 <div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;                              ptr_fieldx = f_addrsx(l, tMe)</div>
 <div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;                              ptr_fieldy = f_addrsy(l, tMe)</div>
 <div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;                              do k = 1,ke</div>
-<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;                                 do j = je, js, -1</div>
+<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;                                 do j = <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>, js, -1</div>
 <div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;                                    do i = ie, is, -1</div>
 <div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;                                       pos = pos + 1</div>
 <div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;                                       buffer(pos) = fieldx(i,j,k)</div>
@@ -633,7 +633,7 @@ $(document).ready(function(){initNavTree('mpp__do__updateV_8h_source.html',''); 
 <div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;                              ptr_fieldx = f_addrsx(l, tMe)</div>
 <div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;                              ptr_fieldy = f_addrsy(l, tMe)</div>
 <div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;                              do k = 1,ke</div>
-<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;                                 do j = je, js, -1</div>
+<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;                                 do j = <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>, js, -1</div>
 <div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;                                    do i = ie, is, -1</div>
 <div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;                                       pos = pos + 1</div>
 <div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;                                       buffer(pos) = -fieldx(i,j,k)</div>
@@ -660,14 +660,14 @@ $(document).ready(function(){initNavTree('mpp__do__updateV_8h_source.html',''); 
 <div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;                  if( send(dir) ) then</div>
 <div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;                     tMe = update_y%send(ind_y)%tileMe(n)</div>
 <div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;                     is = update_y%send(ind_y)%is(n); ie = update_y%send(ind_y)%ie(n)</div>
-<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;                     js = update_y%send(ind_y)%js(n); je = update_y%send(ind_y)%je(n)</div>
+<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;                     js = update_y%send(ind_y)%js(n); <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a> = update_y%send(ind_y)%<a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>(n)</div>
 <div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;                     select case( update_y%send(ind_y)%rotation(n) )</div>
 <div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;                     case(ZERO)</div>
 <div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;                        do l=1,l_size  ! loop over number of fields</div>
 <div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;                           ptr_fieldx = f_addrsx(l, tMe)</div>
 <div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;                           ptr_fieldy = f_addrsy(l, tMe)</div>
 <div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;                           do k = 1,ke</div>
-<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;                              do j = js, je</div>
+<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;                              do j = js, <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a></div>
 <div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;                                 do i = is, ie</div>
 <div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;                                    pos = pos + 1</div>
 <div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;                                    buffer(pos) = fieldy(i,j,k)</div>
@@ -681,7 +681,7 @@ $(document).ready(function(){initNavTree('mpp__do__updateV_8h_source.html',''); 
 <div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;                           ptr_fieldy = f_addrsy(l, tMe)</div>
 <div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;                           do k = 1,ke</div>
 <div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;                              do i = is, ie</div>
-<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;                                 do j = je, js, -1</div>
+<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;                                 do j = <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>, js, -1</div>
 <div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;                                    pos = pos + 1</div>
 <div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;                                    buffer(pos) = fieldx(i,j,k)</div>
 <div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;                                 end do</div>
@@ -695,7 +695,7 @@ $(document).ready(function(){initNavTree('mpp__do__updateV_8h_source.html',''); 
 <div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;                              ptr_fieldy = f_addrsy(l, tMe)</div>
 <div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;                              do k = 1,ke</div>
 <div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;                                 do i = ie, is, -1</div>
-<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;                                    do j = js, je</div>
+<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;                                    do j = js, <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a></div>
 <div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;                                       pos = pos + 1</div>
 <div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;                                       buffer(pos) = fieldx(i,j,k)</div>
 <div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;                                    end do</div>
@@ -708,7 +708,7 @@ $(document).ready(function(){initNavTree('mpp__do__updateV_8h_source.html',''); 
 <div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;                              ptr_fieldy = f_addrsy(l, tMe)</div>
 <div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;                              do k = 1,ke</div>
 <div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;                                 do i = ie, is, -1</div>
-<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;                                    do j = js, je</div>
+<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;                                    do j = js, <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a></div>
 <div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;                                       pos = pos + 1</div>
 <div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;                                       buffer(pos) = -fieldx(i,j,k)</div>
 <div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;                                    end do</div>
@@ -722,7 +722,7 @@ $(document).ready(function(){initNavTree('mpp__do__updateV_8h_source.html',''); 
 <div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;                              ptr_fieldx = f_addrsx(l, tMe)</div>
 <div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;                              ptr_fieldy = f_addrsy(l, tMe)</div>
 <div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;                              do k = 1,ke</div>
-<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;                                 do j = je, js, -1</div>
+<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;                                 do j = <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>, js, -1</div>
 <div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;                                    do i = ie, is, -1</div>
 <div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;                                       pos = pos + 1</div>
 <div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;                                       buffer(pos) = fieldy(i,j,k)</div>
@@ -735,7 +735,7 @@ $(document).ready(function(){initNavTree('mpp__do__updateV_8h_source.html',''); 
 <div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;                              ptr_fieldx = f_addrsx(l, tMe)</div>
 <div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;                              ptr_fieldy = f_addrsy(l, tMe)</div>
 <div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;                              do k = 1,ke</div>
-<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;                                 do j = je, js, -1</div>
+<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;                                 do j = <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>, js, -1</div>
 <div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;                                    do i = ie, is, -1</div>
 <div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;                                       pos = pos + 1</div>
 <div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;                                       buffer(pos) = -fieldy(i,j,k)</div>
@@ -794,15 +794,15 @@ $(document).ready(function(){initNavTree('mpp__do__updateV_8h_source.html',''); 
 <div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;                  if( recv(dir) ) then</div>
 <div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;                     tMe = update_x%recv(ind_x)%tileMe(n)</div>
 <div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;                     is = update_x%recv(ind_x)%is(n); ie = update_x%recv(ind_x)%ie(n)</div>
-<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;                     js = update_x%recv(ind_x)%js(n); je = update_x%recv(ind_x)%je(n)</div>
-<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;                     msgsize = (ie-is+1)*(je-js+1)*ke*2*l_size</div>
+<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;                     js = update_x%recv(ind_x)%js(n); <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a> = update_x%recv(ind_x)%<a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>(n)</div>
+<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;                     msgsize = (ie-is+1)*(<a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>-js+1)*ke*2*l_size</div>
 <div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;                     pos = buffer_pos - msgsize</div>
 <div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;                     buffer_pos = pos</div>
 <div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;                     do l=1, l_size  ! loop over number of fields</div>
 <div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;                        ptr_fieldx = f_addrsx(l, tMe)</div>
 <div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;                        ptr_fieldy = f_addrsy(l, tMe)</div>
 <div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;                        do k = 1,ke</div>
-<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;                           do j = js, je</div>
+<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;                           do j = js, <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a></div>
 <div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;                              do i = is, ie</div>
 <div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;                                 pos = pos + 2</div>
 <div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;                                 fieldx(i,j,k) = buffer(pos-1)</div>
@@ -830,15 +830,15 @@ $(document).ready(function(){initNavTree('mpp__do__updateV_8h_source.html',''); 
 <div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;                  if( recv(dir) ) then</div>
 <div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;                     tMe = update_y%recv(ind_y)%tileMe(n)</div>
 <div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;                     is = update_y%recv(ind_y)%is(n); ie = update_y%recv(ind_y)%ie(n)</div>
-<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;                     js = update_y%recv(ind_y)%js(n); je = update_y%recv(ind_y)%je(n)</div>
-<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;                     msgsize = (ie-is+1)*(je-js+1)*ke*l_size</div>
+<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;                     js = update_y%recv(ind_y)%js(n); <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a> = update_y%recv(ind_y)%<a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>(n)</div>
+<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;                     msgsize = (ie-is+1)*(<a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>-js+1)*ke*l_size</div>
 <div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;                     pos = buffer_pos - msgsize</div>
 <div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;                     buffer_pos = pos</div>
 <div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;                     do l=1,l_size  ! loop over number of fields</div>
 <div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;                        ptr_fieldx = f_addrsx(l, tMe)</div>
 <div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;                        ptr_fieldy = f_addrsy(l, tMe)</div>
 <div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;                        do k = 1,ke</div>
-<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;                           do j = js, je</div>
+<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;                           do j = js, <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a></div>
 <div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;                              do i = is, ie</div>
 <div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;                                 pos = pos + 1</div>
 <div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;                                 fieldy(i,j,k) = buffer(pos)</div>
@@ -862,15 +862,15 @@ $(document).ready(function(){initNavTree('mpp__do__updateV_8h_source.html',''); 
 <div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;                  if( recv(dir) ) then</div>
 <div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;                     tMe = update_x%recv(ind_x)%tileMe(n)</div>
 <div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;                     is = update_x%recv(ind_x)%is(n); ie = update_x%recv(ind_x)%ie(n)</div>
-<div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;                     js = update_x%recv(ind_x)%js(n); je = update_x%recv(ind_x)%je(n)</div>
-<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;                     msgsize = (ie-is+1)*(je-js+1)*ke*l_size</div>
+<div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;                     js = update_x%recv(ind_x)%js(n); <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a> = update_x%recv(ind_x)%<a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>(n)</div>
+<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;                     msgsize = (ie-is+1)*(<a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>-js+1)*ke*l_size</div>
 <div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;                     pos = buffer_pos - msgsize</div>
 <div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;                     buffer_pos = pos</div>
 <div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160;                     do l=1,l_size  ! loop over number of fields</div>
 <div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;                        ptr_fieldx = f_addrsx(l, tMe)</div>
 <div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160;                        ptr_fieldy = f_addrsy(l, tMe)</div>
 <div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160;                        do k = 1,ke</div>
-<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160;                           do j = js, je</div>
+<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160;                           do j = js, <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a></div>
 <div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160;                              do i = is, ie</div>
 <div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160;                                 pos = pos + 1</div>
 <div class="line"><a name="l00780"></a><span class="lineno">  780</span>&#160;                                 fieldx(i,j,k) = buffer(pos)</div>
@@ -900,10 +900,10 @@ $(document).ready(function(){initNavTree('mpp__do__updateV_8h_source.html',''); 
 <div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160;         isd = domain%x(1)%compute%begin - update_x%whalo;</div>
 <div class="line"><a name="l00805"></a><span class="lineno">  805</span>&#160;         ied = domain%x(1)%compute%end + update_x%ehalo;</div>
 <div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160;         jsd = domain%y(1)%compute%begin - update_y%shalo;</div>
-<div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160;         jed = domain%y(1)%compute%end + update_y%nhalo;</div>
+<div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160;         <a class="code" href="group__fms__io__mod.html#gad4afab643d50b32ca35e2995dae649fa">jed</a> = domain%y(1)%compute%end + update_y%nhalo;</div>
 <div class="line"><a name="l00808"></a><span class="lineno">  808</span>&#160; </div>
 <div class="line"><a name="l00809"></a><span class="lineno">  809</span>&#160;         j = domain%y(1)%global%end+shift</div>
-<div class="line"><a name="l00810"></a><span class="lineno">  810</span>&#160;         if( jsd .LE. j .AND. j.LE.jed+shift )then !fold is within domain</div>
+<div class="line"><a name="l00810"></a><span class="lineno">  810</span>&#160;         if( jsd .LE. j .AND. j.LE.<a class="code" href="group__fms__io__mod.html#gad4afab643d50b32ca35e2995dae649fa">jed</a>+shift )then !fold is within domain</div>
 <div class="line"><a name="l00811"></a><span class="lineno">  811</span>&#160;            !poles set to 0: BGRID only</div>
 <div class="line"><a name="l00812"></a><span class="lineno">  812</span>&#160;            if( gridtype.EQ.BGRID_NE )then</div>
 <div class="line"><a name="l00813"></a><span class="lineno">  813</span>&#160;               midpoint = (domain%x(1)%global%begin+domain%x(1)%global%end-1+shift)/2</div>
@@ -1100,8 +1100,8 @@ $(document).ready(function(){initNavTree('mpp__do__updateV_8h_source.html',''); 
 <div class="line"><a name="l01004"></a><span class="lineno"> 1004</span>&#160;            !poles set to 0: BGRID only</div>
 <div class="line"><a name="l01005"></a><span class="lineno"> 1005</span>&#160;            if( gridtype.EQ.BGRID_NE )then</div>
 <div class="line"><a name="l01006"></a><span class="lineno"> 1006</span>&#160;               i  = domain%x(1)%global%begin</div>
-<div class="line"><a name="l01007"></a><span class="lineno"> 1007</span>&#160;               js = domain%y(1)%global%begin; je = domain%y(1)%global%end+shift</div>
-<div class="line"><a name="l01008"></a><span class="lineno"> 1008</span>&#160;               do j = js ,je, midpoint</div>
+<div class="line"><a name="l01007"></a><span class="lineno"> 1007</span>&#160;               js = domain%y(1)%global%begin; <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a> = domain%y(1)%global%end+shift</div>
+<div class="line"><a name="l01008"></a><span class="lineno"> 1008</span>&#160;               do j = js ,<a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>, midpoint</div>
 <div class="line"><a name="l01009"></a><span class="lineno"> 1009</span>&#160;                  if( domain%y(1)%data%begin.LE.j .AND. j.LE. domain%y(1)%data%end+shift )then</div>
 <div class="line"><a name="l01010"></a><span class="lineno"> 1010</span>&#160;                     do l=1,l_size</div>
 <div class="line"><a name="l01011"></a><span class="lineno"> 1011</span>&#160;                        ptr_fieldx = f_addrsx(l, 1)</div>
@@ -1158,17 +1158,17 @@ $(document).ready(function(){initNavTree('mpp__do__updateV_8h_source.html',''); 
 <div class="line"><a name="l01062"></a><span class="lineno"> 1062</span>&#160;            !off north edge</div>
 <div class="line"><a name="l01063"></a><span class="lineno"> 1063</span>&#160;            js = domain%y(1)%global%end</div>
 <div class="line"><a name="l01064"></a><span class="lineno"> 1064</span>&#160;            if(domain%y(1)%cyclic .AND. js.LT.domain%y(1)%data%end )then</div>
-<div class="line"><a name="l01065"></a><span class="lineno"> 1065</span>&#160;               je = domain%y(1)%data%end</div>
+<div class="line"><a name="l01065"></a><span class="lineno"> 1065</span>&#160;               <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a> = domain%y(1)%data%end</div>
 <div class="line"><a name="l01066"></a><span class="lineno"> 1066</span>&#160;               js = js + 1</div>
 <div class="line"><a name="l01067"></a><span class="lineno"> 1067</span>&#160;               select case(gridtype)</div>
 <div class="line"><a name="l01068"></a><span class="lineno"> 1068</span>&#160;               case(BGRID_NE)</div>
 <div class="line"><a name="l01069"></a><span class="lineno"> 1069</span>&#160;                  js = js + shift</div>
-<div class="line"><a name="l01070"></a><span class="lineno"> 1070</span>&#160;                  je = je + shift</div>
+<div class="line"><a name="l01070"></a><span class="lineno"> 1070</span>&#160;                  <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a> = <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a> + shift</div>
 <div class="line"><a name="l01071"></a><span class="lineno"> 1071</span>&#160;                  do l=1,l_size</div>
 <div class="line"><a name="l01072"></a><span class="lineno"> 1072</span>&#160;                     ptr_fieldx = f_addrsx(l, 1)</div>
 <div class="line"><a name="l01073"></a><span class="lineno"> 1073</span>&#160;                     ptr_fieldy = f_addrsy(l, 1)</div>
 <div class="line"><a name="l01074"></a><span class="lineno"> 1074</span>&#160;                     do k = 1,ke</div>
-<div class="line"><a name="l01075"></a><span class="lineno"> 1075</span>&#160;                        do j = js,je</div>
+<div class="line"><a name="l01075"></a><span class="lineno"> 1075</span>&#160;                        do j = js,<a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a></div>
 <div class="line"><a name="l01076"></a><span class="lineno"> 1076</span>&#160;                           fieldx(i,j,k) = -fieldx(i,j,k)</div>
 <div class="line"><a name="l01077"></a><span class="lineno"> 1077</span>&#160;                           fieldy(i,j,k) = -fieldy(i,j,k)</div>
 <div class="line"><a name="l01078"></a><span class="lineno"> 1078</span>&#160;                        end do</div>
@@ -1178,7 +1178,7 @@ $(document).ready(function(){initNavTree('mpp__do__updateV_8h_source.html',''); 
 <div class="line"><a name="l01082"></a><span class="lineno"> 1082</span>&#160;                  do l=1,l_size</div>
 <div class="line"><a name="l01083"></a><span class="lineno"> 1083</span>&#160;                     ptr_fieldx = f_addrsx(l, 1)</div>
 <div class="line"><a name="l01084"></a><span class="lineno"> 1084</span>&#160;                     do k = 1,ke</div>
-<div class="line"><a name="l01085"></a><span class="lineno"> 1085</span>&#160;                        do j = js, je</div>
+<div class="line"><a name="l01085"></a><span class="lineno"> 1085</span>&#160;                        do j = js, <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a></div>
 <div class="line"><a name="l01086"></a><span class="lineno"> 1086</span>&#160;                           fieldx(i,j,k) = -fieldx(i,j,k)</div>
 <div class="line"><a name="l01087"></a><span class="lineno"> 1087</span>&#160;                        end do</div>
 <div class="line"><a name="l01088"></a><span class="lineno"> 1088</span>&#160;                     end do</div>
@@ -1194,8 +1194,8 @@ $(document).ready(function(){initNavTree('mpp__do__updateV_8h_source.html',''); 
 <div class="line"><a name="l01098"></a><span class="lineno"> 1098</span>&#160;            !poles set to 0: BGRID only</div>
 <div class="line"><a name="l01099"></a><span class="lineno"> 1099</span>&#160;            if( gridtype.EQ.BGRID_NE )then</div>
 <div class="line"><a name="l01100"></a><span class="lineno"> 1100</span>&#160;               i  = domain%x(1)%global%end+shift</div>
-<div class="line"><a name="l01101"></a><span class="lineno"> 1101</span>&#160;               js = domain%y(1)%global%begin; je = domain%y(1)%global%end+shift</div>
-<div class="line"><a name="l01102"></a><span class="lineno"> 1102</span>&#160;               do j = js ,je, midpoint</div>
+<div class="line"><a name="l01101"></a><span class="lineno"> 1101</span>&#160;               js = domain%y(1)%global%begin; <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a> = domain%y(1)%global%end+shift</div>
+<div class="line"><a name="l01102"></a><span class="lineno"> 1102</span>&#160;               do j = js ,<a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a>, midpoint</div>
 <div class="line"><a name="l01103"></a><span class="lineno"> 1103</span>&#160;                  if( domain%y(1)%data%begin.LE.j .AND. j.LE. domain%y(1)%data%end+shift )then</div>
 <div class="line"><a name="l01104"></a><span class="lineno"> 1104</span>&#160;                     do l=1,l_size</div>
 <div class="line"><a name="l01105"></a><span class="lineno"> 1105</span>&#160;                        ptr_fieldx = f_addrsx(l, 1)</div>
@@ -1252,17 +1252,17 @@ $(document).ready(function(){initNavTree('mpp__do__updateV_8h_source.html',''); 
 <div class="line"><a name="l01156"></a><span class="lineno"> 1156</span>&#160;            !off north edge</div>
 <div class="line"><a name="l01157"></a><span class="lineno"> 1157</span>&#160;            js = domain%y(1)%global%end</div>
 <div class="line"><a name="l01158"></a><span class="lineno"> 1158</span>&#160;            if(domain%y(1)%cyclic .AND. js.LT.domain%y(1)%data%end )then</div>
-<div class="line"><a name="l01159"></a><span class="lineno"> 1159</span>&#160;               je = domain%y(1)%data%end</div>
+<div class="line"><a name="l01159"></a><span class="lineno"> 1159</span>&#160;               <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a> = domain%y(1)%data%end</div>
 <div class="line"><a name="l01160"></a><span class="lineno"> 1160</span>&#160;               js = js + 1</div>
 <div class="line"><a name="l01161"></a><span class="lineno"> 1161</span>&#160;               select case(gridtype)</div>
 <div class="line"><a name="l01162"></a><span class="lineno"> 1162</span>&#160;               case(BGRID_NE)</div>
 <div class="line"><a name="l01163"></a><span class="lineno"> 1163</span>&#160;                  js = js + shift</div>
-<div class="line"><a name="l01164"></a><span class="lineno"> 1164</span>&#160;                  je = je + shift</div>
+<div class="line"><a name="l01164"></a><span class="lineno"> 1164</span>&#160;                  <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a> = <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a> + shift</div>
 <div class="line"><a name="l01165"></a><span class="lineno"> 1165</span>&#160;                  do l=1,l_size</div>
 <div class="line"><a name="l01166"></a><span class="lineno"> 1166</span>&#160;                     ptr_fieldx = f_addrsx(l, 1)</div>
 <div class="line"><a name="l01167"></a><span class="lineno"> 1167</span>&#160;                     ptr_fieldy = f_addrsy(l, 1)</div>
 <div class="line"><a name="l01168"></a><span class="lineno"> 1168</span>&#160;                     do k = 1,ke</div>
-<div class="line"><a name="l01169"></a><span class="lineno"> 1169</span>&#160;                        do j = js,je</div>
+<div class="line"><a name="l01169"></a><span class="lineno"> 1169</span>&#160;                        do j = js,<a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a></div>
 <div class="line"><a name="l01170"></a><span class="lineno"> 1170</span>&#160;                           fieldx(i,j,k) = -fieldx(i,j,k)</div>
 <div class="line"><a name="l01171"></a><span class="lineno"> 1171</span>&#160;                           fieldy(i,j,k) = -fieldy(i,j,k)</div>
 <div class="line"><a name="l01172"></a><span class="lineno"> 1172</span>&#160;                        end do</div>
@@ -1272,7 +1272,7 @@ $(document).ready(function(){initNavTree('mpp__do__updateV_8h_source.html',''); 
 <div class="line"><a name="l01176"></a><span class="lineno"> 1176</span>&#160;                  do l=1,l_size</div>
 <div class="line"><a name="l01177"></a><span class="lineno"> 1177</span>&#160;                     ptr_fieldx = f_addrsx(l, 1)</div>
 <div class="line"><a name="l01178"></a><span class="lineno"> 1178</span>&#160;                     do k = 1,ke</div>
-<div class="line"><a name="l01179"></a><span class="lineno"> 1179</span>&#160;                        do j = js, je</div>
+<div class="line"><a name="l01179"></a><span class="lineno"> 1179</span>&#160;                        do j = js, <a class="code" href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">je</a></div>
 <div class="line"><a name="l01180"></a><span class="lineno"> 1180</span>&#160;                           fieldx(i,j,k) = -fieldx(i,j,k)</div>
 <div class="line"><a name="l01181"></a><span class="lineno"> 1181</span>&#160;                        end do</div>
 <div class="line"><a name="l01182"></a><span class="lineno"> 1182</span>&#160;                     end do</div>
@@ -1291,10 +1291,12 @@ $(document).ready(function(){initNavTree('mpp__do__updateV_8h_source.html',''); 
 <div class="line"><a name="l01195"></a><span class="lineno"> 1195</span>&#160;    end subroutine MPP_DO_UPDATE_3D_V_</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="agroup__fms__io__mod_html_gad4afab643d50b32ca35e2995dae649fa"><div class="ttname"><a href="group__fms__io__mod.html#gad4afab643d50b32ca35e2995dae649fa">fms_io_mod::jed</a></div><div class="ttdeci">integer, private jed</div><div class="ttdoc">data domain</div><div class="ttdef"><b>Definition:</b> <a href="fms__io_8F90_source.html#l00519">fms_io.F90:519</a></div></div>
 <div class="ttc" id="ampp__util_8inc_html_a172901d39c9b0cf14aa83b1e94fdf21b"><div class="ttname"><a href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a></div><div class="ttdeci">integer function stdout()</div><div class="ttdoc">This function returns the current standard fortran unit numbers for output.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00065">mpp_util.inc:65</a></div></div>
 <div class="ttc" id="agroup__mpp__domains__mod_html_ga640f19150a4437d553bd0ba3f4dbc7e6"><div class="ttname"><a href="group__mpp__domains__mod.html#ga640f19150a4437d553bd0ba3f4dbc7e6">mpp_domains_mod::debug_message_passing</a></div><div class="ttdeci">logical debug_message_passing</div><div class="ttdoc">Will check the consistency on the boundary between processor/tile when updating domain for symmetric ...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains_8F90_source.html#l00696">mpp_domains.F90:696</a></div></div>
 <div class="ttc" id="ampp__util__mpi_8inc_html_a09e69243d8c67e6a6e6e4fd9e93d0870"><div class="ttname"><a href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a></div><div class="ttdeci">subroutine mpp_sync_self(pelist, check, request, msg_size, msg_type)</div><div class="ttdoc">This is to check if current PE's outstanding puts are complete but we can't use shmem_fence because w...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util__mpi_8inc_source.html#l00169">mpp_util_mpi.inc:169</a></div></div>
 <div class="ttc" id="ampp__domains__util_8inc_html_ae1f3c0c5c574686aac6c1595b1ca0b66"><div class="ttname"><a href="mpp__domains__util_8inc.html#ae1f3c0c5c574686aac6c1595b1ca0b66">mpp_domains_set_stack_size</a></div><div class="ttdeci">subroutine mpp_domains_set_stack_size(n)</div><div class="ttdoc">Set user stack size.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__util_8inc_source.html#l00052">mpp_domains_util.inc:52</a></div></div>
+<div class="ttc" id="agroup__fms__io__mod_html_gae85b018bca1141b3510db6f38fdc50bf"><div class="ttname"><a href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">fms_io_mod::je</a></div><div class="ttdeci">integer, private je</div><div class="ttdoc">compute domain</div><div class="ttdef"><b>Definition:</b> <a href="fms__io_8F90_source.html#l00518">fms_io.F90:518</a></div></div>
 <div class="ttc" id="ampp__util_8inc_html_acfeba7de56f9dd6000b3fd78f9d56c50"><div class="ttname"><a href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a></div><div class="ttdeci">integer function mpp_pe()</div><div class="ttdoc">Returns processor ID. This returns the unique ID associated with a PE. This number runs between 0 and...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00442">mpp_util.inc:442</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
