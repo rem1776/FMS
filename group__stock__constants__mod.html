@@ -152,22 +152,6 @@ integer, public&#160;</td><td class="memItemRight" valign="bottom"><b>stocks_fil
 integer, parameter&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__stock__constants__mod.html#gaf58e9da841d22fb8927f19008ee4beb5">nsides</a> = 3</td></tr>
 <tr class="memdesc:gaf58e9da841d22fb8927f19008ee4beb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">top, bottom, side <br /></td></tr>
 <tr class="separator:gaf58e9da841d22fb8927f19008ee4beb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga14b6c27bac0e5df5e35a6067bf1031d2"><td class="memItemLeft" align="right" valign="top"><a id="ga14b6c27bac0e5df5e35a6067bf1031d2"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__stock__constants__mod.html#ga14b6c27bac0e5df5e35a6067bf1031d2">q_start</a> = 0.0</td></tr>
-<tr class="memdesc:ga14b6c27bac0e5df5e35a6067bf1031d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">total stocks at start time <br /></td></tr>
-<tr class="separator:ga14b6c27bac0e5df5e35a6067bf1031d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gabd16f11b5766f2615166ed233c147711"><td class="memItemLeft" align="right" valign="top"><a id="gabd16f11b5766f2615166ed233c147711"></a>
-real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__stock__constants__mod.html#gabd16f11b5766f2615166ed233c147711">q_now</a> = 0.0</td></tr>
-<tr class="memdesc:gabd16f11b5766f2615166ed233c147711"><td class="mdescLeft">&#160;</td><td class="mdescRight">total stocks at time t <br /></td></tr>
-<tr class="separator:gabd16f11b5766f2615166ed233c147711"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf43c501a29ae174776cd0a27ab08f25b"><td class="memItemLeft" align="right" valign="top"><a id="gaf43c501a29ae174776cd0a27ab08f25b"></a>
-real, dimension(nsides)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__stock__constants__mod.html#gaf43c501a29ae174776cd0a27ab08f25b">dq</a> = 0.0</td></tr>
-<tr class="memdesc:gaf43c501a29ae174776cd0a27ab08f25b"><td class="mdescLeft">&#160;</td><td class="mdescRight">stock increments at present time on the Ice grid <br /></td></tr>
-<tr class="separator:gaf43c501a29ae174776cd0a27ab08f25b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga0fd9e142d56c59d10655606fb4a41adf"><td class="memItemLeft" align="right" valign="top"><a id="ga0fd9e142d56c59d10655606fb4a41adf"></a>
-real, dimension(nsides)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__stock__constants__mod.html#ga0fd9e142d56c59d10655606fb4a41adf">dq_in</a> = 0.0</td></tr>
-<tr class="memdesc:ga0fd9e142d56c59d10655606fb4a41adf"><td class="mdescLeft">&#160;</td><td class="mdescRight">stock increments at present time on the Ocean grid <br /></td></tr>
-<tr class="separator:ga0fd9e142d56c59d10655606fb4a41adf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga3f7f30b179440d9909bb0f7049e4bd6e"><td class="memItemLeft" align="right" valign="top"><a id="ga3f7f30b179440d9909bb0f7049e4bd6e"></a>
 type(<a class="el" href="structstock__constants__mod_1_1stock__type.html">stock_type</a>), dimension(nelems), save, public&#160;</td><td class="memItemRight" valign="bottom"><b>atm_stock</b></td></tr>
 <tr class="separator:ga3f7f30b179440d9909bb0f7049e4bd6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -207,6 +191,96 @@ character(len=5), dimension(nelems), parameter&#160;</td><td class="memItemRight
 <tr class="memitem:ga7994ff1ee936a2b4534d76a25d6e6b31"><td class="memItemLeft" align="right" valign="top"><a id="ga7994ff1ee936a2b4534d76a25d6e6b31"></a>
 character(len=12), dimension(nelems), parameter&#160;</td><td class="memItemRight" valign="bottom"><b>stock_units</b> =(/'[Kg] ','[Joules]','[Kg] '/)</td></tr>
 <tr class="separator:ga7994ff1ee936a2b4534d76a25d6e6b31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad49659b5e2fc7b1013c03f5e5fc7b828"><td class="memItemLeft" align="right" valign="top"><a id="gad49659b5e2fc7b1013c03f5e5fc7b828"></a>
+real, parameter&#160;</td><td class="memItemRight" valign="bottom"><b>eps</b> = 1.0e-10</td></tr>
+<tr class="separator:gad49659b5e2fc7b1013c03f5e5fc7b828"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabe42a642ac64cc83cf79d881802b0304"><td class="memItemLeft" align="right" valign="top"><a id="gabe42a642ac64cc83cf79d881802b0304"></a>
+real, parameter&#160;</td><td class="memItemRight" valign="bottom"><b>large_number</b> = 1.e20</td></tr>
+<tr class="separator:gabe42a642ac64cc83cf79d881802b0304"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad369225c254bc7bda087334ca5d13096"><td class="memItemLeft" align="right" valign="top"><a id="gad369225c254bc7bda087334ca5d13096"></a>
+logical&#160;</td><td class="memItemRight" valign="bottom"><b>module_is_initialized</b> = .FALSE.</td></tr>
+<tr class="separator:gad369225c254bc7bda087334ca5d13096"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gada891a5bc164019799c5f10c6d70e53f"><td class="memItemLeft" align="right" valign="top"><a id="gada891a5bc164019799c5f10c6d70e53f"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>id_put_1_to_xgrid_order_1</b> = 0</td></tr>
+<tr class="separator:gada891a5bc164019799c5f10c6d70e53f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafe39e75306855f562c42876bfc8fcbef"><td class="memItemLeft" align="right" valign="top"><a id="gafe39e75306855f562c42876bfc8fcbef"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>id_put_1_to_xgrid_order_2</b> = 0</td></tr>
+<tr class="separator:gafe39e75306855f562c42876bfc8fcbef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf1997598d444c835f7c2bb4c3ab8d50c"><td class="memItemLeft" align="right" valign="top"><a id="gaf1997598d444c835f7c2bb4c3ab8d50c"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>id_get_1_from_xgrid</b> = 0</td></tr>
+<tr class="separator:gaf1997598d444c835f7c2bb4c3ab8d50c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabff23c1e56aa2e3dd2ae5ad48163c457"><td class="memItemLeft" align="right" valign="top"><a id="gabff23c1e56aa2e3dd2ae5ad48163c457"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>id_get_1_from_xgrid_repro</b> = 0</td></tr>
+<tr class="separator:gabff23c1e56aa2e3dd2ae5ad48163c457"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga39f34b6f063fd74422ce0dd9ef4e976b"><td class="memItemLeft" align="right" valign="top"><a id="ga39f34b6f063fd74422ce0dd9ef4e976b"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>id_get_2_from_xgrid</b> = 0</td></tr>
+<tr class="separator:ga39f34b6f063fd74422ce0dd9ef4e976b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga95b45380257e9f54b404b99376b62303"><td class="memItemLeft" align="right" valign="top"><a id="ga95b45380257e9f54b404b99376b62303"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>id_put_2_to_xgrid</b> = 0</td></tr>
+<tr class="separator:ga95b45380257e9f54b404b99376b62303"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad1594ddf538926d3d06b468fad302f40"><td class="memItemLeft" align="right" valign="top"><a id="gad1594ddf538926d3d06b468fad302f40"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>id_setup_xmap</b> = 0</td></tr>
+<tr class="separator:gad1594ddf538926d3d06b468fad302f40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga868518051289640a9ff924e1a1d88a47"><td class="memItemLeft" align="right" valign="top"><a id="ga868518051289640a9ff924e1a1d88a47"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>id_load_xgrid1</b></td></tr>
+<tr class="separator:ga868518051289640a9ff924e1a1d88a47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga05d1609bdd0b9cfa87514b8860efc7b9"><td class="memItemLeft" align="right" valign="top"><a id="ga05d1609bdd0b9cfa87514b8860efc7b9"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>id_load_xgrid2</b></td></tr>
+<tr class="separator:ga05d1609bdd0b9cfa87514b8860efc7b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad7faabbb7225ee8b6ea6a352569397ea"><td class="memItemLeft" align="right" valign="top"><a id="gad7faabbb7225ee8b6ea6a352569397ea"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>id_load_xgrid3</b></td></tr>
+<tr class="separator:gad7faabbb7225ee8b6ea6a352569397ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab4f68c24670d1e4bbecb05949b981aa9"><td class="memItemLeft" align="right" valign="top"><a id="gab4f68c24670d1e4bbecb05949b981aa9"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>id_load_xgrid4</b></td></tr>
+<tr class="separator:gab4f68c24670d1e4bbecb05949b981aa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3decce38d319653e4185548f06587b4e"><td class="memItemLeft" align="right" valign="top"><a id="ga3decce38d319653e4185548f06587b4e"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>id_load_xgrid5</b></td></tr>
+<tr class="separator:ga3decce38d319653e4185548f06587b4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5e410e1c3d43d2059290194c5dfb0457"><td class="memItemLeft" align="right" valign="top"><a id="ga5e410e1c3d43d2059290194c5dfb0457"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>id_load_xgrid</b></td></tr>
+<tr class="separator:ga5e410e1c3d43d2059290194c5dfb0457"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8bfe31f663f6203498ad8665407a29fb"><td class="memItemLeft" align="right" valign="top"><a id="ga8bfe31f663f6203498ad8665407a29fb"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>id_set_comm</b></td></tr>
+<tr class="separator:ga8bfe31f663f6203498ad8665407a29fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad2acb1003204f610fd3a67ee6e41faa2"><td class="memItemLeft" align="right" valign="top"><a id="gad2acb1003204f610fd3a67ee6e41faa2"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>id_regen</b></td></tr>
+<tr class="separator:gad2acb1003204f610fd3a67ee6e41faa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4be8c18a2e40560b8cd87cb8b537998f"><td class="memItemLeft" align="right" valign="top"><a id="ga4be8c18a2e40560b8cd87cb8b537998f"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>id_conservation_check</b></td></tr>
+<tr class="separator:ga4be8c18a2e40560b8cd87cb8b537998f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6ba65fca816e26489e4dbe27cc615212"><td class="memItemLeft" align="right" valign="top"><a id="ga6ba65fca816e26489e4dbe27cc615212"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>nnest</b> =0</td></tr>
+<tr class="separator:ga6ba65fca816e26489e4dbe27cc615212"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4d68070a3ea180cb6e2764a498f72e7e"><td class="memItemLeft" align="right" valign="top"><a id="ga4d68070a3ea180cb6e2764a498f72e7e"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>tile_nest</b></td></tr>
+<tr class="separator:ga4d68070a3ea180cb6e2764a498f72e7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa5ad43c87a7c7e6c59d071c8b4e8de9a"><td class="memItemLeft" align="right" valign="top"><a id="gaa5ad43c87a7c7e6c59d071c8b4e8de9a"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>tile_parent</b></td></tr>
+<tr class="separator:gaa5ad43c87a7c7e6c59d071c8b4e8de9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae153b6105fa6b9cf34b01e2d372e1e73"><td class="memItemLeft" align="right" valign="top"><a id="gae153b6105fa6b9cf34b01e2d372e1e73"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>is_nest</b> =0</td></tr>
+<tr class="separator:gae153b6105fa6b9cf34b01e2d372e1e73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac2a1d8ab60184394cb7a3216fb9bea38"><td class="memItemLeft" align="right" valign="top"><a id="gac2a1d8ab60184394cb7a3216fb9bea38"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>ie_nest</b> =0</td></tr>
+<tr class="separator:gac2a1d8ab60184394cb7a3216fb9bea38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0196ce05becc3f518407dd07593d0d7b"><td class="memItemLeft" align="right" valign="top"><a id="ga0196ce05becc3f518407dd07593d0d7b"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>js_nest</b> =0</td></tr>
+<tr class="separator:ga0196ce05becc3f518407dd07593d0d7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga56a18e06da1b22f9e33fc0b19bf67157"><td class="memItemLeft" align="right" valign="top"><a id="ga56a18e06da1b22f9e33fc0b19bf67157"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>je_nest</b> =0</td></tr>
+<tr class="separator:ga56a18e06da1b22f9e33fc0b19bf67157"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaba4755cbaa4df3aaa6e9f27a70a9ea32"><td class="memItemLeft" align="right" valign="top"><a id="gaba4755cbaa4df3aaa6e9f27a70a9ea32"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>is_parent</b> =0</td></tr>
+<tr class="separator:gaba4755cbaa4df3aaa6e9f27a70a9ea32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga44a54d82abd8a1525246eefbb442a530"><td class="memItemLeft" align="right" valign="top"><a id="ga44a54d82abd8a1525246eefbb442a530"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>ie_parent</b> =0</td></tr>
+<tr class="separator:ga44a54d82abd8a1525246eefbb442a530"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga019459bd1013501eb467a32136d1f08d"><td class="memItemLeft" align="right" valign="top"><a id="ga019459bd1013501eb467a32136d1f08d"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>js_parent</b> =0</td></tr>
+<tr class="separator:ga019459bd1013501eb467a32136d1f08d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf6df84729dc23ad837e634a4078216c4"><td class="memItemLeft" align="right" valign="top"><a id="gaf6df84729dc23ad837e634a4078216c4"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>je_parent</b> =0</td></tr>
+<tr class="separator:gaf6df84729dc23ad837e634a4078216c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Parameters, routines, and types for computing stocks in <a class="el" href="group__xgrid__mod.html">xgrid_mod</a>. </p>

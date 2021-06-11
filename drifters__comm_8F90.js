@@ -1,6 +1,5 @@
 var drifters__comm_8F90 =
 [
-    [ "drifters_comm_type", "structdrifters__comm__mod_1_1drifters__comm__type.html", "structdrifters__comm__mod_1_1drifters__comm__type" ],
     [ "_NULL_PE", "drifters__comm_8F90.html#ab36e943556fbb204887838136299d3a3", null ],
     [ "_TYPE_DOMAIN2D", "drifters__comm_8F90.html#af58bf0fe90c2e73cce8b60bde7a0c4c4", null ],
     [ "drifters_comm_del", "drifters__comm_8F90.html#gae835675113b952770f1ba84467beeda1", null ],

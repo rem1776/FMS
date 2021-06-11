@@ -103,18 +103,85 @@ $(document).ready(function(){initNavTree('interfacediag__output__mod_1_1write__a
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:ga31ad67fcc2d2a3a3917a468026adfd4a"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__output__mod.html#ga31ad67fcc2d2a3a3917a468026adfd4a">write_axis_meta_data_fms2_io</a> (file_unit, axes, fileob, time_ops, time_axis_registered)</td></tr>
-<tr class="memdesc:ga31ad67fcc2d2a3a3917a468026adfd4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the axis meta data to file.  <a href="group__diag__output__mod.html#ga31ad67fcc2d2a3a3917a468026adfd4a">More...</a><br /></td></tr>
-<tr class="separator:ga31ad67fcc2d2a3a3917a468026adfd4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga0d9ce861d70c35c885bd60231e888f19"><td class="memItemLeft" align="right" valign="top">
+<tr class="memitem:a31ad67fcc2d2a3a3917a468026adfd4a"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacediag__output__mod_1_1write__axis__meta__data.html#a31ad67fcc2d2a3a3917a468026adfd4a">write_axis_meta_data_fms2_io</a> (file_unit, axes, fileob, time_ops, time_axis_registered)</td></tr>
+<tr class="memdesc:a31ad67fcc2d2a3a3917a468026adfd4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the axis meta data to file.  <a href="interfacediag__output__mod_1_1write__axis__meta__data.html#a31ad67fcc2d2a3a3917a468026adfd4a">More...</a><br /></td></tr>
+<tr class="separator:a31ad67fcc2d2a3a3917a468026adfd4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d9ce861d70c35c885bd60231e888f19"><td class="memItemLeft" align="right" valign="top"><a id="a0d9ce861d70c35c885bd60231e888f19"></a>
 subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>write_axis_meta_data_use_mpp_io</b> (file_unit, axes, time_ops)</td></tr>
-<tr class="separator:ga0d9ce861d70c35c885bd60231e888f19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a0d9ce861d70c35c885bd60231e888f19"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Writes axis metadata to a file. </p>
 
-<p class="definition">Definition at line <a class="el" href="diag__output_8F90_source.html#l00125">125</a> of file <a class="el" href="diag__output_8F90_source.html">diag_output.F90</a>.</p>
-</div><hr/>The documentation for this interface was generated from the following file:<ul>
+<p class="definition">Definition at line <a class="el" href="diag__output_8F90_source.html#l00129">129</a> of file <a class="el" href="diag__output_8F90_source.html">diag_output.F90</a>.</p>
+</div><h2 class="groupheader">Member Function/Subroutine Documentation</h2>
+<a id="a31ad67fcc2d2a3a3917a468026adfd4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31ad67fcc2d2a3a3917a468026adfd4a">&#9670;&nbsp;</a></span>write_axis_meta_data_fms2_io()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine write_axis_meta_data_fms2_io </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)&#160;</td>
+          <td class="paramname"><em>file_unit</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(:), intent(in)&#160;</td>
+          <td class="paramname"><em>axes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">class(<a class="el" href="structnetcdf__io__mod_1_1fmsnetcdffile__t.html">fmsnetcdffile_t</a>), intent(inout), target&#160;</td>
+          <td class="paramname"><em>fileob</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, intent(in), optional&#160;</td>
+          <td class="paramname"><em>time_ops</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, intent(inout), optional&#160;</td>
+          <td class="paramname"><em>time_axis_registered</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Write the axis meta data to file. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">file_unit</td><td>File unit number </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">axes</td><td>Array of axis ID's, including the time axis </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">time_ops</td><td>.TRUE. if this file contains any min, max, time_rms, or time_average </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="diag__output_8F90_source.html#l00336">336</a> of file <a class="el" href="diag__output_8F90_source.html">diag_output.F90</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this interface was generated from the following file:<ul>
 <li>diag_manager/<a class="el" href="diag__output_8F90_source.html">diag_output.F90</a></li>
 </ul>
 </div><!-- contents -->

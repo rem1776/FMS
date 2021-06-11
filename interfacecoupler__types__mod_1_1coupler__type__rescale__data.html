@@ -103,17 +103,194 @@ $(document).ready(function(){initNavTree('interfacecoupler__types__mod_1_1couple
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:ga36b0d38970cd5c1e039616b731ad8455"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__coupler__types__mod.html#ga36b0d38970cd5c1e039616b731ad8455">ct_rescale_data_2d</a> (var, scale, halo_size, bc_index, field_index, exclude_flux_type, only_flux_type, pass_through_ice)</td></tr>
-<tr class="memdesc:ga36b0d38970cd5c1e039616b731ad8455"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rescales the fields in the fields in the elements of a <a class="el" href="structcoupler__types__mod_1_1coupler__2d__bc__type.html">coupler_2d_bc_type</a>.  <a href="group__coupler__types__mod.html#ga36b0d38970cd5c1e039616b731ad8455">More...</a><br /></td></tr>
-<tr class="separator:ga36b0d38970cd5c1e039616b731ad8455"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga436381b64baf14c8dc4e584a37e4e0d9"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__coupler__types__mod.html#ga436381b64baf14c8dc4e584a37e4e0d9">ct_rescale_data_3d</a> (var, scale, halo_size, bc_index, field_index, exclude_flux_type, only_flux_type, pass_through_ice)</td></tr>
-<tr class="separator:ga436381b64baf14c8dc4e584a37e4e0d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36b0d38970cd5c1e039616b731ad8455"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacecoupler__types__mod_1_1coupler__type__rescale__data.html#a36b0d38970cd5c1e039616b731ad8455">ct_rescale_data_2d</a> (var, scale, halo_size, bc_index, field_index, exclude_flux_type, only_flux_type, pass_through_ice)</td></tr>
+<tr class="memdesc:a36b0d38970cd5c1e039616b731ad8455"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rescales the fields in the fields in the elements of a <a class="el" href="structcoupler__types__mod_1_1coupler__2d__bc__type.html">coupler_2d_bc_type</a>.  <a href="interfacecoupler__types__mod_1_1coupler__type__rescale__data.html#a36b0d38970cd5c1e039616b731ad8455">More...</a><br /></td></tr>
+<tr class="separator:a36b0d38970cd5c1e039616b731ad8455"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a436381b64baf14c8dc4e584a37e4e0d9"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacecoupler__types__mod_1_1coupler__type__rescale__data.html#a436381b64baf14c8dc4e584a37e4e0d9">ct_rescale_data_3d</a> (var, scale, halo_size, bc_index, field_index, exclude_flux_type, only_flux_type, pass_through_ice)</td></tr>
+<tr class="separator:a436381b64baf14c8dc4e584a37e4e0d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This is the interface to rescale the field data in a coupler_bc_type. </p>
 
-<p class="definition">Definition at line <a class="el" href="coupler__types_8F90_source.html#l00245">245</a> of file <a class="el" href="coupler__types_8F90_source.html">coupler_types.F90</a>.</p>
-</div><hr/>The documentation for this interface was generated from the following file:<ul>
+<p class="definition">Definition at line <a class="el" href="coupler__types_8F90_source.html#l00263">263</a> of file <a class="el" href="coupler__types_8F90_source.html">coupler_types.F90</a>.</p>
+</div><h2 class="groupheader">Member Function/Subroutine Documentation</h2>
+<a id="a36b0d38970cd5c1e039616b731ad8455"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36b0d38970cd5c1e039616b731ad8455">&#9670;&nbsp;</a></span>ct_rescale_data_2d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine ct_rescale_data_2d </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structcoupler__types__mod_1_1coupler__2d__bc__type.html">coupler_2d_bc_type</a>), intent(inout)&#160;</td>
+          <td class="paramname"><em>var</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, intent(in)&#160;</td>
+          <td class="paramname"><em>scale</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>halo_size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>bc_index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>field_index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in), optional&#160;</td>
+          <td class="paramname"><em>exclude_flux_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in), optional&#160;</td>
+          <td class="paramname"><em>only_flux_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, intent(in), optional&#160;</td>
+          <td class="paramname"><em>pass_through_ice</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Rescales the fields in the fields in the elements of a <a class="el" href="structcoupler__types__mod_1_1coupler__2d__bc__type.html">coupler_2d_bc_type</a>. </p>
+<p>Rescales the fields in the elements of a <a class="el" href="structcoupler__types__mod_1_1coupler__2d__bc__type.html">coupler_2d_bc_type</a> by multiplying by a factor scale. If scale is 0, this is a direct assignment to 0, so that NaNs will not persist. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">var</td><td>The BC_type structure whose fields are being rescaled </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">scale</td><td>A scaling factor to multiply fields by </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">halo_size</td><td>The extent of the halo to copy; 0 by default or the full arrays if scale is 0. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">bc_index</td><td>The index of the boundary condition that is being copied </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">field_index</td><td>The index of the field in the boundary condition that is being copied </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">exclude_flux_type</td><td>A string describing which types of fluxes to exclude from this copy. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">only_flux_type</td><td>A string describing which types of fluxes to include from this copy. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pass_through_ice</td><td>If true, only copy BCs whose value of pass_through ice matches this </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="coupler__types_8F90_source.html#l01659">1659</a> of file <a class="el" href="coupler__types_8F90_source.html">coupler_types.F90</a>.</p>
+
+</div>
+</div>
+<a id="a436381b64baf14c8dc4e584a37e4e0d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a436381b64baf14c8dc4e584a37e4e0d9">&#9670;&nbsp;</a></span>ct_rescale_data_3d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine ct_rescale_data_3d </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structcoupler__types__mod_1_1coupler__3d__bc__type.html">coupler_3d_bc_type</a>), intent(inout)&#160;</td>
+          <td class="paramname"><em>var</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, intent(in)&#160;</td>
+          <td class="paramname"><em>scale</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>halo_size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>bc_index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>field_index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in), optional&#160;</td>
+          <td class="paramname"><em>exclude_flux_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in), optional&#160;</td>
+          <td class="paramname"><em>only_flux_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, intent(in), optional&#160;</td>
+          <td class="paramname"><em>pass_through_ice</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">var</td><td>The BC_type structure whose fields are being rescaled</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">scale</td><td>A scaling factor to multiply fields by</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">halo_size</td><td>The extent of the halo to copy; 0 by default or the full arrays if scale is 0.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">bc_index</td><td>The index of the boundary condition that is being copied</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">field_index</td><td>The index of the field in the boundary condition that is being copied</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">exclude_flux_type</td><td>A string describing which types of fluxes to exclude from this copy.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">only_flux_type</td><td>A string describing which types of fluxes to include from this copy.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pass_through_ice</td><td>If true, only copy BCs whose value of pass_through ice matches this </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="coupler__types_8F90_source.html#l01749">1749</a> of file <a class="el" href="coupler__types_8F90_source.html">coupler_types.F90</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this interface was generated from the following file:<ul>
 <li>coupler/<a class="el" href="coupler__types_8F90_source.html">coupler_types.F90</a></li>
 </ul>
 </div><!-- contents -->

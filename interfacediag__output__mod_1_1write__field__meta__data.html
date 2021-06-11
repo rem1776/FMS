@@ -103,18 +103,172 @@ $(document).ready(function(){initNavTree('interfacediag__output__mod_1_1write__f
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:gaf999859daa044f7f90a3e2bc63487a11"><td class="memItemLeft" align="right" valign="top">type(<a class="el" href="structdiag__data__mod_1_1diag__fieldtype.html">diag_fieldtype</a>) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__output__mod.html#gaf999859daa044f7f90a3e2bc63487a11">write_field_meta_data_fms2_io</a> (file_unit, name, axes, units, long_name, range, pack, mval, avg_name, time_method, standard_name, interp_method, attributes, num_attributes, use_UGdomain, fileob)</td></tr>
-<tr class="memdesc:gaf999859daa044f7f90a3e2bc63487a11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the field meta data to file.  <a href="group__diag__output__mod.html#gaf999859daa044f7f90a3e2bc63487a11">More...</a><br /></td></tr>
-<tr class="separator:gaf999859daa044f7f90a3e2bc63487a11"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9d4ef558fdd977bbc9371d7b64b7a1d2"><td class="memItemLeft" align="right" valign="top">
+<tr class="memitem:af999859daa044f7f90a3e2bc63487a11"><td class="memItemLeft" align="right" valign="top">type(<a class="el" href="structdiag__data__mod_1_1diag__fieldtype.html">diag_fieldtype</a>) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacediag__output__mod_1_1write__field__meta__data.html#af999859daa044f7f90a3e2bc63487a11">write_field_meta_data_fms2_io</a> (file_unit, name, axes, units, long_name, range, pack, mval, avg_name, time_method, standard_name, interp_method, attributes, num_attributes, use_UGdomain, fileob)</td></tr>
+<tr class="memdesc:af999859daa044f7f90a3e2bc63487a11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the field meta data to file.  <a href="interfacediag__output__mod_1_1write__field__meta__data.html#af999859daa044f7f90a3e2bc63487a11">More...</a><br /></td></tr>
+<tr class="separator:af999859daa044f7f90a3e2bc63487a11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d4ef558fdd977bbc9371d7b64b7a1d2"><td class="memItemLeft" align="right" valign="top"><a id="a9d4ef558fdd977bbc9371d7b64b7a1d2"></a>
 type(<a class="el" href="structdiag__data__mod_1_1diag__fieldtype.html">diag_fieldtype</a>) function&#160;</td><td class="memItemRight" valign="bottom"><b>write_field_meta_data_use_mpp_io</b> (file_unit, name, axes, units, long_name, range, pack, mval, avg_name, time_method, standard_name, interp_method, attributes, num_attributes, use_UGdomain)</td></tr>
-<tr class="separator:ga9d4ef558fdd977bbc9371d7b64b7a1d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a9d4ef558fdd977bbc9371d7b64b7a1d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Writes field metadata to a file. </p>
 
-<p class="definition">Definition at line <a class="el" href="diag__output_8F90_source.html#l00131">131</a> of file <a class="el" href="diag__output_8F90_source.html">diag_output.F90</a>.</p>
-</div><hr/>The documentation for this interface was generated from the following file:<ul>
+<p class="definition">Definition at line <a class="el" href="diag__output_8F90_source.html#l00136">136</a> of file <a class="el" href="diag__output_8F90_source.html">diag_output.F90</a>.</p>
+</div><h2 class="groupheader">Member Function/Subroutine Documentation</h2>
+<a id="af999859daa044f7f90a3e2bc63487a11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af999859daa044f7f90a3e2bc63487a11">&#9670;&nbsp;</a></span>write_field_meta_data_fms2_io()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">type(<a class="el" href="structdiag__data__mod_1_1diag__fieldtype.html">diag_fieldtype</a>) function write_field_meta_data_fms2_io </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)&#160;</td>
+          <td class="paramname"><em>file_unit</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in)&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(:), intent(in)&#160;</td>
+          <td class="paramname"><em>axes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in)&#160;</td>
+          <td class="paramname"><em>units</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in)&#160;</td>
+          <td class="paramname"><em>long_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(2), intent(in), optional&#160;</td>
+          <td class="paramname"><em>range</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>pack</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, intent(in), optional&#160;</td>
+          <td class="paramname"><em>mval</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in), optional&#160;</td>
+          <td class="paramname"><em>avg_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in), optional&#160;</td>
+          <td class="paramname"><em>time_method</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in), optional&#160;</td>
+          <td class="paramname"><em>standard_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in), optional&#160;</td>
+          <td class="paramname"><em>interp_method</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structdiag__data__mod_1_1diag__atttype.html">diag_atttype</a>), dimension(:), intent(in), optional, allocatable&#160;</td>
+          <td class="paramname"><em>attributes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>num_attributes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, intent(in), optional&#160;</td>
+          <td class="paramname"><em>use_UGdomain</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">class(<a class="el" href="structnetcdf__io__mod_1_1fmsnetcdffile__t.html">fmsnetcdffile_t</a>), intent(inout)&#160;</td>
+          <td class="paramname"><em>fileob</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Write the field meta data to file. </p>
+<dl class="section return"><dt>Returns</dt><dd>diag_fieldtype Field</dd></dl>
+<p>The meta data for the field is written to the file indicated by file_unit </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">file_unit</td><td>Output file unit number </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">axes</td><td>Array of axis IDs </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>Field name </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">units</td><td>Field units </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">long_name</td><td>Field's long name </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">range</td><td>Valid range (min, max). If min &gt; max, the range will be ignored </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mval</td><td>Missing value, must be within valid range </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pack</td><td>Packing flag. Only valid when range specified. Valid values: <table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Flag </th><th class="markdownTableHeadNone">Size  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">1 </td><td class="markdownTableBodyNone">64bit  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">2 </td><td class="markdownTableBodyNone">32bit  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">4 </td><td class="markdownTableBodyNone">16bit  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">8 </td><td class="markdownTableBodyNone">8bit  </td></tr>
+</table>
+</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">avg_name</td><td>Name of variable containing time averaging info </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">time_method</td><td>Name of transformation applied to the time-varying data, i.e. "avg", "min", "max" </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">standard_name</td><td>Standard name of field </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="diag__output_8F90_source.html#l00817">817</a> of file <a class="el" href="diag__output_8F90_source.html">diag_output.F90</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this interface was generated from the following file:<ul>
 <li>diag_manager/<a class="el" href="diag__output_8F90_source.html">diag_output.F90</a></li>
 </ul>
 </div><!-- contents -->

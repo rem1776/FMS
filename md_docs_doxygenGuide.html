@@ -110,7 +110,7 @@ $(document).ready(function(){initNavTree('md_docs_doxygenGuide.html',''); initRe
 <li><code>@example</code>, not actually invalid, but should not be used in subroutine/function descriptions as it is for presenting examples of source code separately. Some examples of what can be used for programming examples in descriptions are below.</li>
 </ul>
 <p>Some html commands, such as <code>&lt;TT&gt;</code> and <code>&lt;br&gt;</code> are allowed. Full list can be found <a href="https://www.doxygen.nl/manual/htmlcmds.html"><b>here</b></a>. Coding examples can be formatted by either tabbing, or within the <code>@code</code> commands(see full subroutine documentation below for examples of both). Links to other pages within the documentation can be created with <code>@ref name</code>.</p>
-<p>### Documenting subroutines and functions</p>
+<p>###Documenting subroutines and functions</p>
 <p>The first <code>!&gt;</code> comment above a routine implicitly starts the brief description, and the second <code>!&gt;</code> will start the full description (as long as the brief description is terminated).</p>
 <p>Simple subroutine/function documentation:</p>
 <div class="fragment"><div class="line"><span class="comment">!&gt; description</span></div>
@@ -135,21 +135,38 @@ $(document).ready(function(){initNavTree('md_docs_doxygenGuide.html',''); initRe
 <div class="line"><span class="keyword">subroutine </span>foo()</div>
 <div class="line">  <span class="keywordtype">integer</span> :: bar<span class="comment"> !&lt; variable description</span></div>
 <div class="line">  ...</div>
-</div><!-- fragment --><h2>Documenting Interfaces</h2>
-<p>Interfaces and type definitions can be documentated the same way as subroutines/functions. In the documentation they will both be listed a data type and will show any included subroutines or variables with links if available.</p>
-<p>Example: </p><div class="fragment"><div class="line"><span class="comment">!&gt; @brief short description</span></div>
+</div><!-- fragment --><h2>Module Grouping</h2>
+<p>To get the modules parsed correctly, each module page is created through a grouping defined at the top of the file. Each FMS module is then also in a group corresponding to its subdirectory, with these groups defined in <code><a class="el" href="grouping_8h_source.html">docs/grouping.h</a></code>. The groups can also contain any other relevant files, such as additional documentation files, header, or include files. Files or additional documentation can be added to either directory or module groups by adding <code>@ingroup group_name</code> to a specific objects documentation block, or to enclose any section of code with the following: </p><div class="fragment"><div class="line"><span class="comment">!&gt; @addtogroup foo_mod</span></div>
+<div class="line"><span class="comment">    !&gt; @{</span></div>
+<div class="line">    &lt;any documented code within here will be included in foo_mod&gt;<span class="comment"></span></div>
+<div class="line"><span class="comment">    !&gt; @} </span></div>
+</div><!-- fragment --><h2>Documenting Interfaces and Type Definitions</h2>
+<p>Interfaces and type definitions can be documentated the in a similar way as subroutines/functions. In the documentation they will both be listed data types and will show any included subroutines or variables with links if available.</p>
+<p>For interfaces and type definitions, duplicates can appear for subroutine/function and variables contained in interfaces and typedefs if they included in the module group as well. This can be avoided by ending the module group before the interface is defined with <code>!&gt; @}</code> and adding <code>@ingroup module_name_mod</code> to the interface documentation blocks. This will add the interface/type to the module page without any redundant items. When adding these commands it is important the add the <code>!&gt; @addtogroup mod_name_mod</code> and following <code>!&gt; @{</code> after any interface definitions or else the rest of the module will be excluded.</p>
+<p>Example: </p><div class="fragment"><div class="line"><span class="comment">    !&gt; @}</span></div>
+<div class="line">    <span class="comment">! closes module group started at beginning of file </span></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">!&gt; @brief short description</span></div>
 <div class="line"><span class="comment">!!</span></div>
 <div class="line"><span class="comment">!&gt; Longer description</span></div>
 <div class="line"><span class="comment">!! @param[inout] arg1 description</span></div>
 <div class="line"><span class="comment">!! @returns retval description</span></div>
+<div class="line"><span class="comment">    !&gt; @ingroup foo_mod</span></div>
 <div class="line">    <span class="keyword">interface</span> foo</div>
-</div><!-- fragment --><p>Example: </p><div class="fragment"><div class="line"><span class="comment">!&gt; description</span></div>
+<div class="line">      ...</div>
+<div class="line">    <span class="keyword">end interface </span>foo</div>
+<div class="line">        <span class="comment"></span></div>
+<div class="line"><span class="comment">!&gt; description</span></div>
+<div class="line"><span class="comment">    !&gt; @ingroup foo_mod</span></div>
 <div class="line"><span class="keyword">type</span>, <span class="keyword">public</span> :: typename</div>
-<div class="line">    <span class="keywordtype">integer</span> :: num<span class="comment"> !&lt; description</span></div>
+<div class="line">      <span class="keywordtype">integer</span> :: num<span class="comment"> !&lt; description</span></div>
 <div class="line"><span class="keyword">end type </span>typename</div>
-</div><!-- fragment --><h2>Module Grouping</h2>
-<p>To get the modules parsed correctly, each module page is created through a grouping defined at the top of the file. Each FMS module is then also in a group corresponding to its subdirectory, with these groups defined in <code><a class="el" href="grouping_8h_source.html">docs/grouping.h</a></code>. The groups can also contain any other relevant files, such as additional documentation files, header, or include files. Files or additional documentation can be added to either directory or module groups by adding <code>@ingroup group_name</code> to a documentation block. </p>
-</div></div><!-- contents -->
+<div class="line"> </div>
+<div class="line">    &lt;any other interface/<span class="keyword">type</span> definitions and documentation&gt;</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">    !&gt; @addtogroup foo_mod</span></div>
+<div class="line"><span class="comment">    !&gt; @{</span></div>
+</div><!-- fragment --> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <!-- start footer part -->

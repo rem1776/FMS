@@ -103,18 +103,220 @@ $(document).ready(function(){initNavTree('interfacediag__manager__mod_1_1send__t
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:ga3d1fff89e4b294516c7bbdda875c1dd2"><td class="memItemLeft" align="right" valign="top">logical function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__manager__mod.html#ga3d1fff89e4b294516c7bbdda875c1dd2">send_tile_averaged_data1d</a> (id, field, area, time, mask)</td></tr>
-<tr class="separator:ga3d1fff89e4b294516c7bbdda875c1dd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gacb69dd5836f57acd0295297043a78724"><td class="memItemLeft" align="right" valign="top">logical function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__manager__mod.html#gacb69dd5836f57acd0295297043a78724">send_tile_averaged_data2d</a> (id, field, area, time, mask)</td></tr>
-<tr class="separator:gacb69dd5836f57acd0295297043a78724"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga81907a069bc08fd5891848f67f469818"><td class="memItemLeft" align="right" valign="top">logical function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__manager__mod.html#ga81907a069bc08fd5891848f67f469818">send_tile_averaged_data3d</a> (id, field, area, time, mask)</td></tr>
-<tr class="separator:ga81907a069bc08fd5891848f67f469818"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d1fff89e4b294516c7bbdda875c1dd2"><td class="memItemLeft" align="right" valign="top">logical function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacediag__manager__mod_1_1send__tile__averaged__data.html#a3d1fff89e4b294516c7bbdda875c1dd2">send_tile_averaged_data1d</a> (id, field, area, time, mask)</td></tr>
+<tr class="separator:a3d1fff89e4b294516c7bbdda875c1dd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb69dd5836f57acd0295297043a78724"><td class="memItemLeft" align="right" valign="top">logical function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacediag__manager__mod_1_1send__tile__averaged__data.html#acb69dd5836f57acd0295297043a78724">send_tile_averaged_data2d</a> (id, field, area, time, mask)</td></tr>
+<tr class="separator:acb69dd5836f57acd0295297043a78724"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81907a069bc08fd5891848f67f469818"><td class="memItemLeft" align="right" valign="top">logical function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacediag__manager__mod_1_1send__tile__averaged__data.html#a81907a069bc08fd5891848f67f469818">send_tile_averaged_data3d</a> (id, field, area, time, mask)</td></tr>
+<tr class="separator:a81907a069bc08fd5891848f67f469818"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Send tile-averaged data over to output fields. </p>
 
-<p class="definition">Definition at line <a class="el" href="diag__manager_8F90_source.html#l00562">562</a> of file <a class="el" href="diag__manager_8F90_source.html">diag_manager.F90</a>.</p>
-</div><hr/>The documentation for this interface was generated from the following file:<ul>
+<p class="definition">Definition at line <a class="el" href="diag__manager_8F90_source.html#l00563">563</a> of file <a class="el" href="diag__manager_8F90_source.html">diag_manager.F90</a>.</p>
+</div><h2 class="groupheader">Member Function/Subroutine Documentation</h2>
+<a id="a3d1fff89e4b294516c7bbdda875c1dd2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d1fff89e4b294516c7bbdda875c1dd2">&#9670;&nbsp;</a></span>send_tile_averaged_data1d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">logical function send_tile_averaged_data1d </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:,:), intent(in)&#160;</td>
+          <td class="paramname"><em>field</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension (:,:), intent(in)&#160;</td>
+          <td class="paramname"><em>area</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structtime__manager__mod_1_1time__type.html">time_type</a>), intent(in)&#160;</td>
+          <td class="paramname"><em>time</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, dimension (:,:), intent(in), optional&#160;</td>
+          <td class="paramname"><em>mask</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>Logical send_tile_averaged_data1d</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td>id od the diagnostic field</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">field</td><td>field to average and send</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">area</td><td>area of tiles (== averaging weights), arbitrary units</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">time</td><td>current time</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mask</td><td>land mask </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="diag__manager_8F90_source.html#l03278">3278</a> of file <a class="el" href="diag__manager_8F90_source.html">diag_manager.F90</a>.</p>
+
+</div>
+</div>
+<a id="acb69dd5836f57acd0295297043a78724"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb69dd5836f57acd0295297043a78724">&#9670;&nbsp;</a></span>send_tile_averaged_data2d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">logical function send_tile_averaged_data2d </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:,:,:), intent(in)&#160;</td>
+          <td class="paramname"><em>field</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension (:,:,:), intent(in)&#160;</td>
+          <td class="paramname"><em>area</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structtime__manager__mod_1_1time__type.html">time_type</a>), intent(in)&#160;</td>
+          <td class="paramname"><em>time</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, dimension (:,:,:), intent(in), optional&#160;</td>
+          <td class="paramname"><em>mask</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>Logical send_tile_averaged_data2d</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td>id od the diagnostic field</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">field</td><td>field to average and send</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">area</td><td>area of tiles (== averaging weights), arbitrary units</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">time</td><td>current time</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mask</td><td>land mask </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="diag__manager_8F90_source.html#l03364">3364</a> of file <a class="el" href="diag__manager_8F90_source.html">diag_manager.F90</a>.</p>
+
+</div>
+</div>
+<a id="a81907a069bc08fd5891848f67f469818"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81907a069bc08fd5891848f67f469818">&#9670;&nbsp;</a></span>send_tile_averaged_data3d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">logical function send_tile_averaged_data3d </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:,:,:,:), intent(in)&#160;</td>
+          <td class="paramname"><em>field</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension (:,:,:), intent(in)&#160;</td>
+          <td class="paramname"><em>area</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structtime__manager__mod_1_1time__type.html">time_type</a>), intent(in)&#160;</td>
+          <td class="paramname"><em>time</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, dimension(:,:,:), intent(in), optional&#160;</td>
+          <td class="paramname"><em>mask</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>Logical send_tile_averaged_data3d</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td>id of the diagnostic field</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">field</td><td>(lon, lat, tile, lev) field to average and send</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">area</td><td>(lon, lat, tile) tile areas ( == averaging weights), arbitrary units</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">time</td><td>current time</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mask</td><td>(lon, lat, tile) land mask </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="diag__manager_8F90_source.html#l03391">3391</a> of file <a class="el" href="diag__manager_8F90_source.html">diag_manager.F90</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this interface was generated from the following file:<ul>
 <li>diag_manager/<a class="el" href="diag__manager_8F90_source.html">diag_manager.F90</a></li>
 </ul>
 </div><!-- contents -->

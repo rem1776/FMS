@@ -1,6 +1,5 @@
 var diag__table_8F90 =
 [
-    [ "field_description_type", "structdiag__table__mod_1_1field__description__type.html", "structdiag__table__mod_1_1field__description__type" ],
     [ "close_diag_table", "diag__table_8F90.html#ga22478fef0df32b5365c3278875d0371a", null ],
     [ "find_unit_ivalue", "diag__table_8F90.html#gae21e54693ac29ba6ea341f068b8a1d5b", null ],
     [ "fix_file_name", "diag__table_8F90.html#ga1695d1a295ffad87a6bccd0bcd238b40", null ],

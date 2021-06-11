@@ -103,17 +103,277 @@ $(document).ready(function(){initNavTree('interfacediag__manager__mod_1_1registe
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:ga89a651e60695056e3a699e3e62554054"><td class="memItemLeft" align="right" valign="top">integer function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__manager__mod.html#ga89a651e60695056e3a699e3e62554054">register_diag_field_scalar</a> (module_name, field_name, init_time, long_name, units, missing_value, range, standard_name, do_not_log, err_msg, area, volume, realm)</td></tr>
-<tr class="memdesc:ga89a651e60695056e3a699e3e62554054"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a scalar field.  <a href="group__diag__manager__mod.html#ga89a651e60695056e3a699e3e62554054">More...</a><br /></td></tr>
-<tr class="separator:ga89a651e60695056e3a699e3e62554054"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4e5e7ce0bb19b00f4df3a2245fd28581"><td class="memItemLeft" align="right" valign="top">integer function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__manager__mod.html#ga4e5e7ce0bb19b00f4df3a2245fd28581">register_diag_field_array</a> (module_name, field_name, axes, init_time, long_name, units, missing_value, range, mask_variant, standard_name, verbose, do_not_log, err_msg, interp_method, tile_count, area, volume, realm)</td></tr>
-<tr class="separator:ga4e5e7ce0bb19b00f4df3a2245fd28581"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89a651e60695056e3a699e3e62554054"><td class="memItemLeft" align="right" valign="top">integer function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacediag__manager__mod_1_1register__diag__field.html#a89a651e60695056e3a699e3e62554054">register_diag_field_scalar</a> (module_name, field_name, init_time, long_name, units, missing_value, range, standard_name, do_not_log, err_msg, area, volume, realm)</td></tr>
+<tr class="memdesc:a89a651e60695056e3a699e3e62554054"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a scalar field.  <a href="interfacediag__manager__mod_1_1register__diag__field.html#a89a651e60695056e3a699e3e62554054">More...</a><br /></td></tr>
+<tr class="separator:a89a651e60695056e3a699e3e62554054"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e5e7ce0bb19b00f4df3a2245fd28581"><td class="memItemLeft" align="right" valign="top">integer function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacediag__manager__mod_1_1register__diag__field.html#a4e5e7ce0bb19b00f4df3a2245fd28581">register_diag_field_array</a> (module_name, field_name, axes, init_time, long_name, units, missing_value, range, mask_variant, standard_name, verbose, do_not_log, err_msg, interp_method, tile_count, area, volume, realm)</td></tr>
+<tr class="separator:a4e5e7ce0bb19b00f4df3a2245fd28581"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Register a diagnostic field for a given module. </p>
 
 <p class="definition">Definition at line <a class="el" href="diag__manager_8F90_source.html#l00556">556</a> of file <a class="el" href="diag__manager_8F90_source.html">diag_manager.F90</a>.</p>
-</div><hr/>The documentation for this interface was generated from the following file:<ul>
+</div><h2 class="groupheader">Member Function/Subroutine Documentation</h2>
+<a id="a4e5e7ce0bb19b00f4df3a2245fd28581"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e5e7ce0bb19b00f4df3a2245fd28581">&#9670;&nbsp;</a></span>register_diag_field_array()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer function register_diag_field_array </td>
+          <td>(</td>
+          <td class="paramtype">character(len=*), intent(in)&#160;</td>
+          <td class="paramname"><em>module_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in)&#160;</td>
+          <td class="paramname"><em>field_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(:), intent(in)&#160;</td>
+          <td class="paramname"><em>axes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structtime__manager__mod_1_1time__type.html">time_type</a>), intent(in)&#160;</td>
+          <td class="paramname"><em>init_time</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in), optional&#160;</td>
+          <td class="paramname"><em>long_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in), optional&#160;</td>
+          <td class="paramname"><em>units</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, intent(in), optional&#160;</td>
+          <td class="paramname"><em>missing_value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(2), intent(in), optional&#160;</td>
+          <td class="paramname"><em>range</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, intent(in), optional&#160;</td>
+          <td class="paramname"><em>mask_variant</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in), optional&#160;</td>
+          <td class="paramname"><em>standard_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, intent(in), optional&#160;</td>
+          <td class="paramname"><em>verbose</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, intent(in), optional&#160;</td>
+          <td class="paramname"><em>do_not_log</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(out), optional&#160;</td>
+          <td class="paramname"><em>err_msg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in), optional&#160;</td>
+          <td class="paramname"><em>interp_method</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>tile_count</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>area</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>volume</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in), optional&#160;</td>
+          <td class="paramname"><em>realm</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>integer</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">do_not_log</td><td>if TRUE, field info is not logged</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">interp_method</td><td>The interp method to be used when regridding the field in post-processing. Valid options are "conserve_order1", "conserve_order2", and "none".</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">area</td><td>diag_field_id containing the cell area field</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">volume</td><td>diag_field_id containing the cell volume field</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">realm</td><td>String to set as the value to the modeling_realm attribute </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="diag__manager_8F90_source.html#l00656">656</a> of file <a class="el" href="diag__manager_8F90_source.html">diag_manager.F90</a>.</p>
+
+</div>
+</div>
+<a id="a89a651e60695056e3a699e3e62554054"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89a651e60695056e3a699e3e62554054">&#9670;&nbsp;</a></span>register_diag_field_scalar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer function register_diag_field_scalar </td>
+          <td>(</td>
+          <td class="paramtype">character(len=*), intent(in)&#160;</td>
+          <td class="paramname"><em>module_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in)&#160;</td>
+          <td class="paramname"><em>field_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structtime__manager__mod_1_1time__type.html">time_type</a>), intent(in), optional&#160;</td>
+          <td class="paramname"><em>init_time</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in), optional&#160;</td>
+          <td class="paramname"><em>long_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in), optional&#160;</td>
+          <td class="paramname"><em>units</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, intent(in), optional&#160;</td>
+          <td class="paramname"><em>missing_value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(2), intent(in), optional&#160;</td>
+          <td class="paramname"><em>range</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in), optional&#160;</td>
+          <td class="paramname"><em>standard_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, intent(in), optional&#160;</td>
+          <td class="paramname"><em>do_not_log</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(out), optional&#160;</td>
+          <td class="paramname"><em>err_msg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>area</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>volume</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in), optional&#160;</td>
+          <td class="paramname"><em>realm</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Registers a scalar field. </p>
+<dl class="section return"><dt>Returns</dt><dd>integer </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">do_not_log</td><td>if TRUE, field information is not logged </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">realm</td><td>String to set as the value to the modeling_realm attribute </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="diag__manager_8F90_source.html#l00606">606</a> of file <a class="el" href="diag__manager_8F90_source.html">diag_manager.F90</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this interface was generated from the following file:<ul>
 <li>diag_manager/<a class="el" href="diag__manager_8F90_source.html">diag_manager.F90</a></li>
 </ul>
 </div><!-- contents -->

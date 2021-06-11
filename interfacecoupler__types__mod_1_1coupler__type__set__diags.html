@@ -103,17 +103,144 @@ $(document).ready(function(){initNavTree('interfacecoupler__types__mod_1_1couple
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:ga1f527a8f5e0c5ba75f4b479d31ded65d"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__coupler__types__mod.html#ga1f527a8f5e0c5ba75f4b479d31ded65d">ct_set_diags_2d</a> (var, diag_name, axes, time)</td></tr>
-<tr class="separator:ga1f527a8f5e0c5ba75f4b479d31ded65d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa047dc9a8b612801a2d57ef0a21ea583"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__coupler__types__mod.html#gaa047dc9a8b612801a2d57ef0a21ea583">ct_set_diags_3d</a> (var, diag_name, axes, time)</td></tr>
-<tr class="memdesc:gaa047dc9a8b612801a2d57ef0a21ea583"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register the diagnostics of a <a class="el" href="structcoupler__types__mod_1_1coupler__3d__bc__type.html">coupler_3d_bc_type</a>.  <a href="group__coupler__types__mod.html#gaa047dc9a8b612801a2d57ef0a21ea583">More...</a><br /></td></tr>
-<tr class="separator:gaa047dc9a8b612801a2d57ef0a21ea583"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f527a8f5e0c5ba75f4b479d31ded65d"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacecoupler__types__mod_1_1coupler__type__set__diags.html#a1f527a8f5e0c5ba75f4b479d31ded65d">ct_set_diags_2d</a> (var, diag_name, axes, time)</td></tr>
+<tr class="separator:a1f527a8f5e0c5ba75f4b479d31ded65d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa047dc9a8b612801a2d57ef0a21ea583"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacecoupler__types__mod_1_1coupler__type__set__diags.html#aa047dc9a8b612801a2d57ef0a21ea583">ct_set_diags_3d</a> (var, diag_name, axes, time)</td></tr>
+<tr class="memdesc:aa047dc9a8b612801a2d57ef0a21ea583"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register the diagnostics of a <a class="el" href="structcoupler__types__mod_1_1coupler__3d__bc__type.html">coupler_3d_bc_type</a>.  <a href="interfacecoupler__types__mod_1_1coupler__type__set__diags.html#aa047dc9a8b612801a2d57ef0a21ea583">More...</a><br /></td></tr>
+<tr class="separator:aa047dc9a8b612801a2d57ef0a21ea583"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This is the interface to set diagnostics for the arrays in a coupler_bc_type. </p>
 
-<p class="definition">Definition at line <a class="el" href="coupler__types_8F90_source.html#l00267">267</a> of file <a class="el" href="coupler__types_8F90_source.html">coupler_types.F90</a>.</p>
-</div><hr/>The documentation for this interface was generated from the following file:<ul>
+<p class="definition">Definition at line <a class="el" href="coupler__types_8F90_source.html#l00289">289</a> of file <a class="el" href="coupler__types_8F90_source.html">coupler_types.F90</a>.</p>
+</div><h2 class="groupheader">Member Function/Subroutine Documentation</h2>
+<a id="a1f527a8f5e0c5ba75f4b479d31ded65d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f527a8f5e0c5ba75f4b479d31ded65d">&#9670;&nbsp;</a></span>ct_set_diags_2d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine ct_set_diags_2d </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structcoupler__types__mod_1_1coupler__2d__bc__type.html">coupler_2d_bc_type</a>), intent(inout)&#160;</td>
+          <td class="paramname"><em>var</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in)&#160;</td>
+          <td class="paramname"><em>diag_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(:), intent(in)&#160;</td>
+          <td class="paramname"><em>axes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structtime__manager__mod_1_1time__type.html">time_type</a>), intent(in)&#160;</td>
+          <td class="paramname"><em>time</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">var</td><td>BC_type structure for which to register diagnostics</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">diag_name</td><td>name for diagnostic file&ndash;if blank, then don't register the fields</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">axes</td><td>array of axes identifiers for diagnostic variable registration</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">time</td><td>model time variable for registering diagnostic field </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="coupler__types_8F90_source.html#l03045">3045</a> of file <a class="el" href="coupler__types_8F90_source.html">coupler_types.F90</a>.</p>
+
+</div>
+</div>
+<a id="aa047dc9a8b612801a2d57ef0a21ea583"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa047dc9a8b612801a2d57ef0a21ea583">&#9670;&nbsp;</a></span>ct_set_diags_3d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine ct_set_diags_3d </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structcoupler__types__mod_1_1coupler__3d__bc__type.html">coupler_3d_bc_type</a>), intent(inout)&#160;</td>
+          <td class="paramname"><em>var</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in)&#160;</td>
+          <td class="paramname"><em>diag_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(:), intent(in)&#160;</td>
+          <td class="paramname"><em>axes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structtime__manager__mod_1_1time__type.html">time_type</a>), intent(in)&#160;</td>
+          <td class="paramname"><em>time</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Register the diagnostics of a <a class="el" href="structcoupler__types__mod_1_1coupler__3d__bc__type.html">coupler_3d_bc_type</a>. </p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">FATAL,axes has less than 3 elements</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">var</td><td>BC_type structure for which to register diagnostics </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">diag_name</td><td>name for diagnostic file&ndash;if blank, then don't register the fields </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">axes</td><td>array of axes identifiers for diagnostic variable registration </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">time</td><td>model time variable for registering diagnostic field </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="coupler__types_8F90_source.html#l03072">3072</a> of file <a class="el" href="coupler__types_8F90_source.html">coupler_types.F90</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this interface was generated from the following file:<ul>
 <li>coupler/<a class="el" href="coupler__types_8F90_source.html">coupler_types.F90</a></li>
 </ul>
 </div><!-- contents -->

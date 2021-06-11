@@ -1,12 +1,14 @@
 var group__diag__util__mod =
 [
-    [ "attribute_init", "interfacediag__util__mod_1_1attribute__init.html", [
-      [ "attribute_init_field", "group__diag__util__mod.html#ga284292bdc999f66aaa2c6e0c0b91b46c", null ],
-      [ "attribute_init_file", "group__diag__util__mod.html#gaabff14bf3b8d7e1a9ed7743a5b0d3330", null ]
+    [ "prepend_attribute", "interfacediag__util__mod_1_1prepend__attribute.html", [
+      [ "prepend_attribute_field", "interfacediag__util__mod_1_1prepend__attribute.html#a792ecb2d28da3e682b9716e4fc917b0d", null ],
+      [ "prepend_attribute_file", "interfacediag__util__mod_1_1prepend__attribute.html#ab852b7f37e3248507fc463aaa16b49c0", null ]
     ] ],
-    [ "attribute_init_field", "group__diag__util__mod.html#ga284292bdc999f66aaa2c6e0c0b91b46c", null ],
+    [ "attribute_init", "interfacediag__util__mod_1_1attribute__init.html", [
+      [ "attribute_init_field", "interfacediag__util__mod_1_1attribute__init.html#a284292bdc999f66aaa2c6e0c0b91b46c", null ],
+      [ "attribute_init_file", "interfacediag__util__mod_1_1attribute__init.html#aabff14bf3b8d7e1a9ed7743a5b0d3330", null ]
+    ] ],
     [ "attribute_init_field", "group__diag__util__mod.html#gae50021eac70f2c1d81935b584d1f4da9", null ],
-    [ "attribute_init_file", "group__diag__util__mod.html#gaabff14bf3b8d7e1a9ed7743a5b0d3330", null ],
     [ "attribute_init_file", "group__diag__util__mod.html#gad7672a732b7b5e54cdddd13e9155583f", null ],
     [ "check_and_open", "group__diag__util__mod.html#gacc85f996fad682a6bc41f95259c9d656", null ],
     [ "check_bounds_are_exact_dynamic", "group__diag__util__mod.html#gaf04fa5bd74518dd9e15e377ee7bcd1db", null ],
@@ -29,8 +31,6 @@ var group__diag__util__mod =
     [ "log_diag_field_info", "group__diag__util__mod.html#gaa8d38630de6f6ace1cb1b3ec5350d018", null ],
     [ "opening_file", "group__diag__util__mod.html#gaa25276d7ef48164aead7bb297e72a421", null ],
     [ "prepend_attribute_field", "group__diag__util__mod.html#gac38f37dff10653521379703f7000f6cc", null ],
-    [ "prepend_attribute_field", "group__diag__util__mod.html#ga792ecb2d28da3e682b9716e4fc917b0d", null ],
-    [ "prepend_attribute_file", "group__diag__util__mod.html#gab852b7f37e3248507fc463aaa16b49c0", null ],
     [ "prepend_attribute_file", "group__diag__util__mod.html#gab09b67c2e2f65d7103e195fb2596fb17", null ],
     [ "sync_file_times", "group__diag__util__mod.html#ga8173f2ae692d8b1cef9f1bca76ad8910", null ],
     [ "update_bounds", "group__diag__util__mod.html#gaac5cf9fdeba85eb93be4535e33ec02c5", null ],
