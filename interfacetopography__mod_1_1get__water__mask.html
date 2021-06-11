@@ -149,7 +149,7 @@ Private Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">&#160;</td>
+          <td class="paramtype">logical, dimension(:,:), intent(out)&#160;</td>
           <td class="paramname"><em>water_mask</em>&#160;</td>
         </tr>
         <tr>
@@ -170,6 +170,7 @@ Private Member Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">blon</td><td>The longitude (in radians) at grid box boundaries. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">blat</td><td>The latitude (in radians) at grid box boundaries. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">water_mask</td><td>A binary mask for water (true) or land (false). The size of this field must be size(blon)-1 by size(blat)-1. </td></tr>
   </table>
   </dd>
 </dl>
@@ -202,7 +203,7 @@ Private Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">&#160;</td>
+          <td class="paramtype">logical, dimension(:,:), intent(out)&#160;</td>
           <td class="paramname"><em>water_mask</em>&#160;</td>
         </tr>
         <tr>
@@ -220,7 +221,8 @@ Private Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">blon</td><td>The longitude (in radians) at grid box boundaries.</td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">blat</td><td>The latitude (in radians) at grid box boundaries. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">blat</td><td>The latitude (in radians) at grid box boundaries.</td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">water_mask</td><td>A binary mask for water (true) or land (false). The size of this field must be size(blon)-1 by size(blat)-1. </td></tr>
   </table>
   </dd>
 </dl>
