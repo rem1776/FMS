@@ -97,6 +97,9 @@ $(document).ready(function(){initNavTree('interfacetopography__mod_1_1get__topog
 <div class="title">get_topog_stdev Interface Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Returns a standard deviation of higher resolution topography with the given model grid boxes.  
+ <a href="interfacetopography__mod_1_1get__topog__stdev.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -108,8 +111,21 @@ logical function&#160;</td><td class="memItemRight" valign="bottom"><b>get_topog
 <tr class="separator:a630bf9090ebd271bdb36d563b050c383"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00113">113</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
+<div class="textblock"><p>Returns a standard deviation of higher resolution topography with the given model grid boxes. </p>
+<p>Returns the standard deviation of the "finer" input topography data set, currently the Navy 1/6 degree mean topography data, within the boundaries of the given input grid.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">blon</td><td>The longitude (in radians) at grid box boundaries. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">blat</td><td>The latitude (in radians) at grid box boundaries. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">stdev</td><td>The standard deviation of surface height (in meters) within given input model grid boxes. The size of this field must be size(blon)-1 by size(blat)-1.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A logical value of TRUE is returned if the output field was successfully created. A value of FALSE may be returned if the input topography data set was not readable.</dd></dl>
+<p>Example usage: </p><div class="fragment"><div class="line">flag = get_topog_stdev( blon, blat, stdev ) @code</div>
+<div class="line">@ingroup topography_mod</div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00112">112</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
 </div><h2 class="groupheader">Member Function/Subroutine Documentation</h2>
 <a id="ae5409478fb7e12f6b23447bcf4e8695b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae5409478fb7e12f6b23447bcf4e8695b">&#9670;&nbsp;</a></span>get_topog_stdev_1d()</h2>
@@ -154,7 +170,7 @@ logical function&#160;</td><td class="memItemRight" valign="bottom"><b>get_topog
 <p>Returns a standard deviation of higher resolution topography with the given model grid boxes. </p>
 <p>Returns the standard deviation of the "finer" input topography data set, currently the Navy 1/6 degree mean topography data, within the boundaries of the given input grid. </p>
 
-<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00412">412</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00404">404</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
 
 </div>
 </div>

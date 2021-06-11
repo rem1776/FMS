@@ -9,14 +9,13 @@ var searchData=
   ['diag_5fintegral_5fmod_4762',['diag_integral_mod',['../group__diag__integral__mod.html',1,'']]],
   ['diag_20manager_4763',['Diag Manager',['../group__diag__manager.html',1,'']]],
   ['diag_5fmanager_5fmod_4764',['diag_manager_mod',['../group__diag__manager__mod.html',1,'']]],
-  ['diag_5foutput_5finit_4765',['Diag_output_init',['../group__diag__output__init.html',1,'']]],
-  ['diag_5foutput_5fmod_4766',['diag_output_mod',['../group__diag__output__mod.html',1,'']]],
-  ['diag_5ftable_5fmod_4767',['diag_table_mod',['../group__diag__table__mod.html',1,'']]],
-  ['diag_5futil_5fmod_4768',['diag_util_mod',['../group__diag__util__mod.html',1,'']]],
-  ['drifters_4769',['Drifters',['../group__drifters.html',1,'']]],
-  ['drifters_5fcomm_5fmod_4770',['drifters_comm_mod',['../group__drifters__comm__mod.html',1,'']]],
-  ['drifters_5fcore_5fmod_4771',['drifters_core_mod',['../group__drifters__core__mod.html',1,'']]],
-  ['drifters_5finput_5fmod_4772',['drifters_input_mod',['../group__drifters__input__mod.html',1,'']]],
-  ['drifters_5fio_5fmod_4773',['drifters_io_mod',['../group__drifters__io__mod.html',1,'']]],
-  ['drifters_5fmod_4774',['drifters_mod',['../group__drifters__mod.html',1,'']]]
+  ['diag_5foutput_5fmod_4765',['diag_output_mod',['../group__diag__output__mod.html',1,'']]],
+  ['diag_5ftable_5fmod_4766',['diag_table_mod',['../group__diag__table__mod.html',1,'']]],
+  ['diag_5futil_5fmod_4767',['diag_util_mod',['../group__diag__util__mod.html',1,'']]],
+  ['drifters_4768',['Drifters',['../group__drifters.html',1,'']]],
+  ['drifters_5fcomm_5fmod_4769',['drifters_comm_mod',['../group__drifters__comm__mod.html',1,'']]],
+  ['drifters_5fcore_5fmod_4770',['drifters_core_mod',['../group__drifters__core__mod.html',1,'']]],
+  ['drifters_5finput_5fmod_4771',['drifters_input_mod',['../group__drifters__input__mod.html',1,'']]],
+  ['drifters_5fio_5fmod_4772',['drifters_io_mod',['../group__drifters__io__mod.html',1,'']]],
+  ['drifters_5fmod_4773',['drifters_mod',['../group__drifters__mod.html',1,'']]]
 ];

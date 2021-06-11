@@ -11,7 +11,6 @@ var modules =
     [ "Data Override", "group__data__override.html", "group__data__override" ],
     [ "Diag Integral", "group__diag__integral.html", "group__diag__integral" ],
     [ "Diag Manager", "group__diag__manager.html", "group__diag__manager" ],
-    [ "Diag_output_init", "group__diag__output__init.html", "group__diag__output__init" ],
     [ "Drifters", "group__drifters.html", "group__drifters" ],
     [ "Exchange", "group__exchange.html", "group__exchange" ],
     [ "FMS", "group__fms.html", "group__fms" ],
