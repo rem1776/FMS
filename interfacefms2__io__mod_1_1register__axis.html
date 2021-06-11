@@ -97,6 +97,9 @@ $(document).ready(function(){initNavTree('interfacefms2__io__mod_1_1register__ax
 <div class="title">register_axis Interface Reference<div class="ingroups"><a class="el" href="group__fms2__io.html">FMS2 IO</a> &raquo; <a class="el" href="group__fms2__io__mod.html">fms2_io_mod</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Add a dimension to a given file.  
+ <a href="interfacefms2__io__mod_1_1register__axis.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -114,8 +117,14 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:ga5cec33cc98876f2135e8d4435c11a688"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="fms2__io_8F90_source.html#l00200">200</a> of file <a class="el" href="fms2__io_8F90_source.html">fms2_io.F90</a>.</p>
+<div class="textblock"><p>Add a dimension to a given file. </p>
+<p><br  />
+Example usage: </p><pre class="fragment">         call register_axis(fileobj, "lon", "x")
+</pre><p>Adds a dimension named "lon" associated with the x axis of the 2D domain file. For unstructured domains no x or y axis character is provided. </p><pre class="fragment">         call register_axis(fileobj, "lon", n)
+</pre><p>Adds a dimension named "lon" with length n to a given netcdf file.<br  />
+ </p>
+
+<p class="definition">Definition at line <a class="el" href="fms2__io_8F90_source.html#l00182">182</a> of file <a class="el" href="fms2__io_8F90_source.html">fms2_io.F90</a>.</p>
 </div><hr/>The documentation for this interface was generated from the following file:<ul>
 <li>fms2_io/<a class="el" href="fms2__io_8F90_source.html">fms2_io.F90</a></li>
 </ul>

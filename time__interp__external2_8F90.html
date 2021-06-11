@@ -114,6 +114,7 @@ Data Types</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds filename and file object.  <a href="structtime__interp__external2__mod_1_1filetype.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacetime__interp__external2__mod_1_1time__interp__external.html">time_interp_external</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provide data from external file interpolated to current model time. Data may be local to current processor or global, depending on "init_external_field" flags. Uses <a class="el" href="group__fms2__io.html">FMS2 IO</a> for I/O.  <a href="interfacetime__interp__external2__mod_1_1time__interp__external.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -126,18 +127,18 @@ subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="
 <tr class="memdesc:gad888791a2a1fe6807fc76dd4b966c175"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize an external field. Buffer "num_io_buffers" (default=2) in memory to reduce memory allocations. distributed reads are supported using the optional "domain" flag. Units conversion via the optional "desired_units" flag using udunits_mod.  <a href="group__time__interp__external2__mod.html#gad888791a2a1fe6807fc76dd4b966c175">More...</a><br /></td></tr>
 <tr class="separator:gad888791a2a1fe6807fc76dd4b966c175"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6facbb5ea1a733d04f5c081daa7568e5"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__time__interp__external2__mod.html#ga6facbb5ea1a733d04f5c081daa7568e5">time_interp_external_2d</a> (index, time, data_in, interp, verbose, horz_interp, mask_out, is_in, ie_in, js_in, je_in, window_id)</td></tr>
-<tr class="memdesc:ga6facbb5ea1a733d04f5c081daa7568e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">2D interpolation for <a class="el" href="group__time__interp__external__mod.html">time_interp_external Interface</a>  <a href="group__time__interp__external2__mod.html#ga6facbb5ea1a733d04f5c081daa7568e5">More...</a><br /></td></tr>
+<tr class="memdesc:ga6facbb5ea1a733d04f5c081daa7568e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">2D interpolation for <a class="el" href="interfacetime__interp__external2__mod_1_1time__interp__external.html">time_interp_external</a>  <a href="group__time__interp__external2__mod.html#ga6facbb5ea1a733d04f5c081daa7568e5">More...</a><br /></td></tr>
 <tr class="separator:ga6facbb5ea1a733d04f5c081daa7568e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae43fd1d1d0059590b8e1d6bf2947632c"><td class="memItemLeft" align="right" valign="top">
 logical function, public&#160;</td><td class="memItemRight" valign="bottom"><b>get_external_fileobj</b> (filename, fileobj)</td></tr>
 <tr class="separator:gae43fd1d1d0059590b8e1d6bf2947632c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga01fdc70755c96be1a94c9701ff4a00d2"><td class="memItemLeft" align="right" valign="top">
 subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__time__interp__external2__mod.html#ga01fdc70755c96be1a94c9701ff4a00d2">time_interp_external_3d</a> (index, time, data, interp, verbose, horz_interp, mask_out, is_in, ie_in, js_in, je_in, window_id)</td></tr>
-<tr class="memdesc:ga01fdc70755c96be1a94c9701ff4a00d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">3D interpolation for <a class="el" href="group__time__interp__external__mod.html">time_interp_external Interface</a> <br /></td></tr>
+<tr class="memdesc:ga01fdc70755c96be1a94c9701ff4a00d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">3D interpolation for <a class="el" href="interfacetime__interp__external2__mod_1_1time__interp__external.html">time_interp_external</a> <br /></td></tr>
 <tr class="separator:ga01fdc70755c96be1a94c9701ff4a00d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gadb3171b0515066976f4f3fcab62cc205"><td class="memItemLeft" align="right" valign="top">
 subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__time__interp__external2__mod.html#gadb3171b0515066976f4f3fcab62cc205">time_interp_external_0d</a> (index, time, data, verbose)</td></tr>
-<tr class="memdesc:gadb3171b0515066976f4f3fcab62cc205"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scalar interpolation for <a class="el" href="group__time__interp__external__mod.html">time_interp_external Interface</a>. <br /></td></tr>
+<tr class="memdesc:gadb3171b0515066976f4f3fcab62cc205"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scalar interpolation for <a class="el" href="interfacetime__interp__external2__mod_1_1time__interp__external.html">time_interp_external</a>. <br /></td></tr>
 <tr class="separator:gadb3171b0515066976f4f3fcab62cc205"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga93e13c6dd9b14ce134bdf1a0c05af8ce"><td class="memItemLeft" align="right" valign="top">
 subroutine, private&#160;</td><td class="memItemRight" valign="bottom"><b>set_time_modulo</b> (Time)</td></tr>

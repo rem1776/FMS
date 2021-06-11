@@ -97,6 +97,9 @@ $(document).ready(function(){initNavTree('interfaceinterpolator__mod_1_1interp__
 <div class="title">interp_weighted_scalar Interface Reference<div class="ingroups"><a class="el" href="group__interpolator.html">Interpolator</a> &raquo; <a class="el" href="group__interpolator__mod.html">interpolator_mod</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Example usage:  
+ <a href="interfaceinterpolator__mod_1_1interp__weighted__scalar.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -108,8 +111,20 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:ga0d6ec8c13b350568844e3ab588f7318a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="interpolator_8F90_source.html#l00200">200</a> of file <a class="el" href="interpolator_8F90_source.html">interpolator.F90</a>.</p>
+<div class="textblock"><p>Example usage: </p>
+<div class="fragment"><div class="line"><span class="keyword">call </span>interp_weighted_scalar (pclim, phalf(ilon,j,:),hinterp_data(ilon,j,:,:),interp_data(ilon,j,:,:))</div>
+<div class="line"><span class="keyword">call </span>interp_weighted_scalar (pclim, phalf(ilon,j,:),hinterp_data(ilon,j,:),interp_data(ilon,j,:))</div>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;grdin&gt;</td><td>Input grid </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;grdout&gt;</td><td>Output grid </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;datin&gt;</td><td>Input data </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">&lt;datout&gt;</td><td>Output data </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="interpolator_8F90_source.html#l00195">195</a> of file <a class="el" href="interpolator_8F90_source.html">interpolator.F90</a>.</p>
 </div><hr/>The documentation for this interface was generated from the following file:<ul>
 <li>interpolator/<a class="el" href="interpolator_8F90_source.html">interpolator.F90</a></li>
 </ul>

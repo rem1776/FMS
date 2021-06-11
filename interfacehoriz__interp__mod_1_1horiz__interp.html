@@ -97,6 +97,9 @@ $(document).ready(function(){initNavTree('interfacehoriz__interp__mod_1_1horiz__
 <div class="title">horiz_interp Interface Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Subroutine for performing the horizontal interpolation between two grids.  
+ <a href="interfacehoriz__interp__mod_1_1horiz__interp.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -104,27 +107,56 @@ Private Member Functions</h2></td></tr>
 subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>horiz_interp_base_2d</b> (Interp, data_in, data_out, verbose, mask_in, mask_out, missing_value, missing_permit, err_msg, new_missing_handle)</td></tr>
 <tr class="separator:a5ef54369be37e53d878fdc14487ef37a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ee7fe7995d9305bd4ff5fba7f0a5e4c"><td class="memItemLeft" align="right" valign="top"><a id="a9ee7fe7995d9305bd4ff5fba7f0a5e4c"></a>
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>horiz_interp_base_3d</b> (Interp, data_in, data_out, verbose, mask_in, mask_out, missing_value, missing_permit, err_msg)</td></tr>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacehoriz__interp__mod_1_1horiz__interp.html#a9ee7fe7995d9305bd4ff5fba7f0a5e4c">horiz_interp_base_3d</a> (Interp, data_in, data_out, verbose, mask_in, mask_out, missing_value, missing_permit, err_msg)</td></tr>
+<tr class="memdesc:a9ee7fe7995d9305bd4ff5fba7f0a5e4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload of interface horiz_interp_base_2d uses 3d arrays for data and mask this allows for multiple interpolations with one call. <br /></td></tr>
 <tr class="separator:a9ee7fe7995d9305bd4ff5fba7f0a5e4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a971458644572077bedb2b0c1b0c52d55"><td class="memItemLeft" align="right" valign="top"><a id="a971458644572077bedb2b0c1b0c52d55"></a>
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>horiz_interp_solo_1d</b> (data_in, lon_in, lat_in, lon_out, lat_out, data_out, verbose, mask_in, mask_out, interp_method, missing_value, missing_permit, num_nbrs, max_dist, src_modulo, grid_at_center)</td></tr>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacehoriz__interp__mod_1_1horiz__interp.html#a971458644572077bedb2b0c1b0c52d55">horiz_interp_solo_1d</a> (data_in, lon_in, lat_in, lon_out, lat_out, data_out, verbose, mask_in, mask_out, interp_method, missing_value, missing_permit, num_nbrs, max_dist, src_modulo, grid_at_center)</td></tr>
+<tr class="memdesc:a971458644572077bedb2b0c1b0c52d55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interpolates from a rectangular grid to rectangular grid. interp_method can be the value conservative, bilinear or spherical. <a class="el" href="interfacehoriz__interp__mod_1_1horiz__interp__new.html" title="Allocates space and initializes a derived-type variable that contains pre-computed interpolation indi...">horiz_interp_new</a> don't need to be called before calling this routine. <br /></td></tr>
 <tr class="separator:a971458644572077bedb2b0c1b0c52d55"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff5fd1185c8284d36ff5e84b7708a66f"><td class="memItemLeft" align="right" valign="top"><a id="aff5fd1185c8284d36ff5e84b7708a66f"></a>
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>horiz_interp_solo_1d_src</b> (data_in, lon_in, lat_in, lon_out, lat_out, data_out, verbose, mask_in, mask_out, interp_method, missing_value, missing_permit, num_nbrs, max_dist, src_modulo, grid_at_center)</td></tr>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacehoriz__interp__mod_1_1horiz__interp.html#aff5fd1185c8284d36ff5e84b7708a66f">horiz_interp_solo_1d_src</a> (data_in, lon_in, lat_in, lon_out, lat_out, data_out, verbose, mask_in, mask_out, interp_method, missing_value, missing_permit, num_nbrs, max_dist, src_modulo, grid_at_center)</td></tr>
+<tr class="memdesc:aff5fd1185c8284d36ff5e84b7708a66f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interpolates from a uniformly spaced grid to any output grid. interp_method can be the value "onservative","bilinear" or "spherical". <a class="el" href="interfacehoriz__interp__mod_1_1horiz__interp__new.html" title="Allocates space and initializes a derived-type variable that contains pre-computed interpolation indi...">horiz_interp_new</a> don't need to be called before calling this routine. <br /></td></tr>
 <tr class="separator:aff5fd1185c8284d36ff5e84b7708a66f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a572d9fa2057d33ff79bba92b4a90c61b"><td class="memItemLeft" align="right" valign="top"><a id="a572d9fa2057d33ff79bba92b4a90c61b"></a>
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>horiz_interp_solo_2d</b> (data_in, lon_in, lat_in, lon_out, lat_out, data_out, verbose, mask_in, mask_out, interp_method, missing_value, missing_permit, num_nbrs, max_dist, src_modulo)</td></tr>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacehoriz__interp__mod_1_1horiz__interp.html#a572d9fa2057d33ff79bba92b4a90c61b">horiz_interp_solo_2d</a> (data_in, lon_in, lat_in, lon_out, lat_out, data_out, verbose, mask_in, mask_out, interp_method, missing_value, missing_permit, num_nbrs, max_dist, src_modulo)</td></tr>
+<tr class="memdesc:a572d9fa2057d33ff79bba92b4a90c61b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interpolates from any grid to any grid. interp_method should be "spherical" <a class="el" href="interfacehoriz__interp__mod_1_1horiz__interp__new.html" title="Allocates space and initializes a derived-type variable that contains pre-computed interpolation indi...">horiz_interp_new</a> don't need to be called before calling this routine. <br /></td></tr>
 <tr class="separator:a572d9fa2057d33ff79bba92b4a90c61b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8622b0680fae2234c361e8fede4f824"><td class="memItemLeft" align="right" valign="top"><a id="ac8622b0680fae2234c361e8fede4f824"></a>
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>horiz_interp_solo_1d_dst</b> (data_in, lon_in, lat_in, lon_out, lat_out, data_out, verbose, mask_in, mask_out, interp_method, missing_value, missing_permit, num_nbrs, max_dist, src_modulo)</td></tr>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacehoriz__interp__mod_1_1horiz__interp.html#ac8622b0680fae2234c361e8fede4f824">horiz_interp_solo_1d_dst</a> (data_in, lon_in, lat_in, lon_out, lat_out, data_out, verbose, mask_in, mask_out, interp_method, missing_value, missing_permit, num_nbrs, max_dist, src_modulo)</td></tr>
+<tr class="memdesc:ac8622b0680fae2234c361e8fede4f824"><td class="mdescLeft">&#160;</td><td class="mdescRight">interpolates from any grid to rectangular longitude/latitude grid. interp_method should be "spherical". <a class="el" href="interfacehoriz__interp__mod_1_1horiz__interp__new.html" title="Allocates space and initializes a derived-type variable that contains pre-computed interpolation indi...">horiz_interp_new</a> don't need to be called before calling this routine. <br /></td></tr>
 <tr class="separator:ac8622b0680fae2234c361e8fede4f824"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a652c74426f19074802701e89a1c9fc6c"><td class="memItemLeft" align="right" valign="top"><a id="a652c74426f19074802701e89a1c9fc6c"></a>
 subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>horiz_interp_solo_old</b> (data_in, wb, sb, dx, dy, lon_out, lat_out, data_out, verbose, mask_in, mask_out)</td></tr>
 <tr class="separator:a652c74426f19074802701e89a1c9fc6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="horiz__interp_8F90_source.html#l00202">202</a> of file <a class="el" href="horiz__interp_8F90_source.html">horiz_interp.F90</a>.</p>
+<div class="textblock"><p>Subroutine for performing the horizontal interpolation between two grids. </p>
+<p>Subroutine for performing the horizontal interpolation between two grids. There are two forms of this interface. Form A requires first calling <a class="el" href="interfacehoriz__interp__mod_1_1horiz__interp__new.html" title="Allocates space and initializes a derived-type variable that contains pre-computed interpolation indi...">horiz_interp_new</a>, while Form B requires no initialization.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Interp</td><td>Derived-type variable containing interpolation indices and weights. Returned by a previous call to <a class="el" href="interfacehoriz__interp__mod_1_1horiz__interp__new.html" title="Allocates space and initializes a derived-type variable that contains pre-computed interpolation indi...">horiz_interp_new</a>.</td></tr>
+    <tr><td class="paramname">data_in</td><td>Input data on source grid.</td></tr>
+    <tr><td class="paramname">verbose</td><td>flag for the amount of print output. verbose = 0, no output; = 1, min,max,means; = 2, still more</td></tr>
+    <tr><td class="paramname">mask_in</td><td>Input mask, must be the same size as the input data. The real value of mask_in must be in the range (0.,1.). Set mask_in=0.0 for data points that should not be used or have missing data. It is Not needed for spherical regrid.</td></tr>
+    <tr><td class="paramname">missing_value</td><td>Use the missing_value to indicate missing data.</td></tr>
+    <tr><td class="paramname">missing_permit</td><td>numbers of points allowed to miss for the bilinear interpolation. The value should be between 0 and 3.</td></tr>
+    <tr><td class="paramname">lon_in,lat_in</td><td>longitude and latitude (in radians) of source grid. More explanation can be found in the documentation of <a class="el" href="interfacehoriz__interp__mod_1_1horiz__interp__new.html" title="Allocates space and initializes a derived-type variable that contains pre-computed interpolation indi...">horiz_interp_new</a>.</td></tr>
+    <tr><td class="paramname">lon_out,lat_out</td><td>longitude and latitude (in radians) of destination grid. More explanation can be found in the documentation of <a class="el" href="interfacehoriz__interp__mod_1_1horiz__interp__new.html" title="Allocates space and initializes a derived-type variable that contains pre-computed interpolation indi...">horiz_interp_new</a>.</td></tr>
+    <tr><td class="paramname">data_out</td><td>Output data on destination grid.</td></tr>
+    <tr><td class="paramname">mask_out</td><td>Output mask that specifies whether data was computed.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">FATAL,size</td><td>of input array incorrect The input data array does not match the size of the input grid edges specified. If you are using the initialization interface make sure you have the correct grid size.</td></tr>
+    <tr><td class="paramname">FATAL,size</td><td>of output array incorrect The output data array does not match the size of the input grid edges specified. If you are using the initialization interface make sure you have the correct grid size. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="horiz__interp_8F90_source.html#l00190">190</a> of file <a class="el" href="horiz__interp_8F90_source.html">horiz_interp.F90</a>.</p>
 </div><hr/>The documentation for this interface was generated from the following file:<ul>
 <li>horiz_interp/<a class="el" href="horiz__interp_8F90_source.html">horiz_interp.F90</a></li>
 </ul>

@@ -211,6 +211,5 @@ var group__mpp__io__mod =
       [ "mpp_io_unstructured_read_r8_1d", "group__mpp__io__mod.html#ga66f17728ae82d7cea58d00fc004247da", null ],
       [ "mpp_io_unstructured_read_r8_2d", "group__mpp__io__mod.html#ga7316d9066a85515686d176c2d02fcd89", null ],
       [ "mpp_io_unstructured_read_r8_3d", "group__mpp__io__mod.html#ga29e43b4678790e76020b42b80e7fc56e", null ]
-    ] ],
-    [ "mpp_get_atts Interface", "group__mpp__io__mod.html#mpp_get_atts", null ]
+    ] ]
 ];

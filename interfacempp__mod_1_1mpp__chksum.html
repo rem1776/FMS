@@ -97,6 +97,9 @@ $(document).ready(function(){initNavTree('interfacempp__mod_1_1mpp__chksum.html'
 <div class="title">mpp_chksum Interface Reference<div class="ingroups"><a class="el" href="group__mpp.html">MPP</a> &raquo; <a class="el" href="group__mpp__mod.html">mpp_mod</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Calculate parallel checksums.  
+ <a href="interfacempp__mod_1_1mpp__chksum.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -234,8 +237,28 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:ga32d2fb817c720839679c0c0c74d9f58f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="mpp_8F90_source.html#l01135">1135</a> of file <a class="el" href="mpp_8F90_source.html">mpp.F90</a>.</p>
+<div class="textblock"><p>Calculate parallel checksums. </p>
+<p><em><a class="el" href="interfacempp__mod_1_1mpp__chksum.html" title="Calculate parallel checksums.">mpp_chksum</a></em> is a parallel checksum routine that returns an identical answer for the same array irrespective of how it has been partitioned across processors. \eint_kind is the KIND parameter corresponding to long integers (see discussion on OS-dependent preprocessor directives) defined in the file <a class="el" href="platform_8F90.html" title="File for platform_mod.">platform.F90</a>. \eMPP_TYPE_ corresponds to any 4-byte and 8-byte variant of \einteger, \ereal, \ecomplex, \elogical variables, of rank 0 to 5.</p>
+<p>Integer checksums on FP data use the F90 <code>TRANSFER()</code> intrinsic.</p>
+<p>The &lt;LINK SRC="http://www.gfdl.noaa.gov/fms-cgi-bin/cvsweb.cgi/FMS/shared/chksum/chksum.html"&gt;serial checksum module&lt;/LINK&gt; is superseded by this function, and is no longer being actively maintained. This provides identical results on a single-processor job, and to perform serial checksums on a single processor of a parallel job, you only need to use the optional <code>pelist</code> argument. </p><pre>
+ use mpp_mod
+ integer :: pe, chksum
+ real :: a(:)
+ pe = <a class="el" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50" title="Returns processor ID. This returns the unique ID associated with a PE. This number runs between 0 and...">mpp_pe()</a>
+ chksum = <a class="el" href="interfacempp__mod_1_1mpp__chksum.html" title="Calculate parallel checksums.">mpp_chksum</a>( a, (/pe/) )
+ </pre><p>The additional functionality of <code><a class="el" href="interfacempp__mod_1_1mpp__chksum.html" title="Calculate parallel checksums.">mpp_chksum</a></code> over serial checksums is to compute the checksum across the PEs in <code>pelist</code>. The answer is guaranteed to be the same for the same distributed array irrespective of how it has been partitioned.</p>
+<p>If <code>pelist</code> is omitted, the context is assumed to be the current pelist. This call implies synchronization across the PEs in <code>pelist</code>, or the current pelist if <code>pelist</code> is absent. <br  />
+ Example usage: </p><pre class="fragment">       mpp_chksum( var, pelist )
+</pre><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">var</td><td>Data to calculate checksum of </td></tr>
+    <tr><td class="paramname">pelist</td><td>Optional list of PE's to include in checksum calculation if not using current pelist </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Parallel checksum of var across given or implicit pelist </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="mpp_8F90_source.html#l01117">1117</a> of file <a class="el" href="mpp_8F90_source.html">mpp.F90</a>.</p>
 </div><hr/>The documentation for this interface was generated from the following file:<ul>
 <li>mpp/<a class="el" href="mpp_8F90_source.html">mpp.F90</a></li>
 </ul>

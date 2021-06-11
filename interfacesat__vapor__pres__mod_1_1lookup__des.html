@@ -97,6 +97,9 @@ $(document).ready(function(){initNavTree('interfacesat__vapor__pres__mod_1_1look
 <div class="title">lookup_des Interface Reference<div class="ingroups"><a class="el" href="group__sat__vapor__pres.html">Saturation Vapor Pressure</a> &raquo; <a class="el" href="group__sat__vapor__pres__mod.html">sat_vapor_pres_mod</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>For the given temperatures, returns the derivative of saturation vapor pressure with respect to temperature.  
+ <a href="interfacesat__vapor__pres__mod_1_1lookup__des.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -114,8 +117,21 @@ subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_des_3d</
 <tr class="separator:gab65f87e28782b7f87e58ab10294074f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="sat__vapor__pres_8F90_source.html#l00339">339</a> of file <a class="el" href="sat__vapor__pres_8F90_source.html">sat_vapor_pres.F90</a>.</p>
+<div class="textblock"><p>For the given temperatures, returns the derivative of saturation vapor pressure with respect to temperature. </p>
+<p>For the given temperatures these routines return the derivtive of esat w.r.t. temperature (desat). The return values are derived from lookup tables.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">temp</td><td>Temperature in degrees kelvin </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">desat</td><td>Derivative of saturation vapor pressure w.r.t. temperature in pascals/degree. May be a scalar, 1d, 2d, or 3d array. Must have the same order and size as temp. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">err_msg</td><td>Character string containing error message to be returned to calling routine.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>@error FATAL table overflow, nbad=## Temperature(s) provided to the saturation vapor pressure lookup are outside the valid range of the lookup table (-160 to 100 deg C). This may be due to a numerical instability in the model. Information should have been printed to standard output to help determine where the instability may have occurred. If the lookup table needs a larger temperature range, then parameters in the module header must be modified.</p>
+<p><br  />
+Example usage: </p><div class="fragment"><div class="line"><span class="keyword">call </span>lookup_des( temp, desat) </div>
+</div><!-- fragment --> 
+<p class="definition">Definition at line <a class="el" href="sat__vapor__pres_8F90_source.html#l00337">337</a> of file <a class="el" href="sat__vapor__pres_8F90_source.html">sat_vapor_pres.F90</a>.</p>
 </div><hr/>The documentation for this interface was generated from the following file:<ul>
 <li>sat_vapor_pres/<a class="el" href="sat__vapor__pres_8F90_source.html">sat_vapor_pres.F90</a></li>
 </ul>

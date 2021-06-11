@@ -117,6 +117,7 @@ Data Types</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacempp__io__mod_1_1mpp__get__id.html">mpp_get_id</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacempp__io__mod_1_1mpp__get__atts.html">mpp_get_atts</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get file global metadata.  <a href="interfacempp__io__mod_1_1mpp__get__atts.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacempp__io__mod_1_1mpp__get__att__value.html">mpp_get_att_value</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -884,10 +885,7 @@ integer&#160;</td><td class="memItemRight" valign="bottom"><b>pack_size</b></td>
    </pre><p>In this example, the data are distributed as in the previous example. The call to &lt;LINK
    SRC="#mpp_read_meta"&gt;mpp_read_meta&lt;/LINK&gt; initializes all of the metadata associated with the file, including global attributes, variable attributes and non-record dimension data. The call to <code>mpp_get_info</code> returns the number of global attributes (<code>natt</code>), variables (<code>nvar</code>) and time levels (<code>ntime</code>) associated with the file identified by a unique ID (<code>unit</code>). <code>mpp_get_atts</code> returns all global attributes for the file in the derived type <code>atttype(natt)</code>. <code>mpp_get_vars</code> returns variable types (<code>fieldtype(nvar)</code>). Since the record dimension data are not allocated for calls to &lt;LINK SRC="#mpp_write"&gt;mpp_write&lt;/LINK&gt;, a separate call to <code>mpp_get_times</code> is required to access record dimension data. Subsequent calls to <code>mpp_read</code> return the field data arrays corresponding to the fieldtype. The <code>domain</code> type is an optional argument. If <code>domain</code> is omitted, the incoming field array should be dimensioned for the global domain, otherwise, the field data is assigned to the computational domain of a local array.</p>
 <p><em>Multi-fileset</em> reads are not supported with <code>mpp_read</code>.</p>
-
-
-<h3><a id="mpp_get_atts"></a>mpp_get_atts Interface</h3><div class="textblock">Get file global metadata.<br  />
-Example usage: call mpp_get_atts( unit, global_atts) </div></div><!-- contents -->
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

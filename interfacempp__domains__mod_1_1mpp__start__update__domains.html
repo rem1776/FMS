@@ -97,6 +97,13 @@ $(document).ready(function(){initNavTree('interfacempp__domains__mod_1_1mpp__sta
 <div class="title">mpp_start_update_domains Interface Reference<div class="ingroups"><a class="el" href="group__mpp.html">MPP</a> &raquo; <a class="el" href="group__mpp__domains__mod.html">mpp_domains_mod</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Interface to start halo updates <em><a class="el" href="interfacempp__domains__mod_1_1mpp__start__update__domains.html" title="Interface to start halo updates mpp_start_update_domains is used to start a halo update of a domain-d...">mpp_start_update_domains</a></em> is used to start a halo update of a domain-decomposed array on each PE. <em>MPP_TYPE_</em> can be of type <em>complex</em>, <em>integer</em>, <em>logical</em> or <em>real</em>; of 4-byte or 8-byte kind; of rank up to 5. The vector version (with two input data fields) is only present for \ereal types.<br  />
+ <br  />
+ \empp_start_update_domains must be paired together with \empp_complete_update_domains. In <em><a class="el" href="interfacempp__domains__mod_1_1mpp__start__update__domains.html" title="Interface to start halo updates mpp_start_update_domains is used to start a halo update of a domain-d...">mpp_start_update_domains</a></em>, a buffer will be pre-post to receive (non-blocking) the data and data on computational domain will be packed and sent (non-blocking send) to other processor. In <em><a class="el" href="interfacempp__domains__mod_1_1mpp__complete__update__domains.html" title="Must be used after a call to mpp_start_update_domains in order to complete a nonblocking domain updat...">mpp_complete_update_domains</a></em>, buffer will be unpacked to fill the halo and mpp_sync_self will be called to to ensure communication safe at the last call of <a class="el" href="interfacempp__domains__mod_1_1mpp__complete__update__domains.html" title="Must be used after a call to mpp_start_update_domains in order to complete a nonblocking domain updat...">mpp_complete_update_domains</a>.<br  />
+ <br  />
+ Each <a class="el" href="interfacempp__domains__mod_1_1mpp__update__domains.html" title="Performs halo updates for a given domain.">mpp_update_domains</a> can be replaced by the combination of <a class="el" href="interfacempp__domains__mod_1_1mpp__start__update__domains.html" title="Interface to start halo updates mpp_start_update_domains is used to start a halo update of a domain-d...">mpp_start_update_domains</a> and <a class="el" href="interfacempp__domains__mod_1_1mpp__complete__update__domains.html" title="Must be used after a call to mpp_start_update_domains in order to complete a nonblocking domain updat...">mpp_complete_update_domains</a>. The arguments in <a class="el" href="interfacempp__domains__mod_1_1mpp__start__update__domains.html" title="Interface to start halo updates mpp_start_update_domains is used to start a halo update of a domain-d...">mpp_start_update_domains</a> and <a class="el" href="interfacempp__domains__mod_1_1mpp__complete__update__domains.html" title="Must be used after a call to mpp_start_update_domains in order to complete a nonblocking domain updat...">mpp_complete_update_domains</a> should be the exact the same as in <a class="el" href="interfacempp__domains__mod_1_1mpp__update__domains.html" title="Performs halo updates for a given domain.">mpp_update_domains</a> to be replaced except no optional argument "complete". The following are examples on how to replace <a class="el" href="interfacempp__domains__mod_1_1mpp__update__domains.html" title="Performs halo updates for a given domain.">mpp_update_domains</a> with mpp_start_update_domains/mpp_complete_update_domains.  
+ <a href="interfacempp__domains__mod_1_1mpp__start__update__domains.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -174,8 +181,84 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:ga5bf6ca0fdb3313104a88fd401b68bc59"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="mpp__domains_8F90_source.html#l01145">1145</a> of file <a class="el" href="mpp__domains_8F90_source.html">mpp_domains.F90</a>.</p>
+<div class="textblock"><p>Interface to start halo updates <em><a class="el" href="interfacempp__domains__mod_1_1mpp__start__update__domains.html" title="Interface to start halo updates mpp_start_update_domains is used to start a halo update of a domain-d...">mpp_start_update_domains</a></em> is used to start a halo update of a domain-decomposed array on each PE. <em>MPP_TYPE_</em> can be of type <em>complex</em>, <em>integer</em>, <em>logical</em> or <em>real</em>; of 4-byte or 8-byte kind; of rank up to 5. The vector version (with two input data fields) is only present for \ereal types.<br  />
+ <br  />
+ \empp_start_update_domains must be paired together with \empp_complete_update_domains. In <em><a class="el" href="interfacempp__domains__mod_1_1mpp__start__update__domains.html" title="Interface to start halo updates mpp_start_update_domains is used to start a halo update of a domain-d...">mpp_start_update_domains</a></em>, a buffer will be pre-post to receive (non-blocking) the data and data on computational domain will be packed and sent (non-blocking send) to other processor. In <em><a class="el" href="interfacempp__domains__mod_1_1mpp__complete__update__domains.html" title="Must be used after a call to mpp_start_update_domains in order to complete a nonblocking domain updat...">mpp_complete_update_domains</a></em>, buffer will be unpacked to fill the halo and mpp_sync_self will be called to to ensure communication safe at the last call of <a class="el" href="interfacempp__domains__mod_1_1mpp__complete__update__domains.html" title="Must be used after a call to mpp_start_update_domains in order to complete a nonblocking domain updat...">mpp_complete_update_domains</a>.<br  />
+ <br  />
+ Each <a class="el" href="interfacempp__domains__mod_1_1mpp__update__domains.html" title="Performs halo updates for a given domain.">mpp_update_domains</a> can be replaced by the combination of <a class="el" href="interfacempp__domains__mod_1_1mpp__start__update__domains.html" title="Interface to start halo updates mpp_start_update_domains is used to start a halo update of a domain-d...">mpp_start_update_domains</a> and <a class="el" href="interfacempp__domains__mod_1_1mpp__complete__update__domains.html" title="Must be used after a call to mpp_start_update_domains in order to complete a nonblocking domain updat...">mpp_complete_update_domains</a>. The arguments in <a class="el" href="interfacempp__domains__mod_1_1mpp__start__update__domains.html" title="Interface to start halo updates mpp_start_update_domains is used to start a halo update of a domain-d...">mpp_start_update_domains</a> and <a class="el" href="interfacempp__domains__mod_1_1mpp__complete__update__domains.html" title="Must be used after a call to mpp_start_update_domains in order to complete a nonblocking domain updat...">mpp_complete_update_domains</a> should be the exact the same as in <a class="el" href="interfacempp__domains__mod_1_1mpp__update__domains.html" title="Performs halo updates for a given domain.">mpp_update_domains</a> to be replaced except no optional argument "complete". The following are examples on how to replace <a class="el" href="interfacempp__domains__mod_1_1mpp__update__domains.html" title="Performs halo updates for a given domain.">mpp_update_domains</a> with mpp_start_update_domains/mpp_complete_update_domains. </p>
+<dl class="section user"><dt>Example 1: Replace one scalar mpp_update_domains.</dt><dd><br  />
+ Replace<br  />
+ <br  />
+ call <a class="el" href="interfacempp__domains__mod_1_1mpp__update__domains.html" title="Performs halo updates for a given domain.">mpp_update_domains</a>(data, domain, flags=update_flags)<br  />
+</dd></dl>
+<p>with<br  />
+ <br  />
+ id_update = <a class="el" href="interfacempp__domains__mod_1_1mpp__start__update__domains.html" title="Interface to start halo updates mpp_start_update_domains is used to start a halo update of a domain-d...">mpp_start_update_domains</a>(data, domain, flags=update_flags)<br  />
+ ...( doing some computation )<br  />
+ call <a class="el" href="interfacempp__domains__mod_1_1mpp__complete__update__domains.html" title="Must be used after a call to mpp_start_update_domains in order to complete a nonblocking domain updat...">mpp_complete_update_domains</a>(id_update, data, domain, flags=update_flags)<br  />
+</p>
+<dl class="section user"><dt>Example 2: Replace group scalar mpp_update_domains</dt><dd><br  />
+ Replace<br  />
+ <br  />
+ call <a class="el" href="interfacempp__domains__mod_1_1mpp__update__domains.html" title="Performs halo updates for a given domain.">mpp_update_domains</a>(data_1, domain, flags=update_flags, complete=.false.)<br  />
+ .... ( other n-2 call <a class="el" href="interfacempp__domains__mod_1_1mpp__update__domains.html" title="Performs halo updates for a given domain.">mpp_update_domains</a> with complete = .false. )<br  />
+ call <a class="el" href="interfacempp__domains__mod_1_1mpp__update__domains.html" title="Performs halo updates for a given domain.">mpp_update_domains</a>(data_n, domain, flags=update_flags, complete=.true. )<br  />
+ <br  />
+ With<br  />
+ <br  />
+ id_up_1 = <a class="el" href="interfacempp__domains__mod_1_1mpp__start__update__domains.html" title="Interface to start halo updates mpp_start_update_domains is used to start a halo update of a domain-d...">mpp_start_update_domains</a>(data_1, domain, flags=update_flags)<br  />
+ .... ( other n-2 call <a class="el" href="interfacempp__domains__mod_1_1mpp__start__update__domains.html" title="Interface to start halo updates mpp_start_update_domains is used to start a halo update of a domain-d...">mpp_start_update_domains</a> )<br  />
+ id_up_n = <a class="el" href="interfacempp__domains__mod_1_1mpp__start__update__domains.html" title="Interface to start halo updates mpp_start_update_domains is used to start a halo update of a domain-d...">mpp_start_update_domains</a>(data_n, domain, flags=update_flags)<br  />
+ <br  />
+ ..... ( doing some computation )<br  />
+ <br  />
+ call <a class="el" href="interfacempp__domains__mod_1_1mpp__complete__update__domains.html" title="Must be used after a call to mpp_start_update_domains in order to complete a nonblocking domain updat...">mpp_complete_update_domains</a>(id_up_1, data_1, domain, flags=update_flags)<br  />
+ .... ( other n-2 call <a class="el" href="interfacempp__domains__mod_1_1mpp__complete__update__domains.html" title="Must be used after a call to mpp_start_update_domains in order to complete a nonblocking domain updat...">mpp_complete_update_domains</a> )<br  />
+ call <a class="el" href="interfacempp__domains__mod_1_1mpp__complete__update__domains.html" title="Must be used after a call to mpp_start_update_domains in order to complete a nonblocking domain updat...">mpp_complete_update_domains</a>(id_up_n, data_n, domain, flags=update_flags)<br  />
+</dd></dl>
+<dl class="section user"><dt>Example 3: Replace group CGRID_NE vector, mpp_update_domains</dt><dd><br  />
+ Replace<br  />
+ <br  />
+ call <a class="el" href="interfacempp__domains__mod_1_1mpp__update__domains.html" title="Performs halo updates for a given domain.">mpp_update_domains</a>(u_1, v_1, domain, flags=update_flgs, gridtype=CGRID_NE, complete=.false.)<br  />
+ .... ( other n-2 call <a class="el" href="interfacempp__domains__mod_1_1mpp__update__domains.html" title="Performs halo updates for a given domain.">mpp_update_domains</a> with complete = .false. )<br  />
+ call <a class="el" href="interfacempp__domains__mod_1_1mpp__update__domains.html" title="Performs halo updates for a given domain.">mpp_update_domains</a>(u_1, v_1, domain, flags=update_flags, gridtype=CGRID_NE, complete=.true. )<br  />
+ <br  />
+ with<br  />
+ <br  />
+ id_up_1 = <a class="el" href="interfacempp__domains__mod_1_1mpp__start__update__domains.html" title="Interface to start halo updates mpp_start_update_domains is used to start a halo update of a domain-d...">mpp_start_update_domains</a>(u_1, v_1, domain, flags=update_flags, gridtype=CGRID_NE)<br  />
+ .... ( other n-2 call <a class="el" href="interfacempp__domains__mod_1_1mpp__start__update__domains.html" title="Interface to start halo updates mpp_start_update_domains is used to start a halo update of a domain-d...">mpp_start_update_domains</a> )<br  />
+ id_up_n = <a class="el" href="interfacempp__domains__mod_1_1mpp__start__update__domains.html" title="Interface to start halo updates mpp_start_update_domains is used to start a halo update of a domain-d...">mpp_start_update_domains</a>(u_n, v_n, domain, flags=update_flags, gridtype=CGRID_NE)<br  />
+ <br  />
+ ..... ( doing some computation )<br  />
+ <br  />
+ call <a class="el" href="interfacempp__domains__mod_1_1mpp__complete__update__domains.html" title="Must be used after a call to mpp_start_update_domains in order to complete a nonblocking domain updat...">mpp_complete_update_domains</a>(id_up_1, u_1, v_1, domain, flags=update_flags, gridtype=CGRID_NE)<br  />
+ .... ( other n-2 call <a class="el" href="interfacempp__domains__mod_1_1mpp__complete__update__domains.html" title="Must be used after a call to mpp_start_update_domains in order to complete a nonblocking domain updat...">mpp_complete_update_domains</a> )<br  />
+ call <a class="el" href="interfacempp__domains__mod_1_1mpp__complete__update__domains.html" title="Must be used after a call to mpp_start_update_domains in order to complete a nonblocking domain updat...">mpp_complete_update_domains</a>(id_up_n, u_n, v_n, domain, flags=update_flags, gridtype=CGRID_NE)<br  />
+ <br  />
+ For 2D domain updates, if there are halos present along both <em>x</em> and <em>y</em>, we can choose to update one only, by specifying <em>flags=XUPDATE</em> or <em>flags=YUPDATE</em>. In addition, one-sided updates can be performed by setting <em>flags</em> to any combination of <em>WUPDATE</em>, <em>EUPDATE</em>, <em>SUPDATE</em> and <em>NUPDATE</em>, to update the west, east, north and south halos respectively. Any combination of halos may be used by adding the requisite flags, e.g: <em>flags=XUPDATE+SUPDATE</em> or <em>flags=EUPDATE+WUPDATE+SUPDATE</em> will update the east, west and south halos.<br  />
+ <br  />
+ If a call to <em>mpp_start_update_domains/mpp_complete_update_domains</em> involves at least one E-W halo and one N-S halo, the corners involved will also be updated, i.e, in the example above, the SE and SW corners will be updated.<br  />
+ <br  />
+ If <em>flags</em> is not supplied, that is equivalent to <em>flags=XUPDATE+YUPDATE</em>.<br  />
+ <br  />
+ The vector version is passed the <em>x</em> and <em>y</em> components of a vector field in tandem, and both are updated upon return. They are passed together to treat parity issues on various grids. For example, on a cubic sphere projection, the <em>x</em> and <em>y</em> components may be interchanged when passing from an equatorial cube face to a polar face. For grids with folds, vector components change sign on crossing the fold. Paired scalar quantities can also be passed with the vector version if flags=SCALAR_PAIR, in which case components are appropriately interchanged, but signs are not.<br  />
+ <br  />
+ Special treatment at boundaries such as folds is also required for staggered grids. The following types of staggered grids are recognized: <br  />
+ 1) <em>AGRID:</em> values are at grid centers.<br  />
+ 2) <em>BGRID_NE:</em> vector fields are at the NE vertex of a grid cell, i.e: the array elements <em>u(i,j)</em> and <em>v(i,j)</em> are actually at (i+&amp;#189;,j+&amp;#189;) with respect to the grid centers.<br  />
+ 3) <em>BGRID_SW:</em> vector fields are at the SW vertex of a grid cell, i.e., the array elements <em>u(i,j)</em> and <em>v(i,j)</em> are actually at (i-&amp;#189;,j-&amp;#189;) with respect to the grid centers.<br  />
+ 4) <em>CGRID_NE:</em> vector fields are at the N and E faces of a grid cell, i.e: the array elements <em>u(i,j)</em> and <em>v(i,j)</em> are actually at (i+&amp;#189;,j) and (i,j+&amp;#189;) with respect to the grid centers.<br  />
+ 5) <em>CGRID_SW:</em> vector fields are at the S and W faces of a grid cell, i.e: the array elements <em>u(i,j)</em> and <em>v(i,j)</em> are actually at (i-&amp;#189;,j) and (i,j-&amp;#189;) with respect to the grid centers.<br  />
+ <br  />
+ The gridtypes listed above are all available by use association as integer parameters. If vector fields are at staggered locations, the optional argument <em>gridtype</em> must be appropriately set for correct treatment at boundaries. <br  />
+ It is safe to apply vector field updates to the appropriate arrays irrespective of the domain topology: if the topology requires no special treatment of vector fields, specifying <em>gridtype</em> will do no harm.<br  />
+ <br  />
+ <em>mpp_start_update_domains/mpp_complete_update_domains</em> internally buffers the data being sent and received into single messages for efficiency. A turnable internal buffer area in memory is provided for this purpose by <em>mpp_domains_mod</em>. The size of this buffer area can be set by the user by calling <em>mpp_domains_set_stack_size</em>.<br  />
+ Example usage: <pre class="fragment">            call mpp_start_update_domains( field, domain, flags )
+            call mpp_complete_update_domains( field, domain, flags )
+</pre> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="mpp__domains_8F90_source.html#l01137">1137</a> of file <a class="el" href="mpp__domains_8F90_source.html">mpp_domains.F90</a>.</p>
 </div><hr/>The documentation for this interface was generated from the following file:<ul>
 <li>mpp/<a class="el" href="mpp__domains_8F90_source.html">mpp_domains.F90</a></li>
 </ul>

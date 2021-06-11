@@ -97,6 +97,10 @@ $(document).ready(function(){initNavTree('interfacempp__domains__mod_1_1mpp__upd
 <div class="title">mpp_update_domains Interface Reference<div class="ingroups"><a class="el" href="group__mpp.html">MPP</a> &raquo; <a class="el" href="group__mpp__domains__mod.html">mpp_domains_mod</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Performs halo updates for a given domain.<br  />
+  
+ <a href="interfacempp__domains__mod_1_1mpp__update__domains.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -174,8 +178,30 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:ga44496a0a8b54cd43feb87fb4f37e54ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="mpp__domains_8F90_source.html#l00964">964</a> of file <a class="el" href="mpp__domains_8F90_source.html">mpp_domains.F90</a>.</p>
+<div class="textblock"><p>Performs halo updates for a given domain.<br  />
+ </p>
+<p>Used to perform a halo update of a domain-decomposed array on each PE. <em>MPP_TYPE</em> can be of type complex, integer, logical or real of 4-byte or 8-byte kind; of rank up to 5. The vector version (with two input data fields) is only present for real types. For 2D domain updates, if there are halos present along both x and y, we can choose to update one only, by specifying <em>flags=XUPDATE</em> or <em>flags=YUPDATE</em>. In addition, one-sided updates can be performed by setting flags to any combination of WUPDATE, EUPDATE, SUPDATE and NUPDATE to update the west, east, north and south halos respectively. Any combination of halos may be used by adding the requisite flags, e.g: <em>flags=XUPDATE+SUPDATE</em> or <em>flags=EUPDATE+WUPDATE+SUPDATE</em> will update the east, west and south halos.<br  />
+ <br  />
+ If a call to <em><a class="el" href="interfacempp__domains__mod_1_1mpp__update__domains.html" title="Performs halo updates for a given domain.">mpp_update_domains</a></em> involves at least one E-W halo and one N-S halo, the corners involved will also be updated, i.e, in the example above, the SE and SW corners will be updated.<br  />
+ If <em>flags</em> is not supplied, that is equivalent to <em>flags=XUPDATE+YUPDATE</em>.<br  />
+ <br  />
+ The vector version is passed the <em>x</em> and <em>y</em> components of a vector field in tandem, and both are updated upon return. They are passed together to treat parity issues on various grids. For example, on a cubic sphere projection, the <em>x</em> <em>y</em> components may be interchanged when passing from an equatorial cube face to a polar face. For grids with folds, vector components change sign on crossing the fold. Paired scalar quantities can also be passed with the vector version if <em>flags=SCALAR_PAIR</em>, in which case components are appropriately interchanged, but signs are not.<br  />
+ <br  />
+ Special treatment at boundaries such as folds is also required for staggered grids. The following types of staggered grids are recognized:<br  />
+ <br  />
+ 1) AGRID: values are at grid centers.<br  />
+ 2) BGRID_NE: vector fields are at the NE vertex of a grid cell, i.e: the array elements <em>u(i,j)and</em> <em>v(i,j)are</em> actually at (i,j;) with respect to the grid centers.<br  />
+ 3) BGRID_SW: vector fields are at the SW vertex of a grid cell, i.e: the array elements <em>u(i,j)</em> and <em>v(i,j)</em> are actually at (i;,j;) with respect to the grid centers<br  />
+ 4) CGRID_NE: vector fields are at the N and E faces of a grid cell, i.e: the array elements <em>u(i,j)</em> and <em>v(i,j)</em> are actually at (i;,j) and (i,j+&amp;#189;) with respect to the grid centers.<br  />
+ 5) CGRID_SW: vector fields are at the S and W faces of a grid cell, i.e: the array elements <em>u(i,j)and</em> <em>v(i,j)</em> are actually at (i;,j) and (i,j;) with respect to the grid centers.<br  />
+ <br  />
+ The gridtypes listed above are all available by use association as integer parameters. The scalar version of <em><a class="el" href="interfacempp__domains__mod_1_1mpp__update__domains.html" title="Performs halo updates for a given domain.">mpp_update_domains</a></em> assumes that the values of a scalar field are always at <em>AGRID</em> locations, and no special boundary treatment is required. If vector fields are at staggered locations, the optional argument <em>gridtype</em> must be appropriately set for correct treatment at boundaries. <br  />
+ It is safe to apply vector field updates to the appropriate arrays irrespective of the domain topology: if the topology requires no special treatment of vector fields, specifying <em>gridtype</em> will do no harm.<br  />
+ <br  />
+ <em><a class="el" href="interfacempp__domains__mod_1_1mpp__update__domains.html" title="Performs halo updates for a given domain.">mpp_update_domains</a></em> internally buffers the date being sent and received into single messages for efficiency. A turnable internal buffer area in memory is provided for this purpose by <em>mpp_domains_mod</em>. The size of this buffer area can be set by the user by calling mpp_domains <em>mpp_domains_set_stack_size</em>.</p>
+<p>Example usage: call mpp_update_domains( field, domain, flags ) Update a 1D domain for the given field. call mpp_update_domains( fieldx, fieldy, domain, flags, gridtype ) Update a 2D domain for the given fields. </p>
+
+<p class="definition">Definition at line <a class="el" href="mpp__domains_8F90_source.html#l00957">957</a> of file <a class="el" href="mpp__domains_8F90_source.html">mpp_domains.F90</a>.</p>
 </div><hr/>The documentation for this interface was generated from the following file:<ul>
 <li>mpp/<a class="el" href="mpp__domains_8F90_source.html">mpp_domains.F90</a></li>
 </ul>

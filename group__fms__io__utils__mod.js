@@ -104,7 +104,6 @@ var group__fms__io__utils__mod =
       [ "get_checksum_4d", "group__fms__io__utils__mod.html#gaef2243e2d0c51700fb116eb75d3dbd86", null ],
       [ "get_checksum_5d", "group__fms__io__utils__mod.html#ga0eff478aae0aa33fec642e9ad7bb2aa5", null ]
     ] ],
-    [ "string2 Interface", "group__fms__io__utils__mod.html#string2", null ],
     [ "append_to_list", "group__fms__io__utils__mod.html#gac9a7307571d33a595a3309cb62ed17cd", null ],
     [ "ascii_read", "group__fms__io__utils__mod.html#ga2e5bf8a20a89497ccda754450467ec54", null ],
     [ "destroy_list", "group__fms__io__utils__mod.html#gabdd7edc61896f408eed84bdb7af8f350", null ],

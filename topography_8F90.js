@@ -1,5 +1,6 @@
 var topography_8F90 =
 [
+    [ "get_topog_mean", "interfacetopography__mod_1_1get__topog__mean.html", "interfacetopography__mod_1_1get__topog__mean" ],
     [ "determine_ocean_points", "topography_8F90.html#ga0ccd24ab72be542cb65d37936819bd3d", null ],
     [ "find_indices", "topography_8F90.html#ga6cfedc0e3eae9ca74109897b6c82827d", null ],
     [ "get_ocean_frac_1d", "topography_8F90.html#ga12004841b831fc17a8ac6c682f39d066", null ],

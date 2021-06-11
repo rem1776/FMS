@@ -14,9 +14,6 @@ var group__time__manager__mod =
       [ "set_date_c", "group__time__manager__mod.html#ga4f340b86eaab412bb4f8dff399362a2e", null ],
       [ "set_date_i", "group__time__manager__mod.html#ga35cd9b807c6de019b35676b24c442155", null ]
     ] ],
-    [ "time_time Operators", "group__time__manager__mod.html#time_type", null ],
-    [ "set_time Interface", "group__time__manager__mod.html#set_time", null ],
-    [ "set_date Interface", "group__time__manager__mod.html#set_date", null ],
     [ "decrement_time", "group__time__manager__mod.html#ga1479e62dcf63419f83ba7dbe33e0f03a", null ],
     [ "get_calendar_type", "group__time__manager__mod.html#gad4d5cb71942ebf3f1bb9d4a29a6d9a04", null ],
     [ "get_date", "group__time__manager__mod.html#ga6c708ea801247812b41b305ee5aeea13", null ],

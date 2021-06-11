@@ -8,8 +8,6 @@ var group__mpp__efp__mod =
     [ "mpp_efp_type", "structmpp__efp__mod_1_1mpp__efp__type.html", [
       [ "v", "group__mpp__efp__mod.html#ga6c25c084f68c502e3535012935a23b96", null ]
     ] ],
-    [ "mpp_reproducing_sum Interface", "group__mpp__efp__mod.html#mpp_reproducing_sum", null ],
-    [ "mpp_efp_type Operators", "group__mpp__efp__mod.html#mpp_efp_type_ops", null ],
     [ "carry_overflow", "group__mpp__efp__mod.html#ga28a92c674e06c0c182bab3d99da2e43b", null ],
     [ "increment_ints", "group__mpp__efp__mod.html#ga840aa384f8460c4bb246273a9546eaa7", null ],
     [ "increment_ints_faster", "group__mpp__efp__mod.html#ga005daf4948e408e35a7fbaebd4bce601", null ],

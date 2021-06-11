@@ -91,7 +91,6 @@ $(document).ready(function(){initNavTree('group__time__interp__mod.html',''); in
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Data Types</a> &#124;
 <a href="#func-members">Functions/Subroutines</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
@@ -102,11 +101,6 @@ $(document).ready(function(){initNavTree('group__time__interp__mod.html',''); in
 <p>Computes a weight and dates/indices for linearly interpolating between two dates.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Data Types</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacetime__interp__mod_1_1time__interp.html">time_interp</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
 <tr class="memitem:ga6cdc73ec0c534773f2a964e9093f5865"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__time__interp__mod.html#ga6cdc73ec0c534773f2a964e9093f5865">time_interp_frac</a> (Time, weight)</td></tr>
@@ -228,37 +222,7 @@ logical&#160;</td><td class="memItemRight" valign="bottom"><b>perthlike_behavior
 <p>Computes a weight and dates/indices for linearly interpolating between two dates. </p>
 <dl class="section author"><dt>Author</dt><dd>Bruce Wyman</dd></dl>
 <p>A time type is converted into two consecutive dates plus a fraction representing the distance between the dates. This information can be used to interpolate between the dates. The dates may be expressed as years, months, or days or as indices in an array. </p>
-
-
-<h3><a id="time_interp"></a>time_interp Interface</h3><div class="textblock">Returns a weight and dates or indices for interpolating between two dates. The interface fraction_of_year is provided for backward compatibility with the previous version.<br  />
- Returns weight by interpolating Time between Time1 and Time2. i.e. weight = (Time-Time1)/(Time2-Time1) Time1 and Time2 may be specified by any of several different ways, which is the reason for multiple interfaces.<br  />
-</p><ul>
-<li>If Time1 and Time2 are the begining and end of the year in which Time falls, use first interface.<br  />
-</li>
-<li>If Time1 and Time2 fall on year boundaries, use second interface.<br  />
-</li>
-<li>If Time1 and Time2 fall on month boundaries, use third.<br  />
-</li>
-<li>If Time1 and Time2 fall on day boundaries, use fourth.<br  />
-</li>
-<li>If Time1 and Time2 are consecutive elements of an assending list, use fifth. The fifth also returns the indices of Timelist between which Time falls.<br  />
-</li>
-<li>The sixth interface is for cyclical data. Time_beg and Time_end specify the begining and end of a repeating period. In this case:<br  />
- weight = (Time_adjusted - Time1) / (Time2 - Time1) <br  />
-Where: <div class="fragment"><div class="line">time1 = timelist(index1)</div>
-<div class="line">time2 = timelist(index2)</div>
-<div class="line">time_adjusted = time - n*period</div>
-<div class="line">period = time_end-time_beg</div>
-</div><!-- fragment --> N is between (Time-Time_end)/Period and (Time-Time_beg)/Period That is, N is the integer that results in Time_adjusted that is between Time_beg and Time_end.</li>
-</ul>
-<br  />
-Example usages: </p><div class="fragment"><div class="line"><span class="keyword">call </span>time_interp( time, weight )</div>
-<div class="line"><span class="keyword">call </span>time_interp( time, weight, year1, year2 )</div>
-<div class="line"><span class="keyword">call </span>time_interp( time, weight, year1, year2, month1, month2 )</div>
-<div class="line"><span class="keyword">call </span>time_interp( time, weight, year1, year2, month1, month2, day1, day2 )</div>
-<div class="line"><span class="keyword">call </span>time_interp( time, timelist, weight, index1, index2 [, modtime] )</div>
-<div class="line"><span class="keyword">call </span>time_interp( time, time_beg, time_end, timelist, weight, index1, index2 [,correct_leap_year_inconsistency])</div>
-</div><!-- fragment --> </div><h2 class="groupheader">Function/Subroutine Documentation</h2>
+<h2 class="groupheader">Function/Subroutine Documentation</h2>
 <a id="gacdace5b151bad1b788e4c7fe22afd90a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gacdace5b151bad1b788e4c7fe22afd90a">&#9670;&nbsp;</a></span>fraction_of_year()</h2>
 
@@ -284,7 +248,7 @@ Example usages: </p><div class="fragment"><div class="line"><span class="keyword
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>real fraction of time passed in current year </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="time__interp_8F90_source.html#l00331">331</a> of file <a class="el" href="time__interp_8F90_source.html">time_interp.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="time__interp_8F90_source.html#l00329">329</a> of file <a class="el" href="time__interp_8F90_source.html">time_interp.F90</a>.</p>
 
 </div>
 </div>
@@ -330,7 +294,7 @@ Example usages: </p><div class="fragment"><div class="line"><span class="keyword
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="time__interp_8F90_source.html#l00299">299</a> of file <a class="el" href="time__interp_8F90_source.html">time_interp.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="time__interp_8F90_source.html#l00297">297</a> of file <a class="el" href="time__interp_8F90_source.html">time_interp.F90</a>.</p>
 
 </div>
 </div>
@@ -376,7 +340,7 @@ Example usages: </p><div class="fragment"><div class="line"><span class="keyword
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="time__interp_8F90_source.html#l00299">299</a> of file <a class="el" href="time__interp_8F90_source.html">time_interp.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="time__interp_8F90_source.html#l00297">297</a> of file <a class="el" href="time__interp_8F90_source.html">time_interp.F90</a>.</p>
 
 </div>
 </div>
@@ -462,7 +426,7 @@ Example usages: </p><div class="fragment"><div class="line"><span class="keyword
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="time__interp_8F90_source.html#l00518">518</a> of file <a class="el" href="time__interp_8F90_source.html">time_interp.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="time__interp_8F90_source.html#l00516">516</a> of file <a class="el" href="time__interp_8F90_source.html">time_interp.F90</a>.</p>
 
 </div>
 </div>
@@ -548,7 +512,7 @@ Example usages: </p><div class="fragment"><div class="line"><span class="keyword
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="time__interp_8F90_source.html#l00518">518</a> of file <a class="el" href="time__interp_8F90_source.html">time_interp.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="time__interp_8F90_source.html#l00516">516</a> of file <a class="el" href="time__interp_8F90_source.html">time_interp.F90</a>.</p>
 
 </div>
 </div>
@@ -606,7 +570,7 @@ Example usages: </p><div class="fragment"><div class="line"><span class="keyword
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="time__interp_8F90_source.html#l00349">349</a> of file <a class="el" href="time__interp_8F90_source.html">time_interp.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="time__interp_8F90_source.html#l00347">347</a> of file <a class="el" href="time__interp_8F90_source.html">time_interp.F90</a>.</p>
 
 </div>
 </div>
@@ -664,7 +628,7 @@ Example usages: </p><div class="fragment"><div class="line"><span class="keyword
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="time__interp_8F90_source.html#l00349">349</a> of file <a class="el" href="time__interp_8F90_source.html">time_interp.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="time__interp_8F90_source.html#l00347">347</a> of file <a class="el" href="time__interp_8F90_source.html">time_interp.F90</a>.</p>
 
 </div>
 </div>

@@ -108,14 +108,17 @@ $(document).ready(function(){initNavTree('horiz__interp_8F90.html',''); initResi
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Types</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacehoriz__interp__mod_1_1horiz__interp__new.html">horiz_interp_new</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocates space and initializes a derived-type variable that contains pre-computed interpolation indices and weights.  <a href="interfacehoriz__interp__mod_1_1horiz__interp__new.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacehoriz__interp__mod_1_1horiz__interp.html">horiz_interp</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subroutine for performing the horizontal interpolation between two grids.  <a href="interfacehoriz__interp__mod_1_1horiz__interp.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
 <tr class="memitem:acdf98c1cb99d01572520e76a7e39069d"><td class="memItemLeft" align="right" valign="top"><a id="acdf98c1cb99d01572520e76a7e39069d"></a>
-subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>horiz_interp_init</b></td></tr>
+subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="horiz__interp_8F90.html#acdf98c1cb99d01572520e76a7e39069d">horiz_interp_init</a></td></tr>
+<tr class="memdesc:acdf98c1cb99d01572520e76a7e39069d"><td class="mdescLeft">&#160;</td><td class="mdescRight">writes version number to logfile.out <br /></td></tr>
 <tr class="separator:acdf98c1cb99d01572520e76a7e39069d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a1b8d3fd913e297091340ce12898dbb"><td class="memItemLeft" align="right" valign="top"><a id="a2a1b8d3fd913e297091340ce12898dbb"></a>
 subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>horiz_interp_new_1d</b> (Interp, lon_in, lat_in, lon_out, lat_out, verbose, interp_method, num_nbrs, max_dist, src_modulo, grid_at_center, mask_in, mask_out)</td></tr>
@@ -133,25 +136,31 @@ subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>horiz_interp_ne
 subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>horiz_interp_base_2d</b> (Interp, data_in, data_out, verbose, mask_in, mask_out, missing_value, missing_permit, err_msg, new_missing_handle)</td></tr>
 <tr class="separator:afb979f294a3aac82ecd686b67806cd16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a20ee6293f42627b3deabf7c4743aceb5"><td class="memItemLeft" align="right" valign="top"><a id="a20ee6293f42627b3deabf7c4743aceb5"></a>
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>horiz_interp_base_3d</b> (Interp, data_in, data_out, verbose, mask_in, mask_out, missing_value, missing_permit, err_msg)</td></tr>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="horiz__interp_8F90.html#a20ee6293f42627b3deabf7c4743aceb5">horiz_interp_base_3d</a> (Interp, data_in, data_out, verbose, mask_in, mask_out, missing_value, missing_permit, err_msg)</td></tr>
+<tr class="memdesc:a20ee6293f42627b3deabf7c4743aceb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload of interface horiz_interp_base_2d uses 3d arrays for data and mask this allows for multiple interpolations with one call. <br /></td></tr>
 <tr class="separator:a20ee6293f42627b3deabf7c4743aceb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a74b4a3a8c2087a3c79d336ac1ab749ec"><td class="memItemLeft" align="right" valign="top"><a id="a74b4a3a8c2087a3c79d336ac1ab749ec"></a>
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>horiz_interp_solo_1d</b> (data_in, lon_in, lat_in, lon_out, lat_out, data_out, verbose, mask_in, mask_out, interp_method, missing_value, missing_permit, num_nbrs, max_dist, src_modulo, grid_at_center)</td></tr>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="horiz__interp_8F90.html#a74b4a3a8c2087a3c79d336ac1ab749ec">horiz_interp_solo_1d</a> (data_in, lon_in, lat_in, lon_out, lat_out, data_out, verbose, mask_in, mask_out, interp_method, missing_value, missing_permit, num_nbrs, max_dist, src_modulo, grid_at_center)</td></tr>
+<tr class="memdesc:a74b4a3a8c2087a3c79d336ac1ab749ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interpolates from a rectangular grid to rectangular grid. interp_method can be the value conservative, bilinear or spherical. <a class="el" href="interfacehoriz__interp__mod_1_1horiz__interp__new.html" title="Allocates space and initializes a derived-type variable that contains pre-computed interpolation indi...">horiz_interp_new</a> don't need to be called before calling this routine. <br /></td></tr>
 <tr class="separator:a74b4a3a8c2087a3c79d336ac1ab749ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afe1ab7391f30ffb263e1c7e62fae3d47"><td class="memItemLeft" align="right" valign="top"><a id="afe1ab7391f30ffb263e1c7e62fae3d47"></a>
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>horiz_interp_solo_1d_src</b> (data_in, lon_in, lat_in, lon_out, lat_out, data_out, verbose, mask_in, mask_out, interp_method, missing_value, missing_permit, num_nbrs, max_dist, src_modulo, grid_at_center)</td></tr>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="horiz__interp_8F90.html#afe1ab7391f30ffb263e1c7e62fae3d47">horiz_interp_solo_1d_src</a> (data_in, lon_in, lat_in, lon_out, lat_out, data_out, verbose, mask_in, mask_out, interp_method, missing_value, missing_permit, num_nbrs, max_dist, src_modulo, grid_at_center)</td></tr>
+<tr class="memdesc:afe1ab7391f30ffb263e1c7e62fae3d47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interpolates from a uniformly spaced grid to any output grid. interp_method can be the value "onservative","bilinear" or "spherical". <a class="el" href="interfacehoriz__interp__mod_1_1horiz__interp__new.html" title="Allocates space and initializes a derived-type variable that contains pre-computed interpolation indi...">horiz_interp_new</a> don't need to be called before calling this routine. <br /></td></tr>
 <tr class="separator:afe1ab7391f30ffb263e1c7e62fae3d47"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aecc18fcbed4252ed3ea675543c7a9127"><td class="memItemLeft" align="right" valign="top"><a id="aecc18fcbed4252ed3ea675543c7a9127"></a>
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>horiz_interp_solo_2d</b> (data_in, lon_in, lat_in, lon_out, lat_out, data_out, verbose, mask_in, mask_out, interp_method, missing_value, missing_permit, num_nbrs, max_dist, src_modulo)</td></tr>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="horiz__interp_8F90.html#aecc18fcbed4252ed3ea675543c7a9127">horiz_interp_solo_2d</a> (data_in, lon_in, lat_in, lon_out, lat_out, data_out, verbose, mask_in, mask_out, interp_method, missing_value, missing_permit, num_nbrs, max_dist, src_modulo)</td></tr>
+<tr class="memdesc:aecc18fcbed4252ed3ea675543c7a9127"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interpolates from any grid to any grid. interp_method should be "spherical" <a class="el" href="interfacehoriz__interp__mod_1_1horiz__interp__new.html" title="Allocates space and initializes a derived-type variable that contains pre-computed interpolation indi...">horiz_interp_new</a> don't need to be called before calling this routine. <br /></td></tr>
 <tr class="separator:aecc18fcbed4252ed3ea675543c7a9127"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b93bc3b575fcd22d25be0ec2ffc6495"><td class="memItemLeft" align="right" valign="top"><a id="a7b93bc3b575fcd22d25be0ec2ffc6495"></a>
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>horiz_interp_solo_1d_dst</b> (data_in, lon_in, lat_in, lon_out, lat_out, data_out, verbose, mask_in, mask_out, interp_method, missing_value, missing_permit, num_nbrs, max_dist, src_modulo)</td></tr>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="horiz__interp_8F90.html#a7b93bc3b575fcd22d25be0ec2ffc6495">horiz_interp_solo_1d_dst</a> (data_in, lon_in, lat_in, lon_out, lat_out, data_out, verbose, mask_in, mask_out, interp_method, missing_value, missing_permit, num_nbrs, max_dist, src_modulo)</td></tr>
+<tr class="memdesc:a7b93bc3b575fcd22d25be0ec2ffc6495"><td class="mdescLeft">&#160;</td><td class="mdescRight">interpolates from any grid to rectangular longitude/latitude grid. interp_method should be "spherical". <a class="el" href="interfacehoriz__interp__mod_1_1horiz__interp__new.html" title="Allocates space and initializes a derived-type variable that contains pre-computed interpolation indi...">horiz_interp_new</a> don't need to be called before calling this routine. <br /></td></tr>
 <tr class="separator:a7b93bc3b575fcd22d25be0ec2ffc6495"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aee4f5bcca20baf92f63a7540e23d2e23"><td class="memItemLeft" align="right" valign="top"><a id="aee4f5bcca20baf92f63a7540e23d2e23"></a>
 subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>horiz_interp_solo_old</b> (data_in, wb, sb, dx, dy, lon_out, lat_out, data_out, verbose, mask_in, mask_out)</td></tr>
 <tr class="separator:aee4f5bcca20baf92f63a7540e23d2e23"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a01331e97bf44a5092a0a174a71b0029a"><td class="memItemLeft" align="right" valign="top"><a id="a01331e97bf44a5092a0a174a71b0029a"></a>
-subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>horiz_interp_del</b> (Interp)</td></tr>
+subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="horiz__interp_8F90.html#a01331e97bf44a5092a0a174a71b0029a">horiz_interp_del</a> (Interp)</td></tr>
+<tr class="memdesc:a01331e97bf44a5092a0a174a71b0029a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocates memory used by "horiz_interp_type" variables. Must be called before reinitializing with <a class="el" href="interfacehoriz__interp__mod_1_1horiz__interp__new.html" title="Allocates space and initializes a derived-type variable that contains pre-computed interpolation indi...">horiz_interp_new</a>. <br /></td></tr>
 <tr class="separator:a01331e97bf44a5092a0a174a71b0029a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af77c64ca3f1413639ab8cf1b70788712"><td class="memItemLeft" align="right" valign="top"><a id="af77c64ca3f1413639ab8cf1b70788712"></a>
 subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>horiz_interp_end</b></td></tr>

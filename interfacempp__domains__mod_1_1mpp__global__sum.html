@@ -97,6 +97,11 @@ $(document).ready(function(){initNavTree('interfacempp__domains__mod_1_1mpp__glo
 <div class="title">mpp_global_sum Interface Reference<div class="ingroups"><a class="el" href="group__mpp.html">MPP</a> &raquo; <a class="el" href="group__mpp__domains__mod.html">mpp_domains_mod</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Global sum of domain-decomposed arrays.<br  />
+ <em><a class="el" href="interfacempp__domains__mod_1_1mpp__global__sum.html" title="Global sum of domain-decomposed arrays.  mpp_global_sum is used to get the sum of a domain-decomposed...">mpp_global_sum</a></em> is used to get the sum of a domain-decomposed array on each PE. <em>MPP_TYPE_</em> can be of type <em>integer</em>, <em>complex</em>, or <em>real</em>; of 4-byte or 8-byte kind; of rank up to 5. <br  />
+Example usage: call mpp_global_sum( domain, field, flags )  
+ <a href="interfacempp__domains__mod_1_1mpp__global__sum.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -150,8 +155,12 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:gaade4313723e2e3dd453928a0ba51b91a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="mpp__domains_8F90_source.html#l01965">1965</a> of file <a class="el" href="mpp__domains_8F90_source.html">mpp_domains.F90</a>.</p>
+<div class="textblock"><p>Global sum of domain-decomposed arrays.<br  />
+ <em><a class="el" href="interfacempp__domains__mod_1_1mpp__global__sum.html" title="Global sum of domain-decomposed arrays.  mpp_global_sum is used to get the sum of a domain-decomposed...">mpp_global_sum</a></em> is used to get the sum of a domain-decomposed array on each PE. <em>MPP_TYPE_</em> can be of type <em>integer</em>, <em>complex</em>, or <em>real</em>; of 4-byte or 8-byte kind; of rank up to 5. <br  />
+Example usage: call mpp_global_sum( domain, field, flags ) </p>
+<dl class="section note"><dt>Note</dt><dd>All PEs in a domain decomposition must call <em><a class="el" href="interfacempp__domains__mod_1_1mpp__global__sum.html" title="Global sum of domain-decomposed arrays.  mpp_global_sum is used to get the sum of a domain-decomposed...">mpp_global_sum</a></em>, and each will have the result upon exit. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="mpp__domains_8F90_source.html#l01945">1945</a> of file <a class="el" href="mpp__domains_8F90_source.html">mpp_domains.F90</a>.</p>
 </div><hr/>The documentation for this interface was generated from the following file:<ul>
 <li>mpp/<a class="el" href="mpp__domains_8F90_source.html">mpp_domains.F90</a></li>
 </ul>

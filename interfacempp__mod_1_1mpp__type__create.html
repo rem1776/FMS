@@ -97,6 +97,9 @@ $(document).ready(function(){initNavTree('interfacempp__mod_1_1mpp__type__create
 <div class="title">mpp_type_create Interface Reference<div class="ingroups"><a class="el" href="group__mpp.html">MPP</a> &raquo; <a class="el" href="group__mpp__mod.html">mpp_mod</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Initialize <a class="el" href="group__mpp__mod.html">mpp_mod</a>.  
+ <a href="interfacempp__mod_1_1mpp__type__create.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -126,8 +129,41 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:ga81e0c5e3d0627627a226cda225c203f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="mpp_8F90_source.html#l00496">496</a> of file <a class="el" href="mpp_8F90_source.html">mpp.F90</a>.</p>
+<div class="textblock"><p>Initialize <a class="el" href="group__mpp__mod.html">mpp_mod</a>. </p>
+<p>Called to initialize the <code>mpp_mod</code> package. It is recommended that this call be the first executed line in your program. It sets the number of PEs assigned to this run (acquired from the command line, or through the environment variable <code>NPES</code>), and associates an ID number to each PE. These can be accessed by calling <a class="el" href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a> and <a class="el" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>. <br  />
+ Example usage: </p><pre class="fragment">       call mpp_init( flags )
+</pre><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">flags"</td><td>TYPE="integer"&gt; <code>flags</code> can be set to <code>MPP_VERBOSE</code> to have <code>mpp_mod</code> keep you informed of what it's up to. &lt;/IN&gt; &lt;/SUBROUTINE&gt;</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Exit <code><a class="el" href="group__mpp__mod.html">mpp_mod</a></code>.</p>
+<p>Called at the end of the run, or to re-initialize <code>mpp_mod</code>, should you require that for some odd reason.</p>
+<p>This call implies synchronization across all PEs.</p>
+<p><br  />
+Example usage: </p><pre class="fragment">       call mpp_exit()
+</pre><p>Allocate module internal workspace. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Integer</td><td>to set stack size to(in words) <code>mpp_mod</code> maintains a private internal array called <code>mpp_stack</code> for private workspace. This call sets the length, in words, of this array.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>The <code>mpp_init</code> call sets this workspace length to a default of 32768, and this call may be used if a longer workspace is needed.</p>
+<p>This call implies synchronization across all PEs.</p>
+<p>This workspace is symmetrically allocated, as required for efficient communication on SGI and Cray MPP systems. Since symmetric allocation must be performed by <em>all</em> PEs in a job, this call must also be called by all PEs, using the same value of <code>n</code>. Calling <code>mpp_set_stack_size</code> from a subset of PEs, or with unequal argument <code>n</code>, may cause the program to hang.</p>
+<p>If any MPP call using <code>mpp_stack</code> overflows the declared stack array, the program will abort with a message specifying the stack length that is required. Many users wonder why, if the required stack length can be computed, it cannot also be specified at that point. This cannot be automated because there is no way for the program to know if all PEs are present at that call, and with equal values of <code>n</code>. The program must be rerun by the user with the correct argument to <code>mpp_set_stack_size</code>, called at an appropriate point in the code where all PEs are known to be present. @verbose call mpp_set_stack_size(n)</p>
+<p>Create a <a class="el" href="structmpp__mod_1_1mpp__type.html" title="Data types for generalized data transfer (e.g. MPI_Type)">mpp_type</a> variable </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">field</td><td>A field of any numerical or logical type </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">array_of_subsizes</td><td>Integer array of subsizes </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">array_of_starts</td><td>Integer array of starts </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">dtype_out</td><td>Output variable for created <a class="el" href="structmpp__mod_1_1mpp__type.html">mpp_type</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="mpp_8F90_source.html#l00490">490</a> of file <a class="el" href="mpp_8F90_source.html">mpp.F90</a>.</p>
 </div><hr/>The documentation for this interface was generated from the following file:<ul>
 <li>mpp/<a class="el" href="mpp_8F90_source.html">mpp.F90</a></li>
 </ul>

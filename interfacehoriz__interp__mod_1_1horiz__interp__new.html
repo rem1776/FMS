@@ -97,6 +97,9 @@ $(document).ready(function(){initNavTree('interfacehoriz__interp__mod_1_1horiz__
 <div class="title">horiz_interp_new Interface Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Allocates space and initializes a derived-type variable that contains pre-computed interpolation indices and weights.  
+ <a href="interfacehoriz__interp__mod_1_1horiz__interp__new.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -114,8 +117,24 @@ subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>horiz_interp_ne
 <tr class="separator:ae7314f0ec42c07bbedfca67080aa9c5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="horiz__interp_8F90_source.html#l00132">132</a> of file <a class="el" href="horiz__interp_8F90_source.html">horiz_interp.F90</a>.</p>
+<div class="textblock"><p>Allocates space and initializes a derived-type variable that contains pre-computed interpolation indices and weights. </p>
+<p>Allocates space and initializes a derived-type variable that contains pre-computed interpolation indices and weights for improved performance of multiple interpolations between the same grids. This routine does not need to be called if you are doing a single grid-to-grid interpolation.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lon_in</td><td>Longitude (in radians) for source data grid. You can pass 1-D lon_in to represent the geographical longitude of regular lon/lat grid, or just pass geographical longitude(lon_in is 2-D). The grid location may be located at grid cell edge or center, decided by optional argument "grid_at_center".</td></tr>
+    <tr><td class="paramname">lat_in</td><td>Latitude (in radians) for source data grid. You can pass 1-D lat_in to represent the geographical latitude of regular lon/lat grid, or just pass geographical latitude(lat_in is 2-D). The grid location may be located at grid cell edge or center, decided by optional argument "grid_at_center".</td></tr>
+    <tr><td class="paramname">lon_out</td><td>Longitude (in radians) for destination data grid. You can pass 1-D lon_out to represent the geographical longitude of regular lon/lat grid, or just pass geographical longitude(lon_out is 2-D). The grid location may be located at grid cell edge or center, decided by optional argument "grid_at_center".</td></tr>
+    <tr><td class="paramname">lat_out</td><td>Latitude (in radians) for destination data grid. You can pass 1-D lat_out to represent the geographical latitude of regular lon/lat grid, or just pass geographical latitude(lat_out is 2-D). The grid location may be located at grid cell edge or center, decided by optional argument "grid_at_center".</td></tr>
+    <tr><td class="paramname">verbose</td><td>Integer flag that controls the amount of printed output. verbose = 0, no output; = 1, min,max,means; = 2, still more</td></tr>
+    <tr><td class="paramname">interp_method</td><td>interpolation method, = "conservative", using conservation scheme, = "bilinear", using bilinear interpolation, = "spherical",using spherical regrid. = "bicubic", using bicubic interpolation. The default value is "convervative".</td></tr>
+    <tr><td class="paramname">src_modulo</td><td>Indicate the source data grid is cyclic or not.</td></tr>
+    <tr><td class="paramname">grid_at_center</td><td>Indicate the data is on the center of grid box or the edge of grid box. When true, the data is on the center of grid box. default vaule is false. This option is only available when interp_method = "bilinear" or "bicubic".</td></tr>
+    <tr><td class="paramname">Interp</td><td>A derived-type variable containing indices and weights used for subsequent interpolations. To reinitialize this variable for a different grid-to-grid interpolation you must first use the "horiz_interp_del" interface. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="horiz__interp_8F90_source.html#l00127">127</a> of file <a class="el" href="horiz__interp_8F90_source.html">horiz_interp.F90</a>.</p>
 </div><hr/>The documentation for this interface was generated from the following file:<ul>
 <li>horiz_interp/<a class="el" href="horiz__interp_8F90_source.html">horiz_interp.F90</a></li>
 </ul>

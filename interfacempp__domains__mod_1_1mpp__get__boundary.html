@@ -97,6 +97,11 @@ $(document).ready(function(){initNavTree('interfacempp__domains__mod_1_1mpp__get
 <div class="title">mpp_get_boundary Interface Reference<div class="ingroups"><a class="el" href="group__mpp.html">MPP</a> &raquo; <a class="el" href="group__mpp__domains__mod.html">mpp_domains_mod</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Get the boundary data for symmetric domain when the data is at C, E, or N-cell center.<br  />
+ <em><a class="el" href="interfacempp__domains__mod_1_1mpp__get__boundary.html" title="Get the boundary data for symmetric domain when the data is at C, E, or N-cell center....">mpp_get_boundary</a></em> is used to get the boundary data for symmetric domain when the data is at C, E, or N-cell center. For cubic grid, the data should always at C-cell center. <br  />
+Example usage:  
+ <a href="interfacempp__domains__mod_1_1mpp__get__boundary.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -126,8 +131,13 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:ga9dd9c79d1ca24792c478a81eaca61e87"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="mpp__domains_8F90_source.html#l01533">1533</a> of file <a class="el" href="mpp__domains_8F90_source.html">mpp_domains.F90</a>.</p>
+<div class="textblock"><p>Get the boundary data for symmetric domain when the data is at C, E, or N-cell center.<br  />
+ <em><a class="el" href="interfacempp__domains__mod_1_1mpp__get__boundary.html" title="Get the boundary data for symmetric domain when the data is at C, E, or N-cell center....">mpp_get_boundary</a></em> is used to get the boundary data for symmetric domain when the data is at C, E, or N-cell center. For cubic grid, the data should always at C-cell center. <br  />
+Example usage: </p>
+<pre class="fragment">               call mpp_get_boundary(domain, field, ebuffer, sbuffer, wbuffer, nbuffer)
+</pre><p> Get boundary information from domain and field and store in buffers </p>
+
+<p class="definition">Definition at line <a class="el" href="mpp__domains_8F90_source.html#l01517">1517</a> of file <a class="el" href="mpp__domains_8F90_source.html">mpp_domains.F90</a>.</p>
 </div><hr/>The documentation for this interface was generated from the following file:<ul>
 <li>mpp/<a class="el" href="mpp__domains_8F90_source.html">mpp_domains.F90</a></li>
 </ul>

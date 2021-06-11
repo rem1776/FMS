@@ -104,15 +104,15 @@ $(document).ready(function(){initNavTree('group__sat__vapor__pres__mod.html','')
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Types</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacesat__vapor__pres__mod_1_1lookup__es.html">lookup_es</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacesat__vapor__pres__mod_1_1escomp.html">escomp</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacesat__vapor__pres__mod_1_1lookup__des.html">lookup_des</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">For the given temperatures, returns the derivative of saturation vapor pressure with respect to temperature.  <a href="interfacesat__vapor__pres__mod_1_1lookup__des.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacesat__vapor__pres__mod_1_1descomp.html">descomp</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacesat__vapor__pres__mod_1_1lookup__es__des.html">lookup_es_des</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">For the given temperatures, returns the saturation vapor pressure and the derivative of saturation vapor pressure with respect to temperature.  <a href="interfacesat__vapor__pres__mod_1_1lookup__es__des.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacesat__vapor__pres__mod_1_1lookup__es2.html">lookup_es2</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -127,8 +127,10 @@ Data Types</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacesat__vapor__pres__mod_1_1lookup__es3__des3.html">lookup_es3_des3</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacesat__vapor__pres__mod_1_1compute__qs.html">compute_qs</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">For the given temperatures, pressures and optionally vapor specific humidity, returns the specific humidity at saturation (optionally at relative humidity hc instead of at saturation) and optionally the derivative of saturation specific humidity w.r.t. temperature, and the saturation vapor pressure.  <a href="interfacesat__vapor__pres__mod_1_1compute__qs.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacesat__vapor__pres__mod_1_1compute__mrs.html">compute_mrs</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">For the given temperatures, pressures and optionally vapor mixing ratio, returns the vapor mixing ratio at saturation (optionally at relative humidity hc instead of at saturation) and optionally the derivative of saturation vapor mixing ratio w.r.t. temperature, and the saturation vapor pressure.  <a href="interfacesat__vapor__pres__mod_1_1compute__mrs.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacesat__vapor__pres__mod_1_1temp__check.html">temp_check</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -560,57 +562,7 @@ logical&#160;</td><td class="memItemRight" valign="bottom"><b>construct_table_wr
 
          call compute_mrs (temp, press, mrs, mr, hc, dmrsdT, esat,
                            err_msg, es_over_liq)
-</pre> 
-
-<h3><a id="lookup_es"></a>lookup_es Interface</h3><div class="textblock">For the given temperatures, returns the saturation vapor pressuresFor the given temperatures these routines return the saturation vapor pressure(esat). The return values are derived from lookup tables. Example usage: </p><div class="fragment"><div class="line"><span class="keyword">call </span>lookup_es( temp, esat, err_msg ) </div>
-</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">temp</td><td>Temperature in degrees Kelvin. </td></tr>
-    <tr><td class="paramname">esat</td><td>Saturation vapor pressure in pascals. May be a scalar, 1d, 2d, or 3d array Must have the same order and size as temp. </td></tr>
-    <tr><td class="paramname">err_msg</td><td>Character string containing error message to be returned to calling routine. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">FATAL</td><td>table overflow, nbad=## Temperature(s) provided to the saturation vapor pressure lookup are outside the valid range of the lookup table (-160 to 100 deg C). This may be due to a numerical instability in the model. Information should have been printed to standard output to help determine where the instability may have occurred. If the lookup table needs a larger temperature range, then parameters in the module header must be modified. </td></tr>
-  </table>
-  </dd>
-</dl>
-</div>
-
-<h3><a id="lookup_des"></a>lookup_des Interface</h3><div class="textblock">For the given temperatures, returns the derivative of saturation vapor pressure with respect to temperature.For the given temperatures these routines return the derivtive of esat w.r.t. temperature (desat). The return values are derived from lookup tables.<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">temp</td><td>Temperature in degrees kelvin </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">desat</td><td>Derivative of saturation vapor pressure w.r.t. temperature in pascals/degree. May be a scalar, 1d, 2d, or 3d array. Must have the same order and size as temp. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">err_msg</td><td>Character string containing error message to be returned to calling routine.</td></tr>
-  </table>
-  </dd>
-</dl>
-<p>@error FATAL table overflow, nbad=## Temperature(s) provided to the saturation vapor pressure lookup are outside the valid range of the lookup table (-160 to 100 deg C). This may be due to a numerical instability in the model. Information should have been printed to standard output to help determine where the instability may have occurred. If the lookup table needs a larger temperature range, then parameters in the module header must be modified.<br  />
-Example usage: </p><div class="fragment"><div class="line"><span class="keyword">call </span>lookup_des( temp, desat) </div>
-</div><!-- fragment --> </div>
-
-<h3><a id="lookup_es_des"></a>lookup_es_des Interfaces</h3><div class="textblock">For the given temperatures, returns the saturation vapor pressure and the derivative of saturation vapor pressure with respect to temperature.For the given temperatures these routines return the saturation vapor pressure (esat) and the derivative of esat w.r.t temperature (desat). The return values are derived from lookup tables (see notes below).<br  />
-Example usage: </p><div class="fragment"><div class="line"><span class="keyword">call </span>lookup_es_des( temp, esat, desat, err_msg ) </div>
-</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">temp</td><td>Temperature in degrees Kelvin. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">esat</td><td>Saturation vapor pressure in pascals. May be a scalar, 1d, 2d, or 3d array. Must have the same order and size as temp. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">desat</td><td>Derivative of saturation vapor pressure w.r.t. temperature in pascals/degree. May be a scalar, 1d, 2d, or 3d array. Must have the same order and size as temp. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">err_msg</td><td>Character string containing error message to be returned to calling routine. @error FATAL table overflow, nbad=## Temperature(s) provided to the saturation vapor pressure lookup are outside the valid range of the lookup table (-160 to 100 deg C). This may be due to a numerical instability in the model. Information should have been printed to standard output to help determine where the instability may have occurred. If the lookup table needs a larger temperature range, then parameters in the module header must be modified. </td></tr>
-  </table>
-  </dd>
-</dl>
-</div>
-
-<h3><a id="compute_qs"></a>compute_qs Interface</h3><div class="textblock">For the given temperatures, pressures and optionally vapor specific humidity, returns the specific humidity at saturation (optionally at relative humidity hc instead of at saturation) and optionally the derivative of saturation specific humidity w.r.t. temperature, and the saturation vapor pressure.For the input temperature and pressure these routines return the specific humidity (qsat) at saturation (unless optional argument hc is used to specify the relative humidity at which qsat should apply) and, if desired, the derivative of qsat w.r.t temperature (dqsdT) and / or the saturation vapor pressure (esat). If the optional input argument specific humidity (q) is present, the exact expression for qs is used; if q is not present the tradit- ional form (valid at saturation) is used. if the optional qsat derivative argument is present, the derivative of qsat w.r.t. temperature will also be returned, defined consistent with the expression used for qsat. The return values are derived from lookup tables (see notes below).Example usage: </p><div class="fragment"><div class="line"><span class="keyword">call </span>compute_qs( temp, press, qsat, q, hc, dqsdt, esat, err_msg ) </div>
-</div><!-- fragment --> </div>
-
-<h3><a id="compute_mrs"></a>compute_mrs Interface</h3><div class="textblock">For the given temperatures, pressures and optionally vapor mixing ratio, returns the vapor mixing ratio at saturation (optionally at relative humidity hc instead of at saturation) and optionally the derivative of saturation vapor mixing ratio w.r.t. temperature, and the saturation vapor pressure.For the input temperature and pressure these routines return the vapor mixing ratio (mrsat) at saturation (unless optional argument hc is used to specify the relative humidity at which mrsat should apply) and, if desired, the derivative of mrsat w.r.t temperature (dmrsdT) and / or the saturation vapor pressure (esat). If the optional input argument specific humidity (mr) is present, the exact expression for mrs is used; if qr is not present the tradit- ional form (valid at saturation) is used. if the optional mrsat derivative argument is present, the derivative of mrsat w.r.t. temperature will also be returned, defined consistent with the expression used for mrsat. The return values are derived from lookup tables (see notes below).<br  />
-Example usage: </p><div class="fragment"><div class="line"><span class="keyword">call </span>compute_mrs( temp, press, mrsat, mr, hc, dmrsdt, esat,</div>
-<div class="line">                      err_msg ) </div>
-</div><!-- fragment --> </div></div><!-- contents -->
+</pre> </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

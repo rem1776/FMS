@@ -292,10 +292,19 @@ var group__fms__io__mod =
     [ "domain_ug", "group__fms__io__mod.html#gafa99d42a5994c78c8f5585d5a0c452cc", null ],
     [ "field_dimension_order", "group__fms__io__mod.html#ga0355caa261b075fb0b35b7d0a851dddb", null ],
     [ "field_dimension_sizes", "group__fms__io__mod.html#gaa4a68371eaded67ad74c60a8b093a4e9", null ],
+    [ "gsiz", "group__fms__io__mod.html#ga4b12b7d253146f82105f10c66c7b176c", null ],
+    [ "id_axes", "group__fms__io__mod.html#gaaa9d60508430c93160cca012ad8c9696", null ],
     [ "idx", "group__fms__io__mod.html#gaefcc9171bbeb34fc08b21fdc548c086c", null ],
     [ "imin", "group__fms__io__mod.html#gaa060957bc5333a2f5427e0d1fb7991b6", null ],
+    [ "initialized", "group__fms__io__mod.html#gabedc417ac331461c0a5a4b5274b2bc6a", null ],
+    [ "je", "group__fms__io__mod.html#ga532c1b6b1fa5dbdb282d4a98e83ac1d3", null ],
+    [ "jshift", "group__fms__io__mod.html#gae0bac55ef10a52d6e55fff40ec78bc43", null ],
+    [ "mandatory", "group__fms__io__mod.html#ga07286610c2dc86daba86cd6972640460", null ],
     [ "min", "group__fms__io__mod.html#gafd7fb158d67df7ec976b4d88bbaaa9ff", null ],
     [ "nelems", "group__fms__io__mod.html#ga767c293de8ce5d39d506a43fc9276600", null ],
     [ "nelems_for_current_rank", "group__fms__io__mod.html#gab9e77d7f5d19221259b6ef6f2e6fc3a8", null ],
-    [ "sense", "group__fms__io__mod.html#ga8ca7993c91c39425803b10a08d07cb9f", null ]
+    [ "owns_data", "group__fms__io__mod.html#ga6ec6e76cc154f128391707191f8b9889", null ],
+    [ "sense", "group__fms__io__mod.html#ga8ca7993c91c39425803b10a08d07cb9f", null ],
+    [ "siz", "group__fms__io__mod.html#gacf090873bb299eba6de8d4e7478418ed", null ],
+    [ "y_halo", "group__fms__io__mod.html#ga811057b37f9270484c059074282b6811", null ]
 ];

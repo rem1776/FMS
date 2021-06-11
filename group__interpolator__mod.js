@@ -1,13 +1,5 @@
 var group__interpolator__mod =
 [
-    [ "interpolator", "interfaceinterpolator__mod_1_1interpolator.html", [
-      [ "interpolator_2d", "group__interpolator__mod.html#ga8337c01e0d03a350bf26d14ff6d99bbe", null ],
-      [ "interpolator_2d_no_time_axis", "group__interpolator__mod.html#gae97ac81cd67701862cff730c113a65f3", null ],
-      [ "interpolator_3d", "group__interpolator__mod.html#ga3deb4a0f23ad2bffa3a99472154338d8", null ],
-      [ "interpolator_3d_no_time_axis", "group__interpolator__mod.html#gab6269f2c25d0179f8e873a1f1df71324", null ],
-      [ "interpolator_4d", "group__interpolator__mod.html#ga73e907463b931b544ba673eaefabf5db", null ],
-      [ "interpolator_4d_no_time_axis", "group__interpolator__mod.html#ga310ff5fef6875f1fc7b1748a0922de21", null ]
-    ] ],
     [ "assignment(=)", "interfaceinterpolator__mod_1_1assignment_07_0a_08.html", [
       [ "interpolate_type_eq", "group__interpolator__mod.html#ga91280b9cf9e7bc366a45fda218476956", null ]
     ] ],
@@ -59,9 +51,6 @@ var group__interpolator__mod =
       [ "vert_interp", "group__interpolator__mod.html#gaa561a86db0a2aefee6b39786ea91636c", null ],
       [ "vertical_indices", "group__interpolator__mod.html#gaf56a04972cb1b681ce857e9906fd9560", null ]
     ] ],
-    [ "interpolator Interface", "group__interpolator__mod.html#interpolator", null ],
-    [ "assignment Interface", "group__interpolator__mod.html#assignment", null ],
-    [ "interp_weighted_scalar Interface", "group__interpolator__mod.html#interp_weighted_scalar", null ],
     [ "cart_to_latlon", "group__interpolator__mod.html#ga6d7828eb74252f340328684ae223f785", null ],
     [ "cell_center2", "group__interpolator__mod.html#ga444568a0a574084630d91b8da59f3bc5", null ],
     [ "check_climo_units", "group__interpolator__mod.html#ga964d51ef7fd4e420ca8306497ef88279", null ],

@@ -53,7 +53,6 @@ var group__time__interp__external2__mod =
       [ "time_interp_external_2d", "group__time__interp__external2__mod.html#gacb05b375b1756deb19ccbf53298665c4", null ],
       [ "time_interp_external_3d", "group__time__interp__external2__mod.html#gaae27f4ea4e36d3d27fd6b871ac20b881", null ]
     ] ],
-    [ "time_interp_external Interface", "group__time__interp__external2__mod.html#time_interp_external2", null ],
     [ "init_external_field", "group__time__interp__external2__mod.html#gad888791a2a1fe6807fc76dd4b966c175", null ],
     [ "load_record", "group__time__interp__external2__mod.html#ga451c1e780a773cc5771675f5f91b7d3b", null ],
     [ "time_interp_external_0d", "group__time__interp__external2__mod.html#gadb3171b0515066976f4f3fcab62cc205", null ],

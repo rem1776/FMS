@@ -94,9 +94,12 @@ $(document).ready(function(){initNavTree('interfacetopography__mod_1_1get__topog
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="interfacetopography__mod_1_1get__topog__mean-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">get_topog_mean Interface Reference<div class="ingroups"><a class="el" href="group__topography.html">Topography</a> &raquo; <a class="el" href="group__topography__mod.html">topography_mod</a></div></div>  </div>
+<div class="title">get_topog_mean Interface Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Returns a "realistic" mean surface height field.  
+ <a href="interfacetopography__mod_1_1get__topog__mean.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -108,8 +111,21 @@ logical function&#160;</td><td class="memItemRight" valign="bottom"><b>get_topog
 <tr class="separator:gacceb546ce02f4b3e7ee5d9ad08982981"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00091">91</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
+<div class="textblock"><p>Returns a "realistic" mean surface height field. </p>
+<p>Returns realistic mountains on a latitude-longtude grid. The returned field is the mean topography for the given grid boxes. Computed using a conserving area-weighted interpolation. The current input data set is the 1/6 degree Navy mean topography.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">blon</td><td>The longitude (in radians) at grid box boundaries. </td></tr>
+    <tr><td class="paramname">blat</td><td>The latitude (in radians) at grid box boundaries. </td></tr>
+    <tr><td class="paramname">zmean</td><td>The mean surface height (meters). The size of this field must be size(blon)-1 by size(blat)-1. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A logical value of TRUE is returned if the surface height field was successfully created. A value of FALSE may be returned if the input topography data set was not readable.</dd></dl>
+<p><br  />
+Example usage: </p><div class="fragment"><div class="line">flag = get_topog_mean( blon, blat, zmean )</div>
+</div><!-- fragment --> 
+<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00089">89</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
 </div><hr/>The documentation for this interface was generated from the following file:<ul>
 <li>topography/<a class="el" href="topography_8F90_source.html">topography.F90</a></li>
 </ul>

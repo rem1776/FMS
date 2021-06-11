@@ -1,11 +1,5 @@
 var group__sat__vapor__pres__mod =
 [
-    [ "lookup_es", "interfacesat__vapor__pres__mod_1_1lookup__es.html", [
-      [ "lookup_es_0d", "group__sat__vapor__pres__mod.html#gac62fe3871a9219814a8cac63216e3ade", null ],
-      [ "lookup_es_1d", "group__sat__vapor__pres__mod.html#ga17f8acecebacf15224a7ba8ea49db03b", null ],
-      [ "lookup_es_2d", "group__sat__vapor__pres__mod.html#ga9f6a019a67ae9eace422d7e2a6ee8415", null ],
-      [ "lookup_es_3d", "group__sat__vapor__pres__mod.html#ga27238eff7347501f9388c78fee6a7a4a", null ]
-    ] ],
     [ "escomp", "interfacesat__vapor__pres__mod_1_1escomp.html", [
       [ "lookup_es_0d", "group__sat__vapor__pres__mod.html#gac62fe3871a9219814a8cac63216e3ade", null ],
       [ "lookup_es_1d", "group__sat__vapor__pres__mod.html#ga17f8acecebacf15224a7ba8ea49db03b", null ],
@@ -88,10 +82,5 @@ var group__sat__vapor__pres__mod =
       [ "show_all_bad_1d", "group__sat__vapor__pres__mod.html#gac3ab79d24031d7b5f5294757b899e626", null ],
       [ "show_all_bad_2d", "group__sat__vapor__pres__mod.html#gabd9ea9d6f62378b9712ec835571633d6", null ],
       [ "show_all_bad_3d", "group__sat__vapor__pres__mod.html#ga6b61605f35f1fe0dddc01bb770ee2656", null ]
-    ] ],
-    [ "lookup_es Interface", "group__sat__vapor__pres__mod.html#lookup_es", null ],
-    [ "lookup_des Interface", "group__sat__vapor__pres__mod.html#lookup_des", null ],
-    [ "lookup_es_des Interfaces", "group__sat__vapor__pres__mod.html#lookup_es_des", null ],
-    [ "compute_qs Interface", "group__sat__vapor__pres__mod.html#compute_qs", null ],
-    [ "compute_mrs Interface", "group__sat__vapor__pres__mod.html#compute_mrs", null ]
+    ] ]
 ];

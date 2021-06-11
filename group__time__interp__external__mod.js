@@ -54,7 +54,6 @@ var group__time__interp__external__mod =
       [ "time_interp_external_2d", "group__time__interp__external__mod.html#gacb05b375b1756deb19ccbf53298665c4", null ],
       [ "time_interp_external_3d", "group__time__interp__external__mod.html#gaae27f4ea4e36d3d27fd6b871ac20b881", null ]
     ] ],
-    [ "time_interp_external Interface", "group__time__interp__external__mod.html#time_interp_external", null ],
     [ "init_external_field", "group__time__interp__external__mod.html#ga8057518b04011a1abc54f798ad71ce33", null ],
     [ "time_interp_external_0d", "group__time__interp__external__mod.html#gab379bf79edbcf413338e921ec587c100", null ],
     [ "time_interp_external_0d", "group__time__interp__external__mod.html#gaf7d6b13f30c5023d0aaa3ef1ad3fc670", null ],

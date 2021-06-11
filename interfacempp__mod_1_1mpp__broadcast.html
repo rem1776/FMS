@@ -97,6 +97,9 @@ $(document).ready(function(){initNavTree('interfacempp__mod_1_1mpp__broadcast.ht
 <div class="title">mpp_broadcast Interface Reference<div class="ingroups"><a class="el" href="group__mpp.html">MPP</a> &raquo; <a class="el" href="group__mpp__mod.html">mpp_mod</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Perform parallel broadcasts.  
+ <a href="interfacempp__mod_1_1mpp__broadcast.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -249,8 +252,25 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:ga10f7708cb57e7e339921ad2e95426b0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="mpp_8F90_source.html#l01030">1030</a> of file <a class="el" href="mpp_8F90_source.html">mpp.F90</a>.</p>
+<div class="textblock"><p>Perform parallel broadcasts. </p>
+<p>The <code><a class="el" href="interfacempp__mod_1_1mpp__broadcast.html" title="Perform parallel broadcasts.">mpp_broadcast</a></code> call has been added because the original syntax (using <code>ALL_PES</code> in <code><a class="el" href="interfacempp__mod_1_1mpp__transmit.html" title="Basic message-passing call.">mpp_transmit</a></code>) did not support a broadcast across a pelist.</p>
+<p><code>MPP_TYPE_</code> corresponds to any 4-byte and 8-byte variant of <code>integer, real, complex, logical</code> variables, of rank 0 or 1. A contiguous block from a multi-dimensional array may be passed by its starting address and its length, as in <code>f77</code>.</p>
+<p>Global broadcasts through the <code>ALL_PES</code> argument to &lt;LINK
+ SRC="#mpp_transmit"&gt;<code><a class="el" href="interfacempp__mod_1_1mpp__transmit.html" title="Basic message-passing call.">mpp_transmit</a></code>&lt;/LINK&gt; are still provided for backward-compatibility.</p>
+<p>If <code>pelist</code> is omitted, the context is assumed to be the current pelist. <code>from_pe</code> must belong to the current pelist. This call implies synchronization across the PEs in <code>pelist</code>, or the current pelist if <code>pelist</code> is absent.</p>
+<p><br  />
+Example usage: </p><pre class="fragment">       call mpp_broadcast( data, length, from_pe, pelist )
+</pre><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">data</td><td>Data to broadcast </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">length</td><td>Length of data to broadcast </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">from_pe</td><td>PE to send the data from </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">pelist</td><td>List of PE's to broadcast across, if not provided uses current list </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="mpp_8F90_source.html#l01013">1013</a> of file <a class="el" href="mpp_8F90_source.html">mpp.F90</a>.</p>
 </div><hr/>The documentation for this interface was generated from the following file:<ul>
 <li>mpp/<a class="el" href="mpp_8F90_source.html">mpp.F90</a></li>
 </ul>

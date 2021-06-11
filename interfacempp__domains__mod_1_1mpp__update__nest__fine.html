@@ -97,6 +97,10 @@ $(document).ready(function(){initNavTree('interfacempp__domains__mod_1_1mpp__upd
 <div class="title">mpp_update_nest_fine Interface Reference<div class="ingroups"><a class="el" href="group__mpp.html">MPP</a> &raquo; <a class="el" href="group__mpp__domains__mod.html">mpp_domains_mod</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Pass the data from coarse grid to fill the buffer to be ready to be interpolated nto fine grid. <br  />
+Example usage:  
+ <a href="interfacempp__domains__mod_1_1mpp__update__nest__fine.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -156,8 +160,13 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:gaf707795819cda30cb09714a36e54b7fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="mpp__domains_8F90_source.html#l01311">1311</a> of file <a class="el" href="mpp__domains_8F90_source.html">mpp_domains.F90</a>.</p>
+<div class="textblock"><p>Pass the data from coarse grid to fill the buffer to be ready to be interpolated nto fine grid. <br  />
+Example usage: </p>
+<pre class="fragment">           call mpp_update_nest_fine(field, nest_domain, wbuffer, ebuffer, sbuffer,
+                       nbuffer, nest_level, flags, complete, position, extra_halo, name,
+                       tile_count)
+</pre> 
+<p class="definition">Definition at line <a class="el" href="mpp__domains_8F90_source.html#l01301">1301</a> of file <a class="el" href="mpp__domains_8F90_source.html">mpp_domains.F90</a>.</p>
 </div><hr/>The documentation for this interface was generated from the following file:<ul>
 <li>mpp/<a class="el" href="mpp__domains_8F90_source.html">mpp_domains.F90</a></li>
 </ul>

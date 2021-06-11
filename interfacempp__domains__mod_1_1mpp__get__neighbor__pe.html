@@ -97,6 +97,9 @@ $(document).ready(function(){initNavTree('interfacempp__domains__mod_1_1mpp__get
 <div class="title">mpp_get_neighbor_pe Interface Reference<div class="ingroups"><a class="el" href="group__mpp.html">MPP</a> &raquo; <a class="el" href="group__mpp__domains__mod.html">mpp_domains_mod</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Retrieve PE number of a neighboring domain.  
+ <a href="interfacempp__domains__mod_1_1mpp__get__neighbor__pe.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -108,8 +111,14 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:ga29015cef40cb50bd128ed3b4e3a79839"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="mpp__domains_8F90_source.html#l02087">2087</a> of file <a class="el" href="mpp__domains_8F90_source.html">mpp_domains.F90</a>.</p>
+<div class="textblock"><p>Retrieve PE number of a neighboring domain. </p>
+<p>Given a 1-D or 2-D domain decomposition, this call allows users to retrieve the PE number of an adjacent PE-domain while taking into account that the domain may have holes (masked) and/or have cyclic boundary conditions and/or a folded edge. Which PE-domain will be retrived will depend on "direction": +1 (right) or -1 (left) for a 1-D domain decomposition and either NORTH, SOUTH, EAST, WEST, NORTH_EAST, SOUTH_EAST, SOUTH_WEST, or NORTH_WEST for a 2-D decomposition. If no neighboring domain exists (masked domain), then the returned "pe" value will be set to NULL_PE.<br  />
+ <br  />
+Example usage: </p><pre class="fragment">               call mpp_get_neighbor_pe( domain1d, direction=+1   , pe)
+</pre><p>Set pe to the neighbor pe number that is to the right of the current pe </p><pre class="fragment">               call mpp_get_neighbor_pe( domain2d, direction=NORTH, pe)
+</pre><p>Get neighbor pe number that's above/north of the current pe </p>
+
+<p class="definition">Definition at line <a class="el" href="mpp__domains_8F90_source.html#l02066">2066</a> of file <a class="el" href="mpp__domains_8F90_source.html">mpp_domains.F90</a>.</p>
 </div><hr/>The documentation for this interface was generated from the following file:<ul>
 <li>mpp/<a class="el" href="mpp__domains_8F90_source.html">mpp_domains.F90</a></li>
 </ul>

@@ -97,20 +97,33 @@ $(document).ready(function(){initNavTree('interfacetopography__mod_1_1get__water
 <div class="title">get_water_mask Interface Reference<div class="ingroups"><a class="el" href="group__topography.html">Topography</a> &raquo; <a class="el" href="group__topography__mod.html">topography_mod</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Returns a land-water mask in a grid box.  
+ <a href="interfacetopography__mod_1_1get__water__mask.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:ga59536a57dc425f61ff10e9b286f3d78d"><td class="memItemLeft" align="right" valign="top">
-logical function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__topography__mod.html#ga59536a57dc425f61ff10e9b286f3d78d">get_water_mask_1d</a> (blon, blat, water_mask)</td></tr>
-<tr class="memdesc:ga59536a57dc425f61ff10e9b286f3d78d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a land-water mask in the given model grid boxes. <br /></td></tr>
+<tr class="memitem:ga59536a57dc425f61ff10e9b286f3d78d"><td class="memItemLeft" align="right" valign="top">logical function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__topography__mod.html#ga59536a57dc425f61ff10e9b286f3d78d">get_water_mask_1d</a> (blon, blat, water_mask)</td></tr>
+<tr class="memdesc:ga59536a57dc425f61ff10e9b286f3d78d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a land-water mask in the given model grid boxes.  <a href="group__topography__mod.html#ga59536a57dc425f61ff10e9b286f3d78d">More...</a><br /></td></tr>
 <tr class="separator:ga59536a57dc425f61ff10e9b286f3d78d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga57c33c99fae2fe0277e21f46ff17416a"><td class="memItemLeft" align="right" valign="top">
-logical function&#160;</td><td class="memItemRight" valign="bottom"><b>get_water_mask_2d</b> (blon, blat, water_mask)</td></tr>
+<tr class="memitem:ga57c33c99fae2fe0277e21f46ff17416a"><td class="memItemLeft" align="right" valign="top">logical function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__topography__mod.html#ga57c33c99fae2fe0277e21f46ff17416a">get_water_mask_2d</a> (blon, blat, water_mask)</td></tr>
 <tr class="separator:ga57c33c99fae2fe0277e21f46ff17416a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00192">192</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
+<div class="textblock"><p>Returns a land-water mask in a grid box. </p>
+<p>Returns a land-water mask in the given model grid boxes.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">blon</td><td>The longitude (in radians) at grid box boundaries. </td></tr>
+    <tr><td class="paramname">blat</td><td>The latitude (in radians) at grid box boundaries. </td></tr>
+    <tr><td class="paramname">water_mask</td><td>A binary mask for water (true) or land (false). The size of this field must be size(blon)-1 by size(blat)-1.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A logical value of TRUE is returned if the output field was successfully created. A value of FALSE may be returned if the Navy 1/6 degree percent water data set was not readable.</dd></dl>
+<p>Example usage:</p><div class="fragment"><div class="line">flag = get_water_mask( blon, blat, water_mask ) </div>
+</div><!-- fragment --> 
+<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00186">186</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
 </div><hr/>The documentation for this interface was generated from the following file:<ul>
 <li>topography/<a class="el" href="topography_8F90_source.html">topography.F90</a></li>
 </ul>

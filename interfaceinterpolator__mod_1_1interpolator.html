@@ -94,9 +94,12 @@ $(document).ready(function(){initNavTree('interfaceinterpolator__mod_1_1interpol
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="interfaceinterpolator__mod_1_1interpolator-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">interpolator Interface Reference<div class="ingroups"><a class="el" href="group__interpolator.html">Interpolator</a> &raquo; <a class="el" href="group__interpolator__mod.html">interpolator_mod</a></div></div>  </div>
+<div class="title">interpolator Interface Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Example usage:  
+ <a href="interfaceinterpolator__mod_1_1interpolator.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -120,8 +123,34 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:gae97ac81cd67701862cff730c113a65f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="interpolator_8F90_source.html#l00173">173</a> of file <a class="el" href="interpolator_8F90_source.html">interpolator.F90</a>.</p>
+<div class="textblock"><p>Example usage: </p>
+<div class="fragment"><div class="line"><span class="keyword">call </span>interpolator (sulfate, model_time, p_half, model_data, name, is, js, clim_units)</div>
+<div class="line"><span class="keyword">call </span>interpolator (o3, model_time, p_half, model_data, <span class="stringliteral">&quot;ozone&quot;</span>, is, js)</div>
+</div><!-- fragment --><p>The first option is used to generate sulfate models.</p>
+<p>The sulfate data is set by </p><div class="fragment"><div class="line"><span class="keywordtype">type</span>(interpolate_type), <span class="keywordtype">intent(inout)</span> :: sulfate</div>
+</div><!-- fragment --><p>The name of the model is set by </p><div class="fragment"><div class="line"><span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: name</div>
+</div><!-- fragment --><p>The units used in this model are outputted to </p><div class="fragment"><div class="line"><span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(out)</span>, <span class="keywordtype">optional</span> :: clim_units</div>
+</div><!-- fragment --><p>The second option is generate ozone models.</p>
+<p>The ozone data is set by </p><div class="fragment"><div class="line"><span class="keywordtype">type</span>(interpolate_type), <span class="keywordtype">intent(inout)</span> :: o3</div>
+</div><!-- fragment --><p>Both of these options use the following variables in the model.</p>
+<p>The time used in the model is set by</p>
+<div class="fragment"><div class="line"><span class="keywordtype">type</span>(time_type), <span class="keywordtype">intent(in)</span> :: model_time</div>
+</div><!-- fragment --><p>The model pressure field is set by </p><div class="fragment"><div class="line"><span class="keywordtype">real</span>, <span class="keywordtype">intent(in)</span>, <span class="keywordtype">dimension(:,:,:)</span> :: p_half</div>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">&lt;clim_type&gt;</td><td>The interpolate type previously defined by a call to interpolator_init </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;field_name&gt;</td><td>The name of a field that you wish to interpolate </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;Time&gt;</td><td>The model time that you wish to interpolate to </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;phalf&gt;</td><td>The half level model pressure field </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;is&gt;</td><td>Index for the physics window </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;js&gt;</td><td>Index for the physics window </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">&lt;interp_data&gt;</td><td>The model fields with the interpolated climatology data </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">&lt;clim_units&gt;</td><td>The units of field_name </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="interpolator_8F90_source.html#l00171">171</a> of file <a class="el" href="interpolator_8F90_source.html">interpolator.F90</a>.</p>
 </div><hr/>The documentation for this interface was generated from the following file:<ul>
 <li>interpolator/<a class="el" href="interpolator_8F90_source.html">interpolator.F90</a></li>
 </ul>

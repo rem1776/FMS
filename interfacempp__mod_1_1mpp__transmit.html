@@ -97,6 +97,9 @@ $(document).ready(function(){initNavTree('interfacempp__mod_1_1mpp__transmit.htm
 <div class="title">mpp_transmit Interface Reference<div class="ingroups"><a class="el" href="group__mpp.html">MPP</a> &raquo; <a class="el" href="group__mpp__mod.html">mpp_mod</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Basic message-passing call.  
+ <a href="interfacempp__mod_1_1mpp__transmit.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -246,8 +249,38 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:ga1e54ded2c8f4fde0efeed0f11cf9dd51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="mpp_8F90_source.html#l00811">811</a> of file <a class="el" href="mpp_8F90_source.html">mpp.F90</a>.</p>
+<div class="textblock"><p>Basic message-passing call. </p>
+<p><code>MPP_TYPE_</code> corresponds to any 4-byte and 8-byte variant of <code>integer, real, complex, logical</code> variables, of rank 0 or 1. A contiguous block from a multi-dimensional array may be passed by its starting address and its length, as in <code>f77</code>.</p>
+<p><code><a class="el" href="interfacempp__mod_1_1mpp__transmit.html" title="Basic message-passing call.">mpp_transmit</a></code> is currently implemented as asynchronous outward transmission and synchronous inward transmission. This follows the behaviour of <code>shmem_put</code> and <code>shmem_get</code>. In MPI, it is implemented as <code>mpi_isend</code> and <code>mpi_recv</code>. For most applications, transmissions occur in pairs, and are here accomplished in a single call.</p>
+<p>The special PE designations <code>NULL_PE</code>, <code>ANY_PE</code> and <code>ALL_PES</code> are provided by use association.</p>
+<p><code>NULL_PE</code>: is used to disable one of the pair of transmissions.<br  />
+ <code>ANY_PE</code>: is used for unspecific remote destination. (Please note that <code>put_pe=ANY_PE</code> has no meaning in the MPI context, though it is available in the SHMEM invocation. If portability is a concern, it is best avoided).<br  />
+ <code>ALL_PES</code>: is used for broadcast operations.</p>
+<p>It is recommended that &lt;LINK
+    SRC="#mpp_broadcast"&gt;<code><a class="el" href="interfacempp__mod_1_1mpp__broadcast.html" title="Perform parallel broadcasts.">mpp_broadcast</a></code>&lt;/LINK&gt; be used for broadcasts.</p>
+<p>The following example illustrates the use of <code>NULL_PE</code> and <code>ALL_PES</code>:</p>
+<pre>
+    real, dimension(n) :: a
+    if( pe.EQ.0 )then
+        do p = 1,npes-1
+           call mpp_transmit( a, n, p, a, n, NULL_PE )
+        end do
+    else
+        call mpp_transmit( a, n, NULL_PE, a, n, 0 )
+    end if</pre><pre>    call mpp_transmit( a, n, ALL_PES, a, n, 0 )
+    </pre><p>The do loop and the broadcast operation above are equivalent.</p>
+<p>Two overloaded calls <code><a class="el" href="interfacempp__mod_1_1mpp__send.html" title="Send data to a receiving PE.">mpp_send</a></code> and <code><a class="el" href="interfacempp__mod_1_1mpp__recv.html" title="Recieve data to another PE.">mpp_recv</a></code> have also been provided. <code><a class="el" href="interfacempp__mod_1_1mpp__send.html" title="Send data to a receiving PE.">mpp_send</a></code> calls <code><a class="el" href="interfacempp__mod_1_1mpp__transmit.html" title="Basic message-passing call.">mpp_transmit</a></code> with <code>get_pe=NULL_PE</code>. <code><a class="el" href="interfacempp__mod_1_1mpp__recv.html" title="Recieve data to another PE.">mpp_recv</a></code> calls <code><a class="el" href="interfacempp__mod_1_1mpp__transmit.html" title="Basic message-passing call.">mpp_transmit</a></code> with <code>put_pe=NULL_PE</code>. Thus the do loop above could be written more succinctly:</p>
+<pre>
+    if( pe.EQ.0 )then
+        do p = 1,npes-1
+           call mpp_send( a, n, p )
+        end do
+    else
+        call mpp_recv( a, n, 0 )
+    end if
+    </pre><p>  &lt;TEMPLATE&gt; call mpp_transmit( put_data, put_len, put_pe, get_data, get_len, get_pe ) &lt;/TEMPLATE&gt; &lt;/INTERFACE&gt; </p>
+
+<p class="definition">Definition at line <a class="el" href="mpp_8F90_source.html#l00797">797</a> of file <a class="el" href="mpp_8F90_source.html">mpp.F90</a>.</p>
 </div><hr/>The documentation for this interface was generated from the following file:<ul>
 <li>mpp/<a class="el" href="mpp_8F90_source.html">mpp.F90</a></li>
 </ul>

@@ -97,6 +97,9 @@ $(document).ready(function(){initNavTree('interfacempp__mod_1_1mpp__error.html',
 <div class="title">mpp_error Interface Reference<div class="ingroups"><a class="el" href="group__mpp.html">MPP</a> &raquo; <a class="el" href="group__mpp__mod.html">mpp_mod</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Error handler.  
+ <a href="interfacempp__mod_1_1mpp__error.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -171,8 +174,30 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:gafc2efdc19baae56dad446475fcabdb5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="mpp_8F90_source.html#l00373">373</a> of file <a class="el" href="mpp_8F90_source.html">mpp.F90</a>.</p>
+<div class="textblock"><p>Error handler. </p>
+<p>It is strongly recommended that all error exits pass through <code><a class="el" href="interfacempp__mod_1_1mpp__error.html" title="Error handler.">mpp_error</a></code> to assure the program fails cleanly. An individual PE encountering a <code>STOP</code> statement, for instance, can cause the program to hang. The use of the <code>STOP</code> statement is strongly discouraged.</p>
+<p>Calling <a class="el" href="interfacempp__mod_1_1mpp__error.html" title="Error handler.">mpp_error</a> with no arguments produces an immediate error exit, i.e: </p><pre>
+                    call <a class="el" href="interfacempp__mod_1_1mpp__error.html" title="Error handler.">mpp_error</a>
+                    call mpp_error()
+    </pre><p> are equivalent.</p>
+<p>The argument order </p><pre>
+                    call mpp_error( routine, errormsg, errortype )
+    </pre><p> is also provided to support legacy code. In this version of the call, none of the arguments may be omitted.</p>
+<p>The behaviour of <code><a class="el" href="interfacempp__mod_1_1mpp__error.html" title="Error handler.">mpp_error</a></code> for a <code>WARNING</code> can be controlled with an additional call <code>mpp_set_warn_level</code>. </p><pre>
+                    call mpp_set_warn_level(ERROR)
+    </pre><p> causes <code><a class="el" href="interfacempp__mod_1_1mpp__error.html" title="Error handler.">mpp_error</a></code> to treat <code>WARNING</code> exactly like <code>FATAL</code>. </p><pre>
+                    call mpp_set_warn_level(WARNING)
+    </pre><p> resets to the default behaviour described above.</p>
+<p><code><a class="el" href="interfacempp__mod_1_1mpp__error.html" title="Error handler.">mpp_error</a></code> also has an internal error state which maintains knowledge of whether a warning has been issued. This can be used at startup in a subroutine that checks if the model has been properly configured. You can generate a series of warnings using <code><a class="el" href="interfacempp__mod_1_1mpp__error.html" title="Error handler.">mpp_error</a></code>, and then check at the end if any warnings has been issued using the function <code>mpp_error_state()</code>. If the value of this is <code>WARNING</code>, at least one warning has been issued, and the user can take appropriate action:</p>
+<pre>
+                    if( ... )call <a class="el" href="interfacempp__mod_1_1mpp__error.html" title="Error handler.">mpp_error</a>( WARNING, '...' )
+                    if( ... )call <a class="el" href="interfacempp__mod_1_1mpp__error.html" title="Error handler.">mpp_error</a>( WARNING, '...' )
+                    if( ... )call <a class="el" href="interfacempp__mod_1_1mpp__error.html" title="Error handler.">mpp_error</a>( WARNING, '...' )
+                    ...
+                    if( mpp_error_state().EQ.WARNING )call <a class="el" href="interfacempp__mod_1_1mpp__error.html" title="Error handler.">mpp_error</a>( FATAL, '...' )
+    </pre><p>  &lt;TEMPLATE&gt; call mpp_error( errortype, routine, errormsg ) &lt;/TEMPLATE&gt; &lt;IN NAME="errortype"&gt; One of <code>NOTE</code>, <code>WARNING</code> or <code>FATAL</code> (these definitions are acquired by use association). <code>NOTE</code> writes <code>errormsg</code> to <code>STDOUT</code>. <code>WARNING</code> writes <code>errormsg</code> to <code>STDERR</code>. <code>FATAL</code> writes <code>errormsg</code> to <code>STDERR</code>, and induces a clean error exit with a call stack traceback. &lt;/IN&gt; </p>
+
+<p class="definition">Definition at line <a class="el" href="mpp_8F90_source.html#l00372">372</a> of file <a class="el" href="mpp_8F90_source.html">mpp.F90</a>.</p>
 </div><hr/>The documentation for this interface was generated from the following file:<ul>
 <li>mpp/<a class="el" href="mpp_8F90_source.html">mpp.F90</a></li>
 </ul>

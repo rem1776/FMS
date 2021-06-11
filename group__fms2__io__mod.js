@@ -1,10 +1,5 @@
 var group__fms2__io__mod =
 [
-    [ "open_file", "interfacefms2__io__mod_1_1open__file.html", [
-      [ "netcdf_file_open_wrap", "group__fms2__io__mod.html#ga5951a0b32437a9abd9b546fcd84b27dc", null ],
-      [ "open_domain_file", "group__fms2__io__mod.html#ga4aaf5e0e8d7dd13e372f44a933b8aa22", null ],
-      [ "open_unstructured_domain_file", "group__fms2__io__mod.html#gad0d80755dbb392c7e47a257e76faed3b", null ]
-    ] ],
     [ "open_virtual_file", "interfacefms2__io__mod_1_1open__virtual__file.html", [
       [ "create_diskless_domain_file", "group__fms2__io__mod.html#ga8baf51e57e724943ef20aac73665240b", null ],
       [ "create_diskless_netcdf_file_wrap", "group__fms2__io__mod.html#ga82a310a293893a47f1e1bd5a3b89813c", null ],
@@ -106,18 +101,7 @@ var group__fms2__io__mod =
       [ "netcdf_restore_state_wrap", "group__fms2__io__mod.html#gafe62bbd4de1baf00258798028d916cea", null ],
       [ "restore_domain_state_wrap", "group__fms2__io__mod.html#gab542fa8553c3c94e57f4d8fdd683259f", null ]
     ] ],
-    [ "open_file Interface", "group__fms2__io__mod.html#open_file", null ],
     [ "open_virtual_file Interface", "group__fms2__io__mod.html#open_virtual_file", null ],
-    [ "close_file Interface", "group__fms2__io__mod.html#close_file", null ],
-    [ "register_axis Interface", "group__fms2__io__mod.html#register_axis", null ],
-    [ "register_field Interface", "group__fms2__io__mod.html#register_field", null ],
-    [ "register_restart_field Interface", "group__fms2__io__mod.html#register_restart_field", null ],
-    [ "write_data Interface", "group__fms2__io__mod.html#write_data", null ],
-    [ "read_data Interface", "group__fms2__io__mod.html#read_data", null ],
-    [ "write_restart Interface", "group__fms2__io__mod.html#write_restart", null ],
-    [ "write_new_restart Interface", "group__fms2__io__mod.html#write_new_restart", null ],
-    [ "read_restart Interface", "group__fms2__io__mod.html#read_restart", null ],
-    [ "read_new_restart Interface", "group__fms2__io__mod.html#read_new_restart", null ],
     [ "fms2_io_init", "group__fms2__io__mod.html#gab2efb88539d9a05da43d95a501ed7e4c", null ],
     [ "fms2_io_is_initialized", "group__fms2__io__mod.html#ga6f86d86f58a066cbe83458b34a14e1b4", null ],
     [ "header_buffer_val", "group__fms2__io__mod.html#ga6a6e9d8fc157d60fba739ab572e55b7b", null ],

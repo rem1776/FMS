@@ -97,6 +97,10 @@ $(document).ready(function(){initNavTree('interfacempp__domains__mod_1_1mpp__glo
 <div class="title">mpp_global_field Interface Reference<div class="ingroups"><a class="el" href="group__mpp.html">MPP</a> &raquo; <a class="el" href="group__mpp__domains__mod.html">mpp_domains_mod</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Fill in a global array from domain-decomposed arrays.<br  />
+  
+ <a href="interfacempp__domains__mod_1_1mpp__global__field.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -174,8 +178,13 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:ga7f6b958a4e39c7ce485f2a95486c0dd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="mpp__domains_8F90_source.html#l01736">1736</a> of file <a class="el" href="mpp__domains_8F90_source.html">mpp_domains.F90</a>.</p>
+<div class="textblock"><p>Fill in a global array from domain-decomposed arrays.<br  />
+ </p>
+<p><code><a class="el" href="interfacempp__domains__mod_1_1mpp__global__field.html" title="Fill in a global array from domain-decomposed arrays.">mpp_global_field</a></code> is used to get an entire domain-decomposed array on each PE. <code>MPP_TYPE_</code> can be of type <code>complex</code>, <code>integer</code>, <code>logical</code> or <code>real</code>; of 4-byte or 8-byte kind; of rank up to 5.<br  />
+</p>
+<p>All PEs in a domain decomposition must call <code><a class="el" href="interfacempp__domains__mod_1_1mpp__global__field.html" title="Fill in a global array from domain-decomposed arrays.">mpp_global_field</a></code>, and each will have a complete global field at the end. Please note that a global array of rank 3 or higher could occupy a lot of memory. </p>
+
+<p class="definition">Definition at line <a class="el" href="mpp__domains_8F90_source.html#l01717">1717</a> of file <a class="el" href="mpp__domains_8F90_source.html">mpp_domains.F90</a>.</p>
 </div><hr/>The documentation for this interface was generated from the following file:<ul>
 <li>mpp/<a class="el" href="mpp__domains_8F90_source.html">mpp_domains.F90</a></li>
 </ul>
