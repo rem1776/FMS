@@ -75,7 +75,7 @@ var searchData=
   ['interp_5flinear_1170',['interp_linear',['../group__interpolator__mod.html#gac3ca9de401cf09ffba68bd1c8a58f949',1,'interpolator_mod']]],
   ['interp_5flog_5fp_1171',['interp_log_p',['../group__interpolator__mod.html#gab0e08ab332bb853d3ce3814057e86bc5',1,'interpolator_mod']]],
   ['interp_5fmethod_1172',['interp_method',['../structhoriz__interp__type__mod_1_1horiz__interp__type.html#a17dd266f081f8d3c35c9320eb114928a',1,'horiz_interp_type_mod::horiz_interp_type']]],
-  ['interp_5foi_5fsst_1173',['interp_oi_sst',['../group__amip__interp.html#ga511b7b7c62eb96e43555efe14f080592',1,'amip_interp_mod']]],
+  ['interp_5foi_5fsst_1173',['interp_oi_sst',['../group__amip__interp__mod.html#ga511b7b7c62eb96e43555efe14f080592',1,'amip_interp_mod']]],
   ['interp_5fread_5fdata_5fmppio_1174',['interp_read_data_mppio',['../group__interpolator__mod.html#ga8d62caef84f7c6d7d5a7442ddaf4baec',1,'interpolator_mod']]],
   ['interp_5fread_5fdata_5fmppio_5fno_5ftime_5faxis_1175',['interp_read_data_mppio_no_time_axis',['../group__interpolator__mod.html#ga5a95b19a8d49bc8f4fcf1018973ee713',1,'interpolator_mod']]],
   ['interp_5fweighted_5fscalar_1176',['interp_weighted_scalar',['../interfaceinterpolator__mod_1_1interp__weighted__scalar.html',1,'interpolator_mod']]],

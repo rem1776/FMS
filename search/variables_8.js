@@ -53,7 +53,7 @@ var searchData=
   ['input_5ffile_4262',['input_file',['../group__drifters__mod.html#gad2ae55360652f3f71c44d734466c49e2',1,'drifters_mod::drifters_type']]],
   ['interp_5flog_5fp_4263',['interp_log_p',['../group__interpolator__mod.html#gab0e08ab332bb853d3ce3814057e86bc5',1,'interpolator_mod']]],
   ['interp_5fmethod_4264',['interp_method',['../structhoriz__interp__type__mod_1_1horiz__interp__type.html#a17dd266f081f8d3c35c9320eb114928a',1,'horiz_interp_type_mod::horiz_interp_type']]],
-  ['interp_5foi_5fsst_4265',['interp_oi_sst',['../group__amip__interp.html#ga511b7b7c62eb96e43555efe14f080592',1,'amip_interp_mod']]],
+  ['interp_5foi_5fsst_4265',['interp_oi_sst',['../group__amip__interp__mod.html#ga511b7b7c62eb96e43555efe14f080592',1,'amip_interp_mod']]],
   ['interph_4266',['interph',['../group__interpolator__mod.html#ga2ee9080ebb0c775ae1f058beabedde78',1,'interpolator_mod::interpolate_type']]],
   ['interpol_5fmethod_4267',['interpol_method',['../group__data__override__mod.html#ga306a7bec3245caf26a51676e85f3a580',1,'data_override_mod::data_type']]],
   ['io_5froot_4268',['io_root',['../group__netcdf__io__mod.html#ga32c807e75442ee5d98dcb64539e97633',1,'netcdf_io_mod::fmsnetcdffile_t']]],

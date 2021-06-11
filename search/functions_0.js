@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['a2a_5fbilinear_2955',['a2a_bilinear',['../group__amip__interp.html#gae83cd779d19f1e9bda44b5b958cbe56b',1,'amip_interp_mod']]],
+  ['a2a_5fbilinear_2955',['a2a_bilinear',['../group__amip__interp__mod.html#gae83cd779d19f1e9bda44b5b958cbe56b',1,'amip_interp_mod']]],
   ['add_5fargument_2956',['add_argument',['../argparse_8F90.html#a446bd247f45bfa2f640156f09a4424de',1,'argparse']]],
   ['add_5fassociated_5ffiles_2957',['add_associated_files',['../group__diag__manager__mod.html#gaa80b10875fe293f5d1d2dc0dc27940bc',1,'diag_manager_mod']]],
   ['add_5fdomain_5fattribute_2958',['add_domain_attribute',['../group__fms__netcdf__domain__io__mod.html#ga1074b876833c4c30c72710594dc9a478',1,'fms_netcdf_domain_io_mod']]],
@@ -31,10 +31,10 @@ var searchData=
   ['allocate_5farray_5fr8_5fkind_5f3d_2983',['allocate_array_r8_kind_3d',['../array__utils_8inc.html#a6d8eedf1f50b065e685a7360e2623c19',1,'array_utils.inc']]],
   ['allocate_5farray_5fr8_5fkind_5f4d_2984',['allocate_array_r8_kind_4d',['../array__utils_8inc.html#a6b12c168551bb7369fecc3e4f374f6a8',1,'array_utils.inc']]],
   ['allocate_5farray_5fr8_5fkind_5f5d_2985',['allocate_array_r8_kind_5d',['../array__utils_8inc.html#a9a9312a0424879138e5fcedc93243f10',1,'array_utils.inc']]],
-  ['amip_5finterp_5fdel_2986',['amip_interp_del',['../group__amip__interp.html#gaa680c8750f89c6444c6caf3d93b54cb4',1,'amip_interp_mod']]],
-  ['amip_5finterp_5finit_2987',['amip_interp_init',['../group__amip__interp.html#ga6da33323528930f4680012957d27d6db',1,'amip_interp_mod']]],
-  ['amip_5finterp_5fnew_5f1d_2988',['amip_interp_new_1d',['../group__amip__interp.html#gaefdaa09f371957b7436b7b5549e1ba41',1,'amip_interp_mod::amip_interp_new::amip_interp_new_1d()'],['../group__amip__interp.html#gabd2d93a46d61e06656c1d6fb0bc860ed',1,'amip_interp_mod::amip_interp_new_1d()']]],
-  ['amip_5finterp_5fnew_5f2d_2989',['amip_interp_new_2d',['../group__amip__interp.html#ga2caba36ff0a5bdd0ae2bc334a05465e3',1,'amip_interp_mod::amip_interp_new::amip_interp_new_2d()'],['../group__amip__interp.html#gaa1b090c156ea2e60936d5da08fb84dba',1,'amip_interp_mod::amip_interp_new_2d()']]],
+  ['amip_5finterp_5fdel_2986',['amip_interp_del',['../group__amip__interp__mod.html#gaa680c8750f89c6444c6caf3d93b54cb4',1,'amip_interp_mod']]],
+  ['amip_5finterp_5finit_2987',['amip_interp_init',['../group__amip__interp__mod.html#ga6da33323528930f4680012957d27d6db',1,'amip_interp_mod']]],
+  ['amip_5finterp_5fnew_5f1d_2988',['amip_interp_new_1d',['../group__amip__interp__mod.html#gaefdaa09f371957b7436b7b5549e1ba41',1,'amip_interp_mod::amip_interp_new::amip_interp_new_1d()'],['../group__amip__interp__mod.html#gabd2d93a46d61e06656c1d6fb0bc860ed',1,'amip_interp_mod::amip_interp_new_1d()']]],
+  ['amip_5finterp_5fnew_5f2d_2989',['amip_interp_new_2d',['../group__amip__interp__mod.html#ga2caba36ff0a5bdd0ae2bc334a05465e3',1,'amip_interp_mod::amip_interp_new::amip_interp_new_2d()'],['../group__amip__interp__mod.html#gaa1b090c156ea2e60936d5da08fb84dba',1,'amip_interp_mod::amip_interp_new_2d()']]],
   ['angle_2990',['angle',['../group__astronomy__mod.html#gae7804247bd90b8bed01d7769a609f81d',1,'astronomy_mod']]],
   ['annual_5fmean_5fsolar_5f1d_2991',['annual_mean_solar_1d',['../group__astronomy__mod.html#ga73b22023f95ab51738595290b16fc913',1,'astronomy_mod::annual_mean_solar::annual_mean_solar_1d()'],['../group__astronomy__mod.html#ga5d8127b604bbddae17c0d2d658d2a715',1,'astronomy_mod::annual_mean_solar_1d()']]],
   ['annual_5fmean_5fsolar_5f2d_2992',['annual_mean_solar_2d',['../group__astronomy__mod.html#ga841f269b79251fd44b9fbe2a6c9af03f',1,'astronomy_mod::annual_mean_solar::annual_mean_solar_2d()'],['../group__astronomy__mod.html#gab7f32b9b56f90b2506caa6792a5b4061',1,'astronomy_mod::annual_mean_solar_2d()']]],

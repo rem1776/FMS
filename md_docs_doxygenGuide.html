@@ -104,12 +104,12 @@ $(document).ready(function(){initNavTree('md_docs_doxygenGuide.html',''); initRe
 </ul>
 <p>For .c files, javadoc-style comments are used (<code>///</code> or multi-line with <code>/**</code> and <code>*/</code>), and the command specifier is instead <code>\commandname</code>.</p>
 <p>Certain doxygen commands must be terminated with an empty comment line, mainly <code>@brief</code> and <code>@author</code> , otherwise will include any additional documentation below it.</p>
-<p>Some html commands, such as <code>&lt;TT&gt;</code> and <code>&lt;br&gt;</code> are allowed. Full list can be found <a href="https://www.doxygen.nl/manual/htmlcmds.html"><b>here</b></a>. Coding examples can be formatted by either tabbing, or within the <code>@code</code> commands(see full subroutine documentation below for examples of both). Links to other pages within the documentation can be created with <code>@ref name</code>.</p>
 <p>The following previously used commands are invalid:</p><ul>
 <li><code>@email</code>, email can be included in <code>@author</code> line</li>
 <li><code>@description</code>, <code>@details</code> can be used, but is also implied by <code>!&gt;</code> if a brief description is already given</li>
 <li><code>@example</code>, not actually invalid, but should not be used in subroutine/function descriptions as it is for presenting examples of source code separately. Some examples of what can be used for programming examples in descriptions are below.</li>
 </ul>
+<p>Some html commands, such as <code>&lt;TT&gt;</code> and <code>&lt;br&gt;</code> are allowed. Full list can be found <a href="https://www.doxygen.nl/manual/htmlcmds.html"><b>here</b></a>. Coding examples can be formatted by either tabbing, or within the <code>@code</code> commands(see full subroutine documentation below for examples of both). Links to other pages within the documentation can be created with <code>@ref name</code>.</p>
 <p>### Documenting subroutines and functions</p>
 <p>The first <code>!&gt;</code> comment above a routine implicitly starts the brief description, and the second <code>!&gt;</code> will start the full description (as long as the brief description is terminated).</p>
 <p>Simple subroutine/function documentation:</p>

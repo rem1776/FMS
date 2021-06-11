@@ -16,7 +16,7 @@ var searchData=
   ['aglo_5flon_4024',['aglo_lon',['../group__diag__grid__mod.html#gabc738585b21d733c289514d704b31b57',1,'diag_grid_mod::diag_global_grid_type']]],
   ['alarm_5finterval_4025',['alarm_interval',['../group__diag__integral__mod.html#gab3abaf1f650ff20ae8283804245794b0',1,'diag_integral_mod']]],
   ['alogmin_4026',['alogmin',['../group__constants__mod.html#gaf1ab06f30722e194b2025a3392be7dd1',1,'constants_mod']]],
-  ['amip_5fdate_4027',['amip_date',['../group__amip__interp.html#ga468efa571efa3f05874a58ada6c1077f',1,'amip_interp_mod']]],
+  ['amip_5fdate_4027',['amip_date',['../group__amip__interp__mod.html#ga468efa571efa3f05874a58ada6c1077f',1,'amip_interp_mod']]],
   ['annual_5fmean_5fcalculated_4028',['annual_mean_calculated',['../group__astronomy__mod.html#gafc625cdedb5a5a3c2340493f19fd08fb',1,'astronomy_mod']]],
   ['area_4029',['area',['../group__xgrid__mod.html#ga05089f0da399f35232f6981bb4695e4d',1,'xgrid_mod::xcell_type::area()'],['../group__xgrid__mod.html#gaf63c0b8c9a2766847b732a1db6d3d0f3',1,'xgrid_mod::grid_type::area()'],['../group__xgrid__mod.html#ga05089f0da399f35232f6981bb4695e4d',1,'xgrid_mod::x1_type::area()'],['../group__xgrid__mod.html#ga05089f0da399f35232f6981bb4695e4d',1,'xgrid_mod::x2_type::area()'],['../group__diag__integral__mod.html#ga9a0c204eb898c57b5790924ac0dda7ac',1,'diag_integral_mod::area()']]],
   ['area_5fdst_4030',['area_dst',['../structhoriz__interp__type__mod_1_1horiz__interp__type.html#acde35600538beb05cc43ac55626314de',1,'horiz_interp_type_mod::horiz_interp_type']]],
