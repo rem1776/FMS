@@ -120,7 +120,7 @@ Data Types</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Private logical greater than overload for <a class="el" href="structamip__interp__mod_1_1amip__interp__type.html" title="Contains information needed by the interpolation module (exchange_mod) and buffers data.">amip_interp_type</a>.  <a href="interfaceamip__interp__mod_1_1operator_07_4_08.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfaceamip__interp__mod_1_1amip__interp__new.html">amip_interp_new</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes data needed for the horizontal interpolation between the sst grid and model grid.  <a href="interfaceamip__interp__mod_1_1amip__interp__new.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes data needed for the horizontal interpolation between the sst data and model grid.  <a href="interfaceamip__interp__mod_1_1amip__interp__new.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">type &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structamip__interp__mod_1_1amip__interp__type.html">amip_interp_type</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains information needed by the interpolation module (exchange_mod) and buffers data.  <a href="structamip__interp__mod_1_1amip__interp__type.html#details">More...</a><br /></td></tr>
@@ -129,11 +129,10 @@ Data Types</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
 <tr class="memitem:gae4985aae40b07468c1b5853c6bf85e56"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__amip__interp__mod.html#gae4985aae40b07468c1b5853c6bf85e56">get_amip_sst</a> (Time, Interp, sst, err_msg, lon_model, lat_model)</td></tr>
-<tr class="memdesc:gae4985aae40b07468c1b5853c6bf85e56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve sst data and amip interpolated data.  <a href="group__amip__interp__mod.html#gae4985aae40b07468c1b5853c6bf85e56">More...</a><br /></td></tr>
+<tr class="memdesc:gae4985aae40b07468c1b5853c6bf85e56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve sea surface temperature data and interpolated grid.  <a href="group__amip__interp__mod.html#gae4985aae40b07468c1b5853c6bf85e56">More...</a><br /></td></tr>
 <tr class="separator:gae4985aae40b07468c1b5853c6bf85e56"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5f77efe6bfff8ab1bfac97d498559f80"><td class="memItemLeft" align="right" valign="top">
-subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__amip__interp__mod.html#ga5f77efe6bfff8ab1bfac97d498559f80">get_amip_ice</a> (Time, Interp, ice, err_msg)</td></tr>
-<tr class="memdesc:ga5f77efe6bfff8ab1bfac97d498559f80"><td class="mdescLeft">&#160;</td><td class="mdescRight">AMIP interpolation for ice. <br /></td></tr>
+<tr class="memitem:ga5f77efe6bfff8ab1bfac97d498559f80"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__amip__interp__mod.html#ga5f77efe6bfff8ab1bfac97d498559f80">get_amip_ice</a> (Time, Interp, ice, err_msg)</td></tr>
+<tr class="memdesc:ga5f77efe6bfff8ab1bfac97d498559f80"><td class="mdescLeft">&#160;</td><td class="mdescRight">AMIP interpolation for ice.  <a href="group__amip__interp__mod.html#ga5f77efe6bfff8ab1bfac97d498559f80">More...</a><br /></td></tr>
 <tr class="separator:ga5f77efe6bfff8ab1bfac97d498559f80"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gabd2d93a46d61e06656c1d6fb0bc860ed"><td class="memItemLeft" align="right" valign="top">type(amip_interp_type) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__amip__interp__mod.html#gabd2d93a46d61e06656c1d6fb0bc860ed">amip_interp_new_1d</a> (lon, lat, mask, use_climo, use_annual, interp_method)</td></tr>
 <tr class="separator:gabd2d93a46d61e06656c1d6fb0bc860ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -173,9 +172,7 @@ subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>clip_data</b> (
 <tr class="separator:ga78cc915a2f75e5194c47758fb9cb1654"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga3c40cf9b8032cf49729e129ba7f82ee6"><td class="memItemLeft" align="right" valign="top">logical function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__amip__interp__mod.html#ga3c40cf9b8032cf49729e129ba7f82ee6">date_not_equals</a> (Left, Right)</td></tr>
 <tr class="separator:ga3c40cf9b8032cf49729e129ba7f82ee6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae2ca4248791964f82f9a57dd37d893fa"><td class="memItemLeft" align="right" valign="top">
-logical function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__amip__interp__mod.html#gae2ca4248791964f82f9a57dd37d893fa">date_gt</a> (Left, Right)</td></tr>
-<tr class="memdesc:gae2ca4248791964f82f9a57dd37d893fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">#return logical answer <br /></td></tr>
+<tr class="memitem:gae2ca4248791964f82f9a57dd37d893fa"><td class="memItemLeft" align="right" valign="top">logical function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__amip__interp__mod.html#gae2ca4248791964f82f9a57dd37d893fa">date_gt</a> (Left, Right)</td></tr>
 <tr class="separator:gae2ca4248791964f82f9a57dd37d893fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4e43fabda88d11bcb1ef6ae07e527f38"><td class="memItemLeft" align="right" valign="top">
 subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>print_dates</b> (Time, Date1, Udate1, Date2, Udate2, fmonth)</td></tr>

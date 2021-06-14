@@ -98,7 +98,7 @@ $(document).ready(function(){initNavTree('interfaceamip__interp__mod_1_1amip__in
 </div><!--header-->
 <div class="contents">
 
-<p>Initializes data needed for the horizontal interpolation between the sst grid and model grid.  
+<p>Initializes data needed for the horizontal interpolation between the sst data and model grid.  
  <a href="interfaceamip__interp__mod_1_1amip__interp__new.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
@@ -109,7 +109,7 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:a2caba36ff0a5bdd0ae2bc334a05465e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Initializes data needed for the horizontal interpolation between the sst grid and model grid. </p>
+<div class="textblock"><p>Initializes data needed for the horizontal interpolation between the sst data and model grid. </p>
 <p>The returned variable of type <a class="el" href="structamip__interp__mod_1_1amip__interp__type.html" title="Contains information needed by the interpolation module (exchange_mod) and buffers data.">amip_interp_type</a> is needed when calling get_amip_sst and get_amip_ice.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -131,13 +131,13 @@ Private Member Functions</h2></td></tr>
   <table class="exception">
     <tr><td class="paramname">FATAL: the value of the namelist parameter DATA_SET being used is not allowed</td><td>Check the value of namelist variable DATA_SET.</td></tr>
     <tr><td class="paramname">FATAL: requested input data set does not exist</td><td>The data set requested is valid but the data does not exist in the INPUT subdirectory. You may have requested amip2 data which has not been officially set up. See the section on DATA SETS to properly set the data up.</td></tr>
-    <tr><td class="paramname">FATAL: use_climo mismatch</td><td>The namelist variable date_out_of_range = 'fail' and the <a class="el" href="interfaceamip__interp__mod_1_1amip__interp__new.html" title="Initializes data needed for the horizontal interpolation between the sst grid and model grid.">amip_interp_new</a> argument use_climo = true. This combination is not allowed.</td></tr>
-    <tr><td class="paramname">FATAL: use_annual(climo) mismatch</td><td>The namelist variable date_out_of_range = 'fail' and the <a class="el" href="interfaceamip__interp__mod_1_1amip__interp__new.html" title="Initializes data needed for the horizontal interpolation between the sst grid and model grid.">amip_interp_new</a> argument use_annual = true. This combination is not allowed. </td></tr>
+    <tr><td class="paramname">FATAL: use_climo mismatch</td><td>The namelist variable date_out_of_range = 'fail' and the <a class="el" href="interfaceamip__interp__mod_1_1amip__interp__new.html" title="Initializes data needed for the horizontal interpolation between the sst data and model grid.">amip_interp_new</a> argument use_climo = true. This combination is not allowed.</td></tr>
+    <tr><td class="paramname">FATAL: use_annual(climo) mismatch</td><td>The namelist variable date_out_of_range = 'fail' and the <a class="el" href="interfaceamip__interp__mod_1_1amip__interp__new.html" title="Initializes data needed for the horizontal interpolation between the sst data and model grid.">amip_interp_new</a> argument use_annual = true. This combination is not allowed. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="amip__interp_8F90_source.html#l00226">226</a> of file <a class="el" href="amip__interp_8F90_source.html">amip_interp.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="amip__interp_8F90_source.html#l00227">227</a> of file <a class="el" href="amip__interp_8F90_source.html">amip_interp.F90</a>.</p>
 </div><h2 class="groupheader">Member Function/Subroutine Documentation</h2>
 <a id="aefdaa09f371957b7436b7b5549e1ba41"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aefdaa09f371957b7436b7b5549e1ba41">&#9670;&nbsp;</a></span>amip_interp_new_1d()</h2>
@@ -196,9 +196,9 @@ Private Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="structamip__interp__mod_1_1amip__interp__type.html" title="Contains information needed by the interpolation module (exchange_mod) and buffers data.">amip_interp_type</a> Interp </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A newly created <a class="el" href="structamip__interp__mod_1_1amip__interp__type.html">amip_interp_type</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="amip__interp_8F90_source.html#l00833">833</a> of file <a class="el" href="amip__interp_8F90_source.html">amip_interp.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="amip__interp_8F90_source.html#l00814">814</a> of file <a class="el" href="amip__interp_8F90_source.html">amip_interp.F90</a>.</p>
 
 </div>
 </div>
@@ -259,9 +259,9 @@ Private Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="structamip__interp__mod_1_1amip__interp__type.html" title="Contains information needed by the interpolation module (exchange_mod) and buffers data.">amip_interp_type</a> Interp </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A newly created <a class="el" href="structamip__interp__mod_1_1amip__interp__type.html">amip_interp_type</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="amip__interp_8F90_source.html#l00884">884</a> of file <a class="el" href="amip__interp_8F90_source.html">amip_interp.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="amip__interp_8F90_source.html#l00854">854</a> of file <a class="el" href="amip__interp_8F90_source.html">amip_interp.F90</a>.</p>
 
 </div>
 </div>

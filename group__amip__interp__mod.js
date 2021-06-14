@@ -32,6 +32,7 @@ var group__amip__interp__mod =
       [ "use_annual", "structamip__interp__mod_1_1amip__interp__type.html#a2d40f504c9fe4b01eb7a769fbc46d8a8", null ],
       [ "use_climo", "structamip__interp__mod_1_1amip__interp__type.html#a4deb7b50610ca6140cfd775bb47c879f", null ]
     ] ],
+    [ "@ref amip_interp_mod Namelist", "group__amip__interp__mod.html#amip_interp_nml", null ],
     [ "a2a_bilinear", "group__amip__interp__mod.html#gae83cd779d19f1e9bda44b5b958cbe56b", null ],
     [ "amip_interp_del", "group__amip__interp__mod.html#gaa680c8750f89c6444c6caf3d93b54cb4", null ],
     [ "amip_interp_init", "group__amip__interp__mod.html#ga6da33323528930f4680012957d27d6db", null ],
