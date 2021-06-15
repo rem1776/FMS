@@ -101,8 +101,7 @@ $(document).ready(function(){initNavTree('diag__data_8F90.html',''); initResizab
 
 <p>File for <a class="el" href="group__diag__data__mod.html">diag_data_mod</a>.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;file_version.h&gt;</code><br />
-</div>
+
 <p><a href="diag__data_8F90_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
@@ -138,7 +137,7 @@ Data Types</h2></td></tr>
 Functions/Subroutines</h2></td></tr>
 <tr class="memitem:gaaef785b1492a5330f440a3ec13a24cf4"><td class="memItemLeft" align="right" valign="top">
 subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__data__mod.html#gaaef785b1492a5330f440a3ec13a24cf4">diag_data_init</a> ()</td></tr>
-<tr class="memdesc:gaaef785b1492a5330f440a3ec13a24cf4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the version number of this file to the log file. <br /></td></tr>
+<tr class="memdesc:gaaef785b1492a5330f440a3ec13a24cf4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize and write the version number of this file to the log file. <br /></td></tr>
 <tr class="separator:gaaef785b1492a5330f440a3ec13a24cf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
@@ -292,14 +291,15 @@ integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="g
 <tr class="separator:ga44df67b2c9a79b55f84ab05b0ea04039"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaa90e712f4dde91f884f68b63bf7ebe19"><td class="memItemLeft" align="right" valign="top">
 logical&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__data__mod.html#gaa90e712f4dde91f884f68b63bf7ebe19">prepend_date</a> = .TRUE.</td></tr>
-<tr class="memdesc:gaa90e712f4dde91f884f68b63bf7ebe19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Should the history file have the start date prepended to the file name. <br /></td></tr>
+<tr class="memdesc:gaa90e712f4dde91f884f68b63bf7ebe19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Should the history file have the start date prepended to the file name. <code>.TRUE.</code> is only supported if the diag_manager_init routine is called with the optional time_init parameter. <br /></td></tr>
 <tr class="separator:gaa90e712f4dde91f884f68b63bf7ebe19"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6354efeadfde9254bc8a3c2698bff1a0"><td class="memItemLeft" align="right" valign="top">
 logical&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__data__mod.html#ga6354efeadfde9254bc8a3c2698bff1a0">use_mpp_io</a> = .false.</td></tr>
 <tr class="memdesc:ga6354efeadfde9254bc8a3c2698bff1a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">false is fms2_io (default); true is mpp_io <br /></td></tr>
 <tr class="separator:ga6354efeadfde9254bc8a3c2698bff1a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga07868061ae9a3669d8cf60206279b492"><td class="memItemLeft" align="right" valign="top">
-real&#160;</td><td class="memItemRight" valign="bottom"><b>fill_value</b> = 9.9692099683868690e+36</td></tr>
+real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__data__mod.html#ga07868061ae9a3669d8cf60206279b492">fill_value</a> = NF_FILL_REAL</td></tr>
+<tr class="memdesc:ga07868061ae9a3669d8cf60206279b492"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill value used. Value will be <code>NF90_FILL_REAL</code> if using the netCDF module, otherwise will be 9.9692099683868690e+36. <br /></td></tr>
 <tr class="separator:ga07868061ae9a3669d8cf60206279b492"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga107389179b39eb18f2c3ed86cd055ef2"><td class="memItemLeft" align="right" valign="top">
 integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__data__mod.html#ga107389179b39eb18f2c3ed86cd055ef2">pack_size</a> = 1</td></tr>
@@ -352,8 +352,7 @@ type(input_field_type), dimension(:), allocatable&#160;</td><td class="memItemRi
 type(output_field_type), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><b>output_fields</b></td></tr>
 <tr class="separator:ga24c9a75876682b65bf493b820fddff6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gafa675306d104366bab4ee6420676967f"><td class="memItemLeft" align="right" valign="top">
-type(fmsnetcdfunstructureddomainfile_t), dimension(:), allocatable, target&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__diag__data__mod.html#gafa675306d104366bab4ee6420676967f">fileobju</a></td></tr>
-<tr class="memdesc:gafa675306d104366bab4ee6420676967f"><td class="mdescLeft">&#160;</td><td class="mdescRight">used if use_mpp_io = .false. <br /></td></tr>
+type(fmsnetcdfunstructureddomainfile_t), dimension(:), allocatable, target&#160;</td><td class="memItemRight" valign="bottom"><b>fileobju</b></td></tr>
 <tr class="separator:gafa675306d104366bab4ee6420676967f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga19bc87f21b5d8615d7036b9e2afc1d9e"><td class="memItemLeft" align="right" valign="top">
 type(fmsnetcdfdomainfile_t), dimension(:), allocatable, target&#160;</td><td class="memItemRight" valign="bottom"><b>fileobj</b></td></tr>

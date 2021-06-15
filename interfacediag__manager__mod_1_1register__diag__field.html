@@ -107,12 +107,13 @@ Private Member Functions</h2></td></tr>
 <tr class="memdesc:a89a651e60695056e3a699e3e62554054"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a scalar field.  <a href="interfacediag__manager__mod_1_1register__diag__field.html#a89a651e60695056e3a699e3e62554054">More...</a><br /></td></tr>
 <tr class="separator:a89a651e60695056e3a699e3e62554054"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4e5e7ce0bb19b00f4df3a2245fd28581"><td class="memItemLeft" align="right" valign="top">integer function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacediag__manager__mod_1_1register__diag__field.html#a4e5e7ce0bb19b00f4df3a2245fd28581">register_diag_field_array</a> (module_name, field_name, axes, init_time, long_name, units, missing_value, range, mask_variant, standard_name, verbose, do_not_log, err_msg, interp_method, tile_count, area, volume, realm)</td></tr>
+<tr class="memdesc:a4e5e7ce0bb19b00f4df3a2245fd28581"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers an array field.  <a href="interfacediag__manager__mod_1_1register__diag__field.html#a4e5e7ce0bb19b00f4df3a2245fd28581">More...</a><br /></td></tr>
 <tr class="separator:a4e5e7ce0bb19b00f4df3a2245fd28581"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Register a diagnostic field for a given module. </p>
 
-<p class="definition">Definition at line <a class="el" href="diag__manager_8F90_source.html#l00556">556</a> of file <a class="el" href="diag__manager_8F90_source.html">diag_manager.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__manager_8F90_source.html#l00345">345</a> of file <a class="el" href="diag__manager_8F90_source.html">diag_manager.F90</a>.</p>
 </div><h2 class="groupheader">Member Function/Subroutine Documentation</h2>
 <a id="a4e5e7ce0bb19b00f4df3a2245fd28581"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4e5e7ce0bb19b00f4df3a2245fd28581">&#9670;&nbsp;</a></span>register_diag_field_array()</h2>
@@ -243,19 +244,21 @@ Private Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>integer</dd></dl>
+
+<p>Registers an array field. </p>
+<dl class="section return"><dt>Returns</dt><dd>field index for subsequent call to <a class="el" href="interfacediag__manager__mod_1_1send__data.html" title="Send data over to output fields.">send_data</a>. </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">do_not_log</td><td>if TRUE, field info is not logged</td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">interp_method</td><td>The interp method to be used when regridding the field in post-processing. Valid options are "conserve_order1", "conserve_order2", and "none".</td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">area</td><td>diag_field_id containing the cell area field</td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">volume</td><td>diag_field_id containing the cell volume field</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">do_not_log</td><td>if TRUE, field info is not logged </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">interp_method</td><td>The interp method to be used when regridding the field in post-processing. Valid options are "conserve_order1", "conserve_order2", and "none". </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">area</td><td>diag_field_id containing the cell area field </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">volume</td><td>diag_field_id containing the cell volume field </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">realm</td><td>String to set as the value to the modeling_realm attribute </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__manager_8F90_source.html#l00656">656</a> of file <a class="el" href="diag__manager_8F90_source.html">diag_manager.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__manager_8F90_source.html#l00407">407</a> of file <a class="el" href="diag__manager_8F90_source.html">diag_manager.F90</a>.</p>
 
 </div>
 </div>
@@ -360,7 +363,7 @@ Private Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Registers a scalar field. </p>
-<dl class="section return"><dt>Returns</dt><dd>integer </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>field index for subsequent call to <a class="el" href="interfacediag__manager__mod_1_1send__data.html" title="Send data over to output fields.">send_data</a>. </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">do_not_log</td><td>if TRUE, field information is not logged </td></tr>
@@ -369,7 +372,7 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__manager_8F90_source.html#l00606">606</a> of file <a class="el" href="diag__manager_8F90_source.html">diag_manager.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__manager_8F90_source.html#l00378">378</a> of file <a class="el" href="diag__manager_8F90_source.html">diag_manager.F90</a>.</p>
 
 </div>
 </div>

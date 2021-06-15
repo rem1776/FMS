@@ -105,7 +105,7 @@ $(document).ready(function(){initNavTree('group__data__override__mod.html',''); 
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Types</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">type &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdata__override__mod_1_1data__type.html">data_type</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds field and grid data.  <a href="structdata__override__mod_1_1data__type.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds meta data for a field and it's associated grid.  <a href="structdata__override__mod_1_1data__type.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">type &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdata__override__mod_1_1override__type.html">override_type</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds various data fields for performing data overrides.  <a href="structdata__override__mod_1_1override__type.html#details">More...</a><br /></td></tr>
@@ -287,7 +287,7 @@ logical&#160;</td><td class="memItemRight" valign="bottom"><b>indicating</b></td
 <p>Routines to get data in a file whose path is described in a user-provided data_table and do spatial and temporal interpolation if necessary to convert data to model's grid and time. </p>
 <dl class="section author"><dt>Author</dt><dd>Z. Liang, M.J. Harrison, M. Winton</dd></dl>
 <p>Before using <a class="el" href="group__data__override.html">Data Override</a> a data_table must be created with the following entries: gridname, fieldname_code, fieldname_file, file_name, ongrid, factor.</p>
-<p>More explainations about data_table entries can be found in the source code (defining <a class="el" href="structdata__override__mod_1_1data__type.html" title="Holds field and grid data.">data_type</a>)</p>
+<p>More explainations about data_table entries can be found in the source code (defining <a class="el" href="structdata__override__mod_1_1data__type.html" title="Holds meta data for a field and it&#39;s associated grid.">data_type</a>)</p>
 <p>If user wants to override fieldname_code with a const, set fieldname_file in data_table = "" and factor = const</p>
 <p>If user wants to override fieldname_code with data from a file, set fieldname_file = name in the netCDF data file, factor then will be for unit conversion (=1 if no conversion required)</p>
 <p>A field can be overriden globally (by default) or users can specify one or two regions in which <a class="el" href="interfacedata__override__mod_1_1data__override.html" title="Interface for inserting and interpolating data into a file for a model&#39;s grid and time....">data_override</a> will take place, field values outside the region will not be affected. </p>
@@ -353,16 +353,16 @@ logical&#160;</td><td class="memItemRight" valign="bottom"><b>indicating</b></td
 <p>Routine to perform data override for scalar fields. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">gridname</td><td>model grid ID </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">fieldname_code</td><td>field name as used in the model </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">gridname</td><td>model grid ID (ocn,ice,atm,lnd) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">fieldname_code</td><td>field name as used in the model (may be different from the name in NetCDF data file) </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">override</td><td>true if the field has been overriden succesfully </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">time</td><td>(target) model time </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">data</td><td>data returned by this call </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">data</td><td>output data array returned by this call </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="data__override_8F90_source.html#l01265">1265</a> of file <a class="el" href="data__override_8F90_source.html">data_override.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="data__override_8F90_source.html#l01195">1195</a> of file <a class="el" href="data__override_8F90_source.html">data_override.F90</a>.</p>
 
 </div>
 </div>
@@ -454,7 +454,7 @@ logical&#160;</td><td class="memItemRight" valign="bottom"><b>indicating</b></td
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="data__override_8F90_source.html#l00655">655</a> of file <a class="el" href="data__override_8F90_source.html">data_override.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="data__override_8F90_source.html#l00637">637</a> of file <a class="el" href="data__override_8F90_source.html">data_override.F90</a>.</p>
 
 </div>
 </div>
@@ -554,7 +554,7 @@ logical&#160;</td><td class="memItemRight" valign="bottom"><b>indicating</b></td
 <p>If this in an ongrid case and you are not in the compute domain, send in <code>data</code> to be the correct size</p>
 <p>If this in an ongrid case and you are not in the compute domain, send in <code>data</code> to be the correct size</p>
 
-<p class="definition">Definition at line <a class="el" href="data__override_8F90_source.html#l00714">714</a> of file <a class="el" href="data__override_8F90_source.html">data_override.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="data__override_8F90_source.html#l00670">670</a> of file <a class="el" href="data__override_8F90_source.html">data_override.F90</a>.</p>
 
 </div>
 </div>
@@ -675,7 +675,7 @@ logical&#160;</td><td class="memItemRight" valign="bottom"><b>indicating</b></td
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="data__override_8F90_source.html#l01360">1360</a> of file <a class="el" href="data__override_8F90_source.html">data_override.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="data__override_8F90_source.html#l01290">1290</a> of file <a class="el" href="data__override_8F90_source.html">data_override.F90</a>.</p>
 
 </div>
 </div>
@@ -743,7 +743,7 @@ logical&#160;</td><td class="memItemRight" valign="bottom"><b>indicating</b></td
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="data__override_8F90_source.html#l01396">1396</a> of file <a class="el" href="data__override_8F90_source.html">data_override.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="data__override_8F90_source.html#l01326">1326</a> of file <a class="el" href="data__override_8F90_source.html">data_override.F90</a>.</p>
 
 </div>
 </div>
@@ -794,7 +794,7 @@ logical&#160;</td><td class="memItemRight" valign="bottom"><b>indicating</b></td
 <p>Unset domains that had previously been set for use by <a class="el" href="interfacedata__override__mod_1_1data__override.html" title="Interface for inserting and interpolating data into a file for a model&#39;s grid and time....">data_override</a>. </p>
 <p>This subroutine deallocates any data override domains that have been set. </p>
 
-<p class="definition">Definition at line <a class="el" href="data__override_8F90_source.html#l00558">558</a> of file <a class="el" href="data__override_8F90_source.html">data_override.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="data__override_8F90_source.html#l00545">545</a> of file <a class="el" href="data__override_8F90_source.html">data_override.F90</a>.</p>
 
 </div>
 </div>
@@ -846,7 +846,7 @@ logical&#160;</td><td class="memItemRight" valign="bottom"><b>indicating</b></td
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="data__override_8F90_source.html#l00608">608</a> of file <a class="el" href="data__override_8F90_source.html">data_override.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="data__override_8F90_source.html#l00592">592</a> of file <a class="el" href="data__override_8F90_source.html">data_override.F90</a>.</p>
 
 </div>
 </div>
@@ -898,7 +898,7 @@ logical&#160;</td><td class="memItemRight" valign="bottom"><b>indicating</b></td
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="data__override_8F90_source.html#l00633">633</a> of file <a class="el" href="data__override_8F90_source.html">data_override.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="data__override_8F90_source.html#l00616">616</a> of file <a class="el" href="data__override_8F90_source.html">data_override.F90</a>.</p>
 
 </div>
 </div>

@@ -186,27 +186,42 @@ character(len= *), parameter&#160;</td><td class="memItemRight" valign="bottom">
 <p class="enddd"></p>
 </dd>
 <dt><code>INTEGER :: output_freq</code> </dt>
-<dd>How often to write fields to file. &lt;NL&gt; </dd>
-</dl>
-</li>
+<dd>How often to write fields to file. <ul>
 <li>
 <code>&gt; 0</code> &lt;EN &gt; Output frequency in <code>output_freq_units</code>. </li>
 <li>
 <code>= 0</code> &lt;EN &gt; Output frequency every time set. (<code>output_freq_units</code> is ignored.) </li>
 <li>
-<code>=-1</code> &lt;EN &gt; Output at end of run only. (<code>output_freq_units</code> is ignored.) &lt;/NL&gt;  </li>
-</ol>
-<p><code>CHARACTER(len=10) :: output_freq_units</code>  Time units for output. Can be either <code>years</code>, <code>months</code>, <code>days</code>, <code>minutes</code>, <code>hours</code>, or <code>seconds</code>.  </p>
-<p><code>INTEGER :: file_format</code>  Output file format. Currently only the <em>netCDF</em> file format is supported. &lt;NL&gt; <code>= 1</code> &lt;EN &gt; netCDF &lt;/NL&gt;  </p>
-<p><code>CHARACTER(len=10) :: time_axis_units</code>  Time units for the output file time axis. Can be either <code>years</code>, <code>months</code>, <code>days</code>, <code>minutes</code>, <code>hours</code>, or <code>seconds</code>.  </p>
-<p><code>CHARACTER(len=128) :: time_axis_name</code>  Axis name for the output file time axis. The character sting must contain the string 'time'. (mixed upper and lowercase allowed.)  </p>
-<p><code>INTEGER, OPTIONAL :: new_file_freq</code>  Frequency for closing the existing file, and creating a new file in <code>new_file_freq_units</code>.  </p>
-<p><code>CHARACTER(len=10), OPTIONAL :: new_file_freq_units</code>  Time units for creating a new file. Can be either <code>years</code>, <code>months</code>, <code>days</code>, <code>minutes</code>, <code>hours</code>, or <code>seconds</code>. <b><em>NOTE:</em></b> If the <code>new_file_freq</code> field is present, then this field must also be present.  </p>
-<p><code>CHARACTER(len=25), OPTIONAL :: start_time</code>  Time to start the file for the first time. The format of this string is the same as the <em>global date</em>. <b><em> NOTE:</em></b> The <code>new_file_freq</code> and the <code>new_file_freq_units</code> fields must be present to use this field.  </p>
-<p><code>INTEGER, OPTIONAL :: file_duration</code>  How long file should receive data after start time in <code>file_duration_units</code>. This optional field can only be used if the <code>start_time</code> field is present. If this field is absent, then the file duration will be equal to the frequency for creating new files. <b><em>NOTE:</em></b> The <code>file_duration_units</code> field must also be present if this field is present.  </p>
-<p><code>CHARACTER(len=10), OPTIONAL :: file_duration_units</code>  File duration units. Can be either <code>years</code>, <code>months</code>, <code>days</code>, <code>minutes</code>, <code>hours</code>, or <code>seconds</code>. <b><em>NOTE:</em></b> If the <code>file_duration</code> field is present, then this field must also be present.  </p>
-<p><b>Field Section:</b> Field lines contain 8 fields. Field lines can be intermixed with file lines. Fields line can contain fields that are not written to any files. The file name for these fields is <code>null</code>.</p>
-<p>Field lines have the following format:<br  />
+<code>=-1</code> &lt;EN &gt; Output at end of run only. (<code>output_freq_units</code> is ignored.) </li>
+</ul>
+</dd>
+<dt><code>CHARACTER(len=10) :: output_freq_units</code> </dt>
+<dd>Time units for output. Can be either <code>years</code>, <code>months</code>, <code>days</code>, <code>minutes</code>, <code>hours</code>, or <code>seconds</code>.  </dd>
+<dt><code>INTEGER :: file_format</code> </dt>
+<dd>Output file format. Currently only the <em>netCDF</em> file format is supported. <ul>
+<li>
+<code>= 1</code> &lt;EN &gt; netCDF </li>
+</ul>
+</dd>
+<dt><code>CHARACTER(len=10) :: time_axis_units</code> </dt>
+<dd>Time units for the output file time axis. Can be either <code>years</code>, <code>months</code>, <code>days</code>, <code>minutes</code>, <code>hours</code>, or <code>seconds</code>.  </dd>
+<dt><code>CHARACTER(len=128) :: time_axis_name</code> </dt>
+<dd>Axis name for the output file time axis. The character sting must contain the string 'time'. (mixed upper and lowercase allowed.)  </dd>
+<dt><code>INTEGER, OPTIONAL :: new_file_freq</code> </dt>
+<dd>Frequency for closing the existing file, and creating a new file in <code>new_file_freq_units</code>.  </dd>
+<dt><code>CHARACTER(len=10), OPTIONAL :: new_file_freq_units</code> </dt>
+<dd>Time units for creating a new file. Can be either <code>years</code>, <code>months</code>, <code>days</code>, <code>minutes</code>, <code>hours</code>, or <code>seconds</code>. <b><em>NOTE:</em></b> If the <code>new_file_freq</code> field is present, then this field must also be present.  </dd>
+<dt><code>CHARACTER(len=25), OPTIONAL :: start_time</code> </dt>
+<dd>Time to start the file for the first time. The format of this string is the same as the <em>global date</em>. <b><em> NOTE:</em></b> The <code>new_file_freq</code> and the <code>new_file_freq_units</code> fields must be present to use this field.  </dd>
+<dt><code>INTEGER, OPTIONAL :: file_duration</code> </dt>
+<dd>How long file should receive data after start time in <code>file_duration_units</code>. This optional field can only be used if the <code>start_time</code> field is present. If this field is absent, then the file duration will be equal to the frequency for creating new files. <b><em>NOTE:</em></b> The <code>file_duration_units</code> field must also be present if this field is present.  </dd>
+<dt><code>CHARACTER(len=10), OPTIONAL :: file_duration_units</code> </dt>
+<dd>File duration units. Can be either <code>years</code>, <code>months</code>, <code>days</code>, <code>minutes</code>, <code>hours</code>, or <code>seconds</code>. <b><em>NOTE:</em></b> If the <code>file_duration</code> field is present, then this field must also be present.  </dd>
+</dl>
+</li>
+<li>
+<p class="startli"><b>Field Section:</b> Field lines contain 8 fields. Field lines can be intermixed with file lines. Fields line can contain fields that are not written to any files. The file name for these fields is <code>null</code>.</p>
+<p class="endli">Field lines have the following format:<br  />
  </p><pre>
  "module_name", "field_name", "output_name", "file_name", "time_sampling", "reduction_method", "regional_section", packing
        </pre><p> with the following descriptions. </p><dl>
@@ -243,8 +258,18 @@ character(len= *), parameter&#160;</td><td class="memItemRight" valign="bottom">
  <code>lat_min, lat_max, lon_min, lon_max, vert_min, vert_max</code><br  />
  Use <code>vert_min = -1</code> and <code>vert_max = -1</code> to get the entire vertical axis. <b><em>NOTE:</em></b> Currently, the defined region <em>MUST</em> be confined to a single tile.  </dd>
 <dt><code>INTEGER :: packing</code> </dt>
-<dd>Fortran number <code>KIND</code> of the data written. Valid values: &lt;NL&gt; <code>= 1</code> &lt;EN &gt; double precision <code>= 2</code> &lt;EN &gt; float <code>= 4</code> &lt;EN &gt; packed 16-bit integers <code>= 8</code> &lt;EN &gt; packed 1-byte (not tested). &lt;/NL&gt;  </dd>
+<dd>Fortran number <code>KIND</code> of the data written. Valid values: &lt;NL&gt; </dd>
 </dl>
+</li>
+<li>
+<code>= 1</code> &lt;EN &gt; double precision </li>
+<li>
+<code>= 2</code> &lt;EN &gt; float </li>
+<li>
+<code>= 4</code> &lt;EN &gt; packed 16-bit integers </li>
+<li>
+<code>= 8</code> &lt;EN &gt; packed 1-byte (not tested). &lt;/NL&gt;  </li>
+</ol>
 <h4><b>Sample <code>diag_table</code></b></h4>
 <pre>
  "diag manager test"
@@ -289,7 +314,7 @@ character(len= *), parameter&#160;</td><td class="memItemRight" valign="bottom">
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__table_8F90_source.html#l00717">717</a> of file <a class="el" href="diag__table_8F90_source.html">diag_table.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__table_8F90_source.html#l00506">506</a> of file <a class="el" href="diag__table_8F90_source.html">diag_table.F90</a>.</p>
 
 </div>
 </div>
@@ -342,7 +367,7 @@ unknown = -1  </li>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__table_8F90_source.html#l01041">1041</a> of file <a class="el" href="diag__table_8F90_source.html">diag_table.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__table_8F90_source.html#l00830">830</a> of file <a class="el" href="diag__table_8F90_source.html">diag_table.F90</a>.</p>
 
 </div>
 </div>
@@ -379,7 +404,7 @@ unknown = -1  </li>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__table_8F90_source.html#l01005">1005</a> of file <a class="el" href="diag__table_8F90_source.html">diag_table.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__table_8F90_source.html#l00794">794</a> of file <a class="el" href="diag__table_8F90_source.html">diag_table.F90</a>.</p>
 
 </div>
 </div>
@@ -416,7 +441,7 @@ unknown = -1  </li>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__table_8F90_source.html#l00976">976</a> of file <a class="el" href="diag__table_8F90_source.html">diag_table.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__table_8F90_source.html#l00765">765</a> of file <a class="el" href="diag__table_8F90_source.html">diag_table.F90</a>.</p>
 
 </div>
 </div>
@@ -470,7 +495,7 @@ unknown = -1  </li>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__table_8F90_source.html#l00690">690</a> of file <a class="el" href="diag__table_8F90_source.html">diag_table.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__table_8F90_source.html#l00479">479</a> of file <a class="el" href="diag__table_8F90_source.html">diag_table.F90</a>.</p>
 
 </div>
 </div>
@@ -517,7 +542,7 @@ unknown = -1  </li>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__table_8F90_source.html#l00502">502</a> of file <a class="el" href="diag__table_8F90_source.html">diag_table.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__table_8F90_source.html#l00291">291</a> of file <a class="el" href="diag__table_8F90_source.html">diag_table.F90</a>.</p>
 
 </div>
 </div>
@@ -572,7 +597,7 @@ unknown = -1  </li>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__table_8F90_source.html#l00890">890</a> of file <a class="el" href="diag__table_8F90_source.html">diag_table.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__table_8F90_source.html#l00679">679</a> of file <a class="el" href="diag__table_8F90_source.html">diag_table.F90</a>.</p>
 
 </div>
 </div>
@@ -627,7 +652,7 @@ unknown = -1  </li>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__table_8F90_source.html#l00727">727</a> of file <a class="el" href="diag__table_8F90_source.html">diag_table.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__table_8F90_source.html#l00516">516</a> of file <a class="el" href="diag__table_8F90_source.html">diag_table.F90</a>.</p>
 
 </div>
 </div>

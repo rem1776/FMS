@@ -119,16 +119,15 @@ subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>interp_1d_2d</b
 <tr class="memitem:ga6c7bb4e4b93559a972ac8337f1f23581"><td class="memItemLeft" align="right" valign="top"><a id="ga6c7bb4e4b93559a972ac8337f1f23581"></a>
 subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>interp_1d_3d</b> (grid1, grid2, data1, data2, method, yp1, yp2)</td></tr>
 <tr class="separator:ga6c7bb4e4b93559a972ac8337f1f23581"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac51ddecdfb07b1ea6ef7ff738016825b"><td class="memItemLeft" align="right" valign="top"><a id="gac51ddecdfb07b1ea6ef7ff738016825b"></a>
-subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__axis__utils__mod.html#gac51ddecdfb07b1ea6ef7ff738016825b">get_axis_cart</a> (axis, cart)</td></tr>
-<tr class="memdesc:gac51ddecdfb07b1ea6ef7ff738016825b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns X,Y,Z or T cartesian attribute. <br /></td></tr>
+<tr class="memitem:gac51ddecdfb07b1ea6ef7ff738016825b"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__axis__utils__mod.html#gac51ddecdfb07b1ea6ef7ff738016825b">get_axis_cart</a> (axis, cart)</td></tr>
+<tr class="memdesc:gac51ddecdfb07b1ea6ef7ff738016825b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns X,Y,Z or T cartesian attribute.  <a href="group__axis__utils__mod.html#gac51ddecdfb07b1ea6ef7ff738016825b">More...</a><br /></td></tr>
 <tr class="separator:gac51ddecdfb07b1ea6ef7ff738016825b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaf2d607b6a8526083a52fba72e56954d4"><td class="memItemLeft" align="right" valign="top"><a id="gaf2d607b6a8526083a52fba72e56954d4"></a>
 subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__axis__utils__mod.html#gaf2d607b6a8526083a52fba72e56954d4">get_axis_bounds</a> (axis, axis_bound, axes, bnd_name, err_msg)</td></tr>
 <tr class="memdesc:gaf2d607b6a8526083a52fba72e56954d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return axis_bound either from an array of available axes, or defined based on axis mid-points. <br /></td></tr>
 <tr class="separator:gaf2d607b6a8526083a52fba72e56954d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gafabb163ff48ca9b414e468aa1f3a9c56"><td class="memItemLeft" align="right" valign="top">logical function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__axis__utils__mod.html#gafabb163ff48ca9b414e468aa1f3a9c56">get_axis_modulo</a> (axis)</td></tr>
-<tr class="memdesc:gafabb163ff48ca9b414e468aa1f3a9c56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if axis has the modulo attribute.  <a href="group__axis__utils__mod.html#gafabb163ff48ca9b414e468aa1f3a9c56">More...</a><br /></td></tr>
+<tr class="memdesc:gafabb163ff48ca9b414e468aa1f3a9c56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if 'modulo' variable exists for a given axis.  <a href="group__axis__utils__mod.html#gafabb163ff48ca9b414e468aa1f3a9c56">More...</a><br /></td></tr>
 <tr class="separator:gafabb163ff48ca9b414e468aa1f3a9c56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gafc4f6ff5ddfbec6c9ab8ede94fe979b0"><td class="memItemLeft" align="right" valign="top">logical function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__axis__utils__mod.html#gafc4f6ff5ddfbec6c9ab8ede94fe979b0">get_axis_modulo_times</a> (axis, tbeg, tend)</td></tr>
 <tr class="separator:gafc4f6ff5ddfbec6c9ab8ede94fe979b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -228,7 +227,46 @@ real, parameter&#160;</td><td class="memItemRight" valign="bottom"><b>f360</b> =
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="axis__utils_8F90_source.html#l00400">400</a> of file <a class="el" href="axis__utils_8F90_source.html">axis_utils.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="axis__utils_8F90_source.html#l00401">401</a> of file <a class="el" href="axis__utils_8F90_source.html">axis_utils.F90</a>.</p>
+
+</div>
+</div>
+<a id="gac51ddecdfb07b1ea6ef7ff738016825b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac51ddecdfb07b1ea6ef7ff738016825b">&#9670;&nbsp;</a></span>get_axis_cart()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine, public axis_utils_mod::get_axis_cart </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structmpp__io__mod_1_1axistype.html">axistype</a>), intent(in)&#160;</td>
+          <td class="paramname"><em>axis</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=1), intent(out)&#160;</td>
+          <td class="paramname"><em>cart</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns X,Y,Z or T cartesian attribute. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">axis</td><td>axis to get data from </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">cart</td><td>Returned cartesian axis </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="axis__utils_8F90_source.html#l00069">69</a> of file <a class="el" href="axis__utils_8F90_source.html">axis_utils.F90</a>.</p>
 
 </div>
 </div>
@@ -251,7 +289,7 @@ real, parameter&#160;</td><td class="memItemRight" valign="bottom"><b>f360</b> =
 <p>Returns if axis is folded at a boundary (non-standard meta-data) </p>
 <dl class="section return"><dt>Returns</dt><dd>logical get_axis_fold </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="axis__utils_8F90_source.html#l00264">264</a> of file <a class="el" href="axis__utils_8F90_source.html">axis_utils.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="axis__utils_8F90_source.html#l00265">265</a> of file <a class="el" href="axis__utils_8F90_source.html">axis_utils.F90</a>.</p>
 
 </div>
 </div>
@@ -271,10 +309,10 @@ real, parameter&#160;</td><td class="memItemRight" valign="bottom"><b>f360</b> =
       </table>
 </div><div class="memdoc">
 
-<p>Returns true if axis has the modulo attribute. </p>
-<dl class="section return"><dt>Returns</dt><dd>logical get_axis_modulo </dd></dl>
+<p>Checks if 'modulo' variable exists for a given axis. </p>
+<dl class="section return"><dt>Returns</dt><dd>true if modulo variable exists in fileobj for the given axis name. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="axis__utils_8F90_source.html#l00195">195</a> of file <a class="el" href="axis__utils_8F90_source.html">axis_utils.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="axis__utils_8F90_source.html#l00196">196</a> of file <a class="el" href="axis__utils_8F90_source.html">axis_utils.F90</a>.</p>
 
 </div>
 </div>
@@ -311,7 +349,7 @@ real, parameter&#160;</td><td class="memItemRight" valign="bottom"><b>f360</b> =
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>logical get_axis_modulo_times </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="axis__utils_8F90_source.html#l00218">218</a> of file <a class="el" href="axis__utils_8F90_source.html">axis_utils.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="axis__utils_8F90_source.html#l00219">219</a> of file <a class="el" href="axis__utils_8F90_source.html">axis_utils.F90</a>.</p>
 
 </div>
 </div>
@@ -344,7 +382,7 @@ real, parameter&#160;</td><td class="memItemRight" valign="bottom"><b>f360</b> =
 <p>Returns lon_strt &lt;= longitude &lt;= lon_strt+360. </p>
 <dl class="section return"><dt>Returns</dt><dd>real lon_in_range </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="axis__utils_8F90_source.html#l00288">288</a> of file <a class="el" href="axis__utils_8F90_source.html">axis_utils.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="axis__utils_8F90_source.html#l00289">289</a> of file <a class="el" href="axis__utils_8F90_source.html">axis_utils.F90</a>.</p>
 
 </div>
 </div>
@@ -419,7 +457,7 @@ index of nearest data point to "value" if "value" is outside the domain of "arra
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="axis__utils_8F90_source.html#l00475">475</a> of file <a class="el" href="axis__utils_8F90_source.html">axis_utils.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="axis__utils_8F90_source.html#l00476">476</a> of file <a class="el" href="axis__utils_8F90_source.html">axis_utils.F90</a>.</p>
 
 </div>
 </div>

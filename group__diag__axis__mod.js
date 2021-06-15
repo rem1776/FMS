@@ -34,5 +34,7 @@ var group__diag__axis__mod =
     [ "valid_id_check", "group__diag__axis__mod.html#ga45f951e0bdd0b352ec5c3b19287dc1a2", null ],
     [ "axes", "group__diag__axis__mod.html#gaaeb334bb35e9472f0707b4cca84eede6", null ],
     [ "axis_sets", "group__diag__axis__mod.html#gaf41fb13890f8edbde9a460b8b2f1008e", null ],
+    [ "diag_axis_2ddomain", "group__diag__axis__mod.html#gaa811f1d7090446833dadbbca84f7d8cb", null ],
+    [ "diag_axis_ugdomain", "group__diag__axis__mod.html#gadb5e4d3bb7b063cbf144a5c79e16cd06", null ],
     [ "num_subaxes", "group__diag__axis__mod.html#gad591f5cc730f81e2e48d7d597f9deb1f", null ]
 ];

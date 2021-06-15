@@ -112,11 +112,11 @@ Data Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
-<tr class="memitem:ga3fe4513776bc8868a7664b486988cd51"><td class="memItemLeft" align="right" valign="top"><a id="ga3fe4513776bc8868a7664b486988cd51"></a>
-subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>drifters_core_new</b> (self, nd, npdim, ermesg)</td></tr>
+<tr class="memitem:ga3fe4513776bc8868a7664b486988cd51"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__drifters__core__mod.html#ga3fe4513776bc8868a7664b486988cd51">drifters_core_new</a> (self, nd, npdim, ermesg)</td></tr>
+<tr class="memdesc:ga3fe4513776bc8868a7664b486988cd51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new <a class="el" href="structdrifters__core__mod_1_1drifters__core__type.html">drifters_core_type</a>.  <a href="group__drifters__core__mod.html#ga3fe4513776bc8868a7664b486988cd51">More...</a><br /></td></tr>
 <tr class="separator:ga3fe4513776bc8868a7664b486988cd51"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga0bbb6ddcea038831c313d98409a9a5ae"><td class="memItemLeft" align="right" valign="top"><a id="ga0bbb6ddcea038831c313d98409a9a5ae"></a>
-subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>drifters_core_del</b> (self, ermesg)</td></tr>
+<tr class="memitem:ga0bbb6ddcea038831c313d98409a9a5ae"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__drifters__core__mod.html#ga0bbb6ddcea038831c313d98409a9a5ae">drifters_core_del</a> (self, ermesg)</td></tr>
+<tr class="memdesc:ga0bbb6ddcea038831c313d98409a9a5ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocates the given <a class="el" href="structdrifters__core__mod_1_1drifters__core__type.html">drifters_core_type</a>.  <a href="group__drifters__core__mod.html#ga0bbb6ddcea038831c313d98409a9a5ae">More...</a><br /></td></tr>
 <tr class="separator:ga0bbb6ddcea038831c313d98409a9a5ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga03ea9550c197fd7365d21f07acbb1ff1"><td class="memItemLeft" align="right" valign="top"><a id="ga03ea9550c197fd7365d21f07acbb1ff1"></a>
 subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>drifters_core_copy_new</b> (new_instance, old_instance)</td></tr>
@@ -139,6 +139,96 @@ subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>drifter
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Handles the mechanics for adding and removing drifters. </p>
 <h2 class="groupheader">Function/Subroutine Documentation</h2>
+<a id="ga0bbb6ddcea038831c313d98409a9a5ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0bbb6ddcea038831c313d98409a9a5ae">&#9670;&nbsp;</a></span>drifters_core_del()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine, public drifters_core_mod::drifters_core_del </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structdrifters__core__mod_1_1drifters__core__type.html">drifters_core_type</a>)&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(*), intent(out)&#160;</td>
+          <td class="paramname"><em>ermesg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Deallocates the given <a class="el" href="structdrifters__core__mod_1_1drifters__core__type.html">drifters_core_type</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">self</td><td><a class="el" href="structdrifters__core__mod_1_1drifters__core__type.html">drifters_core_type</a> to delete </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">ermesg</td><td>Error message string </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="drifters__core_8F90_source.html#l00098">98</a> of file <a class="el" href="drifters__core_8F90_source.html">drifters_core.F90</a>.</p>
+
+</div>
+</div>
+<a id="ga3fe4513776bc8868a7664b486988cd51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3fe4513776bc8868a7664b486988cd51">&#9670;&nbsp;</a></span>drifters_core_new()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine, public drifters_core_mod::drifters_core_new </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structdrifters__core__mod_1_1drifters__core__type.html">drifters_core_type</a>)&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)&#160;</td>
+          <td class="paramname"><em>nd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)&#160;</td>
+          <td class="paramname"><em>npdim</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(*), intent(out)&#160;</td>
+          <td class="paramname"><em>ermesg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Create a new <a class="el" href="structdrifters__core__mod_1_1drifters__core__type.html">drifters_core_type</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">self</td><td><a class="el" href="structdrifters__core__mod_1_1drifters__core__type.html">drifters_core_type</a> to create </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">ermesg</td><td>Error message string </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="drifters__core_8F90_source.html#l00071">71</a> of file <a class="el" href="drifters__core_8F90_source.html">drifters_core.F90</a>.</p>
+
+</div>
+</div>
 <a id="ga50a2687071f49e5f40ce1441f797c55a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga50a2687071f49e5f40ce1441f797c55a">&#9670;&nbsp;</a></span>drifters_core_resize()</h2>
 
@@ -177,7 +267,7 @@ subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>drifter
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="drifters__core_8F90_source.html#l00138">138</a> of file <a class="el" href="drifters__core_8F90_source.html">drifters_core.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="drifters__core_8F90_source.html#l00140">140</a> of file <a class="el" href="drifters__core_8F90_source.html">drifters_core.F90</a>.</p>
 
 </div>
 </div>

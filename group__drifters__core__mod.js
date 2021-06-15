@@ -11,5 +11,7 @@ var group__drifters__core__mod =
     [ "assignment(=)", "interfacedrifters__core__mod_1_1assignment_07_0a_08.html", [
       [ "drifters_core_copy_new", "interfacedrifters__core__mod_1_1assignment_07_0a_08.html#abb59483d55a16402d1b58a29929f06bf", null ]
     ] ],
+    [ "drifters_core_del", "group__drifters__core__mod.html#ga0bbb6ddcea038831c313d98409a9a5ae", null ],
+    [ "drifters_core_new", "group__drifters__core__mod.html#ga3fe4513776bc8868a7664b486988cd51", null ],
     [ "drifters_core_resize", "group__drifters__core__mod.html#ga50a2687071f49e5f40ce1441f797c55a", null ]
 ];

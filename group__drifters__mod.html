@@ -120,10 +120,10 @@ Data Types</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
 <tr class="memitem:gaddfba33d6e4b7bdc50a58a1be1e3489b"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__drifters__mod.html#gaddfba33d6e4b7bdc50a58a1be1e3489b">drifters_new</a> (self, input_file, output_file, ermesg)</td></tr>
-<tr class="memdesc:gaddfba33d6e4b7bdc50a58a1be1e3489b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Will read positions stored in the netCDF file <code>input_file</code>. The trajectories will be saved in files <code>output_file.PE</code>, one file per PE domain.  <a href="group__drifters__mod.html#gaddfba33d6e4b7bdc50a58a1be1e3489b">More...</a><br /></td></tr>
+<tr class="memdesc:gaddfba33d6e4b7bdc50a58a1be1e3489b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Will read positions stored in the netCDF file <code>input_file</code>.  <a href="group__drifters__mod.html#gaddfba33d6e4b7bdc50a58a1be1e3489b">More...</a><br /></td></tr>
 <tr class="separator:gaddfba33d6e4b7bdc50a58a1be1e3489b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gabd7a7c5d6f87429d1f125fccbbbf9a5a"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__drifters__mod.html#gabd7a7c5d6f87429d1f125fccbbbf9a5a">drifters_del</a> (self, ermesg)</td></tr>
-<tr class="memdesc:gabd7a7c5d6f87429d1f125fccbbbf9a5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor, Call this to reclaim memory.  <a href="group__drifters__mod.html#gabd7a7c5d6f87429d1f125fccbbbf9a5a">More...</a><br /></td></tr>
+<tr class="memdesc:gabd7a7c5d6f87429d1f125fccbbbf9a5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor, call this to reclaim memory from data used for drifters.  <a href="group__drifters__mod.html#gabd7a7c5d6f87429d1f125fccbbbf9a5a">More...</a><br /></td></tr>
 <tr class="separator:gabd7a7c5d6f87429d1f125fccbbbf9a5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga2cc7e1a7540ae440979e31b88f2e733c"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__drifters__mod.html#ga2cc7e1a7540ae440979e31b88f2e733c">drifters_copy_new</a> (new_instance, old_instance)</td></tr>
 <tr class="memdesc:ga2cc7e1a7540ae440979e31b88f2e733c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy a drifter state into a new state. Note: this will not open new files; this will copy all members into a new container.  <a href="group__drifters__mod.html#ga2cc7e1a7540ae440979e31b88f2e733c">More...</a><br /></td></tr>
@@ -138,13 +138,13 @@ Functions/Subroutines</h2></td></tr>
 subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>drifters_modulo</b> (self, positions, ermesg)</td></tr>
 <tr class="separator:gae97237a2fd63598ca12ba28f35ecef58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae5f4a850b28c0132197541725ed0a933"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__drifters__mod.html#gae5f4a850b28c0132197541725ed0a933">drifters_save</a> (self, ermesg)</td></tr>
-<tr class="memdesc:gae5f4a850b28c0132197541725ed0a933"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method to append the new trajectory positions and the interpolated probe fields to a netCDF file.  <a href="group__drifters__mod.html#gae5f4a850b28c0132197541725ed0a933">More...</a><br /></td></tr>
+<tr class="memdesc:gae5f4a850b28c0132197541725ed0a933"><td class="mdescLeft">&#160;</td><td class="mdescRight">Append new positions to NetCDF file.  <a href="group__drifters__mod.html#gae5f4a850b28c0132197541725ed0a933">More...</a><br /></td></tr>
 <tr class="separator:gae5f4a850b28c0132197541725ed0a933"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga9a1aa7c59e21aeab310b3fd722ced015"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__drifters__mod.html#ga9a1aa7c59e21aeab310b3fd722ced015">drifters_distribute</a> (self, ermesg)</td></tr>
-<tr class="memdesc:ga9a1aa7c59e21aeab310b3fd722ced015"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method after setting the domain boundaries (<code>drifters_set_domain</code>) to spread the particles across PE.  <a href="group__drifters__mod.html#ga9a1aa7c59e21aeab310b3fd722ced015">More...</a><br /></td></tr>
+<tr class="memdesc:ga9a1aa7c59e21aeab310b3fd722ced015"><td class="mdescLeft">&#160;</td><td class="mdescRight">Distribute particles across PEs.  <a href="group__drifters__mod.html#ga9a1aa7c59e21aeab310b3fd722ced015">More...</a><br /></td></tr>
 <tr class="separator:ga9a1aa7c59e21aeab310b3fd722ced015"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga3e7db869b8b17f17d7c07b3c2b0cc5c2"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__drifters__mod.html#ga3e7db869b8b17f17d7c07b3c2b0cc5c2">drifters_write_restart</a> (self, filename, x1, y1, geolon1, x2, y2, geolat2, root, mycomm, ermesg)</td></tr>
-<tr class="memdesc:ga3e7db869b8b17f17d7c07b3c2b0cc5c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write restart file. Gather all the particle positions distributed across PE domains on root PE and save the data in netCDF file.  <a href="group__drifters__mod.html#ga3e7db869b8b17f17d7c07b3c2b0cc5c2">More...</a><br /></td></tr>
+<tr class="memdesc:ga3e7db869b8b17f17d7c07b3c2b0cc5c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write restart file for drifters.  <a href="group__drifters__mod.html#ga3e7db869b8b17f17d7c07b3c2b0cc5c2">More...</a><br /></td></tr>
 <tr class="separator:ga3e7db869b8b17f17d7c07b3c2b0cc5c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga2d38270021bffd79cb60096459b3ae7e"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__drifters__mod.html#ga2d38270021bffd79cb60096459b3ae7e">drifters_set_v_axes</a> (self, component, x, y, z, ermesg)</td></tr>
 <tr class="memdesc:ga2d38270021bffd79cb60096459b3ae7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set velocity field axes.  <a href="group__drifters__mod.html#ga2d38270021bffd79cb60096459b3ae7e">More...</a><br /></td></tr>
@@ -219,7 +219,7 @@ real, dimension(0)&#160;</td><td class="memItemRight" valign="bottom"><b>drft_em
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="drifters_8F90_source.html#l00382">382</a> of file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="drifters_8F90_source.html#l00317">317</a> of file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
 
 </div>
 </div>
@@ -249,7 +249,7 @@ real, dimension(0)&#160;</td><td class="memItemRight" valign="bottom"><b>drft_em
       </table>
 </div><div class="memdoc">
 
-<p>Destructor, Call this to reclaim memory. </p>
+<p>Destructor, call this to reclaim memory from data used for drifters. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir"></td><td class="paramname">self</td><td>Opaque data structure. </td></tr>
@@ -258,7 +258,7 @@ real, dimension(0)&#160;</td><td class="memItemRight" valign="bottom"><b>drft_em
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="drifters_8F90_source.html#l00324">324</a> of file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="drifters_8F90_source.html#l00280">280</a> of file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
 
 </div>
 </div>
@@ -288,8 +288,8 @@ real, dimension(0)&#160;</td><td class="memItemRight" valign="bottom"><b>drft_em
       </table>
 </div><div class="memdoc">
 
-<p>Use this method after setting the domain boundaries (<code>drifters_set_domain</code>) to spread the particles across PE. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Distribute particles across PEs. </p>
+<p>Use this method after setting the domain boundaries (<code>drifters_set_domain</code>) to spread the particles across PE domains. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir"></td><td class="paramname">self</td><td>Opaque handle. </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">ermesg</td><td>Error message (if any). </td></tr>
@@ -297,7 +297,7 @@ real, dimension(0)&#160;</td><td class="memItemRight" valign="bottom"><b>drft_em
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="drifters_8F90_source.html#l00726">726</a> of file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="drifters_8F90_source.html#l00550">550</a> of file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
 
 </div>
 </div>
@@ -339,8 +339,8 @@ real, dimension(0)&#160;</td><td class="memItemRight" valign="bottom"><b>drft_em
       </table>
 </div><div class="memdoc">
 
-<p>Will read positions stored in the netCDF file <code>input_file</code>. The trajectories will be saved in files <code>output_file.PE</code>, one file per PE domain. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Will read positions stored in the netCDF file <code>input_file</code>. </p>
+<p>The trajectories will be saved in files <code>output_file.PE</code>, one file per PE domain. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir"></td><td class="paramname">self</td><td>Opaque data structure. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">input_file</td><td>NetCDF input file name containing initial positions. </td></tr>
@@ -350,7 +350,7 @@ real, dimension(0)&#160;</td><td class="memItemRight" valign="bottom"><b>drft_em
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="drifters_8F90_source.html#l00218">218</a> of file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="drifters_8F90_source.html#l00192">192</a> of file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
 
 </div>
 </div>
@@ -452,7 +452,7 @@ real, dimension(0)&#160;</td><td class="memItemRight" valign="bottom"><b>drft_em
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="drifters_8F90_source.html#l01116">1116</a> of file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="drifters_8F90_source.html#l00779">779</a> of file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
 
 </div>
 </div>
@@ -498,7 +498,7 @@ real, dimension(0)&#160;</td><td class="memItemRight" valign="bottom"><b>drft_em
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="drifters_8F90_source.html#l01227">1227</a> of file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="drifters_8F90_source.html#l00868">868</a> of file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
 
 </div>
 </div>
@@ -528,8 +528,8 @@ real, dimension(0)&#160;</td><td class="memItemRight" valign="bottom"><b>drft_em
       </table>
 </div><div class="memdoc">
 
-<p>Use this method to append the new trajectory positions and the interpolated probe fields to a netCDF file. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Append new positions to NetCDF file. </p>
+<p>Use this method to append the new trajectory positions and the interpolated probe fields to a netCDF file. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir"></td><td class="paramname">self</td><td>Opaque daata structure. </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">ermesg</td><td>Error message (if any). </td></tr>
@@ -537,7 +537,7 @@ real, dimension(0)&#160;</td><td class="memItemRight" valign="bottom"><b>drft_em
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="drifters_8F90_source.html#l00686">686</a> of file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="drifters_8F90_source.html#l00528">528</a> of file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
 
 </div>
 </div>
@@ -640,7 +640,14 @@ real, dimension(0)&#160;</td><td class="memItemRight" valign="bottom"><b>drft_em
 </div><div class="memdoc">
 
 <p>Set the compute, data, and global domain boundaries. </p>
-<p>The data domain extends beyond the compute domain and is shared between two or more PE domains. A particle crossing the compute domain boundary will trigger a communication with one or more neighboring domains. A particle leaving the data domain will be removed from the list of particles. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>The data domain extends beyond the compute domain and is shared between two or more PE domains. A particle crossing the compute domain boundary will trigger a communication with one or more neighboring domains. A particle leaving the data domain will be removed from the list of particles.</p>
+<p><br  />
+Example usage: </p><div class="fragment"><div class="line"><span class="keyword">call   </span><a class="code" href="group__drifters__mod.html#gaf48b96da0cba62052592800e59ec7529">drifters_set_domain</a>(self, &amp;</div>
+<div class="line">  &amp; xmin_comp, xmax_comp, ymin_comp, ymax_comp, &amp;</div>
+<div class="line">  &amp; xmin_data, xmax_data, ymin_data, ymax_data, &amp;</div>
+<div class="line">  &amp; xmin_glob, xmax_glob, ymin_glob, ymax_glob, &amp;</div>
+<div class="line">  &amp; ermesg)</div>
+</div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir"></td><td class="paramname">self</td><td>Opaque data structure. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">xmin_comp</td><td>Min of longitude-like axis on compute domain. </td></tr>
@@ -660,7 +667,7 @@ real, dimension(0)&#160;</td><td class="memItemRight" valign="bottom"><b>drft_em
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="drifters_8F90_source.html#l00525">525</a> of file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="drifters_8F90_source.html#l00407">407</a> of file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
 
 </div>
 </div>
@@ -679,7 +686,7 @@ real, dimension(0)&#160;</td><td class="memItemRight" valign="bottom"><b>drft_em
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">integer&#160;</td>
+          <td class="paramtype">&#160;</td>
           <td class="paramname"><em>domain</em>, </td>
         </tr>
         <tr>
@@ -712,7 +719,7 @@ real, dimension(0)&#160;</td><td class="memItemRight" valign="bottom"><b>drft_em
 <p>Each particle will be tracked sol long is it is located in the data domain. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir"></td><td class="paramname">self</td><td>Opaque data structure. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">domain</td><td>Instance of Domain2D (see mpp_domain) </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">self</td><td>Instance of Domain2D (see mpp_domain) </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">backoff_x</td><td>particles leaves domain when crossing ied-backoff_x </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">backoff_y</td><td>particles leaves domain when crossing jed-backoff_y </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">ermesg</td><td>Error message (if any). </td></tr>
@@ -720,7 +727,7 @@ real, dimension(0)&#160;</td><td class="memItemRight" valign="bottom"><b>drft_em
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="drifters_8F90_source.html#l01032">1032</a> of file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="drifters_8F90_source.html#l00746">746</a> of file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
 
 </div>
 </div>
@@ -757,7 +764,7 @@ real, dimension(0)&#160;</td><td class="memItemRight" valign="bottom"><b>drft_em
 </div><div class="memdoc">
 
 <p>Given an MPP based deomposition, set the PE numbers that are adjacent to this processor. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>This will allow several PEs to track the trajectories of particles in the buffer regions. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir"></td><td class="paramname">self</td><td>Opaque data structure. </td></tr>
     <tr><td class="paramdir"></td><td class="paramname">domain</td><td>MPP domain. </td></tr>
@@ -766,7 +773,7 @@ real, dimension(0)&#160;</td><td class="memItemRight" valign="bottom"><b>drft_em
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="drifters_8F90_source.html#l00594">594</a> of file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="drifters_8F90_source.html#l00454">454</a> of file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
 
 </div>
 </div>
@@ -833,7 +840,7 @@ real, dimension(0)&#160;</td><td class="memItemRight" valign="bottom"><b>drft_em
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="drifters_8F90_source.html#l00927">927</a> of file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="drifters_8F90_source.html#l00669">669</a> of file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
 
 </div>
 </div>
@@ -917,8 +924,8 @@ real, dimension(0)&#160;</td><td class="memItemRight" valign="bottom"><b>drft_em
       </table>
 </div><div class="memdoc">
 
-<p>Write restart file. Gather all the particle positions distributed across PE domains on root PE and save the data in netCDF file. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Write restart file for drifters. </p>
+<p>Gather all the particle positions distributed across PE domains on root PE and save the data in netCDF file. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir"></td><td class="paramname">self</td><td>Opaque data structure. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">filename</td><td>Restart file name. </td></tr>
@@ -935,12 +942,13 @@ real, dimension(0)&#160;</td><td class="memItemRight" valign="bottom"><b>drft_em
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="drifters_8F90_source.html#l00812">812</a> of file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="drifters_8F90_source.html#l00588">588</a> of file <a class="el" href="drifters_8F90_source.html">drifters.F90</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="agroup__drifters__mod_html_gaf48b96da0cba62052592800e59ec7529"><div class="ttname"><a href="group__drifters__mod.html#gaf48b96da0cba62052592800e59ec7529">drifters_mod::drifters_set_domain</a></div><div class="ttdeci">subroutine, public drifters_set_domain(self, xmin_comp, xmax_comp, ymin_comp, ymax_comp, xmin_data, xmax_data, ymin_data, ymax_data, xmin_glob, xmax_glob, ymin_glob, ymax_glob, ermesg)</div><div class="ttdoc">Set the compute, data, and global domain boundaries.</div><div class="ttdef"><b>Definition:</b> <a href="drifters_8F90_source.html#l00407">drifters.F90:407</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

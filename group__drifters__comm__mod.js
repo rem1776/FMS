@@ -26,6 +26,9 @@ var group__drifters__comm__mod =
       [ "ygmin", "structdrifters__comm__mod_1_1drifters__comm__type.html#a3e49d89b54f27cd77afbb1ba4c76ba6d", null ],
       [ "yperiodic", "structdrifters__comm__mod_1_1drifters__comm__type.html#a9304f27d75ad3344b19602e4780c76ea", null ]
     ] ],
+    [ "drifters_comm_del", "group__drifters__comm__mod.html#gae835675113b952770f1ba84467beeda1", null ],
+    [ "drifters_comm_gather", "group__drifters__comm__mod.html#ga21b3baf8e94bded2623c05a77d4f1c13", null ],
+    [ "drifters_comm_new", "group__drifters__comm__mod.html#gad6202f68705009bf80d213c0a1e13074", null ],
     [ "drifters_comm_set_comp_bounds", "group__drifters__comm__mod.html#gaee73200ee61bec4133ee82ba13512b96", null ],
     [ "drifters_comm_set_data_bounds", "group__drifters__comm__mod.html#gac8886c09b18d2138ff27dc47e36cb2c4", null ],
     [ "drifters_comm_set_domain", "group__drifters__comm__mod.html#gac59ff2590c95134ec28fe03e33094fa9", null ],

@@ -103,6 +103,9 @@ $(document).ready(function(){initNavTree('interfacediag__integral__mod_1_1sum__d
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
+<tr class="memitem:ac0f831362d6a97202f1b4b1968fc9cdd"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacediag__integral__mod_1_1sum__diag__integral__field.html#ac0f831362d6a97202f1b4b1968fc9cdd">sum_field_2d</a> (name, data, is, js)</td></tr>
+<tr class="memdesc:ac0f831362d6a97202f1b4b1968fc9cdd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform a 2 dimensional summation of named field.  <a href="interfacediag__integral__mod_1_1sum__diag__integral__field.html#ac0f831362d6a97202f1b4b1968fc9cdd">More...</a><br /></td></tr>
+<tr class="separator:ac0f831362d6a97202f1b4b1968fc9cdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e424c6e37720e27f2e0c906e41f90c9"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacediag__integral__mod_1_1sum__diag__integral__field.html#a0e424c6e37720e27f2e0c906e41f90c9">sum_field_2d_hemi</a> (name, data, is, ie, js, je)</td></tr>
 <tr class="memdesc:a0e424c6e37720e27f2e0c906e41f90c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform a 2 dimensional hemispherical summation of named field.  <a href="interfacediag__integral__mod_1_1sum__diag__integral__field.html#a0e424c6e37720e27f2e0c906e41f90c9">More...</a><br /></td></tr>
 <tr class="separator:a0e424c6e37720e27f2e0c906e41f90c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -136,6 +139,76 @@ Private Member Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="diag__integral_8F90_source.html#l00134">134</a> of file <a class="el" href="diag__integral_8F90_source.html">diag_integral.F90</a>.</p>
 </div><h2 class="groupheader">Member Function/Subroutine Documentation</h2>
+<a id="ac0f831362d6a97202f1b4b1968fc9cdd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0f831362d6a97202f1b4b1968fc9cdd">&#9670;&nbsp;</a></span>sum_field_2d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine sum_field_2d </td>
+          <td>(</td>
+          <td class="paramtype">character(len=*), intent(in)&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:,:), intent(in)&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>is</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>js</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Perform a 2 dimensional summation of named field. </p>
+<p><b> Template: </b></p>
+<div class="fragment"><div class="line"><span class="keyword">call </span>sum_field_2d (name, <span class="keyword">data</span>, is, js)</div>
+</div><!-- fragment --><p><b> Parameters: </b></p>
+<div class="fragment"><div class="line"><span class="keywordtype">character(len=*)</span>,  <span class="keywordtype">intent(in)</span> :: name</div>
+<div class="line"><span class="keywordtype">real</span>,              <span class="keywordtype">intent(in)</span> :: data(:,:)</div>
+<div class="line"><span class="keywordtype">integer</span>, <span class="keywordtype">optional</span>, <span class="keywordtype">intent(in)</span> :: is, js</div>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;name&gt;</td><td>Name of the field to be integrated </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;data&gt;</td><td>field of integrands to be summed over </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;is,js&gt;</td><td>starting i,j indices over which summation is to occur </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>Name of the field to be integrated </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>field of integrands to be summed over </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">is</td><td>starting i indices over which summation is to occur </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">js</td><td>starting j indices over which summation is to occur </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="diag__integral_8F90_source.html#l00509">509</a> of file <a class="el" href="diag__integral_8F90_source.html">diag_integral.F90</a>.</p>
+
+</div>
+</div>
 <a id="a0e424c6e37720e27f2e0c906e41f90c9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0e424c6e37720e27f2e0c906e41f90c9">&#9670;&nbsp;</a></span>sum_field_2d_hemi()</h2>
 
@@ -216,7 +289,7 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__integral_8F90_source.html#l00815">815</a> of file <a class="el" href="diag__integral_8F90_source.html">diag_integral.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__integral_8F90_source.html#l00786">786</a> of file <a class="el" href="diag__integral_8F90_source.html">diag_integral.F90</a>.</p>
 
 </div>
 </div>
@@ -286,7 +359,7 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__integral_8F90_source.html#l00624">624</a> of file <a class="el" href="diag__integral_8F90_source.html">diag_integral.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__integral_8F90_source.html#l00595">595</a> of file <a class="el" href="diag__integral_8F90_source.html">diag_integral.F90</a>.</p>
 
 </div>
 </div>
@@ -364,7 +437,7 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__integral_8F90_source.html#l00720">720</a> of file <a class="el" href="diag__integral_8F90_source.html">diag_integral.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__integral_8F90_source.html#l00691">691</a> of file <a class="el" href="diag__integral_8F90_source.html">diag_integral.F90</a>.</p>
 
 </div>
 </div>

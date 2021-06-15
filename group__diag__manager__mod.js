@@ -4,7 +4,9 @@ var group__diag__manager__mod =
       [ "send_data_0d", "interfacediag__manager__mod_1_1send__data.html#a6312f419f8938246b09635d0e955d66b", null ],
       [ "send_data_1d", "interfacediag__manager__mod_1_1send__data.html#a7ce0f095072912437da7aafc18c135c1", null ],
       [ "send_data_2d", "interfacediag__manager__mod_1_1send__data.html#a319e3ddcaac22f061c4c548ea9ba55ae", null ],
-      [ "send_data_3d", "interfacediag__manager__mod_1_1send__data.html#adc7730140b949d91e2bd2c3342b3a407", null ]
+      [ "send_data_2d_r8", "interfacediag__manager__mod_1_1send__data.html#a6f6cff4f2cd93ae801f4a6855fdc09e7", null ],
+      [ "send_data_3d", "interfacediag__manager__mod_1_1send__data.html#adc7730140b949d91e2bd2c3342b3a407", null ],
+      [ "send_data_3d_r8", "interfacediag__manager__mod_1_1send__data.html#a3a4a3b20594e6f2fd038bb421f77e586", null ]
     ] ],
     [ "register_diag_field", "interfacediag__manager__mod_1_1register__diag__field.html", [
       [ "register_diag_field_array", "interfacediag__manager__mod_1_1register__diag__field.html#a4e5e7ce0bb19b00f4df3a2245fd28581", null ],
@@ -35,6 +37,7 @@ var group__diag__manager__mod =
     [ "diag_field_attribute_init", "group__diag__manager__mod.html#ga4331d6d18e62be6288629cf7029a85bc", null ],
     [ "diag_manager_end", "group__diag__manager__mod.html#gae363283d453e40d48d70f583c1e58b5f", null ],
     [ "diag_manager_init", "group__diag__manager__mod.html#gab78722b306c31534a1b7870aaef28c6c", null ],
+    [ "diag_send_complete", "group__diag__manager__mod.html#gaffcd2ffd364000d0a1b498c8aa21ea1e", null ],
     [ "diag_send_complete_instant", "group__diag__manager__mod.html#ga8465f5058eb48afcd76ad469ab3629a9", null ],
     [ "get_base_date", "group__diag__manager__mod.html#gabcca324d176f7fc4a2afcb081e5467cd", null ],
     [ "get_base_time", "group__diag__manager__mod.html#ga6f8f390263ec70bb5a7c281b95b37c5a", null ],
@@ -49,7 +52,9 @@ var group__diag__manager__mod =
     [ "send_data_0d", "group__diag__manager__mod.html#ga98310de5593600a83d7e4fa889456b29", null ],
     [ "send_data_1d", "group__diag__manager__mod.html#gada4ddad4a5d38ed610f29c6d89fd0ab3", null ],
     [ "send_data_2d", "group__diag__manager__mod.html#ga186a4a5d7d6d223828cc3f276f2745eb", null ],
+    [ "send_data_2d_r8", "group__diag__manager__mod.html#ga563def7751689c949e4a2bc24c91a5f9", null ],
     [ "send_data_3d", "group__diag__manager__mod.html#gac823edb555974a0a04a75e944ef33bfe", null ],
+    [ "send_data_3d_r8", "group__diag__manager__mod.html#ga5af0dae9bc1148ab3e9410572fcfec18", null ],
     [ "send_tile_averaged_data1d", "group__diag__manager__mod.html#gad9da945a2a2a883480d3cdf285622057", null ],
     [ "send_tile_averaged_data2d", "group__diag__manager__mod.html#gaec0c3b6c0df46eba50c6b0592a7a64c1", null ],
     [ "send_tile_averaged_data3d", "group__diag__manager__mod.html#ga4cf04da3a6f740be3c513f714c73e71f", null ],

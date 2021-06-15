@@ -200,29 +200,16 @@ Functions/Subroutines</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Sets up "blocks" used for OpenMP threading of column-based calculations using rad_n[x/y]xblock from coupler_nml. </p>
-<p>Parameters:</p>
-<div class="fragment"><div class="line"><span class="keywordtype">character(len=*)</span>,         <span class="keywordtype">intent(in)</span>    :: component</div>
-<div class="line"><span class="keywordtype">type</span>(block_control_type), <span class="keywordtype">intent(inout)</span> :: Block</div>
-<div class="line"><span class="keywordtype">integer</span>,                  <span class="keywordtype">intent(in)</span>    :: isc, iec, jsc, jec, kpts</div>
-<div class="line"><span class="keywordtype">integer</span>,                  <span class="keywordtype">intent(in)</span>    :: nx_block, ny_block</div>
-<div class="line"><span class="keywordtype">logical</span>,                  <span class="keywordtype">intent(inout)</span> :: message</div>
-</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;component&gt;</td><td></td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">&lt;Block&gt;</td><td></td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;isc&gt;</td><td></td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;iec&gt;</td><td></td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;jsc&gt;</td><td></td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;jec&gt;</td><td></td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;kpts&gt;</td><td></td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;nx_block&gt;</td><td></td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">&lt;ny_block&gt;</td><td></td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">&lt;message&gt;</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">component</td><td>Component name string </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">block</td><td>Returns instantiated <a class="el" href="structblock__control__mod_1_1block__control__type.html">block_control_type</a> </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">message</td><td>flag for outputting debug message </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="block__control_8F90_source.html#l00104">104</a> of file <a class="el" href="block__control_8F90_source.html">block_control.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="block__control_8F90_source.html#l00083">83</a> of file <a class="el" href="block__control_8F90_source.html">block_control.F90</a>.</p>
 
 </div>
 </div>
@@ -295,14 +282,17 @@ Functions/Subroutines</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Creates and populates a data type which is used for defining the sub-blocks of the MPI-domain to enhance OpenMP and memory performance. Uses a packed concept. </p>
-<p>Parameters:</p>
-<div class="fragment"><div class="line"><span class="keywordtype">character(len=*)</span>,         <span class="keywordtype">intent(in)</span>    :: component</div>
-<div class="line"><span class="keywordtype">type</span>(block_control_type), <span class="keywordtype">intent(inout)</span> :: Block</div>
-<div class="line"><span class="keywordtype">integer</span>,                  <span class="keywordtype">intent(in)</span>    :: isc, iec, jsc, jec, kpts</div>
-<div class="line"><span class="keywordtype">integer</span>,                  <span class="keywordtype">intent(inout)</span> :: blksz</div>
-<div class="line"><span class="keywordtype">logical</span>,                  <span class="keywordtype">intent(inout)</span> :: message</div>
-</div><!-- fragment --> 
-<p class="definition">Definition at line <a class="el" href="block__control_8F90_source.html#l00209">209</a> of file <a class="el" href="block__control_8F90_source.html">block_control.F90</a>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">component</td><td>Component name string </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">block</td><td>Returns instantiated <a class="el" href="structblock__control__mod_1_1block__control__type.html">block_control_type</a> </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">blksz</td><td>block size </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">message</td><td>flag for outputting debug message </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="block__control_8F90_source.html#l00178">178</a> of file <a class="el" href="block__control_8F90_source.html">block_control.F90</a>.</p>
 
 </div>
 </div>

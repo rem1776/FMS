@@ -8,5 +8,6 @@ var group__stock__constants__mod =
     ] ],
     [ "stocks_report", "group__stock__constants__mod.html#ga71dd62388a3f8a39b4457d199ede2110", null ],
     [ "stocks_report_init", "group__stock__constants__mod.html#ga8e42ea824c5dce612e7364bebe30a311", null ],
+    [ "stocks_set_init_time", "group__stock__constants__mod.html#ga9902e9a9d1fda8509931371fc3a76eb1", null ],
     [ "nsides", "group__stock__constants__mod.html#gaf58e9da841d22fb8927f19008ee4beb5", null ]
 ];

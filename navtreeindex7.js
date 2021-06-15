@@ -1,5 +1,7 @@
 var NAVTREEINDEX7 =
 {
+"get__data__type__string_8inc.html#a05cdddd53db6d81770b777e030112377":[7,0,16,0,9,4],
+"get__data__type__string_8inc.html#a4a3441a99675d42696de4cebf6e0bfd5":[7,0,16,0,9,5],
 "get__data__type__string_8inc.html#a95c4b87578c5955d6ca7ab28f2e51a3b":[7,0,16,0,9,1],
 "get__data__type__string_8inc.html#ab461fa04e84b7f6eb02d9960ef55fdbf":[7,0,16,0,9,0],
 "get__data__type__string_8inc.html#abbf26d32162fb95f0fd0b61ccfcdbb39":[7,0,16,0,9,3],
@@ -247,7 +249,5 @@ var NAVTREEINDEX7 =
 "group__axis__utils2__mod.html#ga1e29570b4df28d09b209b5ce4afb13bb":[4,3,0,1],
 "group__axis__utils2__mod.html#ga20df8aa9edfbb7c6ecb73e65855b3393":[4,3,0,0,0],
 "group__axis__utils2__mod.html#ga64e4ffe9078c6d8aa841f35968211e09":[4,3,0,0,1],
-"group__axis__utils2__mod.html#ga66cb5a2069d0ed24abe8681758ec4133":[4,3,0,2],
-"group__axis__utils2__mod.html#ga66e6c18dfe1a034cec361cfdf195b2d3":[4,3,0,3],
-"group__axis__utils2__mod.html#ga6c7bb4e4b93559a972ac8337f1f23581":[4,3,0,0,2]
+"group__axis__utils2__mod.html#ga66cb5a2069d0ed24abe8681758ec4133":[4,3,0,2]
 };
