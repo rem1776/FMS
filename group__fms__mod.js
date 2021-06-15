@@ -20,5 +20,12 @@ var group__fms__mod =
     [ "string_array_index", "group__fms__mod.html#ga2cb4556e28486de51d4118871fd5acd9", null ],
     [ "string_from_integer", "group__fms__mod.html#ga18533f06cc06dc0d11ae16f9b7338942", null ],
     [ "string_from_real", "group__fms__mod.html#ga04380e51ee749685e98ac96d03856eae", null ],
-    [ "write_version_number", "group__fms__mod.html#ga0c093df98a75dbd9e0f3add67aa6c23a", null ]
+    [ "write_version_number", "group__fms__mod.html#ga0c093df98a75dbd9e0f3add67aa6c23a", null ],
+    [ "clock_flags", "group__fms__mod.html#gad1925a5c08b19f3412af60515e4e6321", null ],
+    [ "clock_grain", "group__fms__mod.html#ga4b46c985d2a99c5a87f1733b1749e892", null ],
+    [ "domains_stack_size", "group__fms__mod.html#ga7460ed347f0eebbfe05fe3f60863a8cf", null ],
+    [ "print_memory_usage", "group__fms__mod.html#ga78f0d71e88638662c5f3ee5175f24d85", null ],
+    [ "read_all_pe", "group__fms__mod.html#ga4422f1543997b447d925821d54e7252a", null ],
+    [ "stack_size", "group__fms__mod.html#gaebceb5b06d9009d61504648bc4865786", null ],
+    [ "warning_level", "group__fms__mod.html#ga19036b5d0d3973d75e541700506919f2", null ]
 ];

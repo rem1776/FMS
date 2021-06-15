@@ -222,7 +222,7 @@ $(document).ready(function(){initNavTree('mersennetwister_8F90_source.html','');
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  <span class="keywordtype">public</span> :: <a class="code" href="structmersennetwister__mod_1_1randomnumbersequence.html">randomnumbersequence</a></div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;  <span class="keywordtype">public</span> :: <a class="code" href="interfacemersennetwister__mod_1_1new__randomnumbersequence.html">new_randomnumbersequence</a>, finalize_randomnumbersequence, &amp;</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;            getrandomint, getrandompositiveint, getrandomreal<span class="comment"></span></div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;            <a class="code" href="group__mersennetwister__mod.html#gadbfb3142e58ae9faf984e1eef72a7997">getrandomint</a>, <a class="code" href="group__mersennetwister__mod.html#ga19bd57b102d3c8e80ed58afe4709e9a0">getrandompositiveint</a>, <a class="code" href="group__mersennetwister__mod.html#ga274cff4bb042a07b92de2454bd91c0b2">getrandomreal</a><span class="comment"></span></div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="comment">!&gt; @addtogroup mersennetwister_mod</span></div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="comment">!&gt; @{</span></div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="comment">! -------------------------------------------------------------</span></div>
@@ -356,74 +356,78 @@ $(document).ready(function(){initNavTree('mersennetwister_8F90_source.html','');
 <div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;  <span class="keyword">end function </span>initialize_vector</div>
 <div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;  <span class="comment">! -------------------------------------------------------------</span></div>
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;  <span class="comment">! Public functions</span></div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;  <span class="comment">! --------------------</span></div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;  <span class="keyword">function </span>getrandomint(twister)</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    <span class="keywordtype">type</span>(randomNumberSequence), <span class="keywordtype">intent(inout)</span> :: twister</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    <span class="keywordtype">integer</span>                      :: getRandomInt</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    <span class="comment">! Generate a random integer on the interval [0,0xffffffff]</span></div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    <span class="comment">!   Equivalent to genrand_int32 in the C code.</span></div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    <span class="comment">!   Fortran doesn&#39;t have a type that&#39;s unsigned like C does,</span></div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    <span class="comment">!   so this is integers in the range -2**31 - 2**31</span></div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    <span class="comment">! All functions for getting random numbers call this one,</span></div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    <span class="comment">!   then manipulate the result</span></div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160; </div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    <span class="keywordflow">if</span>(twister%currentElement &gt;= blocksize) <span class="keyword">call </span>nextstate(twister)</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160; </div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    getrandomint = temper(twister%state(twister%currentElement))</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    twister%currentElement = twister%currentElement + 1</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160; </div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;  <span class="keyword">end function </span>getrandomint</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;  <span class="comment">! --------------------</span></div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;  <span class="keyword">function </span>getrandompositiveint(twister)</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    <span class="keywordtype">type</span>(randomNumberSequence), <span class="keywordtype">intent(inout)</span> :: twister</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    <span class="keywordtype">integer</span>                      :: getRandomPositiveInt</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    <span class="comment">! Generate a random integer on the interval [0,0x7fffffff]</span></div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    <span class="comment">!   or [0,2**31]</span></div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    <span class="comment">!   Equivalent to genrand_int31 in the C code.</span></div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160; </div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    <span class="comment">! Local integers</span></div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    <span class="keywordtype">integer</span> :: localInt</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160; </div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    localint = getrandomint(twister)</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    getrandompositiveint = ishft(localint, -1)</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160; </div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;  <span class="keyword">end function </span>getrandompositiveint</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;  <span class="comment">! --------------------</span></div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;  <span class="keyword">function </span>getrandomreal(twister)</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;    <span class="keywordtype">type</span>(randomNumberSequence), <span class="keywordtype">intent(inout)</span> :: twister</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    <span class="keywordtype">double precision</span>             :: getRandomReal</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    <span class="comment">! Generate a random number on [0,1]</span></div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    <span class="comment">!   Equivalent to genrand_real1 in the C code</span></div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    <span class="comment">!   The result is stored as double precision but has 32 bit resolution</span></div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160; </div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;    <span class="keywordtype">integer</span> :: localInt</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160; </div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    localint = getrandomint(twister)</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    <span class="keywordflow">if</span>(localint &lt; 0) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;      getrandomreal = dble(localint + 2.0d0**32)/(2.0d0**32 - 1.0d0)</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;      getrandomreal = dble(localint            )/(2.0d0**32 - 1.0d0)</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;  <span class="keyword">end function </span>getrandomreal</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;  <span class="comment">! --------------------</span></div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;  <span class="keyword">subroutine </span>finalize_randomnumbersequence(twister)</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    <span class="keywordtype">type</span>(randomNumberSequence), <span class="keywordtype">intent(inout)</span> :: twister</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160; </div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;      twister%currentElement = blocksize</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;      twister%state(:) = 0</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;  <span class="keyword">end subroutine </span>finalize_randomnumbersequence</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;  <span class="comment">! --------------------</span></div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;<span class="keyword">end module </span>mersennetwister_mod<span class="comment"></span></div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;<span class="comment">!&gt; @}</span></div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;<span class="comment">! close documentation grouping</span></div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;  <span class="comment">! --------------------</span><span class="comment"></span></div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;<span class="comment">   !&gt; Generate a random integer on the interval [0,0xffffffff]</span></div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;<span class="comment">   !!</span></div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;<span class="comment">   !&gt; Equivalent to genrand_int32 in the C code.</span></div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;<span class="comment">   !! Fortran doesn&#39;t have a type that&#39;s unsigned like C does,</span></div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;<span class="comment">   !! so this is integers in the range -2**31 - 2**31</span></div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;<span class="comment">   !! All functions for getting random numbers call this one,</span></div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;<span class="comment">   !! then manipulate the result</span></div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;  <span class="keyword">function </span><a class="code" href="group__mersennetwister__mod.html#gadbfb3142e58ae9faf984e1eef72a7997">getrandomint</a>(twister)</div>
+<div class="line"><a name="l00272"></a><span class="lineno"><a class="line" href="group__mersennetwister__mod.html#gadbfb3142e58ae9faf984e1eef72a7997">  272</a></span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structmersennetwister__mod_1_1randomnumbersequence.html">randomnumbersequence</a>), <span class="keywordtype">intent(inout)</span> :: twister</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    <span class="keywordtype">integer</span>                      :: <a class="code" href="group__mersennetwister__mod.html#gadbfb3142e58ae9faf984e1eef72a7997">getrandomint</a></div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160; </div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    <span class="keywordflow">if</span>(twister%currentElement &gt;= blocksize) <span class="keyword">call </span>nextstate(twister)</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160; </div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    <a class="code" href="group__mersennetwister__mod.html#gadbfb3142e58ae9faf984e1eef72a7997">getrandomint</a> = temper(twister%state(twister%currentElement))</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    twister%currentElement = twister%currentElement + 1</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160; </div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;  <span class="keyword">end function </span><a class="code" href="group__mersennetwister__mod.html#gadbfb3142e58ae9faf984e1eef72a7997">getrandomint</a></div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;  <span class="comment">! --------------------</span><span class="comment"></span></div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;<span class="comment">  !&gt; Generate a random integer on the interval [0,0x7fffffff]</span></div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;<span class="comment">  !! or [0,2**31].</span></div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;<span class="comment">  !! Equivalent to genrand_int31 in the C code.</span></div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;  <span class="keyword">function </span><a class="code" href="group__mersennetwister__mod.html#ga19bd57b102d3c8e80ed58afe4709e9a0">getrandompositiveint</a>(twister)</div>
+<div class="line"><a name="l00286"></a><span class="lineno"><a class="line" href="group__mersennetwister__mod.html#ga19bd57b102d3c8e80ed58afe4709e9a0">  286</a></span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structmersennetwister__mod_1_1randomnumbersequence.html">randomnumbersequence</a>), <span class="keywordtype">intent(inout)</span> :: twister</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    <span class="keywordtype">integer</span>                      :: <a class="code" href="group__mersennetwister__mod.html#ga19bd57b102d3c8e80ed58afe4709e9a0">getrandompositiveint</a></div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160; </div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    <span class="comment">! Local integers</span></div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    <span class="keywordtype">integer</span> :: localint</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160; </div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    localint = <a class="code" href="group__mersennetwister__mod.html#gadbfb3142e58ae9faf984e1eef72a7997">getrandomint</a>(twister)</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;    <a class="code" href="group__mersennetwister__mod.html#ga19bd57b102d3c8e80ed58afe4709e9a0">getrandompositiveint</a> = ishft(localint, -1)</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160; </div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;  <span class="keyword">end function </span><a class="code" href="group__mersennetwister__mod.html#ga19bd57b102d3c8e80ed58afe4709e9a0">getrandompositiveint</a></div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;  <span class="comment">! --------------------</span><span class="comment"></span></div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;<span class="comment">  !&gt; Generate a random number on [0,1]</span></div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;<span class="comment">  !! Equivalent to genrand_real1 in the C code.</span></div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;<span class="comment">  !! The result is stored as double precision but has 32 bit resolution</span></div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;  <span class="keyword">function </span><a class="code" href="group__mersennetwister__mod.html#ga274cff4bb042a07b92de2454bd91c0b2">getrandomreal</a>(twister)</div>
+<div class="line"><a name="l00301"></a><span class="lineno"><a class="line" href="group__mersennetwister__mod.html#ga274cff4bb042a07b92de2454bd91c0b2">  301</a></span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structmersennetwister__mod_1_1randomnumbersequence.html">randomnumbersequence</a>), <span class="keywordtype">intent(inout)</span> :: twister</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    <span class="keywordtype">double precision</span>             :: <a class="code" href="group__mersennetwister__mod.html#ga274cff4bb042a07b92de2454bd91c0b2">getrandomreal</a></div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160; </div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    <span class="keywordtype">integer</span> :: localint</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160; </div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    localint = <a class="code" href="group__mersennetwister__mod.html#gadbfb3142e58ae9faf984e1eef72a7997">getrandomint</a>(twister)</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    <span class="keywordflow">if</span>(localint &lt; 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;      <a class="code" href="group__mersennetwister__mod.html#ga274cff4bb042a07b92de2454bd91c0b2">getrandomreal</a> = dble(localint + 2.0d0**32)/(2.0d0**32 - 1.0d0)</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;      <a class="code" href="group__mersennetwister__mod.html#ga274cff4bb042a07b92de2454bd91c0b2">getrandomreal</a> = dble(localint            )/(2.0d0**32 - 1.0d0)</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;  <span class="keyword">end function </span><a class="code" href="group__mersennetwister__mod.html#ga274cff4bb042a07b92de2454bd91c0b2">getrandomreal</a></div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;  <span class="comment">! --------------------</span></div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;  <span class="keyword">subroutine </span>finalize_randomnumbersequence(twister)</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structmersennetwister__mod_1_1randomnumbersequence.html">randomnumbersequence</a>), <span class="keywordtype">intent(inout)</span> :: twister</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160; </div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;      twister%currentElement = blocksize</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;      twister%state(:) = 0</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;  <span class="keyword">end subroutine </span>finalize_randomnumbersequence</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;  <span class="comment">! --------------------</span></div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;<span class="keyword">end module </span>mersennetwister_mod<span class="comment"></span></div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;<span class="comment">!&gt; @}</span></div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;<span class="comment">! close documentation grouping</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="agroup__mersennetwister__mod_html_ga88fa96c0ca31edd4a60373212e5c7947"><div class="ttname"><a href="group__mersennetwister__mod.html#ga88fa96c0ca31edd4a60373212e5c7947">mersennetwister_mod::tmaskb</a></div><div class="ttdeci">integer, parameter tmaskb</div><div class="ttdoc">(0x9d2c5680UL)</div><div class="ttdef"><b>Definition:</b> <a href="mersennetwister_8F90_source.html#l00110">mersennetwister.F90:110</a></div></div>
+<div class="ttc" id="agroup__mersennetwister__mod_html_ga19bd57b102d3c8e80ed58afe4709e9a0"><div class="ttname"><a href="group__mersennetwister__mod.html#ga19bd57b102d3c8e80ed58afe4709e9a0">mersennetwister_mod::getrandompositiveint</a></div><div class="ttdeci">integer function, public getrandompositiveint(twister)</div><div class="ttdoc">Generate a random integer on the interval [0,0x7fffffff] or [0,2**31]. Equivalent to genrand_int31 in...</div><div class="ttdef"><b>Definition:</b> <a href="mersennetwister_8F90_source.html#l00286">mersennetwister.F90:286</a></div></div>
 <div class="ttc" id="agroup__mersennetwister__mod_html_ga33311f54bcf8bc7f7f20b7bc2da62f48"><div class="ttname"><a href="group__mersennetwister__mod.html#ga33311f54bcf8bc7f7f20b7bc2da62f48">mersennetwister_mod::lmask</a></div><div class="ttdeci">integer, parameter lmask</div><div class="ttdoc">least significant r bits (0x7fffffffUL)</div><div class="ttdef"><b>Definition:</b> <a href="mersennetwister_8F90_source.html#l00104">mersennetwister.F90:104</a></div></div>
 <div class="ttc" id="astructmersennetwister__mod_1_1randomnumbersequence_html"><div class="ttname"><a href="structmersennetwister__mod_1_1randomnumbersequence.html">mersennetwister_mod::randomnumbersequence</a></div><div class="ttdoc">The type containing the state variable.</div><div class="ttdef"><b>Definition:</b> <a href="mersennetwister_8F90_source.html#l00117">mersennetwister.F90:117</a></div></div>
+<div class="ttc" id="agroup__mersennetwister__mod_html_ga274cff4bb042a07b92de2454bd91c0b2"><div class="ttname"><a href="group__mersennetwister__mod.html#ga274cff4bb042a07b92de2454bd91c0b2">mersennetwister_mod::getrandomreal</a></div><div class="ttdeci">double precision function, public getrandomreal(twister)</div><div class="ttdoc">Generate a random number on [0,1] Equivalent to genrand_real1 in the C code. The result is stored as ...</div><div class="ttdef"><b>Definition:</b> <a href="mersennetwister_8F90_source.html#l00301">mersennetwister.F90:301</a></div></div>
 <div class="ttc" id="agroup__mersennetwister__mod_html_ga144fd40f231756fb837e22e7aeff0bd3"><div class="ttname"><a href="group__mersennetwister__mod.html#ga144fd40f231756fb837e22e7aeff0bd3">mersennetwister_mod::matrix_a</a></div><div class="ttdeci">integer, parameter matrix_a</div><div class="ttdoc">constant vector a (0x9908b0dfUL)</div><div class="ttdef"><b>Definition:</b> <a href="mersennetwister_8F90_source.html#l00104">mersennetwister.F90:104</a></div></div>
 <div class="ttc" id="agroup__mersennetwister__mod_html_ga6e2d16db3d1b21ac8d14c5a2d4cdec29"><div class="ttname"><a href="group__mersennetwister__mod.html#ga6e2d16db3d1b21ac8d14c5a2d4cdec29">mersennetwister_mod::umask</a></div><div class="ttdeci">integer, parameter umask</div><div class="ttdoc">most significant w-r bits (0x80000000UL)</div><div class="ttdef"><b>Definition:</b> <a href="mersennetwister_8F90_source.html#l00104">mersennetwister.F90:104</a></div></div>
 <div class="ttc" id="ainterfacemersennetwister__mod_1_1new__randomnumbersequence_html"><div class="ttname"><a href="interfacemersennetwister__mod_1_1new__randomnumbersequence.html">mersennetwister_mod::new_randomnumbersequence</a></div><div class="ttdef"><b>Definition:</b> <a href="mersennetwister_8F90_source.html#l00123">mersennetwister.F90:123</a></div></div>
+<div class="ttc" id="agroup__mersennetwister__mod_html_gadbfb3142e58ae9faf984e1eef72a7997"><div class="ttname"><a href="group__mersennetwister__mod.html#gadbfb3142e58ae9faf984e1eef72a7997">mersennetwister_mod::getrandomint</a></div><div class="ttdeci">integer function, public getrandomint(twister)</div><div class="ttdoc">Generate a random integer on the interval [0,0xffffffff].</div><div class="ttdef"><b>Definition:</b> <a href="mersennetwister_8F90_source.html#l00272">mersennetwister.F90:272</a></div></div>
 <div class="ttc" id="agroup__mersennetwister__mod_html_ga7274a576156549284029ace8422a2559"><div class="ttname"><a href="group__mersennetwister__mod.html#ga7274a576156549284029ace8422a2559">mersennetwister_mod::tmaskc</a></div><div class="ttdeci">integer, parameter tmaskc</div><div class="ttdoc">(0xefc60000UL)</div><div class="ttdef"><b>Definition:</b> <a href="mersennetwister_8F90_source.html#l00110">mersennetwister.F90:110</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

@@ -117,7 +117,7 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:gabaf667e53627cfaceb48057e827b7b5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the FMS module and also calls the initialization routines for all modules in the MPP package. Will be called automatically if the user does not call it.  <a href="group__fms__mod.html#gabaf667e53627cfaceb48057e827b7b5e">More...</a><br /></td></tr>
 <tr class="separator:gabaf667e53627cfaceb48057e827b7b5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae5c7420e421293e2be14717dd7b3d97f"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms__mod.html#gae5c7420e421293e2be14717dd7b3d97f">error_mesg</a> (routine, message, level)</td></tr>
-<tr class="memdesc:gae5c7420e421293e2be14717dd7b3d97f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print notes, warnings and error messages; terminates program for warning and error messages. (use error levels NOTE,WARNING,FATAL, see example below)  <a href="group__fms__mod.html#gae5c7420e421293e2be14717dd7b3d97f">More...</a><br /></td></tr>
+<tr class="memdesc:gae5c7420e421293e2be14717dd7b3d97f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print notes, warnings and error messages; terminates program for warning and error messages. Usage of mpp_error is preferable. (use error levels NOTE,WARNING,FATAL, see example below)  <a href="group__fms__mod.html#gae5c7420e421293e2be14717dd7b3d97f">More...</a><br /></td></tr>
 <tr class="separator:gae5c7420e421293e2be14717dd7b3d97f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6695d901d751a75f108c27aa385d9579"><td class="memItemLeft" align="right" valign="top">logical function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms__mod.html#ga6695d901d751a75f108c27aa385d9579">fms_error_handler</a> (routine, message, err_msg)</td></tr>
 <tr class="memdesc:ga6695d901d751a75f108c27aa385d9579"><td class="mdescLeft">&#160;</td><td class="mdescRight">Facilitates the control of fatal error conditions.  <a href="group__fms__mod.html#ga6695d901d751a75f108c27aa385d9579">More...</a><br /></td></tr>
@@ -150,25 +150,32 @@ subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:ga4422f1543997b447d925821d54e7252a"><td class="memItemLeft" align="right" valign="top"><a id="ga4422f1543997b447d925821d54e7252a"></a>
-logical&#160;</td><td class="memItemRight" valign="bottom"><b>read_all_pe</b> = .true.</td></tr>
+logical&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms__mod.html#ga4422f1543997b447d925821d54e7252a">read_all_pe</a> = .true.</td></tr>
+<tr class="memdesc:ga4422f1543997b447d925821d54e7252a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read global data on all processors extracting local part needed (TRUE) or read global data on PE0 and broadcast to all PEs(FALSE). <br /></td></tr>
 <tr class="separator:ga4422f1543997b447d925821d54e7252a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4b46c985d2a99c5a87f1733b1749e892"><td class="memItemLeft" align="right" valign="top"><a id="ga4b46c985d2a99c5a87f1733b1749e892"></a>
-character(len=16)&#160;</td><td class="memItemRight" valign="bottom"><b>clock_grain</b> = 'NONE'</td></tr>
+character(len=16)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms__mod.html#ga4b46c985d2a99c5a87f1733b1749e892">clock_grain</a> = 'NONE'</td></tr>
+<tr class="memdesc:ga4b46c985d2a99c5a87f1733b1749e892"><td class="mdescLeft">&#160;</td><td class="mdescRight">The level of clock granularity used for performance timing sections of code. Possible values in order of increasing detail are: 'NONE', 'COMPONENT', 'SUBCOMPONENT', 'MODULE_DRIVER', 'MODULE', 'ROUTINE', 'LOOP', and 'INFRA'. Code sections are defined using routines in MPP module: mpp_clock_id, mpp_clock_begin, and mpp_clock_end. The fms module makes these routines public. A list of timed code sections will be printed to STDOUT. See the <a class="el" href="group__mpp__mod.html">mpp_mod</a> module for more details. <br /></td></tr>
 <tr class="separator:ga4b46c985d2a99c5a87f1733b1749e892"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad1925a5c08b19f3412af60515e4e6321"><td class="memItemLeft" align="right" valign="top"><a id="gad1925a5c08b19f3412af60515e4e6321"></a>
-character(len=16)&#160;</td><td class="memItemRight" valign="bottom"><b>clock_flags</b> ='NONE'</td></tr>
+character(len=16)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms__mod.html#gad1925a5c08b19f3412af60515e4e6321">clock_flags</a> ='NONE'</td></tr>
+<tr class="memdesc:gad1925a5c08b19f3412af60515e4e6321"><td class="mdescLeft">&#160;</td><td class="mdescRight">Possible values are 'NONE', 'SYNC', or 'DETAILED'. SYNC will give accurate information on load balance of the clocked portion of code. DETAILED also turns on detailed message-passing performance diagnosis. Both SYNC and DETAILED will work correctly on innermost clock nest and distort outer clocks, and possibly the overall code time. See the <a class="el" href="group__mpp__mod.html">mpp_mod</a> module for more details. <br /></td></tr>
 <tr class="separator:gad1925a5c08b19f3412af60515e4e6321"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga19036b5d0d3973d75e541700506919f2"><td class="memItemLeft" align="right" valign="top"><a id="ga19036b5d0d3973d75e541700506919f2"></a>
-character(len=8)&#160;</td><td class="memItemRight" valign="bottom"><b>warning_level</b> = 'warning'</td></tr>
+character(len=8)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms__mod.html#ga19036b5d0d3973d75e541700506919f2">warning_level</a> = 'warning'</td></tr>
+<tr class="memdesc:ga19036b5d0d3973d75e541700506919f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the termination condition for the WARNING flag to interfaces error_mesg/mpp_error. set warning_level = 'fatal' (program crashes for warning messages) or 'warning' (prints warning message and continues). <br /></td></tr>
 <tr class="separator:ga19036b5d0d3973d75e541700506919f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaebceb5b06d9009d61504648bc4865786"><td class="memItemLeft" align="right" valign="top"><a id="gaebceb5b06d9009d61504648bc4865786"></a>
-integer&#160;</td><td class="memItemRight" valign="bottom"><b>stack_size</b> = 0</td></tr>
+integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms__mod.html#gaebceb5b06d9009d61504648bc4865786">stack_size</a> = 0</td></tr>
+<tr class="memdesc:gaebceb5b06d9009d61504648bc4865786"><td class="mdescLeft">&#160;</td><td class="mdescRight">The size in words of the MPP user stack. If stack_size &gt; 0, the following MPP routine is called: call mpp_set_stack_size (stack_size). If stack_size = 0 (default) then the default size set by mpp_mod is used. <br /></td></tr>
 <tr class="separator:gaebceb5b06d9009d61504648bc4865786"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga7460ed347f0eebbfe05fe3f60863a8cf"><td class="memItemLeft" align="right" valign="top"><a id="ga7460ed347f0eebbfe05fe3f60863a8cf"></a>
-integer&#160;</td><td class="memItemRight" valign="bottom"><b>domains_stack_size</b> = 0</td></tr>
+integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms__mod.html#ga7460ed347f0eebbfe05fe3f60863a8cf">domains_stack_size</a> = 0</td></tr>
+<tr class="memdesc:ga7460ed347f0eebbfe05fe3f60863a8cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">The size in words of the MPP_DOMAINS user stack. If domains_stack_size &gt; 0, the following MPP_DOMAINS routine is called: call mpp_domains_set_stack_size (domains_stack_size). If domains_stack_size = 0 (default) then the default size set by <a class="el" href="group__mpp__domains__mod.html">mpp_domains_mod</a> is used. <br /></td></tr>
 <tr class="separator:ga7460ed347f0eebbfe05fe3f60863a8cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga78f0d71e88638662c5f3ee5175f24d85"><td class="memItemLeft" align="right" valign="top"><a id="ga78f0d71e88638662c5f3ee5175f24d85"></a>
-logical, public&#160;</td><td class="memItemRight" valign="bottom"><b>print_memory_usage</b> = .FALSE.</td></tr>
+logical, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms__mod.html#ga78f0d71e88638662c5f3ee5175f24d85">print_memory_usage</a> = .FALSE.</td></tr>
+<tr class="memdesc:ga78f0d71e88638662c5f3ee5175f24d85"><td class="mdescLeft">&#160;</td><td class="mdescRight">If set to .TRUE., memory usage statistics will be printed at various points in the code. It is used to study memory usage, e.g to detect memory leaks. <br /></td></tr>
 <tr class="separator:ga78f0d71e88638662c5f3ee5175f24d85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga02cde751a71d9b42ced5e3c300805f2e"><td class="memItemLeft" align="right" valign="top"><a id="ga02cde751a71d9b42ced5e3c300805f2e"></a>
 integer, private&#160;</td><td class="memItemRight" valign="bottom"><b>num_nml_error_codes</b></td></tr>
@@ -251,8 +258,31 @@ logical, private&#160;</td><td class="memItemRight" valign="bottom"><b>only</b><
 </div><div class="memdoc">
 
 <p>Checks the iostat argument that is returned after reading a namelist and determines if the error code is valid. </p>
-<dl class="section return"><dt>Returns</dt><dd>integer check_nml_error</dd></dl>
-<p>The FMS allows multiple namelist records to reside in the same file. Use this interface to check the iostat argument that is returned after reading a record from the namelist file. If an invalid iostat value is detected this routine will produce a fatal error. See the NOTE below. </p><dl class="params"><dt>Parameters</dt><dd>
+<dl class="section return"><dt>Returns</dt><dd>This function returns the input iostat value (integer) if it is an allowable error code. If the iostat error code is not allowable, an error message is printed and the program terminated.</dd></dl>
+<p>The FMS allows multiple namelist records to reside in the same file. Use this interface to check the iostat argument that is returned after reading a record from the namelist file. If an invalid iostat value is detected this routine will produce a fatal error. See the NOTE below.</p>
+<p>Some compilers will return non-zero iostat values when reading through files with multiple namelist. This routine will try skip these errors and only terminate for true namelist errors.</p>
+<p><br  />
+Examples<br  />
+</p>
+<p>The following example checks if a file exists, reads a namelist input from that file, and checks for errors in that namelist. When the correct namelist is read and it has no errors the routine check_nml_error will return zero and the while loop will exit. This code segment should be used to read namelist files. </p><div class="fragment"><div class="line"><span class="keywordtype">integer</span> :: unit, ierr, io</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordflow">if</span> ( file_exist(<span class="stringliteral">&#39;input.nml&#39;</span>) ) <span class="keywordflow">then</span></div>
+<div class="line">    unit = open_namelist_file( )</div>
+<div class="line">    ierr=1</div>
+<div class="line">    <span class="keywordflow">do</span> <span class="keywordflow">while</span> (ierr &gt; 0)</div>
+<div class="line">      <span class="keyword">read</span>  (unit, nml=moist_processes_nml, iostat=io)</div>
+<div class="line">      ierr = check_nml_error(io,<span class="stringliteral">&#39;moist_processes_nml&#39;</span>)</div>
+<div class="line"><span class="keywordflow">    enddo</span></div>
+<div class="line">    <span class="keyword">call </span>close_file (unit)</div>
+<div class="line">endif</div>
+</div><!-- fragment --> <dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">FATAL,Unknown</td><td>error while reading namelist ...., (IOSTAT = ####) There was an error reading the namelist specified. Carefully examine all namelist and variables for anything incorrect (e.g. malformed, hidden characters).</td></tr>
+    <tr><td class="paramname">FATAL,Unknown</td><td>namelist, or mistyped namelist variable in namelist ...., (IOSTAT = ####) The name list given doesn't exist in the namelist file, or a variable in the namelist is mistyped or isn't a namelist variable. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">iostat</td><td>The iostat value returned when reading a namelist record. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">nml_name</td><td>The name of the namelist. This name will be printed if an error is encountered, otherwise the name is not used. </td></tr>
@@ -260,7 +290,7 @@ logical, private&#160;</td><td class="memItemRight" valign="bottom"><b>only</b><
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="fms_8F90_source.html#l00721">721</a> of file <a class="el" href="fms_8F90_source.html">fms.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="fms_8F90_source.html#l00565">565</a> of file <a class="el" href="fms_8F90_source.html">fms.F90</a>.</p>
 
 </div>
 </div>
@@ -296,8 +326,13 @@ logical, private&#160;</td><td class="memItemRight" valign="bottom"><b>only</b><
       </table>
 </div><div class="memdoc">
 
-<p>Print notes, warnings and error messages; terminates program for warning and error messages. (use error levels NOTE,WARNING,FATAL, see example below) </p>
-<p>Print notes, warnings and error messages; and terminates the program for error messages. This routine is a wrapper around mpp_error, and is provided for backward compatibility. This module also publishes mpp_error, <b>users should try to use the mpp_error interface</b>. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Print notes, warnings and error messages; terminates program for warning and error messages. Usage of mpp_error is preferable. (use error levels NOTE,WARNING,FATAL, see example below) </p>
+<p>Print notes, warnings and error messages; and terminates the program for error messages. This routine is a wrapper around mpp_error, and is provided for backward compatibility. This module also publishes mpp_error, <b>users should try to use the mpp_error interface</b>.</p>
+<p><br  />
+Example usage: </p><div class="fragment"><div class="line"><span class="keywordtype">use </span>fms_mod, <span class="keywordtype">only</span>: <a class="code" href="group__fms__mod.html#gae5c7420e421293e2be14717dd7b3d97f">error_mesg</a>, fatal, note</div>
+<div class="line"><span class="keyword">call </span><a class="code" href="group__fms__mod.html#gae5c7420e421293e2be14717dd7b3d97f">error_mesg</a> (<span class="stringliteral">&#39;fms_mod&#39;</span>, <span class="stringliteral">&#39;initialization not called&#39;</span>, fatal)</div>
+<div class="line"><span class="keyword">call </span><a class="code" href="group__fms__mod.html#gae5c7420e421293e2be14717dd7b3d97f">error_mesg</a> (<span class="stringliteral">&#39;fms_mod&#39;</span>, <span class="stringliteral">&#39;fms_mod message&#39;</span>, note)</div>
+</div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">routine</td><td>Routine name where the warning or error has occurred. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">message</td><td>Warning or error message to be printed. </td></tr>
@@ -306,7 +341,7 @@ logical, private&#160;</td><td class="memItemRight" valign="bottom"><b>only</b><
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="fms_8F90_source.html#l00576">576</a> of file <a class="el" href="fms_8F90_source.html">fms.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="fms_8F90_source.html#l00476">476</a> of file <a class="el" href="fms_8F90_source.html">fms.F90</a>.</p>
 
 </div>
 </div>
@@ -343,8 +378,9 @@ logical, private&#160;</td><td class="memItemRight" valign="bottom"><b>only</b><
 </div><div class="memdoc">
 
 <p>Facilitates the control of fatal error conditions. </p>
-<dl class="section return"><dt>Returns</dt><dd>logical fms_error_handler</dd></dl>
-<p>When err_msg is present, message is copied into err_msg and the function returns a value of .true. Otherwise calls mpp_error to terminate execution. The intended use is as shown below. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>When err_msg is present, message is copied into err_msg and the function returns a value of .true. Otherwise calls mpp_error to terminate execution. The intended use is as shown below. </p><dl class="section return"><dt>Returns</dt><dd>true when err_msg is present <div class="fragment"><div class="line"><span class="keywordflow">if</span>(fms_error_handler(routine, message, err_msg)) return</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">routine</td><td>Routine name where the fatal error has occurred. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">message</td><td>fatal error message to be printed. </td></tr>
@@ -353,7 +389,7 @@ logical, private&#160;</td><td class="memItemRight" valign="bottom"><b>only</b><
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="fms_8F90_source.html#l00628">628</a> of file <a class="el" href="fms_8F90_source.html">fms.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="fms_8F90_source.html#l00503">503</a> of file <a class="el" href="fms_8F90_source.html">fms.F90</a>.</p>
 
 </div>
 </div>
@@ -374,9 +410,16 @@ logical, private&#160;</td><td class="memItemRight" valign="bottom"><b>only</b><
 </div><div class="memdoc">
 
 <p>Initializes the FMS module and also calls the initialization routines for all modules in the MPP package. Will be called automatically if the user does not call it. </p>
-<p>Initialization routine for the fms module. It also calls initialization routines for the mpp, mpp_domains, and mpp_io modules. Although this routine will be called automatically by other fms_mod routines, users should explicitly call fms_init. If this routine is called more than once it will return silently. There are no arguments. </p>
+<p>Initialization routine for the fms module. It also calls initialization routines for the mpp, mpp_domains, and mpp_io modules. Although this routine will be called automatically by other fms_mod routines, users should explicitly call fms_init. If this routine is called more than once it will return silently. There are no arguments.</p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">FATAL,invalid</td><td>entry for namelist variable warning_level The namelist variable warning_level must be either 'fatal' or 'warning'(case-insensitive)</td></tr>
+    <tr><td class="paramname">FATAL,invalid</td><td>entry for namelist variable clock_grain The namelist variable clock_grain must be one of the following values: 'NONE', 'COMPONENT', 'SUBCOMPONENT', 'MODULE_DRIVER', 'MODULE', 'ROUTINE', 'LOOP', or 'INFRA' (case-insensitive). </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="fms_8F90_source.html#l00374">374</a> of file <a class="el" href="fms_8F90_source.html">fms.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="fms_8F90_source.html#l00325">325</a> of file <a class="el" href="fms_8F90_source.html">fms.F90</a>.</p>
 
 </div>
 </div>
@@ -407,7 +450,7 @@ logical, private&#160;</td><td class="memItemRight" valign="bottom"><b>only</b><
 </div><div class="memdoc">
 
 <p>Determines if a real input array has monotonically increasing or decreasing values. </p>
-<dl class="section return"><dt>Returns</dt><dd>logical monotonic_array </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>If the input array of real values either increases or decreases monotonically then true is returned, otherwise false is returned. </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">array</td><td>An array of real values. If the size(array) &lt; 2 this function assumes the array is not monotonic, no fatal error will occur. </td></tr>
@@ -422,7 +465,7 @@ logical, private&#160;</td><td class="memItemRight" valign="bottom"><b>only</b><
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>If the input array of real values either increases or decreases monotonically then TRUE is returned, otherwise FALSE is returned. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="fms_8F90_source.html#l00967">967</a> of file <a class="el" href="fms_8F90_source.html">fms.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="fms_8F90_source.html#l00746">746</a> of file <a class="el" href="fms_8F90_source.html">fms.F90</a>.</p>
 
 </div>
 </div>
@@ -459,8 +502,15 @@ logical, private&#160;</td><td class="memItemRight" valign="bottom"><b>only</b><
 </div><div class="memdoc">
 
 <p>match the input character string to a string in an array/list of character strings </p>
-<dl class="section return"><dt>Returns</dt><dd>logical found</dd></dl>
-<p>Tries to find a match for a character string in a list of character strings. The match is case sensitive and disregards blank characters to the right of the string. </p><dl class="params"><dt>Parameters</dt><dd>
+<dl class="section return"><dt>Returns</dt><dd>If an exact match was found then true is returned, otherwise false is returned.</dd></dl>
+<p>Tries to find a match for a character string in a list of character strings. The match is case sensitive and disregards blank characters to the right of the string.</p>
+<p><br  />
+Examples<br  />
+ </p><div class="fragment"><div class="line"><a class="code" href="interfacefms__mod_1_1string.html">string</a> = <span class="stringliteral">&quot;def&quot;</span></div>
+<div class="line">string_array = (/ <span class="stringliteral">&quot;abcd&quot;</span>, <span class="stringliteral">&quot;def &quot;</span>, <span class="stringliteral">&quot;fghi&quot;</span> /)</div>
+<div class="line"> </div>
+<div class="line">string_array_index( <a class="code" href="interfacefms__mod_1_1string.html">string</a>, string_array, index )</div>
+</div><!-- fragment --><p> Returns: TRUE, index = 2 </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">string</td><td>Character string of arbitrary length. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">string_array</td><td>Array/list of character strings. </td></tr>
@@ -470,7 +520,7 @@ logical, private&#160;</td><td class="memItemRight" valign="bottom"><b>only</b><
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>If an exact match was found then TRUE is returned, otherwise FALSE is returned. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="fms_8F90_source.html#l00905">905</a> of file <a class="el" href="fms_8F90_source.html">fms.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="fms_8F90_source.html#l00715">715</a> of file <a class="el" href="fms_8F90_source.html">fms.F90</a>.</p>
 
 </div>
 </div>
@@ -507,12 +557,14 @@ logical, private&#160;</td><td class="memItemRight" valign="bottom"><b>only</b><
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>String converted frominteger </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="fms_8F90_source.html#l01010">1010</a> of file <a class="el" href="fms_8F90_source.html">fms.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="fms_8F90_source.html#l00789">789</a> of file <a class="el" href="fms_8F90_source.html">fms.F90</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="ainterfacefms__mod_1_1string_html"><div class="ttname"><a href="interfacefms__mod_1_1string.html">fms_mod::string</a></div><div class="ttdoc">Converts a number to a string.</div><div class="ttdef"><b>Definition:</b> <a href="fms_8F90_source.html#l00297">fms.F90:297</a></div></div>
+<div class="ttc" id="agroup__fms__mod_html_gae5c7420e421293e2be14717dd7b3d97f"><div class="ttname"><a href="group__fms__mod.html#gae5c7420e421293e2be14717dd7b3d97f">fms_mod::error_mesg</a></div><div class="ttdeci">subroutine, public error_mesg(routine, message, level)</div><div class="ttdoc">Print notes, warnings and error messages; terminates program for warning and error messages....</div><div class="ttdef"><b>Definition:</b> <a href="fms_8F90_source.html#l00476">fms.F90:476</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

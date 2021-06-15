@@ -12,6 +12,7 @@ var group__horiz__interp__mod =
     [ "horiz_interp_base_3d", "group__horiz__interp__mod.html#ga20ee6293f42627b3deabf7c4743aceb5", null ],
     [ "horiz_interp_del", "group__horiz__interp__mod.html#ga01331e97bf44a5092a0a174a71b0029a", null ],
     [ "horiz_interp_init", "group__horiz__interp__mod.html#gacdf98c1cb99d01572520e76a7e39069d", null ],
+    [ "horiz_interp_new_1d", "group__horiz__interp__mod.html#ga2a1b8d3fd913e297091340ce12898dbb", null ],
     [ "horiz_interp_solo_1d", "group__horiz__interp__mod.html#ga74b4a3a8c2087a3c79d336ac1ab749ec", null ],
     [ "horiz_interp_solo_1d_dst", "group__horiz__interp__mod.html#ga7b93bc3b575fcd22d25be0ec2ffc6495", null ],
     [ "horiz_interp_solo_1d_src", "group__horiz__interp__mod.html#gafe1ab7391f30ffb263e1c7e62fae3d47", null ],

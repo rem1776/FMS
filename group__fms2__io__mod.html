@@ -107,8 +107,11 @@ Data Types</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacefms2__io__mod_1_1open__file.html">open_file</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens a given netcdf or domain file.  <a href="interfacefms2__io__mod_1_1open__file.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacefms2__io__mod_1_1open__virtual__file.html">open_virtual_file</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a diskless netcdf or domain file.  <a href="interfacefms2__io__mod_1_1open__virtual__file.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacefms2__io__mod_1_1close__file.html">close_file</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Close a netcdf or domain file opened with <a class="el" href="interfacefms2__io__mod_1_1open__file.html">open_file</a> or <a class="el" href="group__fms2__io__mod.html">open_virtual_file Interface</a>.  <a href="interfacefms2__io__mod_1_1close__file.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Close a netcdf or domain file opened with <a class="el" href="interfacefms2__io__mod_1_1open__file.html">open_file</a> or <a class="el" href="interfacefms2__io__mod_1_1open__virtual__file.html">open_virtual_file</a>.  <a href="interfacefms2__io__mod_1_1close__file.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacefms2__io__mod_1_1register__axis.html">register_axis</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a dimension to a given file.  <a href="interfacefms2__io__mod_1_1register__axis.html#details">More...</a><br /></td></tr>
@@ -152,8 +155,9 @@ Functions/Subroutines</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:ga6f86d86f58a066cbe83458b34a14e1b4"><td class="memItemLeft" align="right" valign="top">logical, private&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms2__io__mod.html#ga6f86d86f58a066cbe83458b34a14e1b4">fms2_io_is_initialized</a> = .false.</td></tr>
-<tr class="memdesc:ga6f86d86f58a066cbe83458b34a14e1b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">True after fms2_io_init is run.  <a href="group__fms2__io__mod.html#ga6f86d86f58a066cbe83458b34a14e1b4">More...</a><br /></td></tr>
+<tr class="memitem:ga6f86d86f58a066cbe83458b34a14e1b4"><td class="memItemLeft" align="right" valign="top"><a id="ga6f86d86f58a066cbe83458b34a14e1b4"></a>
+logical, private&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms2__io__mod.html#ga6f86d86f58a066cbe83458b34a14e1b4">fms2_io_is_initialized</a> = .false.</td></tr>
+<tr class="memdesc:ga6f86d86f58a066cbe83458b34a14e1b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">True after fms2_io_init is run. <br /></td></tr>
 <tr class="separator:ga6f86d86f58a066cbe83458b34a14e1b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga7f70386a959c772ab6145f460d6fa8d4"><td class="memItemLeft" align="right" valign="top"><a id="ga7f70386a959c772ab6145f460d6fa8d4"></a>
 integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms2__io__mod.html#ga7f70386a959c772ab6145f460d6fa8d4">ncchksz</a> = 64*1024</td></tr>
@@ -171,17 +175,7 @@ integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="g
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>An updated library for parallel IO to replace <a class="el" href="group__mpp__io__mod.html">mpp_io_mod</a>. This module contains the public API for fms2 I/O interfaces and routines defined throughout this directory. </p>
 <p>Provides public interfaces for routines within <a class="el" href="group__fms2__io.html">FMS2 IO</a>. Interfaces and example usages are listed below, see individual routine documentation for more specific argument information. </p>
-
-
-<h3><a id="open_virtual_file"></a>open_virtual_file Interface</h3><div class="textblock">Creates a diskless netcdf or domain file<dl class="section return"><dt>Returns</dt><dd>true if successful, false otherwise</dd></dl>
-<p><br  />
-Example usage: </p><pre class="fragment">         io_success = open_virtual_file(fileobj, "filename", pelist)
-</pre>Opens a virtual file through fmsnetcdffile_t at an optional file path and pelist </p><pre class="fragment">         io_success = open_virtual_file(fileobj, domain, "filename")
-</pre>Opens a virtual domain file through fmsnetcdfdomainfile_t or</p><ul>
-<li>fmsnetcdfunstructureddomainfile_t for a given 2D domain at an optional path <br  />
- </li>
-</ul>
-</div><h2 class="groupheader">Function/Subroutine Documentation</h2>
+<h2 class="groupheader">Function/Subroutine Documentation</h2>
 <a id="gab2efb88539d9a05da43d95a501ed7e4c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gab2efb88539d9a05da43d95a501ed7e4c">&#9670;&nbsp;</a></span>fms2_io_init()</h2>
 
@@ -201,35 +195,7 @@ Example usage: </p><pre class="fragment">         io_success = open_virtual_file
 <p>Send the namelist variables to their respective modules</p>
 <p>Mark the fms2_io as initialized</p>
 
-<p class="definition">Definition at line <a class="el" href="fms2__io_8F90_source.html#l00365">365</a> of file <a class="el" href="fms2__io_8F90_source.html">fms2_io.F90</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="ga6f86d86f58a066cbe83458b34a14e1b4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga6f86d86f58a066cbe83458b34a14e1b4">&#9670;&nbsp;</a></span>fms2_io_is_initialized</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">logical, private fms2_io_is_initialized = .false.</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>True after fms2_io_init is run. </p>
-<p>Namelist variables </p>
-
-<p class="definition">Definition at line <a class="el" href="fms2__io_8F90_source.html#l00348">348</a> of file <a class="el" href="fms2__io_8F90_source.html">fms2_io.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="fms2__io_8F90_source.html#l00364">364</a> of file <a class="el" href="fms2__io_8F90_source.html">fms2_io.F90</a>.</p>
 
 </div>
 </div>

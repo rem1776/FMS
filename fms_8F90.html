@@ -123,7 +123,7 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:a46d4a91a0ec6ae17fd2386413dc8c30b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls the termination routines for all modules in the MPP package.  <a href="fms_8F90.html#a46d4a91a0ec6ae17fd2386413dc8c30b">More...</a><br /></td></tr>
 <tr class="separator:a46d4a91a0ec6ae17fd2386413dc8c30b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae5c7420e421293e2be14717dd7b3d97f"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms__mod.html#gae5c7420e421293e2be14717dd7b3d97f">error_mesg</a> (routine, message, level)</td></tr>
-<tr class="memdesc:gae5c7420e421293e2be14717dd7b3d97f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print notes, warnings and error messages; terminates program for warning and error messages. (use error levels NOTE,WARNING,FATAL, see example below)  <a href="group__fms__mod.html#gae5c7420e421293e2be14717dd7b3d97f">More...</a><br /></td></tr>
+<tr class="memdesc:gae5c7420e421293e2be14717dd7b3d97f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print notes, warnings and error messages; terminates program for warning and error messages. Usage of mpp_error is preferable. (use error levels NOTE,WARNING,FATAL, see example below)  <a href="group__fms__mod.html#gae5c7420e421293e2be14717dd7b3d97f">More...</a><br /></td></tr>
 <tr class="separator:gae5c7420e421293e2be14717dd7b3d97f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6695d901d751a75f108c27aa385d9579"><td class="memItemLeft" align="right" valign="top">logical function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms__mod.html#ga6695d901d751a75f108c27aa385d9579">fms_error_handler</a> (routine, message, err_msg)</td></tr>
 <tr class="memdesc:ga6695d901d751a75f108c27aa385d9579"><td class="mdescLeft">&#160;</td><td class="mdescRight">Facilitates the control of fatal error conditions.  <a href="group__fms__mod.html#ga6695d901d751a75f108c27aa385d9579">More...</a><br /></td></tr>
@@ -162,25 +162,32 @@ integer, public&#160;</td><td class="memItemRight" valign="bottom"><b>clock_flag
 type(nml_errors_type), save&#160;</td><td class="memItemRight" valign="bottom"><b>nml_errors</b></td></tr>
 <tr class="separator:ad0983e62757ba0f7771ba039794b746a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4422f1543997b447d925821d54e7252a"><td class="memItemLeft" align="right" valign="top">
-logical&#160;</td><td class="memItemRight" valign="bottom"><b>read_all_pe</b> = .true.</td></tr>
+logical&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms__mod.html#ga4422f1543997b447d925821d54e7252a">read_all_pe</a> = .true.</td></tr>
+<tr class="memdesc:ga4422f1543997b447d925821d54e7252a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read global data on all processors extracting local part needed (TRUE) or read global data on PE0 and broadcast to all PEs(FALSE). <br /></td></tr>
 <tr class="separator:ga4422f1543997b447d925821d54e7252a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4b46c985d2a99c5a87f1733b1749e892"><td class="memItemLeft" align="right" valign="top">
-character(len=16)&#160;</td><td class="memItemRight" valign="bottom"><b>clock_grain</b> = 'NONE'</td></tr>
+character(len=16)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms__mod.html#ga4b46c985d2a99c5a87f1733b1749e892">clock_grain</a> = 'NONE'</td></tr>
+<tr class="memdesc:ga4b46c985d2a99c5a87f1733b1749e892"><td class="mdescLeft">&#160;</td><td class="mdescRight">The level of clock granularity used for performance timing sections of code. Possible values in order of increasing detail are: 'NONE', 'COMPONENT', 'SUBCOMPONENT', 'MODULE_DRIVER', 'MODULE', 'ROUTINE', 'LOOP', and 'INFRA'. Code sections are defined using routines in MPP module: mpp_clock_id, mpp_clock_begin, and mpp_clock_end. The fms module makes these routines public. A list of timed code sections will be printed to STDOUT. See the <a class="el" href="group__mpp__mod.html">mpp_mod</a> module for more details. <br /></td></tr>
 <tr class="separator:ga4b46c985d2a99c5a87f1733b1749e892"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad1925a5c08b19f3412af60515e4e6321"><td class="memItemLeft" align="right" valign="top">
-character(len=16)&#160;</td><td class="memItemRight" valign="bottom"><b>clock_flags</b> ='NONE'</td></tr>
+character(len=16)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms__mod.html#gad1925a5c08b19f3412af60515e4e6321">clock_flags</a> ='NONE'</td></tr>
+<tr class="memdesc:gad1925a5c08b19f3412af60515e4e6321"><td class="mdescLeft">&#160;</td><td class="mdescRight">Possible values are 'NONE', 'SYNC', or 'DETAILED'. SYNC will give accurate information on load balance of the clocked portion of code. DETAILED also turns on detailed message-passing performance diagnosis. Both SYNC and DETAILED will work correctly on innermost clock nest and distort outer clocks, and possibly the overall code time. See the <a class="el" href="group__mpp__mod.html">mpp_mod</a> module for more details. <br /></td></tr>
 <tr class="separator:gad1925a5c08b19f3412af60515e4e6321"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga19036b5d0d3973d75e541700506919f2"><td class="memItemLeft" align="right" valign="top">
-character(len=8)&#160;</td><td class="memItemRight" valign="bottom"><b>warning_level</b> = 'warning'</td></tr>
+character(len=8)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms__mod.html#ga19036b5d0d3973d75e541700506919f2">warning_level</a> = 'warning'</td></tr>
+<tr class="memdesc:ga19036b5d0d3973d75e541700506919f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the termination condition for the WARNING flag to interfaces error_mesg/mpp_error. set warning_level = 'fatal' (program crashes for warning messages) or 'warning' (prints warning message and continues). <br /></td></tr>
 <tr class="separator:ga19036b5d0d3973d75e541700506919f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaebceb5b06d9009d61504648bc4865786"><td class="memItemLeft" align="right" valign="top">
-integer&#160;</td><td class="memItemRight" valign="bottom"><b>stack_size</b> = 0</td></tr>
+integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms__mod.html#gaebceb5b06d9009d61504648bc4865786">stack_size</a> = 0</td></tr>
+<tr class="memdesc:gaebceb5b06d9009d61504648bc4865786"><td class="mdescLeft">&#160;</td><td class="mdescRight">The size in words of the MPP user stack. If stack_size &gt; 0, the following MPP routine is called: call mpp_set_stack_size (stack_size). If stack_size = 0 (default) then the default size set by mpp_mod is used. <br /></td></tr>
 <tr class="separator:gaebceb5b06d9009d61504648bc4865786"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga7460ed347f0eebbfe05fe3f60863a8cf"><td class="memItemLeft" align="right" valign="top">
-integer&#160;</td><td class="memItemRight" valign="bottom"><b>domains_stack_size</b> = 0</td></tr>
+integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms__mod.html#ga7460ed347f0eebbfe05fe3f60863a8cf">domains_stack_size</a> = 0</td></tr>
+<tr class="memdesc:ga7460ed347f0eebbfe05fe3f60863a8cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">The size in words of the MPP_DOMAINS user stack. If domains_stack_size &gt; 0, the following MPP_DOMAINS routine is called: call mpp_domains_set_stack_size (domains_stack_size). If domains_stack_size = 0 (default) then the default size set by <a class="el" href="group__mpp__domains__mod.html">mpp_domains_mod</a> is used. <br /></td></tr>
 <tr class="separator:ga7460ed347f0eebbfe05fe3f60863a8cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga78f0d71e88638662c5f3ee5175f24d85"><td class="memItemLeft" align="right" valign="top">
-logical, public&#160;</td><td class="memItemRight" valign="bottom"><b>print_memory_usage</b> = .FALSE.</td></tr>
+logical, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms__mod.html#ga78f0d71e88638662c5f3ee5175f24d85">print_memory_usage</a> = .FALSE.</td></tr>
+<tr class="memdesc:ga78f0d71e88638662c5f3ee5175f24d85"><td class="mdescLeft">&#160;</td><td class="mdescRight">If set to .TRUE., memory usage statistics will be printed at various points in the code. It is used to study memory usage, e.g to detect memory leaks. <br /></td></tr>
 <tr class="separator:ga78f0d71e88638662c5f3ee5175f24d85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga02cde751a71d9b42ced5e3c300805f2e"><td class="memItemLeft" align="right" valign="top">
 integer, private&#160;</td><td class="memItemRight" valign="bottom"><b>num_nml_error_codes</b></td></tr>
@@ -242,7 +249,7 @@ logical, private&#160;</td><td class="memItemRight" valign="bottom"><b>only</b><
 <p>Calls the termination routines for all modules in the MPP package. </p>
 <p>Termination routine for the fms module. It also calls destructor routines for the mpp, mpp_domains, and mpp_io modules. If this routine is called more than once it will return silently. There are no arguments. </p>
 
-<p class="definition">Definition at line <a class="el" href="fms_8F90_source.html#l00516">516</a> of file <a class="el" href="fms_8F90_source.html">fms.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="fms_8F90_source.html#l00449">449</a> of file <a class="el" href="fms_8F90_source.html">fms.F90</a>.</p>
 
 </div>
 </div>

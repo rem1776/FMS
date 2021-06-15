@@ -94,9 +94,12 @@ $(document).ready(function(){initNavTree('interfacefms2__io__mod_1_1open__virtua
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="interfacefms2__io__mod_1_1open__virtual__file-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">open_virtual_file Interface Reference</div>  </div>
+<div class="title">open_virtual_file Interface Reference<div class="ingroups"><a class="el" href="group__fms2__io.html">FMS2 IO</a> &raquo; <a class="el" href="group__fms2__io__mod.html">fms2_io_mod</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Creates a diskless netcdf or domain file.  
+ <a href="interfacefms2__io__mod_1_1open__virtual__file.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -111,8 +114,17 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:a668c23c726db12b25adf8e2d97008402"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="fms2__io_8F90_source.html#l00147">147</a> of file <a class="el" href="fms2__io_8F90_source.html">fms2_io.F90</a>.</p>
+<div class="textblock"><p>Creates a diskless netcdf or domain file. </p>
+<dl class="section return"><dt>Returns</dt><dd>true if successful, false otherwise</dd></dl>
+<p><br  />
+Example usage: </p><pre class="fragment">         io_success = open_virtual_file(fileobj, "filename", pelist)
+</pre><p>Opens a virtual file through fmsnetcdffile_t at an optional file path and pelist </p><pre class="fragment">         io_success = open_virtual_file(fileobj, domain, "filename")
+</pre><p>Opens a virtual domain file through fmsnetcdfdomainfile_t or</p><ul>
+<li>fmsnetcdfunstructureddomainfile_t for a given 2D domain at an optional path <br  />
+ </li>
+</ul>
+
+<p class="definition">Definition at line <a class="el" href="fms2__io_8F90_source.html#l00146">146</a> of file <a class="el" href="fms2__io_8F90_source.html">fms2_io.F90</a>.</p>
 </div><hr/>The documentation for this interface was generated from the following file:<ul>
 <li>fms2_io/<a class="el" href="fms2__io_8F90_source.html">fms2_io.F90</a></li>
 </ul>

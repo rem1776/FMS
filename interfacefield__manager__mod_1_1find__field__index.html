@@ -97,24 +97,115 @@ $(document).ready(function(){initNavTree('interfacefield__manager__mod_1_1find__
 <div class="title">find_field_index Interface Reference<div class="ingroups"><a class="el" href="group__field__manager.html">Field Manager</a> &raquo; <a class="el" href="group__field__manager__mod.html">field_manager_mod</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Returns an index corresponding to the given field name.  
+ <a href="interfacefield__manager__mod_1_1find__field__index.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:adbbccd801f3e7dd00c637b094dc05db8"><td class="memItemLeft" align="right" valign="top"><a id="adbbccd801f3e7dd00c637b094dc05db8"></a>
-integer function&#160;</td><td class="memItemRight" valign="bottom"><b>find_field_index_old</b> (model, field_name)</td></tr>
+<tr class="memitem:adbbccd801f3e7dd00c637b094dc05db8"><td class="memItemLeft" align="right" valign="top">integer function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacefield__manager__mod_1_1find__field__index.html#adbbccd801f3e7dd00c637b094dc05db8">find_field_index_old</a> (model, field_name)</td></tr>
+<tr class="memdesc:adbbccd801f3e7dd00c637b094dc05db8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to return the index of the field.  <a href="interfacefield__manager__mod_1_1find__field__index.html#adbbccd801f3e7dd00c637b094dc05db8">More...</a><br /></td></tr>
 <tr class="separator:adbbccd801f3e7dd00c637b094dc05db8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75eb5a1cb80cb2a3e48e16a078b3e7ed"><td class="memItemLeft" align="right" valign="top"><a id="a75eb5a1cb80cb2a3e48e16a078b3e7ed"></a>
-integer function&#160;</td><td class="memItemRight" valign="bottom"><b>find_field_index_new</b> (field_name)</td></tr>
+<tr class="memitem:a75eb5a1cb80cb2a3e48e16a078b3e7ed"><td class="memItemLeft" align="right" valign="top">integer function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacefield__manager__mod_1_1find__field__index.html#a75eb5a1cb80cb2a3e48e16a078b3e7ed">find_field_index_new</a> (field_name)</td></tr>
 <tr class="separator:a75eb5a1cb80cb2a3e48e16a078b3e7ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="field__manager_8F90_source.html#l00420">420</a> of file <a class="el" href="field__manager_8F90_source.html">field_manager.F90</a>.</p>
-</div><hr/>The documentation for this interface was generated from the following file:<ul>
+<div class="textblock"><p>Returns an index corresponding to the given field name. </p>
+<p>Model number can be given for old method. <br  />
+Example usage: </p><div class="fragment"><div class="line"><span class="keywordtype">value</span>=<a class="code" href="interfacefield__manager__mod_1_1find__field__index.html">find_field_index</a>( model, field_name )</div>
+<div class="line"><span class="keywordtype">value</span>=<a class="code" href="interfacefield__manager__mod_1_1find__field__index.html">find_field_index</a>( field_name )</div>
+</div><!-- fragment --> 
+<p class="definition">Definition at line <a class="el" href="field__manager_8F90_source.html#l00382">382</a> of file <a class="el" href="field__manager_8F90_source.html">field_manager.F90</a>.</p>
+</div><h2 class="groupheader">Member Function/Subroutine Documentation</h2>
+<a id="a75eb5a1cb80cb2a3e48e16a078b3e7ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75eb5a1cb80cb2a3e48e16a078b3e7ed">&#9670;&nbsp;</a></span>find_field_index_new()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer function find_field_index_new </td>
+          <td>(</td>
+          <td class="paramtype">character(len=*), intent(in)&#160;</td>
+          <td class="paramname"><em>field_name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>index of the field corresponding to field_name</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">field_name</td><td>The path to the name of the field that an index is being requested for. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="field__manager_8F90_source.html#l01381">1381</a> of file <a class="el" href="field__manager_8F90_source.html">field_manager.F90</a>.</p>
+
+</div>
+</div>
+<a id="adbbccd801f3e7dd00c637b094dc05db8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbbccd801f3e7dd00c637b094dc05db8">&#9670;&nbsp;</a></span>find_field_index_old()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer function find_field_index_old </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)&#160;</td>
+          <td class="paramname"><em>model</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in)&#160;</td>
+          <td class="paramname"><em>field_name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Function to return the index of the field. </p>
+<p>This function when passed a model number and a field name will return the index of the field within the field manager. This index can be used to access other information from the field manager. </p><dl class="section return"><dt>Returns</dt><dd>The index of the field corresponding to field_name. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">model</td><td>The number indicating which model is used. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">field_name</td><td>The name of the field that an index is being requested for. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="field__manager_8F90_source.html#l01358">1358</a> of file <a class="el" href="field__manager_8F90_source.html">field_manager.F90</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this interface was generated from the following file:<ul>
 <li>field_manager/<a class="el" href="field__manager_8F90_source.html">field_manager.F90</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="ainterfacefield__manager__mod_1_1find__field__index_html"><div class="ttname"><a href="interfacefield__manager__mod_1_1find__field__index.html">field_manager_mod::find_field_index</a></div><div class="ttdoc">Returns an index corresponding to the given field name.</div><div class="ttdef"><b>Definition:</b> <a href="field__manager_8F90_source.html#l00382">field_manager.F90:382</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

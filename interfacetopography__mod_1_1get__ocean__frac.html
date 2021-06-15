@@ -166,9 +166,17 @@ logical function&#160;</td><td class="memItemRight" valign="bottom"><b>get_ocean
 </div><div class="memdoc">
 
 <p>Returns fractional area covered by ocean in a grid box. </p>
-<dl class="section return"><dt>Returns</dt><dd>ocean_frac The fractional area covered by ocean in the given model grid boxes. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A logical value of true if the output field was successfully created. A value of false may be returned if the Navy 1/6 degree percent water data set was not readable. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">blon</td><td>Longitude (radians) at grid box boundaries </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">blat</td><td>Latitude (radians) at grid box boundaries </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">ocean_frac</td><td>The fractional amount (0-1) of ocean in a grid box. The size must be size(blon)-1 by size(blat)-1 </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00487">487</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00406">406</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
 
 </div>
 </div>

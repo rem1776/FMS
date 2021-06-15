@@ -168,9 +168,24 @@ Example usage: </p><div class="fragment"><div class="line">flag = get_topog_mean
 </div><div class="memdoc">
 
 <p>Returns a "realistic" mean surface height field. </p>
-<p>Returns realistic mountains on a latitude-longtude grid. The returned field is the mean topography for the given grid boxes. Computed using a conserving area-weighted interpolation. The current input data set is the 1/6 degree Navy mean topography. </p>
+<p>Returns realistic mountains on a latitude-longtude grid. The returned field is the mean topography for the given grid boxes. Computed using a conserving area-weighted interpolation. The current input data set is the 1/6 degree Navy mean topography.</p>
+<dl class="section return"><dt>Returns</dt><dd>A logical value of true is returned if the surface height field was successfully created. A value of false may be returned if the input topography data set was not readable.</dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">FATAL,shape(zmean)</td><td>is not equal to (/size(blon)-1,size(blat)-1/) Check the input grid size and output field size. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">blon</td><td>Longitude (radians) at grid box boundaries </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">blat</td><td>Latitude (radians) at grid box boundaries </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">zmean</td><td>Mean surface height(meters). Size must be size(blon)-1 by size(blat)-1 </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00313">313</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00284">284</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
 
 </div>
 </div>

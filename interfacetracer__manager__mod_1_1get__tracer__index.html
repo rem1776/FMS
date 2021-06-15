@@ -98,23 +98,171 @@ $(document).ready(function(){initNavTree('interfacetracer__manager__mod_1_1get__
 </div><!--header-->
 <div class="contents">
 
-<p>Retrieves the tracer index.  
+<p>Function which returns the number assigned to the tracer name.  
  <a href="interfacetracer__manager__mod_1_1get__tracer__index.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:ae5b2c7a3248939629c2cd852b7b50dab"><td class="memItemLeft" align="right" valign="top"><a id="ae5b2c7a3248939629c2cd852b7b50dab"></a>
-integer function&#160;</td><td class="memItemRight" valign="bottom"><b>get_tracer_index_integer</b> (model, name, indices, verbose)</td></tr>
+<tr class="memitem:ae5b2c7a3248939629c2cd852b7b50dab"><td class="memItemLeft" align="right" valign="top">integer function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacetracer__manager__mod_1_1get__tracer__index.html#ae5b2c7a3248939629c2cd852b7b50dab">get_tracer_index_integer</a> (model, name, indices, verbose)</td></tr>
+<tr class="memdesc:ae5b2c7a3248939629c2cd852b7b50dab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function which returns the number assigned to the tracer name.  <a href="interfacetracer__manager__mod_1_1get__tracer__index.html#ae5b2c7a3248939629c2cd852b7b50dab">More...</a><br /></td></tr>
 <tr class="separator:ae5b2c7a3248939629c2cd852b7b50dab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3527fdad0336e4c494959d4fcd65d63e"><td class="memItemLeft" align="right" valign="top"><a id="a3527fdad0336e4c494959d4fcd65d63e"></a>
-logical function&#160;</td><td class="memItemRight" valign="bottom"><b>get_tracer_index_logical</b> (model, name, index, indices, verbose)</td></tr>
+<tr class="memitem:a3527fdad0336e4c494959d4fcd65d63e"><td class="memItemLeft" align="right" valign="top">logical function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacetracer__manager__mod_1_1get__tracer__index.html#a3527fdad0336e4c494959d4fcd65d63e">get_tracer_index_logical</a> (model, name, index, indices, verbose)</td></tr>
+<tr class="memdesc:a3527fdad0336e4c494959d4fcd65d63e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if tracer is present, and returns it's position in index.  <a href="interfacetracer__manager__mod_1_1get__tracer__index.html#a3527fdad0336e4c494959d4fcd65d63e">More...</a><br /></td></tr>
 <tr class="separator:a3527fdad0336e4c494959d4fcd65d63e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Retrieves the tracer index. </p>
+<div class="textblock"><p>Function which returns the number assigned to the tracer name. </p>
+<p>This is a function which returns the index, as implied within the component model. There are two overloaded interfaces: one of type integer, one logical.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">model</td><td>A integer parameter to identify which model is being used </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">name</td><td>The name of the tracer (as assigned in the field table). </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">indices</td><td>An array indices. When present, the returned index will limit the search for the tracer to thos tracers whose indices are among those in array 'indices'. This would be useful when it is desired to limit the search to a subset of the tracers. Such a subset might be the diagnostic or prognostic tracers.(note that get_tracer_indices returns these subsets) </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">verbose</td><td>Optional flag for debugging </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">index</td><td>Holds the returned index if given </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The integer function returns the index of the tracer named "name". If no tracer by that name exists then the returned value is NO_TRACER. The logical function returns false if no tracer by the given name exists and true otherwise, and stores the returned value in index.</dd></dl>
+<p><br  />
+Example usage: </p><div class="fragment"><div class="line"><span class="keywordtype">integer</span>:</div>
+<div class="line">  index = get_tracer_index(model, name,        indices, verbose)</div>
+<div class="line"><span class="keywordtype">logical</span>:</div>
+<div class="line">  <span class="keywordflow">if</span> ( get_tracer_index(model, name, index, indices, verbose) ) then</div>
+</div><!-- fragment --> 
+<p class="definition">Definition at line <a class="el" href="tracer__manager_8F90_source.html#l00126">126</a> of file <a class="el" href="tracer__manager_8F90_source.html">tracer_manager.F90</a>.</p>
+</div><h2 class="groupheader">Member Function/Subroutine Documentation</h2>
+<a id="ae5b2c7a3248939629c2cd852b7b50dab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5b2c7a3248939629c2cd852b7b50dab">&#9670;&nbsp;</a></span>get_tracer_index_integer()</h2>
 
-<p class="definition">Definition at line <a class="el" href="tracer__manager_8F90_source.html#l00103">103</a> of file <a class="el" href="tracer__manager_8F90_source.html">tracer_manager.F90</a>.</p>
-</div><hr/>The documentation for this interface was generated from the following file:<ul>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer function get_tracer_index_integer </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)&#160;</td>
+          <td class="paramname"><em>model</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in)&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(:), intent(in), optional&#160;</td>
+          <td class="paramname"><em>indices</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, intent(in), optional&#160;</td>
+          <td class="paramname"><em>verbose</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Function which returns the number assigned to the tracer name. </p>
+<p>See <a class="el" href="interfacetracer__manager__mod_1_1get__tracer__index.html">get_tracer_index</a> Interface for more information. </p><dl class="section return"><dt>Returns</dt><dd>index of given tracer name if present, otherwise returns NO_TRACER </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">model</td><td>Parameter to identify which model is used </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>name of the tracer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">indices</td><td>An array of indices, limits search to tracers whose indices are within the array. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">verbose</td><td>debug flag </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="tracer__manager_8F90_source.html#l00731">731</a> of file <a class="el" href="tracer__manager_8F90_source.html">tracer_manager.F90</a>.</p>
+
+</div>
+</div>
+<a id="a3527fdad0336e4c494959d4fcd65d63e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3527fdad0336e4c494959d4fcd65d63e">&#9670;&nbsp;</a></span>get_tracer_index_logical()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">logical function get_tracer_index_logical </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)&#160;</td>
+          <td class="paramname"><em>model</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in)&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(out)&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(:), intent(in), optional&#160;</td>
+          <td class="paramname"><em>indices</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, intent(in), optional&#160;</td>
+          <td class="paramname"><em>verbose</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if tracer is present, and returns it's position in index. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">model</td><td>Parameter for which model is used </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>name of given drifter </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">index</td><td>returned drifter index </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">indices</td><td>optional list of indices to limit results to </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">verbose</td><td>debug flag </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="tracer__manager_8F90_source.html#l00780">780</a> of file <a class="el" href="tracer__manager_8F90_source.html">tracer_manager.F90</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this interface was generated from the following file:<ul>
 <li>tracer_manager/<a class="el" href="tracer__manager_8F90_source.html">tracer_manager.F90</a></li>
 </ul>
 </div><!-- contents -->

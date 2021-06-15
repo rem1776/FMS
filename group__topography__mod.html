@@ -327,9 +327,17 @@ logical&#160;</td><td class="memItemRight" valign="bottom"><b>module_is_initiali
 </div><div class="memdoc">
 
 <p>Returns fractional area covered by ocean in a grid box. </p>
-<dl class="section return"><dt>Returns</dt><dd>ocean_frac The fractional area covered by ocean in the given model grid boxes. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A logical value of true if the output field was successfully created. A value of false may be returned if the Navy 1/6 degree percent water data set was not readable. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">blon</td><td>Longitude (radians) at grid box boundaries </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">blat</td><td>Latitude (radians) at grid box boundaries </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">ocean_frac</td><td>The fractional amount (0-1) of ocean in a grid box. The size must be size(blon)-1 by size(blat)-1 </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00487">487</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00406">406</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
 
 </div>
 </div>
@@ -374,9 +382,17 @@ logical&#160;</td><td class="memItemRight" valign="bottom"><b>module_is_initiali
 </div><div class="memdoc">
 
 <p>Returns a land-ocean mask in a grid box. </p>
-<dl class="section return"><dt>Returns</dt><dd>ocean_mask A land-ocean mask in the given model grid boxes. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A logical value of true if the output field was successfully created. A value of false may be returned if the Navy 1/6 degree percent water data set was not readable. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">blon</td><td>Longitude (radians) at grid box boundaries </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">blat</td><td>Latitude (radians) at grid box boundaries </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">ocean_mask</td><td>Mask for ocean in a grid box. The size must be size(blon)-1 by size(blat)-1 </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00574">574</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00468">468</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
 
 </div>
 </div>
@@ -421,9 +437,24 @@ logical&#160;</td><td class="memItemRight" valign="bottom"><b>module_is_initiali
 </div><div class="memdoc">
 
 <p>Returns a "realistic" mean surface height field. </p>
-<p>Returns realistic mountains on a latitude-longtude grid. The returned field is the mean topography for the given grid boxes. Computed using a conserving area-weighted interpolation. The current input data set is the 1/6 degree Navy mean topography. </p>
+<p>Returns realistic mountains on a latitude-longtude grid. The returned field is the mean topography for the given grid boxes. Computed using a conserving area-weighted interpolation. The current input data set is the 1/6 degree Navy mean topography.</p>
+<dl class="section return"><dt>Returns</dt><dd>A logical value of true is returned if the surface height field was successfully created. A value of false may be returned if the input topography data set was not readable.</dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">FATAL,shape(zmean)</td><td>is not equal to (/size(blon)-1,size(blat)-1/) Check the input grid size and output field size. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">blon</td><td>Longitude (radians) at grid box boundaries </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">blat</td><td>Latitude (radians) at grid box boundaries </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">zmean</td><td>Mean surface height(meters). Size must be size(blon)-1 by size(blat)-1 </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00313">313</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00284">284</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
 
 </div>
 </div>
@@ -468,9 +499,18 @@ logical&#160;</td><td class="memItemRight" valign="bottom"><b>module_is_initiali
 </div><div class="memdoc">
 
 <p>Returns a standard deviation of higher resolution topography with the given model grid boxes. </p>
-<p>Returns the standard deviation of the "finer" input topography data set, currently the Navy 1/6 degree mean topography data, within the boundaries of the given input grid. </p>
+<p>Returns the standard deviation of the "finer" input topography data set, currently the Navy 1/6 degree mean topography data, within the boundaries of the given input grid.</p>
+<dl class="section return"><dt>Returns</dt><dd>A logical value of true if the output field was successfully created and false if the input topography data set was not readable. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">blon</td><td>Longitude (radians) at grid box boundaries </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">blat</td><td>Latitude (radians) at grid box boundaries </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">stdev</td><td>The standard deviation of surface height (in meters) within given input model grid boxes. Size must be size(blon)-1 by size(blat)-1 </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00404">404</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00348">348</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
 
 </div>
 </div>
@@ -515,6 +555,13 @@ logical&#160;</td><td class="memItemRight" valign="bottom"><b>module_is_initiali
 </div><div class="memdoc">
 
 <p>Returns the percent of water in a grid box. </p>
+<dl class="section return"><dt>Returns</dt><dd>A logical value of true if the output field was successfully created. A value of false may be returned if the Navy 1/6 degree percent water data set was not readable.</dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">FATAL,shape(water_frac)</td><td>is not equal to (/size(blon)-1,size(blat)-1/) Check the input grid size and output field size. </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">blon</td><td>The longitude (in radians) at grid box boundaries. </td></tr>
@@ -524,7 +571,7 @@ logical&#160;</td><td class="memItemRight" valign="bottom"><b>module_is_initiali
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00657">657</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00525">525</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
 
 </div>
 </div>
@@ -576,7 +623,7 @@ logical&#160;</td><td class="memItemRight" valign="bottom"><b>module_is_initiali
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00685">685</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00553">553</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
 
 </div>
 </div>
@@ -621,6 +668,7 @@ logical&#160;</td><td class="memItemRight" valign="bottom"><b>module_is_initiali
 </div><div class="memdoc">
 
 <p>Returns a land-water mask in the given model grid boxes. </p>
+<dl class="section return"><dt>Returns</dt><dd>A logical value of TRUE is returned if the output field was successfully created. A value of FALSE may be returned if the Navy 1/6 degree percent water data set was not readable. </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">blon</td><td>The longitude (in radians) at grid box boundaries. </td></tr>
@@ -630,7 +678,7 @@ logical&#160;</td><td class="memItemRight" valign="bottom"><b>module_is_initiali
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00744">744</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00587">587</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
 
 </div>
 </div>
@@ -682,7 +730,7 @@ logical&#160;</td><td class="memItemRight" valign="bottom"><b>module_is_initiali
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00785">785</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00628">628</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
 
 </div>
 </div>

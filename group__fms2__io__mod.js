@@ -5,6 +5,11 @@ var group__fms2__io__mod =
       [ "open_domain_file", "interfacefms2__io__mod_1_1open__file.html#a4aaf5e0e8d7dd13e372f44a933b8aa22", null ],
       [ "open_unstructured_domain_file", "interfacefms2__io__mod_1_1open__file.html#ad0d80755dbb392c7e47a257e76faed3b", null ]
     ] ],
+    [ "open_virtual_file", "interfacefms2__io__mod_1_1open__virtual__file.html", [
+      [ "create_diskless_domain_file", "interfacefms2__io__mod_1_1open__virtual__file.html#a8baf51e57e724943ef20aac73665240b", null ],
+      [ "create_diskless_netcdf_file_wrap", "interfacefms2__io__mod_1_1open__virtual__file.html#a82a310a293893a47f1e1bd5a3b89813c", null ],
+      [ "create_diskless_unstructured_domain_file", "interfacefms2__io__mod_1_1open__virtual__file.html#a668c23c726db12b25adf8e2d97008402", null ]
+    ] ],
     [ "close_file", "interfacefms2__io__mod_1_1close__file.html", [
       [ "close_domain_file", "interfacefms2__io__mod_1_1close__file.html#a5518976f994a7616fc78a56cb58040df", null ],
       [ "close_unstructured_domain_file", "interfacefms2__io__mod_1_1close__file.html#af68f11ceb02a06aca05a5d033b5ecb8d", null ],
@@ -101,7 +106,6 @@ var group__fms2__io__mod =
       [ "netcdf_restore_state_wrap", "interfacefms2__io__mod_1_1read__new__restart.html#afe62bbd4de1baf00258798028d916cea", null ],
       [ "restore_domain_state_wrap", "interfacefms2__io__mod_1_1read__new__restart.html#ab542fa8553c3c94e57f4d8fdd683259f", null ]
     ] ],
-    [ "open_virtual_file Interface", "group__fms2__io__mod.html#open_virtual_file", null ],
     [ "fms2_io_init", "group__fms2__io__mod.html#gab2efb88539d9a05da43d95a501ed7e4c", null ],
     [ "fms2_io_is_initialized", "group__fms2__io__mod.html#ga6f86d86f58a066cbe83458b34a14e1b4", null ],
     [ "header_buffer_val", "group__fms2__io__mod.html#ga6a6e9d8fc157d60fba739ab572e55b7b", null ],

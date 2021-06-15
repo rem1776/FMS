@@ -153,13 +153,14 @@ Data Types</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
 <tr class="memitem:gaa5ef4371bd20e2d0976a63cd5a96d775"><td class="memItemLeft" align="right" valign="top"><a id="gaa5ef4371bd20e2d0976a63cd5a96d775"></a>
-logical function&#160;</td><td class="memItemRight" valign="bottom"><b>set_time_private</b> (seconds, days, ticks, Time_out, err_msg)</td></tr>
+logical function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__time__manager__mod.html#gaa5ef4371bd20e2d0976a63cd5a96d775">set_time_private</a> (seconds, days, ticks, Time_out, err_msg)</td></tr>
+<tr class="memdesc:gaa5ef4371bd20e2d0976a63cd5a96d775"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a time interval corresponding to this number of days, seconds, and ticks. days, seconds and ticks may be negative, but resulting time must be positive. <br /></td></tr>
 <tr class="separator:gaa5ef4371bd20e2d0976a63cd5a96d775"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6e4eefaac997bf1ead90175efb43442e"><td class="memItemLeft" align="right" valign="top"><a id="ga6e4eefaac997bf1ead90175efb43442e"></a>
-type(<a class="el" href="structtime__manager__mod_1_1time__type.html">time_type</a>) function&#160;</td><td class="memItemRight" valign="bottom"><b>set_time_i</b> (seconds, days, ticks, err_msg)</td></tr>
+<tr class="memitem:ga6e4eefaac997bf1ead90175efb43442e"><td class="memItemLeft" align="right" valign="top">type(<a class="el" href="structtime__manager__mod_1_1time__type.html">time_type</a>) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__time__manager__mod.html#ga6e4eefaac997bf1ead90175efb43442e">set_time_i</a> (seconds, days, ticks, err_msg)</td></tr>
+<tr class="memdesc:ga6e4eefaac997bf1ead90175efb43442e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="structtime__manager__mod_1_1time__type.html" title="Type to represent amounts of time. Implemented as seconds and days to allow for larger intervals.">time_type</a> set to the given amount of time via integer amounts.  <a href="group__time__manager__mod.html#ga6e4eefaac997bf1ead90175efb43442e">More...</a><br /></td></tr>
 <tr class="separator:ga6e4eefaac997bf1ead90175efb43442e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga24009b65496108d890cce8e9d5f49b69"><td class="memItemLeft" align="right" valign="top"><a id="ga24009b65496108d890cce8e9d5f49b69"></a>
-type(<a class="el" href="structtime__manager__mod_1_1time__type.html">time_type</a>) function&#160;</td><td class="memItemRight" valign="bottom"><b>set_time_c</b> (string, err_msg, allow_rounding)</td></tr>
+<tr class="memitem:ga24009b65496108d890cce8e9d5f49b69"><td class="memItemLeft" align="right" valign="top">type(<a class="el" href="structtime__manager__mod_1_1time__type.html">time_type</a>) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__time__manager__mod.html#ga24009b65496108d890cce8e9d5f49b69">set_time_c</a> (string, err_msg, allow_rounding)</td></tr>
+<tr class="memdesc:ga24009b65496108d890cce8e9d5f49b69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="structtime__manager__mod_1_1time__type.html" title="Type to represent amounts of time. Implemented as seconds and days to allow for larger intervals.">time_type</a> set to the given amount of time via a string.  <a href="group__time__manager__mod.html#ga24009b65496108d890cce8e9d5f49b69">More...</a><br /></td></tr>
 <tr class="separator:ga24009b65496108d890cce8e9d5f49b69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gab3208262d5edf03c24c322516ba64ef8"><td class="memItemLeft" align="right" valign="top"><a id="gab3208262d5edf03c24c322516ba64ef8"></a>
 logical function&#160;</td><td class="memItemRight" valign="bottom"><b>get_tick_from_string</b> (string, err_msg, allow_rounding, tick)</td></tr>
@@ -168,7 +169,7 @@ logical function&#160;</td><td class="memItemRight" valign="bottom"><b>get_tick_
 <tr class="memdesc:ga2b9c941f38e33eba67ee151fe3bd8ee6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns days and seconds ( &lt; 86400 ) corresponding to a time. <code>err_msg</code> should be checked for any errors.  <a href="group__time__manager__mod.html#ga2b9c941f38e33eba67ee151fe3bd8ee6">More...</a><br /></td></tr>
 <tr class="separator:ga2b9c941f38e33eba67ee151fe3bd8ee6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4ae4f2e68d2cf722dd93aa5cd8cdc56b"><td class="memItemLeft" align="right" valign="top">type(<a class="el" href="structtime__manager__mod_1_1time__type.html">time_type</a>) function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__time__manager__mod.html#ga4ae4f2e68d2cf722dd93aa5cd8cdc56b">increment_time</a> (Time, seconds, days, ticks, err_msg, allow_neg_inc)</td></tr>
-<tr class="memdesc:ga4ae4f2e68d2cf722dd93aa5cd8cdc56b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Given a time and an increment of days and seconds, returns a time that adds this increment to an input time.  <a href="group__time__manager__mod.html#ga4ae4f2e68d2cf722dd93aa5cd8cdc56b">More...</a><br /></td></tr>
+<tr class="memdesc:ga4ae4f2e68d2cf722dd93aa5cd8cdc56b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Increments a time by seconds and days.  <a href="group__time__manager__mod.html#ga4ae4f2e68d2cf722dd93aa5cd8cdc56b">More...</a><br /></td></tr>
 <tr class="separator:ga4ae4f2e68d2cf722dd93aa5cd8cdc56b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga9b0857bd488fa558d55a9e51cb12746b"><td class="memItemLeft" align="right" valign="top"><a id="ga9b0857bd488fa558d55a9e51cb12746b"></a>
 logical function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__time__manager__mod.html#ga9b0857bd488fa558d55a9e51cb12746b">increment_time_private</a> (Time_in, seconds, days, ticks, Time_out, err_msg)</td></tr>
@@ -373,8 +374,8 @@ logical function&#160;</td><td class="memItemRight" valign="bottom"><b>leap_year
 <tr class="memitem:gab9c5d24c6c0e63e2c3dec33938195279"><td class="memItemLeft" align="right" valign="top"><a id="gab9c5d24c6c0e63e2c3dec33938195279"></a>
 logical function&#160;</td><td class="memItemRight" valign="bottom"><b>leap_year_no_leap</b> (Time)</td></tr>
 <tr class="separator:gab9c5d24c6c0e63e2c3dec33938195279"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga071679d086f0cdd422f151dcc3dcab3e"><td class="memItemLeft" align="right" valign="top"><a id="ga071679d086f0cdd422f151dcc3dcab3e"></a>
-type(<a class="el" href="structtime__manager__mod_1_1time__type.html">time_type</a>) function, public&#160;</td><td class="memItemRight" valign="bottom"><b>length_of_year</b> ()</td></tr>
+<tr class="memitem:ga071679d086f0cdd422f151dcc3dcab3e"><td class="memItemLeft" align="right" valign="top">type(<a class="el" href="structtime__manager__mod_1_1time__type.html">time_type</a>) function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__time__manager__mod.html#ga071679d086f0cdd422f151dcc3dcab3e">length_of_year</a> ()</td></tr>
+<tr class="memdesc:ga071679d086f0cdd422f151dcc3dcab3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the mean length of the year in the default calendar setting.  <a href="group__time__manager__mod.html#ga071679d086f0cdd422f151dcc3dcab3e">More...</a><br /></td></tr>
 <tr class="separator:ga071679d086f0cdd422f151dcc3dcab3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaf159de23628fb235f219e331ead89f92"><td class="memItemLeft" align="right" valign="top"><a id="gaf159de23628fb235f219e331ead89f92"></a>
 type(<a class="el" href="structtime__manager__mod_1_1time__type.html">time_type</a>) function&#160;</td><td class="memItemRight" valign="bottom"><b>length_of_year_thirty</b> ()</td></tr>
@@ -389,10 +390,11 @@ type(<a class="el" href="structtime__manager__mod_1_1time__type.html">time_type<
 type(<a class="el" href="structtime__manager__mod_1_1time__type.html">time_type</a>) function&#160;</td><td class="memItemRight" valign="bottom"><b>length_of_year_no_leap</b> ()</td></tr>
 <tr class="separator:ga2e01c2190a88d0a9d761edcea165df3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga13dda4f6856e059cab21dd0f0881e600"><td class="memItemLeft" align="right" valign="top"><a id="ga13dda4f6856e059cab21dd0f0881e600"></a>
-integer function, public&#160;</td><td class="memItemRight" valign="bottom"><b>day_of_year</b> (time)</td></tr>
+integer function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__time__manager__mod.html#ga13dda4f6856e059cab21dd0f0881e600">day_of_year</a> (time)</td></tr>
+<tr class="memdesc:ga13dda4f6856e059cab21dd0f0881e600"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns number of day in year for given time. Jan 1st is day 1, not zero! <br /></td></tr>
 <tr class="separator:ga13dda4f6856e059cab21dd0f0881e600"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga462dc68f1995e86d41808fb5526bf9bf"><td class="memItemLeft" align="right" valign="top"><a id="ga462dc68f1995e86d41808fb5526bf9bf"></a>
-integer function, public&#160;</td><td class="memItemRight" valign="bottom"><b>days_in_year</b> (Time)</td></tr>
+<tr class="memitem:ga462dc68f1995e86d41808fb5526bf9bf"><td class="memItemLeft" align="right" valign="top">integer function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__time__manager__mod.html#ga462dc68f1995e86d41808fb5526bf9bf">days_in_year</a> (Time)</td></tr>
+<tr class="memdesc:ga462dc68f1995e86d41808fb5526bf9bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retruns the number of days in the calendar year corresponding to the date represented by time for the default calendar.  <a href="group__time__manager__mod.html#ga462dc68f1995e86d41808fb5526bf9bf">More...</a><br /></td></tr>
 <tr class="separator:ga462dc68f1995e86d41808fb5526bf9bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga10c3c037accc4176da03c13356e86f45"><td class="memItemLeft" align="right" valign="top"><a id="ga10c3c037accc4176da03c13356e86f45"></a>
 integer function&#160;</td><td class="memItemRight" valign="bottom"><b>days_in_year_thirty</b> (Time)</td></tr>
@@ -406,23 +408,25 @@ integer function&#160;</td><td class="memItemRight" valign="bottom"><b>days_in_y
 <tr class="memitem:ga42f4bdc3dc89a78c5e6cde63dc70df6b"><td class="memItemLeft" align="right" valign="top"><a id="ga42f4bdc3dc89a78c5e6cde63dc70df6b"></a>
 integer function&#160;</td><td class="memItemRight" valign="bottom"><b>days_in_year_no_leap</b> (Time)</td></tr>
 <tr class="separator:ga42f4bdc3dc89a78c5e6cde63dc70df6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaab287095b1c4324697bcf2278512ede0"><td class="memItemLeft" align="right" valign="top"><a id="gaab287095b1c4324697bcf2278512ede0"></a>
-character(len=9) function, public&#160;</td><td class="memItemRight" valign="bottom"><b>month_name</b> (n)</td></tr>
+<tr class="memitem:gaab287095b1c4324697bcf2278512ede0"><td class="memItemLeft" align="right" valign="top">character(len=9) function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__time__manager__mod.html#gaab287095b1c4324697bcf2278512ede0">month_name</a> (n)</td></tr>
+<tr class="memdesc:gaab287095b1c4324697bcf2278512ede0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a character string containing the name of the month corresponding to month number n.  <a href="group__time__manager__mod.html#gaab287095b1c4324697bcf2278512ede0">More...</a><br /></td></tr>
 <tr class="separator:gaab287095b1c4324697bcf2278512ede0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gab592dd15307abf3f792cf72a772d7118"><td class="memItemLeft" align="right" valign="top"><a id="gab592dd15307abf3f792cf72a772d7118"></a>
-logical function&#160;</td><td class="memItemRight" valign="bottom"><b>error_handler</b> (routine, err_msg_local, err_msg)</td></tr>
+logical function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__time__manager__mod.html#gab592dd15307abf3f792cf72a772d7118">error_handler</a> (routine, err_msg_local, err_msg)</td></tr>
+<tr class="memdesc:gab592dd15307abf3f792cf72a772d7118"><td class="mdescLeft">&#160;</td><td class="mdescRight">The purpose of this routine is to prevent the addition of an excessive amount of code in order to implement the error handling scheme involving an optional error flag of type character. It allows one line of code to accomplish what would otherwise require 6 lines. A value of .true. for this function is a flag to the caller that it should immediately return to it's caller. <br /></td></tr>
 <tr class="separator:gab592dd15307abf3f792cf72a772d7118"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga7cd4532f00e5dee5fa8ea45296c85675"><td class="memItemLeft" align="right" valign="top"><a id="ga7cd4532f00e5dee5fa8ea45296c85675"></a>
-subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>time_manager_init</b> ()</td></tr>
+subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__time__manager__mod.html#ga7cd4532f00e5dee5fa8ea45296c85675">time_manager_init</a> ()</td></tr>
+<tr class="memdesc:ga7cd4532f00e5dee5fa8ea45296c85675"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialization routine. Writes the version information to the log file. <br /></td></tr>
 <tr class="separator:ga7cd4532f00e5dee5fa8ea45296c85675"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad9a5f9ab6f649da9aafe32b22b1be0a5"><td class="memItemLeft" align="right" valign="top"><a id="gad9a5f9ab6f649da9aafe32b22b1be0a5"></a>
-subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>print_time</b> (Time, str, unit)</td></tr>
+<tr class="memitem:gad9a5f9ab6f649da9aafe32b22b1be0a5"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__time__manager__mod.html#gad9a5f9ab6f649da9aafe32b22b1be0a5">print_time</a> (Time, str, unit)</td></tr>
+<tr class="memdesc:gad9a5f9ab6f649da9aafe32b22b1be0a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the given <a class="el" href="structtime__manager__mod_1_1time__type.html" title="Type to represent amounts of time. Implemented as seconds and days to allow for larger intervals.">time_type</a> argument as a time (using days, seconds and ticks)  <a href="group__time__manager__mod.html#gad9a5f9ab6f649da9aafe32b22b1be0a5">More...</a><br /></td></tr>
 <tr class="separator:gad9a5f9ab6f649da9aafe32b22b1be0a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga56c87c0e8dd197bb93aa694fdc327eb4"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__time__manager__mod.html#ga56c87c0e8dd197bb93aa694fdc327eb4">print_date</a> (Time, str, unit)</td></tr>
 <tr class="memdesc:ga56c87c0e8dd197bb93aa694fdc327eb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the time to standard output (or optional unit) as a date.  <a href="group__time__manager__mod.html#ga56c87c0e8dd197bb93aa694fdc327eb4">More...</a><br /></td></tr>
 <tr class="separator:ga56c87c0e8dd197bb93aa694fdc327eb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga40ba58ef6e1c86616e5f8d7e8ebefca3"><td class="memItemLeft" align="right" valign="top"><a id="ga40ba58ef6e1c86616e5f8d7e8ebefca3"></a>
-character(len=24) function, public&#160;</td><td class="memItemRight" valign="bottom"><b>valid_calendar_types</b> (ncal, err_msg)</td></tr>
+<tr class="memitem:ga40ba58ef6e1c86616e5f8d7e8ebefca3"><td class="memItemLeft" align="right" valign="top">character(len=24) function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__time__manager__mod.html#ga40ba58ef6e1c86616e5f8d7e8ebefca3">valid_calendar_types</a> (ncal, err_msg)</td></tr>
+<tr class="memdesc:ga40ba58ef6e1c86616e5f8d7e8ebefca3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a character string that describes the calendar type corresponding to the input integer.  <a href="group__time__manager__mod.html#ga40ba58ef6e1c86616e5f8d7e8ebefca3">More...</a><br /></td></tr>
 <tr class="separator:ga40ba58ef6e1c86616e5f8d7e8ebefca3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga3d16305bd99a9dc1db550c26c0d754df"><td class="memItemLeft" align="right" valign="top"><a id="ga3d16305bd99a9dc1db550c26c0d754df"></a>
 character(len=15) function, public&#160;</td><td class="memItemRight" valign="bottom"><b>date_to_string</b> (time, err_msg)</td></tr>
@@ -498,6 +502,35 @@ integer&#160;</td><td class="memItemRight" valign="bottom"><b>ticks_per_second</
 <p>The time_manager provides a single defined type, <a class="el" href="structtime__manager__mod_1_1time__type.html" title="Type to represent amounts of time. Implemented as seconds and days to allow for larger intervals.">time_type</a>, which is used to store time and date quantities. A <a class="el" href="structtime__manager__mod_1_1time__type.html" title="Type to represent amounts of time. Implemented as seconds and days to allow for larger intervals.">time_type</a> is a positive definite quantity that represents an interval of time. It can be most easily thought of as representing the number of seconds in some time interval. A time interval can be mapped to a date under a given calendar definition by using it to represent the time that has passed since some base date. A number of interfaces are provided to operate on <a class="el" href="structtime__manager__mod_1_1time__type.html" title="Type to represent amounts of time. Implemented as seconds and days to allow for larger intervals.">time_type</a> variables and their associated calendars. Time intervals can be as large as n days where n is the largest number represented by the default integer type on a compiler. This is typically considerably greater than 10 million years (assuming 32 bit integer representation) which is likely to be adequate for most applications. The description of the interfaces is separated into two sections. The first deals with operations on time intervals while the second deals with operations that convert time intervals to dates for a given calendar.</p>
 <p>The smallest increment of time is referred to as a tick. A tick cannot be larger than 1 second, which also is the default. The number of ticks per second is set via pubic subroutine set_ticks_per_second. For example, ticks_per_second = 1000 will set the tick to one millisecond. </p>
 <h2 class="groupheader">Function/Subroutine Documentation</h2>
+<a id="ga462dc68f1995e86d41808fb5526bf9bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga462dc68f1995e86d41808fb5526bf9bf">&#9670;&nbsp;</a></span>days_in_year()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer function, public time_manager_mod::days_in_year </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structtime__manager__mod_1_1time__type.html">time_type</a>), intent(in)&#160;</td>
+          <td class="paramname"><em>Time</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retruns the number of days in the calendar year corresponding to the date represented by time for the default calendar. </p>
+<dl class="section return"><dt>Returns</dt><dd>The number of days in this year for the default calendar type. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">time</td><td>A time interval </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="time__manager_8F90_source.html#l03122">3122</a> of file <a class="el" href="time__manager_8F90_source.html">time_manager.F90</a>.</p>
+
+</div>
+</div>
 <a id="ga1479e62dcf63419f83ba7dbe33e0f03a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga1479e62dcf63419f83ba7dbe33e0f03a">&#9670;&nbsp;</a></span>decrement_time()</h2>
 
@@ -549,7 +582,8 @@ integer&#160;</td><td class="memItemRight" valign="bottom"><b>ticks_per_second</
 </div><div class="memdoc">
 
 <p>Decrements a time by seconds and days. </p>
-<p>Given a time and a decrement of days and seconds, returns a time that subtracts this decrement from an input time. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Given a time and a decrement of days and seconds, returns a time that subtracts this decrement from an input time. </p><dl class="section return"><dt>Returns</dt><dd>A time that suvtracts this decrement from an input time. A negative result is a fatal error. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">time</td><td>A time interval </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">seconds</td><td>Decrement of seconds </td></tr>
@@ -560,7 +594,7 @@ integer&#160;</td><td class="memItemRight" valign="bottom"><b>ticks_per_second</
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="time__manager_8F90_source.html#l00780">780</a> of file <a class="el" href="time__manager_8F90_source.html">time_manager.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="time__manager_8F90_source.html#l00620">620</a> of file <a class="el" href="time__manager_8F90_source.html">time_manager.F90</a>.</p>
 
 </div>
 </div>
@@ -646,7 +680,7 @@ integer&#160;</td><td class="memItemRight" valign="bottom"><b>ticks_per_second</
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="time__manager_8F90_source.html#l01784">1784</a> of file <a class="el" href="time__manager_8F90_source.html">time_manager.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="time__manager_8F90_source.html#l01622">1622</a> of file <a class="el" href="time__manager_8F90_source.html">time_manager.F90</a>.</p>
 
 </div>
 </div>
@@ -708,7 +742,7 @@ Example usage: <div class="fragment"><div class="line">get_time(time, seconds, d
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="time__manager_8F90_source.html#l00584">584</a> of file <a class="el" href="time__manager_8F90_source.html">time_manager.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="time__manager_8F90_source.html#l00512">512</a> of file <a class="el" href="time__manager_8F90_source.html">time_manager.F90</a>.</p>
 
 </div>
 </div>
@@ -762,8 +796,9 @@ Example usage: <div class="fragment"><div class="line">get_time(time, seconds, d
       </table>
 </div><div class="memdoc">
 
-<p>Given a time and an increment of days and seconds, returns a time that adds this increment to an input time. </p>
-<p>Increments a time by seconds and days. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Increments a time by seconds and days. </p>
+<p>Given a time and an increment of days and seconds, returns a new <a class="el" href="structtime__manager__mod_1_1time__type.html" title="Type to represent amounts of time. Implemented as seconds and days to allow for larger intervals.">time_type</a> that represents the given time after the given increment. </p><dl class="section return"><dt>Returns</dt><dd>incremented <a class="el" href="structtime__manager__mod_1_1time__type.html">time_type</a> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">time</td><td>A time interval </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">seconds</td><td>Increment of seconds </td></tr>
@@ -774,7 +809,55 @@ Example usage: <div class="fragment"><div class="line">get_time(time, seconds, d
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="time__manager_8F90_source.html#l00670">670</a> of file <a class="el" href="time__manager_8F90_source.html">time_manager.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="time__manager_8F90_source.html#l00553">553</a> of file <a class="el" href="time__manager_8F90_source.html">time_manager.F90</a>.</p>
+
+</div>
+</div>
+<a id="ga071679d086f0cdd422f151dcc3dcab3e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga071679d086f0cdd422f151dcc3dcab3e">&#9670;&nbsp;</a></span>length_of_year()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">type(<a class="el" href="structtime__manager__mod_1_1time__type.html">time_type</a>) function, public time_manager_mod::length_of_year</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the mean length of the year in the default calendar setting. </p>
+<p>There are no arguments in this function. It returns the mean length of the year for the default calendar. </p>
+
+<p class="definition">Definition at line <a class="el" href="time__manager_8F90_source.html#l03031">3031</a> of file <a class="el" href="time__manager_8F90_source.html">time_manager.F90</a>.</p>
+
+</div>
+</div>
+<a id="gaab287095b1c4324697bcf2278512ede0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaab287095b1c4324697bcf2278512ede0">&#9670;&nbsp;</a></span>month_name()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">character (len=9) function, public time_manager_mod::month_name </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns a character string containing the name of the month corresponding to month number n. </p>
+<p>Definition is the same for all calendar types. </p><dl class="section return"><dt>Returns</dt><dd>The character string associated with a month. All calendars have 12 months and return full month names, not abreviations. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>Month number </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="time__manager_8F90_source.html#l03207">3207</a> of file <a class="el" href="time__manager_8F90_source.html">time_manager.F90</a>.</p>
 
 </div>
 </div>
@@ -811,9 +894,63 @@ Example usage: <div class="fragment"><div class="line">get_time(time, seconds, d
 </div><div class="memdoc">
 
 <p>Prints the time to standard output (or optional unit) as a date. </p>
-<p>Prints the given <a class="el" href="structtime__manager__mod_1_1time__type.html" title="Type to represent amounts of time. Implemented as seconds and days to allow for larger intervals.">time_type</a> argument as a date (using year, month, day, hour, minutes, seconds and ticks). NOTE: there is no check for PE number. </p>
+<p>Prints the given <a class="el" href="structtime__manager__mod_1_1time__type.html" title="Type to represent amounts of time. Implemented as seconds and days to allow for larger intervals.">time_type</a> argument as a date (using year, month, day, hour, minutes, seconds and ticks). NOTE: there is no check for PE number. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">time</td><td>Time that will be printed </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">str</td><td>Character string that precedes the printed time </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">unit</td><td>Unit number for printed output, defaults to stdout </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="time__manager_8F90_source.html#l03542">3542</a> of file <a class="el" href="time__manager_8F90_source.html">time_manager.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="time__manager_8F90_source.html#l03301">3301</a> of file <a class="el" href="time__manager_8F90_source.html">time_manager.F90</a>.</p>
+
+</div>
+</div>
+<a id="gad9a5f9ab6f649da9aafe32b22b1be0a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad9a5f9ab6f649da9aafe32b22b1be0a5">&#9670;&nbsp;</a></span>print_time()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine, public time_manager_mod::print_time </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structtime__manager__mod_1_1time__type.html">time_type</a>), intent(in)&#160;</td>
+          <td class="paramname"><em>Time</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character (len=*), intent(in), optional&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>unit</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Prints the given <a class="el" href="structtime__manager__mod_1_1time__type.html" title="Type to represent amounts of time. Implemented as seconds and days to allow for larger intervals.">time_type</a> argument as a time (using days, seconds and ticks) </p>
+<dl class="section note"><dt>Note</dt><dd>There is no check for PE number. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">time</td><td>Time that will be printed </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">str</td><td>Character string that precedes the printed time </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">unit</td><td>Unit number for printed output, defaults to stdout </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="time__manager_8F90_source.html#l03266">3266</a> of file <a class="el" href="time__manager_8F90_source.html">time_manager.F90</a>.</p>
 
 </div>
 </div>
@@ -853,7 +990,7 @@ Example usage: <div class="fragment"><div class="line">get_time(time, seconds, d
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="time__manager_8F90_source.html#l01371">1371</a> of file <a class="el" href="time__manager_8F90_source.html">time_manager.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="time__manager_8F90_source.html#l01209">1209</a> of file <a class="el" href="time__manager_8F90_source.html">time_manager.F90</a>.</p>
 
 </div>
 </div>
@@ -901,7 +1038,7 @@ Example usage: <div class="fragment"><div class="line">get_time(time, seconds, d
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="time__manager_8F90_source.html#l01398">1398</a> of file <a class="el" href="time__manager_8F90_source.html">time_manager.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="time__manager_8F90_source.html#l01236">1236</a> of file <a class="el" href="time__manager_8F90_source.html">time_manager.F90</a>.</p>
 
 </div>
 </div>
@@ -965,7 +1102,7 @@ Example usage: <div class="fragment"><div class="line">get_time(time, seconds, d
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="time__manager_8F90_source.html#l02246">2246</a> of file <a class="el" href="time__manager_8F90_source.html">time_manager.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="time__manager_8F90_source.html#l02084">2084</a> of file <a class="el" href="time__manager_8F90_source.html">time_manager.F90</a>.</p>
 
 </div>
 </div>
@@ -1053,7 +1190,7 @@ Example usage: <div class="fragment"><div class="line">get_time(time, seconds, d
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="time__manager_8F90_source.html#l02212">2212</a> of file <a class="el" href="time__manager_8F90_source.html">time_manager.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="time__manager_8F90_source.html#l02050">2050</a> of file <a class="el" href="time__manager_8F90_source.html">time_manager.F90</a>.</p>
 
 </div>
 </div>
@@ -1147,7 +1284,122 @@ Example usage: <div class="fragment"><div class="line">get_time(time, seconds, d
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="time__manager_8F90_source.html#l02160">2160</a> of file <a class="el" href="time__manager_8F90_source.html">time_manager.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="time__manager_8F90_source.html#l01998">1998</a> of file <a class="el" href="time__manager_8F90_source.html">time_manager.F90</a>.</p>
+
+</div>
+</div>
+<a id="ga24009b65496108d890cce8e9d5f49b69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga24009b65496108d890cce8e9d5f49b69">&#9670;&nbsp;</a></span>set_time_c()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">type(<a class="el" href="structtime__manager__mod_1_1time__type.html">time_type</a>) function time_manager_mod::set_time_c </td>
+          <td>(</td>
+          <td class="paramtype">character(len=*), intent(in)&#160;</td>
+          <td class="paramname"><em>string</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(out), optional&#160;</td>
+          <td class="paramname"><em>err_msg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, intent(in), optional&#160;</td>
+          <td class="paramname"><em>allow_rounding</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a <a class="el" href="structtime__manager__mod_1_1time__type.html" title="Type to represent amounts of time. Implemented as seconds and days to allow for larger intervals.">time_type</a> set to the given amount of time via a string. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">string</td><td>Contains days and seconds separated by a single blank. days must be integer, seconds may be integer or real. Examples: '100 43200' '100 43200.50' </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">err_msg</td><td>When present, and when non-blank, a fatal error condition as been detected. The string itself is an error message. It is recommended that, when err_msg is present in the call to this routine, the next line of code should be something similar to this: if(err_msg /= '') call error_mesg('my_routine','additional info: '//trim(err_msg),FATAL) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">allow_rounding</td><td>When .true., any fractions of a second will be rounded off to the nearest tick. When .false., it is a fatal error if the second fraction cannot be exactly represented by a number of ticks. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="time__manager_8F90_source.html#l00381">381</a> of file <a class="el" href="time__manager_8F90_source.html">time_manager.F90</a>.</p>
+
+</div>
+</div>
+<a id="ga6e4eefaac997bf1ead90175efb43442e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6e4eefaac997bf1ead90175efb43442e">&#9670;&nbsp;</a></span>set_time_i()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">type(<a class="el" href="structtime__manager__mod_1_1time__type.html">time_type</a>) function time_manager_mod::set_time_i </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)&#160;</td>
+          <td class="paramname"><em>seconds</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>days</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>ticks</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(out), optional&#160;</td>
+          <td class="paramname"><em>err_msg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a <a class="el" href="structtime__manager__mod_1_1time__type.html" title="Type to represent amounts of time. Implemented as seconds and days to allow for larger intervals.">time_type</a> set to the given amount of time via integer amounts. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">seconds</td><td>A number of seconds </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">days</td><td>A number of days </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ticks</td><td>A number of ticks </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">err_msg</td><td>When present, and when non-blank, a fatal error condition as been detected. The string itself is an error message. It is recommended that, when err_msg is present in the call to this routine, the next line of code should be something similar to this: if(err_msg /= '') call error_mesg('my_routine','additional info: '//trim(err_msg),FATAL) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="time__manager_8F90_source.html#l00353">353</a> of file <a class="el" href="time__manager_8F90_source.html">time_manager.F90</a>.</p>
 
 </div>
 </div>
@@ -1189,7 +1441,47 @@ Example usage: <div class="fragment"><div class="line">get_time(time, seconds, d
 <p>Allocate the string</p>
 <p>Write the integer to the string</p>
 
-<p class="definition">Definition at line <a class="el" href="time__manager_8F90_source.html#l03643">3643</a> of file <a class="el" href="time__manager_8F90_source.html">time_manager.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="time__manager_8F90_source.html#l03381">3381</a> of file <a class="el" href="time__manager_8F90_source.html">time_manager.F90</a>.</p>
+
+</div>
+</div>
+<a id="ga40ba58ef6e1c86616e5f8d7e8ebefca3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga40ba58ef6e1c86616e5f8d7e8ebefca3">&#9670;&nbsp;</a></span>valid_calendar_types()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">character(len=24) function, public time_manager_mod::valid_calendar_types </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)&#160;</td>
+          <td class="paramname"><em>ncal</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(out), optional&#160;</td>
+          <td class="paramname"><em>err_msg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns a character string that describes the calendar type corresponding to the input integer. </p>
+<dl class="section return"><dt>Returns</dt><dd>A character string describing the calendar type </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ncal</td><td>Integer corresponding to a valid calendar type </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">err_msg</td><td>Holds an error message when present </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="time__manager_8F90_source.html#l03331">3331</a> of file <a class="el" href="time__manager_8F90_source.html">time_manager.F90</a>.</p>
 
 </div>
 </div>

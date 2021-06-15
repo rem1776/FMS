@@ -130,14 +130,16 @@ type(<a class="el" href="structmersennetwister__mod_1_1randomnumbersequence.html
 <tr class="memitem:gaa625d16b4033dae2fd67babcf455c777"><td class="memItemLeft" align="right" valign="top"><a id="gaa625d16b4033dae2fd67babcf455c777"></a>
 type(<a class="el" href="structmersennetwister__mod_1_1randomnumbersequence.html">randomnumbersequence</a>) function&#160;</td><td class="memItemRight" valign="bottom"><b>initialize_vector</b> (seed)</td></tr>
 <tr class="separator:gaa625d16b4033dae2fd67babcf455c777"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gadbfb3142e58ae9faf984e1eef72a7997"><td class="memItemLeft" align="right" valign="top"><a id="gadbfb3142e58ae9faf984e1eef72a7997"></a>
-integer function, public&#160;</td><td class="memItemRight" valign="bottom"><b>getrandomint</b> (twister)</td></tr>
+<tr class="memitem:gadbfb3142e58ae9faf984e1eef72a7997"><td class="memItemLeft" align="right" valign="top">integer function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mersennetwister__mod.html#gadbfb3142e58ae9faf984e1eef72a7997">getrandomint</a> (twister)</td></tr>
+<tr class="memdesc:gadbfb3142e58ae9faf984e1eef72a7997"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random integer on the interval [0,0xffffffff].  <a href="group__mersennetwister__mod.html#gadbfb3142e58ae9faf984e1eef72a7997">More...</a><br /></td></tr>
 <tr class="separator:gadbfb3142e58ae9faf984e1eef72a7997"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga19bd57b102d3c8e80ed58afe4709e9a0"><td class="memItemLeft" align="right" valign="top"><a id="ga19bd57b102d3c8e80ed58afe4709e9a0"></a>
-integer function, public&#160;</td><td class="memItemRight" valign="bottom"><b>getrandompositiveint</b> (twister)</td></tr>
+integer function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mersennetwister__mod.html#ga19bd57b102d3c8e80ed58afe4709e9a0">getrandompositiveint</a> (twister)</td></tr>
+<tr class="memdesc:ga19bd57b102d3c8e80ed58afe4709e9a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random integer on the interval [0,0x7fffffff] or [0,2**31]. Equivalent to genrand_int31 in the C code. <br /></td></tr>
 <tr class="separator:ga19bd57b102d3c8e80ed58afe4709e9a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga274cff4bb042a07b92de2454bd91c0b2"><td class="memItemLeft" align="right" valign="top"><a id="ga274cff4bb042a07b92de2454bd91c0b2"></a>
-double precision function, public&#160;</td><td class="memItemRight" valign="bottom"><b>getrandomreal</b> (twister)</td></tr>
+double precision function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mersennetwister__mod.html#ga274cff4bb042a07b92de2454bd91c0b2">getrandomreal</a> (twister)</td></tr>
+<tr class="memdesc:ga274cff4bb042a07b92de2454bd91c0b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random number on [0,1] Equivalent to genrand_real1 in the C code. The result is stored as double precision but has 32 bit resolution. <br /></td></tr>
 <tr class="separator:ga274cff4bb042a07b92de2454bd91c0b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gacd20bb34da7118ea50176786367cf936"><td class="memItemLeft" align="right" valign="top"><a id="gacd20bb34da7118ea50176786367cf936"></a>
 subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>finalize_randomnumbersequence</b> (twister)</td></tr>
@@ -192,7 +194,31 @@ integer, parameter&#160;</td><td class="memItemRight" valign="bottom"><a class="
 <pre class="fragment">Any feedback is very welcome.
 http://www.math.keio.ac.jp/matumoto/emt.html
 email: matumoto@math.keio.ac.jp
-</pre> </div><!-- contents -->
+</pre> <h2 class="groupheader">Function/Subroutine Documentation</h2>
+<a id="gadbfb3142e58ae9faf984e1eef72a7997"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gadbfb3142e58ae9faf984e1eef72a7997">&#9670;&nbsp;</a></span>getrandomint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer function, public mersennetwister_mod::getrandomint </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structmersennetwister__mod_1_1randomnumbersequence.html">randomnumbersequence</a>), intent(inout)&#160;</td>
+          <td class="paramname"><em>twister</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Generate a random integer on the interval [0,0xffffffff]. </p>
+<p>Equivalent to genrand_int32 in the C code. Fortran doesn't have a type that's unsigned like C does, so this is integers in the range -2**31 - 2**31 All functions for getting random numbers call this one, then manipulate the result </p>
+
+<p class="definition">Definition at line <a class="el" href="mersennetwister_8F90_source.html#l00272">272</a> of file <a class="el" href="mersennetwister_8F90_source.html">mersennetwister.F90</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

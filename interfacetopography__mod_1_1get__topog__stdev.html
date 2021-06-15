@@ -168,9 +168,18 @@ logical function&#160;</td><td class="memItemRight" valign="bottom"><b>get_topog
 </div><div class="memdoc">
 
 <p>Returns a standard deviation of higher resolution topography with the given model grid boxes. </p>
-<p>Returns the standard deviation of the "finer" input topography data set, currently the Navy 1/6 degree mean topography data, within the boundaries of the given input grid. </p>
+<p>Returns the standard deviation of the "finer" input topography data set, currently the Navy 1/6 degree mean topography data, within the boundaries of the given input grid.</p>
+<dl class="section return"><dt>Returns</dt><dd>A logical value of true if the output field was successfully created and false if the input topography data set was not readable. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">blon</td><td>Longitude (radians) at grid box boundaries </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">blat</td><td>Latitude (radians) at grid box boundaries </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">stdev</td><td>The standard deviation of surface height (in meters) within given input model grid boxes. Size must be size(blon)-1 by size(blat)-1 </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00404">404</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="topography_8F90_source.html#l00348">348</a> of file <a class="el" href="topography_8F90_source.html">topography.F90</a>.</p>
 
 </div>
 </div>

@@ -98,7 +98,7 @@ $(document).ready(function(){initNavTree('group__tridiagonal__mod.html',''); ini
 </div><!--header-->
 <div class="contents">
 
-<p>Solves the tridiagonal system of equations. The following schematic represents the system of equations solved, where X is the solution.  
+<p>Solves a tridiagonal system of equations.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -130,8 +130,8 @@ logical, private&#160;</td><td class="memItemRight" valign="bottom"><b>init_trid
 <tr class="separator:ga93b20bc92796905f3ea82cffa6409906"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Solves the tridiagonal system of equations. The following schematic represents the system of equations solved, where X is the solution. </p>
-<pre>
+<p>Solves a tridiagonal system of equations. </p>
+<p>The following schematic represents the system of equations solved, where X is the solution. </p><pre>
      | B(1)  A(1)   0     0                .......            0    |  |X(1)|   |D(1)|
      | C(2)  B(2)  A(2)   0                .......            0    |  |X(2)|   |D(2)|
      |  0    C(3)  B(3)  A(3)  0           .......            0    |  | .. |   | .. |
@@ -194,7 +194,8 @@ logical, private&#160;</td><td class="memItemRight" valign="bottom"><b>init_trid
 </div><div class="memdoc">
 
 <p>Sets up and solves the tridiagonal system of equations. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>For simplicity, A and C are assumed to be dimensioned the same size as B, D, and X, although any input values for A(N) and C(1) are ignored. There are no checks to make sure the sizes agree.</p>
+<p>The value of A(N) is modified on output, and B and C are unchanged. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[out]</td><td class="paramname">x</td><td>Solution to the tridiagonal system of equations </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">d</td><td>The right-hand side term, see the schematic above. </td></tr>
@@ -203,7 +204,7 @@ logical, private&#160;</td><td class="memItemRight" valign="bottom"><b>init_trid
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="tridiagonal_8F90_source.html#l00109">109</a> of file <a class="el" href="tridiagonal_8F90_source.html">tridiagonal.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tridiagonal_8F90_source.html#l00083">83</a> of file <a class="el" href="tridiagonal_8F90_source.html">tridiagonal.F90</a>.</p>
 
 </div>
 </div>
