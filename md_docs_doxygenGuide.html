@@ -140,12 +140,12 @@ $(document).ready(function(){initNavTree('md_docs_doxygenGuide.html',''); initRe
 <div class="fragment"><div class="line"><span class="comment">!&gt; @addtogroup foo_mod</span></div>
 <div class="line"><span class="comment">!&gt; @{</span></div>
 <div class="line">&lt; any documented code within here will be included in foo_mod &gt;<span class="comment"></span></div>
-<div class="line"><span class="comment">!&gt; @} </span></div>
+<div class="line"><span class="comment">!&gt; @}</span></div>
 </div><!-- fragment --><h2>Documenting Interfaces and Type Definitions</h2>
 <p>Interfaces and type definitions can be documentated the in a similar way as subroutines/functions. In the documentation they will both be listed data types and will show any included subroutines or variables with links if available.</p>
 <p>For interfaces and type definitions, duplicates can appear for subroutines/functions and variables contained in interfaces and typedefs if they are included in the module group as well. This can be avoided by ending the module group before the interface is defined with <code>!&gt; @}</code> and adding <code>@ingroup module_name_mod</code> to the interface documentation blocks. This will add the interface/type to the module page without any redundant items. When adding these commands it is important the add the <code>!&gt; @addtogroup mod_name_mod</code> and following <code>!&gt; @{</code> after any interface definitions or else the rest of the module will be excluded.</p>
 <p>Example: </p><div class="fragment"><div class="line"><span class="comment">!&gt; @}</span></div>
-<div class="line"><span class="comment">! closes module group started at beginning of file </span></div>
+<div class="line"><span class="comment">! closes module group started at beginning of file</span></div>
 <div class="line"><span class="comment"></span> </div>
 <div class="line"><span class="comment">!&gt; @brief short description</span></div>
 <div class="line"><span class="comment">!!</span></div>
@@ -156,7 +156,7 @@ $(document).ready(function(){initNavTree('md_docs_doxygenGuide.html',''); initRe
 <div class="line"><span class="keyword">interface</span> foo</div>
 <div class="line">  ...</div>
 <div class="line"><span class="keyword">end interface </span>foo</div>
-<div class="line">            <span class="comment"></span></div>
+<div class="line"><span class="comment"></span> </div>
 <div class="line"><span class="comment">!&gt; description</span></div>
 <div class="line"><span class="comment">!&gt; @ingroup foo_mod</span></div>
 <div class="line"><span class="keyword">type</span>, <span class="keyword">public</span> :: typename</div>
@@ -164,7 +164,7 @@ $(document).ready(function(){initNavTree('md_docs_doxygenGuide.html',''); initRe
 <div class="line"><span class="keyword">end type </span>typename</div>
 <div class="line"> </div>
 <div class="line">&lt; any other interface/<span class="keyword">type</span> definitions and documentation &gt;</div>
-<div class="line"> <span class="comment"></span></div>
+<div class="line"><span class="comment"></span> </div>
 <div class="line"><span class="comment">!&gt; @addtogroup foo_mod</span></div>
 <div class="line"><span class="comment">!&gt; @{</span></div>
 </div><!-- fragment --> </div></div><!-- contents -->

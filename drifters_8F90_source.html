@@ -251,12 +251,12 @@ $(document).ready(function(){initNavTree('drifters_8F90_source.html',''); initRe
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;     <span class="keywordtype">logical</span>, <span class="keywordtype">allocatable</span>   :: remove(:)</div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;  <span class="keyword">end type </span><a class="code" href="structdrifters__mod_1_1drifters__type.html">drifters_type</a></div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;<span class="comment">  !&gt; @brief Assignment override for @ref drifters_type </span></div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;<span class="comment">  !&gt; @brief Assignment override for @ref drifters_type</span></div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;<span class="comment">  !&gt; @ingroup drifters_mod</span></div>
 <div class="line"><a name="l00160"></a><span class="lineno"><a class="line" href="interfacedrifters__mod_1_1assignment_07_0a_08.html">  160</a></span>&#160;  <span class="keyword">interface</span> <span class="keyword">assignment</span>(=)</div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;     <span class="keyword">module procedure</span> <a class="code" href="group__drifters__mod.html#ga2cc7e1a7540ae440979e31b88f2e733c">drifters_copy_new</a></div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;  <span class="keyword">end interface</span></div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; <span class="comment"></span></div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="comment">  !&gt; @ingroup drifters_mod</span></div>
 <div class="line"><a name="l00165"></a><span class="lineno"><a class="line" href="interfacedrifters__mod_1_1drifters__push.html">  165</a></span>&#160;  <span class="keyword">interface</span> <a class="code" href="interfacedrifters__mod_1_1drifters__push.html">drifters_push</a></div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <span class="keyword">module procedure</span> drifters_push_2</div>
@@ -674,7 +674,7 @@ $(document).ready(function(){initNavTree('drifters_8F90_source.html',''); initRe
 <div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160; </div>
 <div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;  <span class="comment">!============================================================================</span><span class="comment"></span></div>
 <div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;<span class="comment">  !&gt; @brief Write restart file for drifters.</span></div>
-<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;<span class="comment">  !! </span></div>
+<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;<span class="comment">  !!</span></div>
 <div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;<span class="comment">  !&gt; Gather all the particle positions distributed</span></div>
 <div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;<span class="comment">  !! across PE domains on root PE and save the data in netCDF file.</span></div>
 <div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="group__drifters__mod.html#ga3e7db869b8b17f17d7c07b3c2b0cc5c2">drifters_write_restart</a>(self, filename, &amp;</div>
