@@ -105,16 +105,16 @@ $(document).ready(function(){initNavTree('group__data__override__mod.html',''); 
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Types</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">type &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdata__override__mod_1_1data__type.html">data_type</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds meta data for a field and it's associated grid.  <a href="structdata__override__mod_1_1data__type.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Private type for holding field and grid information from a data table.  <a href="structdata__override__mod_1_1data__type.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">type &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdata__override__mod_1_1override__type.html">override_type</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds various data fields for performing data overrides.  <a href="structdata__override__mod_1_1override__type.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Private type for holding various data fields for performing data overrides.  <a href="structdata__override__mod_1_1override__type.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacedata__override__mod_1_1data__override.html">data_override</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interface for inserting and interpolating data into a file for a model's grid and time. Data path must be described in a user-provided data_table, see <a class="el" href="group__data__override__mod.html">module description</a> for more information.  <a href="interfacedata__override__mod_1_1data__override.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacedata__override__mod_1_1data__override__ug.html">data_override_ug</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">data_override_interface for unstructured grids  <a href="interfacedata__override__mod_1_1data__override__ug.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Version of <a class="el" href="group__data__override.html">Data Override</a> for unstructured grids.  <a href="interfacedata__override__mod_1_1data__override__ug.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -287,7 +287,7 @@ logical&#160;</td><td class="memItemRight" valign="bottom"><b>indicating</b></td
 <p>Routines to get data in a file whose path is described in a user-provided data_table and do spatial and temporal interpolation if necessary to convert data to model's grid and time. </p>
 <dl class="section author"><dt>Author</dt><dd>Z. Liang, M.J. Harrison, M. Winton</dd></dl>
 <p>Before using <a class="el" href="group__data__override.html">Data Override</a> a data_table must be created with the following entries: gridname, fieldname_code, fieldname_file, file_name, ongrid, factor.</p>
-<p>More explainations about data_table entries can be found in the source code (defining <a class="el" href="structdata__override__mod_1_1data__type.html" title="Holds meta data for a field and it&#39;s associated grid.">data_type</a>)</p>
+<p>More explainations about data_table entries can be found in the source code (defining <a class="el" href="structdata__override__mod_1_1data__type.html" title="Private type for holding field and grid information from a data table.">data_type</a>)</p>
 <p>If user wants to override fieldname_code with a const, set fieldname_file in data_table = "" and factor = const</p>
 <p>If user wants to override fieldname_code with data from a file, set fieldname_file = name in the netCDF data file, factor then will be for unit conversion (=1 if no conversion required)</p>
 <p>A field can be overriden globally (by default) or users can specify one or two regions in which <a class="el" href="interfacedata__override__mod_1_1data__override.html" title="Interface for inserting and interpolating data into a file for a model&#39;s grid and time....">data_override</a> will take place, field values outside the region will not be affected. </p>

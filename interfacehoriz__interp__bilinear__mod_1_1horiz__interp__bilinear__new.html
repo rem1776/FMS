@@ -106,15 +106,110 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:a10bd70e02e03fb99de1f9c8a13d7692e"><td class="memItemLeft" align="right" valign="top"><a id="a10bd70e02e03fb99de1f9c8a13d7692e"></a>
 subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>horiz_interp_bilinear_new_1d</b> (Interp, lon_in, lat_in, lon_out, lat_out, verbose, src_modulo)</td></tr>
 <tr class="separator:a10bd70e02e03fb99de1f9c8a13d7692e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b4e5db99a318b2565f86988d7256fef"><td class="memItemLeft" align="right" valign="top"><a id="a6b4e5db99a318b2565f86988d7256fef"></a>
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>horiz_interp_bilinear_new_2d</b> (Interp, lon_in, lat_in, lon_out, lat_out, verbose, src_modulo, new_search, no_crash_when_not_found)</td></tr>
+<tr class="memitem:a6b4e5db99a318b2565f86988d7256fef"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacehoriz__interp__bilinear__mod_1_1horiz__interp__bilinear__new.html#a6b4e5db99a318b2565f86988d7256fef">horiz_interp_bilinear_new_2d</a> (Interp, lon_in, lat_in, lon_out, lat_out, verbose, src_modulo, new_search, no_crash_when_not_found)</td></tr>
+<tr class="memdesc:a6b4e5db99a318b2565f86988d7256fef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialization routine.  <a href="interfacehoriz__interp__bilinear__mod_1_1horiz__interp__bilinear__new.html#a6b4e5db99a318b2565f86988d7256fef">More...</a><br /></td></tr>
 <tr class="separator:a6b4e5db99a318b2565f86988d7256fef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Creates a horiz_interp_type for bilinear interpolation. </p>
 
 <p class="definition">Definition at line <a class="el" href="horiz__interp__bilinear_8F90_source.html#l00049">49</a> of file <a class="el" href="horiz__interp__bilinear_8F90_source.html">horiz_interp_bilinear.F90</a>.</p>
-</div><hr/>The documentation for this interface was generated from the following file:<ul>
+</div><h2 class="groupheader">Member Function/Subroutine Documentation</h2>
+<a id="a6b4e5db99a318b2565f86988d7256fef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b4e5db99a318b2565f86988d7256fef">&#9670;&nbsp;</a></span>horiz_interp_bilinear_new_2d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine horiz_interp_bilinear_new_2d </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structhoriz__interp__type__mod_1_1horiz__interp__type.html">horiz_interp_type</a>), intent(inout)&#160;</td>
+          <td class="paramname"><em>Interp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:,:), intent(in)&#160;</td>
+          <td class="paramname"><em>lon_in</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:,:), intent(in)&#160;</td>
+          <td class="paramname"><em>lat_in</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:,:), intent(in)&#160;</td>
+          <td class="paramname"><em>lon_out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:,:), intent(in)&#160;</td>
+          <td class="paramname"><em>lat_out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>verbose</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, intent(in), optional&#160;</td>
+          <td class="paramname"><em>src_modulo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, intent(in), optional&#160;</td>
+          <td class="paramname"><em>new_search</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, intent(in), optional&#160;</td>
+          <td class="paramname"><em>no_crash_when_not_found</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initialization routine. </p>
+<p>Allocates space and initializes a derived-type variable that contains pre-computed interpolation indices and weights. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">interp</td><td>A derived type variable containing indices and weights for subsequent interpolations. To reinitialize for different grid-to-grid interpolation horiz_interp_del must be used first. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">lon_in</td><td>Latitude (radians) for source data grid </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">lat_in</td><td>Longitude (radians) for source data grid </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">lon_out</td><td>Longitude (radians) for output data grid </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">lat_out</td><td>Latitude (radians) for output data grid </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">verbose</td><td>flag for amount of print output </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">src_modulo</td><td>indicates if the boundary condition along zonal boundary is cyclic or not. Cyclic when true </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="horiz__interp__bilinear_8F90_source.html#l00239">239</a> of file <a class="el" href="horiz__interp__bilinear_8F90_source.html">horiz_interp_bilinear.F90</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this interface was generated from the following file:<ul>
 <li>horiz_interp/<a class="el" href="horiz__interp__bilinear_8F90_source.html">horiz_interp_bilinear.F90</a></li>
 </ul>
 </div><!-- contents -->

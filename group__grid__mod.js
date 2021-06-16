@@ -31,5 +31,10 @@ var group__grid__mod =
     [ "get_grid_comp_area_sg", "group__grid__mod.html#gaa58ee2ddf00235046fb65571ea313d19", null ],
     [ "get_grid_ntiles", "group__grid__mod.html#gae215631f5424b334d5b7037a399d1daf", null ],
     [ "get_grid_size_for_all_tiles", "group__grid__mod.html#ga1273821dc03d930490a822361aae9452", null ],
-    [ "get_grid_size_for_one_tile", "group__grid__mod.html#ga26dcb5aebc5762fbb869507cd96d4c6e", null ]
+    [ "get_grid_size_for_one_tile", "group__grid__mod.html#ga26dcb5aebc5762fbb869507cd96d4c6e", null ],
+    [ "bufsize", "group__grid__mod.html#gab17596f13966ff4c2837b2b00abb5eb9", null ],
+    [ "grid_dir", "group__grid__mod.html#ga8fe2220eb5027737e7f3abc2c556e1c5", null ],
+    [ "grid_file", "group__grid__mod.html#gad9a6735e725f189f0bf80eae1e40130f", null ],
+    [ "max_file", "group__grid__mod.html#ga90a4dac6149a9c8accf45db2598d1b92", null ],
+    [ "max_name", "group__grid__mod.html#gad1433095b0086ee21c4476545fd9c456", null ]
 ];

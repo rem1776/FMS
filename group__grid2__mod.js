@@ -46,5 +46,10 @@ var group__grid2__mod =
     [ "open_component_mosaics", "group__grid2__mod.html#ga8112fe4a2c62a932d7106437259127b4", null ],
     [ "open_grid_file", "group__grid2__mod.html#gaa4c139018f9ea9704c98016a85d9ba5b", null ],
     [ "open_mosaic_file", "group__grid2__mod.html#ga35b6f8ee3b7460671ee26e83ce3a171b", null ],
-    [ "read_file_name", "group__grid2__mod.html#ga80d1797ca5b58310cb3bcae50a6f09e5", null ]
+    [ "read_file_name", "group__grid2__mod.html#ga80d1797ca5b58310cb3bcae50a6f09e5", null ],
+    [ "bufsize", "group__grid2__mod.html#gab17596f13966ff4c2837b2b00abb5eb9", null ],
+    [ "grid_dir", "group__grid2__mod.html#ga8fe2220eb5027737e7f3abc2c556e1c5", null ],
+    [ "grid_file", "group__grid2__mod.html#gad9a6735e725f189f0bf80eae1e40130f", null ],
+    [ "max_file", "group__grid2__mod.html#ga90a4dac6149a9c8accf45db2598d1b92", null ],
+    [ "max_name", "group__grid2__mod.html#gad1433095b0086ee21c4476545fd9c456", null ]
 ];

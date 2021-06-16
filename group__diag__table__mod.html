@@ -105,10 +105,10 @@ $(document).ready(function(){initNavTree('group__diag__table__mod.html',''); ini
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Types</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">type &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdiag__table__mod_1_1field__description__type.html">field_description_type</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains metadata and additional information for a field.  <a href="structdiag__table__mod_1_1field__description__type.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Private type to hold field information for the diag table.  <a href="structdiag__table__mod_1_1field__description__type.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">type &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdiag__table__mod_1_1file__description__type.html">file_description_type</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains metadata and additional information for a file.  <a href="structdiag__table__mod_1_1file__description__type.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Private type to hold file information for the diag table.  <a href="structdiag__table__mod_1_1file__description__type.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -258,17 +258,19 @@ character(len= *), parameter&#160;</td><td class="memItemRight" valign="bottom">
  <code>lat_min, lat_max, lon_min, lon_max, vert_min, vert_max</code><br  />
  Use <code>vert_min = -1</code> and <code>vert_max = -1</code> to get the entire vertical axis. <b><em>NOTE:</em></b> Currently, the defined region <em>MUST</em> be confined to a single tile.  </dd>
 <dt><code>INTEGER :: packing</code> </dt>
-<dd>Fortran number <code>KIND</code> of the data written. Valid values: &lt;NL&gt; </dd>
+<dd>Fortran number <code>KIND</code> of the data written. Valid values:<ul>
+<li><code>= 1</code> &lt;EN &gt; double precision</li>
+<li><code>= 2</code> &lt;EN &gt; float</li>
+<li></li>
+</ul>
+</dd>
 </dl>
 </li>
 <li>
-<code>= 1</code> &lt;EN &gt; double precision </li>
-<li>
-<code>= 2</code> &lt;EN &gt; float </li>
-<li>
-<code>= 4</code> &lt;EN &gt; packed 16-bit integers </li>
-<li>
-<code>= 8</code> &lt;EN &gt; packed 1-byte (not tested). &lt;/NL&gt;  </li>
+<code>= 4</code> &lt;EN &gt; packed 16-bit integers<ul>
+<li><code>= 8</code> &lt;EN &gt; packed 1-byte (not tested)  </li>
+</ul>
+</li>
 </ol>
 <h4><b>Sample <code>diag_table</code></b></h4>
 <pre>
@@ -314,7 +316,7 @@ character(len= *), parameter&#160;</td><td class="memItemRight" valign="bottom">
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__table_8F90_source.html#l00506">506</a> of file <a class="el" href="diag__table_8F90_source.html">diag_table.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__table_8F90_source.html#l00504">504</a> of file <a class="el" href="diag__table_8F90_source.html">diag_table.F90</a>.</p>
 
 </div>
 </div>
@@ -367,7 +369,7 @@ unknown = -1  </li>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__table_8F90_source.html#l00830">830</a> of file <a class="el" href="diag__table_8F90_source.html">diag_table.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__table_8F90_source.html#l00828">828</a> of file <a class="el" href="diag__table_8F90_source.html">diag_table.F90</a>.</p>
 
 </div>
 </div>
@@ -404,7 +406,7 @@ unknown = -1  </li>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__table_8F90_source.html#l00794">794</a> of file <a class="el" href="diag__table_8F90_source.html">diag_table.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__table_8F90_source.html#l00792">792</a> of file <a class="el" href="diag__table_8F90_source.html">diag_table.F90</a>.</p>
 
 </div>
 </div>
@@ -441,7 +443,7 @@ unknown = -1  </li>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__table_8F90_source.html#l00765">765</a> of file <a class="el" href="diag__table_8F90_source.html">diag_table.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__table_8F90_source.html#l00763">763</a> of file <a class="el" href="diag__table_8F90_source.html">diag_table.F90</a>.</p>
 
 </div>
 </div>
@@ -495,7 +497,7 @@ unknown = -1  </li>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__table_8F90_source.html#l00479">479</a> of file <a class="el" href="diag__table_8F90_source.html">diag_table.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__table_8F90_source.html#l00477">477</a> of file <a class="el" href="diag__table_8F90_source.html">diag_table.F90</a>.</p>
 
 </div>
 </div>
@@ -542,7 +544,7 @@ unknown = -1  </li>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__table_8F90_source.html#l00291">291</a> of file <a class="el" href="diag__table_8F90_source.html">diag_table.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__table_8F90_source.html#l00289">289</a> of file <a class="el" href="diag__table_8F90_source.html">diag_table.F90</a>.</p>
 
 </div>
 </div>
@@ -587,7 +589,7 @@ unknown = -1  </li>
 </div><div class="memdoc">
 
 <p>Parse a field description line from the <code>diag_table</code> file. </p>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="structdiag__table__mod_1_1field__description__type.html" title="Contains metadata and additional information for a field.">field_description_type</a> parse_field_line</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="structdiag__table__mod_1_1field__description__type.html" title="Private type to hold field information for the diag table.">field_description_type</a> parse_field_line</dd></dl>
 <p><code>parse_field_line</code> parses a field description line from the <code>diag_table</code> file, and returns a <code>TYPE(field_description_type)</code>. The calling function, would then need to call the <code>init_input_field</code> and <code>init_output_field</code> to initialize the diagnostic output field. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">line</td><td>Line to parse from the <code>diag_table</code> file. </td></tr>
@@ -597,7 +599,7 @@ unknown = -1  </li>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__table_8F90_source.html#l00679">679</a> of file <a class="el" href="diag__table_8F90_source.html">diag_table.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__table_8F90_source.html#l00677">677</a> of file <a class="el" href="diag__table_8F90_source.html">diag_table.F90</a>.</p>
 
 </div>
 </div>
@@ -642,7 +644,7 @@ unknown = -1  </li>
 </div><div class="memdoc">
 
 <p><code>parse_file_line</code> parses a file description line from the <code>diag_table</code> file, and returns a <code>TYPE(file_description_type)</code>. The calling function, would then need to call the <code>init_file</code> to initialize the diagnostic output file. </p>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="structdiag__table__mod_1_1file__description__type.html" title="Contains metadata and additional information for a file.">file_description_type</a> parse_file_line </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="structdiag__table__mod_1_1file__description__type.html" title="Private type to hold file information for the diag table.">file_description_type</a> parse_file_line </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">line</td><td>Line to parse from the <code>diag_table</code> file. </td></tr>
@@ -652,7 +654,7 @@ unknown = -1  </li>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__table_8F90_source.html#l00516">516</a> of file <a class="el" href="diag__table_8F90_source.html">diag_table.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__table_8F90_source.html#l00514">514</a> of file <a class="el" href="diag__table_8F90_source.html">diag_table.F90</a>.</p>
 
 </div>
 </div>

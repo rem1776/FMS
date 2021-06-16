@@ -100,7 +100,11 @@ $(document).ready(function(){initNavTree('mpp_8F90.html',''); initResizable(); }
 
 <p>File for <a class="el" href="group__mpp__mod.html">mpp_mod</a>.  
 <a href="#details">More...</a></p>
-
+<div class="textblock"><code>#include &lt;file_version.h&gt;</code><br />
+<code>#include &lt;system_clock.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="mpp__util_8inc_source.html">mpp_util.inc</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="mpp__comm_8inc_source.html">mpp_comm.inc</a>&gt;</code><br />
+</div>
 <p><a href="mpp_8F90_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
@@ -132,10 +136,10 @@ Data Types</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes a given integer or real array and returns it as a string.  <a href="interfacempp__mod_1_1array__to__char.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacempp__mod_1_1mpp__type__create.html">mpp_type_create</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize <a class="el" href="group__mpp__mod.html">mpp_mod</a>.  <a href="interfacempp__mod_1_1mpp__type__create.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a <a class="el" href="structmpp__mod_1_1mpp__type.html" title="Data types for generalized data transfer (e.g. MPI_Type)">mpp_type</a> variable.  <a href="interfacempp__mod_1_1mpp__type__create.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacempp__mod_1_1mpp__max.html">mpp_max</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reduction operations. Find the max of scalar a the PEs in pelist result is also automatically broadcast to all PEs &lt;TEMPLATE&gt; call mpp_max( a, pelist ) &lt;/TEMPLATE&gt;  <a href="interfacempp__mod_1_1mpp__max.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reduction operations. Find the max of scalar a the PEs in pelist result is also automatically broadcast to all PEs.  <a href="interfacempp__mod_1_1mpp__max.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacempp__mod_1_1mpp__min.html">mpp_min</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get minimum value out of the PEs in pelist Result is also broadcast to all PEs.  <a href="interfacempp__mod_1_1mpp__min.html#details">More...</a><br /></td></tr>
@@ -294,7 +298,7 @@ integer, dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bo
 integer, dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><b>type_recv</b></td></tr>
 <tr class="separator:gab2effe1449067ef7571c95bf53287ca1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gab33866f08e4caa7191c6906ff1d94478"><td class="memItemLeft" align="right" valign="top">
-character(len=32)&#160;</td><td class="memItemRight" valign="bottom"><b>etcfile</b> ='._mpp.nonrootpe.msgs'</td></tr>
+character(len=32)&#160;</td><td class="memItemRight" valign="bottom"><b>etcfile</b> ='/dev/null'</td></tr>
 <tr class="separator:gab33866f08e4caa7191c6906ff1d94478"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga9dae2853ed8158f6cf8bd11fa5c16513"><td class="memItemLeft" align="right" valign="top">
 integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mpp__mod.html#ga9dae2853ed8158f6cf8bd11fa5c16513">in_unit</a> =INPUT_UNIT</td></tr>

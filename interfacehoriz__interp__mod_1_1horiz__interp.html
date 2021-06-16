@@ -126,8 +126,8 @@ subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href
 subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacehoriz__interp__mod_1_1horiz__interp.html#ac8622b0680fae2234c361e8fede4f824">horiz_interp_solo_1d_dst</a> (data_in, lon_in, lat_in, lon_out, lat_out, data_out, verbose, mask_in, mask_out, interp_method, missing_value, missing_permit, num_nbrs, max_dist, src_modulo)</td></tr>
 <tr class="memdesc:ac8622b0680fae2234c361e8fede4f824"><td class="mdescLeft">&#160;</td><td class="mdescRight">interpolates from any grid to rectangular longitude/latitude grid. interp_method should be "spherical". <a class="el" href="interfacehoriz__interp__mod_1_1horiz__interp__new.html" title="Allocates space and initializes a derived-type variable that contains pre-computed interpolation indi...">horiz_interp_new</a> don't need to be called before calling this routine. <br /></td></tr>
 <tr class="separator:ac8622b0680fae2234c361e8fede4f824"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a652c74426f19074802701e89a1c9fc6c"><td class="memItemLeft" align="right" valign="top"><a id="a652c74426f19074802701e89a1c9fc6c"></a>
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>horiz_interp_solo_old</b> (data_in, wb, sb, dx, dy, lon_out, lat_out, data_out, verbose, mask_in, mask_out)</td></tr>
+<tr class="memitem:a652c74426f19074802701e89a1c9fc6c"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacehoriz__interp__mod_1_1horiz__interp.html#a652c74426f19074802701e89a1c9fc6c">horiz_interp_solo_old</a> (data_in, wb, sb, dx, dy, lon_out, lat_out, data_out, verbose, mask_in, mask_out)</td></tr>
+<tr class="memdesc:a652c74426f19074802701e89a1c9fc6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloaded version of interface horiz_interp_solo_2.  <a href="interfacehoriz__interp__mod_1_1horiz__interp.html#a652c74426f19074802701e89a1c9fc6c">More...</a><br /></td></tr>
 <tr class="separator:a652c74426f19074802701e89a1c9fc6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -157,7 +157,115 @@ subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>horiz_interp_so
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="horiz__interp_8F90_source.html#l00191">191</a> of file <a class="el" href="horiz__interp_8F90_source.html">horiz_interp.F90</a>.</p>
-</div><hr/>The documentation for this interface was generated from the following file:<ul>
+</div><h2 class="groupheader">Member Function/Subroutine Documentation</h2>
+<a id="a652c74426f19074802701e89a1c9fc6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a652c74426f19074802701e89a1c9fc6c">&#9670;&nbsp;</a></span>horiz_interp_solo_old()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine horiz_interp_solo_old </td>
+          <td>(</td>
+          <td class="paramtype">real, dimension(:,:), intent(in)&#160;</td>
+          <td class="paramname"><em>data_in</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, intent(in)&#160;</td>
+          <td class="paramname"><em>wb</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, intent(in)&#160;</td>
+          <td class="paramname"><em>sb</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, intent(in)&#160;</td>
+          <td class="paramname"><em>dx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, intent(in)&#160;</td>
+          <td class="paramname"><em>dy</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:), intent(in)&#160;</td>
+          <td class="paramname"><em>lon_out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:), intent(in)&#160;</td>
+          <td class="paramname"><em>lat_out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:,:), intent(out)&#160;</td>
+          <td class="paramname"><em>data_out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>verbose</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:,:), intent(in), optional&#160;</td>
+          <td class="paramname"><em>mask_in</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real, dimension(:,:), intent(out), optional&#160;</td>
+          <td class="paramname"><em>mask_out</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Overloaded version of interface horiz_interp_solo_2. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">data_in</td><td>Global input data stored from west to east (1st dimension), south to north (2nd dimension) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">wb</td><td>Longitude (radians) that correspond to western-most !! boundary of grid box j=1 in array data_in </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">sb</td><td>Latitude (radians) that correspond to western-most !! boundary of grid box j=1 in array data_in </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dx</td><td>Grid spacing (in radians) for the longitude axis (first dimension) for the input data </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dy</td><td>Grid spacing (in radians) for the latitude axis (first dimension) for the input data </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">lon_out</td><td>The longitude edges (in radians) for output data grid boxes. The values are for adjacent grid boxes and must increase in value. If there are MLON grid boxes there must be MLON+1 edge values </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">lat_out</td><td>The latitude edges (in radians) for output data grid boxes. The values are for adjacent grid boxes and may increase or decrease in value. If there are NLAT grid boxes there must be NLAT+1 edge values </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">data_out</td><td>Output data on the output grid defined by grid box </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="horiz__interp_8F90_source.html#l00965">965</a> of file <a class="el" href="horiz__interp_8F90_source.html">horiz_interp.F90</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this interface was generated from the following file:<ul>
 <li>horiz_interp/<a class="el" href="horiz__interp_8F90_source.html">horiz_interp.F90</a></li>
 </ul>
 </div><!-- contents -->
