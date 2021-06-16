@@ -1,5 +1,10 @@
 var group__mpp__domains__mod =
 [
+    [ "mpp_define_nest_domains.inc", "mpp__define__nest__domains_8inc.html", null ],
+    [ "mpp_domains_comm.inc", "mpp__domains__comm_8inc.html", null ],
+    [ "mpp_domains_define.inc", "mpp__domains__define_8inc.html", null ],
+    [ "mpp_domains_misc.inc", "mpp__domains__misc_8inc.html", null ],
+    [ "mpp_domains_util.inc", "mpp__domains__util_8inc.html", null ],
     [ "unstruct_axis_spec", "structmpp__domains__mod_1_1unstruct__axis__spec.html", [
       [ "begin", "structmpp__domains__mod_1_1unstruct__axis__spec.html#a88e49475748526c3b64450b6a6093e31", null ],
       [ "begin_index", "structmpp__domains__mod_1_1unstruct__axis__spec.html#a6a334087e2c8d7aee0a954590f66097a", null ],
