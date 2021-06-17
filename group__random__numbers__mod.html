@@ -94,7 +94,7 @@ $(document).ready(function(){initNavTree('group__random__numbers__mod.html','');
 <a href="#nested-classes">Data Types</a> &#124;
 <a href="#func-members">Functions/Subroutines</a>  </div>
   <div class="headertitle">
-<div class="title">random_numbers_mod<div class="ingroups"><a class="el" href="group__random__numbers.html">Random Numbers</a></div></div>  </div>
+<div class="title">random_numbers_mod</div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -132,68 +132,16 @@ subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href
 <tr class="separator:ga2c80a6c2e9df2929326e8f5fc740585b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4aa41473d77b2a7dfd79e9485aa6b4df"><td class="memItemLeft" align="right" valign="top"><a id="ga4aa41473d77b2a7dfd79e9485aa6b4df"></a>
 subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__random__numbers__mod.html#ga4aa41473d77b2a7dfd79e9485aa6b4df">getrandomnumber_2d</a> (stream, numbers)</td></tr>
-<tr class="memdesc:ga4aa41473d77b2a7dfd79e9485aa6b4df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws random 1D array. <br /></td></tr>
+<tr class="memdesc:ga4aa41473d77b2a7dfd79e9485aa6b4df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws random 2D array. <br /></td></tr>
 <tr class="separator:ga4aa41473d77b2a7dfd79e9485aa6b4df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga26dcee1382874932265d81f685e89737"><td class="memItemLeft" align="right" valign="top">integer function, dimension(8), public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__random__numbers__mod.html#ga26dcee1382874932265d81f685e89737">constructseed</a> (i, j, time, perm)</td></tr>
-<tr class="memdesc:ga26dcee1382874932265d81f685e89737"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a unique seed from grid cell index and model date/time The perm is supplied we generate a different seed by circularly shifting the bits of the seed - this is useful if we want to create more than one seed for a given column and model date/time. Note that abs(perm) must be &lt;= the number of bits used to represent the default integer (likely 32)  <a href="group__random__numbers__mod.html#ga26dcee1382874932265d81f685e89737">More...</a><br /></td></tr>
+<tr class="memitem:ga26dcee1382874932265d81f685e89737"><td class="memItemLeft" align="right" valign="top"><a id="ga26dcee1382874932265d81f685e89737"></a>
+integer function, dimension(8), public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__random__numbers__mod.html#ga26dcee1382874932265d81f685e89737">constructseed</a> (i, j, time, perm)</td></tr>
+<tr class="memdesc:ga26dcee1382874932265d81f685e89737"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a unique seed from grid cell index and model date/time The perm is supplied we generate a different seed by circularly shifting the bits of the seed - this is useful if we want to create more than one seed for a given column and model date/time. Note that abs(perm) must be &lt;= the number of bits used to represent the default integer (likely 32) <br /></td></tr>
 <tr class="separator:ga26dcee1382874932265d81f685e89737"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Generic module to wrap random number generators. </p>
 <p>The module defines a type that identifies the particular stream of random numbers, and has procedures for initializing it and getting real numbers in the range 0 to 1. This version uses the Mersenne Twister to generate random numbers on [0, 1]. </p>
-<h2 class="groupheader">Function/Subroutine Documentation</h2>
-<a id="ga26dcee1382874932265d81f685e89737"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga26dcee1382874932265d81f685e89737">&#9670;&nbsp;</a></span>constructseed()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">integer function, dimension(8), public random_numbers_mod::constructseed </td>
-          <td>(</td>
-          <td class="paramtype">integer, intent(in)&#160;</td>
-          <td class="paramname"><em>i</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)&#160;</td>
-          <td class="paramname"><em>j</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(<a class="el" href="structtime__manager__mod_1_1time__type.html">time_type</a>), intent(in)&#160;</td>
-          <td class="paramname"><em>time</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in), optional&#160;</td>
-          <td class="paramname"><em>perm</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Constructs a unique seed from grid cell index and model date/time The perm is supplied we generate a different seed by circularly shifting the bits of the seed - this is useful if we want to create more than one seed for a given column and model date/time. Note that abs(perm) must be &lt;= the number of bits used to represent the default integer (likely 32) </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">j</td><td>grid cell indices </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">time</td><td>model time </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">perm</td><td>bit shift amount </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="random__numbers_8F90_source.html#l00129">129</a> of file <a class="el" href="random__numbers_8F90_source.html">random_numbers.F90</a>.</p>
-
-</div>
-</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -110,9 +110,10 @@ $(document).ready(function(){initNavTree('mpp_8F90.html',''); initResizable(); }
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Types</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">type &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmpp__mod_1_1communicator.html">communicator</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">peset hold communicators as SHMEM-compatible triads (start, log2(stride), num)  <a href="structmpp__mod_1_1communicator.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Communication information for message passing libraries.  <a href="structmpp__mod_1_1communicator.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">type &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmpp__mod_1_1event.html">event</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Communication event profile.  <a href="structmpp__mod_1_1event.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">type &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmpp__mod_1_1clock.html">clock</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">a clock contains an array of event profiles for a region  <a href="structmpp__mod_1_1clock.html#details">More...</a><br /></td></tr>
@@ -184,7 +185,8 @@ integer, parameter&#160;</td><td class="memItemRight" valign="bottom"><b>peset_m
 integer&#160;</td><td class="memItemRight" valign="bottom"><b>current_peset_max</b> = 32</td></tr>
 <tr class="separator:gabdd2394f5c55baea9018ed8c69145f6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga38f401fa0dd3a764c0fde248197eec15"><td class="memItemLeft" align="right" valign="top">
-type(communicator), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><b>peset</b></td></tr>
+type(communicator), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mpp__mod.html#ga38f401fa0dd3a764c0fde248197eec15">peset</a></td></tr>
+<tr class="memdesc:ga38f401fa0dd3a764c0fde248197eec15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Will be allocated starting from 0, 0 is a dummy used to hold single-PE "self" communicator. <br /></td></tr>
 <tr class="separator:ga38f401fa0dd3a764c0fde248197eec15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad369225c254bc7bda087334ca5d13096"><td class="memItemLeft" align="right" valign="top">
 logical&#160;</td><td class="memItemRight" valign="bottom"><b>module_is_initialized</b> = .false.</td></tr>
@@ -226,10 +228,12 @@ integer&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_comm_private</
 logical&#160;</td><td class="memItemRight" valign="bottom"><b>first_call_system_clock_mpi</b> =.TRUE.</td></tr>
 <tr class="separator:gaab1520c8546c39f34f4cd6bcd79eeac7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gac3a154eecf45212d83b67ce0de9688e3"><td class="memItemLeft" align="right" valign="top">
-real(r8_kind)&#160;</td><td class="memItemRight" valign="bottom"><b>mpi_count0</b> =0</td></tr>
+real(r8_kind)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mpp__mod.html#gac3a154eecf45212d83b67ce0de9688e3">mpi_count0</a> =0</td></tr>
+<tr class="memdesc:gac3a154eecf45212d83b67ce0de9688e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">use to prevent integer overflow <br /></td></tr>
 <tr class="separator:gac3a154eecf45212d83b67ce0de9688e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6d30282025bd05fcceb23b54057e35bb"><td class="memItemLeft" align="right" valign="top">
-real(r8_kind)&#160;</td><td class="memItemRight" valign="bottom"><b>mpi_tick_rate</b> =0.d0</td></tr>
+real(r8_kind)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mpp__mod.html#ga6d30282025bd05fcceb23b54057e35bb">mpi_tick_rate</a> =0.d0</td></tr>
+<tr class="memdesc:ga6d30282025bd05fcceb23b54057e35bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">clock rate for mpi_wtick() <br /></td></tr>
 <tr class="separator:ga6d30282025bd05fcceb23b54057e35bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga8c33cfdab671e1afa5b95acec1d1e5b1"><td class="memItemLeft" align="right" valign="top">
 logical, public&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_record_timing_data</b> =.TRUE.</td></tr>
@@ -253,7 +257,8 @@ integer&#160;</td><td class="memItemRight" valign="bottom"><b>peset_num</b> =0</
 integer&#160;</td><td class="memItemRight" valign="bottom"><b>current_peset_num</b> =0</td></tr>
 <tr class="separator:gad7b8346f0ab95992ed19abf2fc92160a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga7ea956cded1d5ec9c7b726f2c3a2d393"><td class="memItemLeft" align="right" valign="top">
-integer&#160;</td><td class="memItemRight" valign="bottom"><b>world_peset_num</b></td></tr>
+integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mpp__mod.html#ga7ea956cded1d5ec9c7b726f2c3a2d393">world_peset_num</a></td></tr>
+<tr class="memdesc:ga7ea956cded1d5ec9c7b726f2c3a2d393"><td class="mdescLeft">&#160;</td><td class="mdescRight">the world communicator <br /></td></tr>
 <tr class="separator:ga7ea956cded1d5ec9c7b726f2c3a2d393"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaa7ade73986813b4b6046afeb93b0b380"><td class="memItemLeft" align="right" valign="top">
 integer&#160;</td><td class="memItemRight" valign="bottom"><b>error</b></td></tr>
@@ -326,7 +331,8 @@ integer&#160;</td><td class="memItemRight" valign="bottom"><b>error_state</b> =0
 integer&#160;</td><td class="memItemRight" valign="bottom"><b>clock_grain</b> =CLOCK_LOOP-1</td></tr>
 <tr class="separator:ga9d4bea011521a078a1fe1a3ef674fbb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga5a819083f3d2fcb30eaad81d1ba66312"><td class="memItemLeft" align="right" valign="top">
-integer&#160;</td><td class="memItemRight" valign="bottom"><b>clock0</b></td></tr>
+integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mpp__mod.html#ga5a819083f3d2fcb30eaad81d1ba66312">clock0</a></td></tr>
+<tr class="memdesc:ga5a819083f3d2fcb30eaad81d1ba66312"><td class="mdescLeft">&#160;</td><td class="mdescRight">measures total runtime from mpp_init to mpp_exit <br /></td></tr>
 <tr class="separator:ga5a819083f3d2fcb30eaad81d1ba66312"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad5443576ed5c8dba080f7336ee63e73f"><td class="memItemLeft" align="right" valign="top">
 integer&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_stack_size</b> =0</td></tr>
@@ -338,7 +344,8 @@ integer&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_stack_hwm</b> 
 logical&#160;</td><td class="memItemRight" valign="bottom"><b>verbose</b> =.FALSE.</td></tr>
 <tr class="separator:gad12fa4aa8fea6ba0a575ab9bac77bbfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga27b06972e1120f543cc30929d81abc92"><td class="memItemLeft" align="right" valign="top">
-integer&#160;</td><td class="memItemRight" valign="bottom"><b>get_len_nocomm</b> = 0</td></tr>
+integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mpp__mod.html#ga27b06972e1120f543cc30929d81abc92">get_len_nocomm</a> = 0</td></tr>
+<tr class="memdesc:ga27b06972e1120f543cc30929d81abc92"><td class="mdescLeft">&#160;</td><td class="mdescRight">needed for <a class="el" href="mpp__transmit__nocomm_8h_source.html">mpp_transmit_nocomm.h</a> <br /></td></tr>
 <tr class="separator:ga27b06972e1120f543cc30929d81abc92"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga90a613436bf4bba787026aeecd058f8d"><td class="memItemLeft" align="right" valign="top">
 integer, parameter, public&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_init_test_full_init</b> = -1</td></tr>

@@ -1,6 +1,5 @@
 var group__mpp__mod =
 [
-    [ "mpp_comm_mpi.inc", "mpp__comm__mpi_8inc.html", null ],
     [ "communicator", "structmpp__mod_1_1communicator.html", [
       [ "count", "structmpp__mod_1_1communicator.html#a04a5f046f5e5f16ffa119020e5c5aec5", null ],
       [ "group", "structmpp__mod_1_1communicator.html#a5ba76bb9f9a94df8fe61cb4f48d04fe4", null ],
@@ -450,5 +449,11 @@ var group__mpp__mod =
       [ "mpp_chksum_r8_4d", "interfacempp__mod_1_1mpp__chksum.html#a120fa1ab1328c8e3bf104622597178f1", null ],
       [ "mpp_chksum_r8_5d", "interfacempp__mod_1_1mpp__chksum.html#acdbfa3f2bee5e232fd5adb57ab95a4ca", null ]
     ] ],
-    [ "in_unit", "group__mpp__mod.html#ga9dae2853ed8158f6cf8bd11fa5c16513", null ]
+    [ "clock0", "group__mpp__mod.html#ga5a819083f3d2fcb30eaad81d1ba66312", null ],
+    [ "get_len_nocomm", "group__mpp__mod.html#ga27b06972e1120f543cc30929d81abc92", null ],
+    [ "in_unit", "group__mpp__mod.html#ga9dae2853ed8158f6cf8bd11fa5c16513", null ],
+    [ "mpi_count0", "group__mpp__mod.html#gac3a154eecf45212d83b67ce0de9688e3", null ],
+    [ "mpi_tick_rate", "group__mpp__mod.html#ga6d30282025bd05fcceb23b54057e35bb", null ],
+    [ "peset", "group__mpp__mod.html#ga38f401fa0dd3a764c0fde248197eec15", null ],
+    [ "world_peset_num", "group__mpp__mod.html#ga7ea956cded1d5ec9c7b726f2c3a2d393", null ]
 ];
