@@ -116,7 +116,7 @@ $(document).ready(function(){initNavTree('mpp__domains__util_8inc_source.html','
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">!***********************************************************************</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">!&gt; @file</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">!&gt; @ingroup mpp</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">!&gt; @ingroup mpp_domains_mod</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">!&gt; @brief Utility routines for getting and setting values in @ref mpp_domains_mod</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="comment">! &lt;SUBROUTINE NAME=&quot;mpp_domains_set_stack_size&quot;&gt;</span></div>
@@ -397,10 +397,10 @@ $(document).ready(function(){initNavTree('mpp__domains__util_8inc_source.html','
 <div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;<span class="comment">  !&gt; @brief Modifies the indices of the input domain to create the supergrid domain</span></div>
 <div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;<span class="comment">  !!</span></div>
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;<span class="comment">  !&gt; This is an example of how to use mpp_create_super_grid_domain</span></div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;<span class="comment">  !!</span></div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;<span class="comment">  !!        call mpp_copy_domain(domain_in, domain_out)</span></div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;<span class="comment">  !!        call super_grid_domain(domain_out)</span></div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;<span class="comment">  !!</span></div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;<span class="comment">  !! @code{.F90}</span></div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;<span class="comment">  !! call mpp_copy_domain(domain_in, domain_out)</span></div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;<span class="comment">  !! call super_grid_domain(domain_out)</span></div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;<span class="comment">  !! @endcode</span></div>
 <div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;<span class="comment">  !! domain_in is the original domain, domain_out is the domain with the supergrid indices.</span></div>
 <div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="mpp__domains__util_8inc.html#a41461a8fe1667fb9849466b8a8c499c1">mpp_create_super_grid_domain</a>(domain)</div>
 <div class="line"><a name="l00310"></a><span class="lineno"><a class="line" href="mpp__domains__util_8inc.html#a41461a8fe1667fb9849466b8a8c499c1">  310</a></span>&#160;    <span class="keywordtype">type</span>(domain2d), <span class="keywordtype">intent(inout)</span> :: domain<span class="comment"> !&lt; Input domain</span></div>
