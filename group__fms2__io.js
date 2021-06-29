@@ -16,5 +16,6 @@ var group__fms2__io =
     [ "netcdf_write_data.inc", "netcdf__write__data_8inc.html", null ],
     [ "register_global_attribute.inc", "register__global__attribute_8inc.html", null ],
     [ "register_variable_attribute.inc", "register__variable__attribute_8inc.html", null ],
-    [ "scatter_data_bc.inc", "scatter__data__bc_8inc.html", null ]
+    [ "scatter_data_bc.inc", "scatter__data__bc_8inc.html", null ],
+    [ "readme", "group__fms2__io.html#md_fms2_io_readme", null ]
 ];
