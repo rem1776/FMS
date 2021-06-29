@@ -26,7 +26,7 @@ var NAVTREE =
     [ "FMS Documentation Homepage", "index.html", null ],
     [ "Documentation Style Guide", "md_docs_doxygenGuide.html", null ],
     [ "Building and Installation", "build.html", "build" ],
-    [ "FMS_io/mpp_io to FMS2_io conversion guide", "md_fms2_io_readme.html", null ],
+    [ "readme", "md_fms2_io_readme.html", null ],
     [ "General Project Information", "rm.html", null ],
     [ "Modules", "modules.html", "modules" ],
     [ "Module Members", "namespacemembers.html", [
