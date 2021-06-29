@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['readme_2015',['README',['../group__drifters.html',1,'']]],
-  ['readme_2016',['readme',['../group__fms2__io.html',1,'']]],
+  ['readme_2016',['README',['../group__drifters.html',1,'']]],
   ['r_5finv_5fsquared_2017',['r_inv_squared',['../group__astronomy__mod.html#ga527ff37a27810731b3515a0351ffd8a5',1,'astronomy_mod']]],
   ['r_5fprec_2018',['r_prec',['../group__mpp__efp__mod.html#ga6756bc06eb4e5c362a007af14dae0d2f',1,'mpp_efp_mod']]],
   ['rad2deg_2019',['rad2deg',['../group__diag__grid__mod.html#gafbf2ec20333592de7c79ad330b61ad2f',1,'diag_grid_mod']]],
