@@ -24,6 +24,12 @@
 
 # Set common test settings.
 . ../test_common.sh
+
+# create output directory to avoid failing from previous output
+[ -d atmosphere-io-output ] && rm -r atmosphere-io-output
+mkdir atmosphere-io-output
+cd atmosphere-io-output
+
 # make an input.nml for mpp_init to read
 printf "EOF\n&dummy\nEOF" | cat > input.nml
 # run the tests
