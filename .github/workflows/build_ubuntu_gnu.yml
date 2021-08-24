@@ -31,4 +31,4 @@ jobs:
     - name: Build the library
       run: make -j distcheck
       env:
-        DISTCHECK_CONFIGURE_FLAGS: "${{ matrix.distcheck-conf-flags }} --enable-test-input=$TEST_INPUT_PATH"
+        DISTCHECK_CONFIGURE_FLAGS: "${{ matrix.distcheck-conf-flags }} --enable-test-input=${TEST_INPUT_PATH}"
