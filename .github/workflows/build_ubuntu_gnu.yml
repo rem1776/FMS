@@ -25,8 +25,8 @@ jobs:
     - name: Prepare GNU autoconf for build
       run: autoreconf -if
     - name: Configure the build
-      run: ./configure ${{ matrix.distcheck-conf-flags }} --enable-test-input=${{ TEST_INPUT_PATH }}
+      run: ./configure ${{ matrix.distcheck-conf-flags }} --enable-test-input=$TEST_INPUT_PATH
       env:
-        DISTCHECK_CONFIGURE_FLAGS: "${{ matrix.distcheck-conf-flags }}"
+        DISTCHECK_CONFIGURE_FLAGS: "${{ matrix.distcheck-conf-flags }} --enable-test-input=$TEST_INPUT_PATH"
     - name: Build the library
       run: make -j distcheck
