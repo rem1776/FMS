@@ -1,5 +1,6 @@
 var group__mpp__mod =
 [
+    [ "mpp_comm.inc", "mpp__comm_8inc.html", null ],
     [ "mpp_util.inc", "mpp__util_8inc.html", null ],
     [ "communicator", "structmpp__mod_1_1communicator.html", [
       [ "count", "structmpp__mod_1_1communicator.html#a04a5f046f5e5f16ffa119020e5c5aec5", null ],

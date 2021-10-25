@@ -1,10 +1,13 @@
 var fms_8F90 =
 [
+    [ "c_strlen", "interfacefms__mod_1_1c__strlen.html", "interfacefms__mod_1_1c__strlen" ],
+    [ "c_free", "interfacefms__mod_1_1c__free.html", "interfacefms__mod_1_1c__free" ],
     [ "check_nml_error", "fms_8F90.html#ga05e7686befc1e49d2be9bdb81d479a76", null ],
     [ "error_mesg", "fms_8F90.html#gae5c7420e421293e2be14717dd7b3d97f", null ],
+    [ "fms_c2f_string", "fms_8F90.html#ga9b3ec25e8291f90ac2c4e028590c09e8", null ],
     [ "fms_end", "fms_8F90.html#a46d4a91a0ec6ae17fd2386413dc8c30b", null ],
     [ "fms_error_handler", "fms_8F90.html#ga6695d901d751a75f108c27aa385d9579", null ],
-    [ "fms_init", "fms_8F90.html#gabaf667e53627cfaceb48057e827b7b5e", null ],
+    [ "fms_init", "fms_8F90.html#ga76099928e3f2e58ea5efe717c7809fce", null ],
     [ "monotonic_array", "fms_8F90.html#gae80e64e737312192624678ecd590acd6", null ],
     [ "nml_error_init", "fms_8F90.html#ga0d71e1611bc61c9aa999c92abe008c45", null ],
     [ "string_array_index", "fms_8F90.html#ga2cb4556e28486de51d4118871fd5acd9", null ],

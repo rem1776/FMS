@@ -33,7 +33,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">FMS
-   &#160;<span id="projectnumber">2021.03.0-dev</span>
+   &#160;<span id="projectnumber">2021.04.0-dev</span>
    </div>
    <div id="projectbrief">Flexible Modeling System</div>
   </td>
@@ -113,9 +113,9 @@ Data Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
-<tr class="memitem:gabaf667e53627cfaceb48057e827b7b5e"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms__mod.html#gabaf667e53627cfaceb48057e827b7b5e">fms_init</a> (localcomm)</td></tr>
-<tr class="memdesc:gabaf667e53627cfaceb48057e827b7b5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the FMS module and also calls the initialization routines for all modules in the MPP package. Will be called automatically if the user does not call it.  <a href="group__fms__mod.html#gabaf667e53627cfaceb48057e827b7b5e">More...</a><br /></td></tr>
-<tr class="separator:gabaf667e53627cfaceb48057e827b7b5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga76099928e3f2e58ea5efe717c7809fce"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms__mod.html#ga76099928e3f2e58ea5efe717c7809fce">fms_init</a> (localcomm, alt_input_nml_path)</td></tr>
+<tr class="memdesc:ga76099928e3f2e58ea5efe717c7809fce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the FMS module and also calls the initialization routines for all modules in the MPP package. Will be called automatically if the user does not call it.  <a href="group__fms__mod.html#ga76099928e3f2e58ea5efe717c7809fce">More...</a><br /></td></tr>
+<tr class="separator:ga76099928e3f2e58ea5efe717c7809fce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae5c7420e421293e2be14717dd7b3d97f"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms__mod.html#gae5c7420e421293e2be14717dd7b3d97f">error_mesg</a> (routine, message, level)</td></tr>
 <tr class="memdesc:gae5c7420e421293e2be14717dd7b3d97f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print notes, warnings and error messages; terminates program for warning and error messages. Usage of mpp_error is preferable. (use error levels NOTE,WARNING,FATAL, see example below)  <a href="group__fms__mod.html#gae5c7420e421293e2be14717dd7b3d97f">More...</a><br /></td></tr>
 <tr class="separator:gae5c7420e421293e2be14717dd7b3d97f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -142,6 +142,9 @@ subroutine, private&#160;</td><td class="memItemRight" valign="bottom"><a class=
 character(len=32) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms__mod.html#ga04380e51ee749685e98ac96d03856eae">string_from_real</a> (a)</td></tr>
 <tr class="memdesc:ga04380e51ee749685e98ac96d03856eae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a real to a string. <br /></td></tr>
 <tr class="separator:ga04380e51ee749685e98ac96d03856eae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9b3ec25e8291f90ac2c4e028590c09e8"><td class="memItemLeft" align="right" valign="top">character(len=:) function, allocatable, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms__mod.html#ga9b3ec25e8291f90ac2c4e028590c09e8">fms_c2f_string</a> (cstring)</td></tr>
+<tr class="memdesc:ga9b3ec25e8291f90ac2c4e028590c09e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a C-string returned from a TYPE(C_PTR) function to a fortran string with type character.  <a href="group__fms__mod.html#ga9b3ec25e8291f90ac2c4e028590c09e8">More...</a><br /></td></tr>
+<tr class="separator:ga9b3ec25e8291f90ac2c4e028590c09e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga0c093df98a75dbd9e0f3add67aa6c23a"><td class="memItemLeft" align="right" valign="top"><a id="ga0c093df98a75dbd9e0f3add67aa6c23a"></a>
 subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms__mod.html#ga0c093df98a75dbd9e0f3add67aa6c23a">write_version_number</a> (version, tag, unit)</td></tr>
 <tr class="memdesc:ga0c093df98a75dbd9e0f3add67aa6c23a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints to the log file (or a specified unit) the version id string and tag name. <br /></td></tr>
@@ -264,17 +267,10 @@ logical, private&#160;</td><td class="memItemRight" valign="bottom"><b>only</b><
 <p><br  />
 Examples<br  />
 </p>
-<p>The following example checks if a file exists, reads a namelist input from that file, and checks for errors in that namelist. When the correct namelist is read and it has no errors the routine check_nml_error will return zero and the while loop will exit. This code segment should be used to read namelist files. </p><div class="fragment"><div class="line"><span class="keywordtype">integer</span> :: unit, ierr, io</div>
+<p>The following example checks if a file exists, reads a namelist input from that file, and checks for errors in that namelist. When the correct namelist is read and it has no errors the routine check_nml_error will return zero and the while loop will exit. This code segment should be used to read namelist files. </p><div class="fragment"><div class="line"><span class="keywordtype">integer</span> :: ierr, io</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordflow">if</span> ( file_exist(<span class="stringliteral">&#39;input.nml&#39;</span>) ) <span class="keywordflow">then</span></div>
-<div class="line">    unit = open_namelist_file( )</div>
-<div class="line">    ierr=1</div>
-<div class="line">    <span class="keywordflow">do</span> <span class="keywordflow">while</span> (ierr &gt; 0)</div>
-<div class="line">      <span class="keyword">read</span>  (unit, nml=moist_processes_nml, iostat=io)</div>
-<div class="line">      ierr = check_nml_error(io,<span class="stringliteral">&#39;moist_processes_nml&#39;</span>)</div>
-<div class="line"><span class="keywordflow">    enddo</span></div>
-<div class="line">    <span class="keyword">call </span>close_file (unit)</div>
-<div class="line">endif</div>
+<div class="line"><span class="keyword">read</span> (input_nml_file, fms_nml, iostat=io)</div>
+<div class="line">ierr = check_nml_error(io,<span class="stringliteral">&#39;fms_nml&#39;</span>)</div>
 </div><!-- fragment --> <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname">FATAL,Unknown</td><td>error while reading namelist ...., (IOSTAT = ####) There was an error reading the namelist specified. Carefully examine all namelist and variables for anything incorrect (e.g. malformed, hidden characters).</td></tr>
@@ -290,7 +286,7 @@ Examples<br  />
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="fms_8F90_source.html#l00554">554</a> of file <a class="el" href="fms_8F90_source.html">fms.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="fms_8F90_source.html#l00571">571</a> of file <a class="el" href="fms_8F90_source.html">fms.F90</a>.</p>
 
 </div>
 </div>
@@ -341,7 +337,31 @@ Example usage: </p><div class="fragment"><div class="line"><span class="keywordt
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="fms_8F90_source.html#l00465">465</a> of file <a class="el" href="fms_8F90_source.html">fms.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="fms_8F90_source.html#l00489">489</a> of file <a class="el" href="fms_8F90_source.html">fms.F90</a>.</p>
+
+</div>
+</div>
+<a id="ga9b3ec25e8291f90ac2c4e028590c09e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9b3ec25e8291f90ac2c4e028590c09e8">&#9670;&nbsp;</a></span>fms_c2f_string()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">character(len=:) function, allocatable, public fms_mod::fms_c2f_string </td>
+          <td>(</td>
+          <td class="paramtype">type (c_ptr)&#160;</td>
+          <td class="paramname"><em>cstring</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Converts a C-string returned from a TYPE(C_PTR) function to a fortran string with type character. </p>
+<dl class="section return"><dt>Returns</dt><dd>The fortran string returned </dd></dl>
+<p>Set the length of fstring</p>
+
+<p class="definition">Definition at line <a class="el" href="fms_8F90_source.html#l00818">818</a> of file <a class="el" href="fms_8F90_source.html">fms.F90</a>.</p>
 
 </div>
 </div>
@@ -389,12 +409,12 @@ Example usage: </p><div class="fragment"><div class="line"><span class="keywordt
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="fms_8F90_source.html#l00492">492</a> of file <a class="el" href="fms_8F90_source.html">fms.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="fms_8F90_source.html#l00516">516</a> of file <a class="el" href="fms_8F90_source.html">fms.F90</a>.</p>
 
 </div>
 </div>
-<a id="gabaf667e53627cfaceb48057e827b7b5e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gabaf667e53627cfaceb48057e827b7b5e">&#9670;&nbsp;</a></span>fms_init()</h2>
+<a id="ga76099928e3f2e58ea5efe717c7809fce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga76099928e3f2e58ea5efe717c7809fce">&#9670;&nbsp;</a></span>fms_init()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -403,8 +423,18 @@ Example usage: </p><div class="fragment"><div class="line"><span class="keywordt
           <td class="memname">subroutine, public fms_mod::fms_init </td>
           <td>(</td>
           <td class="paramtype">integer, intent(in), optional&#160;</td>
-          <td class="paramname"><em>localcomm</em></td><td>)</td>
+          <td class="paramname"><em>localcomm</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">character(len=*), intent(in), optional&#160;</td>
+          <td class="paramname"><em>alt_input_nml_path</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -419,7 +449,7 @@ Example usage: </p><div class="fragment"><div class="line"><span class="keywordt
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="fms_8F90_source.html#l00325">325</a> of file <a class="el" href="fms_8F90_source.html">fms.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="fms_8F90_source.html#l00340">340</a> of file <a class="el" href="fms_8F90_source.html">fms.F90</a>.</p>
 
 </div>
 </div>
@@ -465,7 +495,7 @@ Example usage: </p><div class="fragment"><div class="line"><span class="keywordt
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>If the input array of real values either increases or decreases monotonically then TRUE is returned, otherwise FALSE is returned. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="fms_8F90_source.html#l00734">734</a> of file <a class="el" href="fms_8F90_source.html">fms.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="fms_8F90_source.html#l00751">751</a> of file <a class="el" href="fms_8F90_source.html">fms.F90</a>.</p>
 
 </div>
 </div>
@@ -520,7 +550,7 @@ Examples<br  />
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>If an exact match was found then TRUE is returned, otherwise FALSE is returned. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="fms_8F90_source.html#l00703">703</a> of file <a class="el" href="fms_8F90_source.html">fms.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="fms_8F90_source.html#l00720">720</a> of file <a class="el" href="fms_8F90_source.html">fms.F90</a>.</p>
 
 </div>
 </div>
@@ -557,14 +587,14 @@ Examples<br  />
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>String converted frominteger </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="fms_8F90_source.html#l00777">777</a> of file <a class="el" href="fms_8F90_source.html">fms.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="fms_8F90_source.html#l00794">794</a> of file <a class="el" href="fms_8F90_source.html">fms.F90</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="ainterfacefms__mod_1_1string_html"><div class="ttname"><a href="interfacefms__mod_1_1string.html">fms_mod::string</a></div><div class="ttdoc">Converts a number to a string.</div><div class="ttdef"><b>Definition:</b> <a href="fms_8F90_source.html#l00297">fms.F90:297</a></div></div>
-<div class="ttc" id="agroup__fms__mod_html_gae5c7420e421293e2be14717dd7b3d97f"><div class="ttname"><a href="group__fms__mod.html#gae5c7420e421293e2be14717dd7b3d97f">fms_mod::error_mesg</a></div><div class="ttdeci">subroutine, public error_mesg(routine, message, level)</div><div class="ttdoc">Print notes, warnings and error messages; terminates program for warning and error messages....</div><div class="ttdef"><b>Definition:</b> <a href="fms_8F90_source.html#l00465">fms.F90:465</a></div></div>
+<div class="ttc" id="ainterfacefms__mod_1_1string_html"><div class="ttname"><a href="interfacefms__mod_1_1string.html">fms_mod::string</a></div><div class="ttdoc">Converts a number to a string.</div><div class="ttdef"><b>Definition:</b> <a href="fms_8F90_source.html#l00299">fms.F90:299</a></div></div>
+<div class="ttc" id="agroup__fms__mod_html_gae5c7420e421293e2be14717dd7b3d97f"><div class="ttname"><a href="group__fms__mod.html#gae5c7420e421293e2be14717dd7b3d97f">fms_mod::error_mesg</a></div><div class="ttdeci">subroutine, public error_mesg(routine, message, level)</div><div class="ttdoc">Print notes, warnings and error messages; terminates program for warning and error messages....</div><div class="ttdef"><b>Definition:</b> <a href="fms_8F90_source.html#l00489">fms.F90:489</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
