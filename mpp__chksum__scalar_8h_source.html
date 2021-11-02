@@ -119,27 +119,29 @@ $(document).ready(function(){initNavTree('mpp__chksum__scalar_8h_source.html',''
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;!&gt; @ingroup mpp</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;!&gt; @brief Wrapper routine <span class="keywordflow">for</span> scalar checksums</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">function</span> MPP_CHKSUM_( var, pelist, mask_val )</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;!mold is a dummy array to be used by TRANSFER()</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;!must be same TYPE as result</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;!result is i8_kind, which will actually be <span class="keywordtype">int</span> ifdef no_8byte_integers</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  !mold and mask_val must be same numBytes, otherwise undefined behavior</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;      integer(i8_kind) :: MPP_CHKSUM_</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;      MPP_TYPE_, intent(in) :: var</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;      integer, intent(in), optional :: pelist(:)</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;      integer(i8_kind) :: mold(1)</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  MPP_TYPE_, intent(in), optional :: mask_val</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;      pointer( p, mold )</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;      p = LOC(var)</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;!&gt; @brief Wrapper routine <span class="keywordflow">for</span> scalar checksums</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;!!</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;!&gt; mold is a dummy array to be used by TRANSFER()</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;!! must be same TYPE as result</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;!! result is i8_kind, which will actually be <span class="keywordtype">int</span> ifdef no_8byte_integers</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;!! mold and mask_val must be same numBytes, otherwise undefined behavior</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">function</span> MPP_CHKSUM_( var, pelist, mask_val )</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;      integer(i8_kind) :: MPP_CHKSUM_</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;      MPP_TYPE_, intent(in) :: var</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;      integer, intent(in), optional :: pelist(:)</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;      integer(i8_kind) :: mold(1)</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  MPP_TYPE_, intent(in), optional :: mask_val</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;      pointer( p, mold )</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  if ( PRESENT(mask_val) ) then</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;     MPP_CHKSUM_ = mpp_chksum( mold, pelist, TRANSFER(mask_val, mold(1)) )</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  else</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;      MPP_CHKSUM_ = mpp_chksum( mold, pelist )</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  end if</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;      return</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    end function MPP_CHKSUM_</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;      p = LOC(var)</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  if ( PRESENT(mask_val) ) then</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;     MPP_CHKSUM_ = mpp_chksum( mold, pelist, TRANSFER(mask_val, mold(1)) )</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  else</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;      MPP_CHKSUM_ = mpp_chksum( mold, pelist )</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  end if</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;      return</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    end function MPP_CHKSUM_</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -208,7 +208,7 @@ Private Member Functions</h2></td></tr>
  use mpp_mod
  integer :: pe, chksum
  real :: a(:)
- pe = <a class="el" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50" title="Returns processor ID. This returns the unique ID associated with a PE. This number runs between 0 and...">mpp_pe()</a>
+ pe = <a class="el" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50" title="Returns processor ID.">mpp_pe()</a>
  chksum = <a class="el" href="interfacempp__mod_1_1mpp__chksum.html" title="Calculate parallel checksums.">mpp_chksum</a>( a, (/pe/) )
  </pre><p>The additional functionality of <code><a class="el" href="interfacempp__mod_1_1mpp__chksum.html" title="Calculate parallel checksums.">mpp_chksum</a></code> over serial checksums is to compute the checksum across the PEs in <code>pelist</code>. The answer is guaranteed to be the same for the same distributed array irrespective of how it has been partitioned.</p>
 <p>If <code>pelist</code> is omitted, the context is assumed to be the current pelist. This call implies synchronization across the PEs in <code>pelist</code>, or the current pelist if <code>pelist</code> is absent. <br  />

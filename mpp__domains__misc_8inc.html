@@ -104,45 +104,424 @@ $(document).ready(function(){initNavTree('mpp__domains__misc_8inc.html',''); ini
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
-<tr class="memitem:a395663978bf22825d9d8a8b4c29a5510"><td class="memItemLeft" align="right" valign="top"><a id="a395663978bf22825d9d8a8b4c29a5510"></a>
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_domains_init</b> (flags)</td></tr>
+<tr class="memitem:a395663978bf22825d9d8a8b4c29a5510"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mpp__domains__misc_8inc.html#a395663978bf22825d9d8a8b4c29a5510">mpp_domains_init</a> (flags)</td></tr>
+<tr class="memdesc:a395663978bf22825d9d8a8b4c29a5510"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize domain decomp package.  <a href="mpp__domains__misc_8inc.html#a395663978bf22825d9d8a8b4c29a5510">More...</a><br /></td></tr>
 <tr class="separator:a395663978bf22825d9d8a8b4c29a5510"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aec920ac2b75792e534c9dd608ed7726d"><td class="memItemLeft" align="right" valign="top"><a id="aec920ac2b75792e534c9dd608ed7726d"></a>
 subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>init_nonblock_type</b> (nonblock_obj)</td></tr>
 <tr class="separator:aec920ac2b75792e534c9dd608ed7726d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a55eba87e8167e3f3ba2dc913a1d9d8"><td class="memItemLeft" align="right" valign="top"><a id="a9a55eba87e8167e3f3ba2dc913a1d9d8"></a>
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_domains_exit</b> ()</td></tr>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mpp__domains__misc_8inc.html#a9a55eba87e8167e3f3ba2dc913a1d9d8">mpp_domains_exit</a> ()</td></tr>
+<tr class="memdesc:a9a55eba87e8167e3f3ba2dc913a1d9d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exit <code>mpp_domains_mod</code>. Serves no particular purpose, but is provided should you require to re-initialize <code>mpp_domains_mod</code>, for some odd reason. <br /></td></tr>
 <tr class="separator:a9a55eba87e8167e3f3ba2dc913a1d9d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa6ad4cd1ebb1e73ee40e368e03b4989"><td class="memItemLeft" align="right" valign="top"><a id="aaa6ad4cd1ebb1e73ee40e368e03b4989"></a>
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_check_field_3d</b> (field_in, pelist1, pelist2, domain, mesg, w_halo, s_halo, e_halo, n_halo, force_abort, position)</td></tr>
+<tr class="memitem:aaa6ad4cd1ebb1e73ee40e368e03b4989"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mpp__domains__misc_8inc.html#aaa6ad4cd1ebb1e73ee40e368e03b4989">mpp_check_field_3d</a> (field_in, pelist1, pelist2, domain, mesg, w_halo, s_halo, e_halo, n_halo, force_abort, position)</td></tr>
+<tr class="memdesc:aaa6ad4cd1ebb1e73ee40e368e03b4989"><td class="mdescLeft">&#160;</td><td class="mdescRight">This routine is used to do parallel checking for 3d data between n and m pe. The comparison is is done on pelist2. When size of pelist2 is 1, we can check the halo; otherwise, halo can not be checked.  <a href="mpp__domains__misc_8inc.html#aaa6ad4cd1ebb1e73ee40e368e03b4989">More...</a><br /></td></tr>
 <tr class="separator:aaa6ad4cd1ebb1e73ee40e368e03b4989"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8efc00480eb4c3a518605199f5a9dc0f"><td class="memItemLeft" align="right" valign="top"><a id="a8efc00480eb4c3a518605199f5a9dc0f"></a>
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_check_field_2d</b> (field_in, pelist1, pelist2, domain, mesg, w_halo, s_halo, e_halo, n_halo, force_abort, position)</td></tr>
+<tr class="memitem:a8efc00480eb4c3a518605199f5a9dc0f"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mpp__domains__misc_8inc.html#a8efc00480eb4c3a518605199f5a9dc0f">mpp_check_field_2d</a> (field_in, pelist1, pelist2, domain, mesg, w_halo, s_halo, e_halo, n_halo, force_abort, position)</td></tr>
+<tr class="memdesc:a8efc00480eb4c3a518605199f5a9dc0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This routine is used to do parallel checking for 2d data between n and m pe. The comparison is is done on pelist2. When size of pelist2 is 1, we can check the halo; otherwise, halo can not be checked.  <a href="mpp__domains__misc_8inc.html#a8efc00480eb4c3a518605199f5a9dc0f">More...</a><br /></td></tr>
 <tr class="separator:a8efc00480eb4c3a518605199f5a9dc0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2efbb5e327b3763c64bf5d4f8a1007f1"><td class="memItemLeft" align="right" valign="top"><a id="a2efbb5e327b3763c64bf5d4f8a1007f1"></a>
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_check_field_2d_type1</b> (field_in, pelist1, pelist2, domain, mesg, w_halo, s_halo, e_halo, n_halo, force_abort)</td></tr>
+<tr class="memitem:a2efbb5e327b3763c64bf5d4f8a1007f1"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mpp__domains__misc_8inc.html#a2efbb5e327b3763c64bf5d4f8a1007f1">mpp_check_field_2d_type1</a> (field_in, pelist1, pelist2, domain, mesg, w_halo, s_halo, e_halo, n_halo, force_abort)</td></tr>
+<tr class="memdesc:a2efbb5e327b3763c64bf5d4f8a1007f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">This routine is used to check field between running on 1 pe (pelist2) and n pe(pelist1). The need_to_be_checked data is sent to the pelist2 and All the comparison is done on pelist2.  <a href="mpp__domains__misc_8inc.html#a2efbb5e327b3763c64bf5d4f8a1007f1">More...</a><br /></td></tr>
 <tr class="separator:a2efbb5e327b3763c64bf5d4f8a1007f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade0f907a84c1e6b6f41410a7f01e390e"><td class="memItemLeft" align="right" valign="top"><a id="ade0f907a84c1e6b6f41410a7f01e390e"></a>
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_check_field_2d_type2</b> (field_in, pelist1, pelist2, domain, mesg, force_abort)</td></tr>
+<tr class="memitem:ade0f907a84c1e6b6f41410a7f01e390e"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mpp__domains__misc_8inc.html#ade0f907a84c1e6b6f41410a7f01e390e">mpp_check_field_2d_type2</a> (field_in, pelist1, pelist2, domain, mesg, force_abort)</td></tr>
+<tr class="memdesc:ade0f907a84c1e6b6f41410a7f01e390e"><td class="mdescLeft">&#160;</td><td class="mdescRight">This routine is used to check field between running on m pe (root pe) and n pe. This routine can not check halo.  <a href="mpp__domains__misc_8inc.html#ade0f907a84c1e6b6f41410a7f01e390e">More...</a><br /></td></tr>
 <tr class="separator:ade0f907a84c1e6b6f41410a7f01e390e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a384d3a3ef804c5ae02ac7275908ba52b"><td class="memItemLeft" align="right" valign="top"><a id="a384d3a3ef804c5ae02ac7275908ba52b"></a>
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_broadcast_domain_1</b> (domain)</td></tr>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mpp__domains__misc_8inc.html#a384d3a3ef804c5ae02ac7275908ba52b">mpp_broadcast_domain_1</a> (domain)</td></tr>
+<tr class="memdesc:a384d3a3ef804c5ae02ac7275908ba52b"><td class="mdescLeft">&#160;</td><td class="mdescRight">broadcast domain (useful only outside the context of its own pelist) <br /></td></tr>
 <tr class="separator:a384d3a3ef804c5ae02ac7275908ba52b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c80021e696a56ef546715f7ad2be527"><td class="memItemLeft" align="right" valign="top"><a id="a2c80021e696a56ef546715f7ad2be527"></a>
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_broadcast_domain_2</b> (domain_in, domain_out)</td></tr>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mpp__domains__misc_8inc.html#a2c80021e696a56ef546715f7ad2be527">mpp_broadcast_domain_2</a> (domain_in, domain_out)</td></tr>
+<tr class="memdesc:a2c80021e696a56ef546715f7ad2be527"><td class="mdescLeft">&#160;</td><td class="mdescRight">Broadcast domain (useful only outside the context of its own pelist) <br /></td></tr>
 <tr class="separator:a2c80021e696a56ef546715f7ad2be527"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5965219dac0da6d6d057aab4a24aafd"><td class="memItemLeft" align="right" valign="top"><a id="af5965219dac0da6d6d057aab4a24aafd"></a>
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_broadcast_domain_nest_fine</b> (domain, tile_nest)</td></tr>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mpp__domains__misc_8inc.html#af5965219dac0da6d6d057aab4a24aafd">mpp_broadcast_domain_nest_fine</a> (domain, tile_nest)</td></tr>
+<tr class="memdesc:af5965219dac0da6d6d057aab4a24aafd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Broadcast fine nested domain (useful only outside the context of its own pelist) <br /></td></tr>
 <tr class="separator:af5965219dac0da6d6d057aab4a24aafd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf2d512143b8365142845ccf117b2888"><td class="memItemLeft" align="right" valign="top"><a id="acf2d512143b8365142845ccf117b2888"></a>
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_broadcast_domain_nest_coarse</b> (domain, tile_coarse)</td></tr>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mpp__domains__misc_8inc.html#acf2d512143b8365142845ccf117b2888">mpp_broadcast_domain_nest_coarse</a> (domain, tile_coarse)</td></tr>
+<tr class="memdesc:acf2d512143b8365142845ccf117b2888"><td class="mdescLeft">&#160;</td><td class="mdescRight">Broadcast nested domain (useful only outside the context of its own pelist) <br /></td></tr>
 <tr class="separator:acf2d512143b8365142845ccf117b2888"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Initialization and finalization routines for <a class="el" href="group__mpp__domains__mod.html">mpp_domains_mod</a> as well as other utility routines. </p>
 
 <p class="definition">Definition in file <a class="el" href="mpp__domains__misc_8inc_source.html">mpp_domains_misc.inc</a>.</p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Function/Subroutine Documentation</h2>
+<a id="a8efc00480eb4c3a518605199f5a9dc0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8efc00480eb4c3a518605199f5a9dc0f">&#9670;&nbsp;</a></span>mpp_check_field_2d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine mpp_check_field_2d </td>
+          <td>(</td>
+          <td class="paramtype">real, dimension(:,:), intent(in)&#160;</td>
+          <td class="paramname"><em>field_in</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(:), intent(in)&#160;</td>
+          <td class="paramname"><em>pelist1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(:), intent(in)&#160;</td>
+          <td class="paramname"><em>pelist2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(domain2d), intent(in)&#160;</td>
+          <td class="paramname"><em>domain</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in)&#160;</td>
+          <td class="paramname"><em>mesg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>w_halo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>s_halo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>e_halo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>n_halo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, intent(in), optional&#160;</td>
+          <td class="paramname"><em>force_abort</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>position</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This routine is used to do parallel checking for 2d data between n and m pe. The comparison is is done on pelist2. When size of pelist2 is 1, we can check the halo; otherwise, halo can not be checked. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">field_in</td><td>field to be checked </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pelist2</td><td>pe list for the two groups </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">domain</td><td>domain for each pe </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mesg</td><td>message to be printed out if differences found </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n_halo</td><td>halo size for west, south, east and north </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">force_abort</td><td>when true, call mpp_error if any difference found. default value is false. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">position</td><td>when domain is symmetry, only value = CENTER is implemented. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="mpp__domains__misc_8inc_source.html#l00228">228</a> of file <a class="el" href="mpp__domains__misc_8inc_source.html">mpp_domains_misc.inc</a>.</p>
+
+</div>
+</div>
+<a id="a2efbb5e327b3763c64bf5d4f8a1007f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2efbb5e327b3763c64bf5d4f8a1007f1">&#9670;&nbsp;</a></span>mpp_check_field_2d_type1()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine mpp_check_field_2d_type1 </td>
+          <td>(</td>
+          <td class="paramtype">real, dimension(:,:), intent(in)&#160;</td>
+          <td class="paramname"><em>field_in</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(:), intent(in)&#160;</td>
+          <td class="paramname"><em>pelist1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(:), intent(in)&#160;</td>
+          <td class="paramname"><em>pelist2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(domain2d), intent(in)&#160;</td>
+          <td class="paramname"><em>domain</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in)&#160;</td>
+          <td class="paramname"><em>mesg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>w_halo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>s_halo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>e_halo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>n_halo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, intent(in), optional&#160;</td>
+          <td class="paramname"><em>force_abort</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This routine is used to check field between running on 1 pe (pelist2) and n pe(pelist1). The need_to_be_checked data is sent to the pelist2 and All the comparison is done on pelist2. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">field_in</td><td>field to be checked </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pelist2</td><td>pe list for the two groups </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">domain</td><td>domain for each pe </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mesg</td><td>message to be printed out if differences found </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n_halo</td><td>halo size for west, south, east and north </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">force_abort</td><td>when, call mpp_error if any difference found. default value is false. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="mpp__domains__misc_8inc_source.html#l00267">267</a> of file <a class="el" href="mpp__domains__misc_8inc_source.html">mpp_domains_misc.inc</a>.</p>
+
+</div>
+</div>
+<a id="ade0f907a84c1e6b6f41410a7f01e390e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade0f907a84c1e6b6f41410a7f01e390e">&#9670;&nbsp;</a></span>mpp_check_field_2d_type2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine mpp_check_field_2d_type2 </td>
+          <td>(</td>
+          <td class="paramtype">real, dimension(:,:), intent(in)&#160;</td>
+          <td class="paramname"><em>field_in</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(:), intent(in)&#160;</td>
+          <td class="paramname"><em>pelist1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(:), intent(in)&#160;</td>
+          <td class="paramname"><em>pelist2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(domain2d), intent(in)&#160;</td>
+          <td class="paramname"><em>domain</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in)&#160;</td>
+          <td class="paramname"><em>mesg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, intent(in), optional&#160;</td>
+          <td class="paramname"><em>force_abort</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This routine is used to check field between running on m pe (root pe) and n pe. This routine can not check halo. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">force_abort</td><td>when, call mpp_error if any difference found. default value is false. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="mpp__domains__misc_8inc_source.html#l00396">396</a> of file <a class="el" href="mpp__domains__misc_8inc_source.html">mpp_domains_misc.inc</a>.</p>
+
+</div>
+</div>
+<a id="aaa6ad4cd1ebb1e73ee40e368e03b4989"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa6ad4cd1ebb1e73ee40e368e03b4989">&#9670;&nbsp;</a></span>mpp_check_field_3d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine mpp_check_field_3d </td>
+          <td>(</td>
+          <td class="paramtype">real, dimension(:,:,:), intent(in)&#160;</td>
+          <td class="paramname"><em>field_in</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(:), intent(in)&#160;</td>
+          <td class="paramname"><em>pelist1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(:), intent(in)&#160;</td>
+          <td class="paramname"><em>pelist2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(domain2d), intent(in)&#160;</td>
+          <td class="paramname"><em>domain</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in)&#160;</td>
+          <td class="paramname"><em>mesg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>w_halo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>s_halo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>e_halo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>n_halo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, intent(in), optional&#160;</td>
+          <td class="paramname"><em>force_abort</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>position</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This routine is used to do parallel checking for 3d data between n and m pe. The comparison is is done on pelist2. When size of pelist2 is 1, we can check the halo; otherwise, halo can not be checked. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">field_in</td><td>field to be checked </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pelist2</td><td>pe list for the two groups </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">domain</td><td>domain for each pe </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mesg</td><td>message to be printed out if differences found </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n_halo</td><td>halo size for west, south, east and north </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">force_abort</td><td>when true, call mpp_error if any difference found. default value is false. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">position</td><td>when domain is symmetry, only value = CENTER is implemented. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="mpp__domains__misc_8inc_source.html#l00195">195</a> of file <a class="el" href="mpp__domains__misc_8inc_source.html">mpp_domains_misc.inc</a>.</p>
+
+</div>
+</div>
+<a id="a395663978bf22825d9d8a8b4c29a5510"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a395663978bf22825d9d8a8b4c29a5510">&#9670;&nbsp;</a></span>mpp_domains_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine mpp_domains_init </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>flags</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialize domain decomp package. </p>
+<p>Called to initialize the <code>mpp_domains_mod</code> package. <code>flags</code> can be set to <code>MPP_VERBOSE</code> to have <code>mpp_domains_mod</code> keep you informed of what it's up to. <code>MPP_DEBUG</code> returns even more information for debugging.</p>
+<p><code>mpp_domains_init</code> will call <code>mpp_init</code>, to make sure <code><a class="el" href="group__mpp__mod.html">mpp_mod</a></code> is initialized. (Repeated calls to <code><a class="el" href="mpp__comm__nocomm_8inc.html#aa0193472086e6b9a7772b362e35adf6c">mpp_init</a></code> do no harm, so don't worry if you already called it). </p>
+
+<p class="definition">Definition at line <a class="el" href="mpp__domains__misc_8inc_source.html#l00044">44</a> of file <a class="el" href="mpp__domains__misc_8inc_source.html">mpp_domains_misc.inc</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

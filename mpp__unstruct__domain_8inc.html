@@ -104,8 +104,7 @@ $(document).ready(function(){initNavTree('mpp__unstruct__domain_8inc.html',''); 
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
-<tr class="memitem:a0dc077caf4660cca3b0971fb5fa71f8c"><td class="memItemLeft" align="right" valign="top"><a id="a0dc077caf4660cca3b0971fb5fa71f8c"></a>
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_define_unstruct_domain</b> (UG_domain, SG_domain, npts_tile, grid_nlev, ndivs, npes_io_group, grid_index, name)</td></tr>
+<tr class="memitem:a0dc077caf4660cca3b0971fb5fa71f8c"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mpp__unstruct__domain_8inc.html#a0dc077caf4660cca3b0971fb5fa71f8c">mpp_define_unstruct_domain</a> (UG_domain, SG_domain, npts_tile, grid_nlev, ndivs, npes_io_group, grid_index, name)</td></tr>
 <tr class="separator:a0dc077caf4660cca3b0971fb5fa71f8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a21b5db6c902b8acbc6f1ae4b0faff1de"><td class="memItemLeft" align="right" valign="top"><a id="a21b5db6c902b8acbc6f1ae4b0faff1de"></a>
 subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>compute_overlap_sg2ug</b> (UG_domain, SG_domain)</td></tr>
@@ -210,6 +209,80 @@ logical function&#160;</td><td class="memItemRight" valign="bottom"><a class="el
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="mpp__unstruct__domain_8inc_source.html#l00722">722</a> of file <a class="el" href="mpp__unstruct__domain_8inc_source.html">mpp_unstruct_domain.inc</a>.</p>
+
+</div>
+</div>
+<a id="a0dc077caf4660cca3b0971fb5fa71f8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0dc077caf4660cca3b0971fb5fa71f8c">&#9670;&nbsp;</a></span>mpp_define_unstruct_domain()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine mpp_define_unstruct_domain </td>
+          <td>(</td>
+          <td class="paramtype">type(domainug), intent(inout)&#160;</td>
+          <td class="paramname"><em>UG_domain</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(domain2d), intent(in), target&#160;</td>
+          <td class="paramname"><em>SG_domain</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(:), intent(in)&#160;</td>
+          <td class="paramname"><em>npts_tile</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(:), intent(in)&#160;</td>
+          <td class="paramname"><em>grid_nlev</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)&#160;</td>
+          <td class="paramname"><em>ndivs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)&#160;</td>
+          <td class="paramname"><em>npes_io_group</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(:), intent(in)&#160;</td>
+          <td class="paramname"><em>grid_index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in), optional&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">npts_tile</td><td>number of unstructured points on each tile</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">grid_nlev</td><td>number of levels in each unstructured grid.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">npes_io_group</td><td>number of processors in a io group. Only pe with same tile_id in the same group </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="mpp__unstruct__domain_8inc_source.html#l00026">26</a> of file <a class="el" href="mpp__unstruct__domain_8inc_source.html">mpp_unstruct_domain.inc</a>.</p>
 
 </div>
 </div>

@@ -119,10 +119,10 @@ $(document).ready(function(){initNavTree('mpp__sum_8inc_source.html',''); initRe
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">!&gt; @ingroup mpp</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">!&gt; @brief Summation routines for @ref mpp_mod</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">!#######################################################################</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">subroutine </span>mpp_sum_scalar_( a, pelist )</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">!sums array a when only first element is passed: this routine just converts to a call to MPP_SUM_</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;      mpp_type_, <span class="keywordtype">intent(inout)</span> :: a</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">    !&gt; Sums array a when only first element is passed: this routine just converts to a call to MPP_SUM_</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">subroutine </span><a class="code" href="mpp__sum_8inc.html#a7327b82b31b53f69e187becf67b65175">mpp_sum_scalar_</a>( a, pelist )</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="mpp__sum_8inc.html#a7327b82b31b53f69e187becf67b65175">   29</a></span>&#160;      mpp_type_, <span class="keywordtype">intent(inout)</span> :: a</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;      <span class="keywordtype">integer</span>, <span class="keywordtype">intent(in)</span>, <span class="keywordtype">optional</span> :: pelist(:)</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;      mpp_type_ :: b(1)</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
@@ -131,7 +131,7 @@ $(document).ready(function(){initNavTree('mpp__sum_8inc_source.html',''); initRe
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;      <span class="keyword">call </span>mpp_sum_( b, 1, pelist )</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;      a = b(1)</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;      <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">end subroutine </span>mpp_sum_scalar_</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">end subroutine </span><a class="code" href="mpp__sum_8inc.html#a7327b82b31b53f69e187becf67b65175">mpp_sum_scalar_</a></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">!#######################################################################</span></div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">subroutine </span>mpp_sum_2d_( a, length, pelist )</div>
@@ -190,6 +190,7 @@ $(document).ready(function(){initNavTree('mpp__sum_8inc_source.html',''); initRe
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keyword">end subroutine </span>mpp_sum_5d_</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="ampp__sum_8inc_html_a7327b82b31b53f69e187becf67b65175"><div class="ttname"><a href="mpp__sum_8inc.html#a7327b82b31b53f69e187becf67b65175">mpp_sum_scalar_</a></div><div class="ttdeci">subroutine mpp_sum_scalar_(a, pelist)</div><div class="ttdoc">Sums array a when only first element is passed: this routine just converts to a call to MPP_SUM_.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__sum_8inc_source.html#l00029">mpp_sum.inc:29</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

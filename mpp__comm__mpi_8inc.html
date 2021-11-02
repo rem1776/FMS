@@ -110,24 +110,79 @@ subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href
 <tr class="separator:a271b4c9584f2b514df4439086add4198"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d0366d81b9701ccaaf3612b666aada1"><td class="memItemLeft" align="right" valign="top"><a id="a8d0366d81b9701ccaaf3612b666aada1"></a>
 subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mpp__comm__mpi_8inc.html#a8d0366d81b9701ccaaf3612b666aada1">mpp_exit</a> ()</td></tr>
-<tr class="memdesc:a8d0366d81b9701ccaaf3612b666aada1"><td class="mdescLeft">&#160;</td><td class="mdescRight">To be called at the end of a run. <br /></td></tr>
+<tr class="memdesc:a8d0366d81b9701ccaaf3612b666aada1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finalizes process termination. To be called at the end of a run. Certain mpi implementations(openmpi) will fail if this is not called before program termination. <br /></td></tr>
 <tr class="separator:a8d0366d81b9701ccaaf3612b666aada1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac00f997102c5613d8c547f1ee10fa49c"><td class="memItemLeft" align="right" valign="top"><a id="ac00f997102c5613d8c547f1ee10fa49c"></a>
 subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mpp__comm__mpi_8inc.html#ac00f997102c5613d8c547f1ee10fa49c">mpp_set_stack_size</a> (n)</td></tr>
 <tr class="memdesc:ac00f997102c5613d8c547f1ee10fa49c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the mpp_stack variable to be at least n LONG words long. <br /></td></tr>
 <tr class="separator:ac00f997102c5613d8c547f1ee10fa49c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a823769fc831d556ad73e98ae0a8f7f2a"><td class="memItemLeft" align="right" valign="top"><a id="a823769fc831d556ad73e98ae0a8f7f2a"></a>
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_broadcast_char</b> (data, length, from_pe, pelist)</td></tr>
+<tr class="memitem:a823769fc831d556ad73e98ae0a8f7f2a"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mpp__comm__mpi_8inc.html#a823769fc831d556ad73e98ae0a8f7f2a">mpp_broadcast_char</a> (data, length, from_pe, pelist)</td></tr>
+<tr class="memdesc:a823769fc831d556ad73e98ae0a8f7f2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Broadcasts a character string from the given pe to it's pelist.  <a href="mpp__comm__mpi_8inc.html#a823769fc831d556ad73e98ae0a8f7f2a">More...</a><br /></td></tr>
 <tr class="separator:a823769fc831d556ad73e98ae0a8f7f2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4ba89dd4d38f1d902c9c87af7d310d75"><td class="memItemLeft" align="right" valign="top"><a id="a4ba89dd4d38f1d902c9c87af7d310d75"></a>
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_type_free</b> (dtype)</td></tr>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mpp__comm__mpi_8inc.html#a4ba89dd4d38f1d902c9c87af7d310d75">mpp_type_free</a> (dtype)</td></tr>
+<tr class="memdesc:a4ba89dd4d38f1d902c9c87af7d310d75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocates memory for mpp_type objects @TODO This should probably not take a pointer, but for now we do this. <br /></td></tr>
 <tr class="separator:a4ba89dd4d38f1d902c9c87af7d310d75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Routines to initialize and finalize <a class="el" href="group__mpp__mod.html">mpp_mod</a> with mpi enabled. </p>
 
 <p class="definition">Definition in file <a class="el" href="mpp__comm__mpi_8inc_source.html">mpp_comm_mpi.inc</a>.</p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Function/Subroutine Documentation</h2>
+<a id="a823769fc831d556ad73e98ae0a8f7f2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a823769fc831d556ad73e98ae0a8f7f2a">&#9670;&nbsp;</a></span>mpp_broadcast_char()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine mpp_broadcast_char </td>
+          <td>(</td>
+          <td class="paramtype">character(len=*), dimension(:), intent(inout)&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)&#160;</td>
+          <td class="paramname"><em>length</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)&#160;</td>
+          <td class="paramname"><em>from_pe</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(:), intent(in), optional&#160;</td>
+          <td class="paramname"><em>pelist</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Broadcasts a character string from the given pe to it's pelist. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">data</td><td>Character string to send </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">length</td><td>length of given data to broadcast </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">from_pe</td><td>pe to broadcast from </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pelist</td><td>optional pelist to broadcast to </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="mpp__comm__mpi_8inc_source.html#l00356">356</a> of file <a class="el" href="mpp__comm__mpi_8inc_source.html">mpp_comm_mpi.inc</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

@@ -112,28 +112,28 @@ $(document).ready(function(){initNavTree('mpp__global__field_8h_source.html','')
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;!* You should have received a copy of the GNU Lesser General Public</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;!* License along with FMS.  If not, see &lt;http:<span class="comment">//www.gnu.org/licenses/&gt;.</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;!***********************************************************************</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    subroutine MPP_GLOBAL_FIELD_2D_( domain, local, global, flags, position,tile_count, default_data)</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;      type(domain2D), intent(in) :: domain</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;      MPP_TYPE_, intent(in)  ::  local(:,:)</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;      MPP_TYPE_, intent(out) :: global(:,:)</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;      integer, intent(in), optional :: flags</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;      integer, intent(in), optional :: position</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;      integer, intent(in), optional :: tile_count</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;      MPP_TYPE_, intent(in), optional :: default_data</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;      MPP_TYPE_ :: local3D (size( local,1),size( local,2),1)</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;      MPP_TYPE_ :: global3D(size(global,1),size(global,2),1)</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;      pointer( lptr,  local3D )</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;      pointer( gptr, global3D )</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;      lptr = LOC( local)</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;      gptr = LOC(global)</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;      call mpp_global_field( domain, local3D, global3D, flags, position,tile_count, default_data )</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    end subroutine MPP_GLOBAL_FIELD_2D_</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    !&gt; get a global field from a local field</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    !! local field may be on compute OR data domain</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    subroutine MPP_GLOBAL_FIELD_2D_( domain, local, global, flags, position,tile_count, default_data)</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;      type(domain2D), intent(in) :: domain</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;      MPP_TYPE_, intent(in)  ::  local(:,:)</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;      MPP_TYPE_, intent(out) :: global(:,:)</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;      integer, intent(in), optional :: flags</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;      integer, intent(in), optional :: position</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;      integer, intent(in), optional :: tile_count</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;      MPP_TYPE_, intent(in), optional :: default_data</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;      MPP_TYPE_ :: local3D (size( local,1),size( local,2),1)</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;      MPP_TYPE_ :: global3D(size(global,1),size(global,2),1)</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;      pointer( lptr,  local3D )</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;      pointer( gptr, global3D )</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;      lptr = LOC( local)</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;      gptr = LOC(global)</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;      call mpp_global_field( domain, local3D, global3D, flags, position,tile_count, default_data )</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    subroutine MPP_GLOBAL_FIELD_3D_( domain, local, global, flags, position, tile_count, default_data)</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;!get a global field from a local field</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;!local field may be on compute OR data domain</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    end subroutine MPP_GLOBAL_FIELD_2D_</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    subroutine MPP_GLOBAL_FIELD_3D_( domain, local, global, flags, position, tile_count, default_data)</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;      type(domain2D), intent(in) :: domain</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;      MPP_TYPE_, intent(in)  ::  local(:,:,:)</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;      MPP_TYPE_, intent(out) :: global(:,:,:)</div>
@@ -148,7 +148,7 @@ $(document).ready(function(){initNavTree('mpp__global__field_8h_source.html','')
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;      tile = 1; <span class="keywordflow">if</span>(PRESENT(tile_count)) tile = tile_count</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;      call mpp_get_domain_shift(domain, ishift, jshift, position)</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;      call <a class="code" href="mpp__domains__util_8inc.html#ac70252baf8cd75f94a6c9eca72d60463">mpp_get_domain_shift</a>(domain, ishift, jshift, position)</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;      ! The alltoallw method requires that local and global be contiguous.</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;      ! We presume that `local` is contiguous <span class="keywordflow">if</span> it matches the data domain;</div>
@@ -208,6 +208,7 @@ $(document).ready(function(){initNavTree('mpp__global__field_8h_source.html','')
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    end subroutine MPP_GLOBAL_FIELD_5D_</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="ampp__domains__util_8inc_html_ac70252baf8cd75f94a6c9eca72d60463"><div class="ttname"><a href="mpp__domains__util_8inc.html#ac70252baf8cd75f94a6c9eca72d60463">mpp_get_domain_shift</a></div><div class="ttdeci">subroutine mpp_get_domain_shift(domain, ishift, jshift, position)</div><div class="ttdoc">Returns the shift value in x and y-direction according to domain position..</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__util_8inc_source.html#l00779">mpp_domains_util.inc:779</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

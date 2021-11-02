@@ -119,10 +119,10 @@ $(document).ready(function(){initNavTree('system__clock_8h_source.html',''); ini
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#define SYSTEM_CLOCK system_clock_mpi</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;!#######################################################################</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;subroutine system_clock_mpi( count, count_rate, count_max )</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;! There can be one ONE baseline count0 and <span class="keyword">this</span> routine is</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;! included in multiple places.</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;!mimics F90 SYSTEM_CLOCK intrinsic</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;!&gt; There can be one ONE baseline count0 and <span class="keyword">this</span> routine is</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;!! included in multiple places.</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;!! mimics F90 SYSTEM_CLOCK intrinsic</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;subroutine system_clock_mpi( count, count_rate, count_max )</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;      integer(i8_kind), intent(out), optional :: count, count_rate, count_max</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;!count must <span class="keywordflow">return</span> a number between 0 and count_max</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;      integer(i8_kind), parameter :: maxtick=HUGE(count_max)</div>

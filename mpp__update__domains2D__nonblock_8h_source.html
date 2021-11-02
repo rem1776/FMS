@@ -317,7 +317,7 @@ $(document).ready(function(){initNavTree('mpp__update__domains2D__nonblock_8h_so
 <div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160; </div>
 <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;     ke_max = maxval(ke_list(1:l_size,1:ntile))</div>
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;     if( domain_update_is_needed(domain, update_whalo, update_ehalo, update_shalo, update_nhalo) )then</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;        update =&gt; search_update_overlap(domain, update_whalo, update_ehalo, update_shalo, update_nhalo, update_position)</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;        update =&gt; <a class="code" href="mpp__domains__util_8inc.html#a8a4aaa3bcae0507e3965af16151e535a">search_update_overlap</a>(domain, update_whalo, update_ehalo, update_shalo, update_nhalo, update_position)</div>
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;        call mpp_start_do_update(current_id, f_addrs(1:l_size,1:ntile), domain, update, d_type, &amp;</div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;                                 ke_max, ke_list(1:l_size,1:ntile), update_flags, reuse_id_update, <a class="code" href="group__diag__integral__mod.html#gabc3c15fd594d9f6962546a765fb0b928">field_name</a> )</div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;     endif</div>
@@ -521,7 +521,7 @@ $(document).ready(function(){initNavTree('mpp__update__domains2D__nonblock_8h_so
 <div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;             <span class="stringliteral">&quot;mismatch of number of fields between mpp_start_update_domains and mpp_complete_update_domains&quot;</span>)</div>
 <div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;     num_update = num_update - 1</div>
 <div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;     if( domain_update_is_needed(domain, update_whalo, update_ehalo, update_shalo, update_nhalo) ) then</div>
-<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;        update =&gt; search_update_overlap(domain, update_whalo, update_ehalo, update_shalo, update_nhalo, update_position)</div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;        update =&gt; <a class="code" href="mpp__domains__util_8inc.html#a8a4aaa3bcae0507e3965af16151e535a">search_update_overlap</a>(domain, update_whalo, update_ehalo, update_shalo, update_nhalo, update_position)</div>
 <div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;        ke_max = maxval(ke_list(1:l_size,1:ntile))</div>
 <div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;        call mpp_complete_do_update(id_update, f_addrs(1:l_size,1:ntile), domain, update, d_type, &amp;</div>
 <div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;                                    ke_max, ke_list(1:l_size,1:ntile), update_flags)</div>
@@ -822,8 +822,8 @@ $(document).ready(function(){initNavTree('mpp__update__domains2D__nonblock_8h_so
 <div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;        case default</div>
 <div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;           call mpp_error(FATAL, &quot;mpp_update_domains2D_nonblock.h: invalid value of grid_offset_type&quot;)</div>
 <div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;        end select</div>
-<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;        updatex =&gt; search_update_overlap(domain, update_whalo, update_ehalo, update_shalo, update_nhalo, position_x)</div>
-<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;        updatey =&gt; search_update_overlap(domain, update_whalo, update_ehalo, update_shalo, update_nhalo, position_y)</div>
+<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;        updatex =&gt; <a class="code" href="mpp__domains__util_8inc.html#a8a4aaa3bcae0507e3965af16151e535a">search_update_overlap</a>(domain, update_whalo, update_ehalo, update_shalo, update_nhalo, position_x)</div>
+<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;        updatey =&gt; <a class="code" href="mpp__domains__util_8inc.html#a8a4aaa3bcae0507e3965af16151e535a">search_update_overlap</a>(domain, update_whalo, update_ehalo, update_shalo, update_nhalo, position_y)</div>
 <div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160; </div>
 <div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;        ke_max = maxval(ke_list(1:l_size,1:ntile))</div>
 <div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;        if(exchange_uv) then</div>
@@ -1084,8 +1084,8 @@ $(document).ready(function(){initNavTree('mpp__update__domains2D__nonblock_8h_so
 <div class="line"><a name="l00988"></a><span class="lineno">  988</span>&#160;        case default</div>
 <div class="line"><a name="l00989"></a><span class="lineno">  989</span>&#160;           call mpp_error(FATAL, <span class="stringliteral">&quot;mpp_update_domains2D.h: invalid value of grid_offset_type&quot;</span>)</div>
 <div class="line"><a name="l00990"></a><span class="lineno">  990</span>&#160;        end select</div>
-<div class="line"><a name="l00991"></a><span class="lineno">  991</span>&#160;        updatex =&gt; search_update_overlap(domain, update_whalo, update_ehalo, update_shalo, update_nhalo, position_x)</div>
-<div class="line"><a name="l00992"></a><span class="lineno">  992</span>&#160;        updatey =&gt; search_update_overlap(domain, update_whalo, update_ehalo, update_shalo, update_nhalo, position_y)</div>
+<div class="line"><a name="l00991"></a><span class="lineno">  991</span>&#160;        updatex =&gt; <a class="code" href="mpp__domains__util_8inc.html#a8a4aaa3bcae0507e3965af16151e535a">search_update_overlap</a>(domain, update_whalo, update_ehalo, update_shalo, update_nhalo, position_x)</div>
+<div class="line"><a name="l00992"></a><span class="lineno">  992</span>&#160;        updatey =&gt; <a class="code" href="mpp__domains__util_8inc.html#a8a4aaa3bcae0507e3965af16151e535a">search_update_overlap</a>(domain, update_whalo, update_ehalo, update_shalo, update_nhalo, position_y)</div>
 <div class="line"><a name="l00993"></a><span class="lineno">  993</span>&#160; </div>
 <div class="line"><a name="l00994"></a><span class="lineno">  994</span>&#160;        ke_max = maxval(ke_list(1:l_size,1:ntile))</div>
 <div class="line"><a name="l00995"></a><span class="lineno">  995</span>&#160;        if(exchange_uv) then</div>
@@ -1177,6 +1177,7 @@ $(document).ready(function(){initNavTree('mpp__update__domains2D__nonblock_8h_so
 <div class="ttc" id="agroup__data__override__mod_html_gabfaffcec6d80f4f9dd8232df6671d99b"><div class="ttname"><a href="group__data__override__mod.html#gabfaffcec6d80f4f9dd8232df6671d99b">data_override_mod::num_fields</a></div><div class="ttdeci">integer num_fields</div><div class="ttdoc">number of fields in override_array already processed</div><div class="ttdef"><b>Definition:</b> <a href="data__override_8F90_source.html#l00141">data_override.F90:141</a></div></div>
 <div class="ttc" id="agroup__xgrid__mod_html_ga918992f5441500892b62fc6dd3dc69ee"><div class="ttname"><a href="group__xgrid__mod.html#ga918992f5441500892b62fc6dd3dc69ee">xgrid_mod::init</a></div><div class="ttdeci">logical init</div><div class="ttdoc">xgrid nml</div><div class="ttdef"><b>Definition:</b> <a href="xgrid_8F90_source.html#l00183">xgrid.F90:183</a></div></div>
 <div class="ttc" id="agroup__xgrid__mod_html_ga0d6740065d2355a4ac54b90c8c4545fb"><div class="ttname"><a href="group__xgrid__mod.html#ga0d6740065d2355a4ac54b90c8c4545fb">xgrid_mod::some</a></div><div class="ttdeci">subroutine, public some(xmap, some_arr, grid_id)</div><div class="ttdoc">Returns logical associating exchange grid cells with given side two grid.</div><div class="ttdef"><b>Definition:</b> <a href="xgrid_8F90_source.html#l03359">xgrid.F90:3359</a></div></div>
+<div class="ttc" id="ampp__domains__util_8inc_html_a8a4aaa3bcae0507e3965af16151e535a"><div class="ttname"><a href="mpp__domains__util_8inc.html#a8a4aaa3bcae0507e3965af16151e535a">search_update_overlap</a></div><div class="ttdeci">type(overlapspec) function, pointer search_update_overlap(domain, whalo, ehalo, shalo, nhalo, position)</div><div class="ttdoc">this routine found the domain has the same halo size with the input whalo, ehalo,</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__util_8inc_source.html#l00997">mpp_domains_util.inc:997</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

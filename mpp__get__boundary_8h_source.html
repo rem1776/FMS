@@ -113,8 +113,8 @@ $(document).ready(function(){initNavTree('mpp__get__boundary_8h_source.html','')
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;!* You should have received a copy of the GNU Lesser General Public</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;!* License along with FMS.  If not, see &lt;http:<span class="comment">//www.gnu.org/licenses/&gt;.</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;!***********************************************************************</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;! <span class="keyword">this</span> routine is used to retrieve scalar boundary data <span class="keywordflow">for</span> symmetric domain.</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;!&gt; This routine is used to retrieve scalar boundary data <span class="keywordflow">for</span> symmetric domain.</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;subroutine MPP_GET_BOUNDARY_2D_(field, domain, ebuffer, sbuffer, wbuffer, nbuffer, flags, &amp;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                                position, complete, tile_count)</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  type(domain2D),       intent(in)   :: domain</div>
@@ -244,8 +244,8 @@ $(document).ready(function(){initNavTree('mpp__get__boundary_8h_source.html','')
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;  if(do_update )then</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;     !--- only non-center data in symmetry domain will be retrieved.</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;     if(position == CENTER .OR. (.NOT. domain%symmetry) ) return</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;     bound =&gt; search_bound_overlap(domain, update_position)</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;     call mpp_get_domain_shift(domain, ishift, jshift, update_position)</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;     bound =&gt; <a class="code" href="mpp__domains__util_8inc.html#a0957f6b8c7863558cffe475f9ce531c2">search_bound_overlap</a>(domain, update_position)</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;     call <a class="code" href="mpp__domains__util_8inc.html#ac70252baf8cd75f94a6c9eca72d60463">mpp_get_domain_shift</a>(domain, ishift, jshift, update_position)</div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;     if(size(field,1) .NE. domain%x(1)%memory%size+ishift .OR. size(field,2) .NE. domain%y(1)%memory%size+jshift ) &amp;</div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;          call mpp_error(FATAL, &quot;MPP_GET_BOUNDARY_2D: field is not on memory domain&quot;)</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    if(ASSOCIATED(bound)) then</div>
@@ -387,8 +387,8 @@ $(document).ready(function(){initNavTree('mpp__get__boundary_8h_source.html','')
 <div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;  if(do_update )then</div>
 <div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;     !--- only non-center data in symmetry domain will be retrieved.</div>
 <div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;     if(position == CENTER .OR. (.NOT. domain%symmetry) ) return</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;     bound =&gt; search_bound_overlap(domain, update_position)</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;     call mpp_get_domain_shift(domain, ishift, jshift, update_position)</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;     bound =&gt; <a class="code" href="mpp__domains__util_8inc.html#a0957f6b8c7863558cffe475f9ce531c2">search_bound_overlap</a>(domain, update_position)</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;     call <a class="code" href="mpp__domains__util_8inc.html#ac70252baf8cd75f94a6c9eca72d60463">mpp_get_domain_shift</a>(domain, ishift, jshift, update_position)</div>
 <div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;     if(size(field,1) .NE. domain%x(1)%memory%size+ishift .OR. size(field,2) .NE. domain%y(1)%memory%size+jshift ) &amp;</div>
 <div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;          call mpp_error(FATAL, &quot;MPP_GET_BOUNDARY_3D: field is not on memory domain&quot;)</div>
 <div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    if(ASSOCIATED(bound)) then</div>
@@ -402,7 +402,7 @@ $(document).ready(function(){initNavTree('mpp__get__boundary_8h_source.html','')
 <div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160; </div>
 <div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160; </div>
 <div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;!<span class="preprocessor">####################################################################</span></div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;! vector update</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;!&gt; vector update </div>
 <div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;subroutine MPP_GET_BOUNDARY_2D_V_(fieldx, fieldy, domain, ebufferx, sbufferx, wbufferx, nbufferx, &amp;</div>
 <div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;                                  ebuffery, sbuffery, wbuffery, nbuffery, flags, gridtype, &amp;</div>
 <div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;                                  complete, tile_count)</div>
@@ -599,13 +599,13 @@ $(document).ready(function(){initNavTree('mpp__get__boundary_8h_source.html','')
 <div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;        call mpp_error(FATAL, &quot;mpp_get_boundary.h: invalid value of grid_offset_type&quot;)</div>
 <div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;     end select</div>
 <div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160; </div>
-<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;     boundx =&gt; search_bound_overlap(domain, position_x)</div>
-<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;     boundy =&gt; search_bound_overlap(domain, position_y)</div>
+<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;     boundx =&gt; <a class="code" href="mpp__domains__util_8inc.html#a0957f6b8c7863558cffe475f9ce531c2">search_bound_overlap</a>(domain, position_x)</div>
+<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;     boundy =&gt; <a class="code" href="mpp__domains__util_8inc.html#a0957f6b8c7863558cffe475f9ce531c2">search_bound_overlap</a>(domain, position_y)</div>
 <div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160; </div>
-<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;     call mpp_get_domain_shift(domain, ishift, jshift, position_x)</div>
+<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;     call <a class="code" href="mpp__domains__util_8inc.html#ac70252baf8cd75f94a6c9eca72d60463">mpp_get_domain_shift</a>(domain, ishift, jshift, position_x)</div>
 <div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;     if(size(fieldx,1) .NE. domain%x(1)%memory%size+ishift .OR. size(fieldx,2) .NE. domain%y(1)%memory%size+jshift ) &amp;</div>
 <div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;          call mpp_error(FATAL, &quot;MPP_GET_BOUNDARY_2D_V: fieldx is not on memory domain&quot;)</div>
-<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;     call mpp_get_domain_shift(domain, ishift, jshift, position_y)</div>
+<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;     call <a class="code" href="mpp__domains__util_8inc.html#ac70252baf8cd75f94a6c9eca72d60463">mpp_get_domain_shift</a>(domain, ishift, jshift, position_y)</div>
 <div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;     if(size(fieldy,1) .NE. domain%x(1)%memory%size+ishift .OR. size(fieldy,2) .NE. domain%y(1)%memory%size+jshift ) &amp;</div>
 <div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;          call mpp_error(FATAL, &quot;MPP_GET_BOUNDARY_2D_V: fieldy is not on memory domain&quot;)</div>
 <div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;     if(ASSOCIATED(boundx) ) then</div>
@@ -823,13 +823,13 @@ $(document).ready(function(){initNavTree('mpp__get__boundary_8h_source.html','')
 <div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;        call mpp_error(FATAL, &quot;mpp_get_boundary.h: invalid value of grid_offset_type&quot;)</div>
 <div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;     end select</div>
 <div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160; </div>
-<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;     boundx =&gt; search_bound_overlap(domain, position_x)</div>
-<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;     boundy =&gt; search_bound_overlap(domain, position_y)</div>
+<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;     boundx =&gt; <a class="code" href="mpp__domains__util_8inc.html#a0957f6b8c7863558cffe475f9ce531c2">search_bound_overlap</a>(domain, position_x)</div>
+<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;     boundy =&gt; <a class="code" href="mpp__domains__util_8inc.html#a0957f6b8c7863558cffe475f9ce531c2">search_bound_overlap</a>(domain, position_y)</div>
 <div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160; </div>
-<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;     call mpp_get_domain_shift(domain, ishift, jshift, position_x)</div>
+<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;     call <a class="code" href="mpp__domains__util_8inc.html#ac70252baf8cd75f94a6c9eca72d60463">mpp_get_domain_shift</a>(domain, ishift, jshift, position_x)</div>
 <div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;     if(size(fieldx,1) .NE. domain%x(1)%memory%size+ishift .OR. size(fieldx,2) .NE. domain%y(1)%memory%size+jshift ) &amp;</div>
 <div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;          call mpp_error(FATAL, &quot;MPP_GET_BOUNDARY_3D_V: fieldx is not on memory domain&quot;)</div>
-<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;     call mpp_get_domain_shift(domain, ishift, jshift, position_y)</div>
+<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;     call <a class="code" href="mpp__domains__util_8inc.html#ac70252baf8cd75f94a6c9eca72d60463">mpp_get_domain_shift</a>(domain, ishift, jshift, position_y)</div>
 <div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;     if(size(fieldy,1) .NE. domain%x(1)%memory%size+ishift .OR. size(fieldy,2) .NE. domain%y(1)%memory%size+jshift ) &amp;</div>
 <div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;          call mpp_error(FATAL, &quot;MPP_GET_BOUNDARY_3D_V: fieldy is not on memory domain&quot;)</div>
 <div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;     if(ASSOCIATED(boundx) ) then</div>
@@ -844,6 +844,8 @@ $(document).ready(function(){initNavTree('mpp__get__boundary_8h_source.html','')
 <div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;end subroutine MPP_GET_BOUNDARY_3D_V_</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="ampp__domains__util_8inc_html_ac70252baf8cd75f94a6c9eca72d60463"><div class="ttname"><a href="mpp__domains__util_8inc.html#ac70252baf8cd75f94a6c9eca72d60463">mpp_get_domain_shift</a></div><div class="ttdeci">subroutine mpp_get_domain_shift(domain, ishift, jshift, position)</div><div class="ttdoc">Returns the shift value in x and y-direction according to domain position..</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__util_8inc_source.html#l00779">mpp_domains_util.inc:779</a></div></div>
+<div class="ttc" id="ampp__domains__util_8inc_html_a0957f6b8c7863558cffe475f9ce531c2"><div class="ttname"><a href="mpp__domains__util_8inc.html#a0957f6b8c7863558cffe475f9ce531c2">search_bound_overlap</a></div><div class="ttdeci">type(overlapspec) function, pointer search_bound_overlap(domain, position)</div><div class="ttdoc">This routine finds the bound at certain position.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__util_8inc_source.html#l01076">mpp_domains_util.inc:1076</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
