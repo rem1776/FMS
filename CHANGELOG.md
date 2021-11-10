@@ -74,7 +74,7 @@ sequential patch number (starting from `01`).
 ### Removed
 ### Fixed
 - MPP: Fixed a bug causing mpp_get_UG_domain_tile_pe_inf to seg fault from the incorrect assignment of an optional argument
-- FMS: Fixes issues with FMS unit tests failing from pointer allocations by reworking deallocate_unstruct_pass_type 
+- FMS: Fixes issues with FMS unit tests failing from pointer allocations by reworking deallocate_unstruct_pass_type
 - MPP_IO: Fixes unintentional printing of file attributes
 - An issue with the automake build system causing unnecessary rebuilds of source files
 - Fixes CMake build of the FMS library to install configuration files in the appropriate directories; and for OpenMP dependencies to the private
