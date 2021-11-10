@@ -306,6 +306,38 @@ integer, public :: clock_flag_default
 
 !> @}
 
+!> Converts a number to a string
+!> @ingroup fms_mod
+interface string
+   module procedure string_from_integer
+   module procedure string_from_real
+end interface
+interface fms_c2f_string
+   module procedure cstring_fortran_conversion
+   module procedure cpointer_fortran_conversion
+end interface
+!> C functions
+  interface
+    !> @brief converts a kind=c_char to type c_ptr
+    pure function fms_cstring2cpointer (cs) result (cp) bind(c, name="cstring2cpointer")
+      import c_char, c_ptr
+        character(kind=c_char), intent(in) :: cs(*) !< C string input
+        type (c_ptr) :: cp !< C pointer
+    end function fms_cstring2cpointer
+
+    !> @brief Finds the length of a C-string
+    integer(c_size_t) pure function c_strlen(s) bind(c,name="strlen")
+      import c_size_t, c_ptr
+      type(c_ptr), intent(in), value :: s !< A C-string whose size is desired
+    end function
+
+    !> @brief Frees a C pointer
+    subroutine c_free(ptr) bind(c,name="free")
+      import c_ptr
+      type(c_ptr), value :: ptr !< A C-pointer to free
+    end subroutine
+  end interface
+
 !> @addtogroup fms_mod
 !> @{
 contains
@@ -752,6 +784,108 @@ integer :: i
 end function string_array_index
 
 !#######################################################################
+<<<<<<< HEAD
+=======
+
+!> @brief Determines if a real input array has monotonically increasing or
+!!     decreasing values.
+!! @return If the input array of real values either increases or decreases monotonically then true
+!! is returned, otherwise false is returned.
+function monotonic_array ( array, direction )
+real,    intent(in)            :: array(:) !< An array of real values. If the size(array) < 2 this function
+                                           !! assumes the array is not monotonic, no fatal error will occur.
+integer, intent(out), optional :: direction !< If the input array is:
+                                            !! >> monotonic (small to large) then direction = +1.
+                                            !! >> monotonic (large to small) then direction = -1.
+                                            !! >> not monotonic then direction = 0.
+logical :: monotonic_array !< If the input array of real values either increases or decreases monotonically
+                           !! then TRUE is returned, otherwise FALSE is returned.
+integer :: i
+
+! initialize
+  monotonic_array = .false.
+  if (present(direction)) direction = 0
+
+! array too short
+  if ( size(array(:)) < 2 ) return
+
+! ascending
+  if ( array(1) < array(size(array(:))) ) then
+     do i = 2, size(array(:))
+       if (array(i-1) < array(i)) cycle
+       return
+     enddo
+     monotonic_array = .true.
+     if (present(direction)) direction = +1
+
+! descending
+  else
+     do i = 2, size(array(:))
+       if (array(i-1) > array(i)) cycle
+       return
+     enddo
+     monotonic_array = .true.
+     if (present(direction)) direction = -1
+  endif
+
+end function monotonic_array
+
+!! Functions from the old fms_io
+  !> @brief Converts an integer to a string
+  !!
+  !> This has been updated from the fms_io function.
+  function string_from_integer(i) result (res)
+    integer, intent(in) :: i !< Integer to be converted to a string
+    character(:),allocatable :: res !< String converted frominteger
+    character(range(i)+2) :: tmp !< Temp string that is set to correct size
+    write(tmp,'(i0)') i
+    res = trim(tmp)
+   return
+
+  end function string_from_integer
+
+  !#######################################################################
+  !> @brief Converts a real to a string
+  function string_from_real(a)
+    real, intent(in) :: a
+    character(len=32) :: string_from_real
+
+    write(string_from_real,*) a
+
+    return
+
+  end function string_from_real
+
+!> \brief Converts a C-string to a pointer and then to a Fortran string
+pure function cstring_fortran_conversion (cstring) result(fstring)
+ character (kind=c_char), intent(in) :: cstring (*) !< Input C-string
+ character(len=:), allocatable :: fstring    !< The fortran string returned
+ fstring = cpointer_fortran_conversion(fms_cstring2cpointer(cstring))
+end function cstring_fortran_conversion
+
+!> \brief Converts a C-string returned from a TYPE(C_PTR) function to
+!! a fortran string with type character.
+pure function cpointer_fortran_conversion (cstring) result(fstring)
+ type (c_ptr), intent(in) :: cstring !< Input C-pointer
+ character(len=:), allocatable :: fstring    !< The fortran string returned
+ character(len=:,kind=c_char), pointer :: string_buffer !< A temporary pointer to between C and Fortran
+ integer(c_size_t) :: length !< The string length
+ integer :: i
+
+  length = c_strlen(cstring)
+  allocate (character(len=length, kind=c_char) :: string_buffer)
+    block
+      character(len=length,kind=c_char), pointer :: s
+      call c_f_pointer(cstring,s)  ! Recovers a view of the C string
+      string_buffer = s                   ! Copies the string contents
+    end block
+
+ allocate(character(len=length) :: fstring) !> Set the length of fstring
+fstring = string_buffer
+
+end function cpointer_fortran_conversion
+!#######################################################################
+>>>>>>> 00988c14 (Updates fms_c2f_string to convert C-string and C-pointers to a Fortran string)
 !> @brief Prints to the log file (or a specified unit) the version id string and
 !!  tag name.
 subroutine write_version_number (version, tag, unit)
