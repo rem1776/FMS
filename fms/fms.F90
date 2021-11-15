@@ -312,6 +312,8 @@ interface string
    module procedure string_from_integer
    module procedure string_from_real
 end interface
+!> Converts a C string to a Fortran string
+!> @ingroup fms_mod
 interface fms_c2f_string
    module procedure cstring_fortran_conversion
    module procedure cpointer_fortran_conversion
@@ -882,7 +884,7 @@ function cpointer_fortran_conversion (cstring) result(fstring)
 
  allocate(character(len=length) :: fstring) !> Set the length of fstring
 fstring = string_buffer
-
+ deallocate(string_buffer)
 end function cpointer_fortran_conversion
 !#######################################################################
 >>>>>>> 00988c14 (Updates fms_c2f_string to convert C-string and C-pointers to a Fortran string)
