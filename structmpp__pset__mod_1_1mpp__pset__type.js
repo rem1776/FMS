@@ -8,7 +8,7 @@ var structmpp__pset__mod_1_1mpp__pset__type =
     [ "name", "structmpp__pset__mod_1_1mpp__pset__type.html#a35e2b28da23dc25b1ad90bff6cc7e390", null ],
     [ "next_in_pset", "structmpp__pset__mod_1_1mpp__pset__type.html#a4078718f162e9139d9b7fc8ac716b4d5", null ],
     [ "npset", "structmpp__pset__mod_1_1mpp__pset__type.html#a192713eecef0c7188ed81da395f6feaa", null ],
-    [ "p_stack", "structmpp__pset__mod_1_1mpp__pset__type.html#a67da8bc7ad3828069d6c7cd7a13be91f", null ],
+    [ "p_stack", "structmpp__pset__mod_1_1mpp__pset__type.html#a06857a9687d2143a9b0bba31764edc66", null ],
     [ "pelist", "structmpp__pset__mod_1_1mpp__pset__type.html#ab2910a31c927254e18d0f4c73b6ecc6b", null ],
     [ "pos", "structmpp__pset__mod_1_1mpp__pset__type.html#ab310b8bd92c60fdad3abc93d93ccb38c", null ],
     [ "prev_in_pset", "structmpp__pset__mod_1_1mpp__pset__type.html#acac873ef96e84a3fa590b5d314eeaa57", null ],
