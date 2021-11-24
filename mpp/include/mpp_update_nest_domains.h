@@ -194,7 +194,7 @@ subroutine MPP_UPDATE_NEST_FINE_3D_(field, nest_domain, wbuffer, sbuffer, ebuffe
 
    if(is_complete)then
       update => search_C2F_nest_overlap(nest_domain, nest_level, add_halo, update_position)
-      call mpp_do_update_nest_fine(f_addrs(1:l_size), nest_domain%nest(nest_level), update, d_type, ksize, &
+      call mpp_do_update_nest_fine(f_addrs(1:l_size), update, d_type, ksize, &
             wb_addrs(1:l_size), eb_addrs(1:l_size), sb_addrs(1:l_size), nb_addrs(1:l_size), update_flags, &
             xbegin, xend, ybegin, yend )
    endif

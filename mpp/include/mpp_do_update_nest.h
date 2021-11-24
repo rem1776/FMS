@@ -17,10 +17,9 @@
 !* You should have received a copy of the GNU Lesser General Public
 !* License along with FMS.  If not, see <http://www.gnu.org/licenses/>.
 !***********************************************************************
-subroutine MPP_DO_UPDATE_NEST_FINE_3D_(f_addrs, nest_domain, update, d_type, ke, wb_addrs, eb_addrs, &
+subroutine MPP_DO_UPDATE_NEST_FINE_3D_(f_addrs, update, d_type, ke, wb_addrs, eb_addrs, &
                                    sb_addrs, nb_addrs, flags, xbegin, xend, ybegin, yend)
   integer(i8_kind),         intent(in) :: f_addrs(:)
-  type(nest_level_type),      intent(in) :: nest_domain
   type(nestSpec),          intent(in) :: update
   MPP_TYPE_,                  intent(in) :: d_type  ! creates unique interface
   integer,                    intent(in) :: ke

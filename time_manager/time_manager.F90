@@ -2694,7 +2694,7 @@ if(present(err_msg)) err_msg = ''
 
 select case(calendar_type)
 case(THIRTY_DAY_MONTHS)
-   days_in_month = days_in_month_thirty(Time)
+   days_in_month = 30 
 case(GREGORIAN)
    days_in_month = days_in_month_gregorian(Time)
 case(JULIAN)
@@ -2740,19 +2740,6 @@ days_in_month_julian = days_per_month(month)
 if(leap_year_julian(Time) .and. month == 2) days_in_month_julian = 29
 
 end function days_in_month_julian
-
-!--------------------------------------------------------------------------
-function days_in_month_thirty(Time)
-
-! Returns the number of days in a thirty day month (needed for transparent
-! changes to calendar type).
-
-integer :: days_in_month_thirty
-type(time_type), intent(in) :: Time
-
-days_in_month_thirty = 30
-
-end function days_in_month_thirty
 
 !--------------------------------------------------------------------------
 function days_in_month_no_leap(Time)
@@ -2801,24 +2788,23 @@ if(present(err_msg)) err_msg=''
 
 select case(calendar_type)
 case(THIRTY_DAY_MONTHS)
-   leap_year = leap_year_thirty(Time)
+   leap_year = .FALSE. 
 case(GREGORIAN)
    leap_year = leap_year_gregorian(Time)
 case(JULIAN)
    leap_year = leap_year_julian(Time)
 case(NOLEAP)
-   leap_year = leap_year_no_leap(Time)
+   leap_year = .FALSE. 
 case default
    if(error_handler('function leap_year', 'Invalid calendar type in leap_year', err_msg)) return
 end select
 end function leap_year
-! </FUNCTION>
 
 !--------------------------------------------------------------------------
 
+!> Is this a leap year for gregorian calendar?
 function leap_year_gregorian(Time)
 
-! Is this a leap year for gregorian calendar?
 
 logical :: leap_year_gregorian
 type(time_type), intent(in) :: Time
@@ -2856,33 +2842,6 @@ leap_year_julian = ((year / 4 * 4) == year)
 
 end function leap_year_julian
 
-!--------------------------------------------------------------------------
-
-function leap_year_thirty(Time)
-
-! No leap years in thirty day months, included for transparency.
-
-logical :: leap_year_thirty
-type(time_type), intent(in) :: Time
-
-leap_year_thirty = .FALSE.
-
-end function leap_year_thirty
-
-!--------------------------------------------------------------------------
-
-function leap_year_no_leap(Time)
-
-! Another tough one; no leap year returns false for leap year inquiry.
-
-logical :: leap_year_no_leap
-type(time_type), intent(in) :: Time
-
-leap_year_no_leap = .FALSE.
-
-end function leap_year_no_leap
-
-!END OF leap_year BLOCK
 !==========================================================================
 
 !> @brief Returns the mean length of the year in the default calendar setting.
@@ -2910,7 +2869,6 @@ case default
    call error_mesg('length_of_year','Invalid calendar type in length_of_year',FATAL)
 end select
 end function length_of_year
-! </FUNCTION>
 
 !--------------------------------------------------------------------------
 
@@ -2957,9 +2915,6 @@ end function length_of_year_no_leap
 
 !--------------------------------------------------------------------------
 
-! END OF length_of_year BLOCK
-!==========================================================================
-
 !==========================================================================
 !> Returns number of day in year for given time. Jan 1st is day 1, not zero!
 function day_of_year(time)
@@ -2973,9 +2928,6 @@ function day_of_year(time)
   t = time-set_date(year,1,1,0,0,0)
   day_of_year = t%days + 1
 end
-
-! START OF days_in_year BLOCK
-! <FUNCTION NAME="days_in_year">
 
 !> @brief Retruns the number of days in the calendar year corresponding to the date represented by
 !! time for the default calendar.
@@ -2991,29 +2943,17 @@ if(.not.module_is_initialized) call time_manager_init
 
 select case(calendar_type)
 case(THIRTY_DAY_MONTHS)
-   days_in_year = days_in_year_thirty(Time)
+   days_in_year = 360 
 case(GREGORIAN)
    days_in_year = days_in_year_gregorian(Time)
 case(JULIAN)
    days_in_year = days_in_year_julian(Time)
 case(NOLEAP)
-   days_in_year = days_in_year_no_leap(Time)
+   days_in_year = 365 
 case default
    call error_mesg('days_in_year','Invalid calendar type in days_in_year',FATAL)
 end select
 end function days_in_year
-! </FUNCTION>
-
-!--------------------------------------------------------------------------
-
-function days_in_year_thirty(Time)
-
-integer :: days_in_year_thirty
-type(time_type), intent(in) :: Time
-
-days_in_year_thirty = 360
-
-end function days_in_year_thirty
 
 !---------------------------------------------------------------------------
 
@@ -3045,19 +2985,6 @@ endif
 end function days_in_year_julian
 
 !--------------------------------------------------------------------------
-
-function days_in_year_no_leap(Time)
-
-integer :: days_in_year_no_leap
-type(time_type), intent(in) :: Time
-
-days_in_year_no_leap = 365
-
-end function days_in_year_no_leap
-
-!--------------------------------------------------------------------------
-
-! END OF days_in_year BLOCK
 
 !> @brief Returns a character string containing the name of the
 !! month corresponding to month number n.
@@ -3251,112 +3178,5 @@ end subroutine time_list_error
 
 end module time_manager_mod
 
-! <INFO>
-
-!   <TESTPROGRAM NAME="time_main2">
-!    <PRE>
-!        use time_manager_mod
-!        implicit none
-!        type(time_type) :: dt, init_date, astro_base_date, time, final_date
-!        type(time_type) :: next_rad_time, mid_date
-!        type(time_type) :: repeat_alarm_freq, repeat_alarm_length
-!        integer :: num_steps, i, days, months, years, seconds, minutes, hours
-!        integer :: months2, length
-!        real :: astro_days
-!
-!   !Set calendar type
-!   !    call set_calendar_type(THIRTY_DAY_MONTHS)
-!        call set_calendar_type(JULIAN)
-!   !    call set_calendar_type(NOLEAP)
-!
-!   ! Set timestep
-!        dt = set_time(1100, 0)
-!
-!   ! Set initial date
-!        init_date = set_date(1992, 1, 1)
-!
-!   ! Set date for astronomy delta calculation
-!        astro_base_date = set_date(1970, 1, 1, 12, 0, 0)
-!
-!   ! Copy initial time to model current time
-!        time = init_date
-!
-!   ! Determine how many steps to do to run one year
-!        final_date = increment_date(init_date, years = 1)
-!        num_steps = (final_date - init_date) / dt
-!        write(*, *) 'Number of steps is' , num_steps
-!
-!   ! Want to compute radiation at initial step, then every two hours
-!        next_rad_time = time + set_time(7200, 0)
-!
-!   ! Test repeat alarm
-!        repeat_alarm_freq = set_time(0, 1)
-!        repeat_alarm_length = set_time(7200, 0)
-!
-!   ! Loop through a year
-!        do i = 1, num_steps
-!
-!   ! Increment time
-!        time = time + dt
-!
-!   ! Test repeat alarm
-!        if(repeat_alarm(time, repeat_alarm_freq, repeat_alarm_length)) &
-!        write(*, *) 'REPEAT ALARM IS TRUE'
-!
-!   ! Should radiation be computed? Three possible tests.
-!   ! First test assumes exact interval; just ask if times are equal
-!   !     if(time == next_rad_time) then
-!   ! Second test computes rad on last time step that is <= radiation time
-!   !     if((next_rad_time - time) < dt .and. time < next_rad) then
-!   ! Third test computes rad on time step closest to radiation time
-!         if(interval_alarm(time, dt, next_rad_time, set_time(7200, 0))) then
-!           call get_date(time, years, months, days, hours, minutes, seconds)
-!           write(*, *) days, month_name(months), years, hours, minutes, seconds
-!
-!   ! Need to compute real number of days between current time and astro_base
-!           call get_time(time - astro_base_date, seconds, days)
-!           astro_days = days + seconds / 86400.
-!   !       write(*, *) 'astro offset ', astro_days
-!        end if
-!
-!   ! Can compute daily, monthly, yearly, hourly, etc. diagnostics as for rad
-!
-!   ! Example: do diagnostics on last time step of this month
-!        call get_date(time + dt, years, months2, days, hours, minutes, seconds)
-!        call get_date(time, years, months, days, hours, minutes, seconds)
-!        if(months /= months2) then
-!           write(*, *) 'last timestep of month'
-!           write(*, *) days, months, years, hours, minutes, seconds
-!        endif
-!
-!   ! Example: mid-month diagnostics; inefficient to make things clear
-!        length = days_in_month(time)
-!        call get_date(time, years, months, days, hours, minutes, seconds)
-!        mid_date = set_date(years, months, 1) + set_time(0, length) / 2
-!
-!        if(time < mid_date .and. (mid_date - time) < dt) then
-!           write(*, *) 'mid-month time'
-!           write(*, *) days, months, years, hours, minutes, seconds
-!        endif
-!
-!        end do
-!
-!    </PRE>
-!   end program time_main2
-
-!   </TESTPROGRAM>
-!   <NOTE>
-!     The <a name="base date">base date</a> is implicitly defined so users don't
-!     need to be concerned with it. For the curious, the base date is defined as
-!     0 seconds, 0 minutes, 0 hours, day 1, month 1, year 1
-!   </NOTE>
-!   <NOTE>
-!     Please note that a time is a positive definite quantity.
-!   </NOTE>
-!   <NOTE>
-!     See the <LINK SRC="TEST PROGRAM">Test Program </LINK> for a simple program
-!     that shows some of the capabilities of the time manager.
-!   </NOTE>
-! </INFO>
 !> @}
 ! close documentation grouping

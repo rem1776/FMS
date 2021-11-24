@@ -241,11 +241,15 @@
 
      ! make contiguous array from compute domain
       m = 0
+      if(present(default_data)) then
+         local = default_data
+      else
 #ifdef LOGICAL_VARIABLE
-      local = .false.
+         local = .false.
 #else
-      local = 0
+         local = 0
 #endif
+      endif
       if(global_on_this_pe) then
          do k = 1, ke
             do j = jsc, jec

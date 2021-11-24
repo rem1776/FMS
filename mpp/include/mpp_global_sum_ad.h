@@ -45,6 +45,8 @@ subroutine MPP_GLOBAL_SUM_AD_( domain, field, gsum_, flags, position, tile_count
     if(present(tile_count)) tile = tile_count
     global_flag = NON_BITWISE_EXACT_SUM
     if(present(flags)) global_flag = flags
+    if(present(overflow_check)) call mpp_error(WARNING, &
+           'mpp_global_sum_ad: overflow check is deprecated and will be removed in future releases')
 
     call mpp_get_domain_shift(domain, ishift, jshift, position)
 

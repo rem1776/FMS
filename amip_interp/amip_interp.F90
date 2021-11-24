@@ -1214,64 +1214,6 @@ endif
 
 !#######################################################################
 
-!> @brief Returns the size (i.e., number of longitude and latitude
-!!         points) of the observed data grid.
-!! @throws FATAL have not called amip_interp_new
-!!     Must call amip_interp_new before get_sst_grid_size.
-   subroutine get_sst_grid_size (nlon, nlat)
-
-   integer, intent(out) :: nlon !> The number of longitude points (first dimension) in the
-                                !! observed data grid.  For AMIP 1 nlon = 180, and the Reynolds nlon = 360.
-   integer, intent(out) :: nlat !> The number of latitude points (second dimension) in the
-                                !! observed data grid.  For AMIP 1 nlon = 91, and the Reynolds nlon = 180.
-
-      if ( .not.module_is_initialized ) call amip_interp_init
-
-      nlon = mobs;  nlat = nobs
-
-   end subroutine get_sst_grid_size
-
-!#######################################################################
-
-!> @brief Returns the grid box boundaries of the observed data grid.
-!!
-!! @throws FATAL, have not called amip_interp_new
-!!     Must call amip_interp_new before get_sst_grid_boundary.
-!!
-!! @throws FATAL, invalid argument dimensions
-!!     The size of the output argument arrays do not agree with
-!!     the size of the observed data. See the documentation for
-!!     interfaces get_sst_grid_size and get_sst_grid_boundary.
-   subroutine get_sst_grid_boundary (blon, blat, mask)
-
-   real,    intent(out) :: blon(:) !> The grid box edges (in radians) for longitude points of the
-                                   !! observed data grid. The size of this argument must be nlon+1.
-   real,    intent(out) :: blat(:) !> The grid box edges (in radians) for latitude points of the
-                                   !! observed data grid. The size of this argument must be nlat+1.
-   logical, intent(out) :: mask(:,:)
-
-      if ( .not.module_is_initialized ) call amip_interp_init
-
-! ---- check size of argument(s) ----
-
-      if (size(blon(:)) /= mobs+1 .or. size(blat(:)) /= nobs+1)   &
-      call error_mesg ('get_sst_grid_boundary in amip_interp_mod',  &
-                       'invalid argument dimensions', FATAL)
-
-! ---- return grid box edges -----
-
-      blon = lon_bnd
-      blat = lat_bnd
-
-! ---- masking (data exists at all points) ----
-
-      mask = .true.
-
-
-   end subroutine get_sst_grid_boundary
-
-!#######################################################################
-
    subroutine read_record (type, Date, Adate, dat)
 
      character(len=*), intent(in)  :: type
@@ -1462,33 +1404,6 @@ integer :: i, dif(3)
    enddo
 
 end function date_gt
-
-!#######################################################################
-
-subroutine print_dates (Time, Date1, Udate1,  &
-                              Date2, Udate2, fmonth)
-
-   type (time_type), intent(in) :: Time
-   type (date_type), intent(in) :: Date1, Udate1, Date2, Udate2
-   real,             intent(in) :: fmonth
-
-   integer :: year, month, day, hour, minute, second
-
-   call get_date (Time, year, month, day, hour, minute, second)
-
-   write (*,10) year,month,day, hour,minute,second
-   write (*,20) fmonth
-   write (*,30) Date1, Udate1
-   write (*,40) Date2, Udate2
-
-10 format (/,' date(y/m/d h:m:s) = ',i4,2('/',i2.2),1x,2(i2.2,':'),i2.2)
-20 format (' fmonth = ',f9.7)
-30 format (' date1(y/m/d) = ',i4,2('/',i2.2),6x, &
-                    'used = ',i4,2('/',i2.2),6x  )
-40 format (' date2(y/m/d) = ',i4,2('/',i2.2),6x, &
-                    'used = ',i4,2('/',i2.2),6x  )
-
-end subroutine print_dates
 
 !#######################################################################
 

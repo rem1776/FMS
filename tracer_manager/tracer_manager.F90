@@ -1275,52 +1275,6 @@ endif
 
 end subroutine set_tracer_atts
 
-!> @brief A subroutine to allow the user to set some tracer specific methods.
-subroutine set_tracer_method(model, name, method_type, method_name, method_control)
-
-integer, intent(in)                    :: model !< A parameter representing component model in use
-character(len=*), intent(in)           :: name !< Tracer name
-character(len=*), intent(in)           :: method_type !< type of method to be set
-character(len=*), intent(in)           :: method_name !< name of method to be set
-character(len=*), intent(in)           :: method_control !< control parameters of the given method
-
-integer :: n, num_method, index
-logical :: success
-character(len=128) :: list_name
-
-if ( get_tracer_index(model,name,n) ) then
-  tracers(n)%num_methods = tracers(n)%num_methods + 1
-  num_method = tracers(n)%num_methods
-
-  select case(model)
-    case(MODEL_COUPLER)
-      list_name = "/coupler_mod/tracer/"//trim(name)
-    case(MODEL_ATMOS)
-      list_name = "/atmos_mod/tracer/"//trim(name)
-    case(MODEL_OCEAN)
-      list_name = "/ocean_mod/tracer/"//trim(name)
-    case(MODEL_LAND)
-      list_name = "/land_mod/tracer/"//trim(name)
-    case(MODEL_ICE)
-      list_name = "/ice_mod/tracer/"//trim(name)
-    case DEFAULT
-      list_name = "/"//trim(name)
-  end select
-
-  if ( method_control .ne. "" ) then
-! Method_type is a list, method_name is a name of a parameter and method_control has the value.
-    list_name = trim(list_name)//"/"//trim(method_type)
-    if ( fm_exists(list_name)) then
-      success = fm_change_list(list_name)
-      index = fm_new_value(method_type,method_control)
-    endif
-  else
-    call mpp_error(NOTE,'set_tracer_method : Trying to set a method for non-existent tracer : '//trim(name))
-  endif
-endif
-
-end subroutine set_tracer_method
-
 function error_handler(routine, err_msg_local, err_msg)
 logical :: error_handler
 character(len=*), intent(in) :: routine, err_msg_local

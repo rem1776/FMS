@@ -5189,17 +5189,11 @@ character(len=64), parameter :: warn_header  = '==>Warning from ' // trim(module
 !        local variables
 !+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 integer                         :: num_meth
-logical                         :: recursive_t
 type (field_def), pointer, save :: temp_list_p
 integer                         :: out_unit
 
 out_unit = stdout()
 num_meth= 1
-!
-!        Check whether to do things recursively
-!
-  recursive_t = .true.
-!  recursive_t = .false.
 !
 !        Initialize the field manager if needed
 !
@@ -5235,7 +5229,7 @@ endif  !}
 !        Find the list
 !
 if (success) then  !{
-  success = find_method(temp_list_p, recursive_t, num_meth, methods, control)
+  success = find_method(temp_list_p, num_meth, methods, control)
 endif  !}
 
 end function fm_find_methods !}
@@ -5247,11 +5241,10 @@ end function fm_find_methods !}
 !! associated parameters for the field list.
 !! @returns A flag to indicate whether the function operated with (FALSE) or
 !!     without (TRUE) errors.
-recursive function find_method(list_p, recursive, num_meth, method, control)   &
+recursive function find_method(list_p, num_meth, method, control)   &
           result (success)  !{
 logical                                     :: success
 type (field_def), pointer                   :: list_p !< A pointer to the field of interest
-logical,          intent(in)                :: recursive !< If true, search recursively for fields
 integer,          intent(inout)             :: num_meth !< The number of methods found
 character(len=*), intent(out), dimension(:) :: method !< The methods associated with the field pointed to by list_p
 character(len=*), intent(out), dimension(:) :: control !< The control parameters for the methods found
@@ -5312,7 +5305,7 @@ else  !}{
            write (method(num_meth),'(a,a,a,$)') trim(method(num_meth)), &
                                                 trim(this_field_p%name), list_sep
         endif
-        success = find_method(this_field_p, .true., num_meth, method, control)
+        success = find_method(this_field_p, num_meth, method, control)
 
     case(integer_type)
         write (scratch,*) this_field_p%i_value
