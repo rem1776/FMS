@@ -73,12 +73,14 @@ SUBDIRS = \
 
 include_HEADERS = include/file_version.h include/fms_platform.h
 
+include $(top_srcdir)/aminclude_static.am
+
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = FMS.pc
 
 ## Build libFMS module
-AM_CPPFLAGS = -I${top_srcdir}/include -I${top_srcdir}/mpp/include
-AM_FCFLAGS = $(FC_MODINC). $(FC_MODOUT)$(MODDIR)
+AM_CPPFLAGS = -I${top_srcdir}/include -I${top_srcdir}/mpp/include $(CODE_COVERAGE_CFLAGS)
+AM_FCFLAGS = $(FC_MODINC). $(FC_MODOUT)$(MODDIR) $(CODE_COVERAGE_FCFLAGS)
 
 noinst_LTLIBRARIES = libFMS_mod.la
 libFMS_mod_la_SOURCES = libFMS.F90

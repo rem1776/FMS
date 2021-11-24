@@ -301,6 +301,9 @@ else
   AC_MSG_RESULT([no])
 fi
 
+
+AX_CODE_COVERAGE()
+
 #####
 # Create output variables from various
 # shell variables, for use in generating
