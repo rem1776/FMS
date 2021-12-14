@@ -7,15 +7,16 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        distcheck-conf-flags: [--enable-openmp, --disable-openmp, --enable-mixed-mode, --disable-setting-flags, --with-yaml]
+        distcheck-conf-flags: [--enable-openmp, --disable-openmp, --enable-mixed-mode, --disable-setting-flags]
         fcflags: ["-I/usr/include", "-fdefault-real-8 -fdefault-double-8 -fcray-pointer -ffree-line-length-none -I/usr/include"]
+        yaml-flag: [ --with-yaml ]
         exclude:
           - distcheck-conf-flags: --disable-setting-flags
             fcflags: -I/usr/include
           - distcheck-conf-flags: --enable-mixed-mode
             fcflags: "-fdefault-real-8 -fdefault-double-8 -fcray-pointer -ffree-line-length-none -I/usr/include"
     container:
-      image: noaagfdl/ubuntu_libfms_gnu:cmake-3.22.0
+      image: ryanmulhall/fms-ci-minideb
       env:
         FCFLAGS: "${{ matrix.fcflags }}"
         VERBOSE: 1
