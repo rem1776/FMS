@@ -22,7 +22,7 @@ jobs:
       run: autoreconf -if
     - name: Set compiler flags if setting flags is disabled
       if: matrix.distcheck-conf-flags == '--disable-setting-flags'
-      run: export FCFLAGS="-fdefault-real-8 -fdefault-double-8 -fcray-pointer -ffree-line-length-none -I/usr/include"
+      run: set FCFLAGS "-fdefault-real-8 -fdefault-double-8 -fcray-pointer -ffree-line-length-none -I/usr/include"
     - name: Configure the build
       run: ./configure ${DISTCHECK_CONFIGURE_FLAGS}
     - name: Build the library
