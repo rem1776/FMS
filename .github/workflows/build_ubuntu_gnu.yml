@@ -9,7 +9,7 @@ jobs:
       matrix:
         distcheck-conf-flags: [--enable-openmp, --disable-openmp, --enable-mixed-mode, --disable-setting-flags]
         fcflags: ["-I/usr/include", "-fdefault-real-8 -fdefault-double-8 -fcray-pointer -ffree-line-length-none -I/usr/include"]
-        yaml-flag: [ --with-yaml ]
+        yaml-flag: [ --with-yaml, "" ]
         exclude:
           - distcheck-conf-flags: --disable-setting-flags
             fcflags: -I/usr/include
@@ -20,16 +20,13 @@ jobs:
       env:
         FCFLAGS: "${{ matrix.fcflags }}"
         VERBOSE: 1
+        DISTCHECK_CONFIGURE_FLAGS: "${{ matrix.distcheck-conf-flags }} ${{ matrix.yaml-flag }}"
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
     - name: Prepare GNU autoconf for build
       run: autoreconf -if
     - name: Configure the build
-      run: ./configure ${{ matrix.distcheck-conf-flags }}
-      env:
-        DISTCHECK_CONFIGURE_FLAGS: "${{ matrix.distcheck-conf-flags }}"
+      run: ./configure ${DISTCHECK_CONFIGURE_FLAGS}
     - name: Build the library
       run: make -j distcheck
-      env:
-        DISTCHECK_CONFIGURE_FLAGS: "${{ matrix.distcheck-conf-flags }}"

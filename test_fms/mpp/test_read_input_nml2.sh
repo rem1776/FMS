@@ -27,6 +27,7 @@
 # Set common test settings.
 . ../test_common.sh
 
+mkdir input_nmls && cd input_nmls
 touch test_numb_base.nml
 echo "&test_read_input_nml_nml" > test_numb_base.nml
 echo "test_numb = 0" >> test_numb_base.nml
@@ -63,3 +64,4 @@ touch input_blank.nml # Achieve a blank namelist to be read
 echo "Running test 4..."
 run_test test_read_input_nml 1
 echo "Test 4 has passed"
+cd .. && rm -rf input_nmls
