@@ -105,29 +105,22 @@ $(document).ready(function(){initNavTree('random__numbers_8F90.html',''); initRe
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Types</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">type &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrandom__numbers__mod_1_1randomnumberstream.html">randomnumberstream</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type to hold a stream of randomly generated numbers.  <a href="structrandom__numbers__mod_1_1randomnumberstream.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacerandom__numbers__mod_1_1getrandomnumbers.html">getrandomnumbers</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns scalar, 1 or 2 D random real numbers.  <a href="interfacerandom__numbers__mod_1_1getrandomnumbers.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacerandom__numbers__mod_1_1initializerandomnumberstream.html">initializerandomnumberstream</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes stream for generating random numbers.  <a href="interfacerandom__numbers__mod_1_1initializerandomnumberstream.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">type &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrandom__numbers__mod_1_1randomnumberstream.html">randomnumberstream</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type to hold a stream of randomly generated numbers.  <a href="structrandom__numbers__mod_1_1randomnumberstream.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
-<tr class="memitem:gaed0dc14ae47a52b6a5e1f93afac1d37a"><td class="memItemLeft" align="right" valign="top">
-type(randomnumberstream) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__random__numbers__mod.html#gaed0dc14ae47a52b6a5e1f93afac1d37a">initializerandomnumberstream_s</a> (seed)</td></tr>
-<tr class="memdesc:gaed0dc14ae47a52b6a5e1f93afac1d37a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialization. <br /></td></tr>
-<tr class="separator:gaed0dc14ae47a52b6a5e1f93afac1d37a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2cfb9d86103060116e8b7df11e247d3d"><td class="memItemLeft" align="right" valign="top">
-type(randomnumberstream) function&#160;</td><td class="memItemRight" valign="bottom"><b>initializerandomnumberstream_v</b> (seed)</td></tr>
-<tr class="separator:ga2cfb9d86103060116e8b7df11e247d3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga24e0b1d085cde2650d9f231c2e291b8d"><td class="memItemLeft" align="right" valign="top">
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__random__numbers__mod.html#ga24e0b1d085cde2650d9f231c2e291b8d">getrandomnumber_scalar</a> (stream, number)</td></tr>
-<tr class="memdesc:ga24e0b1d085cde2650d9f231c2e291b8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws random scalar. <br /></td></tr>
-<tr class="separator:ga24e0b1d085cde2650d9f231c2e291b8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga26dcee1382874932265d81f685e89737"><td class="memItemLeft" align="right" valign="top">
+integer function, dimension(8), public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__random__numbers__mod.html#ga26dcee1382874932265d81f685e89737">constructseed</a> (i, j, time, perm)</td></tr>
+<tr class="memdesc:ga26dcee1382874932265d81f685e89737"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a unique seed from grid cell index and model date/time The perm is supplied we generate a different seed by circularly shifting the bits of the seed - this is useful if we want to create more than one seed for a given column and model date/time. Note that abs(perm) must be &lt;= the number of bits used to represent the default integer (likely 32) <br /></td></tr>
+<tr class="separator:ga26dcee1382874932265d81f685e89737"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga2c80a6c2e9df2929326e8f5fc740585b"><td class="memItemLeft" align="right" valign="top">
 subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__random__numbers__mod.html#ga2c80a6c2e9df2929326e8f5fc740585b">getrandomnumber_1d</a> (stream, numbers)</td></tr>
 <tr class="memdesc:ga2c80a6c2e9df2929326e8f5fc740585b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws random 1D array. <br /></td></tr>
@@ -136,10 +129,17 @@ subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href
 subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__random__numbers__mod.html#ga4aa41473d77b2a7dfd79e9485aa6b4df">getrandomnumber_2d</a> (stream, numbers)</td></tr>
 <tr class="memdesc:ga4aa41473d77b2a7dfd79e9485aa6b4df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws random 2D array. <br /></td></tr>
 <tr class="separator:ga4aa41473d77b2a7dfd79e9485aa6b4df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga26dcee1382874932265d81f685e89737"><td class="memItemLeft" align="right" valign="top">
-integer function, dimension(8), public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__random__numbers__mod.html#ga26dcee1382874932265d81f685e89737">constructseed</a> (i, j, time, perm)</td></tr>
-<tr class="memdesc:ga26dcee1382874932265d81f685e89737"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a unique seed from grid cell index and model date/time The perm is supplied we generate a different seed by circularly shifting the bits of the seed - this is useful if we want to create more than one seed for a given column and model date/time. Note that abs(perm) must be &lt;= the number of bits used to represent the default integer (likely 32) <br /></td></tr>
-<tr class="separator:ga26dcee1382874932265d81f685e89737"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga24e0b1d085cde2650d9f231c2e291b8d"><td class="memItemLeft" align="right" valign="top">
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__random__numbers__mod.html#ga24e0b1d085cde2650d9f231c2e291b8d">getrandomnumber_scalar</a> (stream, number)</td></tr>
+<tr class="memdesc:ga24e0b1d085cde2650d9f231c2e291b8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws random scalar. <br /></td></tr>
+<tr class="separator:ga24e0b1d085cde2650d9f231c2e291b8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaed0dc14ae47a52b6a5e1f93afac1d37a"><td class="memItemLeft" align="right" valign="top">
+type(randomnumberstream) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__random__numbers__mod.html#gaed0dc14ae47a52b6a5e1f93afac1d37a">initializerandomnumberstream_s</a> (seed)</td></tr>
+<tr class="memdesc:gaed0dc14ae47a52b6a5e1f93afac1d37a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialization. <br /></td></tr>
+<tr class="separator:gaed0dc14ae47a52b6a5e1f93afac1d37a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2cfb9d86103060116e8b7df11e247d3d"><td class="memItemLeft" align="right" valign="top">
+type(randomnumberstream) function&#160;</td><td class="memItemRight" valign="bottom"><b>initializerandomnumberstream_v</b> (seed)</td></tr>
+<tr class="separator:ga2cfb9d86103060116e8b7df11e247d3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>File for <a class="el" href="group__random__numbers__mod.html">random_numbers_mod</a>. </p>

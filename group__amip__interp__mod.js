@@ -1,22 +1,5 @@
 var group__amip__interp__mod =
 [
-    [ "date_type", "structamip__interp__mod_1_1date__type.html", [
-      [ "day", "structamip__interp__mod_1_1date__type.html#a56743fca26ba2f2daa8fbc740ae412de", null ],
-      [ "month", "structamip__interp__mod_1_1date__type.html#ad9851d0826f6ba80aeb81c34d6e29b50", null ],
-      [ "year", "structamip__interp__mod_1_1date__type.html#a14514b729794038873fad0f73c1ed648", null ]
-    ] ],
-    [ "assignment(=)", "interfaceamip__interp__mod_1_1assignment_07_0a_08.html", [
-      [ "amip_interp_type_eq", "interfaceamip__interp__mod_1_1assignment_07_0a_08.html#a5af76df22471110045a0e6a8f856cb92", null ]
-    ] ],
-    [ "operator(==)", "interfaceamip__interp__mod_1_1operator_07_0a_0a_08.html", [
-      [ "date_equals", "interfaceamip__interp__mod_1_1operator_07_0a_0a_08.html#ac649fa336040cfb37034b4612093d574", null ]
-    ] ],
-    [ "operator(/=)", "interfaceamip__interp__mod_1_1operator_07_2_0a_08.html", [
-      [ "date_not_equals", "interfaceamip__interp__mod_1_1operator_07_2_0a_08.html#a1b4a8516bb223e5a67e138f79e8eb972", null ]
-    ] ],
-    [ "operator(>)", "interfaceamip__interp__mod_1_1operator_07_4_08.html", [
-      [ "date_gt", "interfaceamip__interp__mod_1_1operator_07_4_08.html#aa0a36d51ed8a5fcb5d0413349ead8c4a", null ]
-    ] ],
     [ "amip_interp_new", "interfaceamip__interp__mod_1_1amip__interp__new.html", [
       [ "amip_interp_new_1d", "interfaceamip__interp__mod_1_1amip__interp__new.html#aefdaa09f371957b7436b7b5549e1ba41", null ],
       [ "amip_interp_new_2d", "interfaceamip__interp__mod_1_1amip__interp__new.html#a2caba36ff0a5bdd0ae2bc334a05465e3", null ]
@@ -31,6 +14,23 @@ var group__amip__interp__mod =
       [ "i_am_initialized", "structamip__interp__mod_1_1amip__interp__type.html#af0f2929b6647910d13f49730716c6e8e", null ],
       [ "use_annual", "structamip__interp__mod_1_1amip__interp__type.html#a2d40f504c9fe4b01eb7a769fbc46d8a8", null ],
       [ "use_climo", "structamip__interp__mod_1_1amip__interp__type.html#a4deb7b50610ca6140cfd775bb47c879f", null ]
+    ] ],
+    [ "assignment(=)", "interfaceamip__interp__mod_1_1assignment_07_0a_08.html", [
+      [ "amip_interp_type_eq", "interfaceamip__interp__mod_1_1assignment_07_0a_08.html#a5af76df22471110045a0e6a8f856cb92", null ]
+    ] ],
+    [ "date_type", "structamip__interp__mod_1_1date__type.html", [
+      [ "day", "structamip__interp__mod_1_1date__type.html#a56743fca26ba2f2daa8fbc740ae412de", null ],
+      [ "month", "structamip__interp__mod_1_1date__type.html#ad9851d0826f6ba80aeb81c34d6e29b50", null ],
+      [ "year", "structamip__interp__mod_1_1date__type.html#a14514b729794038873fad0f73c1ed648", null ]
+    ] ],
+    [ "operator(/=)", "interfaceamip__interp__mod_1_1operator_07_2_0a_08.html", [
+      [ "date_not_equals", "interfaceamip__interp__mod_1_1operator_07_2_0a_08.html#a1b4a8516bb223e5a67e138f79e8eb972", null ]
+    ] ],
+    [ "operator(==)", "interfaceamip__interp__mod_1_1operator_07_0a_0a_08.html", [
+      [ "date_equals", "interfaceamip__interp__mod_1_1operator_07_0a_0a_08.html#ac649fa336040cfb37034b4612093d574", null ]
+    ] ],
+    [ "operator(>)", "interfaceamip__interp__mod_1_1operator_07_4_08.html", [
+      [ "date_gt", "interfaceamip__interp__mod_1_1operator_07_4_08.html#aa0a36d51ed8a5fcb5d0413349ead8c4a", null ]
     ] ],
     [ "@ref amip_interp_mod Namelist", "group__amip__interp__mod.html#amip_interp_nml", null ],
     [ "a2a_bilinear", "group__amip__interp__mod.html#gae83cd779d19f1e9bda44b5b958cbe56b", null ],

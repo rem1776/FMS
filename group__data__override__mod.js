@@ -1,5 +1,14 @@
 var group__data__override__mod =
 [
+    [ "data_override", "interfacedata__override__mod_1_1data__override.html", [
+      [ "data_override_0d", "interfacedata__override__mod_1_1data__override.html#af96935254adf9244126eac38447749da", null ],
+      [ "data_override_2d", "interfacedata__override__mod_1_1data__override.html#aadc22eb1ca02590bc16a32f96d3df485", null ],
+      [ "data_override_3d", "interfacedata__override__mod_1_1data__override.html#a606e0bf4e8f9527a3906179c2f7e7658", null ]
+    ] ],
+    [ "data_override_ug", "interfacedata__override__mod_1_1data__override__ug.html", [
+      [ "data_override_ug_1d", "interfacedata__override__mod_1_1data__override__ug.html#a131bfed766bd0e1634e33252fa154d27", null ],
+      [ "data_override_ug_2d", "interfacedata__override__mod_1_1data__override__ug.html#a8d44f0d204a28d7b7ad53fc76a819929", null ]
+    ] ],
     [ "data_type", "structdata__override__mod_1_1data__type.html", [
       [ "factor", "structdata__override__mod_1_1data__type.html#a551ead59ba2b28a6b2320c2966c3501d", null ],
       [ "fieldname_code", "structdata__override__mod_1_1data__type.html#aad3027bbb175abb2c6f36104c0c9cdb9", null ],
@@ -30,15 +39,6 @@ var group__data__override__mod =
       [ "numwindows", "structdata__override__mod_1_1override__type.html#ab6cf8dbd11ba9e834be2b77c51d9d960", null ],
       [ "t_index", "structdata__override__mod_1_1override__type.html#aa40faba956e3774dedd514fd753ca028", null ],
       [ "window_size", "structdata__override__mod_1_1override__type.html#ab0c4cba15e56b02404bc1384aa4fe99f", null ]
-    ] ],
-    [ "data_override", "interfacedata__override__mod_1_1data__override.html", [
-      [ "data_override_0d", "interfacedata__override__mod_1_1data__override.html#af96935254adf9244126eac38447749da", null ],
-      [ "data_override_2d", "interfacedata__override__mod_1_1data__override.html#aadc22eb1ca02590bc16a32f96d3df485", null ],
-      [ "data_override_3d", "interfacedata__override__mod_1_1data__override.html#a606e0bf4e8f9527a3906179c2f7e7658", null ]
-    ] ],
-    [ "data_override_ug", "interfacedata__override__mod_1_1data__override__ug.html", [
-      [ "data_override_ug_1d", "interfacedata__override__mod_1_1data__override__ug.html#a131bfed766bd0e1634e33252fa154d27", null ],
-      [ "data_override_ug_2d", "interfacedata__override__mod_1_1data__override__ug.html#a8d44f0d204a28d7b7ad53fc76a819929", null ]
     ] ],
     [ "data_override_0d", "group__data__override__mod.html#ga755e344bff837fddf7d6228ac5a29560", null ],
     [ "data_override_2d", "group__data__override__mod.html#ga10a705be2480cc365529671393403a58", null ],

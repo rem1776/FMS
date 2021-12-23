@@ -1,9 +1,5 @@
 var group__topography__mod =
 [
-    [ "get_topog_mean", "interfacetopography__mod_1_1get__topog__mean.html", [
-      [ "get_topog_mean_1d", "interfacetopography__mod_1_1get__topog__mean.html#a30d0b28c29803722eb8ad928d79107de", null ],
-      [ "get_topog_mean_2d", "interfacetopography__mod_1_1get__topog__mean.html#acceb546ce02f4b3e7ee5d9ad08982981", null ]
-    ] ],
     [ "get_ocean_frac", "interfacetopography__mod_1_1get__ocean__frac.html", [
       [ "get_ocean_frac_1d", "interfacetopography__mod_1_1get__ocean__frac.html#a6ab7a51d3c6fcf9bacd89b7db354395b", null ],
       [ "get_ocean_frac_2d", "interfacetopography__mod_1_1get__ocean__frac.html#a30f39857221cb781d1615755692ef505", null ]
@@ -11,6 +7,10 @@ var group__topography__mod =
     [ "get_ocean_mask", "interfacetopography__mod_1_1get__ocean__mask.html", [
       [ "get_ocean_mask_1d", "interfacetopography__mod_1_1get__ocean__mask.html#aa1ee1022af7fcabe640b49e8d9ce4215", null ],
       [ "get_ocean_mask_2d", "interfacetopography__mod_1_1get__ocean__mask.html#a49f672a4ce2621a2f19ed60bb0a10c18", null ]
+    ] ],
+    [ "get_topog_mean", "interfacetopography__mod_1_1get__topog__mean.html", [
+      [ "get_topog_mean_1d", "interfacetopography__mod_1_1get__topog__mean.html#a30d0b28c29803722eb8ad928d79107de", null ],
+      [ "get_topog_mean_2d", "interfacetopography__mod_1_1get__topog__mean.html#acceb546ce02f4b3e7ee5d9ad08982981", null ]
     ] ],
     [ "get_water_frac", "interfacetopography__mod_1_1get__water__frac.html", [
       [ "get_water_frac_1d", "interfacetopography__mod_1_1get__water__frac.html#a85bd52cef9a7da2a91d58b90182d48af", null ],

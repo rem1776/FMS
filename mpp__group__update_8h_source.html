@@ -564,7 +564,7 @@ $(document).ready(function(){initNavTree('mpp__group__update_8h_source.html','')
 <div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;  group%reset_index_s = 0</div>
 <div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;  group%reset_index_v = 0</div>
 <div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160; </div>
-<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;  if(.not. group%initialized) call set_group_update(group,domain)</div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;  if(.not. group%initialized) call <a class="code" href="group__mpp__domains__mod.html#ga1fef0c0c4196bdadf0caa61004975ad6">set_group_update</a>(group,domain)</div>
 <div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160; </div>
 <div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;  nrecv = group%nrecv</div>
 <div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;  nsend = group%nsend</div>
@@ -771,7 +771,7 @@ $(document).ready(function(){initNavTree('mpp__group__update_8h_source.html','')
 <div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;  if (PRESENT(reuse_buffer)) reuse_buf_pos = reuse_buffer</div>
 <div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160; </div>
 <div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;  if (.not. group%initialized) then</div>
-<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;    call set_group_update(group,domain)</div>
+<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;    call <a class="code" href="group__mpp__domains__mod.html#ga1fef0c0c4196bdadf0caa61004975ad6">set_group_update</a>(group,domain)</div>
 <div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;  endif</div>
 <div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160; </div>
 <div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;  if (.not. reuse_buf_pos) then</div>
@@ -780,8 +780,8 @@ $(document).ready(function(){initNavTree('mpp__group__update_8h_source.html','')
 <div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;     mpp_domains_stack_hwm = nonblock_group_buffer_pos + 1</div>
 <div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;     if( mpp_domains_stack_hwm .GT. mpp_domains_stack_size )then</div>
 <div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;        write( text,&#39;(i8)&#39; )mpp_domains_stack_hwm</div>
-<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;        call mpp_error( FATAL, &#39;set_group_update: mpp_domains_stack overflow, &#39;<span class="comment">// &amp;</span></div>
-<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;                     &#39;call <a class="code" href="mpp__domains__util_8inc.html#ae1f3c0c5c574686aac6c1595b1ca0b66">mpp_domains_set_stack_size</a>(&#39;<span class="comment">//trim(text)//&#39;) from all PEs.&#39; )</span></div>
+<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;        call mpp_error( FATAL, &#39;<a class="code" href="group__mpp__domains__mod.html#ga1fef0c0c4196bdadf0caa61004975ad6">set_group_update</a>: mpp_domains_stack overflow, &#39;<span class="comment">// &amp;</span></div>
+<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;                     &#39;call <a class="code" href="group__mpp__domains__mod.html#gae1f3c0c5c574686aac6c1595b1ca0b66">mpp_domains_set_stack_size</a>(&#39;<span class="comment">//trim(text)//&#39;) from all PEs.&#39; )</span></div>
 <div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;     end if</div>
 <div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160; </div>
 <div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;  else if( group%buffer_start_pos &lt; 0 ) then</div>
@@ -1120,9 +1120,10 @@ $(document).ready(function(){initNavTree('mpp__group__update_8h_source.html','')
 </div><!-- doc-content -->
 <div class="ttc" id="agroup__astronomy__mod_html_gaf264af67ad73c075e6865596a4a3a397"><div class="ttname"><a href="group__astronomy__mod.html#gaf264af67ad73c075e6865596a4a3a397">astronomy_mod::per</a></div><div class="ttdeci">real per</div><div class="ttdoc">Longitude of perihelion with respect to autumnal equinox in NH [degrees].</div><div class="ttdef"><b>Definition:</b> <a href="astronomy_8F90_source.html#l00332">astronomy.F90:332</a></div></div>
 <div class="ttc" id="ampp__util__mpi_8inc_html_a09e69243d8c67e6a6e6e4fd9e93d0870"><div class="ttname"><a href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a></div><div class="ttdeci">subroutine mpp_sync_self(pelist, check, request, msg_size, msg_type)</div><div class="ttdoc">This is to check if current PE's outstanding puts are complete but we can't use shmem_fence because w...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util__mpi_8inc_source.html#l00169">mpp_util_mpi.inc:169</a></div></div>
-<div class="ttc" id="ampp__domains__util_8inc_html_ae1f3c0c5c574686aac6c1595b1ca0b66"><div class="ttname"><a href="mpp__domains__util_8inc.html#ae1f3c0c5c574686aac6c1595b1ca0b66">mpp_domains_set_stack_size</a></div><div class="ttdeci">subroutine mpp_domains_set_stack_size(n)</div><div class="ttdoc">Set user stack size.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__util_8inc_source.html#l00034">mpp_domains_util.inc:34</a></div></div>
+<div class="ttc" id="agroup__mpp__domains__mod_html_ga1fef0c0c4196bdadf0caa61004975ad6"><div class="ttname"><a href="group__mpp__domains__mod.html#ga1fef0c0c4196bdadf0caa61004975ad6">set_group_update</a></div><div class="ttdeci">subroutine set_group_update(group, domain)</div><div class="ttdoc">Set user stack size.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__util_8inc_source.html#l01884">mpp_domains_util.inc:1884</a></div></div>
 <div class="ttc" id="agroup__xgrid__mod_html_ga0d6740065d2355a4ac54b90c8c4545fb"><div class="ttname"><a href="group__xgrid__mod.html#ga0d6740065d2355a4ac54b90c8c4545fb">xgrid_mod::some</a></div><div class="ttdeci">subroutine, public some(xmap, some_arr, grid_id)</div><div class="ttdoc">Returns logical associating exchange grid cells with given side two grid.</div><div class="ttdef"><b>Definition:</b> <a href="xgrid_8F90_source.html#l03359">xgrid.F90:3359</a></div></div>
 <div class="ttc" id="agroup__fms__io__mod_html_gae85b018bca1141b3510db6f38fdc50bf"><div class="ttname"><a href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">fms_io_mod::je</a></div><div class="ttdeci">integer, private je</div><div class="ttdoc">compute domain</div><div class="ttdef"><b>Definition:</b> <a href="fms__io_8F90_source.html#l00518">fms_io.F90:518</a></div></div>
+<div class="ttc" id="agroup__mpp__domains__mod_html_gae1f3c0c5c574686aac6c1595b1ca0b66"><div class="ttname"><a href="group__mpp__domains__mod.html#gae1f3c0c5c574686aac6c1595b1ca0b66">mpp_domains_set_stack_size</a></div><div class="ttdeci">subroutine mpp_domains_set_stack_size(n)</div><div class="ttdoc">Set user stack size.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__util_8inc_source.html#l00036">mpp_domains_util.inc:36</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

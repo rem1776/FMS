@@ -7,14 +7,14 @@ var group__diag__output__mod =
     [ "diag_output_init", "interfacediag__output__mod_1_1diag__output__init.html", [
       [ "diag_output_init_fms2_io", "interfacediag__output__mod_1_1diag__output__init.html#a9c0bd88b545fb1801d344b4795d8252c", null ]
     ] ],
+    [ "write_attribute_meta", "interfacediag__output__mod_1_1write__attribute__meta.html", [
+      [ "write_attribute_meta_fms2_io", "interfacediag__output__mod_1_1write__attribute__meta.html#a58a5a76c6b422cbaeacf366924dc9777", null ]
+    ] ],
     [ "write_axis_meta_data", "interfacediag__output__mod_1_1write__axis__meta__data.html", [
       [ "write_axis_meta_data_fms2_io", "interfacediag__output__mod_1_1write__axis__meta__data.html#a31ad67fcc2d2a3a3917a468026adfd4a", null ]
     ] ],
     [ "write_field_meta_data", "interfacediag__output__mod_1_1write__field__meta__data.html", [
       [ "write_field_meta_data_fms2_io", "interfacediag__output__mod_1_1write__field__meta__data.html#af999859daa044f7f90a3e2bc63487a11", null ]
-    ] ],
-    [ "write_attribute_meta", "interfacediag__output__mod_1_1write__attribute__meta.html", [
-      [ "write_attribute_meta_fms2_io", "interfacediag__output__mod_1_1write__attribute__meta.html#a58a5a76c6b422cbaeacf366924dc9777", null ]
     ] ],
     [ "diag_field_write_field", "group__diag__output__mod.html#gad99a258efd56f01927b3ec1ad6f61c45", null ],
     [ "diag_field_write_varname", "group__diag__output__mod.html#ga11abdb82e3dc5fc633352fd9617cad11", null ],

@@ -107,8 +107,14 @@ $(document).ready(function(){initNavTree('sat__vapor__pres_8F90.html',''); initR
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Types</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacesat__vapor__pres__mod_1_1lookup__es.html">lookup_es</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">For the given temperatures, returns the saturation vapor pressures.  <a href="interfacesat__vapor__pres__mod_1_1lookup__es.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacesat__vapor__pres__mod_1_1compute__mrs.html">compute_mrs</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">For the given temperatures, pressures and optionally vapor mixing ratio, returns the vapor mixing ratio at saturation (optionally at relative humidity hc instead of at saturation) and optionally the derivative of saturation vapor mixing ratio w.r.t. temperature, and the saturation vapor pressure.  <a href="interfacesat__vapor__pres__mod_1_1compute__mrs.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacesat__vapor__pres__mod_1_1compute__qs.html">compute_qs</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">For the given temperatures, pressures and optionally vapor specific humidity, returns the specific humidity at saturation (optionally at relative humidity hc instead of at saturation) and optionally the derivative of saturation specific humidity w.r.t. temperature, and the saturation vapor pressure.  <a href="interfacesat__vapor__pres__mod_1_1compute__qs.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacesat__vapor__pres__mod_1_1descomp.html">descomp</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provided for backward compatibility (to be removed soon)  <a href="interfacesat__vapor__pres__mod_1_1descomp.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacesat__vapor__pres__mod_1_1escomp.html">escomp</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provided for backward compatibility (to be removed soon)  <a href="interfacesat__vapor__pres__mod_1_1escomp.html#details">More...</a><br /></td></tr>
@@ -116,85 +122,61 @@ Data Types</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacesat__vapor__pres__mod_1_1lookup__des.html">lookup_des</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">For the given temperatures, returns the derivative of saturation vapor pressure with respect to temperature.  <a href="interfacesat__vapor__pres__mod_1_1lookup__des.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacesat__vapor__pres__mod_1_1descomp.html">descomp</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provided for backward compatibility (to be removed soon)  <a href="interfacesat__vapor__pres__mod_1_1descomp.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacesat__vapor__pres__mod_1_1lookup__des2.html">lookup_des2</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacesat__vapor__pres__mod_1_1lookup__es__des.html">lookup_es_des</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">For the given temperatures, returns the saturation vapor pressure and the derivative of saturation vapor pressure with respect to temperature.  <a href="interfacesat__vapor__pres__mod_1_1lookup__es__des.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacesat__vapor__pres__mod_1_1lookup__des3.html">lookup_des3</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacesat__vapor__pres__mod_1_1lookup__es.html">lookup_es</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">For the given temperatures, returns the saturation vapor pressures.  <a href="interfacesat__vapor__pres__mod_1_1lookup__es.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacesat__vapor__pres__mod_1_1lookup__es2.html">lookup_es2</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacesat__vapor__pres__mod_1_1lookup__des2.html">lookup_des2</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacesat__vapor__pres__mod_1_1lookup__es2__des2.html">lookup_es2_des2</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacesat__vapor__pres__mod_1_1lookup__es3.html">lookup_es3</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacesat__vapor__pres__mod_1_1lookup__des3.html">lookup_des3</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacesat__vapor__pres__mod_1_1lookup__es3__des3.html">lookup_es3_des3</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacesat__vapor__pres__mod_1_1compute__qs.html">compute_qs</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">For the given temperatures, pressures and optionally vapor specific humidity, returns the specific humidity at saturation (optionally at relative humidity hc instead of at saturation) and optionally the derivative of saturation specific humidity w.r.t. temperature, and the saturation vapor pressure.  <a href="interfacesat__vapor__pres__mod_1_1compute__qs.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacesat__vapor__pres__mod_1_1compute__mrs.html">compute_mrs</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">For the given temperatures, pressures and optionally vapor mixing ratio, returns the vapor mixing ratio at saturation (optionally at relative humidity hc instead of at saturation) and optionally the derivative of saturation vapor mixing ratio w.r.t. temperature, and the saturation vapor pressure.  <a href="interfacesat__vapor__pres__mod_1_1compute__mrs.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacesat__vapor__pres__mod_1_1temp__check.html">temp_check</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacesat__vapor__pres__mod_1_1lookup__es__des.html">lookup_es_des</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">For the given temperatures, returns the saturation vapor pressure and the derivative of saturation vapor pressure with respect to temperature.  <a href="interfacesat__vapor__pres__mod_1_1lookup__es__des.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacesat__vapor__pres__mod_1_1show__all__bad.html">show_all_bad</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacesat__vapor__pres__mod_1_1temp__check.html">temp_check</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
-<tr class="memitem:gaca8f235132ae67b59fdc9fea0920d23e"><td class="memItemLeft" align="right" valign="top">
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es_0d</b> (temp, esat, err_msg)</td></tr>
-<tr class="separator:gaca8f235132ae67b59fdc9fea0920d23e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7b97cbdea32c074f4880e4dac53f5aa6"><td class="memItemLeft" align="right" valign="top">
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es_1d</b> (temp, esat, err_msg)</td></tr>
-<tr class="separator:ga7b97cbdea32c074f4880e4dac53f5aa6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa13a5255b4ebfeb4232f3d38798ca410"><td class="memItemLeft" align="right" valign="top">
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es_2d</b> (temp, esat, err_msg)</td></tr>
-<tr class="separator:gaa13a5255b4ebfeb4232f3d38798ca410"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7dddc99f64e481db68b7f33fb7a7de73"><td class="memItemLeft" align="right" valign="top">
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es_3d</b> (temp, esat, err_msg)</td></tr>
-<tr class="separator:ga7dddc99f64e481db68b7f33fb7a7de73"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaab6488a3f6d54cc9c9e099b2ff049900"><td class="memItemLeft" align="right" valign="top">
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es2_0d</b> (temp, esat, err_msg)</td></tr>
-<tr class="separator:gaab6488a3f6d54cc9c9e099b2ff049900"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga91a1eaed5d68f8cbbd48202c5d1d1b3e"><td class="memItemLeft" align="right" valign="top">
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es2_1d</b> (temp, esat, err_msg)</td></tr>
-<tr class="separator:ga91a1eaed5d68f8cbbd48202c5d1d1b3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7b13dd7b66c06aa9a46bdc8f23f2472c"><td class="memItemLeft" align="right" valign="top">
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es2_2d</b> (temp, esat, err_msg)</td></tr>
-<tr class="separator:ga7b13dd7b66c06aa9a46bdc8f23f2472c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9a23076f1985f4e7927a9a2418dbb2c6"><td class="memItemLeft" align="right" valign="top">
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es2_3d</b> (temp, esat, err_msg)</td></tr>
-<tr class="separator:ga9a23076f1985f4e7927a9a2418dbb2c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6637a23c45e196841dc09126a29d87b6"><td class="memItemLeft" align="right" valign="top">
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es3_0d</b> (temp, esat, err_msg)</td></tr>
-<tr class="separator:ga6637a23c45e196841dc09126a29d87b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga95594775bf1cd863ef391abcafb15383"><td class="memItemLeft" align="right" valign="top">
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es3_1d</b> (temp, esat, err_msg)</td></tr>
-<tr class="separator:ga95594775bf1cd863ef391abcafb15383"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gafc84015350a3073db16aa52311871b80"><td class="memItemLeft" align="right" valign="top">
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es3_2d</b> (temp, esat, err_msg)</td></tr>
-<tr class="separator:gafc84015350a3073db16aa52311871b80"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6a20e18c9f449c220bf81bfc9af61a98"><td class="memItemLeft" align="right" valign="top">
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es3_3d</b> (temp, esat, err_msg)</td></tr>
-<tr class="separator:ga6a20e18c9f449c220bf81bfc9af61a98"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga52acaf8516eecf0c6cbc310ff64fb0bf"><td class="memItemLeft" align="right" valign="top">
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_des_0d</b> (temp, desat, err_msg)</td></tr>
-<tr class="separator:ga52acaf8516eecf0c6cbc310ff64fb0bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad9269003f613516856d32a1e2311fabb"><td class="memItemLeft" align="right" valign="top">
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_des_1d</b> (temp, desat, err_msg)</td></tr>
-<tr class="separator:gad9269003f613516856d32a1e2311fabb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3a360a65bf0303dc8f511d268d4413c4"><td class="memItemLeft" align="right" valign="top">
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_des_2d</b> (temp, desat, err_msg)</td></tr>
-<tr class="separator:ga3a360a65bf0303dc8f511d268d4413c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3f6fcff78d33944c124e98cc74a348b6"><td class="memItemLeft" align="right" valign="top">
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_des_3d</b> (temp, desat, err_msg)</td></tr>
-<tr class="separator:ga3f6fcff78d33944c124e98cc74a348b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga32dc73b769e99618778694a401d776a8"><td class="memItemLeft" align="right" valign="top">
+integer function&#160;</td><td class="memItemRight" valign="bottom"><b>check_1d</b> (temp)</td></tr>
+<tr class="separator:ga32dc73b769e99618778694a401d776a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad7701988644915475cbbee45b8940d51"><td class="memItemLeft" align="right" valign="top">
+integer function&#160;</td><td class="memItemRight" valign="bottom"><b>check_2d</b> (temp)</td></tr>
+<tr class="separator:gad7701988644915475cbbee45b8940d51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafaf41b271bfac9349eb8a4f76f567341"><td class="memItemLeft" align="right" valign="top">
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>compute_mrs_0d</b> (temp, press, mrsat, mr, hc, dmrsdT, esat, err_msg, es_over_liq, es_over_liq_and_ice)</td></tr>
+<tr class="separator:gafaf41b271bfac9349eb8a4f76f567341"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6e5b0c2f73c2f54d1ee392a16e2cd5a3"><td class="memItemLeft" align="right" valign="top">
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>compute_mrs_1d</b> (temp, press, mrsat, mr, hc, dmrsdT, esat, err_msg, es_over_liq, es_over_liq_and_ice)</td></tr>
+<tr class="separator:ga6e5b0c2f73c2f54d1ee392a16e2cd5a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2ba10df971e9243c83d6d8d581199e88"><td class="memItemLeft" align="right" valign="top">
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>compute_mrs_2d</b> (temp, press, mrsat, mr, hc, dmrsdT, esat, err_msg, es_over_liq, es_over_liq_and_ice)</td></tr>
+<tr class="separator:ga2ba10df971e9243c83d6d8d581199e88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaff6318a7e995cc0acaa5e58da19ed5ae"><td class="memItemLeft" align="right" valign="top">
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>compute_mrs_3d</b> (temp, press, mrsat, mr, hc, dmrsdT, esat, err_msg, es_over_liq, es_over_liq_and_ice)</td></tr>
+<tr class="separator:gaff6318a7e995cc0acaa5e58da19ed5ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga57e9d546e672b17655e77aba4ade687b"><td class="memItemLeft" align="right" valign="top">
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>compute_qs_0d</b> (temp, press, qsat, q, hc, dqsdT, esat, err_msg, es_over_liq, es_over_liq_and_ice)</td></tr>
+<tr class="separator:ga57e9d546e672b17655e77aba4ade687b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacd2d48797eb4f3d7facb3d9daeaa85e9"><td class="memItemLeft" align="right" valign="top">
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>compute_qs_1d</b> (temp, press, qsat, q, hc, dqsdT, esat, err_msg, es_over_liq, es_over_liq_and_ice)</td></tr>
+<tr class="separator:gacd2d48797eb4f3d7facb3d9daeaa85e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaffc662aaa45f404f7dec78de069d78e9"><td class="memItemLeft" align="right" valign="top">
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>compute_qs_2d</b> (temp, press, qsat, q, hc, dqsdT, esat, err_msg, es_over_liq, es_over_liq_and_ice)</td></tr>
+<tr class="separator:gaffc662aaa45f404f7dec78de069d78e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3084c10da0046d9cde86fc4d9397bebc"><td class="memItemLeft" align="right" valign="top">
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>compute_qs_3d</b> (temp, press, qsat, q, hc, dqsdT, esat, err_msg, es_over_liq, es_over_liq_and_ice)</td></tr>
+<tr class="separator:ga3084c10da0046d9cde86fc4d9397bebc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga8fbfe690226178981d46515bd33b7513"><td class="memItemLeft" align="right" valign="top">
 subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_des2_0d</b> (temp, desat, err_msg)</td></tr>
 <tr class="separator:ga8fbfe690226178981d46515bd33b7513"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -219,18 +201,30 @@ subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_des3_2d<
 <tr class="memitem:ga9d5af32d09ff7731dd47845f89485b8c"><td class="memItemLeft" align="right" valign="top">
 subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_des3_3d</b> (temp, desat, err_msg)</td></tr>
 <tr class="separator:ga9d5af32d09ff7731dd47845f89485b8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga1d3b711ef049531ac50182b764e4fc83"><td class="memItemLeft" align="right" valign="top">
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es_des_0d</b> (temp, esat, desat, err_msg)</td></tr>
-<tr class="separator:ga1d3b711ef049531ac50182b764e4fc83"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga756cb00ebd5405086d2204ce95cf81d7"><td class="memItemLeft" align="right" valign="top">
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es_des_1d</b> (temp, esat, desat, err_msg)</td></tr>
-<tr class="separator:ga756cb00ebd5405086d2204ce95cf81d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga55e85cc949d13c6458acaedf9d561ef6"><td class="memItemLeft" align="right" valign="top">
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es_des_2d</b> (temp, esat, desat, err_msg)</td></tr>
-<tr class="separator:ga55e85cc949d13c6458acaedf9d561ef6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga708b4f47088458c16727154c62e068fb"><td class="memItemLeft" align="right" valign="top">
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es_des_3d</b> (temp, esat, desat, err_msg)</td></tr>
-<tr class="separator:ga708b4f47088458c16727154c62e068fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga52acaf8516eecf0c6cbc310ff64fb0bf"><td class="memItemLeft" align="right" valign="top">
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_des_0d</b> (temp, desat, err_msg)</td></tr>
+<tr class="separator:ga52acaf8516eecf0c6cbc310ff64fb0bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad9269003f613516856d32a1e2311fabb"><td class="memItemLeft" align="right" valign="top">
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_des_1d</b> (temp, desat, err_msg)</td></tr>
+<tr class="separator:gad9269003f613516856d32a1e2311fabb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3a360a65bf0303dc8f511d268d4413c4"><td class="memItemLeft" align="right" valign="top">
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_des_2d</b> (temp, desat, err_msg)</td></tr>
+<tr class="separator:ga3a360a65bf0303dc8f511d268d4413c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3f6fcff78d33944c124e98cc74a348b6"><td class="memItemLeft" align="right" valign="top">
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_des_3d</b> (temp, desat, err_msg)</td></tr>
+<tr class="separator:ga3f6fcff78d33944c124e98cc74a348b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaab6488a3f6d54cc9c9e099b2ff049900"><td class="memItemLeft" align="right" valign="top">
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es2_0d</b> (temp, esat, err_msg)</td></tr>
+<tr class="separator:gaab6488a3f6d54cc9c9e099b2ff049900"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga91a1eaed5d68f8cbbd48202c5d1d1b3e"><td class="memItemLeft" align="right" valign="top">
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es2_1d</b> (temp, esat, err_msg)</td></tr>
+<tr class="separator:ga91a1eaed5d68f8cbbd48202c5d1d1b3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7b13dd7b66c06aa9a46bdc8f23f2472c"><td class="memItemLeft" align="right" valign="top">
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es2_2d</b> (temp, esat, err_msg)</td></tr>
+<tr class="separator:ga7b13dd7b66c06aa9a46bdc8f23f2472c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9a23076f1985f4e7927a9a2418dbb2c6"><td class="memItemLeft" align="right" valign="top">
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es2_3d</b> (temp, esat, err_msg)</td></tr>
+<tr class="separator:ga9a23076f1985f4e7927a9a2418dbb2c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga982a4560577fd4ce44578992ca46cde2"><td class="memItemLeft" align="right" valign="top">
 subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es2_des2_0d</b> (temp, esat, desat, err_msg)</td></tr>
 <tr class="separator:ga982a4560577fd4ce44578992ca46cde2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -243,6 +237,18 @@ subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es2_des2
 <tr class="memitem:ga78e9c2c3bc8478888833b55a1d81d6cb"><td class="memItemLeft" align="right" valign="top">
 subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es2_des2_3d</b> (temp, esat, desat, err_msg)</td></tr>
 <tr class="separator:ga78e9c2c3bc8478888833b55a1d81d6cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6637a23c45e196841dc09126a29d87b6"><td class="memItemLeft" align="right" valign="top">
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es3_0d</b> (temp, esat, err_msg)</td></tr>
+<tr class="separator:ga6637a23c45e196841dc09126a29d87b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga95594775bf1cd863ef391abcafb15383"><td class="memItemLeft" align="right" valign="top">
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es3_1d</b> (temp, esat, err_msg)</td></tr>
+<tr class="separator:ga95594775bf1cd863ef391abcafb15383"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafc84015350a3073db16aa52311871b80"><td class="memItemLeft" align="right" valign="top">
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es3_2d</b> (temp, esat, err_msg)</td></tr>
+<tr class="separator:gafc84015350a3073db16aa52311871b80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6a20e18c9f449c220bf81bfc9af61a98"><td class="memItemLeft" align="right" valign="top">
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es3_3d</b> (temp, esat, err_msg)</td></tr>
+<tr class="separator:ga6a20e18c9f449c220bf81bfc9af61a98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga0f35d2d90dc7e583b956678bcbff785c"><td class="memItemLeft" align="right" valign="top">
 subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es3_des3_0d</b> (temp, esat, desat, err_msg)</td></tr>
 <tr class="separator:ga0f35d2d90dc7e583b956678bcbff785c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -255,48 +261,33 @@ subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es3_des3
 <tr class="memitem:gaa3f6cf33f8d3313941ec264227f88853"><td class="memItemLeft" align="right" valign="top">
 subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es3_des3_3d</b> (temp, esat, desat, err_msg)</td></tr>
 <tr class="separator:gaa3f6cf33f8d3313941ec264227f88853"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga57e9d546e672b17655e77aba4ade687b"><td class="memItemLeft" align="right" valign="top">
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>compute_qs_0d</b> (temp, press, qsat, q, hc, dqsdT, esat, err_msg, es_over_liq, es_over_liq_and_ice)</td></tr>
-<tr class="separator:ga57e9d546e672b17655e77aba4ade687b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gacd2d48797eb4f3d7facb3d9daeaa85e9"><td class="memItemLeft" align="right" valign="top">
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>compute_qs_1d</b> (temp, press, qsat, q, hc, dqsdT, esat, err_msg, es_over_liq, es_over_liq_and_ice)</td></tr>
-<tr class="separator:gacd2d48797eb4f3d7facb3d9daeaa85e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaffc662aaa45f404f7dec78de069d78e9"><td class="memItemLeft" align="right" valign="top">
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>compute_qs_2d</b> (temp, press, qsat, q, hc, dqsdT, esat, err_msg, es_over_liq, es_over_liq_and_ice)</td></tr>
-<tr class="separator:gaffc662aaa45f404f7dec78de069d78e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3084c10da0046d9cde86fc4d9397bebc"><td class="memItemLeft" align="right" valign="top">
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>compute_qs_3d</b> (temp, press, qsat, q, hc, dqsdT, esat, err_msg, es_over_liq, es_over_liq_and_ice)</td></tr>
-<tr class="separator:ga3084c10da0046d9cde86fc4d9397bebc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gafaf41b271bfac9349eb8a4f76f567341"><td class="memItemLeft" align="right" valign="top">
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>compute_mrs_0d</b> (temp, press, mrsat, mr, hc, dmrsdT, esat, err_msg, es_over_liq, es_over_liq_and_ice)</td></tr>
-<tr class="separator:gafaf41b271bfac9349eb8a4f76f567341"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6e5b0c2f73c2f54d1ee392a16e2cd5a3"><td class="memItemLeft" align="right" valign="top">
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>compute_mrs_1d</b> (temp, press, mrsat, mr, hc, dmrsdT, esat, err_msg, es_over_liq, es_over_liq_and_ice)</td></tr>
-<tr class="separator:ga6e5b0c2f73c2f54d1ee392a16e2cd5a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2ba10df971e9243c83d6d8d581199e88"><td class="memItemLeft" align="right" valign="top">
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>compute_mrs_2d</b> (temp, press, mrsat, mr, hc, dmrsdT, esat, err_msg, es_over_liq, es_over_liq_and_ice)</td></tr>
-<tr class="separator:ga2ba10df971e9243c83d6d8d581199e88"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaff6318a7e995cc0acaa5e58da19ed5ae"><td class="memItemLeft" align="right" valign="top">
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>compute_mrs_3d</b> (temp, press, mrsat, mr, hc, dmrsdT, esat, err_msg, es_over_liq, es_over_liq_and_ice)</td></tr>
-<tr class="separator:gaff6318a7e995cc0acaa5e58da19ed5ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaca8f235132ae67b59fdc9fea0920d23e"><td class="memItemLeft" align="right" valign="top">
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es_0d</b> (temp, esat, err_msg)</td></tr>
+<tr class="separator:gaca8f235132ae67b59fdc9fea0920d23e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7b97cbdea32c074f4880e4dac53f5aa6"><td class="memItemLeft" align="right" valign="top">
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es_1d</b> (temp, esat, err_msg)</td></tr>
+<tr class="separator:ga7b97cbdea32c074f4880e4dac53f5aa6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa13a5255b4ebfeb4232f3d38798ca410"><td class="memItemLeft" align="right" valign="top">
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es_2d</b> (temp, esat, err_msg)</td></tr>
+<tr class="separator:gaa13a5255b4ebfeb4232f3d38798ca410"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7dddc99f64e481db68b7f33fb7a7de73"><td class="memItemLeft" align="right" valign="top">
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es_3d</b> (temp, esat, err_msg)</td></tr>
+<tr class="separator:ga7dddc99f64e481db68b7f33fb7a7de73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1d3b711ef049531ac50182b764e4fc83"><td class="memItemLeft" align="right" valign="top">
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es_des_0d</b> (temp, esat, desat, err_msg)</td></tr>
+<tr class="separator:ga1d3b711ef049531ac50182b764e4fc83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga756cb00ebd5405086d2204ce95cf81d7"><td class="memItemLeft" align="right" valign="top">
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es_des_1d</b> (temp, esat, desat, err_msg)</td></tr>
+<tr class="separator:ga756cb00ebd5405086d2204ce95cf81d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga55e85cc949d13c6458acaedf9d561ef6"><td class="memItemLeft" align="right" valign="top">
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es_des_2d</b> (temp, esat, desat, err_msg)</td></tr>
+<tr class="separator:ga55e85cc949d13c6458acaedf9d561ef6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga708b4f47088458c16727154c62e068fb"><td class="memItemLeft" align="right" valign="top">
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es_des_3d</b> (temp, esat, desat, err_msg)</td></tr>
+<tr class="separator:ga708b4f47088458c16727154c62e068fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga5626e10c4062e4df895cd17618577e53"><td class="memItemLeft" align="right" valign="top">
 subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><b>sat_vapor_pres_init</b> (err_msg)</td></tr>
 <tr class="separator:ga5626e10c4062e4df895cd17618577e53"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga32dc73b769e99618778694a401d776a8"><td class="memItemLeft" align="right" valign="top">
-integer function&#160;</td><td class="memItemRight" valign="bottom"><b>check_1d</b> (temp)</td></tr>
-<tr class="separator:ga32dc73b769e99618778694a401d776a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad7701988644915475cbbee45b8940d51"><td class="memItemLeft" align="right" valign="top">
-integer function&#160;</td><td class="memItemRight" valign="bottom"><b>check_2d</b> (temp)</td></tr>
-<tr class="separator:gad7701988644915475cbbee45b8940d51"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gabeed39b41917130d3745b5ea90123f39"><td class="memItemLeft" align="right" valign="top">
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>temp_check_1d</b> (temp)</td></tr>
-<tr class="separator:gabeed39b41917130d3745b5ea90123f39"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3df99d55deca72e9b55895036371b1dd"><td class="memItemLeft" align="right" valign="top">
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>temp_check_2d</b> (temp)</td></tr>
-<tr class="separator:ga3df99d55deca72e9b55895036371b1dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga00573dd53fb6793b82d9afec3331ae27"><td class="memItemLeft" align="right" valign="top">
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>temp_check_3d</b> (temp)</td></tr>
-<tr class="separator:ga00573dd53fb6793b82d9afec3331ae27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga07c697d3f9d55b820f30d4eff2805676"><td class="memItemLeft" align="right" valign="top">
 subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>show_all_bad_0d</b> (temp)</td></tr>
 <tr class="separator:ga07c697d3f9d55b820f30d4eff2805676"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -309,63 +300,72 @@ subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>show_all_bad_2d
 <tr class="memitem:gaf9e9aebd9007d32c743e9a148fcb5509"><td class="memItemLeft" align="right" valign="top">
 subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>show_all_bad_3d</b> (temp)</td></tr>
 <tr class="separator:gaf9e9aebd9007d32c743e9a148fcb5509"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabeed39b41917130d3745b5ea90123f39"><td class="memItemLeft" align="right" valign="top">
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>temp_check_1d</b> (temp)</td></tr>
+<tr class="separator:gabeed39b41917130d3745b5ea90123f39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3df99d55deca72e9b55895036371b1dd"><td class="memItemLeft" align="right" valign="top">
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>temp_check_2d</b> (temp)</td></tr>
+<tr class="separator:ga3df99d55deca72e9b55895036371b1dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga00573dd53fb6793b82d9afec3331ae27"><td class="memItemLeft" align="right" valign="top">
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>temp_check_3d</b> (temp)</td></tr>
+<tr class="separator:ga00573dd53fb6793b82d9afec3331ae27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:gad369225c254bc7bda087334ca5d13096"><td class="memItemLeft" align="right" valign="top">
-logical&#160;</td><td class="memItemRight" valign="bottom"><b>module_is_initialized</b> = .false.</td></tr>
-<tr class="separator:gad369225c254bc7bda087334ca5d13096"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaad4c5bc2e3b7e77a2a8ffe4abe24c647"><td class="memItemLeft" align="right" valign="top">
-real, parameter&#160;</td><td class="memItemRight" valign="bottom"><b>epsilo</b> = RDGAS/RVGAS</td></tr>
-<tr class="separator:gaad4c5bc2e3b7e77a2a8ffe4abe24c647"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9a8af57cc36452bb73afba8fd9ea4d4d"><td class="memItemLeft" align="right" valign="top">
-real, parameter&#160;</td><td class="memItemRight" valign="bottom"><b>zvir</b> = RVGAS/RDGAS - 1.0</td></tr>
-<tr class="separator:ga9a8af57cc36452bb73afba8fd9ea4d4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga00949932f281a245aafe2ccd66d9ef17"><td class="memItemLeft" align="right" valign="top">
-integer, public&#160;</td><td class="memItemRight" valign="bottom"><b>tcmin</b> = -160</td></tr>
-<tr class="separator:ga00949932f281a245aafe2ccd66d9ef17"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga016aa2032c9e6beb71b8533566c897fc"><td class="memItemLeft" align="right" valign="top">
-integer, public&#160;</td><td class="memItemRight" valign="bottom"><b>tcmax</b> = 100</td></tr>
-<tr class="separator:ga016aa2032c9e6beb71b8533566c897fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga83fe2a07e54c793820ea56056b54165b"><td class="memItemLeft" align="right" valign="top">
-integer&#160;</td><td class="memItemRight" valign="bottom"><b>esres</b> = 10</td></tr>
-<tr class="separator:ga83fe2a07e54c793820ea56056b54165b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac9cd5edd6832dbd9349d76ac664e97fc"><td class="memItemLeft" align="right" valign="top">
-integer&#160;</td><td class="memItemRight" valign="bottom"><b>nsize</b></td></tr>
-<tr class="separator:gac9cd5edd6832dbd9349d76ac664e97fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa8a1109e131e312dbd4aad5804a1093e"><td class="memItemLeft" align="right" valign="top">
-integer&#160;</td><td class="memItemRight" valign="bottom"><b>nlim</b></td></tr>
-<tr class="separator:gaa8a1109e131e312dbd4aad5804a1093e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga8acd5f4875b02711c07932abb7838e6d"><td class="memItemLeft" align="right" valign="top">
-integer&#160;</td><td class="memItemRight" valign="bottom"><b>stdoutunit</b> =0</td></tr>
-<tr class="separator:ga8acd5f4875b02711c07932abb7838e6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga57628441e19a53f633b2d74e0ce688db"><td class="memItemLeft" align="right" valign="top">
-real&#160;</td><td class="memItemRight" valign="bottom"><b>tmin</b></td></tr>
-<tr class="separator:ga57628441e19a53f633b2d74e0ce688db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaaa65e1de7fd4daefac957fbc1cea6996"><td class="memItemLeft" align="right" valign="top">
-real&#160;</td><td class="memItemRight" valign="bottom"><b>dtinv</b></td></tr>
-<tr class="separator:gaaa65e1de7fd4daefac957fbc1cea6996"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab1f3c690fb4cf8e615cfe1b8e98e6c47"><td class="memItemLeft" align="right" valign="top">
-real&#160;</td><td class="memItemRight" valign="bottom"><b>teps</b></td></tr>
-<tr class="separator:gab1f3c690fb4cf8e615cfe1b8e98e6c47"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga68cd4937c6c55fb968385b16f7c66abc"><td class="memItemLeft" align="right" valign="top">
-logical&#160;</td><td class="memItemRight" valign="bottom"><b>show_bad_value_count_by_slice</b> =.true.</td></tr>
-<tr class="separator:ga68cd4937c6c55fb968385b16f7c66abc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7442e2a0e27f14989a2e488c9e40dece"><td class="memItemLeft" align="right" valign="top">
-logical&#160;</td><td class="memItemRight" valign="bottom"><b>show_all_bad_values</b> =.false.</td></tr>
-<tr class="separator:ga7442e2a0e27f14989a2e488c9e40dece"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6f699489b1ce5e1ce47615e857062acd"><td class="memItemLeft" align="right" valign="top">
-logical&#160;</td><td class="memItemRight" valign="bottom"><b>use_exact_qs</b> = .false.</td></tr>
-<tr class="separator:ga6f699489b1ce5e1ce47615e857062acd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga705ee0edbfbaa8e9c64b3e051b4b730f"><td class="memItemLeft" align="right" valign="top">
-logical&#160;</td><td class="memItemRight" valign="bottom"><b>do_simple</b> =.false.</td></tr>
-<tr class="separator:ga705ee0edbfbaa8e9c64b3e051b4b730f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga98b1e8a51f21b89f402c34b90c2586ee"><td class="memItemLeft" align="right" valign="top">
 logical&#160;</td><td class="memItemRight" valign="bottom"><b>construct_table_wrt_liq</b> = .false.</td></tr>
 <tr class="separator:ga98b1e8a51f21b89f402c34b90c2586ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga47b930e65478f755bc8f132f92212e8f"><td class="memItemLeft" align="right" valign="top">
 logical&#160;</td><td class="memItemRight" valign="bottom"><b>construct_table_wrt_liq_and_ice</b> = .false.</td></tr>
 <tr class="separator:ga47b930e65478f755bc8f132f92212e8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga705ee0edbfbaa8e9c64b3e051b4b730f"><td class="memItemLeft" align="right" valign="top">
+logical&#160;</td><td class="memItemRight" valign="bottom"><b>do_simple</b> =.false.</td></tr>
+<tr class="separator:ga705ee0edbfbaa8e9c64b3e051b4b730f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaa65e1de7fd4daefac957fbc1cea6996"><td class="memItemLeft" align="right" valign="top">
+real&#160;</td><td class="memItemRight" valign="bottom"><b>dtinv</b></td></tr>
+<tr class="separator:gaaa65e1de7fd4daefac957fbc1cea6996"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaad4c5bc2e3b7e77a2a8ffe4abe24c647"><td class="memItemLeft" align="right" valign="top">
+real, parameter&#160;</td><td class="memItemRight" valign="bottom"><b>epsilo</b> = RDGAS/RVGAS</td></tr>
+<tr class="separator:gaad4c5bc2e3b7e77a2a8ffe4abe24c647"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga83fe2a07e54c793820ea56056b54165b"><td class="memItemLeft" align="right" valign="top">
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>esres</b> = 10</td></tr>
+<tr class="separator:ga83fe2a07e54c793820ea56056b54165b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad369225c254bc7bda087334ca5d13096"><td class="memItemLeft" align="right" valign="top">
+logical&#160;</td><td class="memItemRight" valign="bottom"><b>module_is_initialized</b> = .false.</td></tr>
+<tr class="separator:gad369225c254bc7bda087334ca5d13096"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa8a1109e131e312dbd4aad5804a1093e"><td class="memItemLeft" align="right" valign="top">
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>nlim</b></td></tr>
+<tr class="separator:gaa8a1109e131e312dbd4aad5804a1093e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac9cd5edd6832dbd9349d76ac664e97fc"><td class="memItemLeft" align="right" valign="top">
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>nsize</b></td></tr>
+<tr class="separator:gac9cd5edd6832dbd9349d76ac664e97fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7442e2a0e27f14989a2e488c9e40dece"><td class="memItemLeft" align="right" valign="top">
+logical&#160;</td><td class="memItemRight" valign="bottom"><b>show_all_bad_values</b> =.false.</td></tr>
+<tr class="separator:ga7442e2a0e27f14989a2e488c9e40dece"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga68cd4937c6c55fb968385b16f7c66abc"><td class="memItemLeft" align="right" valign="top">
+logical&#160;</td><td class="memItemRight" valign="bottom"><b>show_bad_value_count_by_slice</b> =.true.</td></tr>
+<tr class="separator:ga68cd4937c6c55fb968385b16f7c66abc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8acd5f4875b02711c07932abb7838e6d"><td class="memItemLeft" align="right" valign="top">
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>stdoutunit</b> =0</td></tr>
+<tr class="separator:ga8acd5f4875b02711c07932abb7838e6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga016aa2032c9e6beb71b8533566c897fc"><td class="memItemLeft" align="right" valign="top">
+integer, public&#160;</td><td class="memItemRight" valign="bottom"><b>tcmax</b> = 100</td></tr>
+<tr class="separator:ga016aa2032c9e6beb71b8533566c897fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga00949932f281a245aafe2ccd66d9ef17"><td class="memItemLeft" align="right" valign="top">
+integer, public&#160;</td><td class="memItemRight" valign="bottom"><b>tcmin</b> = -160</td></tr>
+<tr class="separator:ga00949932f281a245aafe2ccd66d9ef17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab1f3c690fb4cf8e615cfe1b8e98e6c47"><td class="memItemLeft" align="right" valign="top">
+real&#160;</td><td class="memItemRight" valign="bottom"><b>teps</b></td></tr>
+<tr class="separator:gab1f3c690fb4cf8e615cfe1b8e98e6c47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga57628441e19a53f633b2d74e0ce688db"><td class="memItemLeft" align="right" valign="top">
+real&#160;</td><td class="memItemRight" valign="bottom"><b>tmin</b></td></tr>
+<tr class="separator:ga57628441e19a53f633b2d74e0ce688db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6f699489b1ce5e1ce47615e857062acd"><td class="memItemLeft" align="right" valign="top">
+logical&#160;</td><td class="memItemRight" valign="bottom"><b>use_exact_qs</b> = .false.</td></tr>
+<tr class="separator:ga6f699489b1ce5e1ce47615e857062acd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9a8af57cc36452bb73afba8fd9ea4d4d"><td class="memItemLeft" align="right" valign="top">
+real, parameter&#160;</td><td class="memItemRight" valign="bottom"><b>zvir</b> = RVGAS/RDGAS - 1.0</td></tr>
+<tr class="separator:ga9a8af57cc36452bb73afba8fd9ea4d4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>File for <a class="el" href="group__sat__vapor__pres__mod.html">sat_vapor_pres_mod</a>. </p>

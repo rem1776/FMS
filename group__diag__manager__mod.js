@@ -1,5 +1,16 @@
 var group__diag__manager__mod =
 [
+    [ "diag_field_add_attribute", "interfacediag__manager__mod_1_1diag__field__add__attribute.html", [
+      [ "diag_field_add_attribute_i1d", "interfacediag__manager__mod_1_1diag__field__add__attribute.html#a270876431a2bafc679a27573b5541d57", null ],
+      [ "diag_field_add_attribute_r1d", "interfacediag__manager__mod_1_1diag__field__add__attribute.html#af01e0ae48e96b4ed34c112ce84759604", null ],
+      [ "diag_field_add_attribute_scalar_c", "interfacediag__manager__mod_1_1diag__field__add__attribute.html#af4366382b2c89efa6636b1e3445dd0ee", null ],
+      [ "diag_field_add_attribute_scalar_i", "interfacediag__manager__mod_1_1diag__field__add__attribute.html#a79049d61a5019dc2e57c022f55ed8bc9", null ],
+      [ "diag_field_add_attribute_scalar_r", "interfacediag__manager__mod_1_1diag__field__add__attribute.html#a7cf98598f27c8f80db618771255f3c12", null ]
+    ] ],
+    [ "register_diag_field", "interfacediag__manager__mod_1_1register__diag__field.html", [
+      [ "register_diag_field_array", "interfacediag__manager__mod_1_1register__diag__field.html#a4e5e7ce0bb19b00f4df3a2245fd28581", null ],
+      [ "register_diag_field_scalar", "interfacediag__manager__mod_1_1register__diag__field.html#a89a651e60695056e3a699e3e62554054", null ]
+    ] ],
     [ "send_data", "interfacediag__manager__mod_1_1send__data.html", [
       [ "send_data_0d", "interfacediag__manager__mod_1_1send__data.html#a6312f419f8938246b09635d0e955d66b", null ],
       [ "send_data_0d_r8", "interfacediag__manager__mod_1_1send__data.html#ad19565e137c070583691d73775ef70f3", null ],
@@ -10,21 +21,10 @@ var group__diag__manager__mod =
       [ "send_data_3d", "interfacediag__manager__mod_1_1send__data.html#adc7730140b949d91e2bd2c3342b3a407", null ],
       [ "send_data_3d_r8", "interfacediag__manager__mod_1_1send__data.html#a3a4a3b20594e6f2fd038bb421f77e586", null ]
     ] ],
-    [ "register_diag_field", "interfacediag__manager__mod_1_1register__diag__field.html", [
-      [ "register_diag_field_array", "interfacediag__manager__mod_1_1register__diag__field.html#a4e5e7ce0bb19b00f4df3a2245fd28581", null ],
-      [ "register_diag_field_scalar", "interfacediag__manager__mod_1_1register__diag__field.html#a89a651e60695056e3a699e3e62554054", null ]
-    ] ],
     [ "send_tile_averaged_data", "interfacediag__manager__mod_1_1send__tile__averaged__data.html", [
       [ "send_tile_averaged_data1d", "interfacediag__manager__mod_1_1send__tile__averaged__data.html#a3d1fff89e4b294516c7bbdda875c1dd2", null ],
       [ "send_tile_averaged_data2d", "interfacediag__manager__mod_1_1send__tile__averaged__data.html#acb69dd5836f57acd0295297043a78724", null ],
       [ "send_tile_averaged_data3d", "interfacediag__manager__mod_1_1send__tile__averaged__data.html#a81907a069bc08fd5891848f67f469818", null ]
-    ] ],
-    [ "diag_field_add_attribute", "interfacediag__manager__mod_1_1diag__field__add__attribute.html", [
-      [ "diag_field_add_attribute_i1d", "interfacediag__manager__mod_1_1diag__field__add__attribute.html#a270876431a2bafc679a27573b5541d57", null ],
-      [ "diag_field_add_attribute_r1d", "interfacediag__manager__mod_1_1diag__field__add__attribute.html#af01e0ae48e96b4ed34c112ce84759604", null ],
-      [ "diag_field_add_attribute_scalar_c", "interfacediag__manager__mod_1_1diag__field__add__attribute.html#af4366382b2c89efa6636b1e3445dd0ee", null ],
-      [ "diag_field_add_attribute_scalar_i", "interfacediag__manager__mod_1_1diag__field__add__attribute.html#a79049d61a5019dc2e57c022f55ed8bc9", null ],
-      [ "diag_field_add_attribute_scalar_r", "interfacediag__manager__mod_1_1diag__field__add__attribute.html#a7cf98598f27c8f80db618771255f3c12", null ]
     ] ],
     [ "add_associated_files", "group__diag__manager__mod.html#gaa80b10875fe293f5d1d2dc0dc27940bc", null ],
     [ "average_tiles", "group__diag__manager__mod.html#ga92cac6ff74dff1387dc8352e33004aa8", null ],

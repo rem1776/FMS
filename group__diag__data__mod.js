@@ -1,11 +1,45 @@
 var group__diag__data__mod =
 [
-    [ "diag_grid", "structdiag__data__mod_1_1diag__grid.html", [
-      [ "end", "structdiag__data__mod_1_1diag__grid.html#ac02b878ad5ddf7b621759b1eac6f3c6c", null ],
-      [ "l_end_indx", "structdiag__data__mod_1_1diag__grid.html#a4c9fd70ffbac988f5d187553fdb5a5d8", null ],
-      [ "l_start_indx", "structdiag__data__mod_1_1diag__grid.html#a85254daa325527ddcf7828f2417e887d", null ],
-      [ "start", "structdiag__data__mod_1_1diag__grid.html#a1bf754c52d54a9d89a37db4a673fa415", null ],
-      [ "subaxes", "structdiag__data__mod_1_1diag__grid.html#aa59328ee0a9848737237b32bda53c19f", null ]
+    [ "coord_type", "structdiag__data__mod_1_1coord__type.html", [
+      [ "xbegin", "structdiag__data__mod_1_1coord__type.html#a5bae40e316db110dcb779ad75980dd1f", null ],
+      [ "xend", "structdiag__data__mod_1_1coord__type.html#a9770a36bc55685b136cc4907adc2a1e0", null ],
+      [ "ybegin", "structdiag__data__mod_1_1coord__type.html#a70e915ebfc62ee1e98f4bf7e12042262", null ],
+      [ "yend", "structdiag__data__mod_1_1coord__type.html#a5cdf8fbc3abe44a2770a766abaaa8785", null ],
+      [ "zbegin", "structdiag__data__mod_1_1coord__type.html#ad1695a96c287fac377390a25218a549f", null ],
+      [ "zend", "structdiag__data__mod_1_1coord__type.html#ab16a657fe93fdde7ee51179a62252115", null ]
+    ] ],
+    [ "diag_atttype", "structdiag__data__mod_1_1diag__atttype.html", [
+      [ "catt", "structdiag__data__mod_1_1diag__atttype.html#a65853971a7a37f64e29d261867179037", null ],
+      [ "fatt", "structdiag__data__mod_1_1diag__atttype.html#a4a8080118ca17204f1f85c2a7ddb569f", null ],
+      [ "iatt", "structdiag__data__mod_1_1diag__atttype.html#a558281ef86e55827e7924779a1571da0", null ],
+      [ "len", "structdiag__data__mod_1_1diag__atttype.html#a5e12e763eded3d17204b2fc9c561c13e", null ],
+      [ "name", "structdiag__data__mod_1_1diag__atttype.html#aae58c3d1a017cc0d36082fdf508df9c1", null ],
+      [ "type", "structdiag__data__mod_1_1diag__atttype.html#ace6d84263dbeb3e382e7a69ec237383b", null ]
+    ] ],
+    [ "diag_axis_type", "structdiag__data__mod_1_1diag__axis__type.html", [
+      [ "attributes", "structdiag__data__mod_1_1diag__axis__type.html#a255430c019eb64c96a4608622e5166f8", null ],
+      [ "aux", "structdiag__data__mod_1_1diag__axis__type.html#a52237ee6da35257c2f343dfa4809c75d", null ],
+      [ "cart_name", "structdiag__data__mod_1_1diag__axis__type.html#a22df341327cd06a3adbde5d54873c91c", null ],
+      [ "data", "structdiag__data__mod_1_1diag__axis__type.html#afb312662706647947ce5c3c86f894a90", null ],
+      [ "direction", "structdiag__data__mod_1_1diag__axis__type.html#a34b41c2678f9bf959259cf8d5b6631a6", null ],
+      [ "domain", "structdiag__data__mod_1_1diag__axis__type.html#a0917e8759e48db3b63d66733e2faa29a", null ],
+      [ "domain2", "structdiag__data__mod_1_1diag__axis__type.html#aa6cba4ec7dd4c72e41411a7d8f343b40", null ],
+      [ "domain_position", "structdiag__data__mod_1_1diag__axis__type.html#ae9061724a98b8477616f83bc6ed20d06", null ],
+      [ "domainug", "structdiag__data__mod_1_1diag__axis__type.html#aa0353c66c5f42da3b4e6f77659c937e7", null ],
+      [ "edges", "structdiag__data__mod_1_1diag__axis__type.html#a8f553d6014b9aade7f8e865420c454d3", null ],
+      [ "end", "structdiag__data__mod_1_1diag__axis__type.html#abf283bbdbf96272e123e095fe91577ae", null ],
+      [ "length", "structdiag__data__mod_1_1diag__axis__type.html#af940c51e198511031f839dec6e7f1b71", null ],
+      [ "long_name", "structdiag__data__mod_1_1diag__axis__type.html#a92316d8d95debf2a36ea662869e95277", null ],
+      [ "name", "structdiag__data__mod_1_1diag__axis__type.html#aae58c3d1a017cc0d36082fdf508df9c1", null ],
+      [ "num_attributes", "structdiag__data__mod_1_1diag__axis__type.html#a22db843f3e99d584e474ae0b84d30e92", null ],
+      [ "req", "structdiag__data__mod_1_1diag__axis__type.html#ab146ae25dc69a0a8e8dd0cc7e6c7db10", null ],
+      [ "set", "structdiag__data__mod_1_1diag__axis__type.html#ae5344fc2bf30fc266d2f5ea86e4ba058", null ],
+      [ "shift", "structdiag__data__mod_1_1diag__axis__type.html#ab2c316265aaf2477b911b0dfda3d1ad2", null ],
+      [ "start", "structdiag__data__mod_1_1diag__axis__type.html#a1f12da18f985d93af80636bad91a0543", null ],
+      [ "subaxis_domain2", "structdiag__data__mod_1_1diag__axis__type.html#af70cdc1d0ed22872985a26ca3117e6ad", null ],
+      [ "subaxis_name", "structdiag__data__mod_1_1diag__axis__type.html#adf92d04cf18bc7c417723b44476ccb1f", null ],
+      [ "tile_count", "structdiag__data__mod_1_1diag__axis__type.html#abcf33092ed5e63a052019e856a6a26bf", null ],
+      [ "units", "structdiag__data__mod_1_1diag__axis__type.html#a1b52b540366bda975f3d37673607dddf", null ]
     ] ],
     [ "diag_fieldtype", "structdiag__data__mod_1_1diag__fieldtype.html", [
       [ "domain", "structdiag__data__mod_1_1diag__fieldtype.html#a44cfff2babb687954ffc79c677a82a4d", null ],
@@ -17,21 +51,16 @@ var group__diag__data__mod =
       [ "miss_present", "structdiag__data__mod_1_1diag__fieldtype.html#ac2fc3a2514e513ca4086b138b2edafc1", null ],
       [ "tile_count", "structdiag__data__mod_1_1diag__fieldtype.html#abcf33092ed5e63a052019e856a6a26bf", null ]
     ] ],
-    [ "diag_atttype", "structdiag__data__mod_1_1diag__atttype.html", [
-      [ "catt", "structdiag__data__mod_1_1diag__atttype.html#a65853971a7a37f64e29d261867179037", null ],
-      [ "fatt", "structdiag__data__mod_1_1diag__atttype.html#a4a8080118ca17204f1f85c2a7ddb569f", null ],
-      [ "iatt", "structdiag__data__mod_1_1diag__atttype.html#a558281ef86e55827e7924779a1571da0", null ],
-      [ "len", "structdiag__data__mod_1_1diag__atttype.html#a5e12e763eded3d17204b2fc9c561c13e", null ],
-      [ "name", "structdiag__data__mod_1_1diag__atttype.html#aae58c3d1a017cc0d36082fdf508df9c1", null ],
-      [ "type", "structdiag__data__mod_1_1diag__atttype.html#ace6d84263dbeb3e382e7a69ec237383b", null ]
+    [ "diag_global_att_type", "structdiag__data__mod_1_1diag__global__att__type.html", [
+      [ "grid_type", "structdiag__data__mod_1_1diag__global__att__type.html#a6bf0505a03af67deea36dd10b1e059a6", null ],
+      [ "tile_name", "structdiag__data__mod_1_1diag__global__att__type.html#a69d71bfef89aa654f6e92b9d5974cc8d", null ]
     ] ],
-    [ "coord_type", "structdiag__data__mod_1_1coord__type.html", [
-      [ "xbegin", "structdiag__data__mod_1_1coord__type.html#a5bae40e316db110dcb779ad75980dd1f", null ],
-      [ "xend", "structdiag__data__mod_1_1coord__type.html#a9770a36bc55685b136cc4907adc2a1e0", null ],
-      [ "ybegin", "structdiag__data__mod_1_1coord__type.html#a70e915ebfc62ee1e98f4bf7e12042262", null ],
-      [ "yend", "structdiag__data__mod_1_1coord__type.html#a5cdf8fbc3abe44a2770a766abaaa8785", null ],
-      [ "zbegin", "structdiag__data__mod_1_1coord__type.html#ad1695a96c287fac377390a25218a549f", null ],
-      [ "zend", "structdiag__data__mod_1_1coord__type.html#ab16a657fe93fdde7ee51179a62252115", null ]
+    [ "diag_grid", "structdiag__data__mod_1_1diag__grid.html", [
+      [ "end", "structdiag__data__mod_1_1diag__grid.html#ac02b878ad5ddf7b621759b1eac6f3c6c", null ],
+      [ "l_end_indx", "structdiag__data__mod_1_1diag__grid.html#a4c9fd70ffbac988f5d187553fdb5a5d8", null ],
+      [ "l_start_indx", "structdiag__data__mod_1_1diag__grid.html#a85254daa325527ddcf7828f2417e887d", null ],
+      [ "start", "structdiag__data__mod_1_1diag__grid.html#a1bf754c52d54a9d89a37db4a673fa415", null ],
+      [ "subaxes", "structdiag__data__mod_1_1diag__grid.html#aa59328ee0a9848737237b32bda53c19f", null ]
     ] ],
     [ "file_type", "structdiag__data__mod_1_1file__type.html", [
       [ "attributes", "structdiag__data__mod_1_1file__type.html#a255430c019eb64c96a4608622e5166f8", null ],
@@ -139,35 +168,6 @@ var group__diag__data__mod =
       [ "time_sum", "structdiag__data__mod_1_1output__field__type.html#a4b9450544bd9a26e881aedf148edb266", null ],
       [ "total_elements", "structdiag__data__mod_1_1output__field__type.html#a2269f9dc0857fb7ace166f20b12af5bf", null ],
       [ "written_once", "structdiag__data__mod_1_1output__field__type.html#af88519f6f0c298b93ee53f4873dc659e", null ]
-    ] ],
-    [ "diag_axis_type", "structdiag__data__mod_1_1diag__axis__type.html", [
-      [ "attributes", "structdiag__data__mod_1_1diag__axis__type.html#a255430c019eb64c96a4608622e5166f8", null ],
-      [ "aux", "structdiag__data__mod_1_1diag__axis__type.html#a52237ee6da35257c2f343dfa4809c75d", null ],
-      [ "cart_name", "structdiag__data__mod_1_1diag__axis__type.html#a22df341327cd06a3adbde5d54873c91c", null ],
-      [ "data", "structdiag__data__mod_1_1diag__axis__type.html#afb312662706647947ce5c3c86f894a90", null ],
-      [ "direction", "structdiag__data__mod_1_1diag__axis__type.html#a34b41c2678f9bf959259cf8d5b6631a6", null ],
-      [ "domain", "structdiag__data__mod_1_1diag__axis__type.html#a0917e8759e48db3b63d66733e2faa29a", null ],
-      [ "domain2", "structdiag__data__mod_1_1diag__axis__type.html#aa6cba4ec7dd4c72e41411a7d8f343b40", null ],
-      [ "domain_position", "structdiag__data__mod_1_1diag__axis__type.html#ae9061724a98b8477616f83bc6ed20d06", null ],
-      [ "domainug", "structdiag__data__mod_1_1diag__axis__type.html#aa0353c66c5f42da3b4e6f77659c937e7", null ],
-      [ "edges", "structdiag__data__mod_1_1diag__axis__type.html#a8f553d6014b9aade7f8e865420c454d3", null ],
-      [ "end", "structdiag__data__mod_1_1diag__axis__type.html#abf283bbdbf96272e123e095fe91577ae", null ],
-      [ "length", "structdiag__data__mod_1_1diag__axis__type.html#af940c51e198511031f839dec6e7f1b71", null ],
-      [ "long_name", "structdiag__data__mod_1_1diag__axis__type.html#a92316d8d95debf2a36ea662869e95277", null ],
-      [ "name", "structdiag__data__mod_1_1diag__axis__type.html#aae58c3d1a017cc0d36082fdf508df9c1", null ],
-      [ "num_attributes", "structdiag__data__mod_1_1diag__axis__type.html#a22db843f3e99d584e474ae0b84d30e92", null ],
-      [ "req", "structdiag__data__mod_1_1diag__axis__type.html#ab146ae25dc69a0a8e8dd0cc7e6c7db10", null ],
-      [ "set", "structdiag__data__mod_1_1diag__axis__type.html#ae5344fc2bf30fc266d2f5ea86e4ba058", null ],
-      [ "shift", "structdiag__data__mod_1_1diag__axis__type.html#ab2c316265aaf2477b911b0dfda3d1ad2", null ],
-      [ "start", "structdiag__data__mod_1_1diag__axis__type.html#a1f12da18f985d93af80636bad91a0543", null ],
-      [ "subaxis_domain2", "structdiag__data__mod_1_1diag__axis__type.html#af70cdc1d0ed22872985a26ca3117e6ad", null ],
-      [ "subaxis_name", "structdiag__data__mod_1_1diag__axis__type.html#adf92d04cf18bc7c417723b44476ccb1f", null ],
-      [ "tile_count", "structdiag__data__mod_1_1diag__axis__type.html#abcf33092ed5e63a052019e856a6a26bf", null ],
-      [ "units", "structdiag__data__mod_1_1diag__axis__type.html#a1b52b540366bda975f3d37673607dddf", null ]
-    ] ],
-    [ "diag_global_att_type", "structdiag__data__mod_1_1diag__global__att__type.html", [
-      [ "grid_type", "structdiag__data__mod_1_1diag__global__att__type.html#a6bf0505a03af67deea36dd10b1e059a6", null ],
-      [ "tile_name", "structdiag__data__mod_1_1diag__global__att__type.html#a69d71bfef89aa654f6e92b9d5974cc8d", null ]
     ] ],
     [ "diag_data_init", "group__diag__data__mod.html#gaaef785b1492a5330f440a3ec13a24cf4", null ],
     [ "cmor_missing_value", "group__diag__data__mod.html#gaf50a59a2553299b91be550e50e0bb89c", null ],

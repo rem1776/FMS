@@ -4,6 +4,16 @@ var group__tracer__manager__mod =
       [ "get_tracer_index_integer", "interfacetracer__manager__mod_1_1get__tracer__index.html#ae5b2c7a3248939629c2cd852b7b50dab", null ],
       [ "get_tracer_index_logical", "interfacetracer__manager__mod_1_1get__tracer__index.html#a3527fdad0336e4c494959d4fcd65d63e", null ]
     ] ],
+    [ "inst_type", "structtracer__manager__mod_1_1inst__type.html", [
+      [ "instances", "structtracer__manager__mod_1_1inst__type.html#a55f960ce5b1ab73a34897f3574171cfb", null ],
+      [ "name", "structtracer__manager__mod_1_1inst__type.html#aae58c3d1a017cc0d36082fdf508df9c1", null ]
+    ] ],
+    [ "tracer_name_type", "structtracer__manager__mod_1_1tracer__name__type.html", [
+      [ "model_name", "structtracer__manager__mod_1_1tracer__name__type.html#a753c00b3d8d3aef126de84a355d61221", null ],
+      [ "tracer_longname", "structtracer__manager__mod_1_1tracer__name__type.html#a2a7636f9ee45d16b4eda9b73ed546592", null ],
+      [ "tracer_name", "structtracer__manager__mod_1_1tracer__name__type.html#ad5eae85166ad5442ecdbfec0afa6ff76", null ],
+      [ "tracer_units", "structtracer__manager__mod_1_1tracer__name__type.html#a26e3d6cdee9691dcf34d7c19abed060d", null ]
+    ] ],
     [ "tracer_type", "structtracer__manager__mod_1_1tracer__type.html", [
       [ "instances", "structtracer__manager__mod_1_1tracer__type.html#a55f960ce5b1ab73a34897f3574171cfb", null ],
       [ "instances_set", "structtracer__manager__mod_1_1tracer__type.html#a009a717ba9025829d28f1e1696598b34", null ],
@@ -16,16 +26,6 @@ var group__tracer__manager__mod =
       [ "tracer_longname", "structtracer__manager__mod_1_1tracer__type.html#a2a7636f9ee45d16b4eda9b73ed546592", null ],
       [ "tracer_name", "structtracer__manager__mod_1_1tracer__type.html#ad5eae85166ad5442ecdbfec0afa6ff76", null ],
       [ "tracer_units", "structtracer__manager__mod_1_1tracer__type.html#a26e3d6cdee9691dcf34d7c19abed060d", null ]
-    ] ],
-    [ "tracer_name_type", "structtracer__manager__mod_1_1tracer__name__type.html", [
-      [ "model_name", "structtracer__manager__mod_1_1tracer__name__type.html#a753c00b3d8d3aef126de84a355d61221", null ],
-      [ "tracer_longname", "structtracer__manager__mod_1_1tracer__name__type.html#a2a7636f9ee45d16b4eda9b73ed546592", null ],
-      [ "tracer_name", "structtracer__manager__mod_1_1tracer__name__type.html#ad5eae85166ad5442ecdbfec0afa6ff76", null ],
-      [ "tracer_units", "structtracer__manager__mod_1_1tracer__name__type.html#a26e3d6cdee9691dcf34d7c19abed060d", null ]
-    ] ],
-    [ "inst_type", "structtracer__manager__mod_1_1inst__type.html", [
-      [ "instances", "structtracer__manager__mod_1_1inst__type.html#a55f960ce5b1ab73a34897f3574171cfb", null ],
-      [ "name", "structtracer__manager__mod_1_1inst__type.html#aae58c3d1a017cc0d36082fdf508df9c1", null ]
     ] ],
     [ "adjust_mass", "group__tracer__manager__mod.html#ga672fa8babfa045b22792c270dcaef9e9", null ],
     [ "check_if_prognostic", "group__tracer__manager__mod.html#gaaf9f0433a57359e74f51a2c4a0927078", null ],

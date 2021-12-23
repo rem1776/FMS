@@ -1,12 +1,5 @@
 var group__block__control__mod =
 [
-    [ "ix_type", "structblock__control__mod_1_1ix__type.html", [
-      [ "ix", "structblock__control__mod_1_1ix__type.html#ace7bff1130ba0e1df40ebc2f376829fd", null ]
-    ] ],
-    [ "pk_type", "structblock__control__mod_1_1pk__type.html", [
-      [ "ii", "structblock__control__mod_1_1pk__type.html#a453c591c12dc5856910aefacca38301f", null ],
-      [ "jj", "structblock__control__mod_1_1pk__type.html#a1d1f476b5789f7e645421303a400b57f", null ]
-    ] ],
     [ "block_control_type", "structblock__control__mod_1_1block__control__type.html", [
       [ "blkno", "structblock__control__mod_1_1block__control__type.html#a9da7a70ca7d9359a637256ce246b079f", null ],
       [ "blksz", "structblock__control__mod_1_1block__control__type.html#a498f2a7116034dd717063c9f928e463d", null ],
@@ -25,6 +18,13 @@ var group__block__control__mod =
       [ "npz", "structblock__control__mod_1_1block__control__type.html#a679c1ba60d73b70c45522adf2525d5e6", null ],
       [ "nx_block", "structblock__control__mod_1_1block__control__type.html#ac8e2bdf161fde4e4bbb65ec3d474d9e6", null ],
       [ "ny_block", "structblock__control__mod_1_1block__control__type.html#a4b25955e7e5544c51497533e00015746", null ]
+    ] ],
+    [ "ix_type", "structblock__control__mod_1_1ix__type.html", [
+      [ "ix", "structblock__control__mod_1_1ix__type.html#ace7bff1130ba0e1df40ebc2f376829fd", null ]
+    ] ],
+    [ "pk_type", "structblock__control__mod_1_1pk__type.html", [
+      [ "ii", "structblock__control__mod_1_1pk__type.html#a453c591c12dc5856910aefacca38301f", null ],
+      [ "jj", "structblock__control__mod_1_1pk__type.html#a1d1f476b5789f7e645421303a400b57f", null ]
     ] ],
     [ "define_blocks", "group__block__control__mod.html#gaf9b25442e22bc46f0d247a7acff71516", null ],
     [ "define_blocks_packed", "group__block__control__mod.html#ga21fb0963e6ded8c790c9b47346221415", null ]

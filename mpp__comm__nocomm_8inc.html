@@ -104,20 +104,20 @@ $(document).ready(function(){initNavTree('mpp__comm__nocomm_8inc.html',''); init
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
-<tr class="memitem:aa0193472086e6b9a7772b362e35adf6c"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mpp__comm__nocomm_8inc.html#aa0193472086e6b9a7772b362e35adf6c">mpp_init</a> (flags, localcomm, alt_input_nml_path)</td></tr>
-<tr class="memdesc:aa0193472086e6b9a7772b362e35adf6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the <a class="el" href="group__mpp__mod.html">mpp_mod</a> module.  <a href="mpp__comm__nocomm_8inc.html#aa0193472086e6b9a7772b362e35adf6c">More...</a><br /></td></tr>
-<tr class="separator:aa0193472086e6b9a7772b362e35adf6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a823769fc831d556ad73e98ae0a8f7f2a"><td class="memItemLeft" align="right" valign="top"><a id="a823769fc831d556ad73e98ae0a8f7f2a"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_broadcast_char</b> (data, length, from_pe, pelist)</td></tr>
+<tr class="separator:a823769fc831d556ad73e98ae0a8f7f2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d0366d81b9701ccaaf3612b666aada1"><td class="memItemLeft" align="right" valign="top"><a id="a8d0366d81b9701ccaaf3612b666aada1"></a>
 subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mpp__comm__nocomm_8inc.html#a8d0366d81b9701ccaaf3612b666aada1">mpp_exit</a> ()</td></tr>
 <tr class="memdesc:a8d0366d81b9701ccaaf3612b666aada1"><td class="mdescLeft">&#160;</td><td class="mdescRight">To be called at the end of a run. <br /></td></tr>
 <tr class="separator:a8d0366d81b9701ccaaf3612b666aada1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0193472086e6b9a7772b362e35adf6c"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mpp__comm__nocomm_8inc.html#aa0193472086e6b9a7772b362e35adf6c">mpp_init</a> (flags, localcomm, alt_input_nml_path)</td></tr>
+<tr class="memdesc:aa0193472086e6b9a7772b362e35adf6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the <a class="el" href="group__mpp__mod.html">mpp_mod</a> module.  <a href="mpp__comm__nocomm_8inc.html#aa0193472086e6b9a7772b362e35adf6c">More...</a><br /></td></tr>
+<tr class="separator:aa0193472086e6b9a7772b362e35adf6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac00f997102c5613d8c547f1ee10fa49c"><td class="memItemLeft" align="right" valign="top"><a id="ac00f997102c5613d8c547f1ee10fa49c"></a>
 subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mpp__comm__nocomm_8inc.html#ac00f997102c5613d8c547f1ee10fa49c">mpp_set_stack_size</a> (n)</td></tr>
 <tr class="memdesc:ac00f997102c5613d8c547f1ee10fa49c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the mpp_stack variable to be at least n LONG words long. <br /></td></tr>
 <tr class="separator:ac00f997102c5613d8c547f1ee10fa49c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a823769fc831d556ad73e98ae0a8f7f2a"><td class="memItemLeft" align="right" valign="top"><a id="a823769fc831d556ad73e98ae0a8f7f2a"></a>
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_broadcast_char</b> (data, length, from_pe, pelist)</td></tr>
-<tr class="separator:a823769fc831d556ad73e98ae0a8f7f2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4ba89dd4d38f1d902c9c87af7d310d75"><td class="memItemLeft" align="right" valign="top"><a id="a4ba89dd4d38f1d902c9c87af7d310d75"></a>
 subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_type_free</b> (dtype)</td></tr>
 <tr class="separator:a4ba89dd4d38f1d902c9c87af7d310d75"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -162,7 +162,9 @@ subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_type_free</
 <p>Initialize the <a class="el" href="group__mpp__mod.html">mpp_mod</a> module. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">localcomm</td><td>dummy here, used only in MPI </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">flags</td><td>Flags for debug output, can be MPP_VERBOSE or MPP_DEBUG </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">localcomm</td><td>Id of MPI communicator used to initialize </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">alt_input_nml_path</td><td>Input path for namelist </td></tr>
   </table>
   </dd>
 </dl>

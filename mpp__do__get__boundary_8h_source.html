@@ -255,7 +255,7 @@ $(document).ready(function(){initNavTree('mpp__do__get__boundary_8h_source.html'
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        if( mpp_domains_stack_hwm.GT.mpp_domains_stack_size )then</div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;           write( text,&#39;(i8)&#39; )mpp_domains_stack_hwm</div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;           call mpp_error( FATAL, &#39;MPP_DO_GET_BOUNDARY_OLD: mpp_domains_stack overflow, &#39;<span class="comment">// &amp;</span></div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;                &#39;call <a class="code" href="mpp__domains__util_8inc.html#ae1f3c0c5c574686aac6c1595b1ca0b66">mpp_domains_set_stack_size</a>(&#39;<span class="comment">//trim(text)//&#39;) from all PEs.&#39; )</span></div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;                &#39;call <a class="code" href="group__mpp__domains__mod.html#gae1f3c0c5c574686aac6c1595b1ca0b66">mpp_domains_set_stack_size</a>(&#39;<span class="comment">//trim(text)//&#39;) from all PEs.&#39; )</span></div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        end if</div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        call mpp_recv( buffer(buffer_pos+1), glen=msgsize, from_pe=bound%recv(m)%pe, block=.false., tag=COMM_TAG_2 )</div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        buffer_pos = buffer_pos + msgsize</div>
@@ -330,7 +330,7 @@ $(document).ready(function(){initNavTree('mpp__do__get__boundary_8h_source.html'
 <div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;        if( mpp_domains_stack_hwm.GT.mpp_domains_stack_size )then</div>
 <div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;           write( text,&#39;(i8)&#39; )mpp_domains_stack_hwm</div>
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;           call mpp_error( FATAL, &#39;MPP_DO_GET_BOUNDARY_OLD: mpp_domains_stack overflow, &#39; <span class="comment">// &amp;</span></div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;                &#39;call <a class="code" href="mpp__domains__util_8inc.html#ae1f3c0c5c574686aac6c1595b1ca0b66">mpp_domains_set_stack_size</a>(&#39;<span class="comment">//trim(text)//&#39;) from all PEs.&#39;)</span></div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;                &#39;call <a class="code" href="group__mpp__domains__mod.html#gae1f3c0c5c574686aac6c1595b1ca0b66">mpp_domains_set_stack_size</a>(&#39;<span class="comment">//trim(text)//&#39;) from all PEs.&#39;)</span></div>
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;        end if</div>
 <div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;        call mpp_send( buffer(buffer_pos+1), plen=msgsize, to_pe=bound%send(m)%pe, tag=COMM_TAG_2 )</div>
 <div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;        buffer_pos = pos</div>
@@ -567,7 +567,7 @@ $(document).ready(function(){initNavTree('mpp__do__get__boundary_8h_source.html'
 <div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;     msg1 = 0</div>
 <div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;     msg2 = 0</div>
 <div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160; </div>
-<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;     cur_rank = get_rank_recv(domain, boundx, boundy, rank_x, rank_y, ind_x, ind_y)</div>
+<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;     cur_rank = <a class="code" href="group__mpp__domains__mod.html#ga3b48eeba205253ce4d74ed38d08eb80d">get_rank_recv</a>(domain, boundx, boundy, rank_x, rank_y, ind_x, ind_y)</div>
 <div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160; </div>
 <div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;     do while ( ind_x .LE. nrecv_x .OR. ind_y .LE. nrecv_y )</div>
 <div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;        msgsize = 0</div>
@@ -612,7 +612,7 @@ $(document).ready(function(){initNavTree('mpp__do__get__boundary_8h_source.html'
 <div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;        msg2(m) = msgsize</div>
 <div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;     end do</div>
 <div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160; </div>
-<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;     cur_rank = get_rank_send(domain, boundx, boundy, rank_x, rank_y, ind_x, ind_y)</div>
+<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;     cur_rank = <a class="code" href="group__mpp__domains__mod.html#ga1c3f29b8417e8fb1f739b1882e6092d7">get_rank_send</a>(domain, boundx, boundy, rank_x, rank_y, ind_x, ind_y)</div>
 <div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;     do while (ind_x .LE. nsend_x .OR. ind_y .LE. nsend_y)</div>
 <div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;        msgsize = 0</div>
 <div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;        if(cur_rank == rank_x) then</div>
@@ -671,7 +671,7 @@ $(document).ready(function(){initNavTree('mpp__do__get__boundary_8h_source.html'
 <div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160; </div>
 <div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;  !recv</div>
 <div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;  buffer_pos = 0</div>
-<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;  cur_rank = get_rank_recv(domain, boundx, boundy, rank_x, rank_y, ind_x, ind_y)</div>
+<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;  cur_rank = <a class="code" href="group__mpp__domains__mod.html#ga3b48eeba205253ce4d74ed38d08eb80d">get_rank_recv</a>(domain, boundx, boundy, rank_x, rank_y, ind_x, ind_y)</div>
 <div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160; </div>
 <div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;  do while ( ind_x .LE. nrecv_x .OR. ind_y .LE. nrecv_y )</div>
 <div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;     msgsize = 0</div>
@@ -717,7 +717,7 @@ $(document).ready(function(){initNavTree('mpp__do__get__boundary_8h_source.html'
 <div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;        if( mpp_domains_stack_hwm.GT.mpp_domains_stack_size )then</div>
 <div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;           write( text,&#39;(i8)&#39; )mpp_domains_stack_hwm</div>
 <div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;           call mpp_error( FATAL, &#39;MPP_DO_GET_BOUNDARY_V_: mpp_domains_stack overflow, &#39;<span class="comment">// &amp;</span></div>
-<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;                &#39;call <a class="code" href="mpp__domains__util_8inc.html#ae1f3c0c5c574686aac6c1595b1ca0b66">mpp_domains_set_stack_size</a>(&#39;<span class="comment">//trim(text)//&#39;) from all PEs.&#39; )</span></div>
+<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;                &#39;call <a class="code" href="group__mpp__domains__mod.html#gae1f3c0c5c574686aac6c1595b1ca0b66">mpp_domains_set_stack_size</a>(&#39;<span class="comment">//trim(text)//&#39;) from all PEs.&#39; )</span></div>
 <div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;        end if</div>
 <div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;        call mpp_recv( buffer(buffer_pos+1), glen=msgsize, from_pe=from_pe, block=.FALSE., tag=COMM_TAG_4 )</div>
 <div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;        buffer_pos = buffer_pos + msgsize</div>
@@ -726,7 +726,7 @@ $(document).ready(function(){initNavTree('mpp__do__get__boundary_8h_source.html'
 <div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;  buffer_recv_size = buffer_pos</div>
 <div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160; </div>
 <div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;  ! send</div>
-<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;  cur_rank = get_rank_send(domain, boundx, boundy, rank_x, rank_y, ind_x, ind_y)</div>
+<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;  cur_rank = <a class="code" href="group__mpp__domains__mod.html#ga1c3f29b8417e8fb1f739b1882e6092d7">get_rank_send</a>(domain, boundx, boundy, rank_x, rank_y, ind_x, ind_y)</div>
 <div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160; </div>
 <div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;  do while (ind_x .LE. nsend_x .OR. ind_y .LE. nsend_y)</div>
 <div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;     pos = buffer_pos</div>
@@ -929,7 +929,7 @@ $(document).ready(function(){initNavTree('mpp__do__get__boundary_8h_source.html'
 <div class="line"><a name="l00833"></a><span class="lineno">  833</span>&#160;        if( mpp_domains_stack_hwm.GT.mpp_domains_stack_size )then</div>
 <div class="line"><a name="l00834"></a><span class="lineno">  834</span>&#160;           write( text,&#39;(i8)&#39; )mpp_domains_stack_hwm</div>
 <div class="line"><a name="l00835"></a><span class="lineno">  835</span>&#160;           call mpp_error( FATAL, &#39;MPP_DO_GET_BOUNDARY_V_: mpp_domains_stack overflow, &#39; <span class="comment">// &amp;</span></div>
-<div class="line"><a name="l00836"></a><span class="lineno">  836</span>&#160;                &#39;call <a class="code" href="mpp__domains__util_8inc.html#ae1f3c0c5c574686aac6c1595b1ca0b66">mpp_domains_set_stack_size</a>(&#39;<span class="comment">//trim(text)//&#39;) from all PEs.&#39;)</span></div>
+<div class="line"><a name="l00836"></a><span class="lineno">  836</span>&#160;                &#39;call <a class="code" href="group__mpp__domains__mod.html#gae1f3c0c5c574686aac6c1595b1ca0b66">mpp_domains_set_stack_size</a>(&#39;<span class="comment">//trim(text)//&#39;) from all PEs.&#39;)</span></div>
 <div class="line"><a name="l00837"></a><span class="lineno">  837</span>&#160;        end if</div>
 <div class="line"><a name="l00838"></a><span class="lineno">  838</span>&#160;        call mpp_send( buffer(buffer_pos+1), plen=msgsize, to_pe=to_pe, tag=COMM_TAG_4 )</div>
 <div class="line"><a name="l00839"></a><span class="lineno">  839</span>&#160;        buffer_pos = pos</div>
@@ -942,7 +942,7 @@ $(document).ready(function(){initNavTree('mpp__do__get__boundary_8h_source.html'
 <div class="line"><a name="l00846"></a><span class="lineno">  846</span>&#160;  !unpack recv</div>
 <div class="line"><a name="l00847"></a><span class="lineno">  847</span>&#160;  !unpack buffer in reverse order.</div>
 <div class="line"><a name="l00848"></a><span class="lineno">  848</span>&#160;  buffer_pos = buffer_recv_size</div>
-<div class="line"><a name="l00849"></a><span class="lineno">  849</span>&#160;  cur_rank = get_rank_unpack(domain, boundx, boundy, rank_x, rank_y, ind_x, ind_y)</div>
+<div class="line"><a name="l00849"></a><span class="lineno">  849</span>&#160;  cur_rank = <a class="code" href="group__mpp__domains__mod.html#gaef9751f23a98f997642b8945e5fa0673">get_rank_unpack</a>(domain, boundx, boundy, rank_x, rank_y, ind_x, ind_y)</div>
 <div class="line"><a name="l00850"></a><span class="lineno">  850</span>&#160; </div>
 <div class="line"><a name="l00851"></a><span class="lineno">  851</span>&#160;  do while(ind_x &gt;0 .OR. ind_y &gt;0)</div>
 <div class="line"><a name="l00852"></a><span class="lineno">  852</span>&#160;     if(cur_rank == rank_y) then</div>
@@ -1137,11 +1137,14 @@ $(document).ready(function(){initNavTree('mpp__do__get__boundary_8h_source.html'
 <div class="line"><a name="l01041"></a><span class="lineno"> 1041</span>&#160;end subroutine MPP_DO_GET_BOUNDARY_3D_V_</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="agroup__mpp__domains__mod_html_gaef9751f23a98f997642b8945e5fa0673"><div class="ttname"><a href="group__mpp__domains__mod.html#gaef9751f23a98f997642b8945e5fa0673">get_rank_unpack</a></div><div class="ttdeci">integer function get_rank_unpack(domain, overlap_x, overlap_y, rank_x, rank_y, ind_x, ind_y)</div><div class="ttdoc">Set user stack size.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__util_8inc_source.html#l01656">mpp_domains_util.inc:1656</a></div></div>
 <div class="ttc" id="ampp__util_8inc_html_a172901d39c9b0cf14aa83b1e94fdf21b"><div class="ttname"><a href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a></div><div class="ttdeci">integer function stdout()</div><div class="ttdoc">This function returns the current standard fortran unit numbers for output.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00041">mpp_util.inc:41</a></div></div>
-<div class="ttc" id="agroup__mpp__domains__mod_html_ga640f19150a4437d553bd0ba3f4dbc7e6"><div class="ttname"><a href="group__mpp__domains__mod.html#ga640f19150a4437d553bd0ba3f4dbc7e6">mpp_domains_mod::debug_message_passing</a></div><div class="ttdeci">logical debug_message_passing</div><div class="ttdoc">Will check the consistency on the boundary between processor/tile when updating domain for symmetric ...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains_8F90_source.html#l00725">mpp_domains.F90:725</a></div></div>
+<div class="ttc" id="agroup__mpp__domains__mod_html_ga640f19150a4437d553bd0ba3f4dbc7e6"><div class="ttname"><a href="group__mpp__domains__mod.html#ga640f19150a4437d553bd0ba3f4dbc7e6">mpp_domains_mod::debug_message_passing</a></div><div class="ttdeci">logical debug_message_passing</div><div class="ttdoc">Will check the consistency on the boundary between processor/tile when updating domain for symmetric ...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains_8F90_source.html#l00729">mpp_domains.F90:729</a></div></div>
 <div class="ttc" id="ampp__util__mpi_8inc_html_a09e69243d8c67e6a6e6e4fd9e93d0870"><div class="ttname"><a href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a></div><div class="ttdeci">subroutine mpp_sync_self(pelist, check, request, msg_size, msg_type)</div><div class="ttdoc">This is to check if current PE's outstanding puts are complete but we can't use shmem_fence because w...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util__mpi_8inc_source.html#l00169">mpp_util_mpi.inc:169</a></div></div>
-<div class="ttc" id="ampp__domains__util_8inc_html_ae1f3c0c5c574686aac6c1595b1ca0b66"><div class="ttname"><a href="mpp__domains__util_8inc.html#ae1f3c0c5c574686aac6c1595b1ca0b66">mpp_domains_set_stack_size</a></div><div class="ttdeci">subroutine mpp_domains_set_stack_size(n)</div><div class="ttdoc">Set user stack size.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__util_8inc_source.html#l00034">mpp_domains_util.inc:34</a></div></div>
+<div class="ttc" id="agroup__mpp__domains__mod_html_ga1c3f29b8417e8fb1f739b1882e6092d7"><div class="ttname"><a href="group__mpp__domains__mod.html#ga1c3f29b8417e8fb1f739b1882e6092d7">get_rank_send</a></div><div class="ttdeci">integer function get_rank_send(domain, overlap_x, overlap_y, rank_x, rank_y, ind_x, ind_y)</div><div class="ttdoc">Set user stack size.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__util_8inc_source.html#l01465">mpp_domains_util.inc:1465</a></div></div>
 <div class="ttc" id="agroup__fms__io__mod_html_gae85b018bca1141b3510db6f38fdc50bf"><div class="ttname"><a href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">fms_io_mod::je</a></div><div class="ttdeci">integer, private je</div><div class="ttdoc">compute domain</div><div class="ttdef"><b>Definition:</b> <a href="fms__io_8F90_source.html#l00518">fms_io.F90:518</a></div></div>
+<div class="ttc" id="agroup__mpp__domains__mod_html_ga3b48eeba205253ce4d74ed38d08eb80d"><div class="ttname"><a href="group__mpp__domains__mod.html#ga3b48eeba205253ce4d74ed38d08eb80d">get_rank_recv</a></div><div class="ttdeci">integer function get_rank_recv(domain, overlap_x, overlap_y, rank_x, rank_y, ind_x, ind_y)</div><div class="ttdoc">Set user stack size.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__util_8inc_source.html#l01492">mpp_domains_util.inc:1492</a></div></div>
+<div class="ttc" id="agroup__mpp__domains__mod_html_gae1f3c0c5c574686aac6c1595b1ca0b66"><div class="ttname"><a href="group__mpp__domains__mod.html#gae1f3c0c5c574686aac6c1595b1ca0b66">mpp_domains_set_stack_size</a></div><div class="ttdeci">subroutine mpp_domains_set_stack_size(n)</div><div class="ttdoc">Set user stack size.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__util_8inc_source.html#l00036">mpp_domains_util.inc:36</a></div></div>
 <div class="ttc" id="ampp__util_8inc_html_acfeba7de56f9dd6000b3fd78f9d56c50"><div class="ttname"><a href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a></div><div class="ttdeci">integer function mpp_pe()</div><div class="ttdoc">Returns processor ID.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00376">mpp_util.inc:376</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

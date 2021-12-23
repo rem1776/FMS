@@ -16,17 +16,13 @@ var group__netcdf__io__mod =
       [ "x_halo", "structnetcdf__io__mod_1_1bc__information.html#a19a65113470aa762db83e551c29fcafb", null ],
       [ "y_halo", "structnetcdf__io__mod_1_1bc__information.html#a811057b37f9270484c059074282b6811", null ]
     ] ],
-    [ "restartvariable_t", "structnetcdf__io__mod_1_1restartvariable__t.html", [
-      [ "bc_info", "structnetcdf__io__mod_1_1restartvariable__t.html#ab4779d0a1621157762be82ca743b4f92", null ],
-      [ "data0d", "structnetcdf__io__mod_1_1restartvariable__t.html#aeff307f84b5088c03e4726f69d1d19cd", null ],
-      [ "data1d", "structnetcdf__io__mod_1_1restartvariable__t.html#a9afe2b36228c9b409e4333687f34b632", null ],
-      [ "data2d", "structnetcdf__io__mod_1_1restartvariable__t.html#a29d9cbab6f66134a2b236df99273d072", null ],
-      [ "data3d", "structnetcdf__io__mod_1_1restartvariable__t.html#ae2640f9ecd04bf3876cfe00317db292a", null ],
-      [ "data4d", "structnetcdf__io__mod_1_1restartvariable__t.html#af12132ca9cc62d263bbeaed80657385f", null ],
-      [ "data5d", "structnetcdf__io__mod_1_1restartvariable__t.html#a328d97e8ffcd6133885083f84cffd806", null ],
-      [ "is_bc_variable", "structnetcdf__io__mod_1_1restartvariable__t.html#a6fe61ed62d2bc68ef74048beca942e16", null ],
-      [ "varname", "structnetcdf__io__mod_1_1restartvariable__t.html#a5a86657112c12b43f3e6e69df3397e8e", null ],
-      [ "was_read", "structnetcdf__io__mod_1_1restartvariable__t.html#a5f9de057e646862567efc30ed68fcce9", null ]
+    [ "compressed_write", "interfacenetcdf__io__mod_1_1compressed__write.html", [
+      [ "compressed_write_0d", "interfacenetcdf__io__mod_1_1compressed__write.html#aa5fe1ed27d938eb5584aebeb1f3fc433", null ],
+      [ "compressed_write_1d", "interfacenetcdf__io__mod_1_1compressed__write.html#aa6d1783b6bba4f48402a2b670ded895e", null ],
+      [ "compressed_write_2d", "interfacenetcdf__io__mod_1_1compressed__write.html#a644e5d0d46c06a8ccbf5eee8700caf0e", null ],
+      [ "compressed_write_3d", "interfacenetcdf__io__mod_1_1compressed__write.html#a47357bb874f64f65af1376f69eb729c4", null ],
+      [ "compressed_write_4d", "interfacenetcdf__io__mod_1_1compressed__write.html#a0ae230e872f6e6c020869168bb853aca", null ],
+      [ "compressed_write_5d", "interfacenetcdf__io__mod_1_1compressed__write.html#a02d4f1052ab5dcbe2822859075cdd10f", null ]
     ] ],
     [ "compresseddimension_t", "structnetcdf__io__mod_1_1compresseddimension__t.html", [
       [ "dimname", "structnetcdf__io__mod_1_1compresseddimension__t.html#a0d1257cc1befb83531655e9111abab02", null ],
@@ -70,16 +66,21 @@ var group__netcdf__io__mod =
       [ "restart_vars", "structnetcdf__io__mod_1_1fmsnetcdffile__t.html#ac731006a116cebbb9a1ce0630ddc6701", null ],
       [ "time_name", "structnetcdf__io__mod_1_1fmsnetcdffile__t.html#ae480bdfe3f53b226b95befc71681507b", null ]
     ] ],
-    [ "valid_t", "structnetcdf__io__mod_1_1valid__t.html", [
-      [ "fill_val", "structnetcdf__io__mod_1_1valid__t.html#a82133f3f43925cb22979f5ba8f3dea64", null ],
-      [ "has_fill", "structnetcdf__io__mod_1_1valid__t.html#a04822713b07c7305dd5a6c46f7274541", null ],
-      [ "has_max", "structnetcdf__io__mod_1_1valid__t.html#addd10dc89527102955dd06f597c9a628", null ],
-      [ "has_min", "structnetcdf__io__mod_1_1valid__t.html#a3c3aefc7094b7d7b0b5de8eb902518b4", null ],
-      [ "has_missing", "structnetcdf__io__mod_1_1valid__t.html#ae3746deefd70fa56979115d54dcca55e", null ],
-      [ "has_range", "structnetcdf__io__mod_1_1valid__t.html#aa4cf509d4c801f6eef067e0c4e883c60", null ],
-      [ "max_val", "structnetcdf__io__mod_1_1valid__t.html#ac3c28416c9b58e6283c32d298d3ba169", null ],
-      [ "min_val", "structnetcdf__io__mod_1_1valid__t.html#a93f875f59747b6346dae39431b344f18", null ],
-      [ "missing_val", "structnetcdf__io__mod_1_1valid__t.html#ae0ffc7a149befc4ef174d1e5584d2dc6", null ]
+    [ "gather_data_bc", "interfacenetcdf__io__mod_1_1gather__data__bc.html", [
+      [ "gather_data_bc_2d", "interfacenetcdf__io__mod_1_1gather__data__bc.html#a775d3a6508db6de07a59ae725606be9a", null ],
+      [ "gather_data_bc_3d", "interfacenetcdf__io__mod_1_1gather__data__bc.html#abae993f2cde9f21056f1d9ee2f69c2d7", null ]
+    ] ],
+    [ "get_global_attribute", "interfacenetcdf__io__mod_1_1get__global__attribute.html", [
+      [ "get_global_attribute_0d", "interfacenetcdf__io__mod_1_1get__global__attribute.html#a9f16a31d063d1ba758229507a7c9a1f3", null ],
+      [ "get_global_attribute_1d", "interfacenetcdf__io__mod_1_1get__global__attribute.html#a19cb59e6544760d3d56a4aad6b7a435e", null ]
+    ] ],
+    [ "get_variable_attribute", "interfacenetcdf__io__mod_1_1get__variable__attribute.html", [
+      [ "get_variable_attribute_0d", "interfacenetcdf__io__mod_1_1get__variable__attribute.html#a45f4c647d68400003f2bc11ea82c5e10", null ],
+      [ "get_variable_attribute_1d", "interfacenetcdf__io__mod_1_1get__variable__attribute.html#a6489ba64c5e49db79d17f121a7ae2ddf", null ]
+    ] ],
+    [ "is_valid", "interfacenetcdf__io__mod_1_1is__valid.html", [
+      [ "is_valid_r4", "interfacenetcdf__io__mod_1_1is__valid.html#a76d443d0cf9678b865c5eae4f6bbb048", null ],
+      [ "is_valid_r8", "interfacenetcdf__io__mod_1_1is__valid.html#a7a8e8eebb1cf097e2ba7d23307d26357", null ]
     ] ],
     [ "netcdf_add_restart_variable", "interfacenetcdf__io__mod_1_1netcdf__add__restart__variable.html", [
       [ "netcdf_add_restart_variable_0d", "interfacenetcdf__io__mod_1_1netcdf__add__restart__variable.html#a60f3a2a1e5100cc027342f0cc3227f48", null ],
@@ -105,14 +106,6 @@ var group__netcdf__io__mod =
       [ "netcdf_write_data_4d", "interfacenetcdf__io__mod_1_1netcdf__write__data.html#a6cc9b229f8e0ddff777627e6f756840f", null ],
       [ "netcdf_write_data_5d", "interfacenetcdf__io__mod_1_1netcdf__write__data.html#a7d721864af59c01c3944a10da4cff8dd", null ]
     ] ],
-    [ "compressed_write", "interfacenetcdf__io__mod_1_1compressed__write.html", [
-      [ "compressed_write_0d", "interfacenetcdf__io__mod_1_1compressed__write.html#aa5fe1ed27d938eb5584aebeb1f3fc433", null ],
-      [ "compressed_write_1d", "interfacenetcdf__io__mod_1_1compressed__write.html#aa6d1783b6bba4f48402a2b670ded895e", null ],
-      [ "compressed_write_2d", "interfacenetcdf__io__mod_1_1compressed__write.html#a644e5d0d46c06a8ccbf5eee8700caf0e", null ],
-      [ "compressed_write_3d", "interfacenetcdf__io__mod_1_1compressed__write.html#a47357bb874f64f65af1376f69eb729c4", null ],
-      [ "compressed_write_4d", "interfacenetcdf__io__mod_1_1compressed__write.html#a0ae230e872f6e6c020869168bb853aca", null ],
-      [ "compressed_write_5d", "interfacenetcdf__io__mod_1_1compressed__write.html#a02d4f1052ab5dcbe2822859075cdd10f", null ]
-    ] ],
     [ "register_global_attribute", "interfacenetcdf__io__mod_1_1register__global__attribute.html", [
       [ "register_global_attribute_0d", "interfacenetcdf__io__mod_1_1register__global__attribute.html#afbc48ba7816a7d93703b95222d6312f1", null ],
       [ "register_global_attribute_1d", "interfacenetcdf__io__mod_1_1register__global__attribute.html#a08972447e5f29247b3e1a2aaf549b294", null ]
@@ -121,25 +114,32 @@ var group__netcdf__io__mod =
       [ "register_variable_attribute_0d", "interfacenetcdf__io__mod_1_1register__variable__attribute.html#a65e3bcf4d9f1d32191b1e8b4dc4c2638", null ],
       [ "register_variable_attribute_1d", "interfacenetcdf__io__mod_1_1register__variable__attribute.html#a48d6e0935bbef85bca39d58559c6a860", null ]
     ] ],
-    [ "get_global_attribute", "interfacenetcdf__io__mod_1_1get__global__attribute.html", [
-      [ "get_global_attribute_0d", "interfacenetcdf__io__mod_1_1get__global__attribute.html#a9f16a31d063d1ba758229507a7c9a1f3", null ],
-      [ "get_global_attribute_1d", "interfacenetcdf__io__mod_1_1get__global__attribute.html#a19cb59e6544760d3d56a4aad6b7a435e", null ]
-    ] ],
-    [ "get_variable_attribute", "interfacenetcdf__io__mod_1_1get__variable__attribute.html", [
-      [ "get_variable_attribute_0d", "interfacenetcdf__io__mod_1_1get__variable__attribute.html#a45f4c647d68400003f2bc11ea82c5e10", null ],
-      [ "get_variable_attribute_1d", "interfacenetcdf__io__mod_1_1get__variable__attribute.html#a6489ba64c5e49db79d17f121a7ae2ddf", null ]
+    [ "restartvariable_t", "structnetcdf__io__mod_1_1restartvariable__t.html", [
+      [ "bc_info", "structnetcdf__io__mod_1_1restartvariable__t.html#ab4779d0a1621157762be82ca743b4f92", null ],
+      [ "data0d", "structnetcdf__io__mod_1_1restartvariable__t.html#aeff307f84b5088c03e4726f69d1d19cd", null ],
+      [ "data1d", "structnetcdf__io__mod_1_1restartvariable__t.html#a9afe2b36228c9b409e4333687f34b632", null ],
+      [ "data2d", "structnetcdf__io__mod_1_1restartvariable__t.html#a29d9cbab6f66134a2b236df99273d072", null ],
+      [ "data3d", "structnetcdf__io__mod_1_1restartvariable__t.html#ae2640f9ecd04bf3876cfe00317db292a", null ],
+      [ "data4d", "structnetcdf__io__mod_1_1restartvariable__t.html#af12132ca9cc62d263bbeaed80657385f", null ],
+      [ "data5d", "structnetcdf__io__mod_1_1restartvariable__t.html#a328d97e8ffcd6133885083f84cffd806", null ],
+      [ "is_bc_variable", "structnetcdf__io__mod_1_1restartvariable__t.html#a6fe61ed62d2bc68ef74048beca942e16", null ],
+      [ "varname", "structnetcdf__io__mod_1_1restartvariable__t.html#a5a86657112c12b43f3e6e69df3397e8e", null ],
+      [ "was_read", "structnetcdf__io__mod_1_1restartvariable__t.html#a5f9de057e646862567efc30ed68fcce9", null ]
     ] ],
     [ "scatter_data_bc", "interfacenetcdf__io__mod_1_1scatter__data__bc.html", [
       [ "scatter_data_bc_2d", "interfacenetcdf__io__mod_1_1scatter__data__bc.html#a28430691effeef7e3195fe541a2b0ad1", null ],
       [ "scatter_data_bc_3d", "interfacenetcdf__io__mod_1_1scatter__data__bc.html#a446103663882a955a4c5e1122ec6d6e7", null ]
     ] ],
-    [ "gather_data_bc", "interfacenetcdf__io__mod_1_1gather__data__bc.html", [
-      [ "gather_data_bc_2d", "interfacenetcdf__io__mod_1_1gather__data__bc.html#a775d3a6508db6de07a59ae725606be9a", null ],
-      [ "gather_data_bc_3d", "interfacenetcdf__io__mod_1_1gather__data__bc.html#abae993f2cde9f21056f1d9ee2f69c2d7", null ]
-    ] ],
-    [ "is_valid", "interfacenetcdf__io__mod_1_1is__valid.html", [
-      [ "is_valid_r4", "interfacenetcdf__io__mod_1_1is__valid.html#a76d443d0cf9678b865c5eae4f6bbb048", null ],
-      [ "is_valid_r8", "interfacenetcdf__io__mod_1_1is__valid.html#a7a8e8eebb1cf097e2ba7d23307d26357", null ]
+    [ "valid_t", "structnetcdf__io__mod_1_1valid__t.html", [
+      [ "fill_val", "structnetcdf__io__mod_1_1valid__t.html#a82133f3f43925cb22979f5ba8f3dea64", null ],
+      [ "has_fill", "structnetcdf__io__mod_1_1valid__t.html#a04822713b07c7305dd5a6c46f7274541", null ],
+      [ "has_max", "structnetcdf__io__mod_1_1valid__t.html#addd10dc89527102955dd06f597c9a628", null ],
+      [ "has_min", "structnetcdf__io__mod_1_1valid__t.html#a3c3aefc7094b7d7b0b5de8eb902518b4", null ],
+      [ "has_missing", "structnetcdf__io__mod_1_1valid__t.html#ae3746deefd70fa56979115d54dcca55e", null ],
+      [ "has_range", "structnetcdf__io__mod_1_1valid__t.html#aa4cf509d4c801f6eef067e0c4e883c60", null ],
+      [ "max_val", "structnetcdf__io__mod_1_1valid__t.html#ac3c28416c9b58e6283c32d298d3ba169", null ],
+      [ "min_val", "structnetcdf__io__mod_1_1valid__t.html#a93f875f59747b6346dae39431b344f18", null ],
+      [ "missing_val", "structnetcdf__io__mod_1_1valid__t.html#ae0ffc7a149befc4ef174d1e5584d2dc6", null ]
     ] ],
     [ "add_restart_var_to_array", "group__netcdf__io__mod.html#gaf837b3e90dc573ee35e03851f5fe33e7", null ],
     [ "append_compressed_dimension", "group__netcdf__io__mod.html#ga05a0384074613e875df4ce1e9cc708a0", null ],

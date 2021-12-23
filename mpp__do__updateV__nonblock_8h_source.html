@@ -177,8 +177,8 @@ $(document).ready(function(){initNavTree('mpp__do__updateV__nonblock_8h_source.h
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  nlist  = size(domain%list(:))</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  ptr    = LOC(mpp_domains_stack_nonblock)</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  nrecv = get_vector_recv(domain, update_x, update_y, ind_recv_x, ind_recv_y, start_pos_recv, from_pe_list)</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  nsend = get_vector_send(domain, update_x, update_y, ind_send_x, ind_send_y, start_pos_send, to_pe_list)</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  nrecv = <a class="code" href="group__mpp__domains__mod.html#gab42a30be2e6c2832943ebf00cae220ab">get_vector_recv</a>(domain, update_x, update_y, ind_recv_x, ind_recv_y, start_pos_recv, from_pe_list)</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  nsend = <a class="code" href="group__mpp__domains__mod.html#ga35386ce7af6389219d64dd2f6fa25fd3">get_vector_send</a>(domain, update_x, update_y, ind_send_x, ind_send_y, start_pos_send, to_pe_list)</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  if( nrecv &gt; MAX_REQUEST  ) then</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;     write( text,<span class="stringliteral">&#39;(a,i8,a,i8)&#39;</span> ) <span class="stringliteral">&#39;nrecv =&#39;</span>, nrecv, <span class="stringliteral">&#39; greater than MAX_REQEUST =&#39;</span>, MAX_REQUEST</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;     call mpp_error(FATAL,<span class="stringliteral">&#39;MPP_START_DO_UPDATE_V: &#39;</span><span class="comment">//trim(text))</span></div>
@@ -688,7 +688,7 @@ $(document).ready(function(){initNavTree('mpp__do__updateV__nonblock_8h_source.h
 <div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;  nlist  = size(domain%list(:))</div>
 <div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;  ptr = LOC(mpp_domains_stack_nonblock)</div>
 <div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160; </div>
-<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;  nrecv = get_vector_recv(domain, update_x, update_y, ind_recv_x, ind_recv_y, start_pos_recv, from_pe_list)</div>
+<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;  nrecv = <a class="code" href="group__mpp__domains__mod.html#gab42a30be2e6c2832943ebf00cae220ab">get_vector_recv</a>(domain, update_x, update_y, ind_recv_x, ind_recv_y, start_pos_recv, from_pe_list)</div>
 <div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160; </div>
 <div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;  if(nrecv &gt; 0) then</div>
 <div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;     call mpp_clock_begin(wait_clock_nonblock)</div>
@@ -1203,6 +1203,8 @@ $(document).ready(function(){initNavTree('mpp__do__updateV__nonblock_8h_source.h
 <div class="line"><a name="l01107"></a><span class="lineno"> 1107</span>&#160;end subroutine MPP_COMPLETE_DO_UPDATE_3D_V_</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="agroup__mpp__domains__mod_html_ga35386ce7af6389219d64dd2f6fa25fd3"><div class="ttname"><a href="group__mpp__domains__mod.html#ga35386ce7af6389219d64dd2f6fa25fd3">get_vector_send</a></div><div class="ttdeci">integer function get_vector_send(domain, update_x, update_y, ind_x, ind_y, start_pos, pelist)</div><div class="ttdoc">Set user stack size.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__util_8inc_source.html#l01588">mpp_domains_util.inc:1588</a></div></div>
+<div class="ttc" id="agroup__mpp__domains__mod_html_gab42a30be2e6c2832943ebf00cae220ab"><div class="ttname"><a href="group__mpp__domains__mod.html#gab42a30be2e6c2832943ebf00cae220ab">get_vector_recv</a></div><div class="ttdeci">integer function get_vector_recv(domain, update_x, update_y, ind_x, ind_y, start_pos, pelist)</div><div class="ttdoc">Set user stack size.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__util_8inc_source.html#l01522">mpp_domains_util.inc:1522</a></div></div>
 <div class="ttc" id="ampp__util__mpi_8inc_html_a09e69243d8c67e6a6e6e4fd9e93d0870"><div class="ttname"><a href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a></div><div class="ttdeci">subroutine mpp_sync_self(pelist, check, request, msg_size, msg_type)</div><div class="ttdoc">This is to check if current PE's outstanding puts are complete but we can't use shmem_fence because w...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util__mpi_8inc_source.html#l00169">mpp_util_mpi.inc:169</a></div></div>
 <div class="ttc" id="agroup__fms__io__mod_html_gae85b018bca1141b3510db6f38fdc50bf"><div class="ttname"><a href="group__fms__io__mod.html#gae85b018bca1141b3510db6f38fdc50bf">fms_io_mod::je</a></div><div class="ttdeci">integer, private je</div><div class="ttdoc">compute domain</div><div class="ttdef"><b>Definition:</b> <a href="fms__io_8F90_source.html#l00518">fms_io.F90:518</a></div></div>
 <!-- start footer part -->
