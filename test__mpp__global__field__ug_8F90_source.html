@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>FMS: test_fms/mpp/test_mpp_global_field_ug.F90 Source File</title>
+<title>FMS: test_fms/mpp/test_mpp_global_field_ug.F90 (8b3cd80f6be195341fa8d686ba24847b732122a4) Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -117,14 +117,14 @@ $(document).ready(function(){initNavTree('test__mpp__global__field__ug_8F90_sour
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <span class="keywordtype">use </span>platform_mod</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespacecompare__data__checksums.html">compare_data_checksums</a></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespacecompare__data__checksums__int.html">compare_data_checksums_int</a></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="keywordtype">use </span>mpp_mod,         <span class="keywordtype">only</span> : <a class="code" href="mpp__comm__mpi_8inc.html#a271b4c9584f2b514df4439086add4198">mpp_init</a>, <a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>, fatal, note, mpp_init_test_requests_allocated</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <span class="keywordtype">use </span>mpp_mod,         <span class="keywordtype">only</span> : <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>, <a class="code" href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>, mpp_root_pe, <a class="code" href="interfacempp__mod_1_1mpp__broadcast.html">mpp_broadcast</a></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keywordtype">use </span>mpp_domains_mod, <span class="keywordtype">only</span> : <a class="code" href="group__mpp__domains__mod.html#ga395663978bf22825d9d8a8b4c29a5510">mpp_domains_init</a>,  <a class="code" href="group__mpp__domains__mod.html#gae1f3c0c5c574686aac6c1595b1ca0b66">mpp_domains_set_stack_size</a>, <a class="code" href="group__mpp__domains__mod.html#ga9a55eba87e8167e3f3ba2dc913a1d9d8">mpp_domains_exit</a></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <span class="keywordtype">use </span>mpp_domains_mod, <span class="keywordtype">only</span> : <a class="code" href="interfacempp__domains__mod_1_1mpp__define__layout.html">mpp_define_layout</a>, <a class="code" href="group__mpp__domains__mod.html#ga943b352aa3b86ef8351d9589f5686a50">mpp_define_mosaic</a>, <a class="code" href="interfacempp__domains__mod_1_1mpp__get__compute__domain.html">mpp_get_compute_domain</a>, <a class="code" href="interfacempp__domains__mod_1_1mpp__get__compute__domains.html">mpp_get_compute_domains</a>, <a class="code" href="interfacempp__domains__mod_1_1mpp__get__data__domain.html">mpp_get_data_domain</a></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="keywordtype">use </span>mpp_mod,         <span class="keywordtype">only</span> : mpp_init, <a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>, fatal, note, mpp_init_test_requests_allocated</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <span class="keywordtype">use </span>mpp_mod,         <span class="keywordtype">only</span> : mpp_pe, mpp_npes, mpp_root_pe, <a class="code" href="interfacempp__mod_1_1mpp__broadcast.html">mpp_broadcast</a></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keywordtype">use </span>mpp_domains_mod, <span class="keywordtype">only</span> : mpp_domains_init,  mpp_domains_set_stack_size, mpp_domains_exit</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <span class="keywordtype">use </span>mpp_domains_mod, <span class="keywordtype">only</span> : <a class="code" href="interfacempp__domains__mod_1_1mpp__define__layout.html">mpp_define_layout</a>, mpp_define_mosaic, <a class="code" href="interfacempp__domains__mod_1_1mpp__get__compute__domain.html">mpp_get_compute_domain</a>, <a class="code" href="interfacempp__domains__mod_1_1mpp__get__compute__domains.html">mpp_get_compute_domains</a>, <a class="code" href="interfacempp__domains__mod_1_1mpp__get__data__domain.html">mpp_get_data_domain</a></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <span class="keywordtype">use </span>mpp_domains_mod, <span class="keywordtype">only</span> : mpp_get_ug_global_domain, <a class="code" href="interfacempp__domains__mod_1_1mpp__global__field__ug.html">mpp_global_field_ug</a></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <span class="keywordtype">use </span>mpp_domains_mod, <span class="keywordtype">only</span> : <a class="code" href="structmpp__domains__mod_1_1domain2d.html">domain2d</a>, <a class="code" href="structmpp__domains__mod_1_1domainug.html">domainug</a>, <a class="code" href="mpp__unstruct__domain_8inc.html#a0dc077caf4660cca3b0971fb5fa71f8c">mpp_define_unstruct_domain</a>, mpp_get_ug_domain_tile_id</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <span class="keywordtype">use </span>mpp_domains_mod, <span class="keywordtype">only</span> : <a class="code" href="structmpp__domains__mod_1_1domain2d.html">domain2d</a>, <a class="code" href="structmpp__domains__mod_1_1domainug.html">domainug</a>, mpp_define_unstruct_domain, mpp_get_ug_domain_tile_id</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="keywordtype">use </span>mpp_domains_mod, <span class="keywordtype">only</span> : mpp_get_ug_compute_domain, <a class="code" href="interfacempp__domains__mod_1_1mpp__pass__sg__to__ug.html">mpp_pass_sg_to_ug</a>, <a class="code" href="interfacempp__domains__mod_1_1mpp__pass__ug__to__sg.html">mpp_pass_ug_to_sg</a></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="keywordtype">use </span>mpp_domains_mod, <span class="keywordtype">only</span> : mpp_get_ug_global_domain, <a class="code" href="interfacempp__domains__mod_1_1mpp__global__field__ug.html">mpp_global_field_ug</a>, <a class="code" href="group__mpp__domains__mod.html#ga3e6966c50533fbb40ae4ac5d7027c632">mpp_get_tile_id</a></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="keywordtype">use </span>mpp_domains_mod, <span class="keywordtype">only</span> : mpp_get_ug_global_domain, <a class="code" href="interfacempp__domains__mod_1_1mpp__global__field__ug.html">mpp_global_field_ug</a>, mpp_get_tile_id</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keywordtype">implicit none</span></div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
@@ -149,14 +149,14 @@ $(document).ready(function(){initNavTree('test__mpp__global__field__ug_8F90_sour
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="keywordtype">integer</span> :: ierr</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">  !&gt; call mpp_init</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="keyword">call </span><a class="code" href="mpp__comm__mpi_8inc.html#a271b4c9584f2b514df4439086add4198">mpp_init</a>(test_level=mpp_init_test_requests_allocated)</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="keyword">call </span>mpp_init(test_level=mpp_init_test_requests_allocated)</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">  !&gt; get pe info</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  pe   = <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  npes = <a class="code" href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>()</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  pe   = mpp_pe()</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  npes = mpp_npes()</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">  !&gt; initialize mpp domain(s)</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="keyword">call </span><a class="code" href="group__mpp__domains__mod.html#ga395663978bf22825d9d8a8b4c29a5510">mpp_domains_init</a>()</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="keyword">call </span>mpp_domains_init()</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="keyword">call </span>setup_domains()</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
@@ -165,7 +165,7 @@ $(document).ready(function(){initNavTree('test__mpp__global__field__ug_8F90_sour
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <span class="keyword">call </span>mpp_global_field_ug_i4()</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  <span class="keyword">call </span>mpp_global_field_ug_i8()</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="keyword">call </span><a class="code" href="group__mpp__domains__mod.html#ga9a55eba87e8167e3f3ba2dc913a1d9d8">mpp_domains_exit</a>()</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="keyword">call </span>mpp_domains_exit()</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <span class="keyword">call </span>mpi_finalize(ierr)</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
@@ -195,7 +195,7 @@ $(document).ready(function(){initNavTree('test__mpp__global__field__ug_8F90_sour
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="comment">!--- test the 2-D data is on computing domain</span></div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keyword">allocate</span>( a1(isc:iec, jsc:jec,1), a2(isc:iec,jsc:jec,1 ) )</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    tile = <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()/npes_per_tile + 1</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    tile = mpp_pe()/npes_per_tile + 1</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keywordflow">do</span> j = jsc, jec</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;       <span class="keywordflow">do</span> i = isc, iec</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;          a1(i,j,1) = gdata(i,j,tile)</div>
@@ -227,7 +227,7 @@ $(document).ready(function(){initNavTree('test__mpp__global__field__ug_8F90_sour
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="comment">!--- test the 3-D data is on computing domain</span></div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keyword">allocate</span>( a1(isc:iec, jsc:jec,nz), a2(isc:iec,jsc:jec,nz ) )</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    tile = <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()/npes_per_tile + 1</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    tile = mpp_pe()/npes_per_tile + 1</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="keywordflow">do</span> k = 1, nz</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;       <span class="keywordflow">do</span> j = jsc, jec</div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;          <span class="keywordflow">do</span> i = isc, iec</div>
@@ -312,7 +312,7 @@ $(document).ready(function(){initNavTree('test__mpp__global__field__ug_8F90_sour
 <div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160; </div>
 <div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    <span class="comment">!--- test the 2-D data is on computing domain</span></div>
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    <span class="keyword">allocate</span>( a1(isc:iec, jsc:jec,1), a2(isc:iec,jsc:jec,1 ) )</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    tile = <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()/npes_per_tile + 1</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    tile = mpp_pe()/npes_per_tile + 1</div>
 <div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    <span class="keywordflow">do</span> j = jsc, jec</div>
 <div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;       <span class="keywordflow">do</span> i = isc, iec</div>
 <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;          a1(i,j,1) = gdata(i,j,tile)</div>
@@ -344,7 +344,7 @@ $(document).ready(function(){initNavTree('test__mpp__global__field__ug_8F90_sour
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    <span class="comment">!--- test the 3-D data is on computing domain</span></div>
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    <span class="keyword">allocate</span>( a1(isc:iec, jsc:jec,nz), a2(isc:iec,jsc:jec,nz ) )</div>
 <div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160; </div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    tile = <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()/npes_per_tile + 1</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    tile = mpp_pe()/npes_per_tile + 1</div>
 <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    <span class="keywordflow">do</span> k = 1, nz</div>
 <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;       <span class="keywordflow">do</span> j = jsc, jec</div>
 <div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;          <span class="keywordflow">do</span> i = isc, iec</div>
@@ -429,7 +429,7 @@ $(document).ready(function(){initNavTree('test__mpp__global__field__ug_8F90_sour
 <div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160; </div>
 <div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    <span class="comment">!--- test the 2-D data is on computing domain</span></div>
 <div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    <span class="keyword">allocate</span>( a1(isc:iec, jsc:jec,1), a2(isc:iec,jsc:jec,1 ) )</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    tile = <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()/npes_per_tile + 1</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    tile = mpp_pe()/npes_per_tile + 1</div>
 <div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    <span class="keywordflow">do</span> j = jsc, jec</div>
 <div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;       <span class="keywordflow">do</span> i = isc, iec</div>
 <div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;          a1(i,j,1) = gdata(i,j,tile)</div>
@@ -461,7 +461,7 @@ $(document).ready(function(){initNavTree('test__mpp__global__field__ug_8F90_sour
 <div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;    <span class="comment">!--- test the 3-D data is on computing domain</span></div>
 <div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;    <span class="keyword">allocate</span>( a1(isc:iec, jsc:jec,nz), a2(isc:iec,jsc:jec,nz ) )</div>
 <div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160; </div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;    tile = <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()/npes_per_tile + 1</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;    tile = mpp_pe()/npes_per_tile + 1</div>
 <div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;    <span class="keywordflow">do</span> k = 1, nz</div>
 <div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;       <span class="keywordflow">do</span> j = jsc, jec</div>
 <div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;          <span class="keywordflow">do</span> i = isc, iec</div>
@@ -629,7 +629,7 @@ $(document).ready(function(){initNavTree('test__mpp__global__field__ug_8F90_sour
 <div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160; </div>
 <div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;    <span class="keyword">allocate</span>( lmask(nx,ny,ntiles), npts_tile(ntiles) )</div>
 <div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;    lmask = .false.</div>
-<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe() ) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;    <span class="keywordflow">if</span>(mpp_pe() == mpp_root_pe() ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;       <span class="keyword">allocate</span>( rmask(nx,ny) )</div>
 <div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;       <span class="comment">!--- construct gmask.</span></div>
 <div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;       <span class="keywordflow">do</span> n = 1, ntiles</div>
@@ -644,8 +644,8 @@ $(document).ready(function(){initNavTree('test__mpp__global__field__ug_8F90_sour
 <div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160; </div>
 <div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;       ntotal_land = sum(npts_tile)</div>
 <div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;       <span class="keyword">allocate</span>(grid_index(ntotal_land))</div>
-<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;       <span class="keyword">allocate</span>(isl(0:<a class="code" href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>()-1), iel(0:<a class="code" href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>()-1))</div>
-<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;       <span class="keyword">allocate</span>(jsl(0:<a class="code" href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>()-1), jel(0:<a class="code" href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>()-1))</div>
+<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;       <span class="keyword">allocate</span>(isl(0:mpp_npes()-1), iel(0:mpp_npes()-1))</div>
+<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;       <span class="keyword">allocate</span>(jsl(0:mpp_npes()-1), jel(0:mpp_npes()-1))</div>
 <div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;       <span class="keyword">call </span><a class="code" href="interfacempp__domains__mod_1_1mpp__get__compute__domains.html">mpp_get_compute_domains</a>(sg_domain,xbegin=isl,xend=iel,ybegin=jsl,yend=jel)</div>
 <div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160; </div>
 <div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;       l = 0</div>
@@ -665,7 +665,7 @@ $(document).ready(function(){initNavTree('test__mpp__global__field__ug_8F90_sour
 <div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;<span class="keywordflow">    end if</span></div>
 <div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160; </div>
 <div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__broadcast.html">mpp_broadcast</a>(npts_tile, ntiles, mpp_root_pe())</div>
-<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() .NE. mpp_root_pe()) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;    <span class="keywordflow">if</span>(mpp_pe() .NE. mpp_root_pe()) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;       ntotal_land = sum(npts_tile)</div>
 <div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;       <span class="keyword">allocate</span>(grid_index(ntotal_land))</div>
 <div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;<span class="keywordflow">    endif</span></div>
@@ -674,7 +674,7 @@ $(document).ready(function(){initNavTree('test__mpp__global__field__ug_8F90_sour
 <div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;    <span class="keyword">allocate</span>(ntiles_grid(ntotal_land))</div>
 <div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;    ntiles_grid = 1</div>
 <div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;    <span class="comment">!--- define the unstructured grid domain</span></div>
-<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;    <span class="keyword">call </span><a class="code" href="mpp__unstruct__domain_8inc.html#a0dc077caf4660cca3b0971fb5fa71f8c">mpp_define_unstruct_domain</a>(ug_domain, sg_domain, npts_tile, ntiles_grid, <a class="code" href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>(), 1, grid_index, name=<span class="stringliteral">&quot;LAND unstruct&quot;</span>)</div>
+<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;    <span class="keyword">call </span>mpp_define_unstruct_domain(ug_domain, sg_domain, npts_tile, ntiles_grid, mpp_npes(), 1, grid_index, name=<span class="stringliteral">&quot;LAND unstruct&quot;</span>)</div>
 <div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;    <span class="keyword">call </span>mpp_get_ug_compute_domain(ug_domain, istart, iend)</div>
 <div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160; </div>
 <div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;    <span class="comment">!--- figure out lmask according to grid_index</span></div>
@@ -777,12 +777,12 @@ $(document).ready(function(){initNavTree('test__mpp__global__field__ug_8F90_sour
 <div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;    msize(2) = maxval(nj(:)/layout(2,:)) + shalo + nhalo + 1 <span class="comment">! data domain size</span></div>
 <div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160; </div>
 <div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;    <span class="keywordflow">if</span>(use_memsize_local) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;       <span class="keyword">call </span><a class="code" href="group__mpp__domains__mod.html#ga943b352aa3b86ef8351d9589f5686a50">mpp_define_mosaic</a>(global_indices, layout, domain, ntiles, num_contact, tile1, tile2, &amp;</div>
+<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;       <span class="keyword">call </span>mpp_define_mosaic(global_indices, layout, domain, ntiles, num_contact, tile1, tile2, &amp;</div>
 <div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;         istart1, iend1, jstart1, jend1, istart2, iend2, jstart2, jend2,      &amp;</div>
 <div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;         pe_start, pe_end, symmetry = .true., whalo=whalo, ehalo=ehalo,   &amp;</div>
 <div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;         shalo=shalo, nhalo=nhalo, name = trim(type), memory_size = msize  )</div>
 <div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;       <span class="keyword">call </span><a class="code" href="group__mpp__domains__mod.html#ga943b352aa3b86ef8351d9589f5686a50">mpp_define_mosaic</a>(global_indices, layout, domain, ntiles, num_contact, tile1, tile2, &amp;</div>
+<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;       <span class="keyword">call </span>mpp_define_mosaic(global_indices, layout, domain, ntiles, num_contact, tile1, tile2, &amp;</div>
 <div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;         istart1, iend1, jstart1, jend1, istart2, iend2, jstart2, jend2,      &amp;</div>
 <div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;         pe_start, pe_end, symmetry = .true., whalo=whalo, ehalo=ehalo,   &amp;</div>
 <div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;         shalo=shalo, nhalo=nhalo, name = trim(type) )</div>
@@ -802,21 +802,12 @@ $(document).ready(function(){initNavTree('test__mpp__global__field__ug_8F90_sour
 <div class="ttc" id="ainterfacempp__mod_1_1mpp__error_html"><div class="ttname"><a href="interfacempp__mod_1_1mpp__error.html">mpp_mod::mpp_error</a></div><div class="ttdoc">Error handler.</div><div class="ttdef"><b>Definition:</b> <a href="mpp_8F90_source.html#l00386">mpp.F90:386</a></div></div>
 <div class="ttc" id="ainterfacempp__domains__mod_1_1mpp__get__compute__domains_html"><div class="ttname"><a href="interfacempp__domains__mod_1_1mpp__get__compute__domains.html">mpp_domains_mod::mpp_get_compute_domains</a></div><div class="ttdoc">Retrieve the entire array of compute domain extents associated with a decomposition.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains_8F90_source.html#l02148">mpp_domains.F90:2148</a></div></div>
 <div class="ttc" id="ainterfacecompare__data__checksums_1_1compare__checksums_html"><div class="ttname"><a href="interfacecompare__data__checksums_1_1compare__checksums.html">compare_data_checksums::compare_checksums</a></div><div class="ttdef"><b>Definition:</b> <a href="compare__data__checksums_8F90_source.html#l00035">compare_data_checksums.F90:35</a></div></div>
-<div class="ttc" id="ampp__unstruct__domain_8inc_html_a0dc077caf4660cca3b0971fb5fa71f8c"><div class="ttname"><a href="mpp__unstruct__domain_8inc.html#a0dc077caf4660cca3b0971fb5fa71f8c">mpp_define_unstruct_domain</a></div><div class="ttdeci">subroutine mpp_define_unstruct_domain(UG_domain, SG_domain, npts_tile, grid_nlev, ndivs, npes_io_group, grid_index, name)</div><div class="ttdef"><b>Definition:</b> <a href="mpp__unstruct__domain_8inc_source.html#l00026">mpp_unstruct_domain.inc:26</a></div></div>
-<div class="ttc" id="agroup__mpp__domains__mod_html_ga3e6966c50533fbb40ae4ac5d7027c632"><div class="ttname"><a href="group__mpp__domains__mod.html#ga3e6966c50533fbb40ae4ac5d7027c632">mpp_get_tile_id</a></div><div class="ttdeci">integer function, dimension(size(domain%tile_id(:))) mpp_get_tile_id(domain)</div><div class="ttdoc">Returns the tile_id on current pe.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__util_8inc_source.html#l01100">mpp_domains_util.inc:1100</a></div></div>
 <div class="ttc" id="ainterfacempp__domains__mod_1_1mpp__pass__ug__to__sg_html"><div class="ttname"><a href="interfacempp__domains__mod_1_1mpp__pass__ug__to__sg.html">mpp_domains_mod::mpp_pass_ug_to_sg</a></div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains_8F90_source.html#l01555">mpp_domains.F90:1555</a></div></div>
-<div class="ttc" id="ampp__comm__mpi_8inc_html_a271b4c9584f2b514df4439086add4198"><div class="ttname"><a href="mpp__comm__mpi_8inc.html#a271b4c9584f2b514df4439086add4198">mpp_init</a></div><div class="ttdeci">subroutine mpp_init(flags, localcomm, test_level, alt_input_nml_path)</div><div class="ttdoc">Initialize the mpp_mod module. Must be called before any usage.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__comm__mpi_8inc_source.html#l00032">mpp_comm_mpi.inc:32</a></div></div>
 <div class="ttc" id="ainterfacempp__domains__mod_1_1mpp__pass__sg__to__ug_html"><div class="ttname"><a href="interfacempp__domains__mod_1_1mpp__pass__sg__to__ug.html">mpp_domains_mod::mpp_pass_sg_to_ug</a></div><div class="ttdoc">Passes data from a structured grid to an unstructured grid  Example usage:</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains_8F90_source.html#l01543">mpp_domains.F90:1543</a></div></div>
-<div class="ttc" id="agroup__mpp__domains__mod_html_ga9a55eba87e8167e3f3ba2dc913a1d9d8"><div class="ttname"><a href="group__mpp__domains__mod.html#ga9a55eba87e8167e3f3ba2dc913a1d9d8">mpp_domains_exit</a></div><div class="ttdeci">subroutine mpp_domains_exit()</div><div class="ttdoc">Exit mpp_domains_mod. Serves no particular purpose, but is provided should you require to re-initiali...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__misc_8inc_source.html#l00168">mpp_domains_misc.inc:168</a></div></div>
-<div class="ttc" id="agroup__mpp__domains__mod_html_ga395663978bf22825d9d8a8b4c29a5510"><div class="ttname"><a href="group__mpp__domains__mod.html#ga395663978bf22825d9d8a8b4c29a5510">mpp_domains_init</a></div><div class="ttdeci">subroutine mpp_domains_init(flags)</div><div class="ttdoc">Initialize domain decomp package.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__misc_8inc_source.html#l00045">mpp_domains_misc.inc:45</a></div></div>
 <div class="ttc" id="anamespacecompare__data__checksums__int_html"><div class="ttname"><a href="namespacecompare__data__checksums__int.html">compare_data_checksums_int</a></div><div class="ttdoc">Compare the checksums of 2D and 3D 32-bit or 64-bit integer arrays.</div><div class="ttdef"><b>Definition:</b> <a href="compare__data__checksums__int_8F90_source.html#l00021">compare_data_checksums_int.F90:21</a></div></div>
-<div class="ttc" id="agroup__mpp__domains__mod_html_gae1f3c0c5c574686aac6c1595b1ca0b66"><div class="ttname"><a href="group__mpp__domains__mod.html#gae1f3c0c5c574686aac6c1595b1ca0b66">mpp_domains_set_stack_size</a></div><div class="ttdeci">subroutine mpp_domains_set_stack_size(n)</div><div class="ttdoc">Set user stack size.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__util_8inc_source.html#l00036">mpp_domains_util.inc:36</a></div></div>
 <div class="ttc" id="ainterfacecompare__data__checksums__int_1_1compare__checksums__int_html"><div class="ttname"><a href="interfacecompare__data__checksums__int_1_1compare__checksums__int.html">compare_data_checksums_int::compare_checksums_int</a></div><div class="ttdef"><b>Definition:</b> <a href="compare__data__checksums__int_8F90_source.html#l00035">compare_data_checksums_int.F90:35</a></div></div>
-<div class="ttc" id="ampp__util_8inc_html_abf546cd336d5c539e445fb884f98ab6b"><div class="ttname"><a href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a></div><div class="ttdeci">integer function mpp_npes()</div><div class="ttdoc">Returns processor count for current pelist.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00390">mpp_util.inc:390</a></div></div>
 <div class="ttc" id="ainterfacempp__mod_1_1mpp__broadcast_html"><div class="ttname"><a href="interfacempp__mod_1_1mpp__broadcast.html">mpp_mod::mpp_broadcast</a></div><div class="ttdoc">Perform parallel broadcasts.</div><div class="ttdef"><b>Definition:</b> <a href="mpp_8F90_source.html#l01045">mpp.F90:1045</a></div></div>
-<div class="ttc" id="ampp__util_8inc_html_acfeba7de56f9dd6000b3fd78f9d56c50"><div class="ttname"><a href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a></div><div class="ttdeci">integer function mpp_pe()</div><div class="ttdoc">Returns processor ID.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00376">mpp_util.inc:376</a></div></div>
 <div class="ttc" id="astructmpp__domains__mod_1_1domainug_html"><div class="ttname"><a href="structmpp__domains__mod_1_1domainug.html">mpp_domains_mod::domainug</a></div><div class="ttdoc">Domain information for managing data on unstructured grids.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains_8F90_source.html#l00267">mpp_domains.F90:267</a></div></div>
-<div class="ttc" id="agroup__mpp__domains__mod_html_ga943b352aa3b86ef8351d9589f5686a50"><div class="ttname"><a href="group__mpp__domains__mod.html#ga943b352aa3b86ef8351d9589f5686a50">mpp_define_mosaic</a></div><div class="ttdeci">subroutine mpp_define_mosaic(global_indices, layout, domain, num_tile, num_contact, tile1, tile2, istart1, iend1, jstart1, jend1, istart2, iend2, jstart2, jend2, pe_start, pe_end, pelist, whalo, ehalo, shalo, nhalo, xextent, yextent, maskmap, name, memory_size, symmetry, xflags, yflags, tile_id)</div><div class="ttdoc">Defines a domain for mosaic tile grids.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__define_8inc_source.html#l01167">mpp_domains_define.inc:1167</a></div></div>
 <div class="ttc" id="ainterfacempp__domains__mod_1_1mpp__define__layout_html"><div class="ttname"><a href="interfacempp__domains__mod_1_1mpp__define__layout.html">mpp_domains_mod::mpp_define_layout</a></div><div class="ttdoc">Retrieve layout associated with a domain decomposition. Given a global 2D domain and the number of di...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains_8F90_source.html#l00765">mpp_domains.F90:765</a></div></div>
 <div class="ttc" id="ainterfacempp__domains__mod_1_1mpp__get__data__domain_html"><div class="ttname"><a href="interfacempp__domains__mod_1_1mpp__get__data__domain.html">mpp_domains_mod::mpp_get_data_domain</a></div><div class="ttdoc">These routines retrieve the axis specifications associated with the data domains. The domain is a der...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains_8F90_source.html#l02168">mpp_domains.F90:2168</a></div></div>
 <!-- start footer part -->

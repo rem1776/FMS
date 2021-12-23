@@ -555,6 +555,5 @@ var annotated_dup =
     ] ],
     [ "assertequals", "interfaceassertequals.html", null ],
     [ "atm_type", "structatm__type.html", "structatm__type" ],
-    [ "data_type", "structdata__type.html", "structdata__type" ],
-    [ "Node", "structNode.html", "structNode" ]
+    [ "data_type", "structdata__type.html", "structdata__type" ]
 ];

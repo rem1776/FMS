@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>FMS: mosaic2/grid2.F90 Source File</title>
+<title>FMS: mosaic2/grid2.F90 (8b3cd80f6be195341fa8d686ba24847b732122a4) Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -130,7 +130,7 @@ $(document).ready(function(){initNavTree('grid2_8F90_source.html',''); initResiz
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;     <a class="code" href="group__mosaic2__mod.html#ga97b91c95ac89b122e30722ce40dc0616">get_mosaic_xgrid</a>, <a class="code" href="group__mosaic2__mod.html#ga221df32f6bbbde1fa538e81b2d6e5b64">calc_mosaic_grid_area</a>, <a class="code" href="group__mosaic2__mod.html#ga888c0ca0883ce6f00915b6756ad34833">calc_mosaic_grid_great_circle_area</a></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">! the following two use statement are only needed for define_cube_mosaic</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keywordtype">use </span>mpp_domains_mod, <span class="keywordtype">only</span> : <a class="code" href="structmpp__domains__mod_1_1domain2d.html">domain2d</a>, <a class="code" href="group__mpp__domains__mod.html#ga943b352aa3b86ef8351d9589f5686a50">mpp_define_mosaic</a>, <a class="code" href="interfacempp__domains__mod_1_1mpp__get__compute__domain.html">mpp_get_compute_domain</a>, &amp;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keywordtype">use </span>mpp_domains_mod, <span class="keywordtype">only</span> : <a class="code" href="structmpp__domains__mod_1_1domain2d.html">domain2d</a>, mpp_define_mosaic, <a class="code" href="interfacempp__domains__mod_1_1mpp__get__compute__domain.html">mpp_get_compute_domain</a>, &amp;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                            <a class="code" href="interfacempp__domains__mod_1_1mpp__get__global__domain.html">mpp_get_global_domain</a>, <a class="code" href="structmpp__domains__mod_1_1domainug.html">domainug</a>, <a class="code" href="interfacempp__domains__mod_1_1mpp__pass__sg__to__ug.html">mpp_pass_sg_to_ug</a></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keywordtype">use </span>mosaic2_mod, <span class="keywordtype">only</span> : <a class="code" href="group__mosaic2__mod.html#gac2429423502563fb632cb8e6f9ade229">get_mosaic_ncontacts</a>, <a class="code" href="group__mosaic2__mod.html#ga36fcf0160ec415e03ec8c6cec51df3e4">get_mosaic_contact</a></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keywordtype">use </span>platform_mod</div>
@@ -1584,7 +1584,7 @@ $(document).ready(function(){initNavTree('grid2_8F90_source.html',''); initResiz
 <div class="line"><a name="l01488"></a><span class="lineno"> 1488</span>&#160;  ng = 0</div>
 <div class="line"><a name="l01489"></a><span class="lineno"> 1489</span>&#160;  <span class="keywordflow">if</span>(<span class="keyword">present</span>(halo)) ng = halo</div>
 <div class="line"><a name="l01490"></a><span class="lineno"> 1490</span>&#160;  <span class="comment">! create the domain2d variable</span></div>
-<div class="line"><a name="l01491"></a><span class="lineno"> 1491</span>&#160;  <span class="keyword">call </span><a class="code" href="group__mpp__domains__mod.html#ga943b352aa3b86ef8351d9589f5686a50">mpp_define_mosaic</a> ( global_indices, layout_2d, domain, &amp;</div>
+<div class="line"><a name="l01491"></a><span class="lineno"> 1491</span>&#160;  <span class="keyword">call </span>mpp_define_mosaic ( global_indices, layout_2d, domain, &amp;</div>
 <div class="line"><a name="l01492"></a><span class="lineno"> 1492</span>&#160;       ntiles, ncontacts, tile1, tile2,                  &amp;</div>
 <div class="line"><a name="l01493"></a><span class="lineno"> 1493</span>&#160;       is1, ie1, js1, je1, &amp;</div>
 <div class="line"><a name="l01494"></a><span class="lineno"> 1494</span>&#160;       is2, ie2, js2, je2, &amp;</div>
@@ -1658,7 +1658,6 @@ $(document).ready(function(){initNavTree('grid2_8F90_source.html',''); initResiz
 <div class="ttc" id="agroup__mosaic2__mod_html_ga221df32f6bbbde1fa538e81b2d6e5b64"><div class="ttname"><a href="group__mosaic2__mod.html#ga221df32f6bbbde1fa538e81b2d6e5b64">mosaic2_mod::calc_mosaic_grid_area</a></div><div class="ttdeci">subroutine, public calc_mosaic_grid_area(lon, lat, area)</div><div class="ttdoc">Calculate grid cell area. Calculate the grid cell area. The purpose of this routine is to make sure t...</div><div class="ttdef"><b>Definition:</b> <a href="mosaic2_8F90_source.html#l00434">mosaic2.F90:434</a></div></div>
 <div class="ttc" id="agroup__grid2__mod_html_ga8c32a137c7b6b0021108cc7f1d84716d"><div class="ttname"><a href="group__grid2__mod.html#ga8c32a137c7b6b0021108cc7f1d84716d">grid2_mod::get_grid_ntiles</a></div><div class="ttdeci">subroutine, public get_grid_ntiles(component, ntiles)</div><div class="ttdoc">returns number of tiles for a given component</div><div class="ttdef"><b>Definition:</b> <a href="grid2_8F90_source.html#l00285">grid2.F90:285</a></div></div>
 <div class="ttc" id="agroup__grid2__mod_html_ga235171d70d50e7614347ddc9b0b46f7b"><div class="ttname"><a href="group__grid2__mod.html#ga235171d70d50e7614347ddc9b0b46f7b">grid2_mod::grid_end</a></div><div class="ttdeci">subroutine, public grid_end</div><div class="ttdoc">Shutdown the grid2 module.</div><div class="ttdef"><b>Definition:</b> <a href="grid2_8F90_source.html#l00152">grid2.F90:152</a></div></div>
-<div class="ttc" id="agroup__mpp__domains__mod_html_ga943b352aa3b86ef8351d9589f5686a50"><div class="ttname"><a href="group__mpp__domains__mod.html#ga943b352aa3b86ef8351d9589f5686a50">mpp_define_mosaic</a></div><div class="ttdeci">subroutine mpp_define_mosaic(global_indices, layout, domain, num_tile, num_contact, tile1, tile2, istart1, iend1, jstart1, jend1, istart2, iend2, jstart2, jend2, pe_start, pe_end, pelist, whalo, ehalo, shalo, nhalo, xextent, yextent, maskmap, name, memory_size, symmetry, xflags, yflags, tile_id)</div><div class="ttdoc">Defines a domain for mosaic tile grids.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__define_8inc_source.html#l01167">mpp_domains_define.inc:1167</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>FMS: amip_interp/amip_interp.F90 Source File</title>
+<title>FMS: amip_interp/amip_interp.F90 (8b3cd80f6be195341fa8d686ba24847b732122a4) Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -181,8 +181,8 @@ $(document).ready(function(){initNavTree('amip__interp_8F90_source.html',''); in
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                             horiz_interp_type, <span class="keyword">assignment</span>(=)</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keywordtype">use           </span>fms_mod, <span class="keywordtype">only</span>: <a class="code" href="group__fms__mod.html#gae5c7420e421293e2be14717dd7b3d97f">error_mesg</a>, <a class="code" href="group__fms__mod.html#ga0c093df98a75dbd9e0f3add67aa6c23a">write_version_number</a>,  &amp;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                             note, warning, fatal, <a class="code" href="mpp__util_8inc.html#a8e5518df9532bae0241f53ab542294a2">stdlog</a>, <a class="code" href="group__fms__mod.html#ga05e7686befc1e49d2be9bdb81d479a76">check_nml_error</a>, &amp;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                             <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>, lowercase, mpp_root_pe,    &amp;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                             note, warning, fatal, stdlog, <a class="code" href="group__fms__mod.html#ga05e7686befc1e49d2be9bdb81d479a76">check_nml_error</a>, &amp;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                             mpp_pe, lowercase, mpp_root_pe,    &amp;</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                             note, mpp_error, <a class="code" href="group__fms__mod.html#ga6695d901d751a75f108c27aa385d9579">fms_error_handler</a></div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="keywordtype">use     </span>constants_mod, <span class="keywordtype">only</span>: <a class="code" href="group__constants__mod.html#ga722fa6ded6947c860a32b171bd428926">tfreeze</a>, <a class="code" href="group__constants__mod.html#gadc909cc70e4e20bc99fc3d3c53125808">pi</a></div>
@@ -596,7 +596,7 @@ $(document).ready(function(){initNavTree('amip__interp_8F90_source.html',''); in
 <div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;<span class="comment">!! DEBUG CODE</span></div>
 <div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;    <span class="keywordflow">if</span> (debug) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;          <span class="keyword">call </span><a class="code" href="group__time__manager__mod.html#ga42ca904e0ef4d8cd59deab75ea8bc048">get_date</a>(amip_time,jhctod(1),jhctod(2),jhctod(3),jhctod(4),jhctod(5),jhctod(6))</div>
-<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;          <span class="keywordflow">if</span> (<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;          <span class="keywordflow">if</span> (mpp_pe() == 0) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;             <span class="keyword">write</span> (*,200) <span class="stringliteral">&#39;JHC: use_daily = F, AMIP_Time: &#39;</span>,jhctod(1),jhctod(2),jhctod(3),jhctod(4),jhctod(5),jhctod(6)</div>
 <div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;             <span class="keyword">write</span> (*,300) <span class="stringliteral">&#39;JHC: use_daily = F, interped SST: &#39;</span>, sst(1,1),sst(5,5),sst(10,10)</div>
 <div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;<span class="keywordflow">          endif</span></div>
@@ -608,7 +608,7 @@ $(document).ready(function(){initNavTree('amip__interp_8F90_source.html',''); in
 <div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;<span class="comment">! add by JHC</span></div>
 <div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;<span class="keywordflow">else</span></div>
 <div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;    <span class="keyword">call </span><a class="code" href="group__time__manager__mod.html#ga42ca904e0ef4d8cd59deab75ea8bc048">get_date</a>(amip_time,jhctod(1),jhctod(2),jhctod(3),jhctod(4),jhctod(5),jhctod(6))</div>
-<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;     <span class="keywordflow">if</span> (<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe()) <span class="keyword">write</span>(*,200) <span class="stringliteral">&#39;amip_interp_mod: use_daily = T, Amip_Time = &#39;</span>,jhctod(1),jhctod(2),jhctod(3),jhctod(4),jhctod(5),jhctod(6)</div>
+<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;     <span class="keywordflow">if</span> (mpp_pe() == mpp_root_pe()) <span class="keyword">write</span>(*,200) <span class="stringliteral">&#39;amip_interp_mod: use_daily = T, Amip_Time = &#39;</span>,jhctod(1),jhctod(2),jhctod(3),jhctod(4),jhctod(5),jhctod(6)</div>
 <div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160; </div>
 <div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;    yr = jhctod(1); mo = jhctod(2); dy = jhctod(3)</div>
 <div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160; </div>
@@ -630,7 +630,7 @@ $(document).ready(function(){initNavTree('amip__interp_8F90_source.html',''); in
 <div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;        <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a> (<span class="stringliteral">&#39;amip_interp_mod&#39;</span>, &amp;</div>
 <div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;             <span class="stringliteral">&#39;cannot find daily SST input data file: &#39;</span>//trim(ncfilename), note)</div>
 <div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe()) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a> (<span class="stringliteral">&#39;amip_interp_mod&#39;</span>, &amp;</div>
+<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;        <span class="keywordflow">if</span> (mpp_pe() == mpp_root_pe()) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a> (<span class="stringliteral">&#39;amip_interp_mod&#39;</span>, &amp;</div>
 <div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;             <span class="stringliteral">&#39;Reading NetCDF formatted daily SST from: &#39;</span>//trim(ncfilename), note)</div>
 <div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160; </div>
 <div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;            <span class="keywordflow">if</span>(.not. <a class="code" href="interfacefms2__io__mod_1_1open__file.html">open_file</a>(fileobj, trim(ncfilename), <span class="stringliteral">&#39;read&#39;</span>)) &amp;</div>
@@ -643,7 +643,7 @@ $(document).ready(function(){initNavTree('amip__interp_8F90_source.html',''); in
 <div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;            <span class="keyword">call </span>fms2_io_read_data(fileobj, <span class="stringliteral">&#39;TIME&#39;</span>, timeval)</div>
 <div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;<span class="comment">!!! DEBUG CODE</span></div>
 <div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;        <span class="keywordflow">if</span>(debug) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;          <span class="keywordflow">if</span> (<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;          <span class="keywordflow">if</span> (mpp_pe() == 0) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;             print *, <span class="stringliteral">&#39;JHC: nrecords = &#39;</span>, nrecords</div>
 <div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;             print *, <span class="stringliteral">&#39;JHC: TIME = &#39;</span>, timeval</div>
 <div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;<span class="keywordflow">          endif</span></div>
@@ -662,7 +662,7 @@ $(document).ready(function(){initNavTree('amip__interp_8F90_source.html',''); in
 <div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;<span class="keywordflow">        enddo</span></div>
 <div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160; </div>
 <div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;        <span class="keywordflow">if</span>(debug) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;          <span class="keywordflow">if</span> (<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;          <span class="keywordflow">if</span> (mpp_pe() == 0) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;            print *, <span class="stringliteral">&#39;JHC: k =&#39;</span>, k</div>
 <div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;            print *, <span class="stringliteral">&#39;JHC: ryr(k) rmo(k) rdy(k)&#39;</span>,ryr(k), rmo(k), rdy(k)</div>
 <div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;            print *, <span class="stringliteral">&#39;JHC:  yr     mo     dy   &#39;</span>,yr, mo, dy</div>
@@ -684,7 +684,7 @@ $(document).ready(function(){initNavTree('amip__interp_8F90_source.html',''); in
 <div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160; </div>
 <div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;<span class="comment">!!! DEBUG CODE</span></div>
 <div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;          <span class="keywordflow">if</span>(debug) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;            <span class="keywordflow">if</span> (mpp_pe() == 0) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;              print*, <span class="stringliteral">&#39;JHC: TFREEZE = &#39;</span>, <a class="code" href="group__constants__mod.html#ga722fa6ded6947c860a32b171bd428926">tfreeze</a></div>
 <div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;              print*, lbound(sst)</div>
 <div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;              print*, ubound(sst)</div>
@@ -700,7 +700,7 @@ $(document).ready(function(){initNavTree('amip__interp_8F90_source.html',''); in
 <div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;<span class="keywordflow">     endif</span></div>
 <div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160; </div>
 <div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;    <span class="keywordflow">if</span>(debug) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;      <span class="keywordflow">if</span> (<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == 400) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;      <span class="keywordflow">if</span> (mpp_pe() == 400) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;        <span class="keyword">write</span>(*,300)<span class="stringliteral">&#39;JHC: use_daily = T, daily SST: &#39;</span>, sst(1,1),sst(5,5),sst(10,10)</div>
 <div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;        print *,<span class="stringliteral">&#39;JHC: use_daily = T, daily SST: &#39;</span>, sst</div>
 <div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;<span class="keywordflow">      endif</span></div>
@@ -723,7 +723,7 @@ $(document).ready(function(){initNavTree('amip__interp_8F90_source.html',''); in
 <div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;          <span class="keyword">call </span>random_seed()</div>
 <div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160; </div>
 <div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;       <span class="keywordflow">if</span>(debug) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;         <span class="keywordflow">if</span> (<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;         <span class="keywordflow">if</span> (mpp_pe() == 0) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;             print*, <span class="stringliteral">&#39;mobs = &#39;</span>, mobs</div>
 <div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;             print*, <span class="stringliteral">&#39;nobs = &#39;</span>, nobs</div>
 <div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;             print*, lbound(sst)</div>
@@ -972,8 +972,8 @@ $(document).ready(function(){initNavTree('amip__interp_8F90_source.html',''); in
 <div class="line"><a name="l00876"></a><span class="lineno">  876</span>&#160;<span class="comment">!  ----- write namelist/version info -----</span></div>
 <div class="line"><a name="l00877"></a><span class="lineno">  877</span>&#160;    <span class="keyword">call </span><a class="code" href="group__fms__mod.html#ga0c093df98a75dbd9e0f3add67aa6c23a">write_version_number</a>(<span class="stringliteral">&quot;AMIP_INTERP_MOD&quot;</span>, version)</div>
 <div class="line"><a name="l00878"></a><span class="lineno">  878</span>&#160; </div>
-<div class="line"><a name="l00879"></a><span class="lineno">  879</span>&#160;    unit = <a class="code" href="mpp__util_8inc.html#a8e5518df9532bae0241f53ab542294a2">stdlog</a>( )</div>
-<div class="line"><a name="l00880"></a><span class="lineno">  880</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00879"></a><span class="lineno">  879</span>&#160;    unit = stdlog( )</div>
+<div class="line"><a name="l00880"></a><span class="lineno">  880</span>&#160;    <span class="keywordflow">if</span> (mpp_pe() == 0) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00881"></a><span class="lineno">  881</span>&#160;        <span class="keyword">write</span> (unit,nml=amip_interp_nml)</div>
 <div class="line"><a name="l00882"></a><span class="lineno">  882</span>&#160;<span class="keywordflow">    endif</span></div>
 <div class="line"><a name="l00883"></a><span class="lineno">  883</span>&#160; </div>
@@ -1001,7 +1001,7 @@ $(document).ready(function(){initNavTree('amip__interp_8F90_source.html',''); in
 <div class="line"><a name="l00905"></a><span class="lineno">  905</span>&#160;        file_name_ice = <span class="stringliteral">&#39;INPUT/&#39;</span> // <span class="stringliteral">&#39;amip1_sst.data&#39;</span></div>
 <div class="line"><a name="l00906"></a><span class="lineno">  906</span>&#160;        mobs = 180;  nobs = 91</div>
 <div class="line"><a name="l00907"></a><span class="lineno">  907</span>&#160;        <span class="keyword">call </span>set_sst_grid_edges_amip1</div>
-<div class="line"><a name="l00908"></a><span class="lineno">  908</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == 0) &amp;</div>
+<div class="line"><a name="l00908"></a><span class="lineno">  908</span>&#160;        <span class="keywordflow">if</span> (mpp_pe() == 0) &amp;</div>
 <div class="line"><a name="l00909"></a><span class="lineno">  909</span>&#160;        <span class="keyword">call </span><a class="code" href="group__fms__mod.html#gae5c7420e421293e2be14717dd7b3d97f">error_mesg</a> (<span class="stringliteral">&#39;amip_interp_init&#39;</span>, <span class="stringliteral">&#39;using AMIP 1 sst&#39;</span>, note)</div>
 <div class="line"><a name="l00910"></a><span class="lineno">  910</span>&#160;        date_end = <a class="code" href="structamip__interp__mod_1_1date__type.html">date_type</a>( 1989, 1, 0 )</div>
 <div class="line"><a name="l00911"></a><span class="lineno">  911</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (lowercase(trim(<a class="code" href="group__amip__interp__mod.html#ga152699dfbacd6122d5bb6be55ad94ff9">data_set</a>)) == <span class="stringliteral">&#39;amip2&#39;</span>) <span class="keywordflow">then</span></div>
@@ -1011,7 +1011,7 @@ $(document).ready(function(){initNavTree('amip__interp_8F90_source.html',''); in
 <div class="line"><a name="l00915"></a><span class="lineno">  915</span>&#160;        <span class="keyword">call </span>set_sst_grid_edges_oi</div>
 <div class="line"><a name="l00916"></a><span class="lineno">  916</span>&#160;<span class="comment">!       --- specfied min for amip2 ---</span></div>
 <div class="line"><a name="l00917"></a><span class="lineno">  917</span>&#160;        tice_crit_k = 271.38</div>
-<div class="line"><a name="l00918"></a><span class="lineno">  918</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == 0) &amp;</div>
+<div class="line"><a name="l00918"></a><span class="lineno">  918</span>&#160;        <span class="keywordflow">if</span> (mpp_pe() == 0) &amp;</div>
 <div class="line"><a name="l00919"></a><span class="lineno">  919</span>&#160;        <span class="keyword">call </span><a class="code" href="group__fms__mod.html#gae5c7420e421293e2be14717dd7b3d97f">error_mesg</a> (<span class="stringliteral">&#39;amip_interp_init&#39;</span>, <span class="stringliteral">&#39;using AMIP 2 sst&#39;</span>, note)</div>
 <div class="line"><a name="l00920"></a><span class="lineno">  920</span>&#160;        date_end = <a class="code" href="structamip__interp__mod_1_1date__type.html">date_type</a>( 1996, 3, 0 )</div>
 <div class="line"><a name="l00921"></a><span class="lineno">  921</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (lowercase(trim(<a class="code" href="group__amip__interp__mod.html#ga152699dfbacd6122d5bb6be55ad94ff9">data_set</a>)) == <span class="stringliteral">&#39;hurrell&#39;</span>) <span class="keywordflow">then</span></div>
@@ -1021,7 +1021,7 @@ $(document).ready(function(){initNavTree('amip__interp_8F90_source.html',''); in
 <div class="line"><a name="l00925"></a><span class="lineno">  925</span>&#160;        <span class="keyword">call </span>set_sst_grid_edges_oi</div>
 <div class="line"><a name="l00926"></a><span class="lineno">  926</span>&#160;<span class="comment">!       --- specfied min for hurrell ---</span></div>
 <div class="line"><a name="l00927"></a><span class="lineno">  927</span>&#160;        tice_crit_k = 271.38</div>
-<div class="line"><a name="l00928"></a><span class="lineno">  928</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == 0) &amp;</div>
+<div class="line"><a name="l00928"></a><span class="lineno">  928</span>&#160;        <span class="keywordflow">if</span> (mpp_pe() == 0) &amp;</div>
 <div class="line"><a name="l00929"></a><span class="lineno">  929</span>&#160;        <span class="keyword">call </span><a class="code" href="group__fms__mod.html#gae5c7420e421293e2be14717dd7b3d97f">error_mesg</a> (<span class="stringliteral">&#39;amip_interp_init&#39;</span>, <span class="stringliteral">&#39;using HURRELL sst&#39;</span>, note)</div>
 <div class="line"><a name="l00930"></a><span class="lineno">  930</span>&#160;        date_end = <a class="code" href="structamip__interp__mod_1_1date__type.html">date_type</a>( 2011, 8, 16 ) <span class="comment">! updated by JHC</span></div>
 <div class="line"><a name="l00931"></a><span class="lineno">  931</span>&#160;<span class="comment">! add by JHC</span></div>
@@ -1030,7 +1030,7 @@ $(document).ready(function(){initNavTree('amip__interp_8F90_source.html',''); in
 <div class="line"><a name="l00934"></a><span class="lineno">  934</span>&#160;        file_name_ice = <span class="stringliteral">&#39;INPUT/&#39;</span> // <span class="stringliteral">&#39;hurrell_ice.data&#39;</span></div>
 <div class="line"><a name="l00935"></a><span class="lineno">  935</span>&#160;        mobs = 360;  nobs = 180</div>
 <div class="line"><a name="l00936"></a><span class="lineno">  936</span>&#160;        <span class="keyword">call </span>set_sst_grid_edges_oi</div>
-<div class="line"><a name="l00937"></a><span class="lineno">  937</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == 0) &amp;</div>
+<div class="line"><a name="l00937"></a><span class="lineno">  937</span>&#160;        <span class="keywordflow">if</span> (mpp_pe() == 0) &amp;</div>
 <div class="line"><a name="l00938"></a><span class="lineno">  938</span>&#160;        <span class="keyword">call </span><a class="code" href="group__fms__mod.html#gae5c7420e421293e2be14717dd7b3d97f">error_mesg</a> (<span class="stringliteral">&#39;amip_interp_init&#39;</span>, <span class="stringliteral">&#39;using AVHRR daily sst&#39;</span>, note)</div>
 <div class="line"><a name="l00939"></a><span class="lineno">  939</span>&#160;        date_end = <a class="code" href="structamip__interp__mod_1_1date__type.html">date_type</a>( 2011, 8, 16 )</div>
 <div class="line"><a name="l00940"></a><span class="lineno">  940</span>&#160;<span class="comment">! end add by JHC</span></div>
@@ -1039,7 +1039,7 @@ $(document).ready(function(){initNavTree('amip__interp_8F90_source.html',''); in
 <div class="line"><a name="l00943"></a><span class="lineno">  943</span>&#160;        file_name_ice = <span class="stringliteral">&#39;INPUT/&#39;</span> // <span class="stringliteral">&#39;reynolds_sst.data&#39;</span></div>
 <div class="line"><a name="l00944"></a><span class="lineno">  944</span>&#160;        mobs = 180;  nobs = 90</div>
 <div class="line"><a name="l00945"></a><span class="lineno">  945</span>&#160;        <span class="keyword">call </span>set_sst_grid_edges_oi</div>
-<div class="line"><a name="l00946"></a><span class="lineno">  946</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == 0) &amp;</div>
+<div class="line"><a name="l00946"></a><span class="lineno">  946</span>&#160;        <span class="keywordflow">if</span> (mpp_pe() == 0) &amp;</div>
 <div class="line"><a name="l00947"></a><span class="lineno">  947</span>&#160;        <span class="keyword">call </span><a class="code" href="group__fms__mod.html#gae5c7420e421293e2be14717dd7b3d97f">error_mesg</a> (<span class="stringliteral">&#39;amip_interp_init&#39;</span>,  &amp;</div>
 <div class="line"><a name="l00948"></a><span class="lineno">  948</span>&#160;             <span class="stringliteral">&#39;using NCEP Reynolds Historical Reconstructed SST&#39;</span>, note)</div>
 <div class="line"><a name="l00949"></a><span class="lineno">  949</span>&#160;        date_end = <a class="code" href="structamip__interp__mod_1_1date__type.html">date_type</a>( 1998, 12, 0 )</div>
@@ -1062,7 +1062,7 @@ $(document).ready(function(){initNavTree('amip__interp_8F90_source.html',''); in
 <div class="line"><a name="l00966"></a><span class="lineno">  966</span>&#160;<span class="keywordflow">        endif</span></div>
 <div class="line"><a name="l00967"></a><span class="lineno">  967</span>&#160;<span class="comment">!--- Added by SJL ----------------------------------------------</span></div>
 <div class="line"><a name="l00968"></a><span class="lineno">  968</span>&#160;        <span class="keyword">call </span>set_sst_grid_edges_oi</div>
-<div class="line"><a name="l00969"></a><span class="lineno">  969</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == 0) &amp;</div>
+<div class="line"><a name="l00969"></a><span class="lineno">  969</span>&#160;        <span class="keywordflow">if</span> (mpp_pe() == 0) &amp;</div>
 <div class="line"><a name="l00970"></a><span class="lineno">  970</span>&#160;        <span class="keyword">call </span><a class="code" href="group__fms__mod.html#gae5c7420e421293e2be14717dd7b3d97f">error_mesg</a> (<span class="stringliteral">&#39;amip_interp_init&#39;</span>, <span class="stringliteral">&#39;using Reynolds OI SST&#39;</span>, &amp;</div>
 <div class="line"><a name="l00971"></a><span class="lineno">  971</span>&#160;                                                                note)</div>
 <div class="line"><a name="l00972"></a><span class="lineno">  972</span>&#160;        date_end = <a class="code" href="structamip__interp__mod_1_1date__type.html">date_type</a>( 1999, 1, 0 )</div>
@@ -1071,7 +1071,7 @@ $(document).ready(function(){initNavTree('amip__interp_8F90_source.html',''); in
 <div class="line"><a name="l00975"></a><span class="lineno">  975</span>&#160;<span class="stringliteral"></span><span class="stringliteral">        &amp;namelist parameter DATA_SET being used is not allowed&#39;</span>, fatal)</div>
 <div class="line"><a name="l00976"></a><span class="lineno">  976</span>&#160;<span class="keywordflow">    endif</span></div>
 <div class="line"><a name="l00977"></a><span class="lineno">  977</span>&#160; </div>
-<div class="line"><a name="l00978"></a><span class="lineno">  978</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="group__amip__interp__mod.html#ga9e8dcf56a77b1b156ccc0fa7e082a46b">verbose</a> &gt; 1 .and. <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == 0) &amp;</div>
+<div class="line"><a name="l00978"></a><span class="lineno">  978</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="group__amip__interp__mod.html#ga9e8dcf56a77b1b156ccc0fa7e082a46b">verbose</a> &gt; 1 .and. mpp_pe() == 0) &amp;</div>
 <div class="line"><a name="l00979"></a><span class="lineno">  979</span>&#160;              print *, <span class="stringliteral">&#39;ice_crit,tice_crit_k=&#39;</span>,ice_crit,tice_crit_k</div>
 <div class="line"><a name="l00980"></a><span class="lineno">  980</span>&#160; </div>
 <div class="line"><a name="l00981"></a><span class="lineno">  981</span>&#160;<span class="comment">!  --- check existence of sst data file ??? ---</span></div>
@@ -1399,11 +1399,11 @@ $(document).ready(function(){initNavTree('amip__interp_8F90_source.html',''); in
 <div class="line"><a name="l01303"></a><span class="lineno"> 1303</span>&#160; </div>
 <div class="line"><a name="l01304"></a><span class="lineno"> 1304</span>&#160;     dy = 0 <span class="comment">! only processing monthly data</span></div>
 <div class="line"><a name="l01305"></a><span class="lineno"> 1305</span>&#160; </div>
-<div class="line"><a name="l01306"></a><span class="lineno"> 1306</span>&#160;     <span class="keywordflow">if</span> (<a class="code" href="group__amip__interp__mod.html#ga9e8dcf56a77b1b156ccc0fa7e082a46b">verbose</a> &gt; 2 .and. <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == 0)  &amp;</div>
+<div class="line"><a name="l01306"></a><span class="lineno"> 1306</span>&#160;     <span class="keywordflow">if</span> (<a class="code" href="group__amip__interp__mod.html#ga9e8dcf56a77b1b156ccc0fa7e082a46b">verbose</a> &gt; 2 .and. mpp_pe() == 0)  &amp;</div>
 <div class="line"><a name="l01307"></a><span class="lineno"> 1307</span>&#160;          print *, <span class="stringliteral">&#39;looking for date = &#39;</span>, date</div>
 <div class="line"><a name="l01308"></a><span class="lineno"> 1308</span>&#160; </div>
 <div class="line"><a name="l01309"></a><span class="lineno"> 1309</span>&#160;     <span class="comment">! This code can handle amip1, reynolds, or reyoi type SST data files in netCDF format</span></div>
-<div class="line"><a name="l01310"></a><span class="lineno"> 1310</span>&#160;     <span class="keywordflow">if</span> (<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe()) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a> (<span class="stringliteral">&#39;amip_interp_mod&#39;</span>, &amp;</div>
+<div class="line"><a name="l01310"></a><span class="lineno"> 1310</span>&#160;     <span class="keywordflow">if</span> (mpp_pe() == mpp_root_pe()) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a> (<span class="stringliteral">&#39;amip_interp_mod&#39;</span>, &amp;</div>
 <div class="line"><a name="l01311"></a><span class="lineno"> 1311</span>&#160;          <span class="stringliteral">&#39;Reading NetCDF formatted input data file: &#39;</span>//trim(ncfilename), note)</div>
 <div class="line"><a name="l01312"></a><span class="lineno"> 1312</span>&#160; </div>
 <div class="line"><a name="l01313"></a><span class="lineno"> 1313</span>&#160;        <span class="keyword">call </span>fms2_io_read_data (fileobj, <span class="stringliteral">&#39;nrecords&#39;</span>, nrecords)</div>
@@ -1419,7 +1419,7 @@ $(document).ready(function(){initNavTree('amip__interp_8F90_source.html',''); in
 <div class="line"><a name="l01323"></a><span class="lineno"> 1323</span>&#160;       yr = ryr(k);  mo = rmo(k)</div>
 <div class="line"><a name="l01324"></a><span class="lineno"> 1324</span>&#160;       adate = <a class="code" href="structamip__interp__mod_1_1date__type.html">date_type</a>( yr, mo, 0)</div>
 <div class="line"><a name="l01325"></a><span class="lineno"> 1325</span>&#160;       curr_date = adate</div>
-<div class="line"><a name="l01326"></a><span class="lineno"> 1326</span>&#160;       <span class="keywordflow">if</span> (<a class="code" href="group__amip__interp__mod.html#ga9e8dcf56a77b1b156ccc0fa7e082a46b">verbose</a> &gt; 2 .and. <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == 0)  &amp;</div>
+<div class="line"><a name="l01326"></a><span class="lineno"> 1326</span>&#160;       <span class="keywordflow">if</span> (<a class="code" href="group__amip__interp__mod.html#ga9e8dcf56a77b1b156ccc0fa7e082a46b">verbose</a> &gt; 2 .and. mpp_pe() == 0)  &amp;</div>
 <div class="line"><a name="l01327"></a><span class="lineno"> 1327</span>&#160;             print *, <span class="stringliteral">&#39;....... checking   &#39;</span>, adate</div>
 <div class="line"><a name="l01328"></a><span class="lineno"> 1328</span>&#160;       <span class="keywordflow">if</span> (date == adate) ierr = 0</div>
 <div class="line"><a name="l01329"></a><span class="lineno"> 1329</span>&#160;       <span class="keywordflow">if</span> (yr == 0 .and. mo == date%month) ierr = 0</div>
@@ -1714,14 +1714,12 @@ $(document).ready(function(){initNavTree('amip__interp_8F90_source.html',''); in
 <div class="ttc" id="agroup__amip__interp__mod_html_gaa8eedc1bda43c7a973f0ee345f1703f5"><div class="ttname"><a href="group__amip__interp__mod.html#gaa8eedc1bda43c7a973f0ee345f1703f5">amip_interp_mod::use_ncep_sst</a></div><div class="ttdeci">logical, public use_ncep_sst</div><div class="ttdoc">SJL: During nudging: use_ncep_sst = .T.; no_anom_sst = .T. during forecast: use_ncep_sst = ....</div><div class="ttdef"><b>Definition:</b> <a href="amip__interp_8F90_source.html#l00293">amip_interp.F90:293</a></div></div>
 <div class="ttc" id="agroup__constants__mod_html_gadc909cc70e4e20bc99fc3d3c53125808"><div class="ttname"><a href="group__constants__mod.html#gadc909cc70e4e20bc99fc3d3c53125808">constants_mod::pi</a></div><div class="ttdeci">real, parameter, public pi</div><div class="ttdoc">Ratio of circle circumference to diameter [N/A].</div><div class="ttdef"><b>Definition:</b> <a href="constants_8F90_source.html#l00104">constants.F90:104</a></div></div>
 <div class="ttc" id="ainterfaceamip__interp__mod_1_1amip__interp__new_html"><div class="ttname"><a href="interfaceamip__interp__mod_1_1amip__interp__new.html">amip_interp_mod::amip_interp_new</a></div><div class="ttdoc">Initializes data needed for the horizontal interpolation between the sst data and model grid.</div><div class="ttdef"><b>Definition:</b> <a href="amip__interp_8F90_source.html#l00222">amip_interp.F90:222</a></div></div>
-<div class="ttc" id="ampp__util_8inc_html_a8e5518df9532bae0241f53ab542294a2"><div class="ttname"><a href="mpp__util_8inc.html#a8e5518df9532bae0241f53ab542294a2">stdlog</a></div><div class="ttdeci">integer function stdlog()</div><div class="ttdoc">This function returns the current standard fortran unit numbers for log messages. Log messages,...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00057">mpp_util.inc:57</a></div></div>
 <div class="ttc" id="agroup__amip__interp__mod_html_ga3c40cf9b8032cf49729e129ba7f82ee6"><div class="ttname"><a href="group__amip__interp__mod.html#ga3c40cf9b8032cf49729e129ba7f82ee6">amip_interp_mod::date_not_equals</a></div><div class="ttdeci">logical function date_not_equals(Left, Right)</div><div class="ttdef"><b>Definition:</b> <a href="amip__interp_8F90_source.html#l01430">amip_interp.F90:1430</a></div></div>
 <div class="ttc" id="ainterfacetime__manager__mod_1_1set__date_html"><div class="ttname"><a href="interfacetime__manager__mod_1_1set__date.html">time_manager_mod::set_date</a></div><div class="ttdoc">Given an input date in year, month, days, etc., creates a time_type that represents this time interva...</div><div class="ttdef"><b>Definition:</b> <a href="time__manager_8F90_source.html#l00272">time_manager.F90:272</a></div></div>
 <div class="ttc" id="astructamip__interp__mod_1_1date__type_html"><div class="ttname"><a href="structamip__interp__mod_1_1date__type.html">amip_interp_mod::date_type</a></div><div class="ttdoc">Private data type for representing a calendar date.</div><div class="ttdef"><b>Definition:</b> <a href="amip__interp_8F90_source.html#l00136">amip_interp.F90:136</a></div></div>
 <div class="ttc" id="agroup__amip__interp__mod_html_ga5f77efe6bfff8ab1bfac97d498559f80"><div class="ttname"><a href="group__amip__interp__mod.html#ga5f77efe6bfff8ab1bfac97d498559f80">amip_interp_mod::get_amip_ice</a></div><div class="ttdeci">subroutine, public get_amip_ice(Time, Interp, ice, err_msg)</div><div class="ttdoc">AMIP interpolation for ice.</div><div class="ttdef"><b>Definition:</b> <a href="amip__interp_8F90_source.html#l00655">amip_interp.F90:655</a></div></div>
 <div class="ttc" id="agroup__amip__interp__mod_html_ga6da33323528930f4680012957d27d6db"><div class="ttname"><a href="group__amip__interp__mod.html#ga6da33323528930f4680012957d27d6db">amip_interp_mod::amip_interp_init</a></div><div class="ttdeci">subroutine, public amip_interp_init()</div><div class="ttdoc">initialize amip_interp_mod for use</div><div class="ttdef"><b>Definition:</b> <a href="amip__interp_8F90_source.html#l00864">amip_interp.F90:864</a></div></div>
 <div class="ttc" id="ainterfacetime__interp__mod_1_1time__interp_html"><div class="ttname"><a href="interfacetime__interp__mod_1_1time__interp.html">time_interp_mod::time_interp</a></div><div class="ttdoc">Returns a weight and dates or indices for interpolating between two dates. The interface fraction_of_...</div><div class="ttdef"><b>Definition:</b> <a href="time__interp_8F90_source.html#l00230">time_interp.F90:230</a></div></div>
-<div class="ttc" id="ampp__util_8inc_html_acfeba7de56f9dd6000b3fd78f9d56c50"><div class="ttname"><a href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a></div><div class="ttdeci">integer function mpp_pe()</div><div class="ttdoc">Returns processor ID.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00376">mpp_util.inc:376</a></div></div>
 <div class="ttc" id="agroup__fms__mod_html_ga0c093df98a75dbd9e0f3add67aa6c23a"><div class="ttname"><a href="group__fms__mod.html#ga0c093df98a75dbd9e0f3add67aa6c23a">fms_mod::write_version_number</a></div><div class="ttdeci">subroutine, public write_version_number(version, tag, unit)</div><div class="ttdoc">Prints to the log file (or a specified unit) the version id string and tag name.</div><div class="ttdef"><b>Definition:</b> <a href="fms_8F90_source.html#l00840">fms.F90:840</a></div></div>
 <div class="ttc" id="agroup__amip__interp__mod_html_gae4985aae40b07468c1b5853c6bf85e56"><div class="ttname"><a href="group__amip__interp__mod.html#gae4985aae40b07468c1b5853c6bf85e56">amip_interp_mod::get_amip_sst</a></div><div class="ttdeci">subroutine, public get_amip_sst(Time, Interp, sst, err_msg, lon_model, lat_model)</div><div class="ttdoc">Retrieve sea surface temperature data and interpolated grid.</div><div class="ttdef"><b>Definition:</b> <a href="amip__interp_8F90_source.html#l00368">amip_interp.F90:368</a></div></div>
 <div class="ttc" id="agroup__amip__interp__mod_html_ga76b02f44ed43c67c14731a011046e039"><div class="ttname"><a href="group__amip__interp__mod.html#ga76b02f44ed43c67c14731a011046e039">amip_interp_mod::use_ncep_ice</a></div><div class="ttdeci">logical use_ncep_ice</div><div class="ttdoc">For seasonal forecast: use_ncep_ice = .F.</div><div class="ttdef"><b>Definition:</b> <a href="amip__interp_8F90_source.html#l00297">amip_interp.F90:297</a></div></div>

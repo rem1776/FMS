@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>FMS: test_fms/mpp/test_mpp_update_domains_main.F90 Source File</title>
+<title>FMS: test_fms/mpp/test_mpp_update_domains_main.F90 (8b3cd80f6be195341fa8d686ba24847b732122a4) Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -122,11 +122,11 @@ $(document).ready(function(){initNavTree('test__mpp__update__domains__main_8F90_
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keywordtype">use </span>test_mpp_update_domains_real, <span class="keywordtype">only</span> : test_subset_update_r8, test_subset_update_r4</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <span class="keywordtype">use </span>test_mpp_update_domains_int , <span class="keywordtype">only</span> : test_halo_update_i8, test_halo_update_i4</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <span class="keywordtype">use </span>test_mpp_update_domains_int, <span class="keywordtype">only</span> : test_subset_update_i8, test_subset_update_i4</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <span class="keywordtype">use </span>mpp_mod, <span class="keywordtype">only</span> : <a class="code" href="mpp__comm__mpi_8inc.html#a271b4c9584f2b514df4439086add4198">mpp_init</a>, <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>, <a class="code" href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>, mpp_root_pe</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="keywordtype">use </span>mpp_mod, <span class="keywordtype">only</span> : <a class="code" href="mpp__comm__mpi_8inc.html#ac00f997102c5613d8c547f1ee10fa49c">mpp_set_stack_size</a></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <span class="keywordtype">use </span>mpp_mod, <span class="keywordtype">only</span> : mpp_init, mpp_pe, mpp_npes, mpp_root_pe</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="keywordtype">use </span>mpp_mod, <span class="keywordtype">only</span> : mpp_set_stack_size</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="keywordtype">use </span>mpp_mod, <span class="keywordtype">only</span> : mpp_init_test_requests_allocated</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="keywordtype">use </span>mpp_domains_mod, <span class="keywordtype">only</span> : mpp_domain_time, <a class="code" href="group__mpp__domains__mod.html#gae1f3c0c5c574686aac6c1595b1ca0b66">mpp_domains_set_stack_size</a></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keywordtype">use </span>mpp_domains_mod, <span class="keywordtype">only</span> : <a class="code" href="group__mpp__domains__mod.html#ga395663978bf22825d9d8a8b4c29a5510">mpp_domains_init</a>, <a class="code" href="group__mpp__domains__mod.html#ga9a55eba87e8167e3f3ba2dc913a1d9d8">mpp_domains_exit</a></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="keywordtype">use </span>mpp_domains_mod, <span class="keywordtype">only</span> : mpp_domain_time, mpp_domains_set_stack_size</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keywordtype">use </span>mpp_domains_mod, <span class="keywordtype">only</span> : mpp_domains_init, mpp_domains_exit</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keywordtype">use </span>mpp_io_mod, <span class="keywordtype">only</span>: mpp_io_init</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <span class="keywordtype">use </span>platform_mod</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
@@ -135,13 +135,13 @@ $(document).ready(function(){initNavTree('test__mpp__update__domains__main_8F90_
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <span class="keywordtype">integer</span> :: ierr</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="keywordtype">integer</span> :: stackmax=10000000<span class="comment"></span></div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">  !&gt; Initialize mpp and mpp IO modules</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keyword">call </span><a class="code" href="mpp__comm__mpi_8inc.html#a271b4c9584f2b514df4439086add4198">mpp_init</a>(test_level=mpp_init_test_requests_allocated)</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="keyword">call </span><a class="code" href="group__mpp__domains__mod.html#ga395663978bf22825d9d8a8b4c29a5510">mpp_domains_init</a>(mpp_domain_time)</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keyword">call </span>mpp_init(test_level=mpp_init_test_requests_allocated)</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="keyword">call </span>mpp_domains_init(mpp_domain_time)</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keyword">call </span>mpp_io_init()</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keyword">call </span><a class="code" href="group__mpp__domains__mod.html#gae1f3c0c5c574686aac6c1595b1ca0b66">mpp_domains_set_stack_size</a>(stackmax)<span class="comment"></span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keyword">call </span>mpp_domains_set_stack_size(stackmax)<span class="comment"></span></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">  !&gt; run the tests</span></div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">  !&gt; run the tests</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe()) &amp;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="keywordflow">if</span> (mpp_pe() == mpp_root_pe()) &amp;</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    print *, <span class="stringliteral">&#39;--------------------&gt; Calling real test_halo_update &lt;-------------------&#39;</span></div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="keyword">call </span>test_halo_update_r4( <span class="stringliteral">&#39;Simple&#39;</span> ) <span class="comment">!includes global field, global sum tests</span></div>
@@ -167,7 +167,7 @@ $(document).ready(function(){initNavTree('test__mpp__update__domains__main_8F90_
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  <span class="keyword">call </span>test_halo_update_r8( <span class="stringliteral">&#39;Folded-south symmetry&#39;</span> ) <span class="comment">!includes vector field test</span></div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="keyword">call </span>test_halo_update_r8( <span class="stringliteral">&#39;Folded-west symmetry&#39;</span> ) <span class="comment">!includes vector field test</span></div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <span class="keyword">call </span>test_halo_update_r8( <span class="stringliteral">&#39;Folded-east symmetry&#39;</span> ) <span class="comment">!includes vector field test</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe()) &amp;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  <span class="keywordflow">if</span> (mpp_pe() == mpp_root_pe()) &amp;</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    print *, <span class="stringliteral">&#39;--------------------&gt; Calling integer test_halo_update &lt;-------------------&#39;</span><span class="comment"></span></div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment">  !&gt; @note mpp_update_domains vector interfaces are not defined for integer data types</span></div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  <span class="keyword">call </span>test_halo_update_i4( <span class="stringliteral">&#39;Simple&#39;</span> ) <span class="comment">!includes global field, global sum tests</span></div>
@@ -181,27 +181,20 @@ $(document).ready(function(){initNavTree('test__mpp__update__domains__main_8F90_
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <span class="comment">! pe subset test</span><span class="comment"></span></div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="comment">  !&gt; @todo resolve issue. This test triggers an error in mpp_clock_begin called by mpp_update_domains</span></div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment">  !! cannot change pelist context of a clock.</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>() .GE. 16) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe()) &amp;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  <span class="keywordflow">if</span> (mpp_npes() .GE. 16) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordflow">if</span> (mpp_pe() == mpp_root_pe()) &amp;</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;      print *, <span class="stringliteral">&#39;--------------------&gt; Calling test_subset_update &lt;-------------------&#39;</span></div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keyword">call </span>test_subset_update_r8</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keyword">call </span>test_subset_update_r4</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keyword">call </span>test_subset_update_i8</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keyword">call </span>test_subset_update_i4</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="keywordflow">  endif</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  <span class="keyword">call </span><a class="code" href="group__mpp__domains__mod.html#ga9a55eba87e8167e3f3ba2dc913a1d9d8">mpp_domains_exit</a>()<span class="comment"></span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  <span class="keyword">call </span>mpp_domains_exit()<span class="comment"></span></div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="comment">  !&gt; Finalize mpp</span></div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  <span class="keyword">call </span>mpi_finalize(ierr)</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="keyword">end program </span>test_mpp_update_domains_main</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="ampp__comm__mpi_8inc_html_ac00f997102c5613d8c547f1ee10fa49c"><div class="ttname"><a href="mpp__comm__mpi_8inc.html#ac00f997102c5613d8c547f1ee10fa49c">mpp_set_stack_size</a></div><div class="ttdeci">subroutine mpp_set_stack_size(n)</div><div class="ttdoc">Set the mpp_stack variable to be at least n LONG words long.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__comm__mpi_8inc_source.html#l00300">mpp_comm_mpi.inc:300</a></div></div>
-<div class="ttc" id="ampp__comm__mpi_8inc_html_a271b4c9584f2b514df4439086add4198"><div class="ttname"><a href="mpp__comm__mpi_8inc.html#a271b4c9584f2b514df4439086add4198">mpp_init</a></div><div class="ttdeci">subroutine mpp_init(flags, localcomm, test_level, alt_input_nml_path)</div><div class="ttdoc">Initialize the mpp_mod module. Must be called before any usage.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__comm__mpi_8inc_source.html#l00032">mpp_comm_mpi.inc:32</a></div></div>
-<div class="ttc" id="agroup__mpp__domains__mod_html_ga9a55eba87e8167e3f3ba2dc913a1d9d8"><div class="ttname"><a href="group__mpp__domains__mod.html#ga9a55eba87e8167e3f3ba2dc913a1d9d8">mpp_domains_exit</a></div><div class="ttdeci">subroutine mpp_domains_exit()</div><div class="ttdoc">Exit mpp_domains_mod. Serves no particular purpose, but is provided should you require to re-initiali...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__misc_8inc_source.html#l00168">mpp_domains_misc.inc:168</a></div></div>
-<div class="ttc" id="agroup__mpp__domains__mod_html_ga395663978bf22825d9d8a8b4c29a5510"><div class="ttname"><a href="group__mpp__domains__mod.html#ga395663978bf22825d9d8a8b4c29a5510">mpp_domains_init</a></div><div class="ttdeci">subroutine mpp_domains_init(flags)</div><div class="ttdoc">Initialize domain decomp package.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__misc_8inc_source.html#l00045">mpp_domains_misc.inc:45</a></div></div>
-<div class="ttc" id="agroup__mpp__domains__mod_html_gae1f3c0c5c574686aac6c1595b1ca0b66"><div class="ttname"><a href="group__mpp__domains__mod.html#gae1f3c0c5c574686aac6c1595b1ca0b66">mpp_domains_set_stack_size</a></div><div class="ttdeci">subroutine mpp_domains_set_stack_size(n)</div><div class="ttdoc">Set user stack size.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__util_8inc_source.html#l00036">mpp_domains_util.inc:36</a></div></div>
-<div class="ttc" id="ampp__util_8inc_html_abf546cd336d5c539e445fb884f98ab6b"><div class="ttname"><a href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a></div><div class="ttdeci">integer function mpp_npes()</div><div class="ttdoc">Returns processor count for current pelist.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00390">mpp_util.inc:390</a></div></div>
-<div class="ttc" id="ampp__util_8inc_html_acfeba7de56f9dd6000b3fd78f9d56c50"><div class="ttname"><a href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a></div><div class="ttdeci">integer function mpp_pe()</div><div class="ttdoc">Returns processor ID.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00376">mpp_util.inc:376</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

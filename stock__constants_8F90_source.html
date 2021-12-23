@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>FMS: exchange/stock_constants.F90 Source File</title>
+<title>FMS: exchange/stock_constants.F90 (8b3cd80f6be195341fa8d686ba24847b732122a4) Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -123,7 +123,7 @@ $(document).ready(function(){initNavTree('stock__constants_8F90_source.html','')
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">!&gt; @{</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">module</span> stock_constants_mod</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="keywordtype">use </span>mpp_mod, <span class="keywordtype">only</span> : <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>, mpp_root_pe, <a class="code" href="interfacempp__mod_1_1mpp__sum.html">mpp_sum</a></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="keywordtype">use </span>mpp_mod, <span class="keywordtype">only</span> : mpp_pe, mpp_root_pe, <a class="code" href="interfacempp__mod_1_1mpp__sum.html">mpp_sum</a></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="keywordtype">use </span>fms_mod, <span class="keywordtype">only</span> : <a class="code" href="group__fms__mod.html#ga0c093df98a75dbd9e0f3add67aa6c23a">write_version_number</a></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="keywordtype">use </span>time_manager_mod, <span class="keywordtype">only</span> : <a class="code" href="structtime__manager__mod_1_1time__type.html">time_type</a>, <a class="code" href="group__time__manager__mod.html#ga2b9c941f38e33eba67ee151fe3bd8ee6">get_time</a></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keywordtype">use </span>time_manager_mod, <span class="keywordtype">only</span> : <span class="keyword">operator</span>(+), <span class="keyword">operator</span>(-)</div>
@@ -203,7 +203,7 @@ $(document).ready(function(){initNavTree('stock__constants_8F90_source.html','')
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe()) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordflow">if</span>(mpp_pe() == mpp_root_pe()) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="comment">!       earth_area = 4.*PI*Radius**2</span></div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;       <span class="keyword">write</span>(stocks_file,*) <span class="stringliteral">&#39;================Stocks Report Guide=====================================&#39;</span></div>
@@ -288,7 +288,7 @@ $(document).ready(function(){initNavTree('stock__constants_8F90_source.html','')
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <span class="keywordtype">logical</span> :: used</div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    <span class="keywordtype">character(len=30)</span> :: field_name, units</div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160; </div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()==mpp_root_pe()) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="keywordflow">if</span>(mpp_pe()==mpp_root_pe()) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;       <span class="keyword">call </span><a class="code" href="group__time__manager__mod.html#ga2b9c941f38e33eba67ee151fe3bd8ee6">get_time</a>(init_time, isec0, iday0)</div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;       <span class="keyword">call </span><a class="code" href="group__time__manager__mod.html#ga2b9c941f38e33eba67ee151fe3bd8ee6">get_time</a>(time, isec, iday)</div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160; </div>
@@ -324,7 +324,7 @@ $(document).ready(function(){initNavTree('stock__constants_8F90_source.html','')
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160; </div>
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;          c_value(comp) = q_now(comp) - q_start(comp)</div>
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160; </div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;          <span class="keywordflow">if</span>(<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe()) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;          <span class="keywordflow">if</span>(mpp_pe() == mpp_root_pe()) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160; </div>
 <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;             <span class="keywordflow">if</span>(f_valuediagid(comp,elem) == initid) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;                field_name = trim(comp_names(comp)) // trim(stock_names(elem))</div>
@@ -392,7 +392,7 @@ $(document).ready(function(){initNavTree('stock__constants_8F90_source.html','')
 <div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;<span class="keywordflow">       enddo</span></div>
 <div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160; </div>
 <div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160; </div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;       <span class="keywordflow">if</span>(<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()==mpp_root_pe()) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;       <span class="keywordflow">if</span>(mpp_pe()==mpp_root_pe()) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;<span class="comment">!          write(stocks_file,&#39;(a)&#39;  ) &#39; &#39;!blank line</span></div>
 <div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;<span class="comment">!          write(stocks_file,&#39;(a,f12.3)&#39;) &#39;t = TimeSinceStart[days]= &#39;,days</span></div>
 <div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;<span class="comment">!          write(stocks_file,&#39;(a)&#39;  )   &#39; &#39;!blank line</span></div>
@@ -448,7 +448,6 @@ $(document).ready(function(){initNavTree('stock__constants_8F90_source.html','')
 <div class="ttc" id="agroup__stock__constants__mod_html_ga71dd62388a3f8a39b4457d199ede2110"><div class="ttname"><a href="group__stock__constants__mod.html#ga71dd62388a3f8a39b4457d199ede2110">stock_constants_mod::stocks_report</a></div><div class="ttdeci">subroutine, public stocks_report(Time)</div><div class="ttdoc">Writes update to stock report.</div><div class="ttdef"><b>Definition:</b> <a href="stock__constants_8F90_source.html#l00173">stock_constants.F90:173</a></div></div>
 <div class="ttc" id="agroup__time__manager__mod_html_ga2b9c941f38e33eba67ee151fe3bd8ee6"><div class="ttname"><a href="group__time__manager__mod.html#ga2b9c941f38e33eba67ee151fe3bd8ee6">time_manager_mod::get_time</a></div><div class="ttdeci">subroutine, public get_time(Time, seconds, days, ticks, err_msg)</div><div class="ttdoc">Returns days and seconds ( &lt; 86400 ) corresponding to a time. err_msg should be checked for any error...</div><div class="ttdef"><b>Definition:</b> <a href="time__manager_8F90_source.html#l00508">time_manager.F90:508</a></div></div>
 <div class="ttc" id="agroup__stock__constants__mod_html_ga9902e9a9d1fda8509931371fc3a76eb1"><div class="ttname"><a href="group__stock__constants__mod.html#ga9902e9a9d1fda8509931371fc3a76eb1">stock_constants_mod::stocks_set_init_time</a></div><div class="ttdeci">subroutine, public stocks_set_init_time(Time)</div><div class="ttdef"><b>Definition:</b> <a href="stock__constants_8F90_source.html#l00335">stock_constants.F90:335</a></div></div>
-<div class="ttc" id="ampp__util_8inc_html_acfeba7de56f9dd6000b3fd78f9d56c50"><div class="ttname"><a href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a></div><div class="ttdeci">integer function mpp_pe()</div><div class="ttdoc">Returns processor ID.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00376">mpp_util.inc:376</a></div></div>
 <div class="ttc" id="agroup__fms__mod_html_ga0c093df98a75dbd9e0f3add67aa6c23a"><div class="ttname"><a href="group__fms__mod.html#ga0c093df98a75dbd9e0f3add67aa6c23a">fms_mod::write_version_number</a></div><div class="ttdeci">subroutine, public write_version_number(version, tag, unit)</div><div class="ttdoc">Prints to the log file (or a specified unit) the version id string and tag name.</div><div class="ttdef"><b>Definition:</b> <a href="fms_8F90_source.html#l00840">fms.F90:840</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

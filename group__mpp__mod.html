@@ -91,26 +91,16 @@ $(document).ready(function(){initNavTree('group__mpp__mod.html',''); initResizab
 
 <div class="header">
   <div class="summary">
-<a href="#files">Files</a> &#124;
 <a href="#nested-classes">Data Types</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
-<div class="title">mpp_mod<div class="ingroups"><a class="el" href="group__mpp.html">MPP</a></div></div>  </div>
+<div class="title">mpp_mod</div>  </div>
 </div><!--header-->
 <div class="contents">
 
 <p>This module defines interfaces for common operations using message-passing libraries.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="files"></a>
-Files</h2></td></tr>
-<tr class="memitem:mpp__comm_8inc"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mpp__comm_8inc.html">mpp_comm.inc</a></td></tr>
-<tr class="memdesc:mpp__comm_8inc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Imports checksum, gather, and scatter routines from other include files used for communications and calculations between PE's in <a class="el" href="group__mpp__mod.html">mpp_mod</a>. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:mpp__util_8inc"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mpp__util_8inc.html">mpp_util.inc</a></td></tr>
-<tr class="memdesc:mpp__util_8inc"><td class="mdescLeft">&#160;</td><td class="mdescRight">General utility functions for use in <a class="el" href="group__mpp__mod.html">mpp_mod</a>. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Types</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacempp__mod_1_1array__to__char.html">array_to_char</a></td></tr>
@@ -248,7 +238,7 @@ logical&#160;</td><td class="memItemRight" valign="bottom"><b>first_call_system_
 <tr class="separator:gaab1520c8546c39f34f4cd6bcd79eeac7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga27b06972e1120f543cc30929d81abc92"><td class="memItemLeft" align="right" valign="top"><a id="ga27b06972e1120f543cc30929d81abc92"></a>
 integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mpp__mod.html#ga27b06972e1120f543cc30929d81abc92">get_len_nocomm</a> = 0</td></tr>
-<tr class="memdesc:ga27b06972e1120f543cc30929d81abc92"><td class="mdescLeft">&#160;</td><td class="mdescRight">needed for <a class="el" href="mpp__transmit__nocomm_8h_source.html">mpp_transmit_nocomm.h</a> <br /></td></tr>
+<tr class="memdesc:ga27b06972e1120f543cc30929d81abc92"><td class="mdescLeft">&#160;</td><td class="mdescRight">needed for mpp_transmit_nocomm.h <br /></td></tr>
 <tr class="separator:ga27b06972e1120f543cc30929d81abc92"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga9dae2853ed8158f6cf8bd11fa5c16513"><td class="memItemLeft" align="right" valign="top"><a id="ga9dae2853ed8158f6cf8bd11fa5c16513"></a>
 integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mpp__mod.html#ga9dae2853ed8158f6cf8bd11fa5c16513">in_unit</a> =INPUT_UNIT</td></tr>
@@ -421,7 +411,7 @@ Performance to be not significantly lower than any native API.  </li>
    SRC="mpp_io.html"&gt;parallel I/O&lt;/LINK&gt;. <br  />
  Parallel computing is initially daunting, but it soon becomes second nature, much the way many of us can now write vector code without much effort. The key insight required while reading and writing parallel code is in arriving at a mental grasp of several independent parallel execution streams through the same code (the SPMD model). Each variable you examine may have different values for each stream, the processor ID being an obvious example. Subroutines and function calls are particularly subtle, since it is not always obvious from looking at a call what synchronization between execution streams it implies. An example of erroneous code would be a global barrier call (see &lt;LINK SRC="#mpp_sync"&gt;mpp_sync&lt;/LINK&gt; below) placed within a code block that not all PEs will execute, e.g:</p>
 <pre>
-   if( pe.EQ.0 )call <a class="el" href="mpp__util__mpi_8inc.html#ad75482ebfad2337cd236ef0998accdc4" title="Synchronize PEs in list.">mpp_sync()</a>
+   if( pe.EQ.0 )call mpp_sync()
    </pre><p>Here only PE 0 reaches the barrier, where it will wait indefinitely. While this is a particularly egregious example to illustrate the coding flaw, more subtle versions of the same are among the most common errors in parallel code. <br  />
  It is therefore important to be conscious of the context of a subroutine or function call, and the implied synchronization. There are certain calls here (e.g <code>mpp_declare_pelist, mpp_init, mpp_set_stack_size</code>) which must be called by all PEs. There are others which must be called by a subset of PEs (here called a <code>pelist</code>) which must be called by all the PEs in the <code>pelist</code> (e.g <code><a class="el" href="interfacempp__mod_1_1mpp__max.html" title="Reduction operations. Find the max of scalar a the PEs in pelist result is also automatically broadca...">mpp_max</a>, <a class="el" href="interfacempp__mod_1_1mpp__sum.html" title="Reduction operation.">mpp_sum</a>, mpp_sync</code>). Still others imply no synchronization at all. I will make every effort to highlight the context of each call in the MPP modules, so that the implicit synchronization is spelt out. <br  />
  For performance it is necessary to keep synchronization as limited as the algorithm being implemented will allow. For instance, a single message between two PEs should only imply synchronization across the PEs in question. A <em>global</em> synchronization (or <em>barrier</em>) is likely to be slow, and is best avoided. But codes first parallelized on a Cray T3E tend to have many global syncs, as very fast barriers were implemented there in hardware. <br  />
