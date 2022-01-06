@@ -1,5 +1,6 @@
 var group__astronomy__mod =
 [
+    [ "astronomy.F90", "astronomy_8F90.html", null ],
     [ "annual_mean_solar", "interfaceastronomy__mod_1_1annual__mean__solar.html", [
       [ "annual_mean_solar_1d", "interfaceastronomy__mod_1_1annual__mean__solar.html#a73b22023f95ab51738595290b16fc913", null ],
       [ "annual_mean_solar_2d", "interfaceastronomy__mod_1_1annual__mean__solar.html#a841f269b79251fd44b9fbe2a6c9af03f", null ],

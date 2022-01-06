@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>FMS: mpp/mpp_pset.F90 (8b3cd80f6be195341fa8d686ba24847b732122a4) Source File</title>
+<title>FMS: mpp/mpp_pset.F90 (78e7053896e8db744875bd47550808bd49826861) Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -124,10 +124,10 @@ $(document).ready(function(){initNavTree('mpp__pset_8F90_source.html',''); initR
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor"></span> </div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">module</span> mpp_pset_mod</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &lt;fms_platform.h&gt;</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor"></span>  <span class="keywordtype">use </span>mpp_mod, <span class="keywordtype">only</span>: mpp_pe, mpp_npes, mpp_root_pe, <a class="code" href="interfacempp__mod_1_1mpp__send.html">mpp_send</a>, <a class="code" href="interfacempp__mod_1_1mpp__recv.html">mpp_recv</a>, &amp;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;       mpp_sync, <a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>, fatal, warning, stdout, stderr, <a class="code" href="interfacempp__mod_1_1mpp__chksum.html">mpp_chksum</a>, &amp;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;       mpp_declare_pelist, mpp_get_current_pelist, mpp_set_current_pelist, &amp;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;       mpp_init, comm_tag_1, comm_tag_2, comm_tag_3, mpp_sync_self</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor"></span>  <span class="keywordtype">use </span>mpp_mod, <span class="keywordtype">only</span>: <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>, <a class="code" href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>, mpp_root_pe, <a class="code" href="interfacempp__mod_1_1mpp__send.html">mpp_send</a>, <a class="code" href="interfacempp__mod_1_1mpp__recv.html">mpp_recv</a>, &amp;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;       <a class="code" href="mpp__util__mpi_8inc.html#ad75482ebfad2337cd236ef0998accdc4">mpp_sync</a>, <a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>, fatal, warning, <a class="code" href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a>, <a class="code" href="mpp__util_8inc.html#a285ef180624257148d85af894928844b">stderr</a>, <a class="code" href="interfacempp__mod_1_1mpp__chksum.html">mpp_chksum</a>, &amp;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;       <a class="code" href="mpp__util_8inc.html#ada061a5778228965b5ccfc693c4dc892">mpp_declare_pelist</a>, mpp_get_current_pelist, <a class="code" href="mpp__util_8inc.html#a2238aa842b4c9e899d733ef41b71bb71">mpp_set_current_pelist</a>, &amp;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;       <a class="code" href="group__mpp__mod.html#ga271b4c9584f2b514df4439086add4198">mpp_init</a>, comm_tag_1, comm_tag_2, comm_tag_3, <a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <span class="keywordtype">implicit none</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="keywordtype">private</span></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
@@ -206,19 +206,19 @@ $(document).ready(function(){initNavTree('mpp__pset_8F90_source.html',''); initR
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordtype">integer</span> :: i, j, k, out_unit, errunit</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordtype">integer</span>, <span class="keywordtype">allocatable</span> :: my_pelist(:), root_pelist(:)</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keyword">call </span>mpp_init()</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keyword">call </span><a class="code" href="group__mpp__mod.html#ga271b4c9584f2b514df4439086add4198">mpp_init</a>()</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keyword">call </span>mpp_pset_init()</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="preprocessor">#ifdef PSET_DEBUG</span></div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="preprocessor"></span>    verbose=.true.</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="preprocessor"></span>    out_unit = stdout()</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    errunit  = stderr()</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    pe = mpp_pe()</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="preprocessor"></span>    out_unit = <a class="code" href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a>()</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    errunit  = <a class="code" href="mpp__util_8inc.html#a285ef180624257148d85af894928844b">stderr</a>()</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    pe = <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordflow">if</span>(<span class="keyword">present</span>(pelist)) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;       npes = <span class="keyword">size</span>(pelist(:))</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;       npes = mpp_npes()</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;       npes = <a class="code" href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>()</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="keywordflow">    endif</span></div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keywordflow">if</span>( mod(npes,npset).NE.0 )<span class="keywordflow">then</span></div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        <span class="keyword">write</span>( text,<span class="stringliteral">&#39;(a,2i6)&#39;</span> ) &amp;</div>
@@ -293,7 +293,7 @@ $(document).ready(function(){initNavTree('mpp__pset_8F90_source.html',''); initR
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacempp__pset__mod_1_1mpp__pset__broadcast__ptr.html">mpp_pset_broadcast_ptr</a>(pset,pset%p_stack)</div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;<span class="keywordflow">    endif</span></div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160; </div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    <span class="keyword">call </span>mpp_declare_pelist(root_pelist)</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    <span class="keyword">call </span><a class="code" href="mpp__util_8inc.html#ada061a5778228965b5ccfc693c4dc892">mpp_declare_pelist</a>(root_pelist)</div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160; </div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    <span class="keywordflow">if</span>( verbose )<span class="keywordflow">then</span></div>
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        <span class="keyword">write</span>( errunit,<span class="stringliteral">&#39;(a,4i6)&#39;</span> )<span class="stringliteral">&#39;MPP_PSET_CREATE: pe, root, next, prev=&#39;</span>, &amp;</div>
@@ -307,7 +307,7 @@ $(document).ready(function(){initNavTree('mpp__pset_8F90_source.html',''); initR
 <div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    <span class="keywordtype">type</span>(mpp_pset_type), <span class="keywordtype">intent(inout)</span> :: pset</div>
 <div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    <span class="keywordtype">integer</span> :: out_unit</div>
 <div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160; </div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    out_unit = stdout()</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    out_unit = <a class="code" href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a>()</div>
 <div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    <span class="keywordflow">if</span>( .NOT.pset%initialized )<span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>( fatal, &amp;</div>
 <div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;         <span class="stringliteral">&#39;MPP_PSET_DELETE: called with uninitialized PSET.&#39;</span> )</div>
 <div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;<span class="comment">!deallocate arrays...</span></div>
@@ -376,7 +376,7 @@ $(document).ready(function(){initNavTree('mpp__pset_8F90_source.html',''); initR
 <div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;         <span class="stringliteral">&#39;MPP_PSET_SYNC: called with uninitialized PSET.&#39;</span> )</div>
 <div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;<span class="comment">!currently does mpp_sync!!! slow!!!</span></div>
 <div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;<span class="comment">!try and make a lightweight pset sync</span></div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    <span class="keyword">call </span>mpp_sync</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#ad75482ebfad2337cd236ef0998accdc4">mpp_sync</a></div>
 <div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;  <span class="keyword">end subroutine </span>mpp_pset_sync</div>
 <div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160; </div>
 <div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;  <span class="keyword">subroutine </span>mpp_pset_broadcast(pset,a)</div>
@@ -415,7 +415,7 @@ $(document).ready(function(){initNavTree('mpp__pset_8F90_source.html',''); initR
 <div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;        <span class="keyword">call </span><a class="code" href="interfacempp__pset__mod_1_1mpp__recv__ptr.html">mpp_recv_ptr</a>( ptr, pset%root_in_pset )</div>
 <div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    <span class="keyword">call </span>mpp_sync_self()</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>()</div>
 <div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;  <span class="keyword">end subroutine </span>mpp_pset_broadcast_ptr_scalar</div>
 <div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160; </div>
 <div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;  <span class="keyword">subroutine </span>mpp_pset_broadcast_ptr_array(pset,ptr)</div>
@@ -436,7 +436,7 @@ $(document).ready(function(){initNavTree('mpp__pset_8F90_source.html',''); initR
 <div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;        <span class="keyword">call </span><a class="code" href="interfacempp__pset__mod_1_1mpp__recv__ptr.html">mpp_recv_ptr</a>( ptr, pset%root_in_pset )</div>
 <div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    <span class="keyword">call </span>mpp_sync_self()</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>()</div>
 <div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160; </div>
 <div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;  <span class="keyword">end subroutine </span>mpp_pset_broadcast_ptr_array</div>
 <div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160; </div>
@@ -564,16 +564,16 @@ $(document).ready(function(){initNavTree('mpp__pset_8F90_source.html',''); initR
 <div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160; </div>
 <div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;    <span class="keywordflow">if</span>( .NOT.pset%initialized )<span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>( fatal, &amp;</div>
 <div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;         <span class="stringliteral">&#39;MPP_PSET_PRINT_CHKSUM: called with uninitialized PSET.&#39;</span> )</div>
-<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;    errunit = stderr()</div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;    errunit = <a class="code" href="mpp__util_8inc.html#a285ef180624257148d85af894928844b">stderr</a>()</div>
 <div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160; </div>
 <div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;    <span class="keywordflow">if</span>( pset%root )<span class="keywordflow">then</span></div>
 <div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;        do_print = pe.EQ.mpp_root_pe() <span class="comment">!set to T to print from all PEs</span></div>
-<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;        <span class="keyword">call </span>mpp_set_current_pelist(pset%root_pelist)</div>
+<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;        <span class="keyword">call </span><a class="code" href="mpp__util_8inc.html#a2238aa842b4c9e899d733ef41b71bb71">mpp_set_current_pelist</a>(pset%root_pelist)</div>
 <div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;        chksum = <a class="code" href="interfacempp__mod_1_1mpp__chksum.html">mpp_chksum</a>( array )</div>
 <div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;        <span class="keywordflow">if</span>( do_print ) &amp;</div>
 <div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;             <span class="keyword">write</span>( errunit, <span class="stringliteral">&#39;(a,z18)&#39;</span> )trim(caller)//<span class="stringliteral">&#39; chksum=&#39;</span>, chksum</div>
 <div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;    <span class="keyword">call </span>mpp_set_current_pelist(pset%pelist)</div>
+<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;    <span class="keyword">call </span><a class="code" href="mpp__util_8inc.html#a2238aa842b4c9e899d733ef41b71bb71">mpp_set_current_pelist</a>(pset%pelist)</div>
 <div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;<span class="preprocessor"></span>    <span class="keywordflow">return</span></div>
 <div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;  <span class="keyword">end subroutine </span>mpp_pset_print_chksum_1d</div>
@@ -677,15 +677,24 @@ $(document).ready(function(){initNavTree('mpp__pset_8F90_source.html',''); initR
 <div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;<span class="keyword">end module </span>mpp_pset_mod</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="ampp__util_8inc_html_ada061a5778228965b5ccfc693c4dc892"><div class="ttname"><a href="mpp__util_8inc.html#ada061a5778228965b5ccfc693c4dc892">mpp_declare_pelist</a></div><div class="ttdeci">subroutine mpp_declare_pelist(pelist, name)</div><div class="ttdoc">Declare a pelist.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00449">mpp_util.inc:449</a></div></div>
+<div class="ttc" id="ampp__util_8inc_html_a172901d39c9b0cf14aa83b1e94fdf21b"><div class="ttname"><a href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a></div><div class="ttdeci">integer function stdout()</div><div class="ttdoc">This function returns the current standard fortran unit numbers for output.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00041">mpp_util.inc:41</a></div></div>
 <div class="ttc" id="ainterfacempp__pset__mod_1_1mpp__pset__print__chksum_html"><div class="ttname"><a href="interfacempp__pset__mod_1_1mpp__pset__print__chksum.html">mpp_pset_mod::mpp_pset_print_chksum</a></div><div class="ttdef"><b>Definition:</b> <a href="mpp__pset_8F90_source.html#l00057">mpp_pset.F90:57</a></div></div>
-<div class="ttc" id="ainterfacempp__mod_1_1mpp__recv_html"><div class="ttname"><a href="interfacempp__mod_1_1mpp__recv.html">mpp_mod::mpp_recv</a></div><div class="ttdoc">Recieve data to another PE.</div><div class="ttdef"><b>Definition:</b> <a href="mpp_8F90_source.html#l00891">mpp.F90:891</a></div></div>
-<div class="ttc" id="ainterfacempp__mod_1_1mpp__error_html"><div class="ttname"><a href="interfacempp__mod_1_1mpp__error.html">mpp_mod::mpp_error</a></div><div class="ttdoc">Error handler.</div><div class="ttdef"><b>Definition:</b> <a href="mpp_8F90_source.html#l00386">mpp.F90:386</a></div></div>
-<div class="ttc" id="ainterfacempp__mod_1_1mpp__send_html"><div class="ttname"><a href="interfacempp__mod_1_1mpp__send.html">mpp_mod::mpp_send</a></div><div class="ttdoc">Send data to a receiving PE.</div><div class="ttdef"><b>Definition:</b> <a href="mpp_8F90_source.html#l00958">mpp.F90:958</a></div></div>
+<div class="ttc" id="ainterfacempp__mod_1_1mpp__recv_html"><div class="ttname"><a href="interfacempp__mod_1_1mpp__recv.html">mpp_mod::mpp_recv</a></div><div class="ttdoc">Recieve data to another PE.</div><div class="ttdef"><b>Definition:</b> <a href="mpp_8F90_source.html#l00892">mpp.F90:892</a></div></div>
+<div class="ttc" id="ainterfacempp__mod_1_1mpp__error_html"><div class="ttname"><a href="interfacempp__mod_1_1mpp__error.html">mpp_mod::mpp_error</a></div><div class="ttdoc">Error handler.</div><div class="ttdef"><b>Definition:</b> <a href="mpp_8F90_source.html#l00387">mpp.F90:387</a></div></div>
+<div class="ttc" id="ampp__util__mpi_8inc_html_a09e69243d8c67e6a6e6e4fd9e93d0870"><div class="ttname"><a href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a></div><div class="ttdeci">subroutine mpp_sync_self(pelist, check, request, msg_size, msg_type)</div><div class="ttdoc">This is to check if current PE's outstanding puts are complete but we can't use shmem_fence because w...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util__mpi_8inc_source.html#l00169">mpp_util_mpi.inc:169</a></div></div>
+<div class="ttc" id="ainterfacempp__mod_1_1mpp__send_html"><div class="ttname"><a href="interfacempp__mod_1_1mpp__send.html">mpp_mod::mpp_send</a></div><div class="ttdoc">Send data to a receiving PE.</div><div class="ttdef"><b>Definition:</b> <a href="mpp_8F90_source.html#l00959">mpp.F90:959</a></div></div>
 <div class="ttc" id="astructmpp__pset__mod_1_1mpp__pset__type_html"><div class="ttname"><a href="structmpp__pset__mod_1_1mpp__pset__type.html">mpp_pset_mod::mpp_pset_type</a></div><div class="ttdef"><b>Definition:</b> <a href="mpp__pset_8F90_source.html#l00064">mpp_pset.F90:64</a></div></div>
-<div class="ttc" id="ainterfacempp__mod_1_1mpp__chksum_html"><div class="ttname"><a href="interfacempp__mod_1_1mpp__chksum.html">mpp_mod::mpp_chksum</a></div><div class="ttdoc">Calculate parallel checksums.</div><div class="ttdef"><b>Definition:</b> <a href="mpp_8F90_source.html#l01150">mpp.F90:1150</a></div></div>
+<div class="ttc" id="ainterfacempp__mod_1_1mpp__chksum_html"><div class="ttname"><a href="interfacempp__mod_1_1mpp__chksum.html">mpp_mod::mpp_chksum</a></div><div class="ttdoc">Calculate parallel checksums.</div><div class="ttdef"><b>Definition:</b> <a href="mpp_8F90_source.html#l01151">mpp.F90:1151</a></div></div>
 <div class="ttc" id="ainterfacempp__pset__mod_1_1mpp__pset__broadcast__ptr_html"><div class="ttname"><a href="interfacempp__pset__mod_1_1mpp__pset__broadcast__ptr.html">mpp_pset_mod::mpp_pset_broadcast_ptr</a></div><div class="ttdef"><b>Definition:</b> <a href="mpp__pset_8F90_source.html#l00045">mpp_pset.F90:45</a></div></div>
+<div class="ttc" id="ampp__util_8inc_html_a285ef180624257148d85af894928844b"><div class="ttname"><a href="mpp__util_8inc.html#a285ef180624257148d85af894928844b">stderr</a></div><div class="ttdeci">integer function stderr()</div><div class="ttdoc">This function returns the current standard fortran unit numbers for error messages.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00049">mpp_util.inc:49</a></div></div>
+<div class="ttc" id="ampp__util__mpi_8inc_html_ad75482ebfad2337cd236ef0998accdc4"><div class="ttname"><a href="mpp__util__mpi_8inc.html#ad75482ebfad2337cd236ef0998accdc4">mpp_sync</a></div><div class="ttdeci">subroutine mpp_sync(pelist, do_self)</div><div class="ttdoc">Synchronize PEs in list.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util__mpi_8inc_source.html#l00146">mpp_util_mpi.inc:146</a></div></div>
+<div class="ttc" id="ampp__util_8inc_html_a2238aa842b4c9e899d733ef41b71bb71"><div class="ttname"><a href="mpp__util_8inc.html#a2238aa842b4c9e899d733ef41b71bb71">mpp_set_current_pelist</a></div><div class="ttdeci">subroutine mpp_set_current_pelist(pelist, no_sync)</div><div class="ttdoc">Set context pelist.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00476">mpp_util.inc:476</a></div></div>
 <div class="ttc" id="ainterfacempp__pset__mod_1_1mpp__send__ptr_html"><div class="ttname"><a href="interfacempp__pset__mod_1_1mpp__send__ptr.html">mpp_pset_mod::mpp_send_ptr</a></div><div class="ttdef"><b>Definition:</b> <a href="mpp__pset_8F90_source.html#l00049">mpp_pset.F90:49</a></div></div>
+<div class="ttc" id="ampp__util_8inc_html_abf546cd336d5c539e445fb884f98ab6b"><div class="ttname"><a href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a></div><div class="ttdeci">integer function mpp_npes()</div><div class="ttdoc">Returns processor count for current pelist.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00390">mpp_util.inc:390</a></div></div>
+<div class="ttc" id="ampp__util_8inc_html_acfeba7de56f9dd6000b3fd78f9d56c50"><div class="ttname"><a href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a></div><div class="ttdeci">integer function mpp_pe()</div><div class="ttdoc">Returns processor ID.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00376">mpp_util.inc:376</a></div></div>
 <div class="ttc" id="ainterfacempp__pset__mod_1_1mpp__recv__ptr_html"><div class="ttname"><a href="interfacempp__pset__mod_1_1mpp__recv__ptr.html">mpp_pset_mod::mpp_recv_ptr</a></div><div class="ttdef"><b>Definition:</b> <a href="mpp__pset_8F90_source.html#l00053">mpp_pset.F90:53</a></div></div>
+<div class="ttc" id="agroup__mpp__mod_html_ga271b4c9584f2b514df4439086add4198"><div class="ttname"><a href="group__mpp__mod.html#ga271b4c9584f2b514df4439086add4198">mpp_init</a></div><div class="ttdeci">subroutine mpp_init(flags, localcomm, test_level, alt_input_nml_path)</div><div class="ttdoc">Initialize the mpp_mod module. Must be called before any usage.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__comm__mpi_8inc_source.html#l00034">mpp_comm_mpi.inc:34</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

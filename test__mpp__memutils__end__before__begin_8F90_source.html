@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>FMS: test_fms/mpp/test_mpp_memutils_end_before_begin.F90 (8b3cd80f6be195341fa8d686ba24847b732122a4) Source File</title>
+<title>FMS: test_fms/mpp/test_mpp_memutils_end_before_begin.F90 (78e7053896e8db744875bd47550808bd49826861) Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -125,20 +125,22 @@ $(document).ready(function(){initNavTree('test__mpp__memutils__end__before__begi
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">program</span> test_mpp_memutils_init_end</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &quot;../../include/fms_platform.h&quot;</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor"></span> </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="keywordtype">use </span>mpp_mod, <span class="keywordtype">only</span> : mpp_init, mpp_exit</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="keywordtype">use </span>mpp_mod, <span class="keywordtype">only</span> : <a class="code" href="group__mpp__mod.html#ga271b4c9584f2b514df4439086add4198">mpp_init</a>, <a class="code" href="group__mpp__mod.html#ga8d0366d81b9701ccaaf3612b666aada1">mpp_exit</a></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keywordtype">use </span>mpp_memutils_mod, <span class="keywordtype">only</span>: <a class="code" href="group__mpp__memutils__mod.html#ga3c5834bfffa897af09be279c225279a2">mpp_memuse_begin</a>, <a class="code" href="group__mpp__memutils__mod.html#ga3c26d4cff3ed9302d05ffd12ded42f76">mpp_memuse_end</a></div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keywordtype">implicit none</span></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keywordtype">  real</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">allocatable</span> :: ralloc_mem</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keyword">call </span>mpp_init()</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keyword">call </span><a class="code" href="group__mpp__mod.html#ga271b4c9584f2b514df4439086add4198">mpp_init</a>()</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <span class="keyword">call </span><a class="code" href="group__mpp__memutils__mod.html#ga3c26d4cff3ed9302d05ffd12ded42f76">mpp_memuse_end</a>(<span class="stringliteral">&quot;Test mpp_memuse_mod, mpp_memuse_end called before mpp_memuse_begin&quot;</span>)</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="keyword">call </span>mpp_exit()</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="keyword">call </span><a class="code" href="group__mpp__mod.html#ga8d0366d81b9701ccaaf3612b666aada1">mpp_exit</a>()</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">end program </span>test_mpp_memutils_init_end</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="agroup__mpp__memutils__mod_html_ga3c26d4cff3ed9302d05ffd12ded42f76"><div class="ttname"><a href="group__mpp__memutils__mod.html#ga3c26d4cff3ed9302d05ffd12ded42f76">mpp_memutils_mod::mpp_memuse_end</a></div><div class="ttdeci">subroutine, public mpp_memuse_end(text, unit)</div><div class="ttdoc">End the memory collection, and report on total memory used during the execution of the model run.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__memutils_8F90_source.html#l00060">mpp_memutils.F90:60</a></div></div>
-<div class="ttc" id="agroup__mpp__memutils__mod_html_ga3c5834bfffa897af09be279c225279a2"><div class="ttname"><a href="group__mpp__memutils__mod.html#ga3c5834bfffa897af09be279c225279a2">mpp_memutils_mod::mpp_memuse_begin</a></div><div class="ttdeci">subroutine, public mpp_memuse_begin</div><div class="ttdoc">Initialize the memory module, and record the initial memory use.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__memutils_8F90_source.html#l00048">mpp_memutils.F90:48</a></div></div>
+<div class="ttc" id="agroup__mpp__memutils__mod_html_ga3c26d4cff3ed9302d05ffd12ded42f76"><div class="ttname"><a href="group__mpp__memutils__mod.html#ga3c26d4cff3ed9302d05ffd12ded42f76">mpp_memutils_mod::mpp_memuse_end</a></div><div class="ttdeci">subroutine, public mpp_memuse_end(text, unit)</div><div class="ttdoc">End the memory collection, and report on total memory used during the execution of the model run.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__memutils_8F90_source.html#l00061">mpp_memutils.F90:61</a></div></div>
+<div class="ttc" id="agroup__mpp__memutils__mod_html_ga3c5834bfffa897af09be279c225279a2"><div class="ttname"><a href="group__mpp__memutils__mod.html#ga3c5834bfffa897af09be279c225279a2">mpp_memutils_mod::mpp_memuse_begin</a></div><div class="ttdeci">subroutine, public mpp_memuse_begin</div><div class="ttdoc">Initialize the memory module, and record the initial memory use.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__memutils_8F90_source.html#l00049">mpp_memutils.F90:49</a></div></div>
+<div class="ttc" id="agroup__mpp__mod_html_ga8d0366d81b9701ccaaf3612b666aada1"><div class="ttname"><a href="group__mpp__mod.html#ga8d0366d81b9701ccaaf3612b666aada1">mpp_exit</a></div><div class="ttdeci">subroutine mpp_exit()</div><div class="ttdoc">Finalizes process termination. To be called at the end of a run. Certain mpi implementations(openmpi)...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__comm__mpi_8inc_source.html#l00191">mpp_comm_mpi.inc:191</a></div></div>
+<div class="ttc" id="agroup__mpp__mod_html_ga271b4c9584f2b514df4439086add4198"><div class="ttname"><a href="group__mpp__mod.html#ga271b4c9584f2b514df4439086add4198">mpp_init</a></div><div class="ttdeci">subroutine mpp_init(flags, localcomm, test_level, alt_input_nml_path)</div><div class="ttdoc">Initialize the mpp_mod module. Must be called before any usage.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__comm__mpi_8inc_source.html#l00034">mpp_comm_mpi.inc:34</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

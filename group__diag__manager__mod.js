@@ -1,5 +1,6 @@
 var group__diag__manager__mod =
 [
+    [ "diag_manager.F90", "diag__manager_8F90.html", null ],
     [ "diag_field_add_attribute", "interfacediag__manager__mod_1_1diag__field__add__attribute.html", [
       [ "diag_field_add_attribute_i1d", "interfacediag__manager__mod_1_1diag__field__add__attribute.html#a270876431a2bafc679a27573b5541d57", null ],
       [ "diag_field_add_attribute_r1d", "interfacediag__manager__mod_1_1diag__field__add__attribute.html#af01e0ae48e96b4ed34c112ce84759604", null ],

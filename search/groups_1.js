@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['blackboxio_4446',['blackboxio',['../group__blackboxio.html',1,'']]],
-  ['block_5fcontrol_5fmod_4447',['block_control_mod',['../group__block__control__mod.html',1,'']]]
+  ['blackboxio_5335',['blackboxio',['../group__blackboxio.html',1,'']]],
+  ['block_20control_5336',['Block Control',['../group__block__control.html',1,'']]],
+  ['block_5fcontrol_5fmod_5337',['block_control_mod',['../group__block__control__mod.html',1,'']]]
 ];

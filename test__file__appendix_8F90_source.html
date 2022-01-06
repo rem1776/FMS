@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>FMS: test_fms/fms2_io/test_file_appendix.F90 (8b3cd80f6be195341fa8d686ba24847b732122a4) Source File</title>
+<title>FMS: test_fms/fms2_io/test_file_appendix.F90 (78e7053896e8db744875bd47550808bd49826861) Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -124,7 +124,7 @@ $(document).ready(function(){initNavTree('test__file__appendix_8F90_source.html'
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keywordtype">use   </span>fms2_io_mod  , <span class="keywordtype">only</span>: <a class="code" href="group__fms2__io__mod.html#gab2efb88539d9a05da43d95a501ed7e4c">fms2_io_init</a>, set_filename_appendix, get_filename_appendix, &amp;</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                           get_instance_filename, <a class="code" href="interfacefms2__io__mod_1_1open__file.html">open_file</a>, fmsnetcdffile_t, <a class="code" href="interfacefms2__io__mod_1_1close__file.html">close_file</a>, &amp;</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                           nullify_filename_appendix</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keywordtype">use   </span>mpp_mod      , <span class="keywordtype">only</span>: mpp_init, mpp_exit, <a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>, fatal</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keywordtype">use   </span>mpp_mod      , <span class="keywordtype">only</span>: <a class="code" href="group__mpp__mod.html#ga271b4c9584f2b514df4439086add4198">mpp_init</a>, <a class="code" href="group__mpp__mod.html#ga8d0366d81b9701ccaaf3612b666aada1">mpp_exit</a>, <a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>, fatal</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keywordtype">implicit none</span></div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
@@ -134,7 +134,7 @@ $(document).ready(function(){initNavTree('test__file__appendix_8F90_source.html'
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;test_passed = .false.</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">call </span>mpp_init()</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">call </span><a class="code" href="group__mpp__mod.html#ga271b4c9584f2b514df4439086add4198">mpp_init</a>()</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">call </span><a class="code" href="group__fms2__io__mod.html#gab2efb88539d9a05da43d95a501ed7e4c">fms2_io_init</a>()</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">call </span>set_filename_appendix(<span class="stringliteral">&quot;nest01&quot;</span>)</div>
@@ -191,15 +191,17 @@ $(document).ready(function(){initNavTree('test__file__appendix_8F90_source.html'
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="keyword">inquire</span>(file=<span class="stringliteral">&quot;nestfile.res.nc&quot;</span>, exist=test_passed)</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="keywordflow">if</span> (.not. test_passed) <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__error.html">mpp_error</a>(fatal, <span class="stringliteral">&quot;Error creating nestfile.res.nc&quot;</span>)</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="keyword">call </span>mpp_exit()</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="keyword">call </span><a class="code" href="group__mpp__mod.html#ga8d0366d81b9701ccaaf3612b666aada1">mpp_exit</a>()</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="keyword">end program </span>test_file_appendix</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="agroup__fms2__io__mod_html_gab2efb88539d9a05da43d95a501ed7e4c"><div class="ttname"><a href="group__fms2__io__mod.html#gab2efb88539d9a05da43d95a501ed7e4c">fms2_io_mod::fms2_io_init</a></div><div class="ttdeci">subroutine, public fms2_io_init()</div><div class="ttdoc">Reads the fms2_io_nml.</div><div class="ttdef"><b>Definition:</b> <a href="fms2__io_8F90_source.html#l00365">fms2_io.F90:365</a></div></div>
-<div class="ttc" id="ainterfacefms2__io__mod_1_1open__file_html"><div class="ttname"><a href="interfacefms2__io__mod_1_1open__file.html">fms2_io_mod::open_file</a></div><div class="ttdoc">Opens a given netcdf or domain file.</div><div class="ttdef"><b>Definition:</b> <a href="fms2__io_8F90_source.html#l00124">fms2_io.F90:124</a></div></div>
-<div class="ttc" id="ainterfacempp__mod_1_1mpp__error_html"><div class="ttname"><a href="interfacempp__mod_1_1mpp__error.html">mpp_mod::mpp_error</a></div><div class="ttdoc">Error handler.</div><div class="ttdef"><b>Definition:</b> <a href="mpp_8F90_source.html#l00386">mpp.F90:386</a></div></div>
-<div class="ttc" id="ainterfacefms2__io__mod_1_1close__file_html"><div class="ttname"><a href="interfacefms2__io__mod_1_1close__file.html">fms2_io_mod::close_file</a></div><div class="ttdoc">Close a netcdf or domain file opened with open_file or open_virtual_file.</div><div class="ttdef"><b>Definition:</b> <a href="fms2__io_8F90_source.html#l00163">fms2_io.F90:163</a></div></div>
+<div class="ttc" id="agroup__fms2__io__mod_html_gab2efb88539d9a05da43d95a501ed7e4c"><div class="ttname"><a href="group__fms2__io__mod.html#gab2efb88539d9a05da43d95a501ed7e4c">fms2_io_mod::fms2_io_init</a></div><div class="ttdeci">subroutine, public fms2_io_init()</div><div class="ttdoc">Reads the fms2_io_nml.</div><div class="ttdef"><b>Definition:</b> <a href="fms2__io_8F90_source.html#l00366">fms2_io.F90:366</a></div></div>
+<div class="ttc" id="ainterfacefms2__io__mod_1_1open__file_html"><div class="ttname"><a href="interfacefms2__io__mod_1_1open__file.html">fms2_io_mod::open_file</a></div><div class="ttdoc">Opens a given netcdf or domain file.</div><div class="ttdef"><b>Definition:</b> <a href="fms2__io_8F90_source.html#l00125">fms2_io.F90:125</a></div></div>
+<div class="ttc" id="ainterfacempp__mod_1_1mpp__error_html"><div class="ttname"><a href="interfacempp__mod_1_1mpp__error.html">mpp_mod::mpp_error</a></div><div class="ttdoc">Error handler.</div><div class="ttdef"><b>Definition:</b> <a href="mpp_8F90_source.html#l00387">mpp.F90:387</a></div></div>
+<div class="ttc" id="agroup__mpp__mod_html_ga8d0366d81b9701ccaaf3612b666aada1"><div class="ttname"><a href="group__mpp__mod.html#ga8d0366d81b9701ccaaf3612b666aada1">mpp_exit</a></div><div class="ttdeci">subroutine mpp_exit()</div><div class="ttdoc">Finalizes process termination. To be called at the end of a run. Certain mpi implementations(openmpi)...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__comm__mpi_8inc_source.html#l00191">mpp_comm_mpi.inc:191</a></div></div>
+<div class="ttc" id="ainterfacefms2__io__mod_1_1close__file_html"><div class="ttname"><a href="interfacefms2__io__mod_1_1close__file.html">fms2_io_mod::close_file</a></div><div class="ttdoc">Close a netcdf or domain file opened with open_file or open_virtual_file.</div><div class="ttdef"><b>Definition:</b> <a href="fms2__io_8F90_source.html#l00164">fms2_io.F90:164</a></div></div>
+<div class="ttc" id="agroup__mpp__mod_html_ga271b4c9584f2b514df4439086add4198"><div class="ttname"><a href="group__mpp__mod.html#ga271b4c9584f2b514df4439086add4198">mpp_init</a></div><div class="ttdeci">subroutine mpp_init(flags, localcomm, test_level, alt_input_nml_path)</div><div class="ttdoc">Initialize the mpp_mod module. Must be called before any usage.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__comm__mpi_8inc_source.html#l00034">mpp_comm_mpi.inc:34</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

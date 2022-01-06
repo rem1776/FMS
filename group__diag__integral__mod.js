@@ -1,5 +1,6 @@
 var group__diag__integral__mod =
 [
+    [ "diag_integral.F90", "diag__integral_8F90.html", null ],
     [ "sum_diag_integral_field", "interfacediag__integral__mod_1_1sum__diag__integral__field.html", [
       [ "sum_field_2d", "interfacediag__integral__mod_1_1sum__diag__integral__field.html#ac0f831362d6a97202f1b4b1968fc9cdd", null ],
       [ "sum_field_2d_hemi", "interfacediag__integral__mod_1_1sum__diag__integral__field.html#a0e424c6e37720e27f2e0c906e41f90c9", null ],

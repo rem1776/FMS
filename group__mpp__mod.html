@@ -91,16 +91,30 @@ $(document).ready(function(){initNavTree('group__mpp__mod.html',''); initResizab
 
 <div class="header">
   <div class="summary">
+<a href="#files">Files</a> &#124;
 <a href="#nested-classes">Data Types</a> &#124;
+<a href="#func-members">Functions/Subroutines</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
-<div class="title">mpp_mod</div>  </div>
+<div class="title">mpp_mod<div class="ingroups"><a class="el" href="group__mpp.html">MPP</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
 <p>This module defines interfaces for common operations using message-passing libraries.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="files"></a>
+Files</h2></td></tr>
+<tr class="memitem:mpp_8F90"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mpp_8F90.html">mpp.F90</a></td></tr>
+<tr class="memdesc:mpp_8F90"><td class="mdescLeft">&#160;</td><td class="mdescRight">File for <a class="el" href="group__mpp__mod.html">mpp_mod</a>. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:mpp__comm_8inc"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mpp__comm_8inc.html">mpp_comm.inc</a></td></tr>
+<tr class="memdesc:mpp__comm_8inc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Imports checksum, gather, and scatter routines from other include files used for communications and calculations between PE's in <a class="el" href="group__mpp__mod.html">mpp_mod</a>. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:mpp__util_8inc"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mpp__util_8inc.html">mpp_util.inc</a></td></tr>
+<tr class="memdesc:mpp__util_8inc"><td class="mdescLeft">&#160;</td><td class="mdescRight">General utility functions for use in <a class="el" href="group__mpp__mod.html">mpp_mod</a>. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Types</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacempp__mod_1_1array__to__char.html">array_to_char</a></td></tr>
@@ -170,6 +184,42 @@ Data Types</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">holds name and clock data for use in mpp_util.h  <a href="structmpp__mod_1_1summary__struct.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions/Subroutines</h2></td></tr>
+<tr class="memitem:ga823769fc831d556ad73e98ae0a8f7f2a"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mpp__mod.html#ga823769fc831d556ad73e98ae0a8f7f2a">mpp_broadcast_char</a> (data, length, from_pe, pelist)</td></tr>
+<tr class="memdesc:ga823769fc831d556ad73e98ae0a8f7f2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Broadcasts a character string from the given pe to it's pelist.  <a href="group__mpp__mod.html#ga823769fc831d556ad73e98ae0a8f7f2a">More...</a><br /></td></tr>
+<tr class="separator:ga823769fc831d556ad73e98ae0a8f7f2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8d0366d81b9701ccaaf3612b666aada1"><td class="memItemLeft" align="right" valign="top"><a id="ga8d0366d81b9701ccaaf3612b666aada1"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mpp__mod.html#ga8d0366d81b9701ccaaf3612b666aada1">mpp_exit</a> ()</td></tr>
+<tr class="memdesc:ga8d0366d81b9701ccaaf3612b666aada1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finalizes process termination. To be called at the end of a run. Certain mpi implementations(openmpi) will fail if this is not called before program termination. <br /></td></tr>
+<tr class="separator:ga8d0366d81b9701ccaaf3612b666aada1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga271b4c9584f2b514df4439086add4198"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mpp__mod.html#ga271b4c9584f2b514df4439086add4198">mpp_init</a> (flags, localcomm, test_level, alt_input_nml_path)</td></tr>
+<tr class="memdesc:ga271b4c9584f2b514df4439086add4198"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the <a class="el" href="group__mpp__mod.html">mpp_mod</a> module. Must be called before any usage.  <a href="group__mpp__mod.html#ga271b4c9584f2b514df4439086add4198">More...</a><br /></td></tr>
+<tr class="separator:ga271b4c9584f2b514df4439086add4198"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac00f997102c5613d8c547f1ee10fa49c"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mpp__mod.html#gac00f997102c5613d8c547f1ee10fa49c">mpp_set_stack_size</a> (n)</td></tr>
+<tr class="memdesc:gac00f997102c5613d8c547f1ee10fa49c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the mpp_stack variable to be at least n LONG words long.  <a href="group__mpp__mod.html#gac00f997102c5613d8c547f1ee10fa49c">More...</a><br /></td></tr>
+<tr class="separator:gac00f997102c5613d8c547f1ee10fa49c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1507a83a5a065496d840422c0c3b4ff4"><td class="memItemLeft" align="right" valign="top"><a id="ga1507a83a5a065496d840422c0c3b4ff4"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_sum_2d_</b> (a, length, pelist)</td></tr>
+<tr class="separator:ga1507a83a5a065496d840422c0c3b4ff4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga60f0bb4ff0338bdf9265f625ce7e3f45"><td class="memItemLeft" align="right" valign="top"><a id="ga60f0bb4ff0338bdf9265f625ce7e3f45"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_sum_3d_</b> (a, length, pelist)</td></tr>
+<tr class="separator:ga60f0bb4ff0338bdf9265f625ce7e3f45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9e5c12cdbec69e466072a11e28d317cb"><td class="memItemLeft" align="right" valign="top"><a id="ga9e5c12cdbec69e466072a11e28d317cb"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_sum_4d_</b> (a, length, pelist)</td></tr>
+<tr class="separator:ga9e5c12cdbec69e466072a11e28d317cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae593e15720747b2a88c6aa2c89561876"><td class="memItemLeft" align="right" valign="top"><a id="gae593e15720747b2a88c6aa2c89561876"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_sum_5d_</b> (a, length, pelist)</td></tr>
+<tr class="separator:gae593e15720747b2a88c6aa2c89561876"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7327b82b31b53f69e187becf67b65175"><td class="memItemLeft" align="right" valign="top"><a id="ga7327b82b31b53f69e187becf67b65175"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mpp__mod.html#ga7327b82b31b53f69e187becf67b65175">mpp_sum_scalar_</a> (a, pelist)</td></tr>
+<tr class="memdesc:ga7327b82b31b53f69e187becf67b65175"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sums array a when only first element is passed: this routine just converts to a call to MPP_SUM_. <br /></td></tr>
+<tr class="separator:ga7327b82b31b53f69e187becf67b65175"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4ba89dd4d38f1d902c9c87af7d310d75"><td class="memItemLeft" align="right" valign="top"><a id="ga4ba89dd4d38f1d902c9c87af7d310d75"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mpp__mod.html#ga4ba89dd4d38f1d902c9c87af7d310d75">mpp_type_free</a> (dtype)</td></tr>
+<tr class="memdesc:ga4ba89dd4d38f1d902c9c87af7d310d75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocates memory for mpp_type objects @TODO This should probably not take a pointer, but for now we do this. <br /></td></tr>
+<tr class="separator:ga4ba89dd4d38f1d902c9c87af7d310d75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:ga5a819083f3d2fcb30eaad81d1ba66312"><td class="memItemLeft" align="right" valign="top"><a id="ga5a819083f3d2fcb30eaad81d1ba66312"></a>
@@ -238,7 +288,7 @@ logical&#160;</td><td class="memItemRight" valign="bottom"><b>first_call_system_
 <tr class="separator:gaab1520c8546c39f34f4cd6bcd79eeac7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga27b06972e1120f543cc30929d81abc92"><td class="memItemLeft" align="right" valign="top"><a id="ga27b06972e1120f543cc30929d81abc92"></a>
 integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mpp__mod.html#ga27b06972e1120f543cc30929d81abc92">get_len_nocomm</a> = 0</td></tr>
-<tr class="memdesc:ga27b06972e1120f543cc30929d81abc92"><td class="mdescLeft">&#160;</td><td class="mdescRight">needed for mpp_transmit_nocomm.h <br /></td></tr>
+<tr class="memdesc:ga27b06972e1120f543cc30929d81abc92"><td class="mdescLeft">&#160;</td><td class="mdescRight">needed for <a class="el" href="mpp__transmit__nocomm_8h_source.html">mpp_transmit_nocomm.h</a> <br /></td></tr>
 <tr class="separator:ga27b06972e1120f543cc30929d81abc92"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga9dae2853ed8158f6cf8bd11fa5c16513"><td class="memItemLeft" align="right" valign="top"><a id="ga9dae2853ed8158f6cf8bd11fa5c16513"></a>
 integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mpp__mod.html#ga9dae2853ed8158f6cf8bd11fa5c16513">in_unit</a> =INPUT_UNIT</td></tr>
@@ -411,13 +461,148 @@ Performance to be not significantly lower than any native API.  </li>
    SRC="mpp_io.html"&gt;parallel I/O&lt;/LINK&gt;. <br  />
  Parallel computing is initially daunting, but it soon becomes second nature, much the way many of us can now write vector code without much effort. The key insight required while reading and writing parallel code is in arriving at a mental grasp of several independent parallel execution streams through the same code (the SPMD model). Each variable you examine may have different values for each stream, the processor ID being an obvious example. Subroutines and function calls are particularly subtle, since it is not always obvious from looking at a call what synchronization between execution streams it implies. An example of erroneous code would be a global barrier call (see &lt;LINK SRC="#mpp_sync"&gt;mpp_sync&lt;/LINK&gt; below) placed within a code block that not all PEs will execute, e.g:</p>
 <pre>
-   if( pe.EQ.0 )call mpp_sync()
+   if( pe.EQ.0 )call <a class="el" href="mpp__util__mpi_8inc.html#ad75482ebfad2337cd236ef0998accdc4" title="Synchronize PEs in list.">mpp_sync()</a>
    </pre><p>Here only PE 0 reaches the barrier, where it will wait indefinitely. While this is a particularly egregious example to illustrate the coding flaw, more subtle versions of the same are among the most common errors in parallel code. <br  />
  It is therefore important to be conscious of the context of a subroutine or function call, and the implied synchronization. There are certain calls here (e.g <code>mpp_declare_pelist, mpp_init, mpp_set_stack_size</code>) which must be called by all PEs. There are others which must be called by a subset of PEs (here called a <code>pelist</code>) which must be called by all the PEs in the <code>pelist</code> (e.g <code><a class="el" href="interfacempp__mod_1_1mpp__max.html" title="Reduction operations. Find the max of scalar a the PEs in pelist result is also automatically broadca...">mpp_max</a>, <a class="el" href="interfacempp__mod_1_1mpp__sum.html" title="Reduction operation.">mpp_sum</a>, mpp_sync</code>). Still others imply no synchronization at all. I will make every effort to highlight the context of each call in the MPP modules, so that the implicit synchronization is spelt out. <br  />
  For performance it is necessary to keep synchronization as limited as the algorithm being implemented will allow. For instance, a single message between two PEs should only imply synchronization across the PEs in question. A <em>global</em> synchronization (or <em>barrier</em>) is likely to be slow, and is best avoided. But codes first parallelized on a Cray T3E tend to have many global syncs, as very fast barriers were implemented there in hardware. <br  />
  Another reason to use pelists is to run a single program in MPMD mode, where different PE subsets work on different portions of the code. A typical example is to assign an ocean model and atmosphere model to different PE subsets, and couple them concurrently instead of running them serially. The MPP module provides the notion of a <em>current pelist</em>, which is set when a group of PEs branch off into a subset. Subsequent calls that omit the <code>pelist</code> optional argument (seen below in many of the individual calls) assume that the implied synchronization is across the current pelist. The calls <code>mpp_root_pe</code> and <code>mpp_npes</code> also return the values appropriate to the current pelist. The <code>mpp_set_current_pelist</code> call is provided to set the current pelist.  <br  />
 </p>
 <p>F90 is a strictly-typed language, and the syntax pass of the compiler requires matching of type, kind and rank (TKR). Most calls listed here use a generic type, shown here as <code>MPP_TYPE_</code>. This is resolved in the pre-processor stage to any of a variety of types. In general the MPP operations work on 4-byte and 8-byte variants of <code>integer, real, complex, logical</code> variables, of rank 0 to 5, leading to 48 specific module procedures under the same generic interface. Any of the variables below shown as <code>MPP_TYPE_</code> is treated in this way. </p>
+<h2 class="groupheader">Function/Subroutine Documentation</h2>
+<a id="ga823769fc831d556ad73e98ae0a8f7f2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga823769fc831d556ad73e98ae0a8f7f2a">&#9670;&nbsp;</a></span>mpp_broadcast_char()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine mpp_broadcast_char </td>
+          <td>(</td>
+          <td class="paramtype">character(len=*), dimension(:), intent(inout)&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)&#160;</td>
+          <td class="paramname"><em>length</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)&#160;</td>
+          <td class="paramname"><em>from_pe</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(:), intent(in), optional&#160;</td>
+          <td class="paramname"><em>pelist</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Broadcasts a character string from the given pe to it's pelist. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">data</td><td>Character string to send </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">length</td><td>length of given data to broadcast </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">from_pe</td><td>pe to broadcast from </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pelist</td><td>optional pelist to broadcast to </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="mpp__comm__mpi_8inc_source.html#l00324">324</a> of file <a class="el" href="mpp__comm__mpi_8inc_source.html">mpp_comm_mpi.inc</a>.</p>
+
+</div>
+</div>
+<a id="ga271b4c9584f2b514df4439086add4198"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga271b4c9584f2b514df4439086add4198">&#9670;&nbsp;</a></span>mpp_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine mpp_init </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>flags</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>localcomm</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>test_level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in), optional&#160;</td>
+          <td class="paramname"><em>alt_input_nml_path</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialize the <a class="el" href="group__mpp__mod.html">mpp_mod</a> module. Must be called before any usage. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">flags</td><td>Flags for debug output, can be MPP_VERBOSE or MPP_DEBUG </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">localcomm</td><td>Id of MPI communicator used to initialize </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">test_level</td><td>Used to exit initialization at certain stages before completion for testing purposes </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">alt_input_nml_path</td><td>Input path for namelist </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="mpp__comm__mpi_8inc_source.html#l00034">34</a> of file <a class="el" href="mpp__comm__mpi_8inc_source.html">mpp_comm_mpi.inc</a>.</p>
+
+</div>
+</div>
+<a id="gac00f997102c5613d8c547f1ee10fa49c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac00f997102c5613d8c547f1ee10fa49c">&#9670;&nbsp;</a></span>mpp_set_stack_size()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine mpp_set_stack_size </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the mpp_stack variable to be at least n LONG words long. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>stack size to set </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="mpp__comm__mpi_8inc_source.html#l00302">302</a> of file <a class="el" href="mpp__comm__mpi_8inc_source.html">mpp_comm_mpi.inc</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
