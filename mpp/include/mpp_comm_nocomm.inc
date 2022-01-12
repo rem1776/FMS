@@ -1213,6 +1213,22 @@ end subroutine mpp_exit
 #define MPI_TYPE_ MPI_REAL8
 #include <mpp_type_nocomm.h>
 
+#undef MPP_TYPE_CREATE_
+#undef MPP_TYPE_
+#undef MPI_TYPE_
+#define MPP_TYPE_CREATE_ mpp_type_create_cmplx4
+#define MPP_TYPE_ complex(c4_kind)
+#define MPI_TYPE_ MPI_COMPLEX8
+#include <mpp_type_nocomm.h>
+
+#undef MPP_TYPE_CREATE_
+#undef MPP_TYPE_
+#undef MPI_TYPE_
+#define MPP_TYPE_CREATE_ mpp_type_create_cmplx8
+#define MPP_TYPE_ complex(c8_kind)
+#define MPI_TYPE_ MPI_COMPLEX16
+#include <mpp_type_nocomm.h>
+
 #define MPP_TYPE_CREATE_ mpp_type_create_logical4
 #define MPP_TYPE_ logical(l4_kind)
 #define MPI_TYPE_ MPI_INTEGER4
