@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        distcheck-conf-flags: [--enable-openmp, --disable-openmp, --enable-mixed-mode, --disable-setting-flags ]
+        distcheck-conf-flags: [--with-mpi=no, --disable-openmp, --enable-mixed-mode, --disable-setting-flags ]
         yaml-flag: [ --with-yaml, "" ]
     container:
       image: noaagfdl/ubuntu_libfms_gnu
