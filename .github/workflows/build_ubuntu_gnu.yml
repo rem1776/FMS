@@ -3,7 +3,7 @@ name: Build libFMS test with autotools
 on: [push, pull_request]
 
 jobs:
-  build:
+  gnu:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -30,3 +30,10 @@ jobs:
         FCFLAGS: "-fdefault-real-8 -fdefault-double-8 -fcray-pointer -ffree-line-length-none -I/usr/include"
     - name: Build the library
       run: make -j distcheck
+  intel:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@v2
+    - name: build and test in local action
+      uses: ./.github/actions/intel-env
