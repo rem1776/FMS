@@ -16,6 +16,8 @@ jobs:
       uses: actions/checkout@v2
     - name: docker buildx setup 
       uses: docker/setup-buildx-action@v1 
+      with:
+        driver-opts: network=host
     - name: get any cached layers
       uses: actions/cache@v2
       with:
