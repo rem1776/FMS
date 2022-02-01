@@ -1,0 +1,64 @@
+name: Build libFMS using autotools with intel
+
+on: [push, pull_request]
+
+jobs:
+  # builds and pushes container to local registry
+  container:
+    runs-on: ubuntu-latest
+    services:
+      registry:
+        image: registry:2
+        ports:
+          - 5000:5000
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: docker buildx setup 
+      uses: docker/setup-buildx-action@v1 
+    - name: get any cached layers
+      uses: actions/cache@v2
+      with:
+        path: /tmp/.buildx-cache
+        key: ${{ runner.os }}-buildx
+    - name: build image
+      uses: docker/build-push-action@v2
+      with:
+        context: .
+        builder: ${{ steps.buildx.outputs.name }}
+        file: .github/Dockerfile.ci
+        push: true
+        tags: localhost:5000/fms/ci:latest
+        cache-from: type=local,src=/tmp/.buildx-cache
+        cache-to: type=local,src=/tmp/.buildx-cache-new
+    - name: update cache
+      run: rm -rf /tmp/.buildx-cache && mv /tmp/.buildx-cache-new /tmp/.buildx-cache
+  # ci test o
+  fms:
+    needs: [container]
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        distcheck-conf-flags: [--enable-openmp, --disable-openmp, --enable-mixed-mode, --disable-setting-flags ]
+        yaml-flag: [ --with-yaml, "" ]
+    container:
+      image: localhost:5000/fms/ci:latest # ${{ container.services.registry }} if this doesn't work
+      env:
+        FCFLAGS: "-I/usr/include"
+        VERBOSE: 1
+        DISTCHECK_CONFIGURE_FLAGS: "${{ matrix.distcheck-conf-flags }} ${{ matrix.yaml-flag }}"
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Prepare GNU autoconf for build
+      run: autoreconf -if
+    - name: Configure the build
+      if: ${{ matrix.distcheck-conf-flags != '--disable-setting-flags' }}
+      run: ./configure ${DISTCHECK_CONFIGURE_FLAGS}
+    - name: Configure the build with compiler flags
+      if: ${{ matrix.distcheck-conf-flags == '--disable-setting-flags' }}
+      run: ./configure ${DISTCHECK_CONFIGURE_FLAGS}
+      env:
+        FCFLAGS: "-fdefault-real-8 -fdefault-double-8 -fcray-pointer -ffree-line-length-none -I/usr/include"
+    - name: Build the library
+      run: make -j distcheck

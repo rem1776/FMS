@@ -1,0 +1,8 @@
+# basic dockerfile to test intel without dying of old age as it builds
+FROM intel/oneapi-hpckit:2022.1.1-devel-ubuntu18.04
+
+RUN apt-get update && \
+    apt-get install -y netcdf libnetcdf-dev libnetcdff-dev netcdf-bin
+
+ENV FC=mpiifort
+ENV CC=mpiicc
