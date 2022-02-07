@@ -1,5 +1,4 @@
 #!/bin/sh
-# simple build script
 mkdir coverage-build
 cd coverage-build
 echo "::notice:: generating configure script..."
