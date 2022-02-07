@@ -1,0 +1,11 @@
+name: Code coverage report
+on: [tag, workflow_dispatch]
+
+jobs:
+  code-cov:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@v2
+    - name: generate coverage from internal action
+      uses: ./.github/actions/code-coverage
