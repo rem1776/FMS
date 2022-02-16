@@ -102,19 +102,20 @@ $(document).ready(function(){initNavTree('group__fms__netcdf__domain__io__mod.ht
 
 <p>Domain-specific I/O wrappers.  
 <a href="#details">More...</a></p>
+<div class="dynheader">
+Collaboration diagram for fms_netcdf_domain_io_mod:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="group__fms__netcdf__domain__io__mod.svg" width="342" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="files"></a>
 Files</h2></td></tr>
 <tr class="memitem:compute__global__checksum_8inc"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="compute__global__checksum_8inc.html">compute_global_checksum.inc</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:domain__read_8inc"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="domain__read_8inc.html">domain_read.inc</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:domain__write_8inc"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="domain__write_8inc.html">domain_write.inc</a></td></tr>
+<tr class="memdesc:compute__global__checksum_8inc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Routines for calculating variable checksums across pes for the compute_global_checksum interface. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:fms__netcdf__domain__io_8F90"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fms__netcdf__domain__io_8F90.html">fms_netcdf_domain_io.F90</a></td></tr>
 <tr class="memdesc:fms__netcdf__domain__io_8F90"><td class="mdescLeft">&#160;</td><td class="mdescRight">File for <a class="el" href="group__fms__netcdf__domain__io__mod.html">fms_netcdf_domain_io_mod</a>. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:register__domain__restart__variable_8inc"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="register__domain__restart__variable_8inc.html">register_domain_restart_variable.inc</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
@@ -139,6 +140,15 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:ga899d05494cbbe837adebdcb8e40944f3"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms__netcdf__domain__io__mod.html#ga899d05494cbbe837adebdcb8e40944f3">close_domain_file</a> (fileobj)</td></tr>
 <tr class="memdesc:ga899d05494cbbe837adebdcb8e40944f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Close a domain netcdf file.  <a href="group__fms__netcdf__domain__io__mod.html#ga899d05494cbbe837adebdcb8e40944f3">More...</a><br /></td></tr>
 <tr class="separator:ga899d05494cbbe837adebdcb8e40944f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad39452a991b24c43485340b7220a5e38"><td class="memItemLeft" align="right" valign="top">character(len=32) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms__netcdf__domain__io__mod.html#gad39452a991b24c43485340b7220a5e38">compute_global_checksum_2d</a> (fileobj, variable_name, variable_data, is_decomposed)</td></tr>
+<tr class="memdesc:gad39452a991b24c43485340b7220a5e38"><td class="mdescLeft">&#160;</td><td class="mdescRight">@briefs Calculates a variable's checksum across all ranks in the current pelist.  <a href="group__fms__netcdf__domain__io__mod.html#gad39452a991b24c43485340b7220a5e38">More...</a><br /></td></tr>
+<tr class="separator:gad39452a991b24c43485340b7220a5e38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga947b2a501fd14c162a7cf8f9d1b6f977"><td class="memItemLeft" align="right" valign="top">character(len=32) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms__netcdf__domain__io__mod.html#ga947b2a501fd14c162a7cf8f9d1b6f977">compute_global_checksum_3d</a> (fileobj, variable_name, variable_data, is_decomposed)</td></tr>
+<tr class="memdesc:ga947b2a501fd14c162a7cf8f9d1b6f977"><td class="mdescLeft">&#160;</td><td class="mdescRight">@briefs Calculates a variable's checksum across all ranks in the current pelist.  <a href="group__fms__netcdf__domain__io__mod.html#ga947b2a501fd14c162a7cf8f9d1b6f977">More...</a><br /></td></tr>
+<tr class="separator:ga947b2a501fd14c162a7cf8f9d1b6f977"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabdf3ad920416c51798c4269a69666cb9"><td class="memItemLeft" align="right" valign="top">character(len=32) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms__netcdf__domain__io__mod.html#gabdf3ad920416c51798c4269a69666cb9">compute_global_checksum_4d</a> (fileobj, variable_name, variable_data, is_decomposed)</td></tr>
+<tr class="memdesc:gabdf3ad920416c51798c4269a69666cb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">@briefs Calculates a variable's checksum across all ranks in the current pelist.  <a href="group__fms__netcdf__domain__io__mod.html#gabdf3ad920416c51798c4269a69666cb9">More...</a><br /></td></tr>
+<tr class="separator:gabdf3ad920416c51798c4269a69666cb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4cd12c4a12cc9ceb8b15fa6873c7cda9"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms__netcdf__domain__io__mod.html#ga4cd12c4a12cc9ceb8b15fa6873c7cda9">domain_offsets</a> (data_xsize, data_ysize, domain, xpos, ypos, isd, isc, xc_size, jsd, jsc, yc_size, buffer_includes_halos, extra_x_point, extra_y_point, msg)</td></tr>
 <tr class="memdesc:ga4cd12c4a12cc9ceb8b15fa6873c7cda9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utility routine that retrieves domain indices.  <a href="group__fms__netcdf__domain__io__mod.html#ga4cd12c4a12cc9ceb8b15fa6873c7cda9">More...</a><br /></td></tr>
 <tr class="separator:ga4cd12c4a12cc9ceb8b15fa6873c7cda9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -342,6 +352,168 @@ character(len=16), parameter&#160;</td><td class="memItemRight" valign="bottom">
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="fms__netcdf__domain__io_8F90_source.html#l00437">437</a> of file <a class="el" href="fms__netcdf__domain__io_8F90_source.html">fms_netcdf_domain_io.F90</a>.</p>
+
+</div>
+</div>
+<a id="gad39452a991b24c43485340b7220a5e38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad39452a991b24c43485340b7220a5e38">&#9670;&nbsp;</a></span>compute_global_checksum_2d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">character(len=32) function compute_global_checksum_2d </td>
+          <td>(</td>
+          <td class="paramtype">class(fmsnetcdfdomainfile_t), intent(in)&#160;</td>
+          <td class="paramname"><em>fileobj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in)&#160;</td>
+          <td class="paramname"><em>variable_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">class(*), dimension(:,:), intent(in)&#160;</td>
+          <td class="paramname"><em>variable_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, intent(out)&#160;</td>
+          <td class="paramname"><em>is_decomposed</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>@briefs Calculates a variable's checksum across all ranks in the current pelist. </p>
+<dl class="section return"><dt>Returns</dt><dd>A hex string containing the checksum. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">fileobj</td><td>File object. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">variable_name</td><td>Variable name. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">variable_data</td><td>Data to be checksummed. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">is_decomposed</td><td>Flag telling if the variable is decomposed. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="compute__global__checksum_8inc_source.html#l00030">30</a> of file <a class="el" href="compute__global__checksum_8inc_source.html">compute_global_checksum.inc</a>.</p>
+
+</div>
+</div>
+<a id="ga947b2a501fd14c162a7cf8f9d1b6f977"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga947b2a501fd14c162a7cf8f9d1b6f977">&#9670;&nbsp;</a></span>compute_global_checksum_3d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">character(len=32) function compute_global_checksum_3d </td>
+          <td>(</td>
+          <td class="paramtype">class(fmsnetcdfdomainfile_t), intent(in)&#160;</td>
+          <td class="paramname"><em>fileobj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in)&#160;</td>
+          <td class="paramname"><em>variable_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">class(*), dimension(:,:,:), intent(in)&#160;</td>
+          <td class="paramname"><em>variable_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, intent(out)&#160;</td>
+          <td class="paramname"><em>is_decomposed</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>@briefs Calculates a variable's checksum across all ranks in the current pelist. </p>
+<dl class="section return"><dt>Returns</dt><dd>A hex string containing the checksum. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">fileobj</td><td>File object. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">variable_name</td><td>Variable name. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">variable_data</td><td>Data to be checksummed. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">is_decomposed</td><td>Flag telling if the variable is decomposed. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="compute__global__checksum_8inc_source.html#l00146">146</a> of file <a class="el" href="compute__global__checksum_8inc_source.html">compute_global_checksum.inc</a>.</p>
+
+</div>
+</div>
+<a id="gabdf3ad920416c51798c4269a69666cb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gabdf3ad920416c51798c4269a69666cb9">&#9670;&nbsp;</a></span>compute_global_checksum_4d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">character(len=32) function compute_global_checksum_4d </td>
+          <td>(</td>
+          <td class="paramtype">class(fmsnetcdfdomainfile_t), intent(in)&#160;</td>
+          <td class="paramname"><em>fileobj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in)&#160;</td>
+          <td class="paramname"><em>variable_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">class(*), dimension(:,:,:,:), intent(in)&#160;</td>
+          <td class="paramname"><em>variable_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, intent(out)&#160;</td>
+          <td class="paramname"><em>is_decomposed</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>@briefs Calculates a variable's checksum across all ranks in the current pelist. </p>
+<dl class="section return"><dt>Returns</dt><dd>A hex string containing the checksum. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">fileobj</td><td>File object. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">variable_name</td><td>Variable name. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">variable_data</td><td>Data to be checksummed. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">is_decomposed</td><td>Flag telling if the variable is decomposed. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="compute__global__checksum_8inc_source.html#l00261">261</a> of file <a class="el" href="compute__global__checksum_8inc_source.html">compute_global_checksum.inc</a>.</p>
 
 </div>
 </div>

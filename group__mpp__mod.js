@@ -2,6 +2,8 @@ var group__mpp__mod =
 [
     [ "mpp.F90", "mpp_8F90.html", null ],
     [ "mpp_comm.inc", "mpp__comm_8inc.html", null ],
+    [ "mpp_comm_mpi.inc", "mpp__comm__mpi_8inc.html", null ],
+    [ "mpp_comm_nocomm.inc", "mpp__comm__nocomm_8inc.html", null ],
     [ "mpp_util.inc", "mpp__util_8inc.html", null ],
     [ "array_to_char", "interfacempp__mod_1_1array__to__char.html", [
       [ "iarray_to_char", "interfacempp__mod_1_1array__to__char.html#a8cb669be0af360392353c5a57993e7cd", null ],

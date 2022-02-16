@@ -1,0 +1,11 @@
+digraph "FMS Global Module"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=box];
+  rankdir=LR;
+  Node3 [label="FMS",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group__FMS.html",tooltip="A convenience module to use any FMS routines, functions, values."];
+  Node2 [label="FMSconstants",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group__fmsconstants.html",tooltip="Essentially a copy of constants_mod for external usage alongside FMS Global Module."];
+  Node1 [label="FMS Global Module",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Modules and associated files in the libfms directory."];
+  Node1->Node2 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node3 [shape=plaintext, dir="back", style="solid"];
+}

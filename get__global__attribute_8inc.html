@@ -93,129 +93,29 @@ $(document).ready(function(){initNavTree('get__global__attribute_8inc.html','');
   <div class="summary">
 <a href="#func-members">Functions/Subroutines</a>  </div>
   <div class="headertitle">
-<div class="title">get_global_attribute.inc File Reference<div class="ingroups"><a class="el" href="group__fms2__io.html">FMS2 IO</a></div></div>  </div>
+<div class="title">get_global_attribute.inc File Reference<div class="ingroups"><a class="el" href="group__fms2__io.html">FMS2 IO</a> &raquo; <a class="el" href="group__netcdf__io__mod.html">netcdf_io_mod</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
-<h3 class="version">(78e7053896e8db744875bd47550808bd49826861)</h3>
+<h3 class="version">(27ac9071c7ad2cb59df09cb2583c1d2e69e87c40)</h3>
+<p>Routines for retrieving global attribute values from netcdf files with different dimension sizes for the get_global_attribute interface.  
+<a href="#details">More...</a></p>
+
 <p><a href="get__global__attribute_8inc_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
-<tr class="memitem:aabad8d47a5d0092277f2ed7fd8fe4ea7"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="get__global__attribute_8inc.html#aabad8d47a5d0092277f2ed7fd8fe4ea7">get_global_attribute_0d</a> (fileobj, attribute_name, attribute_value, broadcast)</td></tr>
-<tr class="memdesc:aabad8d47a5d0092277f2ed7fd8fe4ea7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the value of a global attribute.  <a href="get__global__attribute_8inc.html#aabad8d47a5d0092277f2ed7fd8fe4ea7">More...</a><br /></td></tr>
-<tr class="separator:aabad8d47a5d0092277f2ed7fd8fe4ea7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a73913061142927198f8f71f0c0f26597"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="get__global__attribute_8inc.html#a73913061142927198f8f71f0c0f26597">get_global_attribute_1d</a> (fileobj, attribute_name, attribute_value, broadcast)</td></tr>
-<tr class="memdesc:a73913061142927198f8f71f0c0f26597"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the value of a global attribute.  <a href="get__global__attribute_8inc.html#a73913061142927198f8f71f0c0f26597">More...</a><br /></td></tr>
-<tr class="separator:a73913061142927198f8f71f0c0f26597"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaabad8d47a5d0092277f2ed7fd8fe4ea7"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__netcdf__io__mod.html#gaabad8d47a5d0092277f2ed7fd8fe4ea7">get_global_attribute_0d</a> (fileobj, attribute_name, attribute_value, broadcast)</td></tr>
+<tr class="memdesc:gaabad8d47a5d0092277f2ed7fd8fe4ea7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the value of a global attribute.  <a href="group__netcdf__io__mod.html#gaabad8d47a5d0092277f2ed7fd8fe4ea7">More...</a><br /></td></tr>
+<tr class="separator:gaabad8d47a5d0092277f2ed7fd8fe4ea7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga73913061142927198f8f71f0c0f26597"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__netcdf__io__mod.html#ga73913061142927198f8f71f0c0f26597">get_global_attribute_1d</a> (fileobj, attribute_name, attribute_value, broadcast)</td></tr>
+<tr class="memdesc:ga73913061142927198f8f71f0c0f26597"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the value of a global attribute.  <a href="group__netcdf__io__mod.html#ga73913061142927198f8f71f0c0f26597">More...</a><br /></td></tr>
+<tr class="separator:ga73913061142927198f8f71f0c0f26597"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function/Subroutine Documentation</h2>
-<a id="aabad8d47a5d0092277f2ed7fd8fe4ea7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aabad8d47a5d0092277f2ed7fd8fe4ea7">&#9670;&nbsp;</a></span>get_global_attribute_0d()</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Routines for retrieving global attribute values from netcdf files with different dimension sizes for the get_global_attribute interface. </p>
 
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine get_global_attribute_0d </td>
-          <td>(</td>
-          <td class="paramtype">class(fmsnetcdffile_t), intent(in)&#160;</td>
-          <td class="paramname"><em>fileobj</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">character(len=*), intent(in)&#160;</td>
-          <td class="paramname"><em>attribute_name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">class(*), intent(inout)&#160;</td>
-          <td class="paramname"><em>attribute_value</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">logical, intent(in), optional&#160;</td>
-          <td class="paramname"><em>broadcast</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get the value of a global attribute. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">fileobj</td><td>File object. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">attribute_name</td><td>Attribute name. </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">attribute_value</td><td>Attribute value </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">broadcast</td><td>Flag controlling whether or not the data will be broadcasted to non "I/O root" ranks. The broadcast will be done by default. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="get__global__attribute_8inc_source.html#l00027">27</a> of file <a class="el" href="get__global__attribute_8inc_source.html">get_global_attribute.inc</a>.</p>
-
-</div>
-</div>
-<a id="a73913061142927198f8f71f0c0f26597"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a73913061142927198f8f71f0c0f26597">&#9670;&nbsp;</a></span>get_global_attribute_1d()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine get_global_attribute_1d </td>
-          <td>(</td>
-          <td class="paramtype">class(fmsnetcdffile_t), intent(in)&#160;</td>
-          <td class="paramname"><em>fileobj</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">character(len=*), intent(in)&#160;</td>
-          <td class="paramname"><em>attribute_name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">class(*), dimension(:), intent(inout)&#160;</td>
-          <td class="paramname"><em>attribute_value</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">logical, intent(in), optional&#160;</td>
-          <td class="paramname"><em>broadcast</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get the value of a global attribute. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">fileobj</td><td>File object. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">attribute_name</td><td>Attribute name. </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">attribute_value</td><td>Attribute value </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">broadcast</td><td>Flag controlling whether or not the data will be broadcasted to non "I/O root" ranks. The broadcast will be done by default. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="get__global__attribute_8inc_source.html#l00117">117</a> of file <a class="el" href="get__global__attribute_8inc_source.html">get_global_attribute.inc</a>.</p>
-
-</div>
-</div>
-</div><!-- contents -->
+<p class="definition">Definition in file <a class="el" href="get__global__attribute_8inc_source.html">get_global_attribute.inc</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

@@ -97,6 +97,15 @@ $(document).ready(function(){initNavTree('group__drifters.html',''); initResizab
 <div class="title">Drifters</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Modules and associated files in the drifters directory.  
+<a href="#details">More...</a></p>
+<div class="dynheader">
+Collaboration diagram for Drifters:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="group__drifters.svg" width="306" height="283"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="groups"></a>
 Modules</h2></td></tr>
@@ -126,6 +135,7 @@ Files</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<p>Modules and associated files in the drifters directory. </p>
 
 
 <h3><a id="md_drifters_README"></a>README</h3><div class="textblock"><h1>Drifters</h1>
@@ -194,7 +204,7 @@ In order to implement drifters in your code, you will need to get access to the 
 <div class="line"> </div>
 <div class="line"><span class="comment">! set neighboring PEs [domain2d is of type(domain2d)]</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">call </span><a class="code" href="group__drifters__mod.html#gaa90f5c5c61f3e1f0a686b87cece0c1d6">drifters_set_pe_neighbors</a>(drfts, domain=<a class="code" href="structmpp__domains__mod_1_1domain2d.html">domain2d</a>, ermesg=ermesg)</div>
+<div class="line"><span class="keyword">call </span><a class="code" href="group__drifters__mod.html#gaa90f5c5c61f3e1f0a686b87cece0c1d6">drifters_set_pe_neighbors</a>(drfts, domain=domain2d, ermesg=ermesg)</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">! set the velocities axes. Each velocity can have different axes.</span></div>
 <div class="line"> </div>
@@ -331,7 +341,6 @@ A typical NetCDF input file contains:<div class="fragment"><div class="line">net
 </ul>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="astructmpp__domains__mod_1_1domain2d_html"><div class="ttname"><a href="structmpp__domains__mod_1_1domain2d.html">mpp_domains_mod::domain2d</a></div><div class="ttdoc">The domain2D type contains all the necessary information to define the global, compute and data domai...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains_8F90_source.html#l00368">mpp_domains.F90:368</a></div></div>
 <div class="ttc" id="agroup__drifters__mod_html_gae5f4a850b28c0132197541725ed0a933"><div class="ttname"><a href="group__drifters__mod.html#gae5f4a850b28c0132197541725ed0a933">drifters_mod::drifters_save</a></div><div class="ttdeci">subroutine, public drifters_save(self, ermesg)</div><div class="ttdoc">Append new positions to NetCDF file.</div><div class="ttdef"><b>Definition:</b> <a href="drifters_8F90_source.html#l00531">drifters.F90:531</a></div></div>
 <div class="ttc" id="agroup__drifters__mod_html_ga9a1aa7c59e21aeab310b3fd722ced015"><div class="ttname"><a href="group__drifters__mod.html#ga9a1aa7c59e21aeab310b3fd722ced015">drifters_mod::drifters_distribute</a></div><div class="ttdeci">subroutine, public drifters_distribute(self, ermesg)</div><div class="ttdoc">Distribute particles across PEs.</div><div class="ttdef"><b>Definition:</b> <a href="drifters_8F90_source.html#l00553">drifters.F90:553</a></div></div>
 <div class="ttc" id="agroup__drifters__mod_html_gaddfba33d6e4b7bdc50a58a1be1e3489b"><div class="ttname"><a href="group__drifters__mod.html#gaddfba33d6e4b7bdc50a58a1be1e3489b">drifters_mod::drifters_new</a></div><div class="ttdeci">subroutine, public drifters_new(self, input_file, output_file, ermesg)</div><div class="ttdoc">Will read positions stored in the netCDF file input_file.</div><div class="ttdef"><b>Definition:</b> <a href="drifters_8F90_source.html#l00195">drifters.F90:195</a></div></div>

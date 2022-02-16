@@ -8,7 +8,6 @@ var group__mpp =
     [ "mpp_mod", "group__mpp__mod.html", "group__mpp__mod" ],
     [ "mpp_parameter_mod", "group__mpp__parameter__mod.html", "group__mpp__parameter__mod" ],
     [ "mpp_utilities_mod", "group__mpp__utilities__mod.html", "group__mpp__utilities__mod" ],
-    [ "mpp_comm_nocomm.inc", "mpp__comm__nocomm_8inc.html", null ],
     [ "mpp_read_distributed_ascii.inc", "mpp__read__distributed__ascii_8inc.html", null ],
     [ "mpp_transmit.inc", "mpp__transmit_8inc.html", null ],
     [ "mpp_util_mpi.inc", "mpp__util__mpi_8inc.html", null ],

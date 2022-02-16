@@ -9,10 +9,6 @@ var annotated_dup =
       [ "operator(==)", "interfaceamip__interp__mod_1_1operator_07_0a_0a_08.html", "interfaceamip__interp__mod_1_1operator_07_0a_0a_08" ],
       [ "operator(>)", "interfaceamip__interp__mod_1_1operator_07_4_08.html", "interfaceamip__interp__mod_1_1operator_07_4_08" ]
     ] ],
-    [ "argparse", null, [
-      [ "argument_t", "structargparse_1_1argument__t.html", "structargparse_1_1argument__t" ],
-      [ "parser_t", "structargparse_1_1parser__t.html", "structargparse_1_1parser__t" ]
-    ] ],
     [ "astronomy_mod", null, [
       [ "annual_mean_solar", "interfaceastronomy__mod_1_1annual__mean__solar.html", "interfaceastronomy__mod_1_1annual__mean__solar" ],
       [ "daily_mean_solar", "interfaceastronomy__mod_1_1daily__mean__solar.html", "interfaceastronomy__mod_1_1daily__mean__solar" ],
@@ -32,8 +28,6 @@ var annotated_dup =
       [ "ix_type", "structblock__control__mod_1_1ix__type.html", "structblock__control__mod_1_1ix__type" ],
       [ "pk_type", "structblock__control__mod_1_1pk__type.html", "structblock__control__mod_1_1pk__type" ]
     ] ],
-    [ "compare_data_checksums", "namespacecompare__data__checksums.html", "namespacecompare__data__checksums" ],
-    [ "compare_data_checksums_int", "namespacecompare__data__checksums__int.html", "namespacecompare__data__checksums__int" ],
     [ "coupler_types_mod", null, [
       [ "coupler_1d_bc_type", "structcoupler__types__mod_1_1coupler__1d__bc__type.html", "structcoupler__types__mod_1_1coupler__1d__bc__type" ],
       [ "coupler_1d_field_type", "structcoupler__types__mod_1_1coupler__1d__field__type.html", "structcoupler__types__mod_1_1coupler__1d__field__type" ],
@@ -146,7 +140,6 @@ var annotated_dup =
       [ "method_type_very_short", "structfield__manager__mod_1_1method__type__very__short.html", "structfield__manager__mod_1_1method__type__very__short" ],
       [ "parse", "interfacefield__manager__mod_1_1parse.html", "interfacefield__manager__mod_1_1parse" ]
     ] ],
-    [ "fill_halo", "namespacefill__halo.html", "namespacefill__halo" ],
     [ "fm_util_mod", null, [
       [ "fm_util_set_value", "interfacefm__util__mod_1_1fm__util__set__value.html", "interfacefm__util__mod_1_1fm__util__set__value" ]
     ] ],
@@ -477,16 +470,8 @@ var annotated_dup =
       [ "show_all_bad", "interfacesat__vapor__pres__mod_1_1show__all__bad.html", "interfacesat__vapor__pres__mod_1_1show__all__bad" ],
       [ "temp_check", "interfacesat__vapor__pres__mod_1_1temp__check.html", "interfacesat__vapor__pres__mod_1_1temp__check" ]
     ] ],
-    [ "setup", null, [
-      [ "create_data", "interfacesetup_1_1create__data.html", "interfacesetup_1_1create__data" ],
-      [ "params", "structsetup_1_1params.html", "structsetup_1_1params" ]
-    ] ],
     [ "stock_constants_mod", null, [
       [ "stock_type", "structstock__constants__mod_1_1stock__type.html", "structstock__constants__mod_1_1stock__type" ]
-    ] ],
-    [ "test_domains_utility_mod", "namespacetest__domains__utility__mod.html", "namespacetest__domains__utility__mod" ],
-    [ "test_fms_mod", null, [
-      [ "strPoint", "interfacetest__fms__mod_1_1strPoint.html", "interfacetest__fms__mod_1_1strPoint" ]
     ] ],
     [ "time_interp_external2_mod", null, [
       [ "ext_fieldtype", "structtime__interp__external2__mod_1_1ext__fieldtype.html", "structtime__interp__external2__mod_1_1ext__fieldtype" ],
@@ -553,8 +538,5 @@ var annotated_dup =
       [ "xcell_type", "structxgrid__mod_1_1xcell__type.html", "structxgrid__mod_1_1xcell__type" ],
       [ "xmap_type", "structxgrid__mod_1_1xmap__type.html", "structxgrid__mod_1_1xmap__type" ]
     ] ],
-    [ "assertequals", "interfaceassertequals.html", null ],
-    [ "atm_type", "structatm__type.html", "structatm__type" ],
-    [ "data_type", "structdata__type.html", "structdata__type" ],
     [ "Node", "structNode.html", "structNode" ]
 ];
