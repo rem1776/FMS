@@ -1,0 +1,18 @@
+name: Build libFMS test with autotools
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: ecpe4s/hpc-me.ubuntu20.04:2022-02-17
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Prepare GNU autoconf for build
+      run: autoreconf -if
+    - name: Configure the build
+      run: ./configure --enable-code-coverage FC=mpiifort CC=mpiicc FCFLAGS="`nf-config --fflags`" CFLAGS="`nc-config --cflags`"
+    - name: Build coverage target 
+      run: make check-code-coverage 
