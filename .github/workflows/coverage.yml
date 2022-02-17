@@ -1,4 +1,4 @@
-name: Build libFMS test with autotools
+name: Generate code coverage report 
 
 on: [push, pull_request]
 
@@ -6,7 +6,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: ecpe4s/hpc-me.ubuntu20.04:2022-02-17
+      image: ecpe4s/hpc-me.ubuntu20.04:2022-02-07
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
@@ -16,3 +16,8 @@ jobs:
       run: ./configure --enable-code-coverage FC=mpiifort CC=mpiicc FCFLAGS="`nf-config --fflags`" CFLAGS="`nc-config --cflags`"
     - name: Build coverage target 
       run: make check-code-coverage 
+    - name: Save the report
+      uses: actions/upload-artifact@v2 
+      with:
+        name: coverage-report
+        path: coverage-report/ 
