@@ -537,6 +537,5 @@ var annotated_dup =
       [ "x2_type", "structxgrid__mod_1_1x2__type.html", "structxgrid__mod_1_1x2__type" ],
       [ "xcell_type", "structxgrid__mod_1_1xcell__type.html", "structxgrid__mod_1_1xcell__type" ],
       [ "xmap_type", "structxgrid__mod_1_1xmap__type.html", "structxgrid__mod_1_1xmap__type" ]
-    ] ],
-    [ "Node", "structNode.html", "structNode" ]
+    ] ]
 ];

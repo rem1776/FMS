@@ -20,7 +20,7 @@ var amip__interp_8F90 =
     [ "set_sst_grid_edges_daily", "amip__interp_8F90.html#gafc85c80dcad2644fbc1b817f0c831d82", null ],
     [ "set_sst_grid_edges_oi", "amip__interp_8F90.html#ga336ba3df4a1ef5eebfece6391afffc47", null ],
     [ "zonal_sst", "amip__interp_8F90.html#gaf4982e21a052e025efaec5c593fee8f6", null ],
-    [ "amip_date", "amip__interp_8F90.html#ga468efa571efa3f05874a58ada6c1077f", null ],
+    [ "amip_date", "amip__interp_8F90.html#gab7579e5e6f55370c72227a97cb2ccdfc", null ],
     [ "big_number", "amip__interp_8F90.html#gae3de378a20cd99c8d65dc3f7f5bee13f", null ],
     [ "curr_date", "amip__interp_8F90.html#gaff99ebb920f71a47757310bf22cd0bab", null ],
     [ "data_set", "amip__interp_8F90.html#ga152699dfbacd6122d5bb6be55ad94ff9", null ],

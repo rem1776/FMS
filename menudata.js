@@ -24,9 +24,9 @@ var menudata={children:[
 {text:"Main Page",url:"index.html"},
 {text:"Related Pages",url:"pages.html"},
 {text:"Modules",url:"modules.html"},
-{text:"Data Types List",url:"annotated.html",children:[
-{text:"Interfaces and Derived Types List",url:"annotated.html"},
-{text:"Data Types",url:"classes.html"}]},
+{text:"Interfaces and Derived Types",url:"annotated.html",children:[
+{text:"By Module",url:"annotated.html"},
+{text:"By Name",url:"classes.html"}]},
 {text:"Files",url:"files.html",children:[
 {text:"File List",url:"files.html"},
 {text:"File Members",url:"globals.html",children:[

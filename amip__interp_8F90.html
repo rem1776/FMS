@@ -95,10 +95,10 @@ $(document).ready(function(){initNavTree('amip__interp_8F90.html',''); initResiz
 <a href="#func-members">Functions/Subroutines</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
-<div class="title">amip_interp.F90 File Reference<div class="ingroups"><a class="el" href="group__amip__interp.html">AMIP Interpolator</a> &raquo; <a class="el" href="group__amip__interp__mod.html">amip_interp_mod</a></div></div>  </div>
+<div class="title">amip_interp.F90 File Reference<div class="ingroups"><a class="el" href="group__amip__interp__mod.html">amip_interp_mod</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
-<h3 class="version">(854b33bd3e85fa95b326fabfdd96b71aab62e2d2)</h3><div class="textblock"><code>#include &lt;file_version.h&gt;</code><br />
+<h3 class="version">(bbf1cb0b666932c2c92be6570d0d7a8ec1ba7464)</h3><div class="textblock"><code>#include &lt;file_version.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for amip_interp.F90:</div>
 <div class="dyncontent">
@@ -192,9 +192,10 @@ subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>zonal_sst</b> (
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:ga468efa571efa3f05874a58ada6c1077f"><td class="memItemLeft" align="right" valign="top">integer, dimension(3)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__amip__interp__mod.html#ga468efa571efa3f05874a58ada6c1077f">amip_date</a> =(/-1,-1,-1/)</td></tr>
-<tr class="memdesc:ga468efa571efa3f05874a58ada6c1077f"><td class="mdescLeft">&#160;</td><td class="mdescRight">amip date for repeating single day (rsd) option  <a href="group__amip__interp__mod.html#ga468efa571efa3f05874a58ada6c1077f">More...</a><br /></td></tr>
-<tr class="separator:ga468efa571efa3f05874a58ada6c1077f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab7579e5e6f55370c72227a97cb2ccdfc"><td class="memItemLeft" align="right" valign="top">
+integer, dimension(3)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__amip__interp__mod.html#gab7579e5e6f55370c72227a97cb2ccdfc">amip_date</a> =(/-1,-1,-1/)</td></tr>
+<tr class="memdesc:gab7579e5e6f55370c72227a97cb2ccdfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">amip date for repeating single day (rsd) option <br /></td></tr>
+<tr class="separator:gab7579e5e6f55370c72227a97cb2ccdfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae3de378a20cd99c8d65dc3f7f5bee13f"><td class="memItemLeft" align="right" valign="top">
 real, parameter&#160;</td><td class="memItemRight" valign="bottom"><b>big_number</b> = 1.E30</td></tr>
 <tr class="separator:gae3de378a20cd99c8d65dc3f7f5bee13f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -271,18 +272,21 @@ real, dimension(:,:), allocatable, public&#160;</td><td class="memItemRight" val
 <tr class="memitem:gab86c0be9a47ba0d89175105753702f70"><td class="memItemLeft" align="right" valign="top">
 real, dimension(:,:), allocatable, public&#160;</td><td class="memItemRight" valign="bottom"><b>sst_ncep</b></td></tr>
 <tr class="separator:gab86c0be9a47ba0d89175105753702f70"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga88e6da87f6ef7c11d1e850e9aed17a31"><td class="memItemLeft" align="right" valign="top">real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__amip__interp__mod.html#ga88e6da87f6ef7c11d1e850e9aed17a31">sst_pert</a> = 0.</td></tr>
-<tr class="memdesc:ga88e6da87f6ef7c11d1e850e9aed17a31"><td class="mdescLeft">&#160;</td><td class="mdescRight">global temperature perturbation used for sensitivity experiments  <a href="group__amip__interp__mod.html#ga88e6da87f6ef7c11d1e850e9aed17a31">More...</a><br /></td></tr>
+<tr class="memitem:ga88e6da87f6ef7c11d1e850e9aed17a31"><td class="memItemLeft" align="right" valign="top">
+real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__amip__interp__mod.html#ga88e6da87f6ef7c11d1e850e9aed17a31">sst_pert</a> = 0.</td></tr>
+<tr class="memdesc:ga88e6da87f6ef7c11d1e850e9aed17a31"><td class="mdescLeft">&#160;</td><td class="mdescRight">global temperature perturbation used for sensitivity experiments <br /></td></tr>
 <tr class="separator:ga88e6da87f6ef7c11d1e850e9aed17a31"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaf4fb7af1b7c7fcaae5bf08f5ae35255f"><td class="memItemLeft" align="right" valign="top">
 character(len=6)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__amip__interp__mod.html#gaf4fb7af1b7c7fcaae5bf08f5ae35255f">sst_pert_type</a> = 'fixed'</td></tr>
 <tr class="memdesc:gaf4fb7af1b7c7fcaae5bf08f5ae35255f"><td class="mdescLeft">&#160;</td><td class="mdescRight">use 'random' or 'fixed' <br /></td></tr>
 <tr class="separator:gaf4fb7af1b7c7fcaae5bf08f5ae35255f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad7960f6de172451cafe2334da37e4649"><td class="memItemLeft" align="right" valign="top">real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__amip__interp__mod.html#gad7960f6de172451cafe2334da37e4649">tann</a> = 20.</td></tr>
-<tr class="memdesc:gad7960f6de172451cafe2334da37e4649"><td class="mdescLeft">&#160;</td><td class="mdescRight">parameters for prescribed zonal sst option  <a href="group__amip__interp__mod.html#gad7960f6de172451cafe2334da37e4649">More...</a><br /></td></tr>
+<tr class="memitem:gad7960f6de172451cafe2334da37e4649"><td class="memItemLeft" align="right" valign="top">
+real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__amip__interp__mod.html#gad7960f6de172451cafe2334da37e4649">tann</a> = 20.</td></tr>
+<tr class="memdesc:gad7960f6de172451cafe2334da37e4649"><td class="mdescLeft">&#160;</td><td class="mdescRight">parameters for prescribed zonal sst option <br /></td></tr>
 <tr class="separator:gad7960f6de172451cafe2334da37e4649"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga0a2b7b3e743797eea16c25dbf687c03b"><td class="memItemLeft" align="right" valign="top">real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__amip__interp__mod.html#ga0a2b7b3e743797eea16c25dbf687c03b">tdif</a> = 50.</td></tr>
-<tr class="memdesc:ga0a2b7b3e743797eea16c25dbf687c03b"><td class="mdescLeft">&#160;</td><td class="mdescRight">parameters for prescribed zonal sst option  <a href="group__amip__interp__mod.html#ga0a2b7b3e743797eea16c25dbf687c03b">More...</a><br /></td></tr>
+<tr class="memitem:ga0a2b7b3e743797eea16c25dbf687c03b"><td class="memItemLeft" align="right" valign="top">
+real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__amip__interp__mod.html#ga0a2b7b3e743797eea16c25dbf687c03b">tdif</a> = 50.</td></tr>
+<tr class="memdesc:ga0a2b7b3e743797eea16c25dbf687c03b"><td class="mdescLeft">&#160;</td><td class="mdescRight">parameters for prescribed zonal sst option <br /></td></tr>
 <tr class="separator:ga0a2b7b3e743797eea16c25dbf687c03b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga3d87acc73850f5918295fefda4189c55"><td class="memItemLeft" align="right" valign="top">
 real, dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><b>temp1</b></td></tr>
@@ -293,17 +297,20 @@ real, dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bot
 <tr class="memitem:gaf451b4297b320bae363d96ec58eb5180"><td class="memItemLeft" align="right" valign="top">
 real, dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><b>tempamip</b></td></tr>
 <tr class="separator:gaf451b4297b320bae363d96ec58eb5180"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga17d207f580c984603ad30dc673fc9fff"><td class="memItemLeft" align="right" valign="top">real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__amip__interp__mod.html#ga17d207f580c984603ad30dc673fc9fff">teq</a> = 305.</td></tr>
-<tr class="memdesc:ga17d207f580c984603ad30dc673fc9fff"><td class="mdescLeft">&#160;</td><td class="mdescRight">parameters for prescribed zonal sst option  <a href="group__amip__interp__mod.html#ga17d207f580c984603ad30dc673fc9fff">More...</a><br /></td></tr>
+<tr class="memitem:ga17d207f580c984603ad30dc673fc9fff"><td class="memItemLeft" align="right" valign="top">
+real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__amip__interp__mod.html#ga17d207f580c984603ad30dc673fc9fff">teq</a> = 305.</td></tr>
+<tr class="memdesc:ga17d207f580c984603ad30dc673fc9fff"><td class="mdescLeft">&#160;</td><td class="mdescRight">parameters for prescribed zonal sst option <br /></td></tr>
 <tr class="separator:ga17d207f580c984603ad30dc673fc9fff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7834bb025d28d1e725b3abb929f009dd"><td class="memItemLeft" align="right" valign="top">real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__amip__interp__mod.html#ga7834bb025d28d1e725b3abb929f009dd">tice_crit</a> = -1.80</td></tr>
-<tr class="memdesc:ga7834bb025d28d1e725b3abb929f009dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">in degC or degK  <a href="group__amip__interp__mod.html#ga7834bb025d28d1e725b3abb929f009dd">More...</a><br /></td></tr>
+<tr class="memitem:ga7834bb025d28d1e725b3abb929f009dd"><td class="memItemLeft" align="right" valign="top">
+real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__amip__interp__mod.html#ga7834bb025d28d1e725b3abb929f009dd">tice_crit</a> = -1.80</td></tr>
+<tr class="memdesc:ga7834bb025d28d1e725b3abb929f009dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">in degC or degK <br /></td></tr>
 <tr class="separator:ga7834bb025d28d1e725b3abb929f009dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga571d5a062978e70caaaa2a3a5369a3c2"><td class="memItemLeft" align="right" valign="top">
 real&#160;</td><td class="memItemRight" valign="bottom"><b>tice_crit_k</b></td></tr>
 <tr class="separator:ga571d5a062978e70caaaa2a3a5369a3c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga425723e99f7a4b364afea7ca6bef143c"><td class="memItemLeft" align="right" valign="top">real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__amip__interp__mod.html#ga425723e99f7a4b364afea7ca6bef143c">tlag</a> = 0.875</td></tr>
-<tr class="memdesc:ga425723e99f7a4b364afea7ca6bef143c"><td class="mdescLeft">&#160;</td><td class="mdescRight">parameters for prescribed zonal sst option  <a href="group__amip__interp__mod.html#ga425723e99f7a4b364afea7ca6bef143c">More...</a><br /></td></tr>
+<tr class="memitem:ga425723e99f7a4b364afea7ca6bef143c"><td class="memItemLeft" align="right" valign="top">
+real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__amip__interp__mod.html#ga425723e99f7a4b364afea7ca6bef143c">tlag</a> = 0.875</td></tr>
+<tr class="memdesc:ga425723e99f7a4b364afea7ca6bef143c"><td class="mdescLeft">&#160;</td><td class="mdescRight">parameters for prescribed zonal sst option <br /></td></tr>
 <tr class="separator:ga425723e99f7a4b364afea7ca6bef143c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga30ee20f1f8152bc52c795fa8fea700d2"><td class="memItemLeft" align="right" valign="top">
 integer&#160;</td><td class="memItemRight" valign="bottom"><b>unit</b></td></tr>
@@ -324,11 +331,13 @@ logical&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="g
 logical, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__amip__interp__mod.html#gaa8eedc1bda43c7a973f0ee345f1703f5">use_ncep_sst</a> = .false.</td></tr>
 <tr class="memdesc:gaa8eedc1bda43c7a973f0ee345f1703f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">SJL: During nudging: use_ncep_sst = .T.; no_anom_sst = .T. during forecast: use_ncep_sst = .T.; no_anom_sst = .F. <br /></td></tr>
 <tr class="separator:gaa8eedc1bda43c7a973f0ee345f1703f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gacb2ca3b0d018a1722dc8ed8a4bc2963a"><td class="memItemLeft" align="right" valign="top">logical&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__amip__interp__mod.html#gacb2ca3b0d018a1722dc8ed8a4bc2963a">use_zonal</a> = .false.</td></tr>
-<tr class="memdesc:gacb2ca3b0d018a1722dc8ed8a4bc2963a"><td class="mdescLeft">&#160;</td><td class="mdescRight">parameters for prescribed zonal sst option  <a href="group__amip__interp__mod.html#gacb2ca3b0d018a1722dc8ed8a4bc2963a">More...</a><br /></td></tr>
+<tr class="memitem:gacb2ca3b0d018a1722dc8ed8a4bc2963a"><td class="memItemLeft" align="right" valign="top">
+logical&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__amip__interp__mod.html#gacb2ca3b0d018a1722dc8ed8a4bc2963a">use_zonal</a> = .false.</td></tr>
+<tr class="memdesc:gacb2ca3b0d018a1722dc8ed8a4bc2963a"><td class="mdescLeft">&#160;</td><td class="mdescRight">parameters for prescribed zonal sst option <br /></td></tr>
 <tr class="separator:gacb2ca3b0d018a1722dc8ed8a4bc2963a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9e8dcf56a77b1b156ccc0fa7e082a46b"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__amip__interp__mod.html#ga9e8dcf56a77b1b156ccc0fa7e082a46b">verbose</a> = 0</td></tr>
-<tr class="memdesc:ga9e8dcf56a77b1b156ccc0fa7e082a46b"><td class="mdescLeft">&#160;</td><td class="mdescRight">0 &lt;= verbose &lt;= 3  <a href="group__amip__interp__mod.html#ga9e8dcf56a77b1b156ccc0fa7e082a46b">More...</a><br /></td></tr>
+<tr class="memitem:ga9e8dcf56a77b1b156ccc0fa7e082a46b"><td class="memItemLeft" align="right" valign="top">
+integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__amip__interp__mod.html#ga9e8dcf56a77b1b156ccc0fa7e082a46b">verbose</a> = 0</td></tr>
+<tr class="memdesc:ga9e8dcf56a77b1b156ccc0fa7e082a46b"><td class="mdescLeft">&#160;</td><td class="mdescRight">0 &lt;= verbose &lt;= 3 <br /></td></tr>
 <tr class="separator:ga9e8dcf56a77b1b156ccc0fa7e082a46b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>

@@ -1,5 +1,6 @@
 var fms__affinity_8F90 =
 [
+    [ "fms_affinity_get", "interfacefms__affinity__mod_1_1fms__affinity__get.html", "interfacefms__affinity__mod_1_1fms__affinity__get" ],
     [ "fms_affinity_init", "fms__affinity_8F90.html#ga78a042dc1e444c6cb142e03d2c1f5345", null ],
     [ "fms_affinity_set", "fms__affinity_8F90.html#gaee9fe9116c8a7ddbdcc6ed836b218755", null ],
     [ "affinity", "fms__affinity_8F90.html#ga2ce2e3d54661724dcd6eae4271fe2428", null ],

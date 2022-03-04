@@ -1,5 +1,6 @@
 var array__utils_8inc =
 [
+    [ "allocate_array_i4_kind_1d", "group__fms__io__utils.html#gadd0b6e2fd51962139982161f25da6f0f", null ],
     [ "allocate_array_i4_kind_2d", "group__fms__io__utils.html#ga86c923d08ae49380c6051e7c72f244ae", null ],
     [ "allocate_array_i4_kind_3d", "group__fms__io__utils.html#gab15a4a85df3bad3179d70be435ac61e4", null ],
     [ "allocate_array_i4_kind_4d", "group__fms__io__utils.html#gaac612de58a1b009c76ecbcefc669f040", null ],

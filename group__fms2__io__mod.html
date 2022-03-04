@@ -96,40 +96,17 @@ $(document).ready(function(){initNavTree('group__fms2__io__mod.html',''); initRe
 <a href="#func-members">Functions/Subroutines</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
-<div class="title">fms2_io_mod<div class="ingroups"><a class="el" href="group__fms2__io.html">FMS2 IO</a></div></div>  </div>
+<div class="title">fms2_io_mod</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>An updated library for parallel IO to replace <a class="el" href="group__mpp__io__mod.html">mpp_io_mod</a>. This module contains the public API for fms2 I/O interfaces and routines defined throughout this directory.  
+<p>An updated library for parallel IO to replace <a class="el" href="group__mpp__io__mod.html">mpp_io_mod</a>. This module contains the public API for fms2 I/O interfaces and routines defined throughout this directory. A conversion guide for replacing mpp/fms_io code with this module is available below.  
 <a href="#details">More...</a></p>
-<div class="dynheader">
-Collaboration diagram for fms2_io_mod:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="group__fms2__io__mod.svg" width="246" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="files"></a>
 Files</h2></td></tr>
-<tr class="memitem:compressed__read_8inc"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="compressed__read_8inc.html">compressed_read.inc</a></td></tr>
-<tr class="memdesc:compressed__read_8inc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compressed read routines for read_data interface. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:compressed__write_8inc"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="compressed__write_8inc.html">compressed_write.inc</a></td></tr>
-<tr class="memdesc:compressed__write_8inc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compressed write routines for write_data interface. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:domain__read_8inc"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="domain__read_8inc.html">domain_read.inc</a></td></tr>
-<tr class="memdesc:domain__read_8inc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads domain decomposed variables and scatters data to pe's for the read_data interface. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:domain__write_8inc"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="domain__write_8inc.html">domain_write.inc</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:fms2__io_8F90"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fms2__io_8F90.html">fms2_io.F90</a></td></tr>
 <tr class="memdesc:fms2__io_8F90"><td class="mdescLeft">&#160;</td><td class="mdescRight">File for <a class="el" href="group__fms2__io__mod.html">fms2_io_mod</a>. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:register__domain__restart__variable_8inc"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="register__domain__restart__variable_8inc.html">register_domain_restart_variable.inc</a></td></tr>
-<tr class="memdesc:register__domain__restart__variable_8inc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds domain decomposed variable for restarts for the register_restart_field interface. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:register__unstructured__domain__restart__variable_8inc"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="register__unstructured__domain__restart__variable_8inc.html">register_unstructured_domain_restart_variable.inc</a></td></tr>
-<tr class="memdesc:register__unstructured__domain__restart__variable_8inc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds restart variable for unstructured domains for different dimension to be used in the register_restart_field interface. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
@@ -147,7 +124,8 @@ Data Types</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read data from a defined field in a file.  <a href="interfacefms2__io__mod_1_1read__data.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacefms2__io__mod_1_1read__new__restart.html">read_new_restart</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read registered restarts from a new file.  <a href="interfacefms2__io__mod_1_1read__new__restart.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read registered restarts from a new file Optionally takes directory to write to, model time and filename <br  />
+Example usage: call read_new_restart(fileobj, unlimted_dimension_level)  <a href="interfacefms2__io__mod_1_1read__new__restart.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacefms2__io__mod_1_1read__restart.html">read_restart</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads in restart variables from a given file <br  />
@@ -179,6 +157,24 @@ Example usage:  <a href="interfacefms2__io__mod_1_1write__restart.html#details">
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
+<tr class="memitem:gac32d6c9763776287aa51db5191f44013"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms2__io__mod.html#gac32d6c9763776287aa51db5191f44013">allocate_array_char_1d</a> (buf, sizes)</td></tr>
+<tr class="memdesc:gac32d6c9763776287aa51db5191f44013"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocate character arrays using an input array of sizes.  <a href="group__fms2__io__mod.html#gac32d6c9763776287aa51db5191f44013">More...</a><br /></td></tr>
+<tr class="separator:gac32d6c9763776287aa51db5191f44013"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5cabe63ddbd38aa6f7c50473a78d0f4c"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms2__io__mod.html#ga5cabe63ddbd38aa6f7c50473a78d0f4c">allocate_array_char_2d</a> (buf, sizes)</td></tr>
+<tr class="memdesc:ga5cabe63ddbd38aa6f7c50473a78d0f4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocate character arrays using an input array of sizes.  <a href="group__fms2__io__mod.html#ga5cabe63ddbd38aa6f7c50473a78d0f4c">More...</a><br /></td></tr>
+<tr class="separator:ga5cabe63ddbd38aa6f7c50473a78d0f4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7ca1f58a5b65b675a621bb8ec765fd66"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms2__io__mod.html#ga7ca1f58a5b65b675a621bb8ec765fd66">allocate_array_char_3d</a> (buf, sizes)</td></tr>
+<tr class="memdesc:ga7ca1f58a5b65b675a621bb8ec765fd66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocate character arrays using an input array of sizes.  <a href="group__fms2__io__mod.html#ga7ca1f58a5b65b675a621bb8ec765fd66">More...</a><br /></td></tr>
+<tr class="separator:ga7ca1f58a5b65b675a621bb8ec765fd66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabab0419df6538a44415d80321c6e6561"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms2__io__mod.html#gabab0419df6538a44415d80321c6e6561">allocate_array_char_4d</a> (buf, sizes)</td></tr>
+<tr class="memdesc:gabab0419df6538a44415d80321c6e6561"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocate character arrays using an input array of sizes.  <a href="group__fms2__io__mod.html#gabab0419df6538a44415d80321c6e6561">More...</a><br /></td></tr>
+<tr class="separator:gabab0419df6538a44415d80321c6e6561"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0919f9ca68abda9cf97f9eeb3fd6acbd"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms2__io__mod.html#ga0919f9ca68abda9cf97f9eeb3fd6acbd">allocate_array_char_5d</a> (buf, sizes)</td></tr>
+<tr class="memdesc:ga0919f9ca68abda9cf97f9eeb3fd6acbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocate character arrays using an input array of sizes.  <a href="group__fms2__io__mod.html#ga0919f9ca68abda9cf97f9eeb3fd6acbd">More...</a><br /></td></tr>
+<tr class="separator:ga0919f9ca68abda9cf97f9eeb3fd6acbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1d5f6982f783a7fde575b40992211b9a"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms2__io__mod.html#ga1d5f6982f783a7fde575b40992211b9a">allocate_array_char_6d</a> (buf, sizes)</td></tr>
+<tr class="memdesc:ga1d5f6982f783a7fde575b40992211b9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocate character arrays using an input array of sizes.  <a href="group__fms2__io__mod.html#ga1d5f6982f783a7fde575b40992211b9a">More...</a><br /></td></tr>
+<tr class="separator:ga1d5f6982f783a7fde575b40992211b9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga3628d0c71f1136ec7970df3f1c9717cf"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms2__io__mod.html#ga3628d0c71f1136ec7970df3f1c9717cf">compressed_read_0d</a> (fileobj, variable_name, cdata, unlim_dim_level, corner)</td></tr>
 <tr class="memdesc:ga3628d0c71f1136ec7970df3f1c9717cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">I/O domain reads in data from the netcdf file and broadcasts the data to the rest of the ranks. This routine may only be used with variables that are "compressed".  <a href="group__fms2__io__mod.html#ga3628d0c71f1136ec7970df3f1c9717cf">More...</a><br /></td></tr>
 <tr class="separator:ga3628d0c71f1136ec7970df3f1c9717cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -326,6 +322,42 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:ga0a9fc35686f9fdfb6b798ad426ff9b23"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms2__io__mod.html#ga0a9fc35686f9fdfb6b798ad426ff9b23">register_variable_attribute_1d</a> (fileobj, variable_name, attribute_name, attribute_value, str_len)</td></tr>
 <tr class="memdesc:ga0a9fc35686f9fdfb6b798ad426ff9b23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add an attribute to a variable.  <a href="group__fms2__io__mod.html#ga0a9fc35686f9fdfb6b798ad426ff9b23">More...</a><br /></td></tr>
 <tr class="separator:ga0a9fc35686f9fdfb6b798ad426ff9b23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga74fa974dcdf54067f5e5fca7398f3165"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms2__io__mod.html#ga74fa974dcdf54067f5e5fca7398f3165">unstructured_domain_read_0d</a> (fileobj, variable_name, buf, unlim_dim_level, corner, broadcast)</td></tr>
+<tr class="memdesc:ga74fa974dcdf54067f5e5fca7398f3165"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper to distinguish interfaces.  <a href="group__fms2__io__mod.html#ga74fa974dcdf54067f5e5fca7398f3165">More...</a><br /></td></tr>
+<tr class="separator:ga74fa974dcdf54067f5e5fca7398f3165"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf9324c7dd7313fbc70032a18b57162e2"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms2__io__mod.html#gaf9324c7dd7313fbc70032a18b57162e2">unstructured_domain_read_1d</a> (fileobj, variable_name, buf, unlim_dim_level, corner, edge_lengths, broadcast)</td></tr>
+<tr class="memdesc:gaf9324c7dd7313fbc70032a18b57162e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper to distinguish interfaces.  <a href="group__fms2__io__mod.html#gaf9324c7dd7313fbc70032a18b57162e2">More...</a><br /></td></tr>
+<tr class="separator:gaf9324c7dd7313fbc70032a18b57162e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa2b3d5b924f68b85863b3789d2e2fb0a"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms2__io__mod.html#gaa2b3d5b924f68b85863b3789d2e2fb0a">unstructured_domain_read_2d</a> (fileobj, variable_name, buf, unlim_dim_level, corner, edge_lengths, broadcast)</td></tr>
+<tr class="memdesc:gaa2b3d5b924f68b85863b3789d2e2fb0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper to distinguish interfaces.  <a href="group__fms2__io__mod.html#gaa2b3d5b924f68b85863b3789d2e2fb0a">More...</a><br /></td></tr>
+<tr class="separator:gaa2b3d5b924f68b85863b3789d2e2fb0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3ee6d0fa0a6c2b4d7063d23eda77bcef"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms2__io__mod.html#ga3ee6d0fa0a6c2b4d7063d23eda77bcef">unstructured_domain_read_3d</a> (fileobj, variable_name, buf, unlim_dim_level, corner, edge_lengths, broadcast)</td></tr>
+<tr class="memdesc:ga3ee6d0fa0a6c2b4d7063d23eda77bcef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper to distinguish interfaces.  <a href="group__fms2__io__mod.html#ga3ee6d0fa0a6c2b4d7063d23eda77bcef">More...</a><br /></td></tr>
+<tr class="separator:ga3ee6d0fa0a6c2b4d7063d23eda77bcef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0028ca353c1480ff45a30f409cebbb22"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms2__io__mod.html#ga0028ca353c1480ff45a30f409cebbb22">unstructured_domain_read_4d</a> (fileobj, variable_name, buf, unlim_dim_level, corner, edge_lengths, broadcast)</td></tr>
+<tr class="memdesc:ga0028ca353c1480ff45a30f409cebbb22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper to distinguish interfaces.  <a href="group__fms2__io__mod.html#ga0028ca353c1480ff45a30f409cebbb22">More...</a><br /></td></tr>
+<tr class="separator:ga0028ca353c1480ff45a30f409cebbb22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga96e1c2ff2bb6d1fc6035cb4eed2c8c73"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms2__io__mod.html#ga96e1c2ff2bb6d1fc6035cb4eed2c8c73">unstructured_domain_read_5d</a> (fileobj, variable_name, buf, unlim_dim_level, corner, edge_lengths, broadcast)</td></tr>
+<tr class="memdesc:ga96e1c2ff2bb6d1fc6035cb4eed2c8c73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper to distinguish interfaces.  <a href="group__fms2__io__mod.html#ga96e1c2ff2bb6d1fc6035cb4eed2c8c73">More...</a><br /></td></tr>
+<tr class="separator:ga96e1c2ff2bb6d1fc6035cb4eed2c8c73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga72c3477d33efc2e8462ff354bada11bb"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms2__io__mod.html#ga72c3477d33efc2e8462ff354bada11bb">unstructured_domain_write_0d</a> (fileobj, variable_name, variable_data, unlim_dim_level, corner)</td></tr>
+<tr class="memdesc:ga72c3477d33efc2e8462ff354bada11bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper to distinguish interfaces.  <a href="group__fms2__io__mod.html#ga72c3477d33efc2e8462ff354bada11bb">More...</a><br /></td></tr>
+<tr class="separator:ga72c3477d33efc2e8462ff354bada11bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gada15a55c252bae3b4a77a993ccc00aaa"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms2__io__mod.html#gada15a55c252bae3b4a77a993ccc00aaa">unstructured_domain_write_1d</a> (fileobj, variable_name, variable_data, unlim_dim_level, corner, edge_lengths)</td></tr>
+<tr class="memdesc:gada15a55c252bae3b4a77a993ccc00aaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper to distinguish interfaces.  <a href="group__fms2__io__mod.html#gada15a55c252bae3b4a77a993ccc00aaa">More...</a><br /></td></tr>
+<tr class="separator:gada15a55c252bae3b4a77a993ccc00aaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0158283c350685688b388c1247c74e4a"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms2__io__mod.html#ga0158283c350685688b388c1247c74e4a">unstructured_domain_write_2d</a> (fileobj, variable_name, variable_data, unlim_dim_level, corner, edge_lengths)</td></tr>
+<tr class="memdesc:ga0158283c350685688b388c1247c74e4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper to distinguish interfaces.  <a href="group__fms2__io__mod.html#ga0158283c350685688b388c1247c74e4a">More...</a><br /></td></tr>
+<tr class="separator:ga0158283c350685688b388c1247c74e4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga491251a1d73294bd8fc1690783ed873b"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms2__io__mod.html#ga491251a1d73294bd8fc1690783ed873b">unstructured_domain_write_3d</a> (fileobj, variable_name, variable_data, unlim_dim_level, corner, edge_lengths)</td></tr>
+<tr class="memdesc:ga491251a1d73294bd8fc1690783ed873b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper to distinguish interfaces.  <a href="group__fms2__io__mod.html#ga491251a1d73294bd8fc1690783ed873b">More...</a><br /></td></tr>
+<tr class="separator:ga491251a1d73294bd8fc1690783ed873b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7bcc4ef8e6ca2361837d3aecdd70bfd9"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms2__io__mod.html#ga7bcc4ef8e6ca2361837d3aecdd70bfd9">unstructured_domain_write_4d</a> (fileobj, variable_name, variable_data, unlim_dim_level, corner, edge_lengths)</td></tr>
+<tr class="memdesc:ga7bcc4ef8e6ca2361837d3aecdd70bfd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper to distinguish interfaces.  <a href="group__fms2__io__mod.html#ga7bcc4ef8e6ca2361837d3aecdd70bfd9">More...</a><br /></td></tr>
+<tr class="separator:ga7bcc4ef8e6ca2361837d3aecdd70bfd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae9193bb10afee1aacf676f5730dfa59e"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms2__io__mod.html#gae9193bb10afee1aacf676f5730dfa59e">unstructured_domain_write_5d</a> (fileobj, variable_name, variable_data, unlim_dim_level, corner, edge_lengths)</td></tr>
+<tr class="memdesc:gae9193bb10afee1aacf676f5730dfa59e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper to distinguish interfaces.  <a href="group__fms2__io__mod.html#gae9193bb10afee1aacf676f5730dfa59e">More...</a><br /></td></tr>
+<tr class="separator:gae9193bb10afee1aacf676f5730dfa59e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -347,8 +379,8 @@ character(len=10)&#160;</td><td class="memItemRight" valign="bottom"><a class="e
 <tr class="separator:gaeee123b8726562ad5d4e659f261db74c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>An updated library for parallel IO to replace <a class="el" href="group__mpp__io__mod.html">mpp_io_mod</a>. This module contains the public API for fms2 I/O interfaces and routines defined throughout this directory. </p>
-<p>Provides public interfaces for routines within <a class="el" href="group__fms2__io.html">FMS2 IO</a>. Interfaces and example usages are listed below, see individual routine documentation for more specific argument information. </p>
+<p>An updated library for parallel IO to replace <a class="el" href="group__mpp__io__mod.html">mpp_io_mod</a>. This module contains the public API for fms2 I/O interfaces and routines defined throughout this directory. A conversion guide for replacing mpp/fms_io code with this module is available below. </p>
+<dl class="section note"><dt>Note</dt><dd>Documentation for specific routines belonging to this module's interfaces will be found on this page. </dd></dl>
 
 
 <h3><a id="md_fms2_io_readme"></a>readme</h3><div class="textblock"><h3>FMS_io/mpp_io to FMS2_io conversion guide</h3>
@@ -883,6 +915,240 @@ With FMS2_io, ascii reads can be accomplished using <code>ascii_reads</code>. In
 <li><b>header_buffer_val:</b> Sets the netCDF header buffer size(in bytes). The default is 16384 bytes. </li>
 </ul>
 </div><h2 class="groupheader">Function/Subroutine Documentation</h2>
+<a id="gac32d6c9763776287aa51db5191f44013"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac32d6c9763776287aa51db5191f44013">&#9670;&nbsp;</a></span>allocate_array_char_1d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine allocate_array_char_1d </td>
+          <td>(</td>
+          <td class="paramtype">character(len=*), dimension(:), intent(inout), allocatable&#160;</td>
+          <td class="paramname"><em>buf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(1), intent(in)&#160;</td>
+          <td class="paramname"><em>sizes</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Allocate character arrays using an input array of sizes. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">buf</td><td>Array that will be allocated. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">sizes</td><td>Array of dimension sizes. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="array__utils__char_8inc_source.html#l00027">27</a> of file <a class="el" href="array__utils__char_8inc_source.html">array_utils_char.inc</a>.</p>
+
+</div>
+</div>
+<a id="ga5cabe63ddbd38aa6f7c50473a78d0f4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5cabe63ddbd38aa6f7c50473a78d0f4c">&#9670;&nbsp;</a></span>allocate_array_char_2d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine allocate_array_char_2d </td>
+          <td>(</td>
+          <td class="paramtype">character(len=*), dimension(:,:), intent(inout), allocatable&#160;</td>
+          <td class="paramname"><em>buf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(2), intent(in)&#160;</td>
+          <td class="paramname"><em>sizes</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Allocate character arrays using an input array of sizes. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">buf</td><td>Array that will be allocated. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">sizes</td><td>Array of dimension sizes. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="array__utils__char_8inc_source.html#l00040">40</a> of file <a class="el" href="array__utils__char_8inc_source.html">array_utils_char.inc</a>.</p>
+
+</div>
+</div>
+<a id="ga7ca1f58a5b65b675a621bb8ec765fd66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7ca1f58a5b65b675a621bb8ec765fd66">&#9670;&nbsp;</a></span>allocate_array_char_3d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine allocate_array_char_3d </td>
+          <td>(</td>
+          <td class="paramtype">character(len=*), dimension(:,:,:), intent(inout), allocatable&#160;</td>
+          <td class="paramname"><em>buf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(3), intent(in)&#160;</td>
+          <td class="paramname"><em>sizes</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Allocate character arrays using an input array of sizes. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">buf</td><td>Array that will be allocated. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">sizes</td><td>Array of dimension sizes. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="array__utils__char_8inc_source.html#l00053">53</a> of file <a class="el" href="array__utils__char_8inc_source.html">array_utils_char.inc</a>.</p>
+
+</div>
+</div>
+<a id="gabab0419df6538a44415d80321c6e6561"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gabab0419df6538a44415d80321c6e6561">&#9670;&nbsp;</a></span>allocate_array_char_4d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine allocate_array_char_4d </td>
+          <td>(</td>
+          <td class="paramtype">character(len=*), dimension(:,:,:,:), intent(inout), allocatable&#160;</td>
+          <td class="paramname"><em>buf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(4), intent(in)&#160;</td>
+          <td class="paramname"><em>sizes</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Allocate character arrays using an input array of sizes. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">buf</td><td>Array that will be allocated. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">sizes</td><td>Array of dimension sizes. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="array__utils__char_8inc_source.html#l00066">66</a> of file <a class="el" href="array__utils__char_8inc_source.html">array_utils_char.inc</a>.</p>
+
+</div>
+</div>
+<a id="ga0919f9ca68abda9cf97f9eeb3fd6acbd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0919f9ca68abda9cf97f9eeb3fd6acbd">&#9670;&nbsp;</a></span>allocate_array_char_5d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine allocate_array_char_5d </td>
+          <td>(</td>
+          <td class="paramtype">character(len=*), dimension(:,:,:,:,:), intent(inout), allocatable&#160;</td>
+          <td class="paramname"><em>buf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(5), intent(in)&#160;</td>
+          <td class="paramname"><em>sizes</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Allocate character arrays using an input array of sizes. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">buf</td><td>Array that will be allocated. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">sizes</td><td>Array of dimension sizes. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="array__utils__char_8inc_source.html#l00079">79</a> of file <a class="el" href="array__utils__char_8inc_source.html">array_utils_char.inc</a>.</p>
+
+</div>
+</div>
+<a id="ga1d5f6982f783a7fde575b40992211b9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1d5f6982f783a7fde575b40992211b9a">&#9670;&nbsp;</a></span>allocate_array_char_6d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine allocate_array_char_6d </td>
+          <td>(</td>
+          <td class="paramtype">character(len=*), dimension(:,:,:,:,:,:), intent(inout), allocatable&#160;</td>
+          <td class="paramname"><em>buf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(6), intent(in)&#160;</td>
+          <td class="paramname"><em>sizes</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Allocate character arrays using an input array of sizes. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">buf</td><td>Array that will be allocated. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">sizes</td><td>Array of dimension sizes. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="array__utils__char_8inc_source.html#l00092">92</a> of file <a class="el" href="array__utils__char_8inc_source.html">array_utils_char.inc</a>.</p>
+
+</div>
+</div>
 <a id="ga3628d0c71f1136ec7970df3f1c9717cf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga3628d0c71f1136ec7970df3f1c9717cf">&#9670;&nbsp;</a></span>compressed_read_0d()</h2>
 
@@ -939,7 +1205,7 @@ With FMS2_io, ascii reads can be accomplished using <code>ascii_reads</code>. In
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="compressed__read_8inc_source.html#l00031">31</a> of file <a class="el" href="compressed__read_8inc_source.html">compressed_read.inc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="compressed__read_8inc_source.html#l00030">30</a> of file <a class="el" href="compressed__read_8inc_source.html">compressed_read.inc</a>.</p>
 
 </div>
 </div>
@@ -1006,7 +1272,7 @@ With FMS2_io, ascii reads can be accomplished using <code>ascii_reads</code>. In
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="compressed__read_8inc_source.html#l00056">56</a> of file <a class="el" href="compressed__read_8inc_source.html">compressed_read.inc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="compressed__read_8inc_source.html#l00055">55</a> of file <a class="el" href="compressed__read_8inc_source.html">compressed_read.inc</a>.</p>
 
 </div>
 </div>
@@ -1073,7 +1339,7 @@ With FMS2_io, ascii reads can be accomplished using <code>ascii_reads</code>. In
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="compressed__read_8inc_source.html#l00084">84</a> of file <a class="el" href="compressed__read_8inc_source.html">compressed_read.inc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="compressed__read_8inc_source.html#l00083">83</a> of file <a class="el" href="compressed__read_8inc_source.html">compressed_read.inc</a>.</p>
 
 </div>
 </div>
@@ -1140,7 +1406,7 @@ With FMS2_io, ascii reads can be accomplished using <code>ascii_reads</code>. In
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="compressed__read_8inc_source.html#l00112">112</a> of file <a class="el" href="compressed__read_8inc_source.html">compressed_read.inc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="compressed__read_8inc_source.html#l00111">111</a> of file <a class="el" href="compressed__read_8inc_source.html">compressed_read.inc</a>.</p>
 
 </div>
 </div>
@@ -1207,7 +1473,7 @@ With FMS2_io, ascii reads can be accomplished using <code>ascii_reads</code>. In
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="compressed__read_8inc_source.html#l00140">140</a> of file <a class="el" href="compressed__read_8inc_source.html">compressed_read.inc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="compressed__read_8inc_source.html#l00139">139</a> of file <a class="el" href="compressed__read_8inc_source.html">compressed_read.inc</a>.</p>
 
 </div>
 </div>
@@ -1274,7 +1540,7 @@ With FMS2_io, ascii reads can be accomplished using <code>ascii_reads</code>. In
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="compressed__read_8inc_source.html#l00168">168</a> of file <a class="el" href="compressed__read_8inc_source.html">compressed_read.inc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="compressed__read_8inc_source.html#l00167">167</a> of file <a class="el" href="compressed__read_8inc_source.html">compressed_read.inc</a>.</p>
 
 </div>
 </div>
@@ -1334,7 +1600,7 @@ With FMS2_io, ascii reads can be accomplished using <code>ascii_reads</code>. In
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="compressed__write_8inc_source.html#l00032">32</a> of file <a class="el" href="compressed__write_8inc_source.html">compressed_write.inc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="compressed__write_8inc_source.html#l00031">31</a> of file <a class="el" href="compressed__write_8inc_source.html">compressed_write.inc</a>.</p>
 
 </div>
 </div>
@@ -1394,7 +1660,7 @@ With FMS2_io, ascii reads can be accomplished using <code>ascii_reads</code>. In
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="compressed__write_8inc_source.html#l00060">60</a> of file <a class="el" href="compressed__write_8inc_source.html">compressed_write.inc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="compressed__write_8inc_source.html#l00059">59</a> of file <a class="el" href="compressed__write_8inc_source.html">compressed_write.inc</a>.</p>
 
 </div>
 </div>
@@ -1461,7 +1727,7 @@ With FMS2_io, ascii reads can be accomplished using <code>ascii_reads</code>. In
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="compressed__write_8inc_source.html#l00084">84</a> of file <a class="el" href="compressed__write_8inc_source.html">compressed_write.inc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="compressed__write_8inc_source.html#l00083">83</a> of file <a class="el" href="compressed__write_8inc_source.html">compressed_write.inc</a>.</p>
 
 </div>
 </div>
@@ -1528,7 +1794,7 @@ With FMS2_io, ascii reads can be accomplished using <code>ascii_reads</code>. In
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="compressed__write_8inc_source.html#l00623">623</a> of file <a class="el" href="compressed__write_8inc_source.html">compressed_write.inc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="compressed__write_8inc_source.html#l00622">622</a> of file <a class="el" href="compressed__write_8inc_source.html">compressed_write.inc</a>.</p>
 
 </div>
 </div>
@@ -1595,7 +1861,7 @@ With FMS2_io, ascii reads can be accomplished using <code>ascii_reads</code>. In
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="compressed__write_8inc_source.html#l00194">194</a> of file <a class="el" href="compressed__write_8inc_source.html">compressed_write.inc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="compressed__write_8inc_source.html#l00193">193</a> of file <a class="el" href="compressed__write_8inc_source.html">compressed_write.inc</a>.</p>
 
 </div>
 </div>
@@ -1662,7 +1928,7 @@ With FMS2_io, ascii reads can be accomplished using <code>ascii_reads</code>. In
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="compressed__write_8inc_source.html#l00650">650</a> of file <a class="el" href="compressed__write_8inc_source.html">compressed_write.inc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="compressed__write_8inc_source.html#l00649">649</a> of file <a class="el" href="compressed__write_8inc_source.html">compressed_write.inc</a>.</p>
 
 </div>
 </div>
@@ -1729,7 +1995,7 @@ With FMS2_io, ascii reads can be accomplished using <code>ascii_reads</code>. In
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="compressed__write_8inc_source.html#l00302">302</a> of file <a class="el" href="compressed__write_8inc_source.html">compressed_write.inc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="compressed__write_8inc_source.html#l00301">301</a> of file <a class="el" href="compressed__write_8inc_source.html">compressed_write.inc</a>.</p>
 
 </div>
 </div>
@@ -1796,7 +2062,7 @@ With FMS2_io, ascii reads can be accomplished using <code>ascii_reads</code>. In
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="compressed__write_8inc_source.html#l00676">676</a> of file <a class="el" href="compressed__write_8inc_source.html">compressed_write.inc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="compressed__write_8inc_source.html#l00675">675</a> of file <a class="el" href="compressed__write_8inc_source.html">compressed_write.inc</a>.</p>
 
 </div>
 </div>
@@ -1863,7 +2129,7 @@ With FMS2_io, ascii reads can be accomplished using <code>ascii_reads</code>. In
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="compressed__write_8inc_source.html#l00410">410</a> of file <a class="el" href="compressed__write_8inc_source.html">compressed_write.inc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="compressed__write_8inc_source.html#l00409">409</a> of file <a class="el" href="compressed__write_8inc_source.html">compressed_write.inc</a>.</p>
 
 </div>
 </div>
@@ -1930,7 +2196,7 @@ With FMS2_io, ascii reads can be accomplished using <code>ascii_reads</code>. In
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="compressed__write_8inc_source.html#l00702">702</a> of file <a class="el" href="compressed__write_8inc_source.html">compressed_write.inc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="compressed__write_8inc_source.html#l00701">701</a> of file <a class="el" href="compressed__write_8inc_source.html">compressed_write.inc</a>.</p>
 
 </div>
 </div>
@@ -1997,7 +2263,7 @@ With FMS2_io, ascii reads can be accomplished using <code>ascii_reads</code>. In
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="compressed__write_8inc_source.html#l00518">518</a> of file <a class="el" href="compressed__write_8inc_source.html">compressed_write.inc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="compressed__write_8inc_source.html#l00517">517</a> of file <a class="el" href="compressed__write_8inc_source.html">compressed_write.inc</a>.</p>
 
 </div>
 </div>
@@ -2064,7 +2330,7 @@ With FMS2_io, ascii reads can be accomplished using <code>ascii_reads</code>. In
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="compressed__write_8inc_source.html#l00728">728</a> of file <a class="el" href="compressed__write_8inc_source.html">compressed_write.inc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="compressed__write_8inc_source.html#l00727">727</a> of file <a class="el" href="compressed__write_8inc_source.html">compressed_write.inc</a>.</p>
 
 </div>
 </div>
@@ -2125,7 +2391,7 @@ With FMS2_io, ascii reads can be accomplished using <code>ascii_reads</code>. In
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="domain__read_8inc_source.html#l00032">32</a> of file <a class="el" href="domain__read_8inc_source.html">domain_read.inc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="domain__read_8inc_source.html#l00031">31</a> of file <a class="el" href="domain__read_8inc_source.html">domain_read.inc</a>.</p>
 
 </div>
 </div>
@@ -2193,7 +2459,7 @@ With FMS2_io, ascii reads can be accomplished using <code>ascii_reads</code>. In
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="domain__read_8inc_source.html#l00059">59</a> of file <a class="el" href="domain__read_8inc_source.html">domain_read.inc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="domain__read_8inc_source.html#l00058">58</a> of file <a class="el" href="domain__read_8inc_source.html">domain_read.inc</a>.</p>
 
 </div>
 </div>
@@ -2261,7 +2527,7 @@ With FMS2_io, ascii reads can be accomplished using <code>ascii_reads</code>. In
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="domain__read_8inc_source.html#l00090">90</a> of file <a class="el" href="domain__read_8inc_source.html">domain_read.inc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="domain__read_8inc_source.html#l00089">89</a> of file <a class="el" href="domain__read_8inc_source.html">domain_read.inc</a>.</p>
 
 </div>
 </div>
@@ -2329,7 +2595,7 @@ With FMS2_io, ascii reads can be accomplished using <code>ascii_reads</code>. In
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="domain__read_8inc_source.html#l00309">309</a> of file <a class="el" href="domain__read_8inc_source.html">domain_read.inc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="domain__read_8inc_source.html#l00308">308</a> of file <a class="el" href="domain__read_8inc_source.html">domain_read.inc</a>.</p>
 
 </div>
 </div>
@@ -2397,7 +2663,7 @@ With FMS2_io, ascii reads can be accomplished using <code>ascii_reads</code>. In
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="domain__read_8inc_source.html#l00528">528</a> of file <a class="el" href="domain__read_8inc_source.html">domain_read.inc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="domain__read_8inc_source.html#l00527">527</a> of file <a class="el" href="domain__read_8inc_source.html">domain_read.inc</a>.</p>
 
 </div>
 </div>
@@ -2465,7 +2731,7 @@ With FMS2_io, ascii reads can be accomplished using <code>ascii_reads</code>. In
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="domain__read_8inc_source.html#l00747">747</a> of file <a class="el" href="domain__read_8inc_source.html">domain_read.inc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="domain__read_8inc_source.html#l00746">746</a> of file <a class="el" href="domain__read_8inc_source.html">domain_read.inc</a>.</p>
 
 </div>
 </div>
@@ -2889,7 +3155,7 @@ With FMS2_io, ascii reads can be accomplished using <code>ascii_reads</code>. In
 <p>Send the namelist variables to their respective modules</p>
 <p>Mark the fms2_io as initialized</p>
 
-<p class="definition">Definition at line <a class="el" href="fms2__io_8F90_source.html#l00366">366</a> of file <a class="el" href="fms2__io_8F90_source.html">fms2_io.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="fms2__io_8F90_source.html#l00382">382</a> of file <a class="el" href="fms2__io_8F90_source.html">fms2_io.F90</a>.</p>
 
 </div>
 </div>
@@ -2949,7 +3215,7 @@ With FMS2_io, ascii reads can be accomplished using <code>ascii_reads</code>. In
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="register__domain__restart__variable_8inc_source.html#l00030">30</a> of file <a class="el" href="register__domain__restart__variable_8inc_source.html">register_domain_restart_variable.inc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="register__domain__restart__variable_8inc_source.html#l00029">29</a> of file <a class="el" href="register__domain__restart__variable_8inc_source.html">register_domain_restart_variable.inc</a>.</p>
 
 </div>
 </div>
@@ -3009,7 +3275,7 @@ With FMS2_io, ascii reads can be accomplished using <code>ascii_reads</code>. In
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="register__domain__restart__variable_8inc_source.html#l00045">45</a> of file <a class="el" href="register__domain__restart__variable_8inc_source.html">register_domain_restart_variable.inc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="register__domain__restart__variable_8inc_source.html#l00044">44</a> of file <a class="el" href="register__domain__restart__variable_8inc_source.html">register_domain_restart_variable.inc</a>.</p>
 
 </div>
 </div>
@@ -3069,7 +3335,7 @@ With FMS2_io, ascii reads can be accomplished using <code>ascii_reads</code>. In
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="register__domain__restart__variable_8inc_source.html#l00063">63</a> of file <a class="el" href="register__domain__restart__variable_8inc_source.html">register_domain_restart_variable.inc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="register__domain__restart__variable_8inc_source.html#l00062">62</a> of file <a class="el" href="register__domain__restart__variable_8inc_source.html">register_domain_restart_variable.inc</a>.</p>
 
 </div>
 </div>
@@ -3129,7 +3395,7 @@ With FMS2_io, ascii reads can be accomplished using <code>ascii_reads</code>. In
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="register__domain__restart__variable_8inc_source.html#l00078">78</a> of file <a class="el" href="register__domain__restart__variable_8inc_source.html">register_domain_restart_variable.inc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="register__domain__restart__variable_8inc_source.html#l00077">77</a> of file <a class="el" href="register__domain__restart__variable_8inc_source.html">register_domain_restart_variable.inc</a>.</p>
 
 </div>
 </div>
@@ -3189,7 +3455,7 @@ With FMS2_io, ascii reads can be accomplished using <code>ascii_reads</code>. In
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="register__domain__restart__variable_8inc_source.html#l00093">93</a> of file <a class="el" href="register__domain__restart__variable_8inc_source.html">register_domain_restart_variable.inc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="register__domain__restart__variable_8inc_source.html#l00092">92</a> of file <a class="el" href="register__domain__restart__variable_8inc_source.html">register_domain_restart_variable.inc</a>.</p>
 
 </div>
 </div>
@@ -3249,7 +3515,7 @@ With FMS2_io, ascii reads can be accomplished using <code>ascii_reads</code>. In
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="register__domain__restart__variable_8inc_source.html#l00108">108</a> of file <a class="el" href="register__domain__restart__variable_8inc_source.html">register_domain_restart_variable.inc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="register__domain__restart__variable_8inc_source.html#l00107">107</a> of file <a class="el" href="register__domain__restart__variable_8inc_source.html">register_domain_restart_variable.inc</a>.</p>
 
 </div>
 </div>
@@ -3309,7 +3575,7 @@ With FMS2_io, ascii reads can be accomplished using <code>ascii_reads</code>. In
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="register__unstructured__domain__restart__variable_8inc_source.html#l00030">30</a> of file <a class="el" href="register__unstructured__domain__restart__variable_8inc_source.html">register_unstructured_domain_restart_variable.inc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="register__unstructured__domain__restart__variable_8inc_source.html#l00029">29</a> of file <a class="el" href="register__unstructured__domain__restart__variable_8inc_source.html">register_unstructured_domain_restart_variable.inc</a>.</p>
 
 </div>
 </div>
@@ -3369,7 +3635,7 @@ With FMS2_io, ascii reads can be accomplished using <code>ascii_reads</code>. In
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="register__unstructured__domain__restart__variable_8inc_source.html#l00045">45</a> of file <a class="el" href="register__unstructured__domain__restart__variable_8inc_source.html">register_unstructured_domain_restart_variable.inc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="register__unstructured__domain__restart__variable_8inc_source.html#l00044">44</a> of file <a class="el" href="register__unstructured__domain__restart__variable_8inc_source.html">register_unstructured_domain_restart_variable.inc</a>.</p>
 
 </div>
 </div>
@@ -3429,7 +3695,7 @@ With FMS2_io, ascii reads can be accomplished using <code>ascii_reads</code>. In
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="register__unstructured__domain__restart__variable_8inc_source.html#l00060">60</a> of file <a class="el" href="register__unstructured__domain__restart__variable_8inc_source.html">register_unstructured_domain_restart_variable.inc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="register__unstructured__domain__restart__variable_8inc_source.html#l00059">59</a> of file <a class="el" href="register__unstructured__domain__restart__variable_8inc_source.html">register_unstructured_domain_restart_variable.inc</a>.</p>
 
 </div>
 </div>
@@ -3489,7 +3755,7 @@ With FMS2_io, ascii reads can be accomplished using <code>ascii_reads</code>. In
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="register__unstructured__domain__restart__variable_8inc_source.html#l00075">75</a> of file <a class="el" href="register__unstructured__domain__restart__variable_8inc_source.html">register_unstructured_domain_restart_variable.inc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="register__unstructured__domain__restart__variable_8inc_source.html#l00074">74</a> of file <a class="el" href="register__unstructured__domain__restart__variable_8inc_source.html">register_unstructured_domain_restart_variable.inc</a>.</p>
 
 </div>
 </div>
@@ -3549,7 +3815,7 @@ With FMS2_io, ascii reads can be accomplished using <code>ascii_reads</code>. In
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="register__unstructured__domain__restart__variable_8inc_source.html#l00090">90</a> of file <a class="el" href="register__unstructured__domain__restart__variable_8inc_source.html">register_unstructured_domain_restart_variable.inc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="register__unstructured__domain__restart__variable_8inc_source.html#l00089">89</a> of file <a class="el" href="register__unstructured__domain__restart__variable_8inc_source.html">register_unstructured_domain_restart_variable.inc</a>.</p>
 
 </div>
 </div>
@@ -3609,7 +3875,7 @@ With FMS2_io, ascii reads can be accomplished using <code>ascii_reads</code>. In
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="register__unstructured__domain__restart__variable_8inc_source.html#l00105">105</a> of file <a class="el" href="register__unstructured__domain__restart__variable_8inc_source.html">register_unstructured_domain_restart_variable.inc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="register__unstructured__domain__restart__variable_8inc_source.html#l00104">104</a> of file <a class="el" href="register__unstructured__domain__restart__variable_8inc_source.html">register_unstructured_domain_restart_variable.inc</a>.</p>
 
 </div>
 </div>
@@ -3669,7 +3935,7 @@ With FMS2_io, ascii reads can be accomplished using <code>ascii_reads</code>. In
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="register__variable__attribute_8inc_source.html#l00030">30</a> of file <a class="el" href="register__variable__attribute_8inc_source.html">register_variable_attribute.inc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="register__variable__attribute_8inc_source.html#l00029">29</a> of file <a class="el" href="register__variable__attribute_8inc_source.html">register_variable_attribute.inc</a>.</p>
 
 </div>
 </div>
@@ -3729,13 +3995,845 @@ With FMS2_io, ascii reads can be accomplished using <code>ascii_reads</code>. In
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="register__variable__attribute_8inc_source.html#l00141">141</a> of file <a class="el" href="register__variable__attribute_8inc_source.html">register_variable_attribute.inc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="register__variable__attribute_8inc_source.html#l00140">140</a> of file <a class="el" href="register__variable__attribute_8inc_source.html">register_variable_attribute.inc</a>.</p>
+
+</div>
+</div>
+<a id="ga74fa974dcdf54067f5e5fca7398f3165"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga74fa974dcdf54067f5e5fca7398f3165">&#9670;&nbsp;</a></span>unstructured_domain_read_0d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine unstructured_domain_read_0d </td>
+          <td>(</td>
+          <td class="paramtype">type(fmsnetcdfunstructureddomainfile_t), intent(in)&#160;</td>
+          <td class="paramname"><em>fileobj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in)&#160;</td>
+          <td class="paramname"><em>variable_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">class(*), intent(inout)&#160;</td>
+          <td class="paramname"><em>buf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>unlim_dim_level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>corner</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, intent(in), optional&#160;</td>
+          <td class="paramname"><em>broadcast</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Wrapper to distinguish interfaces. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">fileobj</td><td>File object. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">variable_name</td><td>Variable name. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">buf</td><td>Array that the data will be read into. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">unlim_dim_level</td><td>Unlimited dimension level. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">corner</td><td>Array of starting indices describing where the data will be read from. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">broadcast</td><td>Flag controlling whether or not the data will be broadcasted to non "I/O root" ranks. The broadcast will be done by default. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="unstructured__domain__read_8inc_source.html#l00033">33</a> of file <a class="el" href="unstructured__domain__read_8inc_source.html">unstructured_domain_read.inc</a>.</p>
+
+</div>
+</div>
+<a id="gaf9324c7dd7313fbc70032a18b57162e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf9324c7dd7313fbc70032a18b57162e2">&#9670;&nbsp;</a></span>unstructured_domain_read_1d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine unstructured_domain_read_1d </td>
+          <td>(</td>
+          <td class="paramtype">type(fmsnetcdfunstructureddomainfile_t), intent(in)&#160;</td>
+          <td class="paramname"><em>fileobj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in)&#160;</td>
+          <td class="paramname"><em>variable_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">class(*), dimension(:), intent(inout)&#160;</td>
+          <td class="paramname"><em>buf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>unlim_dim_level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(:), intent(in), optional&#160;</td>
+          <td class="paramname"><em>corner</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(:), intent(in), optional&#160;</td>
+          <td class="paramname"><em>edge_lengths</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, intent(in), optional&#160;</td>
+          <td class="paramname"><em>broadcast</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Wrapper to distinguish interfaces. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">fileobj</td><td>File object. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">variable_name</td><td>Variable name. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">buf</td><td>Array that the data will be read into. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">unlim_dim_level</td><td>Unlimited dimension level. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">corner</td><td>Array of starting indices describing where the data will be read from. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">edge_lengths</td><td>The number of elements that will be read in each dimension. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">broadcast</td><td>Flag controlling whether or not the data will be broadcasted to non "I/O root" ranks. The broadcast will be done by default. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="unstructured__domain__read_8inc_source.html#l00063">63</a> of file <a class="el" href="unstructured__domain__read_8inc_source.html">unstructured_domain_read.inc</a>.</p>
+
+</div>
+</div>
+<a id="gaa2b3d5b924f68b85863b3789d2e2fb0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa2b3d5b924f68b85863b3789d2e2fb0a">&#9670;&nbsp;</a></span>unstructured_domain_read_2d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine unstructured_domain_read_2d </td>
+          <td>(</td>
+          <td class="paramtype">type(fmsnetcdfunstructureddomainfile_t), intent(in)&#160;</td>
+          <td class="paramname"><em>fileobj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in)&#160;</td>
+          <td class="paramname"><em>variable_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">class(*), dimension(:,:), intent(inout)&#160;</td>
+          <td class="paramname"><em>buf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>unlim_dim_level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(:), intent(in), optional&#160;</td>
+          <td class="paramname"><em>corner</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(:), intent(in), optional&#160;</td>
+          <td class="paramname"><em>edge_lengths</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, intent(in), optional&#160;</td>
+          <td class="paramname"><em>broadcast</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Wrapper to distinguish interfaces. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">fileobj</td><td>File object. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">variable_name</td><td>Variable name. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">buf</td><td>Array that the data will be read into. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">unlim_dim_level</td><td>Unlimited dimension level. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">corner</td><td>Array of starting indices describing where the data will be read from. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">edge_lengths</td><td>The number of elements that will be read in each dimension. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">broadcast</td><td>Flag controlling whether or not the data will be broadcasted to non "I/O root" ranks. The broadcast will be done by default. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="unstructured__domain__read_8inc_source.html#l00096">96</a> of file <a class="el" href="unstructured__domain__read_8inc_source.html">unstructured_domain_read.inc</a>.</p>
+
+</div>
+</div>
+<a id="ga3ee6d0fa0a6c2b4d7063d23eda77bcef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3ee6d0fa0a6c2b4d7063d23eda77bcef">&#9670;&nbsp;</a></span>unstructured_domain_read_3d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine unstructured_domain_read_3d </td>
+          <td>(</td>
+          <td class="paramtype">type(fmsnetcdfunstructureddomainfile_t), intent(in)&#160;</td>
+          <td class="paramname"><em>fileobj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in)&#160;</td>
+          <td class="paramname"><em>variable_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">class(*), dimension(:,:,:), intent(inout)&#160;</td>
+          <td class="paramname"><em>buf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>unlim_dim_level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(:), intent(in), optional&#160;</td>
+          <td class="paramname"><em>corner</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(:), intent(in), optional&#160;</td>
+          <td class="paramname"><em>edge_lengths</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, intent(in), optional&#160;</td>
+          <td class="paramname"><em>broadcast</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Wrapper to distinguish interfaces. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">fileobj</td><td>File object. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">variable_name</td><td>Variable name. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">buf</td><td>Array that the data will be read into. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">unlim_dim_level</td><td>Unlimited dimension level. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">corner</td><td>Array of starting indices describing where the data will be read from. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">edge_lengths</td><td>The number of elements that will be read in each dimension. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">broadcast</td><td>Flag controlling whether or not the data will be broadcasted to non "I/O root" ranks. The broadcast will be done by default. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="unstructured__domain__read_8inc_source.html#l00129">129</a> of file <a class="el" href="unstructured__domain__read_8inc_source.html">unstructured_domain_read.inc</a>.</p>
+
+</div>
+</div>
+<a id="ga0028ca353c1480ff45a30f409cebbb22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0028ca353c1480ff45a30f409cebbb22">&#9670;&nbsp;</a></span>unstructured_domain_read_4d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine unstructured_domain_read_4d </td>
+          <td>(</td>
+          <td class="paramtype">type(fmsnetcdfunstructureddomainfile_t), intent(in)&#160;</td>
+          <td class="paramname"><em>fileobj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in)&#160;</td>
+          <td class="paramname"><em>variable_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">class(*), dimension(:,:,:,:), intent(inout)&#160;</td>
+          <td class="paramname"><em>buf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>unlim_dim_level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(:), intent(in), optional&#160;</td>
+          <td class="paramname"><em>corner</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(:), intent(in), optional&#160;</td>
+          <td class="paramname"><em>edge_lengths</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, intent(in), optional&#160;</td>
+          <td class="paramname"><em>broadcast</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Wrapper to distinguish interfaces. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">fileobj</td><td>File object. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">variable_name</td><td>Variable name. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">buf</td><td>Array that the data will be read into. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">unlim_dim_level</td><td>Unlimited dimension level. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">corner</td><td>Array of starting indices describing where the data will be read from. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">edge_lengths</td><td>The number of elements that will be read in each dimension. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">broadcast</td><td>Flag controlling whether or not the data will be broadcasted to non "I/O root" ranks. The broadcast will be done by default. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="unstructured__domain__read_8inc_source.html#l00162">162</a> of file <a class="el" href="unstructured__domain__read_8inc_source.html">unstructured_domain_read.inc</a>.</p>
+
+</div>
+</div>
+<a id="ga96e1c2ff2bb6d1fc6035cb4eed2c8c73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga96e1c2ff2bb6d1fc6035cb4eed2c8c73">&#9670;&nbsp;</a></span>unstructured_domain_read_5d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine unstructured_domain_read_5d </td>
+          <td>(</td>
+          <td class="paramtype">type(fmsnetcdfunstructureddomainfile_t), intent(in)&#160;</td>
+          <td class="paramname"><em>fileobj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in)&#160;</td>
+          <td class="paramname"><em>variable_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">class(*), dimension(:,:,:,:,:), intent(inout)&#160;</td>
+          <td class="paramname"><em>buf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>unlim_dim_level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(:), intent(in), optional&#160;</td>
+          <td class="paramname"><em>corner</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(:), intent(in), optional&#160;</td>
+          <td class="paramname"><em>edge_lengths</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, intent(in), optional&#160;</td>
+          <td class="paramname"><em>broadcast</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Wrapper to distinguish interfaces. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">fileobj</td><td>File object. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">variable_name</td><td>Variable name. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">buf</td><td>Array that the data will be read into. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">unlim_dim_level</td><td>Unlimited dimension level. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">corner</td><td>Array of starting indices describing where the data will be read from. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">edge_lengths</td><td>The number of elements that will be read in each dimension. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">broadcast</td><td>Flag controlling whether or not the data will be broadcasted to non "I/O root" ranks. The broadcast will be done by default. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="unstructured__domain__read_8inc_source.html#l00195">195</a> of file <a class="el" href="unstructured__domain__read_8inc_source.html">unstructured_domain_read.inc</a>.</p>
+
+</div>
+</div>
+<a id="ga72c3477d33efc2e8462ff354bada11bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga72c3477d33efc2e8462ff354bada11bb">&#9670;&nbsp;</a></span>unstructured_domain_write_0d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine unstructured_domain_write_0d </td>
+          <td>(</td>
+          <td class="paramtype">type(fmsnetcdfunstructureddomainfile_t), intent(in)&#160;</td>
+          <td class="paramname"><em>fileobj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in)&#160;</td>
+          <td class="paramname"><em>variable_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">class(*), intent(in)&#160;</td>
+          <td class="paramname"><em>variable_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>unlim_dim_level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>corner</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Wrapper to distinguish interfaces. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">fileobj</td><td>File object. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">variable_name</td><td>Variable name. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">variable_data</td><td>Data that will be written. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">unlim_dim_level</td><td>Unlimited dimension level. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">corner</td><td>Array of starting indices describing where the data will be written to. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="unstructured__domain__write_8inc_source.html#l00029">29</a> of file <a class="el" href="unstructured__domain__write_8inc_source.html">unstructured_domain_write.inc</a>.</p>
+
+</div>
+</div>
+<a id="gada15a55c252bae3b4a77a993ccc00aaa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gada15a55c252bae3b4a77a993ccc00aaa">&#9670;&nbsp;</a></span>unstructured_domain_write_1d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine unstructured_domain_write_1d </td>
+          <td>(</td>
+          <td class="paramtype">type(fmsnetcdfunstructureddomainfile_t), intent(in)&#160;</td>
+          <td class="paramname"><em>fileobj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in)&#160;</td>
+          <td class="paramname"><em>variable_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">class(*), dimension(:), intent(in)&#160;</td>
+          <td class="paramname"><em>variable_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>unlim_dim_level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(1), intent(in), optional&#160;</td>
+          <td class="paramname"><em>corner</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(1), intent(in), optional&#160;</td>
+          <td class="paramname"><em>edge_lengths</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Wrapper to distinguish interfaces. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">fileobj</td><td>File object. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">variable_name</td><td>Variable name. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">variable_data</td><td>Data that will be written. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">unlim_dim_level</td><td>Unlimited dimension level. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">corner</td><td>Array of starting indices describing where the data will be written to. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">edge_lengths</td><td>The number of elements that will be written in each dimension. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="unstructured__domain__write_8inc_source.html#l00048">48</a> of file <a class="el" href="unstructured__domain__write_8inc_source.html">unstructured_domain_write.inc</a>.</p>
+
+</div>
+</div>
+<a id="ga0158283c350685688b388c1247c74e4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0158283c350685688b388c1247c74e4a">&#9670;&nbsp;</a></span>unstructured_domain_write_2d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine unstructured_domain_write_2d </td>
+          <td>(</td>
+          <td class="paramtype">type(fmsnetcdfunstructureddomainfile_t), intent(in)&#160;</td>
+          <td class="paramname"><em>fileobj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in)&#160;</td>
+          <td class="paramname"><em>variable_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">class(*), dimension(:,:), intent(in)&#160;</td>
+          <td class="paramname"><em>variable_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>unlim_dim_level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(2), intent(in), optional&#160;</td>
+          <td class="paramname"><em>corner</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(2), intent(in), optional&#160;</td>
+          <td class="paramname"><em>edge_lengths</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Wrapper to distinguish interfaces. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">fileobj</td><td>File object. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">variable_name</td><td>Variable name. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">variable_data</td><td>Data that will be written. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">unlim_dim_level</td><td>Unlimited dimension level. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">corner</td><td>Array of starting indices describing where the data will be written to. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">edge_lengths</td><td>The number of elements that will be written in each dimension. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="unstructured__domain__write_8inc_source.html#l00072">72</a> of file <a class="el" href="unstructured__domain__write_8inc_source.html">unstructured_domain_write.inc</a>.</p>
+
+</div>
+</div>
+<a id="ga491251a1d73294bd8fc1690783ed873b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga491251a1d73294bd8fc1690783ed873b">&#9670;&nbsp;</a></span>unstructured_domain_write_3d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine unstructured_domain_write_3d </td>
+          <td>(</td>
+          <td class="paramtype">type(fmsnetcdfunstructureddomainfile_t), intent(in)&#160;</td>
+          <td class="paramname"><em>fileobj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in)&#160;</td>
+          <td class="paramname"><em>variable_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">class(*), dimension(:,:,:), intent(in)&#160;</td>
+          <td class="paramname"><em>variable_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>unlim_dim_level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(3), intent(in), optional&#160;</td>
+          <td class="paramname"><em>corner</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(3), intent(in), optional&#160;</td>
+          <td class="paramname"><em>edge_lengths</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Wrapper to distinguish interfaces. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">fileobj</td><td>File object. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">variable_name</td><td>Variable name. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">variable_data</td><td>Data that will be written. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">unlim_dim_level</td><td>Unlimited dimension level. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">corner</td><td>Array of starting indices describing where the data will be written to. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">edge_lengths</td><td>The number of elements that will be written in each dimension. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="unstructured__domain__write_8inc_source.html#l00096">96</a> of file <a class="el" href="unstructured__domain__write_8inc_source.html">unstructured_domain_write.inc</a>.</p>
+
+</div>
+</div>
+<a id="ga7bcc4ef8e6ca2361837d3aecdd70bfd9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7bcc4ef8e6ca2361837d3aecdd70bfd9">&#9670;&nbsp;</a></span>unstructured_domain_write_4d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine unstructured_domain_write_4d </td>
+          <td>(</td>
+          <td class="paramtype">type(fmsnetcdfunstructureddomainfile_t), intent(in)&#160;</td>
+          <td class="paramname"><em>fileobj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in)&#160;</td>
+          <td class="paramname"><em>variable_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">class(*), dimension(:,:,:,:), intent(in)&#160;</td>
+          <td class="paramname"><em>variable_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>unlim_dim_level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(4), intent(in), optional&#160;</td>
+          <td class="paramname"><em>corner</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(4), intent(in), optional&#160;</td>
+          <td class="paramname"><em>edge_lengths</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Wrapper to distinguish interfaces. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">fileobj</td><td>File object. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">variable_name</td><td>Variable name. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">variable_data</td><td>Data that will be written. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">unlim_dim_level</td><td>Unlimited dimension level. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">corner</td><td>Array of starting indices describing where the data will be written to. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">edge_lengths</td><td>The number of elements that will be written in each dimension. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="unstructured__domain__write_8inc_source.html#l00120">120</a> of file <a class="el" href="unstructured__domain__write_8inc_source.html">unstructured_domain_write.inc</a>.</p>
+
+</div>
+</div>
+<a id="gae9193bb10afee1aacf676f5730dfa59e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae9193bb10afee1aacf676f5730dfa59e">&#9670;&nbsp;</a></span>unstructured_domain_write_5d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine unstructured_domain_write_5d </td>
+          <td>(</td>
+          <td class="paramtype">type(fmsnetcdfunstructureddomainfile_t), intent(in)&#160;</td>
+          <td class="paramname"><em>fileobj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in)&#160;</td>
+          <td class="paramname"><em>variable_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">class(*), dimension(:,:,:,:,:), intent(in)&#160;</td>
+          <td class="paramname"><em>variable_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional&#160;</td>
+          <td class="paramname"><em>unlim_dim_level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(5), intent(in), optional&#160;</td>
+          <td class="paramname"><em>corner</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(5), intent(in), optional&#160;</td>
+          <td class="paramname"><em>edge_lengths</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Wrapper to distinguish interfaces. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">fileobj</td><td>File object. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">variable_name</td><td>Variable name. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">variable_data</td><td>Data that will be written. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">unlim_dim_level</td><td>Unlimited dimension level. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">corner</td><td>Array of starting indices describing where the data will be written to. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">edge_lengths</td><td>The number of elements that will be written in each dimension. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="unstructured__domain__write_8inc_source.html#l00144">144</a> of file <a class="el" href="unstructured__domain__write_8inc_source.html">unstructured_domain_write.inc</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="ainterfacefms2__io__mod_1_1register__axis_html"><div class="ttname"><a href="interfacefms2__io__mod_1_1register__axis.html">fms2_io_mod::register_axis</a></div><div class="ttdoc">Add a dimension to a given file.</div><div class="ttdef"><b>Definition:</b> <a href="fms2__io_8F90_source.html#l00184">fms2_io.F90:184</a></div></div>
+<div class="ttc" id="ainterfacefms2__io__mod_1_1register__axis_html"><div class="ttname"><a href="interfacefms2__io__mod_1_1register__axis.html">fms2_io_mod::register_axis</a></div><div class="ttdoc">Add a dimension to a given file.</div><div class="ttdef"><b>Definition:</b> <a href="fms2__io_8F90_source.html#l00187">fms2_io.F90:187</a></div></div>
 <div class="ttc" id="ainterfacefms__io__mod_1_1read__data_html"><div class="ttname"><a href="interfacefms__io__mod_1_1read__data.html">fms_io_mod::read_data</a></div><div class="ttdoc">Read data from a file.</div><div class="ttdef"><b>Definition:</b> <a href="fms__io_8F90_source.html#l00333">fms_io.F90:333</a></div></div>
 <div class="ttc" id="astructfms__io__mod_1_1restart__file__type_html"><div class="ttname"><a href="structfms__io__mod_1_1restart__file__type.html">fms_io_mod::restart_file_type</a></div><div class="ttdef"><b>Definition:</b> <a href="fms__io_8F90_source.html#l00303">fms_io.F90:303</a></div></div>
 <div class="ttc" id="ainterfacefms__io__mod_1_1write__data_html"><div class="ttname"><a href="interfacefms__io__mod_1_1write__data.html">fms_io_mod::write_data</a></div><div class="ttdef"><b>Definition:</b> <a href="fms__io_8F90_source.html#l00380">fms_io.F90:380</a></div></div>
@@ -3743,12 +4841,12 @@ With FMS2_io, ascii reads can be accomplished using <code>ascii_reads</code>. In
 <div class="ttc" id="ainterfacefms__io__mod_1_1restore__state_html"><div class="ttname"><a href="interfacefms__io__mod_1_1restore__state.html">fms_io_mod::restore_state</a></div><div class="ttdef"><b>Definition:</b> <a href="fms__io_8F90_source.html#l00455">fms_io.F90:455</a></div></div>
 <div class="ttc" id="ainterfacefms2__io__mod_1_1open__file_html"><div class="ttname"><a href="interfacefms2__io__mod_1_1open__file.html">fms2_io_mod::open_file</a></div><div class="ttdoc">Opens a given netcdf or domain file.</div><div class="ttdef"><b>Definition:</b> <a href="fms2__io_8F90_source.html#l00125">fms2_io.F90:125</a></div></div>
 <div class="ttc" id="ainterfacempp__mod_1_1mpp__error_html"><div class="ttname"><a href="interfacempp__mod_1_1mpp__error.html">mpp_mod::mpp_error</a></div><div class="ttdoc">Error handler.</div><div class="ttdef"><b>Definition:</b> <a href="mpp_8F90_source.html#l00387">mpp.F90:387</a></div></div>
-<div class="ttc" id="ainterfacefms2__io__mod_1_1register__field_html"><div class="ttname"><a href="interfacefms2__io__mod_1_1register__field.html">fms2_io_mod::register_field</a></div><div class="ttdoc">Defines a new field within the given file  Example usage:</div><div class="ttdef"><b>Definition:</b> <a href="fms2__io_8F90_source.html#l00202">fms2_io.F90:202</a></div></div>
+<div class="ttc" id="ainterfacefms2__io__mod_1_1register__field_html"><div class="ttname"><a href="interfacefms2__io__mod_1_1register__field.html">fms2_io_mod::register_field</a></div><div class="ttdoc">Defines a new field within the given file  Example usage:</div><div class="ttdef"><b>Definition:</b> <a href="fms2__io_8F90_source.html#l00206">fms2_io.F90:206</a></div></div>
 <div class="ttc" id="ainterfacefms__io__mod_1_1register__restart__field_html"><div class="ttname"><a href="interfacefms__io__mod_1_1register__restart__field.html">fms_io_mod::register_restart_field</a></div><div class="ttdef"><b>Definition:</b> <a href="fms__io_8F90_source.html#l00398">fms_io.F90:398</a></div></div>
-<div class="ttc" id="ainterfacefms2__io__mod_1_1close__file_html"><div class="ttname"><a href="interfacefms2__io__mod_1_1close__file.html">fms2_io_mod::close_file</a></div><div class="ttdoc">Close a netcdf or domain file opened with open_file or open_virtual_file.</div><div class="ttdef"><b>Definition:</b> <a href="fms2__io_8F90_source.html#l00164">fms2_io.F90:164</a></div></div>
-<div class="ttc" id="ainterfacefms2__io__mod_1_1write__restart_html"><div class="ttname"><a href="interfacefms2__io__mod_1_1write__restart.html">fms2_io_mod::write_restart</a></div><div class="ttdoc">Writes all restart fields registered within a given restart file  Example usage:</div><div class="ttdef"><b>Definition:</b> <a href="fms2__io_8F90_source.html#l00307">fms2_io.F90:307</a></div></div>
+<div class="ttc" id="ainterfacefms2__io__mod_1_1close__file_html"><div class="ttname"><a href="interfacefms2__io__mod_1_1close__file.html">fms2_io_mod::close_file</a></div><div class="ttdoc">Close a netcdf or domain file opened with open_file or open_virtual_file.</div><div class="ttdef"><b>Definition:</b> <a href="fms2__io_8F90_source.html#l00166">fms2_io.F90:166</a></div></div>
+<div class="ttc" id="ainterfacefms2__io__mod_1_1write__restart_html"><div class="ttname"><a href="interfacefms2__io__mod_1_1write__restart.html">fms2_io_mod::write_restart</a></div><div class="ttdoc">Writes all restart fields registered within a given restart file  Example usage:</div><div class="ttdef"><b>Definition:</b> <a href="fms2__io_8F90_source.html#l00315">fms2_io.F90:315</a></div></div>
 <div class="ttc" id="ampp__util_8inc_html_abf546cd336d5c539e445fb884f98ab6b"><div class="ttname"><a href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a></div><div class="ttdeci">integer function mpp_npes()</div><div class="ttdoc">Returns processor count for current pelist.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00390">mpp_util.inc:390</a></div></div>
-<div class="ttc" id="ainterfacefms2__io__mod_1_1read__restart_html"><div class="ttname"><a href="interfacefms2__io__mod_1_1read__restart.html">fms2_io_mod::read_restart</a></div><div class="ttdoc">Reads in restart variables from a given file  Example usage: call read_restart(fileobj) Reads registe...</div><div class="ttdef"><b>Definition:</b> <a href="fms2__io_8F90_source.html#l00334">fms2_io.F90:334</a></div></div>
+<div class="ttc" id="ainterfacefms2__io__mod_1_1read__restart_html"><div class="ttname"><a href="interfacefms2__io__mod_1_1read__restart.html">fms2_io_mod::read_restart</a></div><div class="ttdoc">Reads in restart variables from a given file  Example usage: call read_restart(fileobj) Reads registe...</div><div class="ttdef"><b>Definition:</b> <a href="fms2__io_8F90_source.html#l00344">fms2_io.F90:344</a></div></div>
 <div class="ttc" id="ampp__util_8inc_html_acfeba7de56f9dd6000b3fd78f9d56c50"><div class="ttname"><a href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a></div><div class="ttdeci">integer function mpp_pe()</div><div class="ttdoc">Returns processor ID.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00376">mpp_util.inc:376</a></div></div>
 <div class="ttc" id="astructmpp__domains__mod_1_1domainug_html"><div class="ttname"><a href="structmpp__domains__mod_1_1domainug.html">mpp_domains_mod::domainug</a></div><div class="ttdoc">Domain information for managing data on unstructured grids.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains_8F90_source.html#l00268">mpp_domains.F90:268</a></div></div>
 <!-- start footer part -->

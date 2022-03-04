@@ -1,13 +1,6 @@
 var group__netcdf__io__mod =
 [
-    [ "gather_data_bc.inc", "gather__data__bc_8inc.html", null ],
-    [ "get_global_attribute.inc", "get__global__attribute_8inc.html", null ],
-    [ "get_variable_attribute.inc", "get__variable__attribute_8inc.html", null ],
-    [ "netcdf_add_restart_variable.inc", "netcdf__add__restart__variable_8inc.html", null ],
     [ "netcdf_io.F90", "netcdf__io_8F90.html", null ],
-    [ "netcdf_read_data.inc", "netcdf__read__data_8inc.html", null ],
-    [ "netcdf_write_data.inc", "netcdf__write__data_8inc.html", null ],
-    [ "register_global_attribute.inc", "register__global__attribute_8inc.html", null ],
     [ "bc_information", "structnetcdf__io__mod_1_1bc__information.html", [
       [ "chksum", "structnetcdf__io__mod_1_1bc__information.html#aae8bec0af9f57d5dca932330841c2db4", null ],
       [ "data_on_file_root", "structnetcdf__io__mod_1_1bc__information.html#ac4699323447592fbcde480d98c45978c", null ],

@@ -33,7 +33,6 @@ var group__amip__interp__mod =
     [ "operator(>)", "interfaceamip__interp__mod_1_1operator_07_4_08.html", [
       [ "date_gt", "interfaceamip__interp__mod_1_1operator_07_4_08.html#aa0a36d51ed8a5fcb5d0413349ead8c4a", null ]
     ] ],
-    [ "@ref amip_interp_mod Namelist", "group__amip__interp__mod.html#amip_interp_nml", null ],
     [ "a2a_bilinear", "group__amip__interp__mod.html#gae83cd779d19f1e9bda44b5b958cbe56b", null ],
     [ "amip_interp_del", "group__amip__interp__mod.html#gaa680c8750f89c6444c6caf3d93b54cb4", null ],
     [ "amip_interp_init", "group__amip__interp__mod.html#ga6da33323528930f4680012957d27d6db", null ],
@@ -46,7 +45,7 @@ var group__amip__interp__mod =
     [ "get_amip_sst", "group__amip__interp__mod.html#gae4985aae40b07468c1b5853c6bf85e56", null ],
     [ "get_sst_grid_boundary", "group__amip__interp__mod.html#ga05d006da6918f318b38af8d13f13e140", null ],
     [ "get_sst_grid_size", "group__amip__interp__mod.html#gaea83ce3a245a88edbea7527ab57f09e9", null ],
-    [ "amip_date", "group__amip__interp__mod.html#ga468efa571efa3f05874a58ada6c1077f", null ],
+    [ "amip_date", "group__amip__interp__mod.html#gab7579e5e6f55370c72227a97cb2ccdfc", null ],
     [ "data_set", "group__amip__interp__mod.html#ga152699dfbacd6122d5bb6be55ad94ff9", null ],
     [ "date_out_of_range", "group__amip__interp__mod.html#gaa167c4eb43e85f8c99c1a8a1b180d7cd", null ],
     [ "interp_oi_sst", "group__amip__interp__mod.html#ga511b7b7c62eb96e43555efe14f080592", null ],
