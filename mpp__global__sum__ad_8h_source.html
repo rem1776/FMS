@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>FMS: mpp/include/mpp_global_sum_ad.h (62e6b2ab49bb4adc780bd635b6fe57efa48ac9d1) Source File</title>
+<title>FMS: mpp/include/mpp_global_sum_ad.h (696939b8e1cbab0c58b65c977d40468515410f22) Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -198,7 +198,7 @@ $(document).ready(function(){initNavTree('mpp__global__sum__ad_8h_source.html','
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                   <span class="keyword">call </span>mpp_recv( mygsum(1), glen=ntile, from_pe=domain%list(m)%pe, tag=comm_tag_1 )</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="keywordflow">                end do</span></div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="keywordflow">             end if</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;             <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>()</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;             <span class="keyword">call </span><a class="code" href="group__mpp__mod.html#ga09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>()</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;             <span class="comment">! first fill the global sum on current pe.</span></div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;             <span class="keywordflow">do</span> n = 1, ntile</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                mygsum(n) = gsum(domain%tile_id(n))</div>
@@ -251,8 +251,8 @@ $(document).ready(function(){initNavTree('mpp__global__sum__ad_8h_source.html','
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="agroup__mpp__domains__mod_html_gad3696d63cb0138b30b4da8dc5cbc0ccc"><div class="ttname"><a href="group__mpp__domains__mod.html#gad3696d63cb0138b30b4da8dc5cbc0ccc">mpp_domain_is_tile_root_pe</a></div><div class="ttdeci">logical function mpp_domain_is_tile_root_pe(domain)</div><div class="ttdoc">Returns if current pe is the root pe of the tile, if number of tiles on current pe is greater than 1,...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__util_8inc_source.html#l01152">mpp_domains_util.inc:1152</a></div></div>
-<div class="ttc" id="ampp__util__mpi_8inc_html_a09e69243d8c67e6a6e6e4fd9e93d0870"><div class="ttname"><a href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a></div><div class="ttdeci">subroutine mpp_sync_self(pelist, check, request, msg_size, msg_type)</div><div class="ttdoc">This is to check if current PE's outstanding puts are complete but we can't use shmem_fence because w...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util__mpi_8inc_source.html#l00169">mpp_util_mpi.inc:169</a></div></div>
 <div class="ttc" id="agroup__mpp__domains__mod_html_gac70252baf8cd75f94a6c9eca72d60463"><div class="ttname"><a href="group__mpp__domains__mod.html#gac70252baf8cd75f94a6c9eca72d60463">mpp_get_domain_shift</a></div><div class="ttdeci">subroutine mpp_get_domain_shift(domain, ishift, jshift, position)</div><div class="ttdoc">Returns the shift value in x and y-direction according to domain position..</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__util_8inc_source.html#l00781">mpp_domains_util.inc:781</a></div></div>
+<div class="ttc" id="agroup__mpp__mod_html_ga09e69243d8c67e6a6e6e4fd9e93d0870"><div class="ttname"><a href="group__mpp__mod.html#ga09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a></div><div class="ttdeci">subroutine mpp_sync_self(pelist, check, request, msg_size, msg_type)</div><div class="ttdoc">This is to check if current PE's outstanding puts are complete but we can't use shmem_fence because w...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util__mpi_8inc_source.html#l00171">mpp_util_mpi.inc:171</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

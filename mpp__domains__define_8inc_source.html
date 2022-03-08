@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>FMS: mpp/include/mpp_domains_define.inc (62e6b2ab49bb4adc780bd635b6fe57efa48ac9d1) Source File</title>
+<title>FMS: mpp/include/mpp_domains_define.inc (696939b8e1cbab0c58b65c977d40468515410f22) Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -183,16 +183,16 @@ $(document).ready(function(){initNavTree('mpp__domains__define_8inc_source.html'
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keywordflow">    end if</span></div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordflow">if</span>( <span class="keyword">PRESENT</span>(pelist) )<span class="keywordflow">then</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;       <span class="keywordflow">if</span>( .NOT.any(pelist.EQ.<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()) )<span class="keywordflow">then</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;          errunit = <a class="code" href="mpp__util_8inc.html#a285ef180624257148d85af894928844b">stderr</a>()</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;          <span class="keyword">write</span>( errunit,* )<span class="stringliteral">&#39;pe=&#39;</span>, <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>(), <span class="stringliteral">&#39; pelist=&#39;</span>, pelist</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;       <span class="keywordflow">if</span>( .NOT.any(pelist.EQ.<a class="code" href="group__mpp__mod.html#gacfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()) )<span class="keywordflow">then</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;          errunit = <a class="code" href="group__mpp__mod.html#ga285ef180624257148d85af894928844b">stderr</a>()</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;          <span class="keyword">write</span>( errunit,* )<span class="stringliteral">&#39;pe=&#39;</span>, <a class="code" href="group__mpp__mod.html#gacfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>(), <span class="stringliteral">&#39; pelist=&#39;</span>, pelist</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;          <span class="keyword">call </span>mpp_error( fatal, <span class="stringliteral">&#39;mpp_define_mosaic_pelist: pe must be in pelist.&#39;</span> )</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="keywordflow">       end if</span></div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;       npes = <span class="keyword">size</span>(pelist(:))</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;       <span class="keyword">allocate</span>( pes(0:npes-1) )</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;       pes(:) = pelist(:)</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;       npes = <a class="code" href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>()</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;       npes = <a class="code" href="group__mpp__mod.html#gabf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>()</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;       <span class="keyword">allocate</span>( pes(0:npes-1) )</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;       <span class="keyword">call </span>mpp_get_current_pelist(pes)</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="keywordflow">    end if</span></div>
@@ -413,15 +413,15 @@ $(document).ready(function(){initNavTree('mpp__domains__define_8inc_source.html'
 <div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    <span class="keywordflow">if</span>( ndivs.GT.ieg-isg+1 )<span class="keyword">call </span>mpp_error( fatal, <span class="stringliteral">&#39;MPP_DEFINE_DOMAINS1D: more divisions requested than rows available.&#39;</span> )</div>
 <div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;    <span class="comment">!get the list of PEs on which to assign domains; if pelist is absent use 0..npes-1</span></div>
 <div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    <span class="keywordflow">if</span>( <span class="keyword">PRESENT</span>(pelist) )<span class="keywordflow">then</span></div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;       <span class="keywordflow">if</span>( .NOT.any(pelist.EQ.<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()) )<span class="keywordflow">then</span></div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;          errunit = <a class="code" href="mpp__util_8inc.html#a285ef180624257148d85af894928844b">stderr</a>()</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;          <span class="keyword">write</span>( errunit,* )<span class="stringliteral">&#39;pe=&#39;</span>, <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>(), <span class="stringliteral">&#39; pelist=&#39;</span>, pelist</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;       <span class="keywordflow">if</span>( .NOT.any(pelist.EQ.<a class="code" href="group__mpp__mod.html#gacfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()) )<span class="keywordflow">then</span></div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;          errunit = <a class="code" href="group__mpp__mod.html#ga285ef180624257148d85af894928844b">stderr</a>()</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;          <span class="keyword">write</span>( errunit,* )<span class="stringliteral">&#39;pe=&#39;</span>, <a class="code" href="group__mpp__mod.html#gacfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>(), <span class="stringliteral">&#39; pelist=&#39;</span>, pelist</div>
 <div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;          <span class="keyword">call </span>mpp_error( fatal, <span class="stringliteral">&#39;MPP_DEFINE_DOMAINS1D: pe must be in pelist.&#39;</span> )</div>
 <div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;<span class="keywordflow">       end if</span></div>
 <div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;       <span class="keyword">allocate</span>( pes(0:<span class="keyword">size</span>(pelist(:))-1) )</div>
 <div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;       pes(:) = pelist(:)</div>
 <div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;       <span class="keyword">allocate</span>( pes(0:<a class="code" href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>()-1) )</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;       <span class="keyword">allocate</span>( pes(0:<a class="code" href="group__mpp__mod.html#gabf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>()-1) )</div>
 <div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;       <span class="keyword">call </span>mpp_get_current_pelist(pes)</div>
 <div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;<span class="comment">!       pes(:) = (/ (i,i=0,mpp_npes()-1) /)</span></div>
 <div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;<span class="keywordflow">    end if</span></div>
@@ -489,7 +489,7 @@ $(document).ready(function(){initNavTree('mpp__domains__define_8inc_source.html'
 <div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;          domain%list(ndiv)%compute%end   = iend(ndiv)</div>
 <div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;          <span class="keywordflow">if</span>( mask(ndiv) )<span class="keywordflow">then</span></div>
 <div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;             domain%list(ndiv)%pe = pes(n)</div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;             <span class="keywordflow">if</span>( <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>().EQ.pes(n) )domain%pos = ndiv</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;             <span class="keywordflow">if</span>( <a class="code" href="group__mpp__mod.html#gacfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>().EQ.pes(n) )domain%pos = ndiv</div>
 <div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;             n = n + 1</div>
 <div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;          <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;             domain%list(ndiv)%pe = null_pe</div>
@@ -740,7 +740,7 @@ $(document).ready(function(){initNavTree('mpp__domains__define_8inc_source.html'
 <div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;    <span class="keywordtype">integer</span>              :: outunit</div>
 <div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;    <span class="keywordtype">logical</span>              :: send(8), recv(8)</div>
 <div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160; </div>
-<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;    outunit = <a class="code" href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a>()</div>
+<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;    outunit = <a class="code" href="group__mpp__mod.html#ga172901d39c9b0cf14aa83b1e94fdf21b">stdout</a>()</div>
 <div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;    <span class="keywordflow">if</span>( .NOT.module_is_initialized )<span class="keyword">call </span>mpp_error( fatal, <span class="stringliteral">&#39;MPP_DEFINE_DOMAINS2D: You must first call mpp_domains_init.&#39;</span> )</div>
 <div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;    <span class="keywordflow">if</span>(<span class="keyword">PRESENT</span>(name)) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;       <span class="keywordflow">if</span>(len_trim(name) &gt; name_length) <span class="keyword">call </span>mpp_error(fatal,  &amp;</div>
@@ -768,15 +768,15 @@ $(document).ready(function(){initNavTree('mpp__domains__define_8inc_source.html'
 <div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;       <span class="keyword">allocate</span>( pes(0:<span class="keyword">size</span>(pelist(:))-1) )</div>
 <div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;       pes = pelist</div>
 <div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;       <span class="keywordflow">if</span>(from_mosaic) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;          <span class="keyword">allocate</span>( pesall(0:<a class="code" href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>()-1) )</div>
+<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;          <span class="keyword">allocate</span>( pesall(0:<a class="code" href="group__mpp__mod.html#gabf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>()-1) )</div>
 <div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;          <span class="keyword">call </span>mpp_get_current_pelist(pesall)</div>
 <div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;       <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;          <span class="keyword">allocate</span>( pesall(0:<span class="keyword">size</span>(pes(:))-1) )</div>
 <div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;          pesall = pes</div>
 <div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;<span class="keywordflow">       end if</span></div>
 <div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;       <span class="keyword">allocate</span>( pes(0:<a class="code" href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>()-1) )</div>
-<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;       <span class="keyword">allocate</span>( pesall(0:<a class="code" href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>()-1) )</div>
+<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;       <span class="keyword">allocate</span>( pes(0:<a class="code" href="group__mpp__mod.html#gabf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>()-1) )</div>
+<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;       <span class="keyword">allocate</span>( pesall(0:<a class="code" href="group__mpp__mod.html#gabf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>()-1) )</div>
 <div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;       <span class="keyword">call </span>mpp_get_current_pelist(pes)</div>
 <div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;       pesall = pes</div>
 <div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;<span class="keywordflow">    end if</span></div>
@@ -806,7 +806,7 @@ $(document).ready(function(){initNavTree('mpp__domains__define_8inc_source.html'
 <div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;    <span class="comment">!--- distribution are contious in mosaic.</span></div>
 <div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;    pos = -1</div>
 <div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;    <span class="keywordflow">do</span> n = 0, <span class="keyword">size</span>(pesall(:))-1</div>
-<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;       <span class="keywordflow">if</span>(pesall(n) == <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() ) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;       <span class="keywordflow">if</span>(pesall(n) == <a class="code" href="group__mpp__mod.html#gacfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;          pos = n</div>
 <div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;          <span class="keywordflow">exit</span></div>
 <div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;<span class="keywordflow">       endif</span></div>
@@ -914,7 +914,7 @@ $(document).ready(function(){initNavTree('mpp__domains__define_8inc_source.html'
 <div class="line"><a name="l00818"></a><span class="lineno">  818</span>&#160;             domain%list(m)%tile_root_pe          = pes(0)</div>
 <div class="line"><a name="l00819"></a><span class="lineno">  819</span>&#160;             domain%list(m)%pe                    = pesall(m)</div>
 <div class="line"><a name="l00820"></a><span class="lineno">  820</span>&#160; </div>
-<div class="line"><a name="l00821"></a><span class="lineno">  821</span>&#160;             <span class="keywordflow">if</span>( pes(n).EQ.<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() )<span class="keywordflow">then</span></div>
+<div class="line"><a name="l00821"></a><span class="lineno">  821</span>&#160;             <span class="keywordflow">if</span>( pes(n).EQ.<a class="code" href="group__mpp__mod.html#gacfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() )<span class="keywordflow">then</span></div>
 <div class="line"><a name="l00822"></a><span class="lineno">  822</span>&#160;                ipos = i</div>
 <div class="line"><a name="l00823"></a><span class="lineno">  823</span>&#160;                jpos = j</div>
 <div class="line"><a name="l00824"></a><span class="lineno">  824</span>&#160;<span class="keywordflow">             end if</span></div>
@@ -926,14 +926,14 @@ $(document).ready(function(){initNavTree('mpp__domains__define_8inc_source.html'
 <div class="line"><a name="l00830"></a><span class="lineno">  830</span>&#160; </div>
 <div class="line"><a name="l00831"></a><span class="lineno">  831</span>&#160;    <span class="comment">!Considering mosaic, the following will only be done on the pe in the pelist</span></div>
 <div class="line"><a name="l00832"></a><span class="lineno">  832</span>&#160;    <span class="comment">!when there is only one tile, all the current pe will be in the pelist.</span></div>
-<div class="line"><a name="l00833"></a><span class="lineno">  833</span>&#160;    <span class="keywordflow">if</span>( any(pes == <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()) ) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00833"></a><span class="lineno">  833</span>&#160;    <span class="keywordflow">if</span>( any(pes == <a class="code" href="group__mpp__mod.html#gacfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()) ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00834"></a><span class="lineno">  834</span>&#160;       domain%io_layout = layout</div>
 <div class="line"><a name="l00835"></a><span class="lineno">  835</span>&#160;       domain%tile_root_pe  = pes(0)</div>
 <div class="line"><a name="l00836"></a><span class="lineno">  836</span>&#160;       <span class="keywordflow">if</span>( ipos.EQ.null_pe .OR. jpos.EQ.null_pe ) &amp;</div>
 <div class="line"><a name="l00837"></a><span class="lineno">  837</span>&#160;            <span class="keyword">call </span>mpp_error( fatal, <span class="stringliteral">&#39;MPP_DEFINE_DOMAINS2D: pelist must include this PE for &#39;</span>//trim(domain%name) )</div>
 <div class="line"><a name="l00838"></a><span class="lineno">  838</span>&#160;       <span class="keywordflow">if</span>( debug ) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00839"></a><span class="lineno">  839</span>&#160;         errunit = <a class="code" href="mpp__util_8inc.html#a285ef180624257148d85af894928844b">stderr</a>()</div>
-<div class="line"><a name="l00840"></a><span class="lineno">  840</span>&#160;         <span class="keyword">write</span>( errunit, * )<span class="stringliteral">&#39;pe, tile, ipos, jpos=&#39;</span>, <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>(), tile, ipos, jpos, <span class="stringliteral">&#39; pearray(:,jpos)=&#39;</span>, &amp;</div>
+<div class="line"><a name="l00839"></a><span class="lineno">  839</span>&#160;         errunit = <a class="code" href="group__mpp__mod.html#ga285ef180624257148d85af894928844b">stderr</a>()</div>
+<div class="line"><a name="l00840"></a><span class="lineno">  840</span>&#160;         <span class="keyword">write</span>( errunit, * )<span class="stringliteral">&#39;pe, tile, ipos, jpos=&#39;</span>, <a class="code" href="group__mpp__mod.html#gacfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>(), tile, ipos, jpos, <span class="stringliteral">&#39; pearray(:,jpos)=&#39;</span>, &amp;</div>
 <div class="line"><a name="l00841"></a><span class="lineno">  841</span>&#160;                  pearray(:,jpos), <span class="stringliteral">&#39; pearray(ipos,:)=&#39;</span>, pearray(ipos,:)</div>
 <div class="line"><a name="l00842"></a><span class="lineno">  842</span>&#160;<span class="keywordflow">       endif</span></div>
 <div class="line"><a name="l00843"></a><span class="lineno">  843</span>&#160; </div>
@@ -943,7 +943,7 @@ $(document).ready(function(){initNavTree('mpp__domains__define_8inc_source.html'
 <div class="line"><a name="l00847"></a><span class="lineno">  847</span>&#160;          domain%pearray = pearray</div>
 <div class="line"><a name="l00848"></a><span class="lineno">  848</span>&#160;<span class="keywordflow">       end if</span></div>
 <div class="line"><a name="l00849"></a><span class="lineno">  849</span>&#160; </div>
-<div class="line"><a name="l00850"></a><span class="lineno">  850</span>&#160;       domain%pe  = <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()</div>
+<div class="line"><a name="l00850"></a><span class="lineno">  850</span>&#160;       domain%pe  = <a class="code" href="group__mpp__mod.html#gacfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()</div>
 <div class="line"><a name="l00851"></a><span class="lineno">  851</span>&#160;       domain%pos  = pos</div>
 <div class="line"><a name="l00852"></a><span class="lineno">  852</span>&#160;       domain_cnt = domain_cnt + int(1,kind=i8_kind)</div>
 <div class="line"><a name="l00853"></a><span class="lineno">  853</span>&#160;       domain%id = domain_cnt*domain_id_base  <span class="comment">! Must be i8_kind arithmetic</span></div>
@@ -1079,8 +1079,8 @@ $(document).ready(function(){initNavTree('mpp__domains__define_8inc_source.html'
 <div class="line"><a name="l00983"></a><span class="lineno">  983</span>&#160;<span class="keywordflow">       end if</span></div>
 <div class="line"><a name="l00984"></a><span class="lineno">  984</span>&#160; </div>
 <div class="line"><a name="l00985"></a><span class="lineno">  985</span>&#160;       <span class="comment">!set up domain%list</span></div>
-<div class="line"><a name="l00986"></a><span class="lineno">  986</span>&#160;       <span class="keywordflow">if</span>( <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>().EQ.pes(0) .AND. <span class="keyword">PRESENT</span>(name) )<span class="keywordflow">then</span></div>
-<div class="line"><a name="l00987"></a><span class="lineno">  987</span>&#160;          logunit = <a class="code" href="mpp__util_8inc.html#a8e5518df9532bae0241f53ab542294a2">stdlog</a>()</div>
+<div class="line"><a name="l00986"></a><span class="lineno">  986</span>&#160;       <span class="keywordflow">if</span>( <a class="code" href="group__mpp__mod.html#gacfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>().EQ.pes(0) .AND. <span class="keyword">PRESENT</span>(name) )<span class="keywordflow">then</span></div>
+<div class="line"><a name="l00987"></a><span class="lineno">  987</span>&#160;          logunit = <a class="code" href="group__mpp__mod.html#ga8e5518df9532bae0241f53ab542294a2">stdlog</a>()</div>
 <div class="line"><a name="l00988"></a><span class="lineno">  988</span>&#160;          <span class="keyword">write</span>( logunit, <span class="stringliteral">&#39;(/a,i5,a,i5)&#39;</span> )trim(name)//<span class="stringliteral">&#39; domain decomposition: &#39;</span>, ndivx, <span class="stringliteral">&#39; X&#39;</span>, ndivy</div>
 <div class="line"><a name="l00989"></a><span class="lineno">  989</span>&#160;          <span class="keyword">write</span>( logunit, <span class="stringliteral">&#39;(3x,a)&#39;</span> )<span class="stringliteral">&#39;pe,   is,  ie,  js,  je,    isd, ied, jsd, jed&#39;</span></div>
 <div class="line"><a name="l00990"></a><span class="lineno">  990</span>&#160;<span class="keywordflow">       end if</span></div>
@@ -1165,7 +1165,7 @@ $(document).ready(function(){initNavTree('mpp__domains__define_8inc_source.html'
 <div class="line"><a name="l01069"></a><span class="lineno"> 1069</span>&#160; </div>
 <div class="line"><a name="l01070"></a><span class="lineno"> 1070</span>&#160; </div>
 <div class="line"><a name="l01071"></a><span class="lineno"> 1071</span>&#160;    <span class="comment">!print out decomposition, this didn&#39;t consider maskmap.</span></div>
-<div class="line"><a name="l01072"></a><span class="lineno"> 1072</span>&#160;    <span class="keywordflow">if</span>( <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() .EQ. pes(0) .AND. <span class="keyword">PRESENT</span>(name) )<span class="keywordflow">then</span></div>
+<div class="line"><a name="l01072"></a><span class="lineno"> 1072</span>&#160;    <span class="keywordflow">if</span>( <a class="code" href="group__mpp__mod.html#gacfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() .EQ. pes(0) .AND. <span class="keyword">PRESENT</span>(name) )<span class="keywordflow">then</span></div>
 <div class="line"><a name="l01073"></a><span class="lineno"> 1073</span>&#160;       <span class="keyword">write</span>(*,*) trim(name)//<span class="stringliteral">&#39; domain decomposition&#39;</span></div>
 <div class="line"><a name="l01074"></a><span class="lineno"> 1074</span>&#160;       <span class="keyword">write</span>(*,<span class="stringliteral">&#39;(a,i4,a,i4,a,i4,a,i4)&#39;</span>)<span class="stringliteral">&#39;whalo = &#39;</span>, whalosz, <span class="stringliteral">&quot;, ehalo = &quot;</span>, ehalosz, <span class="stringliteral">&quot;, shalo = &quot;</span>, shalosz, <span class="stringliteral">&quot;, nhalo = &quot;</span>, nhalosz</div>
 <div class="line"><a name="l01075"></a><span class="lineno"> 1075</span>&#160;       <span class="keyword">write</span> (*,110) (domain%x(1)%list(i)%compute%size, i= 0, layout(1)-1)</div>
@@ -1228,16 +1228,16 @@ $(document).ready(function(){initNavTree('mpp__domains__define_8inc_source.html'
 <div class="line"><a name="l01132"></a><span class="lineno"> 1132</span>&#160;     msg3(l) = msgsize</div>
 <div class="line"><a name="l01133"></a><span class="lineno"> 1133</span>&#160;     <span class="keyword">call </span>mpp_send( msg3(l), plen=1, to_pe=update%send(m)%pe, tag=comm_tag_1)</div>
 <div class="line"><a name="l01134"></a><span class="lineno"> 1134</span>&#160;<span class="keywordflow">  enddo</span></div>
-<div class="line"><a name="l01135"></a><span class="lineno"> 1135</span>&#160;  <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=event_recv)</div>
+<div class="line"><a name="l01135"></a><span class="lineno"> 1135</span>&#160;  <span class="keyword">call </span><a class="code" href="group__mpp__mod.html#ga09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=event_recv)</div>
 <div class="line"><a name="l01136"></a><span class="lineno"> 1136</span>&#160; </div>
 <div class="line"><a name="l01137"></a><span class="lineno"> 1137</span>&#160;  <span class="keywordflow">do</span> m = 0, nlist-1</div>
 <div class="line"><a name="l01138"></a><span class="lineno"> 1138</span>&#160;     <span class="keywordflow">if</span>(msg1(m) .NE. msg2(m)) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l01139"></a><span class="lineno"> 1139</span>&#160;        print*, <span class="stringliteral">&quot;My pe = &quot;</span>, <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>(), <span class="stringliteral">&quot;,domain name =&quot;</span>, trim(domain%name), <span class="stringliteral">&quot;,at position=&quot;</span>,position,<span class="stringliteral">&quot;,from pe=&quot;</span>, &amp;</div>
+<div class="line"><a name="l01139"></a><span class="lineno"> 1139</span>&#160;        print*, <span class="stringliteral">&quot;My pe = &quot;</span>, <a class="code" href="group__mpp__mod.html#gacfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>(), <span class="stringliteral">&quot;,domain name =&quot;</span>, trim(domain%name), <span class="stringliteral">&quot;,at position=&quot;</span>,position,<span class="stringliteral">&quot;,from pe=&quot;</span>, &amp;</div>
 <div class="line"><a name="l01140"></a><span class="lineno"> 1140</span>&#160;             domain%list(m)%pe, <span class="stringliteral">&quot;:send size = &quot;</span>, msg1(m), <span class="stringliteral">&quot;, recv size = &quot;</span>, msg2(m)</div>
 <div class="line"><a name="l01141"></a><span class="lineno"> 1141</span>&#160;        <span class="keyword">call </span>mpp_error(fatal, <span class="stringliteral">&quot;mpp_define_domains2D: mismatch on send and recv size&quot;</span>)</div>
 <div class="line"><a name="l01142"></a><span class="lineno"> 1142</span>&#160;<span class="keywordflow">     endif</span></div>
 <div class="line"><a name="l01143"></a><span class="lineno"> 1143</span>&#160;<span class="keywordflow">  enddo</span></div>
-<div class="line"><a name="l01144"></a><span class="lineno"> 1144</span>&#160;  <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>()</div>
+<div class="line"><a name="l01144"></a><span class="lineno"> 1144</span>&#160;  <span class="keyword">call </span><a class="code" href="group__mpp__mod.html#ga09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>()</div>
 <div class="line"><a name="l01145"></a><span class="lineno"> 1145</span>&#160; </div>
 <div class="line"><a name="l01146"></a><span class="lineno"> 1146</span>&#160; </div>
 <div class="line"><a name="l01147"></a><span class="lineno"> 1147</span>&#160;<span class="keyword">end subroutine </span>check_message_size</div>
@@ -1300,7 +1300,7 @@ $(document).ready(function(){initNavTree('mpp__domains__define_8inc_source.html'
 <div class="line"><a name="l01204"></a><span class="lineno"> 1204</span>&#160;    <span class="keywordtype">integer</span>              :: outunit</div>
 <div class="line"><a name="l01205"></a><span class="lineno"> 1205</span>&#160;    <span class="keywordtype">logical</span>              :: send(8), recv(8)</div>
 <div class="line"><a name="l01206"></a><span class="lineno"> 1206</span>&#160; </div>
-<div class="line"><a name="l01207"></a><span class="lineno"> 1207</span>&#160;    outunit = <a class="code" href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a>()</div>
+<div class="line"><a name="l01207"></a><span class="lineno"> 1207</span>&#160;    outunit = <a class="code" href="group__mpp__mod.html#ga172901d39c9b0cf14aa83b1e94fdf21b">stdout</a>()</div>
 <div class="line"><a name="l01208"></a><span class="lineno"> 1208</span>&#160;    mosaic_defined = .true.</div>
 <div class="line"><a name="l01209"></a><span class="lineno"> 1209</span>&#160;    <span class="comment">!--- the size of first indice of global_indices must be 4.</span></div>
 <div class="line"><a name="l01210"></a><span class="lineno"> 1210</span>&#160;    <span class="keywordflow">if</span>(<span class="keyword">size</span>(global_indices, 1) .NE. 4) <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
@@ -1315,7 +1315,7 @@ $(document).ready(function(){initNavTree('mpp__domains__define_8inc_source.html'
 <div class="line"><a name="l01219"></a><span class="lineno"> 1219</span>&#160;         <span class="stringliteral">&#39;mpp_domains_define.inc: The size of second dimension of layout is not equal num_tile&#39;</span>)</div>
 <div class="line"><a name="l01220"></a><span class="lineno"> 1220</span>&#160; </div>
 <div class="line"><a name="l01221"></a><span class="lineno"> 1221</span>&#160;    <span class="comment">!--- setup pelist for the mosaic ---------------------</span></div>
-<div class="line"><a name="l01222"></a><span class="lineno"> 1222</span>&#160;    nlist = <a class="code" href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>()</div>
+<div class="line"><a name="l01222"></a><span class="lineno"> 1222</span>&#160;    nlist = <a class="code" href="group__mpp__mod.html#gabf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>()</div>
 <div class="line"><a name="l01223"></a><span class="lineno"> 1223</span>&#160;    <span class="keyword">allocate</span>(pes(0:nlist-1))</div>
 <div class="line"><a name="l01224"></a><span class="lineno"> 1224</span>&#160;    <span class="keywordflow">if</span>(<span class="keyword">present</span>(pelist)) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l01225"></a><span class="lineno"> 1225</span>&#160;       <span class="keywordflow">if</span>( nlist .NE. <span class="keyword">size</span>(pelist(:))) <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
@@ -1383,7 +1383,7 @@ $(document).ready(function(){initNavTree('mpp__domains__define_8inc_source.html'
 <div class="line"><a name="l01287"></a><span class="lineno"> 1287</span>&#160;       domain%tileList(n)%yend   = global_indices(4,n)</div>
 <div class="line"><a name="l01288"></a><span class="lineno"> 1288</span>&#160;<span class="keywordflow">    enddo</span></div>
 <div class="line"><a name="l01289"></a><span class="lineno"> 1289</span>&#160;    <span class="comment">!--- define some mosaic information in domain type</span></div>
-<div class="line"><a name="l01290"></a><span class="lineno"> 1290</span>&#160;    nt = ntile_per_pe(<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()-mpp_root_pe())</div>
+<div class="line"><a name="l01290"></a><span class="lineno"> 1290</span>&#160;    nt = ntile_per_pe(<a class="code" href="group__mpp__mod.html#gacfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()-mpp_root_pe())</div>
 <div class="line"><a name="l01291"></a><span class="lineno"> 1291</span>&#160;    <span class="keyword">allocate</span>(domain%tile_id(nt), domain%x(nt), domain%y(nt) )</div>
 <div class="line"><a name="l01292"></a><span class="lineno"> 1292</span>&#160;    <span class="keyword">allocate</span>(domain%list(0:nlist-1))</div>
 <div class="line"><a name="l01293"></a><span class="lineno"> 1293</span>&#160; </div>
@@ -1392,7 +1392,7 @@ $(document).ready(function(){initNavTree('mpp__domains__define_8inc_source.html'
 <div class="line"><a name="l01296"></a><span class="lineno"> 1296</span>&#160;       <span class="keyword">allocate</span>(domain%list(n)%x(nt), domain%list(n)%y(nt), domain%list(n)%tile_id(nt) )</div>
 <div class="line"><a name="l01297"></a><span class="lineno"> 1297</span>&#160;<span class="keywordflow">    end do</span></div>
 <div class="line"><a name="l01298"></a><span class="lineno"> 1298</span>&#160; </div>
-<div class="line"><a name="l01299"></a><span class="lineno"> 1299</span>&#160;    pe = <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()</div>
+<div class="line"><a name="l01299"></a><span class="lineno"> 1299</span>&#160;    pe = <a class="code" href="group__mpp__mod.html#gacfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()</div>
 <div class="line"><a name="l01300"></a><span class="lineno"> 1300</span>&#160;    pos = 0</div>
 <div class="line"><a name="l01301"></a><span class="lineno"> 1301</span>&#160;    <span class="keywordflow">if</span>( <span class="keyword">PRESENT</span>(tile_id) ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l01302"></a><span class="lineno"> 1302</span>&#160;       <span class="keywordflow">if</span>(<span class="keyword">size</span>(tile_id(:)) .NE. num_tile) <span class="keywordflow">then</span></div>
@@ -2191,7 +2191,7 @@ $(document).ready(function(){initNavTree('mpp__domains__define_8inc_source.html'
 <div class="line"><a name="l02095"></a><span class="lineno"> 2095</span>&#160; </div>
 <div class="line"><a name="l02096"></a><span class="lineno"> 2096</span>&#160;    <span class="keywordflow">if</span>(debug_message_passing) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l02097"></a><span class="lineno"> 2097</span>&#160;       <span class="comment">!--- write out send information</span></div>
-<div class="line"><a name="l02098"></a><span class="lineno"> 2098</span>&#160;       unit = <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() + 1000</div>
+<div class="line"><a name="l02098"></a><span class="lineno"> 2098</span>&#160;       unit = <a class="code" href="group__mpp__mod.html#gacfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() + 1000</div>
 <div class="line"><a name="l02099"></a><span class="lineno"> 2099</span>&#160;       <span class="keywordflow">do</span> m =1,nsend</div>
 <div class="line"><a name="l02100"></a><span class="lineno"> 2100</span>&#160;          <span class="keyword">write</span>(unit, *) <span class="stringliteral">&quot;********to_pe = &quot;</span> ,overlaplist(m)%pe, <span class="stringliteral">&quot; count = &quot;</span>,overlaplist(m)%count</div>
 <div class="line"><a name="l02101"></a><span class="lineno"> 2101</span>&#160;          <span class="keywordflow">do</span> n = 1, overlaplist(m)%count</div>
@@ -2768,7 +2768,7 @@ $(document).ready(function(){initNavTree('mpp__domains__define_8inc_source.html'
 <div class="line"><a name="l02672"></a><span class="lineno"> 2672</span>&#160; </div>
 <div class="line"><a name="l02673"></a><span class="lineno"> 2673</span>&#160;    <span class="keywordflow">if</span>(debug_message_passing) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l02674"></a><span class="lineno"> 2674</span>&#160;       <span class="comment">!--- write out send information</span></div>
-<div class="line"><a name="l02675"></a><span class="lineno"> 2675</span>&#160;       unit = <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() + 1000</div>
+<div class="line"><a name="l02675"></a><span class="lineno"> 2675</span>&#160;       unit = <a class="code" href="group__mpp__mod.html#gacfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() + 1000</div>
 <div class="line"><a name="l02676"></a><span class="lineno"> 2676</span>&#160;       <span class="keywordflow">do</span> m =1,nrecv</div>
 <div class="line"><a name="l02677"></a><span class="lineno"> 2677</span>&#160;          <span class="keyword">write</span>(unit, *) <span class="stringliteral">&quot;********from_pe = &quot;</span> ,overlaplist(m)%pe, <span class="stringliteral">&quot; count = &quot;</span>,overlaplist(m)%count</div>
 <div class="line"><a name="l02678"></a><span class="lineno"> 2678</span>&#160;          <span class="keywordflow">do</span> n = 1, overlaplist(m)%count</div>
@@ -3356,7 +3356,7 @@ $(document).ready(function(){initNavTree('mpp__domains__define_8inc_source.html'
 <div class="line"><a name="l03260"></a><span class="lineno"> 3260</span>&#160; </div>
 <div class="line"><a name="l03261"></a><span class="lineno"> 3261</span>&#160;    <span class="keywordflow">if</span>(debug_message_passing) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l03262"></a><span class="lineno"> 3262</span>&#160;       <span class="comment">!--- write out send information</span></div>
-<div class="line"><a name="l03263"></a><span class="lineno"> 3263</span>&#160;       unit = <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() + 1000</div>
+<div class="line"><a name="l03263"></a><span class="lineno"> 3263</span>&#160;       unit = <a class="code" href="group__mpp__mod.html#gacfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() + 1000</div>
 <div class="line"><a name="l03264"></a><span class="lineno"> 3264</span>&#160;       <span class="keywordflow">do</span> m =1,nsend</div>
 <div class="line"><a name="l03265"></a><span class="lineno"> 3265</span>&#160;          <span class="keyword">write</span>(unit, *) <span class="stringliteral">&quot;********to_pe = &quot;</span> ,overlaplist(m)%pe, <span class="stringliteral">&quot; count = &quot;</span>,overlaplist(m)%count</div>
 <div class="line"><a name="l03266"></a><span class="lineno"> 3266</span>&#160;          <span class="keywordflow">do</span> n = 1, overlaplist(m)%count</div>
@@ -3626,7 +3626,7 @@ $(document).ready(function(){initNavTree('mpp__domains__define_8inc_source.html'
 <div class="line"><a name="l03530"></a><span class="lineno"> 3530</span>&#160; </div>
 <div class="line"><a name="l03531"></a><span class="lineno"> 3531</span>&#160;    <span class="keywordflow">if</span>(debug_message_passing) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l03532"></a><span class="lineno"> 3532</span>&#160;       <span class="comment">!--- write out send information</span></div>
-<div class="line"><a name="l03533"></a><span class="lineno"> 3533</span>&#160;       unit = <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() + 1000</div>
+<div class="line"><a name="l03533"></a><span class="lineno"> 3533</span>&#160;       unit = <a class="code" href="group__mpp__mod.html#gacfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() + 1000</div>
 <div class="line"><a name="l03534"></a><span class="lineno"> 3534</span>&#160;       <span class="keywordflow">do</span> m =1,nrecv</div>
 <div class="line"><a name="l03535"></a><span class="lineno"> 3535</span>&#160;          <span class="keyword">write</span>(unit, *) <span class="stringliteral">&quot;********from_pe = &quot;</span> ,overlaplist(m)%pe, <span class="stringliteral">&quot; count = &quot;</span>,overlaplist(m)%count</div>
 <div class="line"><a name="l03536"></a><span class="lineno"> 3536</span>&#160;          <span class="keywordflow">do</span> n = 1, overlaplist(m)%count</div>
@@ -3987,7 +3987,7 @@ $(document).ready(function(){initNavTree('mpp__domains__define_8inc_source.html'
 <div class="line"><a name="l03891"></a><span class="lineno"> 3891</span>&#160; </div>
 <div class="line"><a name="l03892"></a><span class="lineno"> 3892</span>&#160;    <span class="keywordflow">if</span>(debug_message_passing) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l03893"></a><span class="lineno"> 3893</span>&#160;       <span class="comment">!--- write out send information</span></div>
-<div class="line"><a name="l03894"></a><span class="lineno"> 3894</span>&#160;       unit = <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() + 1000</div>
+<div class="line"><a name="l03894"></a><span class="lineno"> 3894</span>&#160;       unit = <a class="code" href="group__mpp__mod.html#gacfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() + 1000</div>
 <div class="line"><a name="l03895"></a><span class="lineno"> 3895</span>&#160;       <span class="keywordflow">do</span> m =1,nsend</div>
 <div class="line"><a name="l03896"></a><span class="lineno"> 3896</span>&#160;          <span class="keyword">write</span>(unit, *) <span class="stringliteral">&quot;********to_pe = &quot;</span> ,overlaplist(m)%pe, <span class="stringliteral">&quot; count = &quot;</span>,overlaplist(m)%count</div>
 <div class="line"><a name="l03897"></a><span class="lineno"> 3897</span>&#160;          <span class="keywordflow">do</span> n = 1, overlaplist(m)%count</div>
@@ -4250,7 +4250,7 @@ $(document).ready(function(){initNavTree('mpp__domains__define_8inc_source.html'
 <div class="line"><a name="l04154"></a><span class="lineno"> 4154</span>&#160; </div>
 <div class="line"><a name="l04155"></a><span class="lineno"> 4155</span>&#160;    <span class="keywordflow">if</span>(debug_message_passing) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l04156"></a><span class="lineno"> 4156</span>&#160;       <span class="comment">!--- write out send information</span></div>
-<div class="line"><a name="l04157"></a><span class="lineno"> 4157</span>&#160;       unit = <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() + 1000</div>
+<div class="line"><a name="l04157"></a><span class="lineno"> 4157</span>&#160;       unit = <a class="code" href="group__mpp__mod.html#gacfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() + 1000</div>
 <div class="line"><a name="l04158"></a><span class="lineno"> 4158</span>&#160;       <span class="keywordflow">do</span> m =1,nrecv</div>
 <div class="line"><a name="l04159"></a><span class="lineno"> 4159</span>&#160;          <span class="keyword">write</span>(unit, *) <span class="stringliteral">&quot;********from_pe = &quot;</span> ,overlaplist(m)%pe, <span class="stringliteral">&quot; count = &quot;</span>,overlaplist(m)%count</div>
 <div class="line"><a name="l04160"></a><span class="lineno"> 4160</span>&#160;          <span class="keywordflow">do</span> n = 1, overlaplist(m)%count</div>
@@ -5767,7 +5767,7 @@ $(document).ready(function(){initNavTree('mpp__domains__define_8inc_source.html'
 <div class="line"><a name="l05671"></a><span class="lineno"> 5671</span>&#160; </div>
 <div class="line"><a name="l05672"></a><span class="lineno"> 5672</span>&#160;    <span class="keywordflow">if</span>(debug_message_passing) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l05673"></a><span class="lineno"> 5673</span>&#160;       <span class="comment">!--- write out send information</span></div>
-<div class="line"><a name="l05674"></a><span class="lineno"> 5674</span>&#160;       unit = <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() + 1000</div>
+<div class="line"><a name="l05674"></a><span class="lineno"> 5674</span>&#160;       unit = <a class="code" href="group__mpp__mod.html#gacfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() + 1000</div>
 <div class="line"><a name="l05675"></a><span class="lineno"> 5675</span>&#160;       <span class="keywordflow">do</span> list = 0, nlist-1</div>
 <div class="line"><a name="l05676"></a><span class="lineno"> 5676</span>&#160;          m = mod( domain%pos+list, nlist )</div>
 <div class="line"><a name="l05677"></a><span class="lineno"> 5677</span>&#160;          <span class="keywordflow">if</span>(overlapsend(m)%count==0) cycle</div>
@@ -8246,22 +8246,22 @@ $(document).ready(function(){initNavTree('mpp__domains__define_8inc_source.html'
 </div><!-- doc-content -->
 <div class="ttc" id="agroup__mpp__domains__mod_html_gaac8a748b09a51c920c21e20a9782b61c"><div class="ttname"><a href="group__mpp__domains__mod.html#gaac8a748b09a51c920c21e20a9782b61c">mpp_define_layout2d</a></div><div class="ttdeci">subroutine mpp_define_layout2d(global_indices, ndivs, layout)</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__define_8inc_source.html#l00031">mpp_domains_define.inc:31</a></div></div>
 <div class="ttc" id="agroup__mpp__domains__mod_html_ga80f2abb456b7778c01032502e70fe683"><div class="ttname"><a href="group__mpp__domains__mod.html#ga80f2abb456b7778c01032502e70fe683">mpp_modify_domain1d</a></div><div class="ttdeci">subroutine mpp_modify_domain1d(domain_in, domain_out, cbegin, cend, gbegin, gend, hbegin, hend)</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__define_8inc_source.html#l07429">mpp_domains_define.inc:7429</a></div></div>
-<div class="ttc" id="ampp__util_8inc_html_a172901d39c9b0cf14aa83b1e94fdf21b"><div class="ttname"><a href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a></div><div class="ttdeci">integer function stdout()</div><div class="ttdoc">This function returns the current standard fortran unit numbers for output.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00041">mpp_util.inc:41</a></div></div>
+<div class="ttc" id="agroup__mpp__mod_html_gabf546cd336d5c539e445fb884f98ab6b"><div class="ttname"><a href="group__mpp__mod.html#gabf546cd336d5c539e445fb884f98ab6b">mpp_npes</a></div><div class="ttdeci">integer function mpp_npes()</div><div class="ttdoc">Returns processor count for current pelist.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00392">mpp_util.inc:392</a></div></div>
 <div class="ttc" id="agroup__mpp__domains__mod_html_ga7ac8ee98767fbab41bf6e8ba0ba4ec73"><div class="ttname"><a href="group__mpp__domains__mod.html#ga7ac8ee98767fbab41bf6e8ba0ba4ec73">mpp_define_io_domain</a></div><div class="ttdeci">subroutine mpp_define_io_domain(domain, io_layout)</div><div class="ttdoc">Define the layout for IO pe's for the given domain.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__define_8inc_source.html#l00455">mpp_domains_define.inc:455</a></div></div>
 <div class="ttc" id="agroup__mpp__domains__mod_html_ga7c16bd509ee9550261df930d722a41d6"><div class="ttname"><a href="group__mpp__domains__mod.html#ga7c16bd509ee9550261df930d722a41d6">mpp_compute_extent</a></div><div class="ttdeci">subroutine mpp_compute_extent(isg, ieg, ndivs, ibegin, iend, extent)</div><div class="ttdoc">Computes extents for a grid decomposition with the given indices and divisions.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__define_8inc_source.html#l00190">mpp_domains_define.inc:190</a></div></div>
 <div class="ttc" id="agroup__mpp__domains__mod_html_gabdd30a6e8f8de565e5e3f98eb0fed1fe"><div class="ttname"><a href="group__mpp__domains__mod.html#gabdd30a6e8f8de565e5e3f98eb0fed1fe">compute_overlaps</a></div><div class="ttdeci">subroutine compute_overlaps(domain, position, update, check, ishift, jshift, x_cyclic_offset, y_cyclic_offset, whalo, ehalo, shalo, nhalo)</div><div class="ttdoc">Computes remote domain overlaps.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__define_8inc_source.html#l01543">mpp_domains_define.inc:1543</a></div></div>
-<div class="ttc" id="ampp__util__mpi_8inc_html_a09e69243d8c67e6a6e6e4fd9e93d0870"><div class="ttname"><a href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a></div><div class="ttdeci">subroutine mpp_sync_self(pelist, check, request, msg_size, msg_type)</div><div class="ttdoc">This is to check if current PE's outstanding puts are complete but we can't use shmem_fence because w...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util__mpi_8inc_source.html#l00169">mpp_util_mpi.inc:169</a></div></div>
+<div class="ttc" id="agroup__mpp__mod_html_ga285ef180624257148d85af894928844b"><div class="ttname"><a href="group__mpp__mod.html#ga285ef180624257148d85af894928844b">stderr</a></div><div class="ttdeci">integer function stderr()</div><div class="ttdoc">This function returns the current standard fortran unit numbers for error messages.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00051">mpp_util.inc:51</a></div></div>
 <div class="ttc" id="agroup__mpp__domains__mod_html_gac70252baf8cd75f94a6c9eca72d60463"><div class="ttname"><a href="group__mpp__domains__mod.html#gac70252baf8cd75f94a6c9eca72d60463">mpp_get_domain_shift</a></div><div class="ttdeci">subroutine mpp_get_domain_shift(domain, ishift, jshift, position)</div><div class="ttdoc">Returns the shift value in x and y-direction according to domain position..</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__util_8inc_source.html#l00781">mpp_domains_util.inc:781</a></div></div>
 <div class="ttc" id="agroup__mpp__domains__mod_html_ga13b02c8971a0605a2dffff7c485c8733"><div class="ttname"><a href="group__mpp__domains__mod.html#ga13b02c8971a0605a2dffff7c485c8733">mpp_modify_domain2d</a></div><div class="ttdeci">subroutine mpp_modify_domain2d(domain_in, domain_out, isc, iec, jsc, jec, isg, ieg, jsg, jeg, whalo, ehalo, shalo, nhalo)</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__define_8inc_source.html#l07477">mpp_domains_define.inc:7477</a></div></div>
 <div class="ttc" id="agroup__mpp__domains__mod_html_ga7657441912c3590a9b6fc5eb56452f5b"><div class="ttname"><a href="group__mpp__domains__mod.html#ga7657441912c3590a9b6fc5eb56452f5b">mpp_define_mosaic_pelist</a></div><div class="ttdeci">subroutine mpp_define_mosaic_pelist(sizes, pe_start, pe_end, pelist, costpertile)</div><div class="ttdoc">Defines a pelist for use with mosaic tiles.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__define_8inc_source.html#l00066">mpp_domains_define.inc:66</a></div></div>
-<div class="ttc" id="ampp__util_8inc_html_a285ef180624257148d85af894928844b"><div class="ttname"><a href="mpp__util_8inc.html#a285ef180624257148d85af894928844b">stderr</a></div><div class="ttdeci">integer function stderr()</div><div class="ttdoc">This function returns the current standard fortran unit numbers for error messages.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00049">mpp_util.inc:49</a></div></div>
+<div class="ttc" id="agroup__mpp__mod_html_gacfeba7de56f9dd6000b3fd78f9d56c50"><div class="ttname"><a href="group__mpp__mod.html#gacfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a></div><div class="ttdeci">integer function mpp_pe()</div><div class="ttdoc">Returns processor ID.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00378">mpp_util.inc:378</a></div></div>
+<div class="ttc" id="agroup__mpp__mod_html_ga172901d39c9b0cf14aa83b1e94fdf21b"><div class="ttname"><a href="group__mpp__mod.html#ga172901d39c9b0cf14aa83b1e94fdf21b">stdout</a></div><div class="ttdeci">integer function stdout()</div><div class="ttdoc">This function returns the current standard fortran unit numbers for output.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00043">mpp_util.inc:43</a></div></div>
+<div class="ttc" id="agroup__mpp__mod_html_ga8e5518df9532bae0241f53ab542294a2"><div class="ttname"><a href="group__mpp__mod.html#ga8e5518df9532bae0241f53ab542294a2">stdlog</a></div><div class="ttdeci">integer function stdlog()</div><div class="ttdoc">This function returns the current standard fortran unit numbers for log messages. Log messages,...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00059">mpp_util.inc:59</a></div></div>
 <div class="ttc" id="agroup__mpp__domains__mod_html_ga5ef8586c1cb432309203faa1723d1e8e"><div class="ttname"><a href="group__mpp__domains__mod.html#ga5ef8586c1cb432309203faa1723d1e8e">mpp_define_domains1d</a></div><div class="ttdeci">subroutine mpp_define_domains1d(global_indices, ndivs, domain, pelist, flags, halo, extent, maskmap, memory_size, begin_halo, end_halo)</div><div class="ttdoc">Define data and computational domains on a 1D set of data (isg:ieg) and assign them to PEs.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__define_8inc_source.html#l00283">mpp_domains_define.inc:283</a></div></div>
-<div class="ttc" id="ampp__util_8inc_html_a8e5518df9532bae0241f53ab542294a2"><div class="ttname"><a href="mpp__util_8inc.html#a8e5518df9532bae0241f53ab542294a2">stdlog</a></div><div class="ttdeci">integer function stdlog()</div><div class="ttdoc">This function returns the current standard fortran unit numbers for log messages. Log messages,...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00057">mpp_util.inc:57</a></div></div>
 <div class="ttc" id="agroup__mpp__domains__mod_html_gab9e995624a9441820a56f2b7f3a3b7d7"><div class="ttname"><a href="group__mpp__domains__mod.html#gab9e995624a9441820a56f2b7f3a3b7d7">mpp_compute_block_extent</a></div><div class="ttdeci">subroutine mpp_compute_block_extent(isg, ieg, ndivs, ibegin, iend)</div><div class="ttdoc">Computes the extents of a grid block.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__define_8inc_source.html#l00164">mpp_domains_define.inc:164</a></div></div>
-<div class="ttc" id="ampp__util_8inc_html_abf546cd336d5c539e445fb884f98ab6b"><div class="ttname"><a href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a></div><div class="ttdeci">integer function mpp_npes()</div><div class="ttdoc">Returns processor count for current pelist.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00390">mpp_util.inc:390</a></div></div>
-<div class="ttc" id="ampp__util_8inc_html_acfeba7de56f9dd6000b3fd78f9d56c50"><div class="ttname"><a href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a></div><div class="ttdeci">integer function mpp_pe()</div><div class="ttdoc">Returns processor ID.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00376">mpp_util.inc:376</a></div></div>
 <div class="ttc" id="agroup__mpp__domains__mod_html_gaff5c5b0f7d8a6e785cc860724144a7fc"><div class="ttname"><a href="group__mpp__domains__mod.html#gaff5c5b0f7d8a6e785cc860724144a7fc">mpp_define_domains2d</a></div><div class="ttdeci">subroutine mpp_define_domains2d(global_indices, layout, domain, pelist, xflags, yflags, xhalo, yhalo, xextent, yextent, maskmap, name, symmetry, memory_size, whalo, ehalo, shalo, nhalo, is_mosaic, tile_count, tile_id, complete, x_cyclic_offset, y_cyclic_offset)</div><div class="ttdoc">Define 2D data and computational domain on global rectilinear cartesian domain (isg:ieg,...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__define_8inc_source.html#l00600">mpp_domains_define.inc:600</a></div></div>
 <div class="ttc" id="agroup__mpp__domains__mod_html_ga943b352aa3b86ef8351d9589f5686a50"><div class="ttname"><a href="group__mpp__domains__mod.html#ga943b352aa3b86ef8351d9589f5686a50">mpp_define_mosaic</a></div><div class="ttdeci">subroutine mpp_define_mosaic(global_indices, layout, domain, num_tile, num_contact, tile1, tile2, istart1, iend1, jstart1, jend1, istart2, iend2, jstart2, jend2, pe_start, pe_end, pelist, whalo, ehalo, shalo, nhalo, xextent, yextent, maskmap, name, memory_size, symmetry, xflags, yflags, tile_id)</div><div class="ttdoc">Defines a domain for mosaic tile grids.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__define_8inc_source.html#l01167">mpp_domains_define.inc:1167</a></div></div>
+<div class="ttc" id="agroup__mpp__mod_html_ga09e69243d8c67e6a6e6e4fd9e93d0870"><div class="ttname"><a href="group__mpp__mod.html#ga09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a></div><div class="ttdeci">subroutine mpp_sync_self(pelist, check, request, msg_size, msg_type)</div><div class="ttdoc">This is to check if current PE's outstanding puts are complete but we can't use shmem_fence because w...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util__mpi_8inc_source.html#l00171">mpp_util_mpi.inc:171</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

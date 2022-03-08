@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>FMS: mpp/include/mpp_group_update.h (62e6b2ab49bb4adc780bd635b6fe57efa48ac9d1) Source File</title>
+<title>FMS: mpp/include/mpp_group_update.h (696939b8e1cbab0c58b65c977d40468515410f22) Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -606,7 +606,7 @@ $(document).ready(function(){initNavTree('mpp__group__update_8h_source.html','')
 <div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160; </div>
 <div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;  <span class="keywordflow">if</span>(nrecv&gt;0) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;     <span class="keyword">call </span>mpp_clock_begin(group_wait_clock)</div>
-<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;     <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=event_recv)</div>
+<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;     <span class="keyword">call </span><a class="code" href="group__mpp__mod.html#ga09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=event_recv)</div>
 <div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;     <span class="keyword">call </span>mpp_clock_end(group_wait_clock)</div>
 <div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;<span class="keywordflow">  endif</span></div>
 <div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160; </div>
@@ -723,7 +723,7 @@ $(document).ready(function(){initNavTree('mpp__group__update_8h_source.html','')
 <div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160; </div>
 <div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;  <span class="keywordflow">if</span>(nsend&gt;0) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;     <span class="keyword">call </span>mpp_clock_begin(group_wait_clock)</div>
-<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;     <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>( )</div>
+<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;     <span class="keyword">call </span><a class="code" href="group__mpp__mod.html#ga09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>( )</div>
 <div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;     <span class="keyword">call </span>mpp_clock_end(group_wait_clock)</div>
 <div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;<span class="keywordflow">  endif</span></div>
 <div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160; </div>
@@ -879,7 +879,7 @@ $(document).ready(function(){initNavTree('mpp__group__update_8h_source.html','')
 <div class="line"><a name="l00783"></a><span class="lineno">  783</span>&#160; </div>
 <div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160;  <span class="keywordflow">if</span>(nrecv&gt;0) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00785"></a><span class="lineno">  785</span>&#160;     <span class="keyword">call </span>mpp_clock_begin(nonblock_group_wait_clock)</div>
-<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;     <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=event_recv, request=group%request_recv(1:nrecv), &amp;</div>
+<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;     <span class="keyword">call </span><a class="code" href="group__mpp__mod.html#ga09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=event_recv, request=group%request_recv(1:nrecv), &amp;</div>
 <div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160;                        msg_size=group%recv_size(1:nrecv), msg_type=group%type_recv(1:nrecv))</div>
 <div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160;     <span class="keyword">call </span>mpp_clock_end(nonblock_group_wait_clock)</div>
 <div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;<span class="keywordflow">  endif</span></div>
@@ -999,7 +999,7 @@ $(document).ready(function(){initNavTree('mpp__group__update_8h_source.html','')
 <div class="line"><a name="l00903"></a><span class="lineno">  903</span>&#160; </div>
 <div class="line"><a name="l00904"></a><span class="lineno">  904</span>&#160;  <span class="keywordflow">if</span>(nsend&gt;0) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00905"></a><span class="lineno">  905</span>&#160;     <span class="keyword">call </span>mpp_clock_begin(nonblock_group_wait_clock)</div>
-<div class="line"><a name="l00906"></a><span class="lineno">  906</span>&#160;     <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=event_send, request=group%request_send(1:nsend) )</div>
+<div class="line"><a name="l00906"></a><span class="lineno">  906</span>&#160;     <span class="keyword">call </span><a class="code" href="group__mpp__mod.html#ga09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=event_send, request=group%request_send(1:nsend) )</div>
 <div class="line"><a name="l00907"></a><span class="lineno">  907</span>&#160;     <span class="keyword">call </span>mpp_clock_end(nonblock_group_wait_clock)</div>
 <div class="line"><a name="l00908"></a><span class="lineno">  908</span>&#160;<span class="keywordflow">  endif</span></div>
 <div class="line"><a name="l00909"></a><span class="lineno">  909</span>&#160; </div>
@@ -1118,8 +1118,8 @@ $(document).ready(function(){initNavTree('mpp__group__update_8h_source.html','')
 <div class="line"><a name="l01022"></a><span class="lineno"> 1022</span>&#160;<span class="keyword">end subroutine </span>mpp_reset_group_update_field_4d_v_</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="ampp__util__mpi_8inc_html_a09e69243d8c67e6a6e6e4fd9e93d0870"><div class="ttname"><a href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a></div><div class="ttdeci">subroutine mpp_sync_self(pelist, check, request, msg_size, msg_type)</div><div class="ttdoc">This is to check if current PE's outstanding puts are complete but we can't use shmem_fence because w...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util__mpi_8inc_source.html#l00169">mpp_util_mpi.inc:169</a></div></div>
 <div class="ttc" id="agroup__mpp__domains__mod_html_ga1fef0c0c4196bdadf0caa61004975ad6"><div class="ttname"><a href="group__mpp__domains__mod.html#ga1fef0c0c4196bdadf0caa61004975ad6">set_group_update</a></div><div class="ttdeci">subroutine set_group_update(group, domain)</div><div class="ttdoc">Set user stack size.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__util_8inc_source.html#l01884">mpp_domains_util.inc:1884</a></div></div>
+<div class="ttc" id="agroup__mpp__mod_html_ga09e69243d8c67e6a6e6e4fd9e93d0870"><div class="ttname"><a href="group__mpp__mod.html#ga09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a></div><div class="ttdeci">subroutine mpp_sync_self(pelist, check, request, msg_size, msg_type)</div><div class="ttdoc">This is to check if current PE's outstanding puts are complete but we can't use shmem_fence because w...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util__mpi_8inc_source.html#l00171">mpp_util_mpi.inc:171</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>FMS: mpp/include/mpp_unstruct_domain.inc (62e6b2ab49bb4adc780bd635b6fe57efa48ac9d1) Source File</title>
+<title>FMS: mpp/include/mpp_unstruct_domain.inc (696939b8e1cbab0c58b65c977d40468515410f22) Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -111,15 +111,15 @@ $(document).ready(function(){initNavTree('mpp__unstruct__domain_8inc_source.html
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">!*</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">!* You should have received a copy of the GNU Lesser General Public</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">!* License along with FMS.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">!***********************************************************************</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">!&gt; @file</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">!&gt; @ingroup mpp_domains_mod</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">!&gt; @brief Routines for defining and managing unstructured grids</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">!***********************************************************************</span><span class="comment"></span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">!&gt; @file</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">!&gt; @brief Routines for defining and managing unstructured grids</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">!&gt; @addtogroup mpp_domains_mod</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">!&gt; @{</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="comment">!#####################################################################</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="mpp__unstruct__domain_8inc.html#a0dc077caf4660cca3b0971fb5fa71f8c">mpp_define_unstruct_domain</a>(UG_domain, SG_domain, npts_tile, grid_nlev, ndivs, npes_io_group, grid_index, name)</div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="mpp__unstruct__domain_8inc.html#a0dc077caf4660cca3b0971fb5fa71f8c">   26</a></span>&#160;     <span class="keywordtype">type</span>(domainug),   <span class="keywordtype">intent(inout)</span> :: UG_domain</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="group__mpp__domains__mod.html#ga0dc077caf4660cca3b0971fb5fa71f8c">mpp_define_unstruct_domain</a>(UG_domain, SG_domain, npts_tile, grid_nlev, ndivs, npes_io_group, grid_index, name)</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="group__mpp__domains__mod.html#ga0dc077caf4660cca3b0971fb5fa71f8c">   26</a></span>&#160;     <span class="keywordtype">type</span>(domainug),   <span class="keywordtype">intent(inout)</span> :: UG_domain</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;     <span class="keywordtype">type</span>(domain2d), <span class="keywordtype">target</span>,     <span class="keywordtype">intent(in)</span> :: SG_domain</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;     <span class="keywordtype">integer</span>,                    <span class="keywordtype">intent(in)</span> :: npts_tile(:)<span class="comment"> !&lt; number of unstructured points on each tile</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;     <span class="keywordtype">integer</span>,                    <span class="keywordtype">intent(in)</span> :: grid_nlev(:)<span class="comment"> !&lt; number of levels in each unstructured grid.</span></div>
@@ -252,13 +252,13 @@ $(document).ready(function(){initNavTree('mpp__unstruct__domain_8inc_source.html
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="keywordflow">     enddo</span></div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160; </div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;     <span class="comment">!--- write out domain decomposition from root pe</span></div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;     <span class="keywordflow">if</span>(<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe() .and. <span class="keyword">present</span>(name)) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        <span class="keyword">write</span>(<a class="code" href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a>(),*) <span class="stringliteral">&quot;unstruct domain name = &quot;</span>, trim(name)</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        <span class="keyword">write</span>(<a class="code" href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a>(),*) ug_domain%list(:)%compute%size</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;     <span class="keywordflow">if</span>(<a class="code" href="group__mpp__mod.html#gacfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe() .and. <span class="keyword">present</span>(name)) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        <span class="keyword">write</span>(<a class="code" href="group__mpp__mod.html#ga172901d39c9b0cf14aa83b1e94fdf21b">stdout</a>(),*) <span class="stringliteral">&quot;unstruct domain name = &quot;</span>, trim(name)</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        <span class="keyword">write</span>(<a class="code" href="group__mpp__mod.html#ga172901d39c9b0cf14aa83b1e94fdf21b">stdout</a>(),*) ug_domain%list(:)%compute%size</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="keywordflow">     endif</span></div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; </div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;     pos = <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() - mpp_root_pe()</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;     ug_domain%pe = <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;     pos = <a class="code" href="group__mpp__mod.html#gacfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() - mpp_root_pe()</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;     ug_domain%pe = <a class="code" href="group__mpp__mod.html#gacfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>()</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;     ug_domain%pos = pos</div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;     ug_domain%tile_id = ug_domain%list(pos)%tile_id</div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;     p = pe_start(ug_domain%tile_id)</div>
@@ -336,7 +336,7 @@ $(document).ready(function(){initNavTree('mpp__unstruct__domain_8inc_source.html
 <div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160; </div>
 <div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;     <span class="keywordflow">return</span></div>
 <div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160; </div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="mpp__unstruct__domain_8inc.html#a0dc077caf4660cca3b0971fb5fa71f8c">mpp_define_unstruct_domain</a></div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="group__mpp__domains__mod.html#ga0dc077caf4660cca3b0971fb5fa71f8c">mpp_define_unstruct_domain</a></div>
 <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160; </div>
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160; </div>
 <div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;  <span class="comment">!####################################################################</span></div>
@@ -386,7 +386,7 @@ $(document).ready(function(){initNavTree('mpp__unstruct__domain_8inc_source.html
 <div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160; </div>
 <div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;     <span class="comment">!--- make sure sum(recv_cnt) == UG_domain%compute%size</span></div>
 <div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;     <span class="keywordflow">if</span>( ug_domain%compute%size .NE. sum(recv_cnt) ) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;        print*,<span class="stringliteral">&quot;pe=&quot;</span>, <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>(), ug_domain%compute%size, sum(recv_cnt)</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;        print*,<span class="stringliteral">&quot;pe=&quot;</span>, <a class="code" href="group__mpp__mod.html#gacfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>(), ug_domain%compute%size, sum(recv_cnt)</div>
 <div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;        <span class="keyword">call </span>mpp_error(fatal, &amp;</div>
 <div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;          .NE.<span class="stringliteral">&quot;compute_overlap_SG2UG: UG_domain%compute%size  sum(recv_cnt)&quot;</span>)</div>
 <div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;<span class="keywordflow">     endif</span></div>
@@ -672,8 +672,8 @@ $(document).ready(function(){initNavTree('mpp__unstruct__domain_8inc_source.html
 <div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160; </div>
 <div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;<span class="comment">!##############################################################################</span><span class="comment"></span></div>
 <div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;<span class="comment">    !&gt; @brief Broadcast domain (useful only outside the context of its own pelist)</span></div>
-<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;    <span class="keyword">subroutine </span><a class="code" href="mpp__unstruct__domain_8inc.html#a853f0210a8fcbff66db6f72496064a96">mpp_broadcast_domain_ug</a>( domain )</div>
-<div class="line"><a name="l00580"></a><span class="lineno"><a class="line" href="mpp__unstruct__domain_8inc.html#a853f0210a8fcbff66db6f72496064a96">  580</a></span>&#160;      <span class="keywordtype">type</span>(domainug), <span class="keywordtype">intent(inout)</span> :: domain</div>
+<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;    <span class="keyword">subroutine </span><a class="code" href="group__mpp__domains__mod.html#ga853f0210a8fcbff66db6f72496064a96">mpp_broadcast_domain_ug</a>( domain )</div>
+<div class="line"><a name="l00580"></a><span class="lineno"><a class="line" href="group__mpp__domains__mod.html#ga853f0210a8fcbff66db6f72496064a96">  580</a></span>&#160;      <span class="keywordtype">type</span>(domainug), <span class="keywordtype">intent(inout)</span> :: domain</div>
 <div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;      <span class="keywordtype">integer</span>, <span class="keywordtype">allocatable</span> :: pes(:)</div>
 <div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;      <span class="keywordtype">logical</span> :: native         <span class="comment">!true if I&#39;m on the pelist of this domain</span></div>
 <div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;      <span class="keywordtype">integer</span> :: listsize, listpos</div>
@@ -681,12 +681,12 @@ $(document).ready(function(){initNavTree('mpp__unstruct__domain_8inc_source.html
 <div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;      <span class="keywordtype">integer</span>, <span class="keywordtype">dimension(7)</span> :: msg, info         <span class="comment">!pe and compute domain of each item in list</span></div>
 <div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;      <span class="keywordtype">integer</span>                :: errunit</div>
 <div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160; </div>
-<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;      errunit = <a class="code" href="mpp__util_8inc.html#a285ef180624257148d85af894928844b">stderr</a>()</div>
+<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;      errunit = <a class="code" href="group__mpp__mod.html#ga285ef180624257148d85af894928844b">stderr</a>()</div>
 <div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;      <span class="keywordflow">if</span>( .NOT.module_is_initialized ) &amp;</div>
 <div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;                 <span class="keyword">call </span>mpp_error( fatal, <span class="stringliteral">&#39;MPP_BROADCAST_DOMAIN_ug: You must first call mpp_domains_init.&#39;</span> )</div>
 <div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160; </div>
 <div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;<span class="comment">!get the current pelist</span></div>
-<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;      <span class="keyword">allocate</span>( pes(0:<a class="code" href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>()-1) )</div>
+<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;      <span class="keyword">allocate</span>( pes(0:<a class="code" href="group__mpp__mod.html#gabf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>()-1) )</div>
 <div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;      <span class="keyword">call </span>mpp_get_current_pelist(pes)</div>
 <div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160; </div>
 <div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;<span class="comment">!am I part of this domain?</span></div>
@@ -724,9 +724,9 @@ $(document).ready(function(){initNavTree('mpp__unstruct__domain_8inc_source.html
 <div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;      info(7) = domain%compute%end_index</div>
 <div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;<span class="comment">!broadcast your info across current pelist and unpack if needed</span></div>
 <div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;      listpos = 0</div>
-<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;      <span class="keywordflow">do</span> n = 0,<a class="code" href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>()-1</div>
+<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;      <span class="keywordflow">do</span> n = 0,<a class="code" href="group__mpp__mod.html#gabf546cd336d5c539e445fb884f98ab6b">mpp_npes</a>()-1</div>
 <div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;         msg = info</div>
-<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;         <span class="keywordflow">if</span>( <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>().EQ.pes(n) .AND. debug )<span class="keyword">write</span>( errunit,* )<span class="stringliteral">&#39;PE &#39;</span>, <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>(), <span class="stringliteral">&#39;broadcasting msg &#39;</span>, msg</div>
+<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;         <span class="keywordflow">if</span>( <a class="code" href="group__mpp__mod.html#gacfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>().EQ.pes(n) .AND. debug )<span class="keyword">write</span>( errunit,* )<span class="stringliteral">&#39;PE &#39;</span>, <a class="code" href="group__mpp__mod.html#gacfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>(), <span class="stringliteral">&#39;broadcasting msg &#39;</span>, msg</div>
 <div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;         <span class="keyword">call </span>mpp_broadcast( msg, 7, pes(n) )</div>
 <div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;<span class="comment">!no need to unpack message if native</span></div>
 <div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;<span class="comment">!no need to unpack message from non-native PE</span></div>
@@ -739,11 +739,11 @@ $(document).ready(function(){initNavTree('mpp__unstruct__domain_8inc_source.html
 <div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;             domain%list(listpos)%compute%begin_index = msg(6)</div>
 <div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;             domain%list(listpos)%compute%end_index   = msg(7)</div>
 <div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;             listpos = listpos + 1</div>
-<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;             <span class="keywordflow">if</span>( debug )<span class="keyword">write</span>( errunit,* )<span class="stringliteral">&#39;PE &#39;</span>, <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>(), <span class="stringliteral">&#39;received domain from PE &#39;</span>, msg(1), <span class="stringliteral">&#39;ls,le=&#39;</span>, msg(4:5)</div>
+<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;             <span class="keywordflow">if</span>( debug )<span class="keyword">write</span>( errunit,* )<span class="stringliteral">&#39;PE &#39;</span>, <a class="code" href="group__mpp__mod.html#gacfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>(), <span class="stringliteral">&#39;received domain from PE &#39;</span>, msg(1), <span class="stringliteral">&#39;ls,le=&#39;</span>, msg(4:5)</div>
 <div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;<span class="keywordflow">         end if</span></div>
 <div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;<span class="keywordflow">      end do</span></div>
 <div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160; </div>
-<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;    <span class="keyword">end subroutine </span><a class="code" href="mpp__unstruct__domain_8inc.html#a853f0210a8fcbff66db6f72496064a96">mpp_broadcast_domain_ug</a></div>
+<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;    <span class="keyword">end subroutine </span><a class="code" href="group__mpp__domains__mod.html#ga853f0210a8fcbff66db6f72496064a96">mpp_broadcast_domain_ug</a></div>
 <div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160; </div>
 <div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;<span class="comment">!------------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;<span class="keyword">function </span>mpp_domain_ug_is_tile_root_pe(domain) <span class="keyword">result</span>(is_root)</div>
@@ -814,8 +814,8 @@ $(document).ready(function(){initNavTree('mpp__unstruct__domain_8inc_source.html
 <div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;<span class="keyword">end subroutine </span>deallocate_unstruct_pass_type</div>
 <div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160; </div>
 <div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;<span class="comment">!------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;<span class="keyword">subroutine </span><a class="code" href="mpp__unstruct__domain_8inc.html#af83c340ad3edc1f0e989504efb3b4094">mpp_deallocate_domainug</a>(domain)</div>
-<div class="line"><a name="l00722"></a><span class="lineno"><a class="line" href="mpp__unstruct__domain_8inc.html#af83c340ad3edc1f0e989504efb3b4094">  722</a></span>&#160; </div>
+<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;<span class="keyword">subroutine </span><a class="code" href="group__mpp__domains__mod.html#gaf83c340ad3edc1f0e989504efb3b4094">mpp_deallocate_domainug</a>(domain)</div>
+<div class="line"><a name="l00722"></a><span class="lineno"><a class="line" href="group__mpp__domains__mod.html#gaf83c340ad3edc1f0e989504efb3b4094">  722</a></span>&#160; </div>
 <div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;   <span class="comment">!&lt;Inputs/Outputs</span></div>
 <div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;    <span class="keywordtype">type</span>(domainug),<span class="keywordtype">intent(inout)</span> :: domain</div>
 <div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160; </div>
@@ -848,37 +848,37 @@ $(document).ready(function(){initNavTree('mpp__unstruct__domain_8inc_source.html
 <div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;<span class="keywordflow">    endif</span></div>
 <div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160; </div>
 <div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;<span class="keyword">end subroutine </span><a class="code" href="mpp__unstruct__domain_8inc.html#af83c340ad3edc1f0e989504efb3b4094">mpp_deallocate_domainug</a></div>
+<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;<span class="keyword">end subroutine </span><a class="code" href="group__mpp__domains__mod.html#gaf83c340ad3edc1f0e989504efb3b4094">mpp_deallocate_domainug</a></div>
 <div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160; </div>
 <div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;  <span class="comment">!###################################################################</span><span class="comment"></span></div>
 <div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;<span class="comment">  !&gt; Overload the .eq. for UG</span></div>
-<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;  <span class="keyword">function </span><a class="code" href="mpp__unstruct__domain_8inc.html#af17c52b0ad4e4bdbddc56b67e18c9a64">mpp_domainug_eq</a>( a, b )</div>
-<div class="line"><a name="l00760"></a><span class="lineno"><a class="line" href="mpp__unstruct__domain_8inc.html#af17c52b0ad4e4bdbddc56b67e18c9a64">  760</a></span>&#160;    <span class="keywordtype">logical</span>                    :: <a class="code" href="mpp__unstruct__domain_8inc.html#af17c52b0ad4e4bdbddc56b67e18c9a64">mpp_domainug_eq</a></div>
+<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;  <span class="keyword">function </span><a class="code" href="group__mpp__domains__mod.html#gaf17c52b0ad4e4bdbddc56b67e18c9a64">mpp_domainug_eq</a>( a, b )</div>
+<div class="line"><a name="l00760"></a><span class="lineno"><a class="line" href="group__mpp__domains__mod.html#gaf17c52b0ad4e4bdbddc56b67e18c9a64">  760</a></span>&#160;    <span class="keywordtype">logical</span>                    :: <a class="code" href="group__mpp__domains__mod.html#gaf17c52b0ad4e4bdbddc56b67e18c9a64">mpp_domainug_eq</a></div>
 <div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;    <span class="keywordtype">type</span>(domainug), <span class="keywordtype">intent(in)</span> :: a, b</div>
 <div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160; </div>
 <div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">associated</span>(a%SG_domain) .and. <span class="keyword">associated</span>(b%SG_domain)) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;        <span class="keywordflow">if</span> (a%SG_domain .ne. b%SG_domain) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;            <a class="code" href="mpp__unstruct__domain_8inc.html#af17c52b0ad4e4bdbddc56b67e18c9a64">mpp_domainug_eq</a> = .false.</div>
+<div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;            <a class="code" href="group__mpp__domains__mod.html#gaf17c52b0ad4e4bdbddc56b67e18c9a64">mpp_domainug_eq</a> = .false.</div>
 <div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;            <span class="keywordflow">return</span></div>
 <div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;<span class="keywordflow">        endif</span></div>
 <div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;    <span class="keywordflow">elseif</span> (<span class="keyword">associated</span>(a%SG_domain) .and. .not. <span class="keyword">associated</span>(b%SG_domain)) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;        <a class="code" href="mpp__unstruct__domain_8inc.html#af17c52b0ad4e4bdbddc56b67e18c9a64">mpp_domainug_eq</a> = .false.</div>
+<div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;        <a class="code" href="group__mpp__domains__mod.html#gaf17c52b0ad4e4bdbddc56b67e18c9a64">mpp_domainug_eq</a> = .false.</div>
 <div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;        <span class="keywordflow">return</span></div>
 <div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;    <span class="keywordflow">elseif</span> (.not. <span class="keyword">associated</span>(a%SG_domain) .and. <span class="keyword">associated</span>(b%SG_domain)) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;        <a class="code" href="mpp__unstruct__domain_8inc.html#af17c52b0ad4e4bdbddc56b67e18c9a64">mpp_domainug_eq</a> = .false.</div>
+<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;        <a class="code" href="group__mpp__domains__mod.html#gaf17c52b0ad4e4bdbddc56b67e18c9a64">mpp_domainug_eq</a> = .false.</div>
 <div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160;        <span class="keywordflow">return</span></div>
 <div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;<span class="keywordflow">    endif</span></div>
 <div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160; </div>
-<div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160;    <a class="code" href="mpp__unstruct__domain_8inc.html#af17c52b0ad4e4bdbddc56b67e18c9a64">mpp_domainug_eq</a> = (a%npes_io_group .EQ. b%npes_io_group) .AND. &amp;</div>
+<div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160;    <a class="code" href="group__mpp__domains__mod.html#gaf17c52b0ad4e4bdbddc56b67e18c9a64">mpp_domainug_eq</a> = (a%npes_io_group .EQ. b%npes_io_group) .AND. &amp;</div>
 <div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160;                      (a%pos .EQ. b%pos)                     .AND. &amp;</div>
 <div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160;                      (a%ntiles .EQ. b%ntiles)               .AND. &amp;</div>
 <div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160;                      (a%tile_id .EQ. b%tile_id)             .AND. &amp;</div>
 <div class="line"><a name="l00780"></a><span class="lineno">  780</span>&#160;                      (a%tile_npes .EQ. b%tile_npes)         .AND. &amp;</div>
 <div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160;                      (a%tile_root_pe .EQ. b%tile_root_pe)</div>
 <div class="line"><a name="l00782"></a><span class="lineno">  782</span>&#160; </div>
-<div class="line"><a name="l00783"></a><span class="lineno">  783</span>&#160;    <span class="keywordflow">if</span>(.not. <a class="code" href="mpp__unstruct__domain_8inc.html#af17c52b0ad4e4bdbddc56b67e18c9a64">mpp_domainug_eq</a>) <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00783"></a><span class="lineno">  783</span>&#160;    <span class="keywordflow">if</span>(.not. <a class="code" href="group__mpp__domains__mod.html#gaf17c52b0ad4e4bdbddc56b67e18c9a64">mpp_domainug_eq</a>) <span class="keywordflow">return</span></div>
 <div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160; </div>
-<div class="line"><a name="l00785"></a><span class="lineno">  785</span>&#160;    <a class="code" href="mpp__unstruct__domain_8inc.html#af17c52b0ad4e4bdbddc56b67e18c9a64">mpp_domainug_eq</a> = ( a%compute%begin.EQ.b%compute%begin .AND. &amp;</div>
+<div class="line"><a name="l00785"></a><span class="lineno">  785</span>&#160;    <a class="code" href="group__mpp__domains__mod.html#gaf17c52b0ad4e4bdbddc56b67e18c9a64">mpp_domainug_eq</a> = ( a%compute%begin.EQ.b%compute%begin .AND. &amp;</div>
 <div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;         a%compute%end  .EQ.b%compute%end   .AND. &amp;</div>
 <div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160;         a%global%begin .EQ.b%global%begin  .AND. &amp;</div>
 <div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160;         a%global%end   .EQ.b%global%end    .AND. &amp;</div>
@@ -889,16 +889,16 @@ $(document).ready(function(){initNavTree('mpp__unstruct__domain_8inc_source.html
 <div class="line"><a name="l00793"></a><span class="lineno">  793</span>&#160;    )</div>
 <div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160; </div>
 <div class="line"><a name="l00795"></a><span class="lineno">  795</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00796"></a><span class="lineno">  796</span>&#160;  <span class="keyword">end function </span><a class="code" href="mpp__unstruct__domain_8inc.html#af17c52b0ad4e4bdbddc56b67e18c9a64">mpp_domainug_eq</a></div>
+<div class="line"><a name="l00796"></a><span class="lineno">  796</span>&#160;  <span class="keyword">end function </span><a class="code" href="group__mpp__domains__mod.html#gaf17c52b0ad4e4bdbddc56b67e18c9a64">mpp_domainug_eq</a></div>
 <div class="line"><a name="l00797"></a><span class="lineno">  797</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00798"></a><span class="lineno">  798</span>&#160;<span class="comment">  !&gt; Overload the .ne. for UG</span></div>
-<div class="line"><a name="l00799"></a><span class="lineno">  799</span>&#160;  <span class="keyword">function </span><a class="code" href="mpp__unstruct__domain_8inc.html#a134f4e34feb58ecdc6a94c59677ef37d">mpp_domainug_ne</a>( a, b )</div>
-<div class="line"><a name="l00800"></a><span class="lineno"><a class="line" href="mpp__unstruct__domain_8inc.html#a134f4e34feb58ecdc6a94c59677ef37d">  800</a></span>&#160;    <span class="keywordtype">logical</span>                    :: <a class="code" href="mpp__unstruct__domain_8inc.html#a134f4e34feb58ecdc6a94c59677ef37d">mpp_domainug_ne</a></div>
+<div class="line"><a name="l00799"></a><span class="lineno">  799</span>&#160;  <span class="keyword">function </span><a class="code" href="group__mpp__domains__mod.html#ga134f4e34feb58ecdc6a94c59677ef37d">mpp_domainug_ne</a>( a, b )</div>
+<div class="line"><a name="l00800"></a><span class="lineno"><a class="line" href="group__mpp__domains__mod.html#ga134f4e34feb58ecdc6a94c59677ef37d">  800</a></span>&#160;    <span class="keywordtype">logical</span>                    :: <a class="code" href="group__mpp__domains__mod.html#ga134f4e34feb58ecdc6a94c59677ef37d">mpp_domainug_ne</a></div>
 <div class="line"><a name="l00801"></a><span class="lineno">  801</span>&#160;    <span class="keywordtype">type</span>(domainug), <span class="keywordtype">intent(in)</span> :: a, b</div>
 <div class="line"><a name="l00802"></a><span class="lineno">  802</span>&#160; </div>
-<div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160;    <a class="code" href="mpp__unstruct__domain_8inc.html#a134f4e34feb58ecdc6a94c59677ef37d">mpp_domainug_ne</a> = .NOT. ( a.EQ.b )</div>
+<div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160;    <a class="code" href="group__mpp__domains__mod.html#ga134f4e34feb58ecdc6a94c59677ef37d">mpp_domainug_ne</a> = .NOT. ( a.EQ.b )</div>
 <div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00805"></a><span class="lineno">  805</span>&#160;  <span class="keyword">end function </span><a class="code" href="mpp__unstruct__domain_8inc.html#a134f4e34feb58ecdc6a94c59677ef37d">mpp_domainug_ne</a></div>
+<div class="line"><a name="l00805"></a><span class="lineno">  805</span>&#160;  <span class="keyword">end function </span><a class="code" href="group__mpp__domains__mod.html#ga134f4e34feb58ecdc6a94c59677ef37d">mpp_domainug_ne</a></div>
 <div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160; </div>
 <div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160;<span class="preprocessor">#undef MPP_TYPE_</span></div>
 <div class="line"><a name="l00808"></a><span class="lineno">  808</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define MPP_TYPE_ real(r8_kind)</span></div>
@@ -995,18 +995,19 @@ $(document).ready(function(){initNavTree('mpp__unstruct__domain_8inc_source.html
 <div class="line"><a name="l00899"></a><span class="lineno">  899</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#undef MPP_TYPE_</span></div>
 <div class="line"><a name="l00900"></a><span class="lineno">  900</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define MPP_TYPE_ integer(i4_kind)</span></div>
 <div class="line"><a name="l00901"></a><span class="lineno">  901</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &lt;mpp_global_field_ug.h&gt;</span></div>
-<span class="preprocessor"></span></div><!-- fragment --></div><!-- contents -->
+<div class="line"><a name="l00902"></a><span class="lineno">  902</span>&#160;<span class="preprocessor"></span><span class="comment">!&gt; @}</span></div>
+</div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="ampp__unstruct__domain_8inc_html_a853f0210a8fcbff66db6f72496064a96"><div class="ttname"><a href="mpp__unstruct__domain_8inc.html#a853f0210a8fcbff66db6f72496064a96">mpp_broadcast_domain_ug</a></div><div class="ttdeci">subroutine mpp_broadcast_domain_ug(domain)</div><div class="ttdoc">Broadcast domain (useful only outside the context of its own pelist)</div><div class="ttdef"><b>Definition:</b> <a href="mpp__unstruct__domain_8inc_source.html#l00580">mpp_unstruct_domain.inc:580</a></div></div>
-<div class="ttc" id="ampp__util_8inc_html_a172901d39c9b0cf14aa83b1e94fdf21b"><div class="ttname"><a href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a></div><div class="ttdeci">integer function stdout()</div><div class="ttdoc">This function returns the current standard fortran unit numbers for output.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00041">mpp_util.inc:41</a></div></div>
-<div class="ttc" id="ampp__unstruct__domain_8inc_html_af17c52b0ad4e4bdbddc56b67e18c9a64"><div class="ttname"><a href="mpp__unstruct__domain_8inc.html#af17c52b0ad4e4bdbddc56b67e18c9a64">mpp_domainug_eq</a></div><div class="ttdeci">logical function mpp_domainug_eq(a, b)</div><div class="ttdoc">Overload the .eq. for UG.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__unstruct__domain_8inc_source.html#l00760">mpp_unstruct_domain.inc:760</a></div></div>
+<div class="ttc" id="agroup__mpp__mod_html_gabf546cd336d5c539e445fb884f98ab6b"><div class="ttname"><a href="group__mpp__mod.html#gabf546cd336d5c539e445fb884f98ab6b">mpp_npes</a></div><div class="ttdeci">integer function mpp_npes()</div><div class="ttdoc">Returns processor count for current pelist.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00392">mpp_util.inc:392</a></div></div>
 <div class="ttc" id="agroup__mpp__domains__mod_html_ga7c16bd509ee9550261df930d722a41d6"><div class="ttname"><a href="group__mpp__domains__mod.html#ga7c16bd509ee9550261df930d722a41d6">mpp_compute_extent</a></div><div class="ttdeci">subroutine mpp_compute_extent(isg, ieg, ndivs, ibegin, iend, extent)</div><div class="ttdoc">Computes extents for a grid decomposition with the given indices and divisions.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__define_8inc_source.html#l00190">mpp_domains_define.inc:190</a></div></div>
-<div class="ttc" id="ampp__unstruct__domain_8inc_html_a134f4e34feb58ecdc6a94c59677ef37d"><div class="ttname"><a href="mpp__unstruct__domain_8inc.html#a134f4e34feb58ecdc6a94c59677ef37d">mpp_domainug_ne</a></div><div class="ttdeci">logical function mpp_domainug_ne(a, b)</div><div class="ttdoc">Overload the .ne. for UG.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__unstruct__domain_8inc_source.html#l00800">mpp_unstruct_domain.inc:800</a></div></div>
-<div class="ttc" id="ampp__unstruct__domain_8inc_html_a0dc077caf4660cca3b0971fb5fa71f8c"><div class="ttname"><a href="mpp__unstruct__domain_8inc.html#a0dc077caf4660cca3b0971fb5fa71f8c">mpp_define_unstruct_domain</a></div><div class="ttdeci">subroutine mpp_define_unstruct_domain(UG_domain, SG_domain, npts_tile, grid_nlev, ndivs, npes_io_group, grid_index, name)</div><div class="ttdef"><b>Definition:</b> <a href="mpp__unstruct__domain_8inc_source.html#l00026">mpp_unstruct_domain.inc:26</a></div></div>
-<div class="ttc" id="ampp__util_8inc_html_a285ef180624257148d85af894928844b"><div class="ttname"><a href="mpp__util_8inc.html#a285ef180624257148d85af894928844b">stderr</a></div><div class="ttdeci">integer function stderr()</div><div class="ttdoc">This function returns the current standard fortran unit numbers for error messages.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00049">mpp_util.inc:49</a></div></div>
-<div class="ttc" id="ampp__unstruct__domain_8inc_html_af83c340ad3edc1f0e989504efb3b4094"><div class="ttname"><a href="mpp__unstruct__domain_8inc.html#af83c340ad3edc1f0e989504efb3b4094">mpp_deallocate_domainug</a></div><div class="ttdeci">subroutine mpp_deallocate_domainug(domain)</div><div class="ttdef"><b>Definition:</b> <a href="mpp__unstruct__domain_8inc_source.html#l00722">mpp_unstruct_domain.inc:722</a></div></div>
-<div class="ttc" id="ampp__util_8inc_html_abf546cd336d5c539e445fb884f98ab6b"><div class="ttname"><a href="mpp__util_8inc.html#abf546cd336d5c539e445fb884f98ab6b">mpp_npes</a></div><div class="ttdeci">integer function mpp_npes()</div><div class="ttdoc">Returns processor count for current pelist.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00390">mpp_util.inc:390</a></div></div>
-<div class="ttc" id="ampp__util_8inc_html_acfeba7de56f9dd6000b3fd78f9d56c50"><div class="ttname"><a href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a></div><div class="ttdeci">integer function mpp_pe()</div><div class="ttdoc">Returns processor ID.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00376">mpp_util.inc:376</a></div></div>
+<div class="ttc" id="agroup__mpp__domains__mod_html_gaf83c340ad3edc1f0e989504efb3b4094"><div class="ttname"><a href="group__mpp__domains__mod.html#gaf83c340ad3edc1f0e989504efb3b4094">mpp_deallocate_domainug</a></div><div class="ttdeci">subroutine mpp_deallocate_domainug(domain)</div><div class="ttdef"><b>Definition:</b> <a href="mpp__unstruct__domain_8inc_source.html#l00722">mpp_unstruct_domain.inc:722</a></div></div>
+<div class="ttc" id="agroup__mpp__mod_html_ga285ef180624257148d85af894928844b"><div class="ttname"><a href="group__mpp__mod.html#ga285ef180624257148d85af894928844b">stderr</a></div><div class="ttdeci">integer function stderr()</div><div class="ttdoc">This function returns the current standard fortran unit numbers for error messages.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00051">mpp_util.inc:51</a></div></div>
+<div class="ttc" id="agroup__mpp__domains__mod_html_ga853f0210a8fcbff66db6f72496064a96"><div class="ttname"><a href="group__mpp__domains__mod.html#ga853f0210a8fcbff66db6f72496064a96">mpp_broadcast_domain_ug</a></div><div class="ttdeci">subroutine mpp_broadcast_domain_ug(domain)</div><div class="ttdoc">Broadcast domain (useful only outside the context of its own pelist)</div><div class="ttdef"><b>Definition:</b> <a href="mpp__unstruct__domain_8inc_source.html#l00580">mpp_unstruct_domain.inc:580</a></div></div>
+<div class="ttc" id="agroup__mpp__mod_html_gacfeba7de56f9dd6000b3fd78f9d56c50"><div class="ttname"><a href="group__mpp__mod.html#gacfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a></div><div class="ttdeci">integer function mpp_pe()</div><div class="ttdoc">Returns processor ID.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00378">mpp_util.inc:378</a></div></div>
+<div class="ttc" id="agroup__mpp__mod_html_ga172901d39c9b0cf14aa83b1e94fdf21b"><div class="ttname"><a href="group__mpp__mod.html#ga172901d39c9b0cf14aa83b1e94fdf21b">stdout</a></div><div class="ttdeci">integer function stdout()</div><div class="ttdoc">This function returns the current standard fortran unit numbers for output.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00043">mpp_util.inc:43</a></div></div>
+<div class="ttc" id="agroup__mpp__domains__mod_html_gaf17c52b0ad4e4bdbddc56b67e18c9a64"><div class="ttname"><a href="group__mpp__domains__mod.html#gaf17c52b0ad4e4bdbddc56b67e18c9a64">mpp_domainug_eq</a></div><div class="ttdeci">logical function mpp_domainug_eq(a, b)</div><div class="ttdoc">Overload the .eq. for UG.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__unstruct__domain_8inc_source.html#l00760">mpp_unstruct_domain.inc:760</a></div></div>
+<div class="ttc" id="agroup__mpp__domains__mod_html_ga0dc077caf4660cca3b0971fb5fa71f8c"><div class="ttname"><a href="group__mpp__domains__mod.html#ga0dc077caf4660cca3b0971fb5fa71f8c">mpp_define_unstruct_domain</a></div><div class="ttdeci">subroutine mpp_define_unstruct_domain(UG_domain, SG_domain, npts_tile, grid_nlev, ndivs, npes_io_group, grid_index, name)</div><div class="ttdef"><b>Definition:</b> <a href="mpp__unstruct__domain_8inc_source.html#l00026">mpp_unstruct_domain.inc:26</a></div></div>
+<div class="ttc" id="agroup__mpp__domains__mod_html_ga134f4e34feb58ecdc6a94c59677ef37d"><div class="ttname"><a href="group__mpp__domains__mod.html#ga134f4e34feb58ecdc6a94c59677ef37d">mpp_domainug_ne</a></div><div class="ttdeci">logical function mpp_domainug_ne(a, b)</div><div class="ttdoc">Overload the .ne. for UG.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__unstruct__domain_8inc_source.html#l00800">mpp_unstruct_domain.inc:800</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

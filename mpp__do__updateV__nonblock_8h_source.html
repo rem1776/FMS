@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>FMS: mpp/include/mpp_do_updateV_nonblock.h (62e6b2ab49bb4adc780bd635b6fe57efa48ac9d1) Source File</title>
+<title>FMS: mpp/include/mpp_do_updateV_nonblock.h (696939b8e1cbab0c58b65c977d40468515410f22) Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -692,7 +692,7 @@ $(document).ready(function(){initNavTree('mpp__do__updateV__nonblock_8h_source.h
 <div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160; </div>
 <div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;  <span class="keywordflow">if</span>(nrecv &gt; 0) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;     <span class="keyword">call </span>mpp_clock_begin(wait_clock_nonblock)</div>
-<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;     <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=event_recv, request=nonblock_data(id_update)%request_recv(1:nrecv), &amp;</div>
+<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;     <span class="keyword">call </span><a class="code" href="group__mpp__mod.html#ga09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=event_recv, request=nonblock_data(id_update)%request_recv(1:nrecv), &amp;</div>
 <div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;                        msg_size=nonblock_data(id_update)%size_recv(1:nrecv),                     &amp;</div>
 <div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;                        msg_type=nonblock_data(id_update)%type_recv(1:nrecv) )</div>
 <div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;     <span class="keyword">call </span>mpp_clock_end(wait_clock_nonblock)</div>
@@ -1188,7 +1188,7 @@ $(document).ready(function(){initNavTree('mpp__do__updateV__nonblock_8h_source.h
 <div class="line"><a name="l01092"></a><span class="lineno"> 1092</span>&#160;  nsend = update_x%nsend+update_y%nsend</div>
 <div class="line"><a name="l01093"></a><span class="lineno"> 1093</span>&#160;  <span class="keywordflow">if</span>(nsend &gt; 0) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l01094"></a><span class="lineno"> 1094</span>&#160;     <span class="keyword">call </span>mpp_clock_begin(wait_clock_nonblock)</div>
-<div class="line"><a name="l01095"></a><span class="lineno"> 1095</span>&#160;     <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=event_send, request=nonblock_data(id_update)%request_send(1:nsend))</div>
+<div class="line"><a name="l01095"></a><span class="lineno"> 1095</span>&#160;     <span class="keyword">call </span><a class="code" href="group__mpp__mod.html#ga09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=event_send, request=nonblock_data(id_update)%request_send(1:nsend))</div>
 <div class="line"><a name="l01096"></a><span class="lineno"> 1096</span>&#160;     <span class="keyword">call </span>mpp_clock_end(wait_clock_nonblock)</div>
 <div class="line"><a name="l01097"></a><span class="lineno"> 1097</span>&#160;     nonblock_data(id_update)%request_send_count = 0</div>
 <div class="line"><a name="l01098"></a><span class="lineno"> 1098</span>&#160;<span class="preprocessor">#ifdef use_libMPI</span></div>
@@ -1205,7 +1205,7 @@ $(document).ready(function(){initNavTree('mpp__do__updateV__nonblock_8h_source.h
 </div><!-- doc-content -->
 <div class="ttc" id="agroup__mpp__domains__mod_html_ga35386ce7af6389219d64dd2f6fa25fd3"><div class="ttname"><a href="group__mpp__domains__mod.html#ga35386ce7af6389219d64dd2f6fa25fd3">get_vector_send</a></div><div class="ttdeci">integer function get_vector_send(domain, update_x, update_y, ind_x, ind_y, start_pos, pelist)</div><div class="ttdoc">Set user stack size.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__util_8inc_source.html#l01588">mpp_domains_util.inc:1588</a></div></div>
 <div class="ttc" id="agroup__mpp__domains__mod_html_gab42a30be2e6c2832943ebf00cae220ab"><div class="ttname"><a href="group__mpp__domains__mod.html#gab42a30be2e6c2832943ebf00cae220ab">get_vector_recv</a></div><div class="ttdeci">integer function get_vector_recv(domain, update_x, update_y, ind_x, ind_y, start_pos, pelist)</div><div class="ttdoc">Set user stack size.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__util_8inc_source.html#l01522">mpp_domains_util.inc:1522</a></div></div>
-<div class="ttc" id="ampp__util__mpi_8inc_html_a09e69243d8c67e6a6e6e4fd9e93d0870"><div class="ttname"><a href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a></div><div class="ttdeci">subroutine mpp_sync_self(pelist, check, request, msg_size, msg_type)</div><div class="ttdoc">This is to check if current PE's outstanding puts are complete but we can't use shmem_fence because w...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util__mpi_8inc_source.html#l00169">mpp_util_mpi.inc:169</a></div></div>
+<div class="ttc" id="agroup__mpp__mod_html_ga09e69243d8c67e6a6e6e4fd9e93d0870"><div class="ttname"><a href="group__mpp__mod.html#ga09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a></div><div class="ttdeci">subroutine mpp_sync_self(pelist, check, request, msg_size, msg_type)</div><div class="ttdoc">This is to check if current PE's outstanding puts are complete but we can't use shmem_fence because w...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util__mpi_8inc_source.html#l00171">mpp_util_mpi.inc:171</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

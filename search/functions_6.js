@@ -27,7 +27,7 @@ var searchData=
   ['get_5farray_5fsection_5fr8_5fkind_5f3d_3525',['get_array_section_r8_kind_3d',['../group__fms__io__utils.html#gafb6a2de4642ae02d859f2791290062ed',1,'array_utils.inc']]],
   ['get_5farray_5fsection_5fr8_5fkind_5f4d_3526',['get_array_section_r8_kind_4d',['../group__fms__io__utils.html#gabf47dd39cd5f5918e829855d8b0187cb',1,'array_utils.inc']]],
   ['get_5farray_5fsection_5fr8_5fkind_5f5d_3527',['get_array_section_r8_kind_5d',['../group__fms__io__utils.html#ga8e433dd301ba877f1bc7cdf8d7c365d7',1,'array_utils.inc']]],
-  ['get_5fascii_5ffile_5fnum_5flines_5fand_5flength_3528',['get_ascii_file_num_lines_and_length',['../mpp__util_8inc.html#ac1399340754d422fc77cbb27b72b5c90',1,'mpp_util.inc']]],
+  ['get_5fascii_5ffile_5fnum_5flines_5fand_5flength_3528',['get_ascii_file_num_lines_and_length',['../group__mpp__mod.html#gac1399340754d422fc77cbb27b72b5c90',1,'mpp_util.inc']]],
   ['get_5fattribute_5ftype_3529',['get_attribute_type',['../group__netcdf__io__mod.html#gae49a656fc7d6595b831cf4f716d25d88',1,'netcdf_io_mod']]],
   ['get_5faxes_5fshift_3530',['get_axes_shift',['../group__diag__axis__mod.html#gac7ff72683dd49ef653fbfc74b8ab6026',1,'diag_axis_mod']]],
   ['get_5faxis_5faux_3531',['get_axis_aux',['../group__diag__axis__mod.html#ga9615cb5662e59a10778f2bd8608b8535',1,'diag_axis_mod']]],

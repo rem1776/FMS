@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>FMS: mpp/include/mpp_do_updateV.h (62e6b2ab49bb4adc780bd635b6fe57efa48ac9d1) Source File</title>
+<title>FMS: mpp/include/mpp_do_updateV.h (696939b8e1cbab0c58b65c977d40468515410f22) Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -148,7 +148,7 @@ $(document).ready(function(){initNavTree('mpp__do__updateV_8h_source.html',''); 
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;      <span class="keywordtype">integer</span> :: rank_x, rank_y, ind_x, ind_y, cur_rank</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;      <span class="keywordtype">integer</span> :: nsend_x, nsend_y, nrecv_x, nrecv_y, outunit</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;      outunit = <a class="code" href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a>()</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;      outunit = <a class="code" href="group__mpp__mod.html#ga172901d39c9b0cf14aa83b1e94fdf21b">stdout</a>()</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;      update_flags = xupdate+yupdate   <span class="comment">!default</span></div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;      <span class="keywordflow">if</span>( <span class="keyword">PRESENT</span>(flags) ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;          update_flags = flags</div>
@@ -293,7 +293,7 @@ $(document).ready(function(){initNavTree('mpp__do__updateV_8h_source.html',''); 
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;<span class="comment">!         call mpp_sync_self(check=EVENT_RECV)</span></div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;         <span class="keywordflow">do</span> m = 0, nlist-1</div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;            <span class="keywordflow">if</span>(msg1(m) .NE. msg2(m)) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;               print*, <span class="stringliteral">&quot;My pe = &quot;</span>, <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>(), <span class="stringliteral">&quot;,domain name =&quot;</span>, trim(domain%name), <span class="stringliteral">&quot;,from pe=&quot;</span>, &amp;</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;               print*, <span class="stringliteral">&quot;My pe = &quot;</span>, <a class="code" href="group__mpp__mod.html#gacfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>(), <span class="stringliteral">&quot;,domain name =&quot;</span>, trim(domain%name), <span class="stringliteral">&quot;,from pe=&quot;</span>, &amp;</div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;                    domain%list(m)%pe, <span class="stringliteral">&quot;:send size = &quot;</span>, msg1(m), <span class="stringliteral">&quot;, recv size = &quot;</span>, msg2(m)</div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;               <span class="keyword">call </span>mpp_error(fatal, <span class="stringliteral">&quot;mpp_do_updateV: mismatch on send and recv size&quot;</span>)</div>
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;<span class="keywordflow">            endif</span></div>
@@ -778,7 +778,7 @@ $(document).ready(function(){initNavTree('mpp__do__updateV_8h_source.html',''); 
 <div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;<span class="comment">!unpack recv</span></div>
 <div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;<span class="comment">!unpack halos in reverse order</span></div>
 <div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;      <span class="keyword">call </span>mpp_clock_begin(wait_clock)</div>
-<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;      <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=event_recv)</div>
+<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;      <span class="keyword">call </span><a class="code" href="group__mpp__mod.html#ga09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=event_recv)</div>
 <div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;      <span class="keyword">call </span>mpp_clock_end(wait_clock)</div>
 <div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;      buffer_pos = buffer_recv_size</div>
 <div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;      cur_rank = <a class="code" href="group__mpp__domains__mod.html#gaef9751f23a98f997642b8945e5fa0673">get_rank_unpack</a>(domain, update_x, update_y, rank_x, rank_y, ind_x, ind_y)</div>
@@ -1283,7 +1283,7 @@ $(document).ready(function(){initNavTree('mpp__do__updateV_8h_source.html',''); 
 <div class="line"><a name="l01187"></a><span class="lineno"> 1187</span>&#160;<span class="keywordflow">      end if</span></div>
 <div class="line"><a name="l01188"></a><span class="lineno"> 1188</span>&#160; </div>
 <div class="line"><a name="l01189"></a><span class="lineno"> 1189</span>&#160;      <span class="keyword">call </span>mpp_clock_begin(wait_clock)</div>
-<div class="line"><a name="l01190"></a><span class="lineno"> 1190</span>&#160;      <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>( )</div>
+<div class="line"><a name="l01190"></a><span class="lineno"> 1190</span>&#160;      <span class="keyword">call </span><a class="code" href="group__mpp__mod.html#ga09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>( )</div>
 <div class="line"><a name="l01191"></a><span class="lineno"> 1191</span>&#160;      <span class="keyword">call </span>mpp_clock_end(wait_clock)</div>
 <div class="line"><a name="l01192"></a><span class="lineno"> 1192</span>&#160; </div>
 <div class="line"><a name="l01193"></a><span class="lineno"> 1193</span>&#160;      <span class="keywordflow">return</span></div>
@@ -1292,11 +1292,11 @@ $(document).ready(function(){initNavTree('mpp__do__updateV_8h_source.html',''); 
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="agroup__mpp__domains__mod_html_gaef9751f23a98f997642b8945e5fa0673"><div class="ttname"><a href="group__mpp__domains__mod.html#gaef9751f23a98f997642b8945e5fa0673">get_rank_unpack</a></div><div class="ttdeci">integer function get_rank_unpack(domain, overlap_x, overlap_y, rank_x, rank_y, ind_x, ind_y)</div><div class="ttdoc">Set user stack size.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__util_8inc_source.html#l01656">mpp_domains_util.inc:1656</a></div></div>
-<div class="ttc" id="ampp__util_8inc_html_a172901d39c9b0cf14aa83b1e94fdf21b"><div class="ttname"><a href="mpp__util_8inc.html#a172901d39c9b0cf14aa83b1e94fdf21b">stdout</a></div><div class="ttdeci">integer function stdout()</div><div class="ttdoc">This function returns the current standard fortran unit numbers for output.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00041">mpp_util.inc:41</a></div></div>
-<div class="ttc" id="ampp__util__mpi_8inc_html_a09e69243d8c67e6a6e6e4fd9e93d0870"><div class="ttname"><a href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a></div><div class="ttdeci">subroutine mpp_sync_self(pelist, check, request, msg_size, msg_type)</div><div class="ttdoc">This is to check if current PE's outstanding puts are complete but we can't use shmem_fence because w...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util__mpi_8inc_source.html#l00169">mpp_util_mpi.inc:169</a></div></div>
 <div class="ttc" id="agroup__mpp__domains__mod_html_ga1c3f29b8417e8fb1f739b1882e6092d7"><div class="ttname"><a href="group__mpp__domains__mod.html#ga1c3f29b8417e8fb1f739b1882e6092d7">get_rank_send</a></div><div class="ttdeci">integer function get_rank_send(domain, overlap_x, overlap_y, rank_x, rank_y, ind_x, ind_y)</div><div class="ttdoc">Set user stack size.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__util_8inc_source.html#l01465">mpp_domains_util.inc:1465</a></div></div>
+<div class="ttc" id="agroup__mpp__mod_html_gacfeba7de56f9dd6000b3fd78f9d56c50"><div class="ttname"><a href="group__mpp__mod.html#gacfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a></div><div class="ttdeci">integer function mpp_pe()</div><div class="ttdoc">Returns processor ID.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00378">mpp_util.inc:378</a></div></div>
+<div class="ttc" id="agroup__mpp__mod_html_ga172901d39c9b0cf14aa83b1e94fdf21b"><div class="ttname"><a href="group__mpp__mod.html#ga172901d39c9b0cf14aa83b1e94fdf21b">stdout</a></div><div class="ttdeci">integer function stdout()</div><div class="ttdoc">This function returns the current standard fortran unit numbers for output.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00043">mpp_util.inc:43</a></div></div>
 <div class="ttc" id="agroup__mpp__domains__mod_html_ga3b48eeba205253ce4d74ed38d08eb80d"><div class="ttname"><a href="group__mpp__domains__mod.html#ga3b48eeba205253ce4d74ed38d08eb80d">get_rank_recv</a></div><div class="ttdeci">integer function get_rank_recv(domain, overlap_x, overlap_y, rank_x, rank_y, ind_x, ind_y)</div><div class="ttdoc">Set user stack size.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__util_8inc_source.html#l01492">mpp_domains_util.inc:1492</a></div></div>
-<div class="ttc" id="ampp__util_8inc_html_acfeba7de56f9dd6000b3fd78f9d56c50"><div class="ttname"><a href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a></div><div class="ttdeci">integer function mpp_pe()</div><div class="ttdoc">Returns processor ID.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00376">mpp_util.inc:376</a></div></div>
+<div class="ttc" id="agroup__mpp__mod_html_ga09e69243d8c67e6a6e6e4fd9e93d0870"><div class="ttname"><a href="group__mpp__mod.html#ga09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a></div><div class="ttdeci">subroutine mpp_sync_self(pelist, check, request, msg_size, msg_type)</div><div class="ttdoc">This is to check if current PE's outstanding puts are complete but we can't use shmem_fence because w...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util__mpi_8inc_source.html#l00171">mpp_util_mpi.inc:171</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

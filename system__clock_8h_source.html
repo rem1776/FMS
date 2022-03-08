@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>FMS: mpp/include/system_clock.h (62e6b2ab49bb4adc780bd635b6fe57efa48ac9d1) Source File</title>
+<title>FMS: mpp/include/system_clock.h (696939b8e1cbab0c58b65c977d40468515410f22) Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -113,53 +113,56 @@ $(document).ready(function(){initNavTree('system__clock_8h_source.html',''); ini
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">!* License along with FMS.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">!***********************************************************************</span><span class="comment"></span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">!&gt; @file</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">!&gt; @ingroup mpp_mod</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#if defined(use_libMPI)</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define SYSTEM_CLOCK system_clock_mpi</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor"></span> </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">!#######################################################################</span><span class="comment"></span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">!&gt; There can be one ONE baseline count0 and this routine is</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">!! included in multiple places.</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">!! mimics F90 SYSTEM_CLOCK intrinsic</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">subroutine </span><a class="code" href="system__clock_8h.html#a2f14de4aaaebb18c681893cba3b1add5">system_clock_mpi</a>( count, count_rate, count_max )</div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="system__clock_8h.html#a2f14de4aaaebb18c681893cba3b1add5">   30</a></span>&#160;      <span class="keywordtype">integer(i8_kind)</span>, <span class="keywordtype">intent(out)</span>, <span class="keywordtype">optional</span> :: count, count_rate, count_max</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">!count must return a number between 0 and count_max</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;      <span class="keywordtype">integer(i8_kind)</span>, <span class="keywordtype">parameter</span> :: maxtick=huge(count_max)</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;      <span class="keywordflow">if</span>(first_call_system_clock_mpi)<span class="keywordflow">then</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;         first_call_system_clock_mpi=.false.</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;         mpi_count0 = mpi_wtime()</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;         mpi_tick_rate = 1.d0/mpi_wtick()</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keywordflow">      endif</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;      <span class="keywordflow">if</span>( <span class="keyword">PRESENT</span>(count) )<span class="keywordflow">then</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;          count = (mpi_wtime()-mpi_count0)*mpi_tick_rate</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keywordflow">      end if</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;      <span class="keywordflow">if</span>( <span class="keyword">PRESENT</span>(count_rate) )<span class="keywordflow">then</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;          count_rate = mpi_tick_rate</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keywordflow">      end if</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;      <span class="keywordflow">if</span>( <span class="keyword">PRESENT</span>(count_max) )<span class="keywordflow">then</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;          count_max = maxtick-1</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keywordflow">      end if</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;      <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">end subroutine </span><a class="code" href="system__clock_8h.html#a2f14de4aaaebb18c681893cba3b1add5">system_clock_mpi</a></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define SYSTEM_CLOCK system_clock_default</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor"></span><span class="keyword">subroutine </span>system_clock_default( count, count_rate, count_max )</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">!mimics F90 SYSTEM_CLOCK intrinsic</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;      <span class="keywordtype">integer(i8_kind)</span>, <span class="keywordtype">optional</span> :: count, count_rate, count_max</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">!count must return a number between 0 and count_max</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;      <span class="keywordtype">integer</span>                      :: count_int, count_rate_int, count_max_int</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;      <span class="keyword">call </span>system_clock( count_int, count_rate_int, count_max_int)</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;      <span class="keywordflow">if</span>( <span class="keyword">PRESENT</span>(count) )      count      = count_int</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;      <span class="keywordflow">if</span>( <span class="keyword">PRESENT</span>(count_rate) ) count_rate = count_rate_int</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;      <span class="keywordflow">if</span>( <span class="keyword">PRESENT</span>(count_max) )  count_max  = count_max_int</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;      <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keyword">end subroutine </span>system_clock_default</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor">#endif</span></div>
-<span class="preprocessor"></span></div><!-- fragment --></div><!-- contents -->
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">!&gt; @addtogroup mpp_mod</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">!&gt; @{</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#if defined(use_libMPI)</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define SYSTEM_CLOCK system_clock_mpi</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor"></span> </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">!#######################################################################</span><span class="comment"></span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">!&gt; There can be one ONE baseline count0 and this routine is</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">!! included in multiple places.</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">!! mimics F90 SYSTEM_CLOCK intrinsic</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">subroutine </span><a class="code" href="group__mpp__mod.html#ga2f14de4aaaebb18c681893cba3b1add5">system_clock_mpi</a>( count, count_rate, count_max )</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="group__mpp__mod.html#ga2f14de4aaaebb18c681893cba3b1add5">   32</a></span>&#160;      <span class="keywordtype">integer(i8_kind)</span>, <span class="keywordtype">intent(out)</span>, <span class="keywordtype">optional</span> :: count, count_rate, count_max</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">!count must return a number between 0 and count_max</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;      <span class="keywordtype">integer(i8_kind)</span>, <span class="keywordtype">parameter</span> :: maxtick=huge(count_max)</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;      <span class="keywordflow">if</span>(first_call_system_clock_mpi)<span class="keywordflow">then</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;         first_call_system_clock_mpi=.false.</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;         mpi_count0 = mpi_wtime()</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;         mpi_tick_rate = 1.d0/mpi_wtick()</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keywordflow">      endif</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;      <span class="keywordflow">if</span>( <span class="keyword">PRESENT</span>(count) )<span class="keywordflow">then</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;          count = (mpi_wtime()-mpi_count0)*mpi_tick_rate</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keywordflow">      end if</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;      <span class="keywordflow">if</span>( <span class="keyword">PRESENT</span>(count_rate) )<span class="keywordflow">then</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;          count_rate = mpi_tick_rate</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keywordflow">      end if</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;      <span class="keywordflow">if</span>( <span class="keyword">PRESENT</span>(count_max) )<span class="keywordflow">then</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;          count_max = maxtick-1</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keywordflow">      end if</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;      <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">end subroutine </span><a class="code" href="group__mpp__mod.html#ga2f14de4aaaebb18c681893cba3b1add5">system_clock_mpi</a></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define SYSTEM_CLOCK system_clock_default</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor"></span><span class="keyword">subroutine </span>system_clock_default( count, count_rate, count_max )</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">!mimics F90 SYSTEM_CLOCK intrinsic</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;      <span class="keywordtype">integer(i8_kind)</span>, <span class="keywordtype">optional</span> :: count, count_rate, count_max</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">!count must return a number between 0 and count_max</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;      <span class="keywordtype">integer</span>                      :: count_int, count_rate_int, count_max_int</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;      <span class="keyword">call </span>system_clock( count_int, count_rate_int, count_max_int)</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;      <span class="keywordflow">if</span>( <span class="keyword">PRESENT</span>(count) )      count      = count_int</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;      <span class="keywordflow">if</span>( <span class="keyword">PRESENT</span>(count_rate) ) count_rate = count_rate_int</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;      <span class="keywordflow">if</span>( <span class="keyword">PRESENT</span>(count_max) )  count_max  = count_max_int</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;      <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keyword">end subroutine </span>system_clock_default</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor"></span><span class="comment">!&gt; @}</span></div>
+</div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="asystem__clock_8h_html_a2f14de4aaaebb18c681893cba3b1add5"><div class="ttname"><a href="system__clock_8h.html#a2f14de4aaaebb18c681893cba3b1add5">system_clock_mpi</a></div><div class="ttdeci">subroutine system_clock_mpi(count, count_rate, count_max)</div><div class="ttdoc">There can be one ONE baseline count0 and this routine is included in multiple places....</div><div class="ttdef"><b>Definition:</b> <a href="system__clock_8h_source.html#l00030">system_clock.h:30</a></div></div>
+<div class="ttc" id="agroup__mpp__mod_html_ga2f14de4aaaebb18c681893cba3b1add5"><div class="ttname"><a href="group__mpp__mod.html#ga2f14de4aaaebb18c681893cba3b1add5">system_clock_mpi</a></div><div class="ttdeci">subroutine system_clock_mpi(count, count_rate, count_max)</div><div class="ttdoc">There can be one ONE baseline count0 and this routine is included in multiple places....</div><div class="ttdef"><b>Definition:</b> <a href="system__clock_8h_source.html#l00032">system_clock.h:32</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

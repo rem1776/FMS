@@ -93,10 +93,10 @@ $(document).ready(function(){initNavTree('mpp__util__mpi_8inc.html',''); initRes
   <div class="summary">
 <a href="#func-members">Functions/Subroutines</a>  </div>
   <div class="headertitle">
-<div class="title">mpp_util_mpi.inc File Reference<div class="ingroups"><a class="el" href="group__mpp.html">MPP</a></div></div>  </div>
+<div class="title">mpp_util_mpi.inc File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<h3 class="version">(62e6b2ab49bb4adc780bd635b6fe57efa48ac9d1)</h3>
+<h3 class="version">(696939b8e1cbab0c58b65c977d40468515410f22)</h3>
 <p>Utility routines for parallelization with MPI.  
 <a href="#details">More...</a></p>
 
@@ -108,18 +108,18 @@ Functions/Subroutines</h2></td></tr>
 integer function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mpp__util__mpi_8inc.html#a948898490a7d1d09fc1043dac561514d">get_peset</a> (pelist)</td></tr>
 <tr class="memdesc:a948898490a7d1d09fc1043dac561514d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes a PE set out of a PE list. A PE list is an ordered list of PEs a PE set is a triad (start,log2stride,size) for SHMEM, an a communicator for MPI if stride is non-uniform or not a power of 2, will return error (not required for MPI but enforced for uniformity) <br /></td></tr>
 <tr class="separator:a948898490a7d1d09fc1043dac561514d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a12e1fe8a6b55f7d625ba77a5dcc4670b"><td class="memItemLeft" align="right" valign="top"><a id="a12e1fe8a6b55f7d625ba77a5dcc4670b"></a>
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mpp__util__mpi_8inc.html#a12e1fe8a6b55f7d625ba77a5dcc4670b">mpp_error_basic</a> (errortype, errormsg)</td></tr>
-<tr class="memdesc:a12e1fe8a6b55f7d625ba77a5dcc4670b"><td class="mdescLeft">&#160;</td><td class="mdescRight">A very basic error handler uses ABORT and FLUSH calls, may need to use cpp to rename. <br /></td></tr>
-<tr class="separator:a12e1fe8a6b55f7d625ba77a5dcc4670b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad75482ebfad2337cd236ef0998accdc4"><td class="memItemLeft" align="right" valign="top"><a id="ad75482ebfad2337cd236ef0998accdc4"></a>
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mpp__util__mpi_8inc.html#ad75482ebfad2337cd236ef0998accdc4">mpp_sync</a> (pelist, do_self)</td></tr>
-<tr class="memdesc:ad75482ebfad2337cd236ef0998accdc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Synchronize PEs in list. <br /></td></tr>
-<tr class="separator:ad75482ebfad2337cd236ef0998accdc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a09e69243d8c67e6a6e6e4fd9e93d0870"><td class="memItemLeft" align="right" valign="top"><a id="a09e69243d8c67e6a6e6e4fd9e93d0870"></a>
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a> (pelist, check, request, msg_size, msg_type)</td></tr>
-<tr class="memdesc:a09e69243d8c67e6a6e6e4fd9e93d0870"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is to check if current PE's outstanding puts are complete but we can't use shmem_fence because we are actually waiting for a remote PE to complete its get. <br /></td></tr>
-<tr class="separator:a09e69243d8c67e6a6e6e4fd9e93d0870"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga12e1fe8a6b55f7d625ba77a5dcc4670b"><td class="memItemLeft" align="right" valign="top">
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mpp__mod.html#ga12e1fe8a6b55f7d625ba77a5dcc4670b">mpp_error_basic</a> (errortype, errormsg)</td></tr>
+<tr class="memdesc:ga12e1fe8a6b55f7d625ba77a5dcc4670b"><td class="mdescLeft">&#160;</td><td class="mdescRight">A very basic error handler uses ABORT and FLUSH calls, may need to use cpp to rename. <br /></td></tr>
+<tr class="separator:ga12e1fe8a6b55f7d625ba77a5dcc4670b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad75482ebfad2337cd236ef0998accdc4"><td class="memItemLeft" align="right" valign="top">
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mpp__mod.html#gad75482ebfad2337cd236ef0998accdc4">mpp_sync</a> (pelist, do_self)</td></tr>
+<tr class="memdesc:gad75482ebfad2337cd236ef0998accdc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Synchronize PEs in list. <br /></td></tr>
+<tr class="separator:gad75482ebfad2337cd236ef0998accdc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga09e69243d8c67e6a6e6e4fd9e93d0870"><td class="memItemLeft" align="right" valign="top">
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mpp__mod.html#ga09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a> (pelist, check, request, msg_size, msg_type)</td></tr>
+<tr class="memdesc:ga09e69243d8c67e6a6e6e4fd9e93d0870"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is to check if current PE's outstanding puts are complete but we can't use shmem_fence because we are actually waiting for a remote PE to complete its get. <br /></td></tr>
+<tr class="separator:ga09e69243d8c67e6a6e6e4fd9e93d0870"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Utility routines for parallelization with MPI. </p>

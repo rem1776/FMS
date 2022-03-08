@@ -1,8 +1,6 @@
 var group__mpp__domains__mod =
 [
     [ "mpp_domains.F90", "mpp__domains_8F90.html", null ],
-    [ "mpp_domains_reduce.inc", "mpp__domains__reduce_8inc.html", null ],
-    [ "mpp_unstruct_domain.inc", "mpp__unstruct__domain_8inc.html", null ],
     [ "check_data_size", "interfacempp__domains__mod_1_1check__data__size.html", [
       [ "check_data_size_1d", "interfacempp__domains__mod_1_1check__data__size.html#a88854b92fa07c39d4d20e915ea659410", null ],
       [ "check_data_size_2d", "interfacempp__domains__mod_1_1check__data__size.html#adea57fcfbaec2fadab2d17af7aaa1b10", null ]
@@ -1019,6 +1017,7 @@ var group__mpp__domains__mod =
     [ "mpp_broadcast_domain_2", "group__mpp__domains__mod.html#ga2c80021e696a56ef546715f7ad2be527", null ],
     [ "mpp_broadcast_domain_nest_coarse", "group__mpp__domains__mod.html#gacf2d512143b8365142845ccf117b2888", null ],
     [ "mpp_broadcast_domain_nest_fine", "group__mpp__domains__mod.html#gaf5965219dac0da6d6d057aab4a24aafd", null ],
+    [ "mpp_broadcast_domain_ug", "group__mpp__domains__mod.html#ga853f0210a8fcbff66db6f72496064a96", null ],
     [ "mpp_check_field_2d", "group__mpp__domains__mod.html#ga8efc00480eb4c3a518605199f5a9dc0f", null ],
     [ "mpp_check_field_2d_type1", "group__mpp__domains__mod.html#ga2efbb5e327b3763c64bf5d4f8a1007f1", null ],
     [ "mpp_check_field_2d_type2", "group__mpp__domains__mod.html#gade0f907a84c1e6b6f41410a7f01e390e", null ],
@@ -1032,6 +1031,7 @@ var group__mpp__domains__mod =
     [ "mpp_copy_domain2d_spec", "group__mpp__domains__mod.html#ga851334dd0ec29f6fb86921f5cf34c527", null ],
     [ "mpp_copy_domain_axis_spec", "group__mpp__domains__mod.html#ga36462784a9fc75b4658c86a5e4b48c03", null ],
     [ "mpp_create_super_grid_domain", "group__mpp__domains__mod.html#ga41461a8fe1667fb9849466b8a8c499c1", null ],
+    [ "mpp_deallocate_domainug", "group__mpp__domains__mod.html#gaf83c340ad3edc1f0e989504efb3b4094", null ],
     [ "mpp_define_domains1d", "group__mpp__domains__mod.html#ga5ef8586c1cb432309203faa1723d1e8e", null ],
     [ "mpp_define_domains2d", "group__mpp__domains__mod.html#gaff5c5b0f7d8a6e785cc860724144a7fc", null ],
     [ "mpp_define_io_domain", "group__mpp__domains__mod.html#ga7ac8ee98767fbab41bf6e8ba0ba4ec73", null ],
@@ -1039,6 +1039,9 @@ var group__mpp__domains__mod =
     [ "mpp_define_mosaic", "group__mpp__domains__mod.html#ga943b352aa3b86ef8351d9589f5686a50", null ],
     [ "mpp_define_mosaic_pelist", "group__mpp__domains__mod.html#ga7657441912c3590a9b6fc5eb56452f5b", null ],
     [ "mpp_define_nest_domains", "group__mpp__domains__mod.html#ga108f42a1ac0b08dc75716dfede608665", null ],
+    [ "mpp_define_unstruct_domain", "group__mpp__domains__mod.html#ga0dc077caf4660cca3b0971fb5fa71f8c", null ],
+    [ "mpp_do_check_3d_", "group__mpp__domains__mod.html#gad95ffaeca9ebb27e820139429b168da2", null ],
+    [ "mpp_do_check_3d_v_", "group__mpp__domains__mod.html#ga3b5ff89c84d80659f19798a994d0dbe7", null ],
     [ "mpp_domain1d_eq", "group__mpp__domains__mod.html#ga3ab51ab28e096d00d6eefa0fb4cc9f96", null ],
     [ "mpp_domain1d_ne", "group__mpp__domains__mod.html#ga7f49344898f93f5212193461e1422a88", null ],
     [ "mpp_domain2d_eq", "group__mpp__domains__mod.html#ga146c36e45681e69a495606adee30c007", null ],
@@ -1049,6 +1052,8 @@ var group__mpp__domains__mod =
     [ "mpp_domains_exit", "group__mpp__domains__mod.html#ga9a55eba87e8167e3f3ba2dc913a1d9d8", null ],
     [ "mpp_domains_init", "group__mpp__domains__mod.html#ga395663978bf22825d9d8a8b4c29a5510", null ],
     [ "mpp_domains_set_stack_size", "group__mpp__domains__mod.html#gae1f3c0c5c574686aac6c1595b1ca0b66", null ],
+    [ "mpp_domainug_eq", "group__mpp__domains__mod.html#gaf17c52b0ad4e4bdbddc56b67e18c9a64", null ],
+    [ "mpp_domainug_ne", "group__mpp__domains__mod.html#ga134f4e34feb58ecdc6a94c59677ef37d", null ],
     [ "mpp_get_c2f_index", "group__mpp__domains__mod.html#gadb0ae97e2b863b058f17161d2079e31a", null ],
     [ "mpp_get_compute_domain1d", "group__mpp__domains__mod.html#ga7a575c4bf53c826f3d99c9b237a5c629", null ],
     [ "mpp_get_compute_domain2d", "group__mpp__domains__mod.html#ga78f77d47a68fe046887a2151faf9c826", null ],

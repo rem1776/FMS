@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>FMS: fms2_io/include/domain_read.inc (62e6b2ab49bb4adc780bd635b6fe57efa48ac9d1) Source File</title>
+<title>FMS: fms2_io/include/domain_read.inc (696939b8e1cbab0c58b65c977d40468515410f22) Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -279,7 +279,7 @@ $(document).ready(function(){initNavTree('domain__read_8inc_source.html',''); in
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;          <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;            <span class="comment">!Send data to non-root ranks.</span></div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;            <span class="keyword">call </span>mpp_send(buf_i4_kind, <span class="keyword">size</span>(buf_i4_kind), fileobj%pelist(i))</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;            <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=event_send)</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;            <span class="keyword">call </span><a class="code" href="group__mpp__mod.html#ga09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=event_send)</div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;<span class="keywordflow">          endif</span></div>
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;          <span class="keyword">deallocate</span>(buf_i4_kind)</div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;<span class="keywordflow">        type is</span> (<span class="keywordtype">integer</span>(kind=i8_kind))</div>
@@ -302,7 +302,7 @@ $(document).ready(function(){initNavTree('domain__read_8inc_source.html',''); in
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;          <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;            <span class="comment">!Send data to non-root ranks.</span></div>
 <div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;            <span class="keyword">call </span>mpp_send(buf_i8_kind, <span class="keyword">size</span>(buf_i8_kind), fileobj%pelist(i))</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;            <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=event_send)</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;            <span class="keyword">call </span><a class="code" href="group__mpp__mod.html#ga09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=event_send)</div>
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;<span class="keywordflow">          endif</span></div>
 <div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;          <span class="keyword">deallocate</span>(buf_i8_kind)</div>
 <div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;<span class="keywordflow">        type is</span> (real(kind=r4_kind))</div>
@@ -325,7 +325,7 @@ $(document).ready(function(){initNavTree('domain__read_8inc_source.html',''); in
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;          <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;            <span class="comment">!Send data to non-root ranks.</span></div>
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;            <span class="keyword">call </span>mpp_send(buf_r4_kind, <span class="keyword">size</span>(buf_r4_kind), fileobj%pelist(i))</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;            <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=event_send)</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;            <span class="keyword">call </span><a class="code" href="group__mpp__mod.html#ga09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=event_send)</div>
 <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;<span class="keywordflow">          endif</span></div>
 <div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;          <span class="keyword">deallocate</span>(buf_r4_kind)</div>
 <div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;<span class="keywordflow">        type is</span> (real(kind=r8_kind))</div>
@@ -348,7 +348,7 @@ $(document).ready(function(){initNavTree('domain__read_8inc_source.html',''); in
 <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;          <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;            <span class="comment">!Send data to non-root ranks.</span></div>
 <div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;            <span class="keyword">call </span>mpp_send(buf_r8_kind, <span class="keyword">size</span>(buf_r8_kind), fileobj%pelist(i))</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;            <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=event_send)</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;            <span class="keyword">call </span><a class="code" href="group__mpp__mod.html#ga09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=event_send)</div>
 <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;<span class="keywordflow">          endif</span></div>
 <div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;          <span class="keyword">deallocate</span>(buf_r8_kind)</div>
 <div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;<span class="keywordflow">        class default</span></div>
@@ -498,7 +498,7 @@ $(document).ready(function(){initNavTree('domain__read_8inc_source.html',''); in
 <div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;          <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;            <span class="comment">!Send data to non-root ranks.</span></div>
 <div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;            <span class="keyword">call </span>mpp_send(buf_i4_kind, <span class="keyword">size</span>(buf_i4_kind), fileobj%pelist(i))</div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;            <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=event_send)</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;            <span class="keyword">call </span><a class="code" href="group__mpp__mod.html#ga09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=event_send)</div>
 <div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;<span class="keywordflow">          endif</span></div>
 <div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;          <span class="keyword">deallocate</span>(buf_i4_kind)</div>
 <div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;<span class="keywordflow">        type is</span> (<span class="keywordtype">integer</span>(kind=i8_kind))</div>
@@ -521,7 +521,7 @@ $(document).ready(function(){initNavTree('domain__read_8inc_source.html',''); in
 <div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;          <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;            <span class="comment">!Send data to non-root ranks.</span></div>
 <div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;            <span class="keyword">call </span>mpp_send(buf_i8_kind, <span class="keyword">size</span>(buf_i8_kind), fileobj%pelist(i))</div>
-<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;            <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=event_send)</div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;            <span class="keyword">call </span><a class="code" href="group__mpp__mod.html#ga09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=event_send)</div>
 <div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;<span class="keywordflow">          endif</span></div>
 <div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;          <span class="keyword">deallocate</span>(buf_i8_kind)</div>
 <div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;<span class="keywordflow">        type is</span> (real(kind=r4_kind))</div>
@@ -544,7 +544,7 @@ $(document).ready(function(){initNavTree('domain__read_8inc_source.html',''); in
 <div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;          <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;            <span class="comment">!Send data to non-root ranks.</span></div>
 <div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;            <span class="keyword">call </span>mpp_send(buf_r4_kind, <span class="keyword">size</span>(buf_r4_kind), fileobj%pelist(i))</div>
-<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;            <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=event_send)</div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;            <span class="keyword">call </span><a class="code" href="group__mpp__mod.html#ga09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=event_send)</div>
 <div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;<span class="keywordflow">          endif</span></div>
 <div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;          <span class="keyword">deallocate</span>(buf_r4_kind)</div>
 <div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;<span class="keywordflow">        type is</span> (real(kind=r8_kind))</div>
@@ -567,7 +567,7 @@ $(document).ready(function(){initNavTree('domain__read_8inc_source.html',''); in
 <div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;          <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;            <span class="comment">!Send data to non-root ranks.</span></div>
 <div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;            <span class="keyword">call </span>mpp_send(buf_r8_kind, <span class="keyword">size</span>(buf_r8_kind), fileobj%pelist(i))</div>
-<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;            <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=event_send)</div>
+<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;            <span class="keyword">call </span><a class="code" href="group__mpp__mod.html#ga09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=event_send)</div>
 <div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;<span class="keywordflow">          endif</span></div>
 <div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;          <span class="keyword">deallocate</span>(buf_r8_kind)</div>
 <div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;<span class="keywordflow">        class default</span></div>
@@ -717,7 +717,7 @@ $(document).ready(function(){initNavTree('domain__read_8inc_source.html',''); in
 <div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;          <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;            <span class="comment">!Send data to non-root ranks.</span></div>
 <div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;            <span class="keyword">call </span>mpp_send(buf_i4_kind, <span class="keyword">size</span>(buf_i4_kind), fileobj%pelist(i))</div>
-<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;            <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=event_send)</div>
+<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;            <span class="keyword">call </span><a class="code" href="group__mpp__mod.html#ga09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=event_send)</div>
 <div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;<span class="keywordflow">          endif</span></div>
 <div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;          <span class="keyword">deallocate</span>(buf_i4_kind)</div>
 <div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;<span class="keywordflow">        type is</span> (<span class="keywordtype">integer</span>(kind=i8_kind))</div>
@@ -740,7 +740,7 @@ $(document).ready(function(){initNavTree('domain__read_8inc_source.html',''); in
 <div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;          <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;            <span class="comment">!Send data to non-root ranks.</span></div>
 <div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;            <span class="keyword">call </span>mpp_send(buf_i8_kind, <span class="keyword">size</span>(buf_i8_kind), fileobj%pelist(i))</div>
-<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;            <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=event_send)</div>
+<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;            <span class="keyword">call </span><a class="code" href="group__mpp__mod.html#ga09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=event_send)</div>
 <div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;<span class="keywordflow">          endif</span></div>
 <div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;          <span class="keyword">deallocate</span>(buf_i8_kind)</div>
 <div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;<span class="keywordflow">        type is</span> (real(kind=r4_kind))</div>
@@ -763,7 +763,7 @@ $(document).ready(function(){initNavTree('domain__read_8inc_source.html',''); in
 <div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;          <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;            <span class="comment">!Send data to non-root ranks.</span></div>
 <div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;            <span class="keyword">call </span>mpp_send(buf_r4_kind, <span class="keyword">size</span>(buf_r4_kind), fileobj%pelist(i))</div>
-<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;            <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=event_send)</div>
+<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;            <span class="keyword">call </span><a class="code" href="group__mpp__mod.html#ga09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=event_send)</div>
 <div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;<span class="keywordflow">          endif</span></div>
 <div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;          <span class="keyword">deallocate</span>(buf_r4_kind)</div>
 <div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;<span class="keywordflow">        type is</span> (real(kind=r8_kind))</div>
@@ -786,7 +786,7 @@ $(document).ready(function(){initNavTree('domain__read_8inc_source.html',''); in
 <div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;          <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;            <span class="comment">!Send data to non-root ranks.</span></div>
 <div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;            <span class="keyword">call </span>mpp_send(buf_r8_kind, <span class="keyword">size</span>(buf_r8_kind), fileobj%pelist(i))</div>
-<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;            <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=event_send)</div>
+<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;            <span class="keyword">call </span><a class="code" href="group__mpp__mod.html#ga09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=event_send)</div>
 <div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;<span class="keywordflow">          endif</span></div>
 <div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;          <span class="keyword">deallocate</span>(buf_r8_kind)</div>
 <div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;<span class="keywordflow">        class default</span></div>
@@ -938,7 +938,7 @@ $(document).ready(function(){initNavTree('domain__read_8inc_source.html',''); in
 <div class="line"><a name="l00842"></a><span class="lineno">  842</span>&#160;          <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00843"></a><span class="lineno">  843</span>&#160;            <span class="comment">!Send data to non-root ranks.</span></div>
 <div class="line"><a name="l00844"></a><span class="lineno">  844</span>&#160;            <span class="keyword">call </span>mpp_send(buf_i4_kind, <span class="keyword">size</span>(buf_i4_kind), fileobj%pelist(i))</div>
-<div class="line"><a name="l00845"></a><span class="lineno">  845</span>&#160;            <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=event_send)</div>
+<div class="line"><a name="l00845"></a><span class="lineno">  845</span>&#160;            <span class="keyword">call </span><a class="code" href="group__mpp__mod.html#ga09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=event_send)</div>
 <div class="line"><a name="l00846"></a><span class="lineno">  846</span>&#160;<span class="keywordflow">          endif</span></div>
 <div class="line"><a name="l00847"></a><span class="lineno">  847</span>&#160;          <span class="keyword">deallocate</span>(buf_i4_kind)</div>
 <div class="line"><a name="l00848"></a><span class="lineno">  848</span>&#160;<span class="keywordflow">        type is</span> (<span class="keywordtype">integer</span>(kind=i8_kind))</div>
@@ -961,7 +961,7 @@ $(document).ready(function(){initNavTree('domain__read_8inc_source.html',''); in
 <div class="line"><a name="l00865"></a><span class="lineno">  865</span>&#160;          <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00866"></a><span class="lineno">  866</span>&#160;            <span class="comment">!Send data to non-root ranks.</span></div>
 <div class="line"><a name="l00867"></a><span class="lineno">  867</span>&#160;            <span class="keyword">call </span>mpp_send(buf_i8_kind, <span class="keyword">size</span>(buf_i8_kind), fileobj%pelist(i))</div>
-<div class="line"><a name="l00868"></a><span class="lineno">  868</span>&#160;            <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=event_send)</div>
+<div class="line"><a name="l00868"></a><span class="lineno">  868</span>&#160;            <span class="keyword">call </span><a class="code" href="group__mpp__mod.html#ga09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=event_send)</div>
 <div class="line"><a name="l00869"></a><span class="lineno">  869</span>&#160;<span class="keywordflow">          endif</span></div>
 <div class="line"><a name="l00870"></a><span class="lineno">  870</span>&#160;          <span class="keyword">deallocate</span>(buf_i8_kind)</div>
 <div class="line"><a name="l00871"></a><span class="lineno">  871</span>&#160;<span class="keywordflow">        type is</span> (real(kind=r4_kind))</div>
@@ -984,7 +984,7 @@ $(document).ready(function(){initNavTree('domain__read_8inc_source.html',''); in
 <div class="line"><a name="l00888"></a><span class="lineno">  888</span>&#160;          <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00889"></a><span class="lineno">  889</span>&#160;            <span class="comment">!Send data to non-root ranks.</span></div>
 <div class="line"><a name="l00890"></a><span class="lineno">  890</span>&#160;            <span class="keyword">call </span>mpp_send(buf_r4_kind, <span class="keyword">size</span>(buf_r4_kind), fileobj%pelist(i))</div>
-<div class="line"><a name="l00891"></a><span class="lineno">  891</span>&#160;            <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=event_send)</div>
+<div class="line"><a name="l00891"></a><span class="lineno">  891</span>&#160;            <span class="keyword">call </span><a class="code" href="group__mpp__mod.html#ga09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=event_send)</div>
 <div class="line"><a name="l00892"></a><span class="lineno">  892</span>&#160;<span class="keywordflow">          endif</span></div>
 <div class="line"><a name="l00893"></a><span class="lineno">  893</span>&#160;          <span class="keyword">deallocate</span>(buf_r4_kind)</div>
 <div class="line"><a name="l00894"></a><span class="lineno">  894</span>&#160;<span class="keywordflow">        type is</span> (real(kind=r8_kind))</div>
@@ -1007,7 +1007,7 @@ $(document).ready(function(){initNavTree('domain__read_8inc_source.html',''); in
 <div class="line"><a name="l00911"></a><span class="lineno">  911</span>&#160;          <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00912"></a><span class="lineno">  912</span>&#160;            <span class="comment">!Send data to non-root ranks.</span></div>
 <div class="line"><a name="l00913"></a><span class="lineno">  913</span>&#160;            <span class="keyword">call </span>mpp_send(buf_r8_kind, <span class="keyword">size</span>(buf_r8_kind), fileobj%pelist(i))</div>
-<div class="line"><a name="l00914"></a><span class="lineno">  914</span>&#160;            <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=event_send)</div>
+<div class="line"><a name="l00914"></a><span class="lineno">  914</span>&#160;            <span class="keyword">call </span><a class="code" href="group__mpp__mod.html#ga09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=event_send)</div>
 <div class="line"><a name="l00915"></a><span class="lineno">  915</span>&#160;<span class="keywordflow">          endif</span></div>
 <div class="line"><a name="l00916"></a><span class="lineno">  916</span>&#160;          <span class="keyword">deallocate</span>(buf_r8_kind)</div>
 <div class="line"><a name="l00917"></a><span class="lineno">  917</span>&#160;<span class="keywordflow">        class default</span></div>
@@ -1055,13 +1055,13 @@ $(document).ready(function(){initNavTree('domain__read_8inc_source.html',''); in
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="agroup__fms2__io__mod_html_gaeeab4f13a263036f8e6e0eb539bd2106"><div class="ttname"><a href="group__fms2__io__mod.html#gaeeab4f13a263036f8e6e0eb539bd2106">domain_read_5d</a></div><div class="ttdeci">subroutine domain_read_5d(fileobj, variable_name, vdata, unlim_dim_level, corner, edge_lengths)</div><div class="ttdoc">I/O domain root reads in a domain decomposed variable at a specific unlimited dimension level and sca...</div><div class="ttdef"><b>Definition:</b> <a href="domain__read_8inc_source.html#l00746">domain_read.inc:746</a></div></div>
-<div class="ttc" id="ampp__util__mpi_8inc_html_a09e69243d8c67e6a6e6e4fd9e93d0870"><div class="ttname"><a href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a></div><div class="ttdeci">subroutine mpp_sync_self(pelist, check, request, msg_size, msg_type)</div><div class="ttdoc">This is to check if current PE's outstanding puts are complete but we can't use shmem_fence because w...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util__mpi_8inc_source.html#l00169">mpp_util_mpi.inc:169</a></div></div>
 <div class="ttc" id="agroup__fms2__io__mod_html_gae23552b57e4f58bd3ed938dd0f967fe7"><div class="ttname"><a href="group__fms2__io__mod.html#gae23552b57e4f58bd3ed938dd0f967fe7">domain_read_4d</a></div><div class="ttdeci">subroutine domain_read_4d(fileobj, variable_name, vdata, unlim_dim_level, corner, edge_lengths)</div><div class="ttdoc">I/O domain root reads in a domain decomposed variable at a specific unlimited dimension level and sca...</div><div class="ttdef"><b>Definition:</b> <a href="domain__read_8inc_source.html#l00527">domain_read.inc:527</a></div></div>
 <div class="ttc" id="agroup__mpp__domains__mod_html_gabcba009e302f270f0a98d9ed954e1fa8"><div class="ttname"><a href="group__mpp__domains__mod.html#gabcba009e302f270f0a98d9ed954e1fa8">mpp_get_io_domain</a></div><div class="ttdeci">type(domain2d) function, pointer mpp_get_io_domain(domain)</div><div class="ttdoc">Set user stack size.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__util_8inc_source.html#l00681">mpp_domains_util.inc:681</a></div></div>
 <div class="ttc" id="agroup__fms2__io__mod_html_gab23fa1f4760ccdf384890c293e187854"><div class="ttname"><a href="group__fms2__io__mod.html#gab23fa1f4760ccdf384890c293e187854">domain_read_1d</a></div><div class="ttdeci">subroutine domain_read_1d(fileobj, variable_name, vdata, unlim_dim_level, corner, edge_lengths)</div><div class="ttdoc">I/O domain root reads in a domain decomposed variable at a specific unlimited dimension level and sca...</div><div class="ttdef"><b>Definition:</b> <a href="domain__read_8inc_source.html#l00058">domain_read.inc:58</a></div></div>
 <div class="ttc" id="agroup__fms2__io__mod_html_ga2b3ace3c8197fe3c10c4542d22eb3e52"><div class="ttname"><a href="group__fms2__io__mod.html#ga2b3ace3c8197fe3c10c4542d22eb3e52">domain_read_0d</a></div><div class="ttdeci">subroutine domain_read_0d(fileobj, variable_name, vdata, unlim_dim_level, corner)</div><div class="ttdoc">I/O domain root reads in a domain decomposed variable at a specific unlimited dimension level and sca...</div><div class="ttdef"><b>Definition:</b> <a href="domain__read_8inc_source.html#l00031">domain_read.inc:31</a></div></div>
 <div class="ttc" id="agroup__fms2__io__mod_html_gadfb3990c47a612b195c65935e374dd87"><div class="ttname"><a href="group__fms2__io__mod.html#gadfb3990c47a612b195c65935e374dd87">domain_read_2d</a></div><div class="ttdeci">subroutine domain_read_2d(fileobj, variable_name, vdata, unlim_dim_level, corner, edge_lengths)</div><div class="ttdoc">I/O domain root reads in a domain decomposed variable at a specific unlimited dimension level and sca...</div><div class="ttdef"><b>Definition:</b> <a href="domain__read_8inc_source.html#l00089">domain_read.inc:89</a></div></div>
 <div class="ttc" id="agroup__fms2__io__mod_html_gaa00033fd60c5e3fc2a21d77e9de60c5e"><div class="ttname"><a href="group__fms2__io__mod.html#gaa00033fd60c5e3fc2a21d77e9de60c5e">domain_read_3d</a></div><div class="ttdeci">subroutine domain_read_3d(fileobj, variable_name, vdata, unlim_dim_level, corner, edge_lengths)</div><div class="ttdoc">I/O domain root reads in a domain decomposed variable at a specific unlimited dimension level and sca...</div><div class="ttdef"><b>Definition:</b> <a href="domain__read_8inc_source.html#l00308">domain_read.inc:308</a></div></div>
+<div class="ttc" id="agroup__mpp__mod_html_ga09e69243d8c67e6a6e6e4fd9e93d0870"><div class="ttname"><a href="group__mpp__mod.html#ga09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a></div><div class="ttdeci">subroutine mpp_sync_self(pelist, check, request, msg_size, msg_type)</div><div class="ttdoc">This is to check if current PE's outstanding puts are complete but we can't use shmem_fence because w...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util__mpi_8inc_source.html#l00171">mpp_util_mpi.inc:171</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

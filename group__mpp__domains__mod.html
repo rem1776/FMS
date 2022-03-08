@@ -108,12 +108,6 @@ Files</h2></td></tr>
 <tr class="memitem:mpp__domains_8F90"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mpp__domains_8F90.html">mpp_domains.F90</a></td></tr>
 <tr class="memdesc:mpp__domains_8F90"><td class="mdescLeft">&#160;</td><td class="mdescRight">File for <a class="el" href="group__mpp__domains__mod.html">mpp_domains_mod</a>. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:mpp__domains__reduce_8inc"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mpp__domains__reduce_8inc.html">mpp_domains_reduce.inc</a></td></tr>
-<tr class="memdesc:mpp__domains__reduce_8inc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Routines for calculating data from distributed arrays. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:mpp__unstruct__domain_8inc"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mpp__unstruct__domain_8inc.html">mpp_unstruct_domain.inc</a></td></tr>
-<tr class="memdesc:mpp__unstruct__domain_8inc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Routines for defining and managing unstructured grids. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Types</h2></td></tr>
@@ -247,7 +241,7 @@ Example usage:  <a href="interfacempp__domains__mod_1_1mpp__get__memory__domain.
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve PE number of a neighboring domain.  <a href="interfacempp__domains__mod_1_1mpp__get__neighbor__pe.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacempp__domains__mod_1_1mpp__get__pelist.html">mpp_get_pelist</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve list of PEs associated with a domain decomposition. The 1D version of this call returns an array of the PEs assigned to this 1D domain decomposition. In addition the optional argument pos may be used to retrieve the 0-based position of the domain local to the calling PE, i.e., <code> domain%list(pos)%pe</code> is the local PE, as returned by <a class="el" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe()</a>. The 2D version of this call is identical to 1D version.  <a href="interfacempp__domains__mod_1_1mpp__get__pelist.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve list of PEs associated with a domain decomposition. The 1D version of this call returns an array of the PEs assigned to this 1D domain decomposition. In addition the optional argument pos may be used to retrieve the 0-based position of the domain local to the calling PE, i.e., <code> domain%list(pos)%pe</code> is the local PE, as returned by <a class="el" href="group__mpp__mod.html#gacfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe()</a>. The 2D version of this call is identical to 1D version.  <a href="interfacempp__domains__mod_1_1mpp__get__pelist.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacempp__domains__mod_1_1mpp__global__field.html">mpp_global_field</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill in a global array from domain-decomposed arrays.<br  />
@@ -417,6 +411,12 @@ subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>compute_overlap
 subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mpp__domains__mod.html#ga6d1123c2620ae9f8f735a92c7d20e550">compute_overlap_fine_to_coarse</a> (nest_domain, overlap, position, name)</td></tr>
 <tr class="memdesc:ga6d1123c2620ae9f8f735a92c7d20e550"><td class="mdescLeft">&#160;</td><td class="mdescRight">This routine will compute the send and recv information between overlapped nesting region. The data is assumed on T-cell center. <br /></td></tr>
 <tr class="separator:ga6d1123c2620ae9f8f735a92c7d20e550"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga21b5db6c902b8acbc6f1ae4b0faff1de"><td class="memItemLeft" align="right" valign="top"><a id="ga21b5db6c902b8acbc6f1ae4b0faff1de"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>compute_overlap_sg2ug</b> (UG_domain, SG_domain)</td></tr>
+<tr class="separator:ga21b5db6c902b8acbc6f1ae4b0faff1de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaad204a692d5571dac4a047f88a9c8e0c"><td class="memItemLeft" align="right" valign="top"><a id="gaad204a692d5571dac4a047f88a9c8e0c"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>compute_overlap_ug2sg</b> (UG_domain)</td></tr>
+<tr class="separator:gaad204a692d5571dac4a047f88a9c8e0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gabdd30a6e8f8de565e5e3f98eb0fed1fe"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mpp__domains__mod.html#gabdd30a6e8f8de565e5e3f98eb0fed1fe">compute_overlaps</a> (domain, position, update, check, ishift, jshift, x_cyclic_offset, y_cyclic_offset, whalo, ehalo, shalo, nhalo)</td></tr>
 <tr class="memdesc:gabdd30a6e8f8de565e5e3f98eb0fed1fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes remote domain overlaps.  <a href="group__mpp__domains__mod.html#gabdd30a6e8f8de565e5e3f98eb0fed1fe">More...</a><br /></td></tr>
 <tr class="separator:gabdd30a6e8f8de565e5e3f98eb0fed1fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -457,6 +457,12 @@ subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>deallocate_over
 <tr class="memitem:gaec0eca0ab268f072bf76f915c2d2cb57"><td class="memItemLeft" align="right" valign="top"><a id="gaec0eca0ab268f072bf76f915c2d2cb57"></a>
 subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>deallocate_overlapspec</b> (overlap)</td></tr>
 <tr class="separator:gaec0eca0ab268f072bf76f915c2d2cb57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga437be4c843c4b3c8ca785acb3e029f86"><td class="memItemLeft" align="right" valign="top"><a id="ga437be4c843c4b3c8ca785acb3e029f86"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>deallocate_unstruct_overlap_type</b> (overlap)</td></tr>
+<tr class="separator:ga437be4c843c4b3c8ca785acb3e029f86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1fd03cda7c8007733a81bc9a844540ea"><td class="memItemLeft" align="right" valign="top"><a id="ga1fd03cda7c8007733a81bc9a844540ea"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>deallocate_unstruct_pass_type</b> (domain)</td></tr>
+<tr class="separator:ga1fd03cda7c8007733a81bc9a844540ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga833017ffd0348e469abcaac5d57cf0c7"><td class="memItemLeft" align="right" valign="top"><a id="ga833017ffd0348e469abcaac5d57cf0c7"></a>
 subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>debug_message_size</b> (overlap, name)</td></tr>
 <tr class="separator:ga833017ffd0348e469abcaac5d57cf0c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -546,6 +552,10 @@ subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>insert_overlap_
 <tr class="memitem:ga67ac73d0c1ff734da2318262c66ac0a1"><td class="memItemLeft" align="right" valign="top"><a id="ga67ac73d0c1ff734da2318262c66ac0a1"></a>
 subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>insert_update_overlap</b> (overlap, pe, is1, ie1, js1, je1, is2, ie2, js2, je2, dir, reverse, symmetry)</td></tr>
 <tr class="separator:ga67ac73d0c1ff734da2318262c66ac0a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga853f0210a8fcbff66db6f72496064a96"><td class="memItemLeft" align="right" valign="top"><a id="ga853f0210a8fcbff66db6f72496064a96"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mpp__domains__mod.html#ga853f0210a8fcbff66db6f72496064a96">mpp_broadcast_domain_ug</a> (domain)</td></tr>
+<tr class="memdesc:ga853f0210a8fcbff66db6f72496064a96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Broadcast domain (useful only outside the context of its own pelist) <br /></td></tr>
+<tr class="separator:ga853f0210a8fcbff66db6f72496064a96"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gab9e995624a9441820a56f2b7f3a3b7d7"><td class="memItemLeft" align="right" valign="top"><a id="gab9e995624a9441820a56f2b7f3a3b7d7"></a>
 subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mpp__domains__mod.html#gab9e995624a9441820a56f2b7f3a3b7d7">mpp_compute_block_extent</a> (isg, ieg, ndivs, ibegin, iend)</td></tr>
 <tr class="memdesc:gab9e995624a9441820a56f2b7f3a3b7d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the extents of a grid block. <br /></td></tr>
@@ -560,6 +570,8 @@ subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_deallocate_
 <tr class="memitem:ga10da1350928a61eba55ddf09fbeb2f79"><td class="memItemLeft" align="right" valign="top"><a id="ga10da1350928a61eba55ddf09fbeb2f79"></a>
 subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_deallocate_domain2d</b> (domain)</td></tr>
 <tr class="separator:ga10da1350928a61eba55ddf09fbeb2f79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf83c340ad3edc1f0e989504efb3b4094"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mpp__domains__mod.html#gaf83c340ad3edc1f0e989504efb3b4094">mpp_deallocate_domainug</a> (domain)</td></tr>
+<tr class="separator:gaf83c340ad3edc1f0e989504efb3b4094"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga5ef8586c1cb432309203faa1723d1e8e"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mpp__domains__mod.html#ga5ef8586c1cb432309203faa1723d1e8e">mpp_define_domains1d</a> (global_indices, ndivs, domain, pelist, flags, halo, extent, maskmap, memory_size, begin_halo, end_halo)</td></tr>
 <tr class="memdesc:ga5ef8586c1cb432309203faa1723d1e8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define data and computational domains on a 1D set of data (isg:ieg) and assign them to PEs.  <a href="group__mpp__domains__mod.html#ga5ef8586c1cb432309203faa1723d1e8e">More...</a><br /></td></tr>
 <tr class="separator:ga5ef8586c1cb432309203faa1723d1e8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -586,6 +598,30 @@ subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_define_null
 <tr class="memitem:ga3677c3775d9385051dadc43ee53bb01b"><td class="memItemLeft" align="right" valign="top"><a id="ga3677c3775d9385051dadc43ee53bb01b"></a>
 subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_define_null_domain2d</b> (domain)</td></tr>
 <tr class="separator:ga3677c3775d9385051dadc43ee53bb01b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga64854f480d2b80fc8a37e60e0264da4c"><td class="memItemLeft" align="right" valign="top"><a id="ga64854f480d2b80fc8a37e60e0264da4c"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_define_null_ug_domain</b> (domain)</td></tr>
+<tr class="separator:ga64854f480d2b80fc8a37e60e0264da4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0dc077caf4660cca3b0971fb5fa71f8c"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mpp__domains__mod.html#ga0dc077caf4660cca3b0971fb5fa71f8c">mpp_define_unstruct_domain</a> (UG_domain, SG_domain, npts_tile, grid_nlev, ndivs, npes_io_group, grid_index, name)</td></tr>
+<tr class="separator:ga0dc077caf4660cca3b0971fb5fa71f8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad95ffaeca9ebb27e820139429b168da2"><td class="memItemLeft" align="right" valign="top"><a id="gad95ffaeca9ebb27e820139429b168da2"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mpp__domains__mod.html#gad95ffaeca9ebb27e820139429b168da2">mpp_do_check_3d_</a> (f_addrs, domain, check, d_type, ke, flags, name)</td></tr>
+<tr class="memdesc:gad95ffaeca9ebb27e820139429b168da2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates data domain of 3D field whose computational domains have been computed. <br /></td></tr>
+<tr class="separator:gad95ffaeca9ebb27e820139429b168da2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3b5ff89c84d80659f19798a994d0dbe7"><td class="memItemLeft" align="right" valign="top"><a id="ga3b5ff89c84d80659f19798a994d0dbe7"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mpp__domains__mod.html#ga3b5ff89c84d80659f19798a994d0dbe7">mpp_do_check_3d_v_</a> (f_addrsx, f_addrsy, domain, check_x, check_y, d_type, ke, flags, name)</td></tr>
+<tr class="memdesc:ga3b5ff89c84d80659f19798a994d0dbe7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates data domain of 3D field whose computational domains have been computed. <br /></td></tr>
+<tr class="separator:ga3b5ff89c84d80659f19798a994d0dbe7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf8b369ade7af3f40b2b58fb5a6d9dee5"><td class="memItemLeft" align="right" valign="top"><a id="gaf8b369ade7af3f40b2b58fb5a6d9dee5"></a>
+logical(l8_kind) function&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_domain_ug_is_tile_root_pe</b> (domain)</td></tr>
+<tr class="separator:gaf8b369ade7af3f40b2b58fb5a6d9dee5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf17c52b0ad4e4bdbddc56b67e18c9a64"><td class="memItemLeft" align="right" valign="top"><a id="gaf17c52b0ad4e4bdbddc56b67e18c9a64"></a>
+logical function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mpp__domains__mod.html#gaf17c52b0ad4e4bdbddc56b67e18c9a64">mpp_domainug_eq</a> (a, b)</td></tr>
+<tr class="memdesc:gaf17c52b0ad4e4bdbddc56b67e18c9a64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload the .eq. for UG. <br /></td></tr>
+<tr class="separator:gaf17c52b0ad4e4bdbddc56b67e18c9a64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga134f4e34feb58ecdc6a94c59677ef37d"><td class="memItemLeft" align="right" valign="top"><a id="ga134f4e34feb58ecdc6a94c59677ef37d"></a>
+logical function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mpp__domains__mod.html#ga134f4e34feb58ecdc6a94c59677ef37d">mpp_domainug_ne</a> (a, b)</td></tr>
+<tr class="memdesc:ga134f4e34feb58ecdc6a94c59677ef37d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload the .ne. for UG. <br /></td></tr>
+<tr class="separator:ga134f4e34feb58ecdc6a94c59677ef37d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gadb0ae97e2b863b058f17161d2079e31a"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mpp__domains__mod.html#gadb0ae97e2b863b058f17161d2079e31a">mpp_get_c2f_index</a> (nest_domain, is_fine, ie_fine, js_fine, je_fine, is_coarse, ie_coarse, js_coarse, je_coarse, dir, nest_level, position)</td></tr>
 <tr class="memdesc:gadb0ae97e2b863b058f17161d2079e31a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the index of the data passed from coarse grid to fine grid.  <a href="group__mpp__domains__mod.html#gadb0ae97e2b863b058f17161d2079e31a">More...</a><br /></td></tr>
 <tr class="separator:gadb0ae97e2b863b058f17161d2079e31a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -593,6 +629,9 @@ subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_define_null
 <tr class="separator:ga7bcb8fc6940cccd862f1ca83ccf5e08a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gab7e7e7f060ef35d98de059c7e0e94be5"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mpp__domains__mod.html#gab7e7e7f060ef35d98de059c7e0e94be5">mpp_get_f2c_index_fine</a> (nest_domain, is_coarse, ie_coarse, js_coarse, je_coarse, is_fine, ie_fine, js_fine, je_fine, nest_level, position)</td></tr>
 <tr class="separator:gab7e7e7f060ef35d98de059c7e0e94be5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa84a63a538757e54bb3ff70cba095c8c"><td class="memItemLeft" align="right" valign="top"><a id="gaa84a63a538757e54bb3ff70cba095c8c"></a>
+integer(i4_kind) function&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_get_io_domain_ug_layout</b> (domain)</td></tr>
+<tr class="separator:gaa84a63a538757e54bb3ff70cba095c8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga14bf32a463605a6f08c55eb3107519ca"><td class="memItemLeft" align="right" valign="top"><a id="ga14bf32a463605a6f08c55eb3107519ca"></a>
 type(domain2d) function, pointer&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_get_nest_coarse_domain</b> (nest_domain, nest_level)</td></tr>
 <tr class="separator:ga14bf32a463605a6f08c55eb3107519ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -611,6 +650,45 @@ integer function&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_get_n
 <tr class="memitem:ga1007fd8e04e6b6d480d27e35c60ad030"><td class="memItemLeft" align="right" valign="top"><a id="ga1007fd8e04e6b6d480d27e35c60ad030"></a>
 subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_get_nest_pelist</b> (nest_domain, nest_level, pelist)</td></tr>
 <tr class="separator:ga1007fd8e04e6b6d480d27e35c60ad030"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadc61a22ed7e7f3bcdfd26fbed64d404e"><td class="memItemLeft" align="right" valign="top"><a id="gadc61a22ed7e7f3bcdfd26fbed64d404e"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_get_ug_compute_domain</b> (domain, begin, end, size)</td></tr>
+<tr class="separator:gadc61a22ed7e7f3bcdfd26fbed64d404e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa5834c9d9d65ba66ca52163a40bda718"><td class="memItemLeft" align="right" valign="top"><a id="gaa5834c9d9d65ba66ca52163a40bda718"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_get_ug_compute_domains</b> (domain, begin, end, size)</td></tr>
+<tr class="separator:gaa5834c9d9d65ba66ca52163a40bda718"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaae78a268905fad1a10b0c1415479b102"><td class="memItemLeft" align="right" valign="top"><a id="gaae78a268905fad1a10b0c1415479b102"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_get_ug_domain_grid_index</b> (domain, grid_index)</td></tr>
+<tr class="separator:gaae78a268905fad1a10b0c1415479b102"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacd0cf24cd4f9fa96d1bc3b5b34de3209"><td class="memItemLeft" align="right" valign="top"><a id="gacd0cf24cd4f9fa96d1bc3b5b34de3209"></a>
+integer function&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_get_ug_domain_npes</b> (domain)</td></tr>
+<tr class="separator:gacd0cf24cd4f9fa96d1bc3b5b34de3209"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf12891317ee2cc88291cb78260a2dc53"><td class="memItemLeft" align="right" valign="top"><a id="gaf12891317ee2cc88291cb78260a2dc53"></a>
+integer function&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_get_ug_domain_ntiles</b> (domain)</td></tr>
+<tr class="separator:gaf12891317ee2cc88291cb78260a2dc53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaac7415e079bcd2dd3189a1d491760c09"><td class="memItemLeft" align="right" valign="top"><a id="gaac7415e079bcd2dd3189a1d491760c09"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_get_ug_domain_pelist</b> (domain, pelist)</td></tr>
+<tr class="separator:gaac7415e079bcd2dd3189a1d491760c09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa559e9914048018cf1169f13c14c46e1"><td class="memItemLeft" align="right" valign="top"><a id="gaa559e9914048018cf1169f13c14c46e1"></a>
+integer function&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_get_ug_domain_tile_id</b> (domain)</td></tr>
+<tr class="separator:gaa559e9914048018cf1169f13c14c46e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga698dfea70cdae9925ceeb0382022c5f9"><td class="memItemLeft" align="right" valign="top"><a id="ga698dfea70cdae9925ceeb0382022c5f9"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_get_ug_domain_tile_list</b> (domain, tiles)</td></tr>
+<tr class="separator:ga698dfea70cdae9925ceeb0382022c5f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad41975b904562723a63030945d503af0"><td class="memItemLeft" align="right" valign="top"><a id="gad41975b904562723a63030945d503af0"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_get_ug_domain_tile_pe_inf</b> (domain, root_pe, npes, pelist)</td></tr>
+<tr class="separator:gad41975b904562723a63030945d503af0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2e74fe0818f8deade6d461dab3993e6e"><td class="memItemLeft" align="right" valign="top"><a id="ga2e74fe0818f8deade6d461dab3993e6e"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_get_ug_domains_index</b> (domain, begin, end)</td></tr>
+<tr class="separator:ga2e74fe0818f8deade6d461dab3993e6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf1ac434e7aad8a14abe14a5b24ca0645"><td class="memItemLeft" align="right" valign="top"><a id="gaf1ac434e7aad8a14abe14a5b24ca0645"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_get_ug_global_domain</b> (domain, begin, end, size)</td></tr>
+<tr class="separator:gaf1ac434e7aad8a14abe14a5b24ca0645"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gada9ee2b9baf94ec5c97fbb576f9eaa90"><td class="memItemLeft" align="right" valign="top"><a id="gada9ee2b9baf94ec5c97fbb576f9eaa90"></a>
+type(domainug) function, pointer&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_get_ug_io_domain</b> (domain)</td></tr>
+<tr class="separator:gada9ee2b9baf94ec5c97fbb576f9eaa90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab136bbe29107bbe768beb21a9a24325e"><td class="memItemLeft" align="right" valign="top"><a id="gab136bbe29107bbe768beb21a9a24325e"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_get_ug_sg_domain</b> (UG_domain, SG_domain)</td></tr>
+<tr class="separator:gab136bbe29107bbe768beb21a9a24325e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaa37abd2546375cbfeeeaa6cc923518cf"><td class="memItemLeft" align="right" valign="top"><a id="gaa37abd2546375cbfeeeaa6cc923518cf"></a>
 subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_global_field_free_comm</b> (domain, l_addr, ksize, l_addr2, flags)</td></tr>
 <tr class="separator:gaa37abd2546375cbfeeeaa6cc923518cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -2454,6 +2532,32 @@ subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href
 
 </div>
 </div>
+<a id="gaf83c340ad3edc1f0e989504efb3b4094"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf83c340ad3edc1f0e989504efb3b4094">&#9670;&nbsp;</a></span>mpp_deallocate_domainug()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine mpp_deallocate_domainug </td>
+          <td>(</td>
+          <td class="paramtype">type(domainug), intent(inout)&#160;</td>
+          <td class="paramname"><em>domain</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">domain</td><td>Local variables </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="mpp__unstruct__domain_8inc_source.html#l00722">722</a> of file <a class="el" href="mpp__unstruct__domain_8inc_source.html">mpp_unstruct_domain.inc</a>.</p>
+
+</div>
+</div>
 <a id="ga5ef8586c1cb432309203faa1723d1e8e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga5ef8586c1cb432309203faa1723d1e8e">&#9670;&nbsp;</a></span>mpp_define_domains1d()</h2>
 
@@ -3255,6 +3359,80 @@ subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href
 <div class="line">@param [in] name name of the nest domain</div>
 </div><!-- fragment -->
 <p class="definition">Definition at line <a class="el" href="mpp__define__nest__domains_8inc_source.html#l00096">96</a> of file <a class="el" href="mpp__define__nest__domains_8inc_source.html">mpp_define_nest_domains.inc</a>.</p>
+
+</div>
+</div>
+<a id="ga0dc077caf4660cca3b0971fb5fa71f8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0dc077caf4660cca3b0971fb5fa71f8c">&#9670;&nbsp;</a></span>mpp_define_unstruct_domain()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine mpp_define_unstruct_domain </td>
+          <td>(</td>
+          <td class="paramtype">type(domainug), intent(inout)&#160;</td>
+          <td class="paramname"><em>UG_domain</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(domain2d), intent(in), target&#160;</td>
+          <td class="paramname"><em>SG_domain</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(:), intent(in)&#160;</td>
+          <td class="paramname"><em>npts_tile</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(:), intent(in)&#160;</td>
+          <td class="paramname"><em>grid_nlev</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)&#160;</td>
+          <td class="paramname"><em>ndivs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)&#160;</td>
+          <td class="paramname"><em>npes_io_group</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(:), intent(in)&#160;</td>
+          <td class="paramname"><em>grid_index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in), optional&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">npts_tile</td><td>number of unstructured points on each tile</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">grid_nlev</td><td>number of levels in each unstructured grid.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">npes_io_group</td><td>number of processors in a io group. Only pe with same tile_id in the same group </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="mpp__unstruct__domain_8inc_source.html#l00026">26</a> of file <a class="el" href="mpp__unstruct__domain_8inc_source.html">mpp_unstruct_domain.inc</a>.</p>
 
 </div>
 </div>

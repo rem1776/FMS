@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>FMS: mpp/include/mpp_read_compressed.h (62e6b2ab49bb4adc780bd635b6fe57efa48ac9d1) Source File</title>
+<title>FMS: mpp/include/mpp_read_compressed.h (696939b8e1cbab0c58b65c977d40468515410f22) Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -163,19 +163,19 @@ $(document).ready(function(){initNavTree('mpp__read__compressed_8h_source.html',
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keyword">allocate</span>(pelist(npes))</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keyword">call </span>mpp_get_pelist(io_domain,pelist)</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordflow">if</span>(<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == pelist(1)) <span class="keyword">call </span>read_record_(unit,field,<span class="keyword">size</span>(<span class="keyword">data</span>(:,:)),<span class="keyword">data</span>,tindex,start_in=start, axsiz_in=nread)</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordflow">if</span>(<a class="code" href="group__mpp__mod.html#gacfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == pelist(1)) <span class="keyword">call </span>read_record_(unit,field,<span class="keyword">size</span>(<span class="keyword">data</span>(:,:)),<span class="keyword">data</span>,tindex,start_in=start, axsiz_in=nread)</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="comment">!--- z1l replace mpp_broadcast with mpp_send/mpp_recv to avoid hang in calling MPI_COMM_CREATE</span></div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="comment">!---     because size(pelist) might be different for different rank.</span></div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="comment">!--- prepost receive</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordflow">if</span>( <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == pelist(1) ) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordflow">if</span>( <a class="code" href="group__mpp__mod.html#gacfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == pelist(1) ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;          <span class="keywordflow">do</span> p = 2, npes</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            <span class="keyword">call </span>mpp_send(<span class="keyword">data</span>(1,1), plen=<span class="keyword">size</span>(<span class="keyword">data</span>(:,:)), to_pe=pelist(p), tag=comm_tag_1)</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keywordflow">          enddo</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;          <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>()</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;          <span class="keyword">call </span><a class="code" href="group__mpp__mod.html#ga09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>()</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;          <span class="keyword">call </span>mpp_recv(<span class="keyword">data</span>(1,1), glen=<span class="keyword">size</span>(<span class="keyword">data</span>(:,:)), from_pe=pelist(1), block=.false., tag=comm_tag_1)</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;          <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=event_recv)</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;          <span class="keyword">call </span><a class="code" href="group__mpp__mod.html#ga09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=event_recv)</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="keywordflow">        endif</span></div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="keyword">deallocate</span>(pelist)</div>
@@ -204,7 +204,7 @@ $(document).ready(function(){initNavTree('mpp__read__compressed_8h_source.html',
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="preprocessor"></span>      <span class="comment">!!compare</span></div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;         <span class="keywordflow">if</span> ( print_compressed_chksum) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            <span class="keywordflow">if</span> ( <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe() ) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            <span class="keywordflow">if</span> ( <a class="code" href="group__mpp__mod.html#gacfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe() ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;               print <span class="stringliteral">&#39;(A,Z16)&#39;</span>, <span class="stringliteral">&quot;mpp_read_compressed_2d chksum: &quot;</span>//trim(field%name)//<span class="stringliteral">&quot; = &quot;</span>, chk</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;               <span class="comment">!! discuss making fatal after testing/review to match other routines.</span></div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;               <span class="comment">!! Need to do some nword-counting and digging with pjp</span></div>
@@ -256,19 +256,19 @@ $(document).ready(function(){initNavTree('mpp__read__compressed_8h_source.html',
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;         <span class="keyword">allocate</span>(pelist(npes))</div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;         <span class="keyword">call </span>mpp_get_pelist(io_domain,pelist)</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;         <span class="keywordflow">if</span>(<a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == pelist(1)) <span class="keyword">call </span>read_record_(unit,field,<span class="keyword">size</span>(<span class="keyword">data</span>(:,:,:)),<span class="keyword">data</span>,tindex,start_in=start, axsiz_in=nread)</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;         <span class="keywordflow">if</span>(<a class="code" href="group__mpp__mod.html#gacfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == pelist(1)) <span class="keyword">call </span>read_record_(unit,field,<span class="keyword">size</span>(<span class="keyword">data</span>(:,:,:)),<span class="keyword">data</span>,tindex,start_in=start, axsiz_in=nread)</div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; </div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;         <span class="comment">!--- z1l replace mpp_broadcast with mpp_send/mpp_recv to avoid hang in calling MPI_COMM_CREATE</span></div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;         <span class="comment">!---  because size(pelist) might be different for different rank.</span></div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;         <span class="comment">!--- prepost receive</span></div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;         <span class="keywordflow">if</span>( <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == pelist(1) ) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;         <span class="keywordflow">if</span>( <a class="code" href="group__mpp__mod.html#gacfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == pelist(1) ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;            <span class="keywordflow">do</span> p = 2, npes</div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;               <span class="keyword">call </span>mpp_send(<span class="keyword">data</span>(1,1,1), plen=<span class="keyword">size</span>(<span class="keyword">data</span>(:,:,:)), to_pe=pelist(p), tag=comm_tag_1)</div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="keywordflow">            enddo</span></div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;            <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>()</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;            <span class="keyword">call </span><a class="code" href="group__mpp__mod.html#ga09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>()</div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;         <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;            <span class="keyword">call </span>mpp_recv(<span class="keyword">data</span>(1,1,1), glen=<span class="keyword">size</span>(<span class="keyword">data</span>(:,:,:)), from_pe=pelist(1), block=.false., tag=comm_tag_1)</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;            <span class="keyword">call </span><a class="code" href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=event_recv)</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;            <span class="keyword">call </span><a class="code" href="group__mpp__mod.html#ga09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>(check=event_recv)</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="keywordflow">         endif</span></div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160; </div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;         <span class="keyword">deallocate</span>(pelist)</div>
@@ -296,7 +296,7 @@ $(document).ready(function(){initNavTree('mpp__read__compressed_8h_source.html',
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="preprocessor"></span>      <span class="comment">!!compare</span></div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;         <span class="keywordflow">if</span> ( print_compressed_chksum) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;            <span class="keywordflow">if</span> ( <a class="code" href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe() ) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;            <span class="keywordflow">if</span> ( <a class="code" href="group__mpp__mod.html#gacfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>() == mpp_root_pe() ) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;               print <span class="stringliteral">&#39;(A,Z16)&#39;</span>, <span class="stringliteral">&quot;mpp_read_compressed_3d chksum: &quot;</span>//trim(field%name)//<span class="stringliteral">&quot; = &quot;</span>, chk</div>
 <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;               <span class="comment">!! discuss making fatal after testing/review to match other routines.</span></div>
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;               <span class="comment">!! Need to do some nword-counting and digging with pjp</span></div>
@@ -314,10 +314,10 @@ $(document).ready(function(){initNavTree('mpp__read__compressed_8h_source.html',
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    <span class="keyword">end subroutine </span>mpp_read_compressed_3d_</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="ampp__util__mpi_8inc_html_a09e69243d8c67e6a6e6e4fd9e93d0870"><div class="ttname"><a href="mpp__util__mpi_8inc.html#a09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a></div><div class="ttdeci">subroutine mpp_sync_self(pelist, check, request, msg_size, msg_type)</div><div class="ttdoc">This is to check if current PE's outstanding puts are complete but we can't use shmem_fence because w...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util__mpi_8inc_source.html#l00169">mpp_util_mpi.inc:169</a></div></div>
 <div class="ttc" id="agroup__mpp__domains__mod_html_gabcba009e302f270f0a98d9ed954e1fa8"><div class="ttname"><a href="group__mpp__domains__mod.html#gabcba009e302f270f0a98d9ed954e1fa8">mpp_get_io_domain</a></div><div class="ttdeci">type(domain2d) function, pointer mpp_get_io_domain(domain)</div><div class="ttdoc">Set user stack size.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__util_8inc_source.html#l00681">mpp_domains_util.inc:681</a></div></div>
 <div class="ttc" id="agroup__mpp__domains__mod_html_ga09fbb8f89b22dd340da2af872292e723"><div class="ttname"><a href="group__mpp__domains__mod.html#ga09fbb8f89b22dd340da2af872292e723">mpp_get_domain_npes</a></div><div class="ttdeci">integer function mpp_get_domain_npes(domain)</div><div class="ttdoc">Set user stack size.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__util_8inc_source.html#l01427">mpp_domains_util.inc:1427</a></div></div>
-<div class="ttc" id="ampp__util_8inc_html_acfeba7de56f9dd6000b3fd78f9d56c50"><div class="ttname"><a href="mpp__util_8inc.html#acfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a></div><div class="ttdeci">integer function mpp_pe()</div><div class="ttdoc">Returns processor ID.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00376">mpp_util.inc:376</a></div></div>
+<div class="ttc" id="agroup__mpp__mod_html_gacfeba7de56f9dd6000b3fd78f9d56c50"><div class="ttname"><a href="group__mpp__mod.html#gacfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a></div><div class="ttdeci">integer function mpp_pe()</div><div class="ttdoc">Returns processor ID.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00378">mpp_util.inc:378</a></div></div>
+<div class="ttc" id="agroup__mpp__mod_html_ga09e69243d8c67e6a6e6e4fd9e93d0870"><div class="ttname"><a href="group__mpp__mod.html#ga09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a></div><div class="ttdeci">subroutine mpp_sync_self(pelist, check, request, msg_size, msg_type)</div><div class="ttdoc">This is to check if current PE's outstanding puts are complete but we can't use shmem_fence because w...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util__mpi_8inc_source.html#l00171">mpp_util_mpi.inc:171</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
