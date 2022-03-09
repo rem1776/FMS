@@ -1,16 +1,16 @@
 var group__mpp__pset__mod =
 [
-    [ "mpp_pset_broadcast_ptr", "interfacempp__pset__mod_1_1mpp__pset__broadcast__ptr.html", [
+    [ "mpp_pset_broadcast_ptr", "group__mpp__pset__mod.html#interfacempp__pset__mod_1_1mpp__pset__broadcast__ptr", [
       [ "mpp_pset_broadcast_ptr_array", "group__mpp__pset__mod.html#ga6435da97c0d186839674ec29083774eb", null ],
       [ "mpp_pset_broadcast_ptr_scalar", "group__mpp__pset__mod.html#ga514b2414b34a84f713f837b99aaa9c83", null ]
     ] ],
-    [ "mpp_pset_print_chksum", "interfacempp__pset__mod_1_1mpp__pset__print__chksum.html", [
+    [ "mpp_pset_print_chksum", "group__mpp__pset__mod.html#interfacempp__pset__mod_1_1mpp__pset__print__chksum", [
       [ "mpp_pset_print_chksum_1d", "group__mpp__pset__mod.html#ga49bda5d7454d127c72774667a72ef7b2", null ],
       [ "mpp_pset_print_chksum_2d", "group__mpp__pset__mod.html#gadf1af3a0e4a772f98a3163251d50f22f", null ],
       [ "mpp_pset_print_chksum_3d", "group__mpp__pset__mod.html#gae8a06fceed50699c4d3b3764fc79acdf", null ],
       [ "mpp_pset_print_chksum_4d", "group__mpp__pset__mod.html#gab41e7a28aeee17c7e0c5b72ae08e5919", null ]
     ] ],
-    [ "mpp_pset_type", "structmpp__pset__mod_1_1mpp__pset__type.html", [
+    [ "mpp_pset_type", "group__mpp__pset__mod.html#structmpp__pset__mod_1_1mpp__pset__type", [
       [ "commid", "group__mpp__pset__mod.html#ga68e2aa8bc35269e5c9591d0dfe6b9e17", null ],
       [ "hiwm", "group__mpp__pset__mod.html#ga64fe5e1b0f0b67f78f1af9346cfa3f3a", null ],
       [ "initialized", "group__mpp__pset__mod.html#gabedc417ac331461c0a5a4b5274b2bc6a", null ],
@@ -29,11 +29,11 @@ var group__mpp__pset__mod =
       [ "root_pelist", "group__mpp__pset__mod.html#gacd12b7ee59d989846feaec3327943ea6", null ],
       [ "stack", "group__mpp__pset__mod.html#ga913b6dcfa3c48850dbf580539498014f", null ]
     ] ],
-    [ "mpp_recv_ptr", "interfacempp__pset__mod_1_1mpp__recv__ptr.html", [
+    [ "mpp_recv_ptr", "group__mpp__pset__mod.html#interfacempp__pset__mod_1_1mpp__recv__ptr", [
       [ "mpp_recv_ptr_array", "group__mpp__pset__mod.html#ga3dfa9c99e84b555d035930e39e989e63", null ],
       [ "mpp_recv_ptr_scalar", "group__mpp__pset__mod.html#ga45a0385e56ab560a8e60b51f679b1771", null ]
     ] ],
-    [ "mpp_send_ptr", "interfacempp__pset__mod_1_1mpp__send__ptr.html", [
+    [ "mpp_send_ptr", "group__mpp__pset__mod.html#interfacempp__pset__mod_1_1mpp__send__ptr", [
       [ "mpp_send_ptr_array", "group__mpp__pset__mod.html#gadb9f86e1e32350111e66c9ddba1606c6", null ],
       [ "mpp_send_ptr_scalar", "group__mpp__pset__mod.html#gad6c91846a0e9d8175734b87810ee3a3c", null ]
     ] ]

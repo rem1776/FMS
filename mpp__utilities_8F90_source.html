@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>FMS: mpp/mpp_utilities.F90 (784fd8c2252815be9420a7b064bc1ff5b71bc681) Source File</title>
+<title>FMS: mpp/mpp_utilities.F90 (e3f6dc0e453f1296da89ed7cf25009b7b781a9ae) Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -149,7 +149,7 @@ $(document).ready(function(){initNavTree('mpp__utilities_8F90_source.html',''); 
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">subroutine </span><a class="code" href="group__mpp__utilities__mod.html#ga5f88f3c6659113ea3366589552a0fb87">mpp_array_global_min_max</a>(in_array, tmask,isd,jsd,isc,iec,jsc,jec,nk, g_min, g_max, &amp;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                                    geo_x,geo_y,geo_z, xgmin, ygmin, zgmin, xgmax, ygmax, zgmax)</div>
 <div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="group__mpp__utilities__mod.html#ga5f88f3c6659113ea3366589552a0fb87">   55</a></span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="keywordtype">use </span>mpp_mod,           <span class="keywordtype">only</span>: <a class="code" href="interfacempp__mod_1_1mpp__min.html">mpp_min</a>, <a class="code" href="interfacempp__mod_1_1mpp__max.html">mpp_max</a>, <a class="code" href="group__mpp__mod.html#gacfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>, <a class="code" href="interfacempp__mod_1_1mpp__sum.html">mpp_sum</a></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="keywordtype">use </span>mpp_mod,           <span class="keywordtype">only</span>: <a class="code" href="group__mpp__mod.html#interfacempp__mod_1_1mpp__min">mpp_min</a>, <a class="code" href="group__mpp__mod.html#interfacempp__mod_1_1mpp__max">mpp_max</a>, <a class="code" href="group__mpp__mod.html#gacfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>, <a class="code" href="group__mpp__mod.html#interfacempp__mod_1_1mpp__sum">mpp_sum</a></div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keywordtype">  real</span>, <span class="keywordtype">dimension(isd:,jsd:,:)</span>, <span class="keywordtype">intent(in)</span> :: in_array</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keywordtype">  real</span>, <span class="keywordtype">dimension(isd:,jsd:,:)</span>, <span class="keywordtype">intent(in)</span> :: tmask</div>
@@ -202,8 +202,8 @@ $(document).ready(function(){initNavTree('mpp__utilities_8F90_source.html',''); 
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;  tmax0=tmax;tmin0=tmin</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__max.html">mpp_max</a>(tmax)</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__min.html">mpp_min</a>(tmin)</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  <span class="keyword">call </span><a class="code" href="group__mpp__mod.html#interfacempp__mod_1_1mpp__max">mpp_max</a>(tmax)</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  <span class="keyword">call </span><a class="code" href="group__mpp__mod.html#interfacempp__mod_1_1mpp__min">mpp_min</a>(tmin)</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  g_max = tmax</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  g_min = tmin</div>
@@ -228,9 +228,9 @@ $(document).ready(function(){initNavTree('mpp__utilities_8F90_source.html',''); 
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;     zgmax=geo_z(ktmax)</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="keywordflow">  endif</span></div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;  <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__max.html">mpp_max</a>(xgmax)</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;  <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__max.html">mpp_max</a>(ygmax)</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;  <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__max.html">mpp_max</a>(zgmax)</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;  <span class="keyword">call </span><a class="code" href="group__mpp__mod.html#interfacempp__mod_1_1mpp__max">mpp_max</a>(xgmax)</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;  <span class="keyword">call </span><a class="code" href="group__mpp__mod.html#interfacempp__mod_1_1mpp__max">mpp_max</a>(ygmax)</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;  <span class="keyword">call </span><a class="code" href="group__mpp__mod.html#interfacempp__mod_1_1mpp__max">mpp_max</a>(zgmax)</div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; </div>
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;  <span class="keywordflow">if</span> (tmin0 == tmin) <span class="keywordflow">then</span> <span class="comment">!This happens ONLY on ONE processor because of fudge factor above.</span></div>
 <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;     xgmin=geo_x(itmin,jtmin)</div>
@@ -238,9 +238,9 @@ $(document).ready(function(){initNavTree('mpp__utilities_8F90_source.html',''); 
 <div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;     zgmin=geo_z(ktmin)</div>
 <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="keywordflow">  endif</span></div>
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; </div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;  <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__max.html">mpp_max</a>(xgmin)</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;  <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__max.html">mpp_max</a>(ygmin)</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;  <span class="keyword">call </span><a class="code" href="interfacempp__mod_1_1mpp__max.html">mpp_max</a>(zgmin)</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;  <span class="keyword">call </span><a class="code" href="group__mpp__mod.html#interfacempp__mod_1_1mpp__max">mpp_max</a>(xgmin)</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;  <span class="keyword">call </span><a class="code" href="group__mpp__mod.html#interfacempp__mod_1_1mpp__max">mpp_max</a>(ygmin)</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;  <span class="keyword">call </span><a class="code" href="group__mpp__mod.html#interfacempp__mod_1_1mpp__max">mpp_max</a>(zgmin)</div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160; </div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;  <span class="keywordflow">return</span></div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
@@ -255,10 +255,10 @@ $(document).ready(function(){initNavTree('mpp__utilities_8F90_source.html',''); 
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;<span class="comment">! close documentation grouping</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="ainterfacempp__mod_1_1mpp__min_html"><div class="ttname"><a href="interfacempp__mod_1_1mpp__min.html">mpp_mod::mpp_min</a></div><div class="ttdoc">Get minimum value out of the PEs in pelist Result is also broadcast to all PEs.</div><div class="ttdef"><b>Definition:</b> <a href="mpp_8F90_source.html#l00551">mpp.F90:551</a></div></div>
-<div class="ttc" id="ainterfacempp__mod_1_1mpp__sum_html"><div class="ttname"><a href="interfacempp__mod_1_1mpp__sum.html">mpp_mod::mpp_sum</a></div><div class="ttdoc">Reduction operation.</div><div class="ttdef"><b>Definition:</b> <a href="mpp_8F90_source.html#l00588">mpp.F90:588</a></div></div>
+<div class="ttc" id="agroup__mpp__mod_html_interfacempp__mod_1_1mpp__sum"><div class="ttname"><a href="group__mpp__mod.html#interfacempp__mod_1_1mpp__sum">mpp_mod::mpp_sum</a></div><div class="ttdoc">Reduction operation.</div><div class="ttdef"><b>Definition:</b> <a href="mpp_8F90_source.html#l00588">mpp.F90:588</a></div></div>
+<div class="ttc" id="agroup__mpp__mod_html_interfacempp__mod_1_1mpp__min"><div class="ttname"><a href="group__mpp__mod.html#interfacempp__mod_1_1mpp__min">mpp_mod::mpp_min</a></div><div class="ttdoc">Get minimum value out of the PEs in pelist Result is also broadcast to all PEs.</div><div class="ttdef"><b>Definition:</b> <a href="mpp_8F90_source.html#l00551">mpp.F90:551</a></div></div>
+<div class="ttc" id="agroup__mpp__mod_html_interfacempp__mod_1_1mpp__max"><div class="ttname"><a href="group__mpp__mod.html#interfacempp__mod_1_1mpp__max">mpp_mod::mpp_max</a></div><div class="ttdoc">Reduction operations. Find the max of scalar a the PEs in pelist result is also automatically broadca...</div><div class="ttdef"><b>Definition:</b> <a href="mpp_8F90_source.html#l00537">mpp.F90:537</a></div></div>
 <div class="ttc" id="agroup__mpp__mod_html_gacfeba7de56f9dd6000b3fd78f9d56c50"><div class="ttname"><a href="group__mpp__mod.html#gacfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a></div><div class="ttdeci">integer function mpp_pe()</div><div class="ttdoc">Returns processor ID.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00378">mpp_util.inc:378</a></div></div>
-<div class="ttc" id="ainterfacempp__mod_1_1mpp__max_html"><div class="ttname"><a href="interfacempp__mod_1_1mpp__max.html">mpp_mod::mpp_max</a></div><div class="ttdoc">Reduction operations. Find the max of scalar a the PEs in pelist result is also automatically broadca...</div><div class="ttdef"><b>Definition:</b> <a href="mpp_8F90_source.html#l00537">mpp.F90:537</a></div></div>
 <div class="ttc" id="agroup__mpp__utilities__mod_html_ga5f88f3c6659113ea3366589552a0fb87"><div class="ttname"><a href="group__mpp__utilities__mod.html#ga5f88f3c6659113ea3366589552a0fb87">mpp_utilities_mod::mpp_array_global_min_max</a></div><div class="ttdeci">subroutine, public mpp_array_global_min_max(in_array, tmask, isd, jsd, isc, iec, jsc, jec, nk, g_min, g_max, geo_x, geo_y, geo_z, xgmin, ygmin, zgmin, xgmax, ygmax, zgmax)</div><div class="ttdoc">Compute and return the global min and max of an array and the corresponding lat-lon-depth locations .</div><div class="ttdef"><b>Definition:</b> <a href="mpp__utilities_8F90_source.html#l00055">mpp_utilities.F90:55</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

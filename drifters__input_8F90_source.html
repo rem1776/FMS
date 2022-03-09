@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>FMS: drifters/drifters_input.F90 (784fd8c2252815be9420a7b064bc1ff5b71bc681) Source File</title>
+<title>FMS: drifters/drifters_input.F90 (e3f6dc0e453f1296da89ed7cf25009b7b781a9ae) Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -122,7 +122,7 @@ $(document).ready(function(){initNavTree('drifters__input_8F90_source.html','');
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keywordtype">implicit none</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <span class="keywordtype">private</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <span class="keywordtype">public</span> :: <a class="code" href="structdrifters__input__mod_1_1drifters__input__type.html">drifters_input_type</a>, drifters_input_new, drifters_input_del, <a class="code" href="group__drifters__input__mod.html#gaae187e546ead8938590c8943b3dad943">drifters_input_save</a>, <span class="keyword">assignment</span>(=)</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <span class="keywordtype">public</span> :: <a class="code" href="group__drifters__input__mod.html#structdrifters__input__mod_1_1drifters__input__type">drifters_input_type</a>, drifters_input_new, drifters_input_del, <a class="code" href="group__drifters__input__mod.html#gaae187e546ead8938590c8943b3dad943">drifters_input_save</a>, <span class="keyword">assignment</span>(=)</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="comment">! Globals</span></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="keywordtype">integer</span>, <span class="keywordtype">parameter</span>, <span class="keywordtype">private</span>   :: MAX_STR_LEN = 128</div>
@@ -136,7 +136,7 @@ $(document).ready(function(){initNavTree('drifters__input_8F90_source.html','');
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">  !&gt; @note Be sure to update drifters_input_new, drifters_input_del and drifters_input_copy_new</span></div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">  !! when adding members</span></div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">  !&gt; @ingroup drifters_input_mod</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="structdrifters__input__mod_1_1drifters__input__type.html">   43</a></span>&#160;  <span class="keyword">type</span> <a class="code" href="structdrifters__input__mod_1_1drifters__input__type.html">drifters_input_type</a></div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="group__drifters__input__mod.html">   43</a></span>&#160;  <span class="keyword">type</span> <a class="code" href="group__drifters__input__mod.html#structdrifters__input__mod_1_1drifters__input__type">drifters_input_type</a></div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;     <span class="comment">! Be sure to update drifters_input_new, drifters_input_del and drifters_input_copy_new</span></div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;     <span class="comment">! when adding members</span></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;     <span class="keywordtype">character(len=MAX_STR_LEN)</span>, <span class="keywordtype">allocatable</span> :: position_names(:)</div>
@@ -149,11 +149,11 @@ $(document).ready(function(){initNavTree('drifters__input_8F90_source.html','');
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;     <span class="keywordtype">character(len=MAX_STR_LEN)</span>               :: time_units</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;     <span class="keywordtype">character(len=MAX_STR_LEN)</span>               :: title</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;     <span class="keywordtype">character(len=MAX_STR_LEN)</span>               :: version</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="keyword">end type </span><a class="code" href="structdrifters__input__mod_1_1drifters__input__type.html">drifters_input_type</a></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="keyword">end type </span><a class="code" href="group__drifters__input__mod.html#structdrifters__input__mod_1_1drifters__input__type">drifters_input_type</a></div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">  !&gt; @brief Assignment override for @ref drifters_input_type</span></div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">  !&gt; @ingroup drifters_input_mod</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="interfacedrifters__input__mod_1_1assignment_07_0a_08.html">   60</a></span>&#160;  <span class="keyword">interface</span> <span class="keyword">assignment</span>(=)</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="group__drifters__input__mod.html">   60</a></span>&#160;  <span class="keyword">interface</span> <span class="keyword">assignment</span>(=)</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;     <span class="keyword">module procedure</span> drifters_input_copy_new</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <span class="keyword">end interface</span></div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment"></span> </div>
@@ -381,7 +381,7 @@ $(document).ready(function(){initNavTree('drifters__input_8F90_source.html','');
 <div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    <span class="keywordtype">use </span>netcdf</div>
 <div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    <span class="keywordtype">use </span>netcdf_nf_data</div>
 <div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    <span class="keywordtype">use </span>netcdf_nf_interfaces</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structdrifters__input__mod_1_1drifters__input__type.html">drifters_input_type</a>)    :: self</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="group__drifters__input__mod.html#structdrifters__input__mod_1_1drifters__input__type">drifters_input_type</a>)    :: self</div>
 <div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in )</span>:: filename</div>
 <div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;<span class="keywordtype">    real</span>, <span class="keywordtype">intent(in)</span>, <span class="keywordtype">optional</span>   :: geolon(:), geolat(:)</div>
 <div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(out)</span>:: ermesg</div>
@@ -546,8 +546,8 @@ $(document).ready(function(){initNavTree('drifters__input_8F90_source.html','');
 <div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;<span class="comment">! close documentation grouping</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="astructdrifters__input__mod_1_1drifters__input__type_html"><div class="ttname"><a href="structdrifters__input__mod_1_1drifters__input__type.html">drifters_input_mod::drifters_input_type</a></div><div class="ttdoc">Input data type for drifters.</div><div class="ttdef"><b>Definition:</b> <a href="drifters__input_8F90_source.html#l00043">drifters_input.F90:43</a></div></div>
 <div class="ttc" id="agroup__drifters__input__mod_html_gaae187e546ead8938590c8943b3dad943"><div class="ttname"><a href="group__drifters__input__mod.html#gaae187e546ead8938590c8943b3dad943">drifters_input_mod::drifters_input_save</a></div><div class="ttdeci">subroutine, public drifters_input_save(self, filename, geolon, geolat, ermesg)</div><div class="ttdoc">save state in netcdf file. can be used as restart file.</div><div class="ttdef"><b>Definition:</b> <a href="drifters__input_8F90_source.html#l00284">drifters_input.F90:284</a></div></div>
+<div class="ttc" id="agroup__drifters__input__mod_html_structdrifters__input__mod_1_1drifters__input__type"><div class="ttname"><a href="group__drifters__input__mod.html#structdrifters__input__mod_1_1drifters__input__type">drifters_input_mod::drifters_input_type</a></div><div class="ttdoc">Input data type for drifters.</div><div class="ttdef"><b>Definition:</b> <a href="drifters__input_8F90_source.html#l00043">drifters_input.F90:43</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

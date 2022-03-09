@@ -104,12 +104,12 @@ $(document).ready(function(){initNavTree('group__fms__mod.html',''); initResizab
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Types</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">type &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfms__mod_1_1nml__errors__type.html">nml_errors_type</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namelist read error values.  <a href="structfms__mod_1_1nml__errors__type.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacefms__mod_1_1string.html">string</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a number to a string.  <a href="interfacefms__mod_1_1string.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structfms__mod_1_1nml__errors__type"><td class="memItemLeft" align="right" valign="top">type &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms__mod.html#structfms__mod_1_1nml__errors__type">nml_errors_type</a></td></tr>
+<tr class="memdesc:structfms__mod_1_1nml__errors__type"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namelist read error values.  <a href="group__fms__mod.html#structfms__mod_1_1nml__errors__type">More...</a><br /></td></tr>
+<tr class="separator:structfms__mod_1_1nml__errors__type"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:interfacefms__mod_1_1string"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms__mod.html#interfacefms__mod_1_1string">string</a></td></tr>
+<tr class="memdesc:interfacefms__mod_1_1string"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a number to a string.  <a href="group__fms__mod.html#interfacefms__mod_1_1string">More...</a><br /></td></tr>
+<tr class="separator:interfacefms__mod_1_1string"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
@@ -135,7 +135,7 @@ Functions/Subroutines</h2></td></tr>
 subroutine, private&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms__mod.html#ga0d71e1611bc61c9aa999c92abe008c45">nml_error_init</a></td></tr>
 <tr class="memdesc:ga0d71e1611bc61c9aa999c92abe008c45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines the IOSTAT error value for some common Namelist errors. Also checks if the compiler returns a non-zero status if there are multiple namelist records in a single file. <br /></td></tr>
 <tr class="separator:ga0d71e1611bc61c9aa999c92abe008c45"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2cb4556e28486de51d4118871fd5acd9"><td class="memItemLeft" align="right" valign="top">logical function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms__mod.html#ga2cb4556e28486de51d4118871fd5acd9">string_array_index</a> (<a class="el" href="interfacefms__mod_1_1string.html">string</a>, string_array, index)</td></tr>
+<tr class="memitem:ga2cb4556e28486de51d4118871fd5acd9"><td class="memItemLeft" align="right" valign="top">logical function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms__mod.html#ga2cb4556e28486de51d4118871fd5acd9">string_array_index</a> (<a class="el" href="group__fms__mod.html#interfacefms__mod_1_1string">string</a>, string_array, index)</td></tr>
 <tr class="memdesc:ga2cb4556e28486de51d4118871fd5acd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">match the input character string to a string in an array/list of character strings  <a href="group__fms__mod.html#ga2cb4556e28486de51d4118871fd5acd9">More...</a><br /></td></tr>
 <tr class="separator:ga2cb4556e28486de51d4118871fd5acd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga18533f06cc06dc0d11ae16f9b7338942"><td class="memItemLeft" align="right" valign="top">character(:) function, allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms__mod.html#ga18533f06cc06dc0d11ae16f9b7338942">string_from_integer</a> (i)</td></tr>
@@ -233,6 +233,113 @@ character(len=8)&#160;</td><td class="memItemRight" valign="bottom"><a class="el
 </li>
 <li>For convenience there are several routines published from the <a class="el" href="group__mpp.html">MPP</a> module. These are routines for getting processor numbers, commonly used I/O unit numbers, error handling, and timing sections of code. </li>
 </ol>
+<hr/><h2 class="groupheader">Data Type Documentation</h2>
+<a name="structfms__mod_1_1nml__errors__type" id="structfms__mod_1_1nml__errors__type"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structfms__mod_1_1nml__errors__type">&#9670;&nbsp;</a></span>fms_mod::nml_errors_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">type fms_mod::nml_errors_type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>Namelist read error values. </p>
+
+<p class="definition">Definition at line <a class="el" href="fms_8F90_source.html#l00223">223</a> of file <a class="el" href="fms_8F90_source.html">fms.F90</a>.</p>
+</div><div class="dynheader">
+Collaboration diagram for nml_errors_type:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="structfms__mod_1_1nml__errors__type__coll__graph.svg" width="198" height="186"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
+<table class="memberdecls">
+<tr><td colspan="2"><h3>Private Attributes</h3></td></tr>
+<tr class="memitem:a45602ba18ce79502e6a75c985ed5ff45"><td class="memItemLeft" align="right" valign="top"><a id="a45602ba18ce79502e6a75c985ed5ff45"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>badtype1</b></td></tr>
+<tr class="separator:a45602ba18ce79502e6a75c985ed5ff45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af369597000885987112ef52318fa89ef"><td class="memItemLeft" align="right" valign="top"><a id="af369597000885987112ef52318fa89ef"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>badtype2</b></td></tr>
+<tr class="separator:af369597000885987112ef52318fa89ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c7719ff71915a5a1106d00960a6f585"><td class="memItemLeft" align="right" valign="top"><a id="a9c7719ff71915a5a1106d00960a6f585"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>missingvar</b></td></tr>
+<tr class="separator:a9c7719ff71915a5a1106d00960a6f585"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeef287b5667f4a81a041cbbaafc6e707"><td class="memItemLeft" align="right" valign="top"><a id="aeef287b5667f4a81a041cbbaafc6e707"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>multiplenmlsinfile</b></td></tr>
+<tr class="separator:aeef287b5667f4a81a041cbbaafc6e707"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4939f16a1734b3d5134b93d505e6850"><td class="memItemLeft" align="right" valign="top"><a id="ae4939f16a1734b3d5134b93d505e6850"></a>
+integer&#160;</td><td class="memItemRight" valign="bottom"><b>notinfile</b></td></tr>
+<tr class="separator:ae4939f16a1734b3d5134b93d505e6850"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+
+</div>
+</div>
+<a name="interfacefms__mod_1_1string" id="interfacefms__mod_1_1string"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#interfacefms__mod_1_1string">&#9670;&nbsp;</a></span>fms_mod::string</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">interface fms_mod::string</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>Converts a number to a string. </p>
+
+<p class="definition">Definition at line <a class="el" href="fms_8F90_source.html#l00296">296</a> of file <a class="el" href="fms_8F90_source.html">fms.F90</a>.</p>
+</div><table class="memberdecls">
+<tr><td colspan="2"><h3>Private Member Functions</h3></td></tr>
+<tr class="memitem:aa376b42bf56dc366fd3fcf116abe93e8"><td class="memItemLeft" align="right" valign="top">character(:) function, allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms__mod.html#aa376b42bf56dc366fd3fcf116abe93e8">string_from_integer</a> (i)</td></tr>
+<tr class="memdesc:aa376b42bf56dc366fd3fcf116abe93e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts an integer to a string.  <a href="group__fms__mod.html#aa376b42bf56dc366fd3fcf116abe93e8">More...</a><br /></td></tr>
+<tr class="separator:aa376b42bf56dc366fd3fcf116abe93e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01eb53345a691cf20bd41270d8661c06"><td class="memItemLeft" align="right" valign="top"><a id="a01eb53345a691cf20bd41270d8661c06"></a>
+character(len=32) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__fms__mod.html#a01eb53345a691cf20bd41270d8661c06">string_from_real</a> (a)</td></tr>
+<tr class="memdesc:a01eb53345a691cf20bd41270d8661c06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a real to a string. <br /></td></tr>
+<tr class="separator:a01eb53345a691cf20bd41270d8661c06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h4 class="groupheader">Member Function/Subroutine Documentation</h4>
+<a id="aa376b42bf56dc366fd3fcf116abe93e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa376b42bf56dc366fd3fcf116abe93e8">&#9670;&nbsp;</a></span>string_from_integer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">character(:) function, allocatable string_from_integer </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Converts an integer to a string. </p>
+<p>This has been updated from the fms_io function. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">i</td><td>Integer to be converted to a string </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>String converted frominteger </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="fms_8F90_source.html#l00791">791</a> of file <a class="el" href="fms_8F90_source.html">fms.F90</a>.</p>
+
+</div>
+</div>
+
+</div>
+</div>
 <h2 class="groupheader">Function/Subroutine Documentation</h2>
 <a id="ga05e7686befc1e49d2be9bdb81d479a76"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga05e7686befc1e49d2be9bdb81d479a76">&#9670;&nbsp;</a></span>check_nml_error()</h2>
@@ -536,10 +643,10 @@ Example usage: </p><div class="fragment"><div class="line"><span class="keywordt
 <p>Tries to find a match for a character string in a list of character strings. The match is case sensitive and disregards blank characters to the right of the string.</p>
 <p><br  />
 Examples<br  />
- </p><div class="fragment"><div class="line"><a class="code" href="interfacefms__mod_1_1string.html">string</a> = <span class="stringliteral">&quot;def&quot;</span></div>
+ </p><div class="fragment"><div class="line"><a class="code" href="group__fms__mod.html#interfacefms__mod_1_1string">string</a> = <span class="stringliteral">&quot;def&quot;</span></div>
 <div class="line">string_array = (/ <span class="stringliteral">&quot;abcd&quot;</span>, <span class="stringliteral">&quot;def &quot;</span>, <span class="stringliteral">&quot;fghi&quot;</span> /)</div>
 <div class="line"> </div>
-<div class="line">string_array_index( <a class="code" href="interfacefms__mod_1_1string.html">string</a>, string_array, index )</div>
+<div class="line">string_array_index( <a class="code" href="group__fms__mod.html#interfacefms__mod_1_1string">string</a>, string_array, index )</div>
 </div><!-- fragment --><p> Returns: TRUE, index = 2 </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">string</td><td>Character string of arbitrary length. </td></tr>
@@ -593,7 +700,7 @@ Examples<br  />
 </div>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="ainterfacefms__mod_1_1string_html"><div class="ttname"><a href="interfacefms__mod_1_1string.html">fms_mod::string</a></div><div class="ttdoc">Converts a number to a string.</div><div class="ttdef"><b>Definition:</b> <a href="fms_8F90_source.html#l00296">fms.F90:296</a></div></div>
+<div class="ttc" id="agroup__fms__mod_html_interfacefms__mod_1_1string"><div class="ttname"><a href="group__fms__mod.html#interfacefms__mod_1_1string">fms_mod::string</a></div><div class="ttdoc">Converts a number to a string.</div><div class="ttdef"><b>Definition:</b> <a href="fms_8F90_source.html#l00296">fms.F90:296</a></div></div>
 <div class="ttc" id="agroup__fms__mod_html_gae5c7420e421293e2be14717dd7b3d97f"><div class="ttname"><a href="group__fms__mod.html#gae5c7420e421293e2be14717dd7b3d97f">fms_mod::error_mesg</a></div><div class="ttdeci">subroutine, public error_mesg(routine, message, level)</div><div class="ttdoc">Print notes, warnings and error messages; terminates program for warning and error messages....</div><div class="ttdef"><b>Definition:</b> <a href="fms_8F90_source.html#l00486">fms.F90:486</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
