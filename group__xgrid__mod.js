@@ -1,6 +1,5 @@
 var group__xgrid__mod =
 [
-    [ "xgrid.F90", "xgrid_8F90.html", null ],
     [ "comm_type", "structxgrid__mod_1_1comm__type.html", [
       [ "nrecv", "structxgrid__mod_1_1comm__type.html#ab8cb7e88307bf762ce8e29af35a7ec2a", null ],
       [ "nsend", "structxgrid__mod_1_1comm__type.html#adfa6b3db0147e156eb11d48106b5029c", null ],

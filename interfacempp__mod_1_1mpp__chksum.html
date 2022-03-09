@@ -202,7 +202,7 @@ Private Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Calculate parallel checksums. </p>
-<p><em><a class="el" href="interfacempp__mod_1_1mpp__chksum.html" title="Calculate parallel checksums.">mpp_chksum</a></em> is a parallel checksum routine that returns an identical answer for the same array irrespective of how it has been partitioned across processors. \eint_kind is the KIND parameter corresponding to long integers (see discussion on OS-dependent preprocessor directives) defined in the file <a class="el" href="platform_8F90.html" title="File for platform_mod.">platform.F90</a>. \eMPP_TYPE_ corresponds to any 4-byte and 8-byte variant of \einteger, \ereal, \ecomplex, \elogical variables, of rank 0 to 5.</p>
+<p><em><a class="el" href="interfacempp__mod_1_1mpp__chksum.html" title="Calculate parallel checksums.">mpp_chksum</a></em> is a parallel checksum routine that returns an identical answer for the same array irrespective of how it has been partitioned across processors. \eint_kind is the KIND parameter corresponding to long integers (see discussion on OS-dependent preprocessor directives) defined in the file <a class="el" href="platform_8F90_source.html">platform.F90</a>. \eMPP_TYPE_ corresponds to any 4-byte and 8-byte variant of \einteger, \ereal, \ecomplex, \elogical variables, of rank 0 to 5.</p>
 <p>Integer checksums on FP data use the F90 <code>TRANSFER()</code> intrinsic.</p>
 <p>The &lt;LINK SRC="http://www.gfdl.noaa.gov/fms-cgi-bin/cvsweb.cgi/FMS/shared/chksum/chksum.html"&gt;serial checksum module&lt;/LINK&gt; is superseded by this function, and is no longer being actively maintained. This provides identical results on a single-processor job, and to perform serial checksums on a single processor of a parallel job, you only need to use the optional <code>pelist</code> argument. </p><pre>
  use mpp_mod
@@ -222,9 +222,9 @@ Private Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Parallel checksum of var across given or implicit pelist </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="mpp_8F90_source.html#l01151">1151</a> of file <a class="el" href="mpp_8F90_source.html">mpp.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mpp_8F90_source.html#l01147">1147</a> of file <a class="el" href="mpp_8F90_source.html">mpp.F90</a>.</p>
 </div><hr/>The documentation for this interface was generated from the following file:<ul>
-<li>mpp/<a class="el" href="mpp_8F90_source.html">mpp.F90 (696939b8e1cbab0c58b65c977d40468515410f22)</a></li>
+<li>mpp/<a class="el" href="mpp_8F90_source.html">mpp.F90 (784fd8c2252815be9420a7b064bc1ff5b71bc681)</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>FMS: mpp/include/mpp_comm_mpi.inc (696939b8e1cbab0c58b65c977d40468515410f22) Source File</title>
+<title>FMS: mpp/include/mpp_comm_mpi.inc (784fd8c2252815be9420a7b064bc1ff5b71bc681) Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -94,7 +94,7 @@ $(document).ready(function(){initNavTree('mpp__comm__mpi_8inc_source.html',''); 
 <div class="title">mpp_comm_mpi.inc</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="mpp__comm__mpi_8inc.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">! -*-f90-*-</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">! -*-f90-*-</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">!***********************************************************************</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">!*                   GNU Lesser General Public License</span></div>
@@ -175,7 +175,7 @@ $(document).ready(function(){initNavTree('mpp__comm__mpi_8inc_source.html',''); 
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  current_peset_num = 0</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  peset(0)%id = mpp_comm_private</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  <span class="keyword">call </span>mpi_comm_group( mpp_comm_private, peset(0)%group, error )</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  world_peset_num = <a class="code" href="mpp__util__mpi_8inc.html#a948898490a7d1d09fc1043dac561514d">get_peset</a>( (/(i,i=0,npes-1)/) )</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  world_peset_num = get_peset( (/(i,i=0,npes-1)/) )</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  current_peset_num = world_peset_num <span class="comment">!initialize current PEset to world</span></div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  <span class="keywordflow">if</span> (t_level == 1) <span class="keywordflow">return</span></div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
@@ -426,7 +426,7 @@ $(document).ready(function(){initNavTree('mpp__comm__mpi_8inc_source.html',''); 
 <div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;      pointer(lptr, str1d)</div>
 <div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160; </div>
 <div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;      <span class="keywordflow">if</span>( .NOT.module_is_initialized )<span class="keyword">call </span>mpp_error( fatal, <span class="stringliteral">&#39;mpp_broadcast_text: You must first call mpp_init.&#39;</span> )</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;      n = <a class="code" href="mpp__util__mpi_8inc.html#a948898490a7d1d09fc1043dac561514d">get_peset</a>(pelist); <span class="keywordflow">if</span>( peset(n)%count.EQ.1 )<span class="keywordflow">return</span></div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;      n = get_peset(pelist); <span class="keywordflow">if</span>( peset(n)%count.EQ.1 )<span class="keywordflow">return</span></div>
 <div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160; </div>
 <div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160; </div>
 <div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;      <span class="keywordflow">if</span>( debug )<span class="keywordflow">then</span></div>
@@ -1510,7 +1510,6 @@ $(document).ready(function(){initNavTree('mpp__comm__mpi_8inc_source.html',''); 
 <div class="ttc" id="agroup__mpp__mod_html_ga2238aa842b4c9e899d733ef41b71bb71"><div class="ttname"><a href="group__mpp__mod.html#ga2238aa842b4c9e899d733ef41b71bb71">mpp_set_current_pelist</a></div><div class="ttdeci">subroutine mpp_set_current_pelist(pelist, no_sync)</div><div class="ttdoc">Set context pelist.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00478">mpp_util.inc:478</a></div></div>
 <div class="ttc" id="agroup__mpp__mod_html_ga823769fc831d556ad73e98ae0a8f7f2a"><div class="ttname"><a href="group__mpp__mod.html#ga823769fc831d556ad73e98ae0a8f7f2a">mpp_broadcast_char</a></div><div class="ttdeci">subroutine mpp_broadcast_char(data, length, from_pe, pelist)</div><div class="ttdoc">Broadcasts a character string from the given pe to it's pelist.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__comm__mpi_8inc_source.html#l00324">mpp_comm_mpi.inc:324</a></div></div>
 <div class="ttc" id="agroup__mpp__mod_html_ga285ef180624257148d85af894928844b"><div class="ttname"><a href="group__mpp__mod.html#ga285ef180624257148d85af894928844b">stderr</a></div><div class="ttdeci">integer function stderr()</div><div class="ttdoc">This function returns the current standard fortran unit numbers for error messages.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00051">mpp_util.inc:51</a></div></div>
-<div class="ttc" id="ampp__util__mpi_8inc_html_a948898490a7d1d09fc1043dac561514d"><div class="ttname"><a href="mpp__util__mpi_8inc.html#a948898490a7d1d09fc1043dac561514d">get_peset</a></div><div class="ttdeci">integer function get_peset(pelist)</div><div class="ttdoc">Makes a PE set out of a PE list. A PE list is an ordered list of PEs a PE set is a triad (start,...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util__mpi_8inc_source.html#l00093">mpp_util_mpi.inc:93</a></div></div>
 <div class="ttc" id="agroup__mpp__mod_html_ga4ba89dd4d38f1d902c9c87af7d310d75"><div class="ttname"><a href="group__mpp__mod.html#ga4ba89dd4d38f1d902c9c87af7d310d75">mpp_type_free</a></div><div class="ttdeci">subroutine mpp_type_free(dtype)</div><div class="ttdoc">Deallocates memory for mpp_type objects @TODO This should probably not take a pointer,...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__comm__mpi_8inc_source.html#l01374">mpp_comm_mpi.inc:1374</a></div></div>
 <div class="ttc" id="agroup__mpp__mod_html_ga8d0366d81b9701ccaaf3612b666aada1"><div class="ttname"><a href="group__mpp__mod.html#ga8d0366d81b9701ccaaf3612b666aada1">mpp_exit</a></div><div class="ttdeci">subroutine mpp_exit()</div><div class="ttdoc">Finalizes process termination. To be called at the end of a run. Certain mpi implementations(openmpi)...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__comm__mpi_8inc_source.html#l00191">mpp_comm_mpi.inc:191</a></div></div>
 <div class="ttc" id="agroup__mpp__mod_html_gacfeba7de56f9dd6000b3fd78f9d56c50"><div class="ttname"><a href="group__mpp__mod.html#gacfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a></div><div class="ttdeci">integer function mpp_pe()</div><div class="ttdoc">Returns processor ID.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00378">mpp_util.inc:378</a></div></div>
@@ -1523,7 +1522,7 @@ $(document).ready(function(){initNavTree('mpp__comm__mpi_8inc_source.html',''); 
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_72b96e86e48e5dd402c7a282ec4fcc3a.html">mpp</a></li><li class="navelem"><a class="el" href="dir_26bb404c5de62e9dc2e5e3445360ffe7.html">include</a></li><li class="navelem"><a class="el" href="mpp__comm__mpi_8inc.html">mpp_comm_mpi.inc</a></li>
+    <li class="navelem"><a class="el" href="dir_72b96e86e48e5dd402c7a282ec4fcc3a.html">mpp</a></li><li class="navelem"><a class="el" href="dir_26bb404c5de62e9dc2e5e3445360ffe7.html">include</a></li><li class="navelem"><b>mpp_comm_mpi.inc</b></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>

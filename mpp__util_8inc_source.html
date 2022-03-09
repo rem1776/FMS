@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>FMS: mpp/include/mpp_util.inc (696939b8e1cbab0c58b65c977d40468515410f22) Source File</title>
+<title>FMS: mpp/include/mpp_util.inc (784fd8c2252815be9420a7b064bc1ff5b71bc681) Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -94,7 +94,7 @@ $(document).ready(function(){initNavTree('mpp__util_8inc_source.html',''); initR
 <div class="title">mpp_util.inc</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="mpp__util_8inc.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">! -*-f90-*-</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">! -*-f90-*-</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">!***********************************************************************</span></div>
@@ -549,7 +549,7 @@ $(document).ready(function(){initNavTree('mpp__util_8inc_source.html',''); initR
 <div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;    <span class="keywordtype">integer</span> :: i</div>
 <div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160; </div>
 <div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;    <span class="keywordflow">if</span>( .NOT.module_is_initialized )<span class="keyword">call </span>mpp_error( fatal, <span class="stringliteral">&#39;MPP_DECLARE_PELIST: You must first call mpp_init.&#39;</span> )</div>
-<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;    i = <a class="code" href="mpp__util__mpi_8inc.html#a948898490a7d1d09fc1043dac561514d">get_peset</a>(pelist)</div>
+<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;    i = get_peset(pelist)</div>
 <div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;    <span class="keyword">write</span>( peset(i)%name,<span class="stringliteral">&#39;(a,i2.2)&#39;</span> ) <span class="stringliteral">&#39;PElist&#39;</span>, i <span class="comment">!default name</span></div>
 <div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;    <span class="keywordflow">if</span>( <span class="keyword">PRESENT</span>(name) )peset(i)%name = name</div>
 <div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;    <span class="keywordflow">return</span></div>
@@ -585,7 +585,7 @@ $(document).ready(function(){initNavTree('mpp__util_8inc_source.html',''); initR
 <div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;    <span class="keywordflow">if</span>( .NOT.module_is_initialized )<span class="keyword">call </span>mpp_error( fatal, <span class="stringliteral">&#39;MPP_SET_CURRENT_PELIST: You must first call mpp_init.&#39;</span> )</div>
 <div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;    <span class="keywordflow">if</span>( <span class="keyword">PRESENT</span>(pelist) )<span class="keywordflow">then</span></div>
 <div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;       <span class="keywordflow">if</span>( .NOT.any(pe.EQ.pelist) )<span class="keyword">call </span>mpp_error( fatal, <span class="stringliteral">&#39;MPP_SET_CURRENT_PELIST: pe must be in pelist.&#39;</span> )</div>
-<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;       current_peset_num = <a class="code" href="mpp__util__mpi_8inc.html#a948898490a7d1d09fc1043dac561514d">get_peset</a>(pelist)</div>
+<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;       current_peset_num = get_peset(pelist)</div>
 <div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;    <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;       current_peset_num = world_peset_num</div>
 <div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;<span class="keywordflow">    end if</span></div>
@@ -1622,7 +1622,6 @@ $(document).ready(function(){initNavTree('mpp__util_8inc_source.html',''); initR
 <div class="ttc" id="agroup__mpp__mod_html_gaf9f0c67eb5e185739eaacbb0e290aabe"><div class="ttname"><a href="group__mpp__mod.html#gaf9f0c67eb5e185739eaacbb0e290aabe">expand_peset</a></div><div class="ttdeci">subroutine expand_peset()</div><div class="ttdoc">This routine will double the size of peset and copy the original peset data into the expanded one....</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l01086">mpp_util.inc:1086</a></div></div>
 <div class="ttc" id="agroup__mpp__mod_html_ga12e1fe8a6b55f7d625ba77a5dcc4670b"><div class="ttname"><a href="group__mpp__mod.html#ga12e1fe8a6b55f7d625ba77a5dcc4670b">mpp_error_basic</a></div><div class="ttdeci">subroutine mpp_error_basic(errortype, errormsg)</div><div class="ttdoc">A very basic error handler uses ABORT and FLUSH calls, may need to use cpp to rename.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util__mpi_8inc_source.html#l00036">mpp_util_mpi.inc:36</a></div></div>
 <div class="ttc" id="agroup__mpp__mod_html_ga285ef180624257148d85af894928844b"><div class="ttname"><a href="group__mpp__mod.html#ga285ef180624257148d85af894928844b">stderr</a></div><div class="ttdeci">integer function stderr()</div><div class="ttdoc">This function returns the current standard fortran unit numbers for error messages.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00051">mpp_util.inc:51</a></div></div>
-<div class="ttc" id="ampp__util__mpi_8inc_html_a948898490a7d1d09fc1043dac561514d"><div class="ttname"><a href="mpp__util__mpi_8inc.html#a948898490a7d1d09fc1043dac561514d">get_peset</a></div><div class="ttdeci">integer function get_peset(pelist)</div><div class="ttdoc">Makes a PE set out of a PE list. A PE list is an ordered list of PEs a PE set is a triad (start,...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util__mpi_8inc_source.html#l00093">mpp_util_mpi.inc:93</a></div></div>
 <div class="ttc" id="agroup__mpp__mod_html_ga1fa51261edef09aa3cc1144ea08955b7"><div class="ttname"><a href="group__mpp__mod.html#ga1fa51261edef09aa3cc1144ea08955b7">mpp_error_mesg</a></div><div class="ttdeci">subroutine mpp_error_mesg(routine, errormsg, errortype)</div><div class="ttdoc">overloads to mpp_error_basic, support for error_mesg routine in FMS</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00146">mpp_util.inc:146</a></div></div>
 <div class="ttc" id="agroup__mpp__mod_html_gada061a5778228965b5ccfc693c4dc892"><div class="ttname"><a href="group__mpp__mod.html#gada061a5778228965b5ccfc693c4dc892">mpp_declare_pelist</a></div><div class="ttdeci">subroutine mpp_declare_pelist(pelist, name)</div><div class="ttdoc">Declare a pelist.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00451">mpp_util.inc:451</a></div></div>
 <div class="ttc" id="agroup__mpp__mod_html_gacfeba7de56f9dd6000b3fd78f9d56c50"><div class="ttname"><a href="group__mpp__mod.html#gacfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a></div><div class="ttdeci">integer function mpp_pe()</div><div class="ttdoc">Returns processor ID.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00378">mpp_util.inc:378</a></div></div>
@@ -1635,7 +1634,7 @@ $(document).ready(function(){initNavTree('mpp__util_8inc_source.html',''); initR
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_72b96e86e48e5dd402c7a282ec4fcc3a.html">mpp</a></li><li class="navelem"><a class="el" href="dir_26bb404c5de62e9dc2e5e3445360ffe7.html">include</a></li><li class="navelem"><a class="el" href="mpp__util_8inc.html">mpp_util.inc</a></li>
+    <li class="navelem"><a class="el" href="dir_72b96e86e48e5dd402c7a282ec4fcc3a.html">mpp</a></li><li class="navelem"><a class="el" href="dir_26bb404c5de62e9dc2e5e3445360ffe7.html">include</a></li><li class="navelem"><b>mpp_util.inc</b></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>

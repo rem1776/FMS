@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>FMS: mpp/include/mpp_alltoall_nocomm.h (696939b8e1cbab0c58b65c977d40468515410f22) Source File</title>
+<title>FMS: mpp/include/mpp_alltoall_nocomm.h (784fd8c2252815be9420a7b064bc1ff5b71bc681) Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -94,7 +94,7 @@ $(document).ready(function(){initNavTree('mpp__alltoall__nocomm_8h_source.html',
 <div class="title">mpp_alltoall_nocomm.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="mpp__alltoall__nocomm_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">! -*-f90-*-</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">! -*-f90-*-</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">!***********************************************************************</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">!*                   GNU Lesser General Public License</span></div>
@@ -119,7 +119,7 @@ $(document).ready(function(){initNavTree('mpp__alltoall__nocomm_8h_source.html',
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">!&gt; Sends data from all to all processes, non-mpi version</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">subroutine </span><a class="code" href="group__mpp__mod.html#gaccdd05aa6132a1f131448d699bf3facb">mpp_alltoall_</a>(sbuf, scount, rbuf, rcount, pelist)</div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="mpp__alltoall__nocomm_8h.html#accdd05aa6132a1f131448d699bf3facb">   26</a></span>&#160;    mpp_type_, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">intent(in)</span> :: sbuf</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    mpp_type_, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">intent(in)</span> :: sbuf</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    mpp_type_, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">intent(inout)</span> :: rbuf</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">integer</span>,   <span class="keywordtype">intent(in)</span> :: scount, rcount</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
@@ -140,7 +140,7 @@ $(document).ready(function(){initNavTree('mpp__alltoall__nocomm_8h_source.html',
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">!&gt; Sends data from all to all processes with vector displacement, non-mpi version</span></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">subroutine </span><a class="code" href="group__mpp__mod.html#gace58a3c4c7edd72e326b03667fe19da8">mpp_alltoallv_</a>(sbuf, ssize, sdispl, rbuf, rsize, rdispl, pelist)</div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="mpp__alltoall__nocomm_8h.html#ace58a3c4c7edd72e326b03667fe19da8">   47</a></span>&#160;    mpp_type_, <span class="keywordtype">intent(in)</span> :: sbuf(:)</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    mpp_type_, <span class="keywordtype">intent(in)</span> :: sbuf(:)</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    mpp_type_, <span class="keywordtype">intent(inout)</span> :: rbuf(:)</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">integer</span>, <span class="keywordtype">intent(in)</span> :: ssize(:), rsize(:)</div>
@@ -165,7 +165,7 @@ $(document).ready(function(){initNavTree('mpp__alltoall__nocomm_8h_source.html',
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment">!! displacements and block sizes. Non-mpi version</span></div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keyword">subroutine </span><a class="code" href="group__mpp__mod.html#ga15b5f9cdfe13158b9557099107b32df0">mpp_alltoallw_</a>(sbuf, ssize, sdispl, stype, &amp;</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                          rbuf, rsize, rdispl, rtype, pelist)</div>
-<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="mpp__alltoall__nocomm_8h.html#a15b5f9cdfe13158b9557099107b32df0">   72</a></span>&#160;    mpp_type_, <span class="keywordtype">intent(in)</span> :: sbuf(:)</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    mpp_type_, <span class="keywordtype">intent(in)</span> :: sbuf(:)</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    mpp_type_, <span class="keywordtype">intent(inout)</span> :: rbuf(:)</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">integer</span>, <span class="keywordtype">intent(in)</span> :: ssize(:), rsize(:)</div>
@@ -193,7 +193,7 @@ $(document).ready(function(){initNavTree('mpp__alltoall__nocomm_8h_source.html',
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_72b96e86e48e5dd402c7a282ec4fcc3a.html">mpp</a></li><li class="navelem"><a class="el" href="dir_26bb404c5de62e9dc2e5e3445360ffe7.html">include</a></li><li class="navelem"><a class="el" href="mpp__alltoall__nocomm_8h.html">mpp_alltoall_nocomm.h</a></li>
+    <li class="navelem"><a class="el" href="dir_72b96e86e48e5dd402c7a282ec4fcc3a.html">mpp</a></li><li class="navelem"><a class="el" href="dir_26bb404c5de62e9dc2e5e3445360ffe7.html">include</a></li><li class="navelem"><b>mpp_alltoall_nocomm.h</b></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>

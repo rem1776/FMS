@@ -1,6 +1,5 @@
 var group__coupler__types__mod =
 [
-    [ "coupler_types.F90", "coupler__types_8F90.html", null ],
     [ "coupler_1d_bc_type", "structcoupler__types__mod_1_1coupler__1d__bc__type.html", [
       [ "bc", "structcoupler__types__mod_1_1coupler__1d__bc__type.html#ad21588d9d816c1a11324cd1d2f5c302a", null ],
       [ "num_bcs", "structcoupler__types__mod_1_1coupler__1d__bc__type.html#a2fc14559b9da2d09fd894f5455b25d1d", null ],

@@ -1,6 +1,5 @@
 var group__stock__constants__mod =
 [
-    [ "stock_constants.F90", "stock__constants_8F90.html", null ],
     [ "stock_type", "structstock__constants__mod_1_1stock__type.html", [
       [ "dq", "structstock__constants__mod_1_1stock__type.html#af43c501a29ae174776cd0a27ab08f25b", null ],
       [ "dq_in", "structstock__constants__mod_1_1stock__type.html#a0fd9e142d56c59d10655606fb4a41adf", null ],

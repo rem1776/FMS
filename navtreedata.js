@@ -32,12 +32,9 @@ var NAVTREE =
       [ "By Module", "annotated.html", "annotated_dup" ],
       [ "By Name", "classes.html", null ]
     ] ],
-    [ "Files", "files.html", [
-      [ "File List", "files.html", "files_dup" ],
-      [ "File Members", "globals.html", [
-        [ "All", "globals.html", "globals_dup" ],
-        [ "Functions/Subroutines", "globals_func.html", "globals_func" ]
-      ] ]
+    [ "File Members", "globals.html", [
+      [ "All", "globals.html", null ],
+      [ "Functions/Subroutines", "globals_func.html", null ]
     ] ]
   ] ]
 ];
@@ -45,42 +42,27 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 ".html",
-"blackboxio_8F90.html#ga95f1590bc284ea0b2323adea289f7ef5",
-"data__override_8F90.html#ga8b58ec39b6046fc1775b181d4d810c89",
-"diag__output_8F90.html#ga21f02718f861f6437197ce0645659210",
-"field__manager_8F90.html#ga2490331bea59c02616a06b1da832e240",
-"fms__io_8F90.html#ga4ecdc182d2e711a1abb278519fd43281",
-"fms__switches_8h_source.html",
-"group__astronomy__mod.html#gae7804247bd90b8bed01d7769a609f81d",
-"group__diag__data__mod.html#ga7a28d5d60b22e520490bfe2baa5e845d",
-"group__field__manager__mod.html#ga95d681675a9f1f8b752ce1710d2f4185",
-"group__fms__io__utils.html#ga5d21887ea35388dd2662efe5bee5543b",
-"group__horiz__interp__conserve__mod.html#gaae5bc9b6efb0f13f8edab86497797547",
-"group__mpp__domains__mod.html#ga5b62ebb0574a2d1ab1cf06e11b0c5a3e",
-"group__mpp__efp__mod.html#ga718044ce8342be611146a16b36057789",
-"group__mpp__memutils__mod.html#gac353a266f4ed14aa3f6168844dd7ee72",
-"group__netcdf__io__mod.html#gaded833692504eaab15cce43a028fe988",
-"horiz__interp__spherical_8F90.html#ga508cd30f1ffc233b61ca24aebe92702d",
-"interfacefms2__io__mod_1_1close__file.html#af68f11ceb02a06aca05a5d033b5ecb8d",
-"interfacefms__io__utils__mod_1_1allocate__array.html#a9fc2756a95e74c1eae037daaf24a1611",
-"interfacempp__domains__mod_1_1mpp__define__null__domain.html#af8518ef052e797cd7fe89ba00ca434bc",
-"interfacempp__domains__mod_1_1mpp__global__sum__ad.html#a2ddebadc7ea4d11dfe4f0cd71d701034",
-"interfacempp__mod_1_1mpp__alltoall.html#a7de2adb95f38522878e47dc08c19dddd",
-"interfacempp__mod_1_1mpp__sum.html#a6254979fd947361f7aecd0fac793060e",
-"interfacesat__vapor__pres__mod_1_1lookup__des3.html#ae19d9c9afcc7f4fd54ed4f29ad377f7a",
-"mersennetwister_8F90_source.html",
-"mpp_8F90.html#gadd4b4f63882e1ead523312aef7f430c5",
-"mpp__memutils_8F90.html#ga17b1e15c0dcf6375bcd67c006221cae6",
-"netcdf__io_8F90.html#gab8ed1275590b4dd61edd9debff5ffe87",
-"stock__constants_8F90.html#ga3df95e063dc6e6dd1475c93ae6d66e4c",
-"structdiag__data__mod_1_1diag__grid.html#ac02b878ad5ddf7b621759b1eac6f3c6c",
-"structfield__manager__mod_1_1field__def.html#af2024359a51cb72bad812b07ce405de7",
-"structinterpolator__mod_1_1interpolate__type.html#a9c39f8bc3ce71555eef608437fe4e049",
-"structmpp__domains__mod_1_1mpp__group__update__type.html#afa415dc71fb31154bf465c861405b53e",
-"structmpp__mod_1_1clock.html#a413de4584e7a91a7ed827a2c9c80b806",
-"structtime__interp__external__mod_1_1ext__fieldtype.html#ad59c3eb79753af5efb6a5db1a3a9e838",
-"time__interp__external2_8F90.html#gafb7a96a485eeebb2e741087a5cf83b37",
-"xgrid_8F90.html#ga05d1609bdd0b9cfa87514b8860efc7b9"
+"group__constants__mod.html#ga9895876fa9eb7e0923e92abeec69ebaa",
+"group__diag__manager__mod.html#ga8b3663661ccd072adddd8d3b12aeaca3",
+"group__fms2__io__mod.html#ga7ca1f58a5b65b675a621bb8ec765fd66",
+"group__horiz__interp.html",
+"group__mpp__domains__mod.html#gab7e7e7f060ef35d98de059c7e0e94be5",
+"group__mpp__parameter__mod.html#ga69c50ff3d1cc5452f4043d9184d39d65",
+"group__xgrid__mod.html#ga0d6740065d2355a4ac54b90c8c4545fb",
+"interfacefm__util__mod_1_1fm__util__set__value.html#a035693cba0192c66109535886eda59ff",
+"interfacefms__io__utils__mod_1_1allocate__array.html#a47c7586890ae0f97bf821aea7709ee36",
+"interfacempp__domains__mod_1_1mpp__create__group__update.html#ad74a8c116b7b2cc970391ae9c5979ba9",
+"interfacempp__domains__mod_1_1mpp__global__sum.html#aad04d6b148356cb02655e315427be467",
+"interfacempp__mod_1_1array__to__char.html",
+"interfacempp__mod_1_1mpp__sum.html#a280ae88d3cc068df3436eb37d99baebc",
+"interfacesat__vapor__pres__mod_1_1lookup__des3.html#a6f5b72a429fa1797ece38d4dbf48f7b1",
+"structcoupler__types__mod_1_1coupler__3d__bc__type.html#a2fc14559b9da2d09fd894f5455b25d1d",
+"structdiag__table__mod_1_1field__description__type.html#a1aecf2d185c1a502f8cb2263d612f213",
+"structfms__io__mod_1_1var__type.html#ac896f19687fd6c1222c78e157575fa9f",
+"structmpp__domains__mod_1_1domaincommunicator2d.html#aa355430bf28012f6bab6145fe1ad0ede",
+"structmpp__domains__mod_1_1overlapspec.html#ab8cb7e88307bf762ce8e29af35a7ec2a",
+"structnetcdf__io__mod_1_1restartvariable__t.html#a9afe2b36228c9b409e4333687f34b632",
+"structxgrid__mod_1_1xcell__type.html#a56cac856c78a3e6fe83db83b30cb6106"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

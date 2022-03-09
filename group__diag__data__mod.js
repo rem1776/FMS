@@ -1,6 +1,5 @@
 var group__diag__data__mod =
 [
-    [ "diag_data.F90", "diag__data_8F90.html", null ],
     [ "coord_type", "structdiag__data__mod_1_1coord__type.html", [
       [ "xbegin", "structdiag__data__mod_1_1coord__type.html#a5bae40e316db110dcb779ad75980dd1f", null ],
       [ "xend", "structdiag__data__mod_1_1coord__type.html#a9770a36bc55685b136cc4907adc2a1e0", null ],

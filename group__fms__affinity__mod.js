@@ -1,6 +1,5 @@
 var group__fms__affinity__mod =
 [
-    [ "fms_affinity.F90", "fms__affinity_8F90.html", null ],
     [ "get_cpuset", "interfacefms__affinity__mod_1_1get__cpuset.html", [
       [ "get_cpuset", "group__fms__affinity__mod.html#ga302de19fbd9ea007cc5bf3abb77edc68", null ]
     ] ],

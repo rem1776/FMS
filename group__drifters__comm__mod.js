@@ -1,6 +1,5 @@
 var group__drifters__comm__mod =
 [
-    [ "drifters_comm.F90", "drifters__comm_8F90.html", null ],
     [ "drifters_comm_type", "structdrifters__comm__mod_1_1drifters__comm__type.html", [
       [ "pe_beg", "structdrifters__comm__mod_1_1drifters__comm__type.html#a3122c66e5967734416ff26adf103a662", null ],
       [ "pe_e", "structdrifters__comm__mod_1_1drifters__comm__type.html#aafd21b46f982ce04921ee29443e80a5a", null ],
