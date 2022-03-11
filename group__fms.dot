@@ -1,0 +1,11 @@
+digraph "FMS"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=box];
+  rankdir=LR;
+  Node3 [label="fms_io_mod",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group__fms__io__mod.html",tooltip="Module for writing and reading restart data via NetCDF files."];
+  Node2 [label="fms_mod",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group__fms__mod.html",tooltip="The fms module provides routines that are commonly used by most FMS modules."];
+  Node1 [label="FMS",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Modules and associated files in the fms directory."];
+  Node1->Node2 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node3 [shape=plaintext, dir="back", style="solid"];
+}

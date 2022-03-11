@@ -1,0 +1,11 @@
+digraph "Exchange"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=box];
+  rankdir=LR;
+  Node1 [label="Exchange",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Modules and associated files in the exchange directory."];
+  Node3 [label="xgrid_mod",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group__xgrid__mod.html",tooltip="Implements exchange grids for coupled models running on multiple processors."];
+  Node2 [label="stock_constants_mod",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group__stock__constants__mod.html",tooltip="Parameters, routines, and types for computing stocks in xgrid_mod."];
+  Node1->Node2 [shape=plaintext, dir="back", style="solid"];
+  Node1->Node3 [shape=plaintext, dir="back", style="solid"];
+}

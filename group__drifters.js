@@ -6,6 +6,6 @@ var group__drifters =
     [ "drifters_input_mod", "group__drifters__input__mod.html", "group__drifters__input__mod" ],
     [ "drifters_io_mod", "group__drifters__io__mod.html", "group__drifters__io__mod" ],
     [ "drifters_mod", "group__drifters__mod.html", "group__drifters__mod" ],
-    [ "quicksort", "group__quicksort.html", null ],
+    [ "quicksort.F90", "quicksort_8F90.html", null ],
     [ "README", "group__drifters.html#md_drifters_README", null ]
 ];
