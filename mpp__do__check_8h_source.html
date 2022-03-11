@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>FMS: mpp/include/mpp_do_check.h (e3f6dc0e453f1296da89ed7cf25009b7b781a9ae) Source File</title>
+<title>FMS: mpp/include/mpp_do_check.h (f165e9ff398ed9d4d33c19ee6cc9942e132e6225) Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -33,7 +33,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">FMS
-   &#160;<span id="projectnumber">2021.04.0-dev</span>
+   &#160;<span id="projectnumber">2022.01.0-dev</span>
    </div>
    <div id="projectbrief">Flexible Modeling System</div>
   </td>
@@ -331,26 +331,27 @@ $(document).ready(function(){initNavTree('mpp__do__check_8h_source.html',''); in
 <div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;                           print*,<span class="stringliteral">&quot;Error from MPP_DO_CHECK on pe = &quot;</span>, <a class="code" href="group__mpp__mod.html#gacfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>(), <span class="stringliteral">&quot;: field &quot;</span>, &amp;</div>
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;                                trim(field_name), <span class="stringliteral">&quot; at point (&quot;</span>, i, <span class="stringliteral">&quot;,&quot;</span>, j, <span class="stringliteral">&quot;,&quot;</span>, k, <span class="stringliteral">&quot;) = &quot;</span>, field(i,j,k), &amp;</div>
 <div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;                                <span class="stringliteral">&quot; does not equal to the value = &quot;</span>, buffer(pos), <span class="stringliteral">&quot; on pe &quot;</span>, check%recv(m)%pe</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;                           <span class="keyword">call </span>mpp_error(debug_update_level, <span class="stringliteral">&quot;MPP_DO_CHECK: mismatch on the boundary for symmetry point&quot;</span>)</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;                           <span class="keywordflow">exit</span> check_loop</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;<span class="keywordflow">                        end if</span></div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;<span class="keywordflow">                     end do</span></div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;<span class="keywordflow">                  end do</span></div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;<span class="keywordflow">               end do</span></div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;<span class="keywordflow">            end do</span></div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;<span class="keywordflow">         end do</span></div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;<span class="keywordflow">      end do</span> check_loop <span class="comment">! end do list = nlist-1,0,-1</span></div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;      <span class="keyword">call </span><a class="code" href="group__mpp__mod.html#ga09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>()</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160; </div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;      <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    <span class="keyword">end subroutine </span><a class="code" href="group__mpp__domains__mod.html#gad95ffaeca9ebb27e820139429b168da2">mpp_do_check_3d_</a><span class="comment"></span></div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;<span class="comment">!&gt; @}</span></div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;                           <span class="keyword">call </span>mpp_error(debug_update_level, &amp;</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;                                          &amp;  <span class="stringliteral">&quot;MPP_DO_CHECK: mismatch on the boundary for symmetry point&quot;</span>)</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;                           <span class="keywordflow">exit</span> check_loop</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;<span class="keywordflow">                        end if</span></div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;<span class="keywordflow">                     end do</span></div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;<span class="keywordflow">                  end do</span></div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;<span class="keywordflow">               end do</span></div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;<span class="keywordflow">            end do</span></div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;<span class="keywordflow">         end do</span></div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;<span class="keywordflow">      end do</span> check_loop <span class="comment">! end do list = nlist-1,0,-1</span></div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;      <span class="keyword">call </span><a class="code" href="group__mpp__mod.html#ga09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a>()</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160; </div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;      <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    <span class="keyword">end subroutine </span><a class="code" href="group__mpp__domains__mod.html#gad95ffaeca9ebb27e820139429b168da2">mpp_do_check_3d_</a><span class="comment"></span></div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;<span class="comment">!&gt; @}</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="agroup__mpp__mod_html_gacfeba7de56f9dd6000b3fd78f9d56c50"><div class="ttname"><a href="group__mpp__mod.html#gacfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a></div><div class="ttdeci">integer function mpp_pe()</div><div class="ttdoc">Returns processor ID.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00378">mpp_util.inc:378</a></div></div>
 <div class="ttc" id="agroup__mpp__domains__mod_html_gad95ffaeca9ebb27e820139429b168da2"><div class="ttname"><a href="group__mpp__domains__mod.html#gad95ffaeca9ebb27e820139429b168da2">mpp_do_check_3d_</a></div><div class="ttdeci">subroutine mpp_do_check_3d_(f_addrs, domain, check, d_type, ke, flags, name)</div><div class="ttdoc">Updates data domain of 3D field whose computational domains have been computed.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__do__check_8h_source.html#l00028">mpp_do_check.h:28</a></div></div>
 <div class="ttc" id="agroup__mpp__mod_html_ga172901d39c9b0cf14aa83b1e94fdf21b"><div class="ttname"><a href="group__mpp__mod.html#ga172901d39c9b0cf14aa83b1e94fdf21b">stdout</a></div><div class="ttdeci">integer function stdout()</div><div class="ttdoc">This function returns the current standard fortran unit numbers for output.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00043">mpp_util.inc:43</a></div></div>
-<div class="ttc" id="agroup__mpp__mod_html_ga09e69243d8c67e6a6e6e4fd9e93d0870"><div class="ttname"><a href="group__mpp__mod.html#ga09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a></div><div class="ttdeci">subroutine mpp_sync_self(pelist, check, request, msg_size, msg_type)</div><div class="ttdoc">This is to check if current PE's outstanding puts are complete but we can't use shmem_fence because w...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util__mpi_8inc_source.html#l00171">mpp_util_mpi.inc:171</a></div></div>
+<div class="ttc" id="agroup__mpp__mod_html_ga09e69243d8c67e6a6e6e4fd9e93d0870"><div class="ttname"><a href="group__mpp__mod.html#ga09e69243d8c67e6a6e6e4fd9e93d0870">mpp_sync_self</a></div><div class="ttdeci">subroutine mpp_sync_self(pelist, check, request, msg_size, msg_type)</div><div class="ttdoc">This is to check if current PE's outstanding puts are complete but we can't use shmem_fence because w...</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util__mpi_8inc_source.html#l00169">mpp_util_mpi.inc:169</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

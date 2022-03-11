@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>FMS: mpp/include/system_clock.h (e3f6dc0e453f1296da89ed7cf25009b7b781a9ae) Source File</title>
+<title>FMS: mpp/include/system_clock.h (f165e9ff398ed9d4d33c19ee6cc9942e132e6225) Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -33,7 +33,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">FMS
-   &#160;<span id="projectnumber">2021.04.0-dev</span>
+   &#160;<span id="projectnumber">2022.01.0-dev</span>
    </div>
    <div id="projectbrief">Flexible Modeling System</div>
   </td>
@@ -131,13 +131,13 @@ $(document).ready(function(){initNavTree('system__clock_8h_source.html',''); ini
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;      <span class="keywordflow">if</span>(first_call_system_clock_mpi)<span class="keywordflow">then</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;         first_call_system_clock_mpi=.false.</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;         mpi_count0 = mpi_wtime()</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;         mpi_tick_rate = 1.d0/mpi_wtick()</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;         mpi_tick_rate = real(1.d0/mpi_wtick(), r8_kind)</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keywordflow">      endif</span></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;      <span class="keywordflow">if</span>( <span class="keyword">PRESENT</span>(count) )<span class="keywordflow">then</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;          count = (mpi_wtime()-mpi_count0)*mpi_tick_rate</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;          count = int((mpi_wtime()-mpi_count0)*mpi_tick_rate, i8_kind)</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keywordflow">      end if</span></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;      <span class="keywordflow">if</span>( <span class="keyword">PRESENT</span>(count_rate) )<span class="keywordflow">then</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;          count_rate = mpi_tick_rate</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;          count_rate = int(mpi_tick_rate, i8_kind)</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keywordflow">      end if</span></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;      <span class="keywordflow">if</span>( <span class="keyword">PRESENT</span>(count_max) )<span class="keywordflow">then</span></div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;          count_max = maxtick-1</div>

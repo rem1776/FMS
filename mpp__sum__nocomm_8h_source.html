@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>FMS: mpp/include/mpp_sum_nocomm.h (e3f6dc0e453f1296da89ed7cf25009b7b781a9ae) Source File</title>
+<title>FMS: mpp/include/mpp_sum_nocomm.h (f165e9ff398ed9d4d33c19ee6cc9942e132e6225) Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -33,7 +33,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">FMS
-   &#160;<span id="projectnumber">2021.04.0-dev</span>
+   &#160;<span id="projectnumber">2022.01.0-dev</span>
    </div>
    <div id="projectbrief">Flexible Modeling System</div>
   </td>
@@ -117,17 +117,24 @@ $(document).ready(function(){initNavTree('mpp__sum__nocomm_8h_source.html',''); 
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">    !! we are using f77-style call: array passed by address and not descriptor; further,</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">    !! the f90 conformance check is avoided.</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">subroutine </span>mpp_sum_( a, length, pelist )</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;      <span class="keywordtype">integer</span>, <span class="keywordtype">intent(in)</span> :: length</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;      <span class="keywordtype">integer</span>, <span class="keywordtype">intent(in)</span>, <span class="keywordtype">optional</span> :: pelist(:)</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;      mpp_type_, <span class="keywordtype">intent(inout)</span> :: a(*)</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;      <span class="keywordflow">if</span>( .NOT.module_is_initialized )<span class="keyword">call </span>mpp_error( fatal, <span class="stringliteral">&#39;MPP_SUM: You must first call mpp_init.&#39;</span> )</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;      <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">end subroutine </span>mpp_sum_</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">!#######################################################################</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &lt;mpp_sum.inc&gt;</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor"></span> </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;&lt;&lt;&lt;&lt;&lt;&lt;&lt; head</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;=======</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">!sums array a over the PEs in pelist (all PEs if this argument is omitted)</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">!result is also automatically broadcast: all PEs have the sum in a at the end</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">!we are using f77-style call: array passed by address and not descriptor; further, the f90</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">!conformance check is avoided.</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;&gt;&gt;&gt;&gt;&gt;&gt;&gt; upstream/main</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;      <span class="keywordtype">integer</span>, <span class="keywordtype">intent(in)</span> :: length</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;      <span class="keywordtype">integer</span>, <span class="keywordtype">intent(in)</span>, <span class="keywordtype">optional</span> :: pelist(:)</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;      mpp_type_, <span class="keywordtype">intent(inout)</span> :: a(*)</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;      <span class="keywordflow">if</span>( .NOT.module_is_initialized )<span class="keyword">call </span>mpp_error( fatal, <span class="stringliteral">&#39;MPP_SUM: You must first call mpp_init.&#39;</span> )</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;      <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">end subroutine </span>mpp_sum_</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">!#######################################################################</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#include &lt;mpp_sum.inc&gt;</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor"></span> </div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>FMS: mpp/include/mpp_write_compressed.h (e3f6dc0e453f1296da89ed7cf25009b7b781a9ae) Source File</title>
+<title>FMS: mpp/include/mpp_write_compressed.h (f165e9ff398ed9d4d33c19ee6cc9942e132e6225) Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -33,7 +33,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">FMS
-   &#160;<span id="projectnumber">2021.04.0-dev</span>
+   &#160;<span id="projectnumber">2022.01.0-dev</span>
    </div>
    <div id="projectbrief">Flexible Modeling System</div>
   </td>
@@ -191,49 +191,50 @@ $(document).ready(function(){initNavTree('mpp__write__compressed_8h_source.html'
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;      <span class="keyword">allocate</span>(nz_gather(npes))</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;      <span class="keyword">call </span>mpp_gather((/nz/), nz_gather, pelist)</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;      <span class="keywordflow">if</span> ( mpp_file(unit)%write_on_this_pe.and.maxloc(nz_gather,1).ne.minloc(nz_gather,1) ) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;         <span class="keyword">call </span>mpp_error( fatal, <span class="stringliteral">&#39;MPP_WRITE_COMPRESSED_2D_: size(data,2) must be consistent across all PEs in io_domain&#39;</span> )</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="keywordflow">      end if</span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;      <span class="keyword">deallocate</span>(nz_gather)</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;      <span class="keywordflow">if</span>(mpp_file(unit)%write_on_this_pe ) <span class="keyword">allocate</span>(rbuff(nz,nelems))</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;      <span class="keyword">allocate</span>(sbuff(nz,mynelems))</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;      <span class="comment">! this matrix inversion makes for easy gather to the IO root</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;      <span class="comment">! and a clear, concise unpack</span></div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;      <span class="keywordflow">do</span> j=1,mynelems</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keywordflow">do</span> i=1,nz</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;          sbuff(i,j) = <span class="keyword">data</span>(j,i)</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;      enddo;<span class="keywordflow"> enddo</span></div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;   <span class="comment">!  Note that the gatherV implied here is asymmetric; only root needs to know the vector of recv size</span></div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;      sptr = loc(sbuff)</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;      rptr = 0</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;      <span class="keywordflow">if</span>(mpp_file(unit)%write_on_this_pe ) rptr = loc(rbuff)</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;      <span class="keyword">call </span>mpp_gather(sbuff1d,<span class="keyword">size</span>(sbuff),rbuff1d,nz*nelems_io(:),pelist)</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;      <span class="keywordflow">if</span>(mpp_file(unit)%write_on_this_pe ) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;         <span class="keyword">allocate</span>(cdata(nelems,nz))</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;         cdata = fill</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;         <span class="keywordflow">do</span> j=1,nz</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;           <span class="keywordflow">do</span> i=1,nelems</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;             cdata(i,j) = rbuff(j,i)</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;         enddo;<span class="keywordflow"> enddo</span></div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;         <span class="comment">! cludge for now; need resizing accessor</span></div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;         field%size(1) = nelems</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;         <span class="keyword">call </span>write_record_( unit, field, nelems*nz, cdata, tstamp)</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;         <span class="keyword">deallocate</span>(rbuff,cdata)</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="keywordflow">      endif</span></div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;      <span class="keyword">deallocate</span>(sbuff,pelist)</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;      <span class="keyword">call </span>mpp_clock_end(mpp_write_clock)</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;      <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <span class="keyword">end subroutine </span>mpp_write_compressed_2d_</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;         <span class="keyword">call </span>mpp_error( fatal, &amp;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                        &amp;  <span class="stringliteral">&#39;MPP_WRITE_COMPRESSED_2D_: size(data,2) must be consistent across all PEs in io_domain&#39;</span> )</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="keywordflow">      end if</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;      <span class="keyword">deallocate</span>(nz_gather)</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;      <span class="keywordflow">if</span>(mpp_file(unit)%write_on_this_pe ) <span class="keyword">allocate</span>(rbuff(nz,nelems))</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;      <span class="keyword">allocate</span>(sbuff(nz,mynelems))</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;      <span class="comment">! this matrix inversion makes for easy gather to the IO root</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;      <span class="comment">! and a clear, concise unpack</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;      <span class="keywordflow">do</span> j=1,mynelems</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keywordflow">do</span> i=1,nz</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;          sbuff(i,j) = <span class="keyword">data</span>(j,i)</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;      enddo;<span class="keywordflow"> enddo</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;   <span class="comment">!  Note that the gatherV implied here is asymmetric; only root needs to know the vector of recv size</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;      sptr = loc(sbuff)</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;      rptr = 0</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;      <span class="keywordflow">if</span>(mpp_file(unit)%write_on_this_pe ) rptr = loc(rbuff)</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;      <span class="keyword">call </span>mpp_gather(sbuff1d,<span class="keyword">size</span>(sbuff),rbuff1d,nz*nelems_io(:),pelist)</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;      <span class="keywordflow">if</span>(mpp_file(unit)%write_on_this_pe ) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;         <span class="keyword">allocate</span>(cdata(nelems,nz))</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;         cdata = fill</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;         <span class="keywordflow">do</span> j=1,nz</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;           <span class="keywordflow">do</span> i=1,nelems</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;             cdata(i,j) = rbuff(j,i)</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;         enddo;<span class="keywordflow"> enddo</span></div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;         <span class="comment">! cludge for now; need resizing accessor</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;         field%size(1) = nelems</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;         <span class="keyword">call </span>write_record_( unit, field, nelems*nz, cdata, tstamp)</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;         <span class="keyword">deallocate</span>(rbuff,cdata)</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="keywordflow">      endif</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;      <span class="keyword">deallocate</span>(sbuff,pelist)</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;      <span class="keyword">call </span>mpp_clock_end(mpp_write_clock)</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;      <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <span class="keyword">end subroutine </span>mpp_write_compressed_2d_</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="agroup__mpp__domains__mod_html_gabcba009e302f270f0a98d9ed954e1fa8"><div class="ttname"><a href="group__mpp__domains__mod.html#gabcba009e302f270f0a98d9ed954e1fa8">mpp_get_io_domain</a></div><div class="ttdeci">type(domain2d) function, pointer mpp_get_io_domain(domain)</div><div class="ttdoc">Set user stack size.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__util_8inc_source.html#l00681">mpp_domains_util.inc:681</a></div></div>
-<div class="ttc" id="agroup__mpp__domains__mod_html_ga09fbb8f89b22dd340da2af872292e723"><div class="ttname"><a href="group__mpp__domains__mod.html#ga09fbb8f89b22dd340da2af872292e723">mpp_get_domain_npes</a></div><div class="ttdeci">integer function mpp_get_domain_npes(domain)</div><div class="ttdoc">Set user stack size.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__util_8inc_source.html#l01427">mpp_domains_util.inc:1427</a></div></div>
+<div class="ttc" id="agroup__mpp__domains__mod_html_gabcba009e302f270f0a98d9ed954e1fa8"><div class="ttname"><a href="group__mpp__domains__mod.html#gabcba009e302f270f0a98d9ed954e1fa8">mpp_get_io_domain</a></div><div class="ttdeci">type(domain2d) function, pointer mpp_get_io_domain(domain)</div><div class="ttdoc">Set user stack size.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__util_8inc_source.html#l00685">mpp_domains_util.inc:685</a></div></div>
+<div class="ttc" id="agroup__mpp__domains__mod_html_ga09fbb8f89b22dd340da2af872292e723"><div class="ttname"><a href="group__mpp__domains__mod.html#ga09fbb8f89b22dd340da2af872292e723">mpp_get_domain_npes</a></div><div class="ttdeci">integer function mpp_get_domain_npes(domain)</div><div class="ttdoc">Set user stack size.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__util_8inc_source.html#l01432">mpp_domains_util.inc:1432</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

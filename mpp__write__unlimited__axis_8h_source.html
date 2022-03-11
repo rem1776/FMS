@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>FMS: mpp/include/mpp_write_unlimited_axis.h (e3f6dc0e453f1296da89ed7cf25009b7b781a9ae) Source File</title>
+<title>FMS: mpp/include/mpp_write_unlimited_axis.h (f165e9ff398ed9d4d33c19ee6cc9942e132e6225) Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -33,7 +33,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">FMS
-   &#160;<span id="projectnumber">2021.04.0-dev</span>
+   &#160;<span id="projectnumber">2022.01.0-dev</span>
    </div>
    <div id="projectbrief">Flexible Modeling System</div>
   </td>
@@ -127,36 +127,38 @@ $(document).ready(function(){initNavTree('mpp__write__unlimited__axis_8h_source.
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;      <span class="keyword">call </span>mpp_clock_begin(mpp_write_clock)</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;      <span class="keywordflow">if</span>( .NOT.module_is_initialized )<span class="keyword">call </span>mpp_error( fatal, <span class="stringliteral">&#39;MPP_WRITE_UNLIMITED_AXIS_1D_: must first call mpp_io_init.&#39;</span> )</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;      <span class="keywordflow">if</span>( .NOT.mpp_file(unit)%valid )<span class="keyword">call </span>mpp_error( fatal, <span class="stringliteral">&#39;MPP_WRITE_UNLIMITED_AXIS_1D_: invalid unit number.&#39;</span> )</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;      io_domain=&gt;<a class="code" href="group__mpp__domains__mod.html#gabcba009e302f270f0a98d9ed954e1fa8">mpp_get_io_domain</a>(domain)</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;      <span class="keywordflow">if</span> (.not. <span class="keyword">ASSOCIATED</span>(io_domain)) <span class="keyword">call </span>mpp_error( fatal, <span class="stringliteral">&#39;MPP_WRITE_UNLIMITED_AXIS_1D_: io_domain must be defined.&#39;</span> )</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;      npes = <a class="code" href="group__mpp__domains__mod.html#ga09fbb8f89b22dd340da2af872292e723">mpp_get_domain_npes</a>(io_domain)</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;      <span class="keyword">allocate</span>(pelist(npes))</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;      <span class="keyword">call </span>mpp_get_pelist(io_domain,pelist)</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;      nelems = sum(nelems_io(:))</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;      <span class="keywordflow">if</span>( .NOT.module_is_initialized )<span class="keyword">call </span>mpp_error( fatal, &amp;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;         &amp;  <span class="stringliteral">&#39;MPP_WRITE_UNLIMITED_AXIS_1D_: must first call mpp_io_init.&#39;</span> )</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;      <span class="keywordflow">if</span>( .NOT.mpp_file(unit)%valid )<span class="keyword">call </span>mpp_error( fatal, <span class="stringliteral">&#39;MPP_WRITE_UNLIMITED_AXIS_1D_: invalid unit number.&#39;</span> )</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;      io_domain=&gt;<a class="code" href="group__mpp__domains__mod.html#gabcba009e302f270f0a98d9ed954e1fa8">mpp_get_io_domain</a>(domain)</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;      <span class="keywordflow">if</span> (.not. <span class="keyword">ASSOCIATED</span>(io_domain)) <span class="keyword">call </span>mpp_error( fatal, &amp;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;          &amp;  <span class="stringliteral">&#39;MPP_WRITE_UNLIMITED_AXIS_1D_: io_domain must be defined.&#39;</span> )</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;      npes = <a class="code" href="group__mpp__domains__mod.html#ga09fbb8f89b22dd340da2af872292e723">mpp_get_domain_npes</a>(io_domain)</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;      <span class="keyword">allocate</span>(pelist(npes))</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;      <span class="keyword">call </span>mpp_get_pelist(io_domain,pelist)</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;      <span class="keywordflow">if</span>(mpp_file(unit)%write_on_this_pe) <span class="keyword">allocate</span>(rbuff(nelems))</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;      nelems = sum(nelems_io(:))</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;   <span class="comment">!  Note that the gatherV implied here is asymmetric; only root needs to know the vector of recv size</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;      <span class="keyword">call </span>mpp_gather(<span class="keyword">data</span>,<span class="keyword">size</span>(data),rbuff,nelems_io(:),pelist)</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;      <span class="keywordflow">if</span>(mpp_file(unit)%write_on_this_pe) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;         field%size(1) = nelems  <span class="comment">! Correct the field size now that we have all the data</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;         <span class="keyword">call </span>write_record(unit, field, nelems, rbuff)</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;         <span class="keyword">deallocate</span>(rbuff)</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keywordflow">      endif</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;      <span class="keyword">deallocate</span>(pelist)</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;      <span class="keyword">call </span>mpp_clock_end(mpp_write_clock)</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;      <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keyword">end subroutine </span>mpp_write_unlimited_axis_1d_</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;      <span class="keywordflow">if</span>(mpp_file(unit)%write_on_this_pe) <span class="keyword">allocate</span>(rbuff(nelems))</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;   <span class="comment">!  Note that the gatherV implied here is asymmetric; only root needs to know the vector of recv size</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;      <span class="keyword">call </span>mpp_gather(<span class="keyword">data</span>,<span class="keyword">size</span>(data),rbuff,nelems_io(:),pelist)</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;      <span class="keywordflow">if</span>(mpp_file(unit)%write_on_this_pe) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;         field%size(1) = nelems  <span class="comment">! Correct the field size now that we have all the data</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;         <span class="keyword">call </span>write_record(unit, field, nelems, rbuff)</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;         <span class="keyword">deallocate</span>(rbuff)</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keywordflow">      endif</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;      <span class="keyword">deallocate</span>(pelist)</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;      <span class="keyword">call </span>mpp_clock_end(mpp_write_clock)</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;      <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">end subroutine </span>mpp_write_unlimited_axis_1d_</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="agroup__mpp__domains__mod_html_gabcba009e302f270f0a98d9ed954e1fa8"><div class="ttname"><a href="group__mpp__domains__mod.html#gabcba009e302f270f0a98d9ed954e1fa8">mpp_get_io_domain</a></div><div class="ttdeci">type(domain2d) function, pointer mpp_get_io_domain(domain)</div><div class="ttdoc">Set user stack size.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__util_8inc_source.html#l00681">mpp_domains_util.inc:681</a></div></div>
-<div class="ttc" id="agroup__mpp__domains__mod_html_ga09fbb8f89b22dd340da2af872292e723"><div class="ttname"><a href="group__mpp__domains__mod.html#ga09fbb8f89b22dd340da2af872292e723">mpp_get_domain_npes</a></div><div class="ttdeci">integer function mpp_get_domain_npes(domain)</div><div class="ttdoc">Set user stack size.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__util_8inc_source.html#l01427">mpp_domains_util.inc:1427</a></div></div>
+<div class="ttc" id="agroup__mpp__domains__mod_html_gabcba009e302f270f0a98d9ed954e1fa8"><div class="ttname"><a href="group__mpp__domains__mod.html#gabcba009e302f270f0a98d9ed954e1fa8">mpp_get_io_domain</a></div><div class="ttdeci">type(domain2d) function, pointer mpp_get_io_domain(domain)</div><div class="ttdoc">Set user stack size.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__util_8inc_source.html#l00685">mpp_domains_util.inc:685</a></div></div>
+<div class="ttc" id="agroup__mpp__domains__mod_html_ga09fbb8f89b22dd340da2af872292e723"><div class="ttname"><a href="group__mpp__domains__mod.html#ga09fbb8f89b22dd340da2af872292e723">mpp_get_domain_npes</a></div><div class="ttdeci">integer function mpp_get_domain_npes(domain)</div><div class="ttdoc">Set user stack size.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__domains__util_8inc_source.html#l01432">mpp_domains_util.inc:1432</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

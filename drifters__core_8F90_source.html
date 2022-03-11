@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>FMS: drifters/drifters_core.F90 (e3f6dc0e453f1296da89ed7cf25009b7b781a9ae) Source File</title>
+<title>FMS: drifters/drifters_core.F90 (f165e9ff398ed9d4d33c19ee6cc9942e132e6225) Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -33,7 +33,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">FMS
-   &#160;<span id="projectnumber">2021.04.0-dev</span>
+   &#160;<span id="projectnumber">2022.01.0-dev</span>
    </div>
    <div id="projectbrief">Flexible Modeling System</div>
   </td>
@@ -308,70 +308,71 @@ $(document).ready(function(){initNavTree('drifters__core_8F90_source.html',''); 
 <div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160; </div>
 <div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    <span class="comment">! cannot remove more than there are elements</span></div>
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    <span class="keywordflow">if</span>(self%np + n_diff &lt; 0) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;       ermesg = <span class="stringliteral">&#39;drifters::ERROR attempting to remove more elements than there are elements in drifters_core_remove_and_add&#39;</span></div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;       <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;<span class="keywordflow">    endif</span></div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160; </div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    <span class="comment">! check for overflow, and resize if necessary</span></div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    <span class="keywordflow">if</span>(self%np + n_diff &gt; self%npdim)  &amp;</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;         &amp; <span class="keyword">call </span><a class="code" href="group__drifters__core__mod.html#ga50a2687071f49e5f40ce1441f797c55a">drifters_core_resize</a>(self, int(1.2*(self%np + n_diff))+1, ermesg)</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160; </div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    <span class="keywordflow">do</span> i = 1, min(np_add, np_remove)</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;       j = indices_to_remove(i)</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;       self%ids(j)            = ids_to_add(i)</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;       self%positions(:,j)    = positions_to_add(:,i)</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;<span class="keywordflow">    enddo</span></div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160; </div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    <span class="keywordflow">if</span>(n_diff &gt; 0) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;       <span class="comment">! all the particles to remove were removed and replaced. Just need to append</span></div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;       <span class="comment">! remaining particles to end of list</span></div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;       self%ids(         self%np+1:self%np+n_diff)   = ids_to_add(        np_remove+1:np_add)</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;       self%positions(:, self%np+1:self%np+n_diff)   = positions_to_add(:,np_remove+1:np_add)</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160; </div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;       self%np = self%np + n_diff</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160; </div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(n_diff &lt; 0) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;       <span class="comment">! all the particles were added by filling in holes left by particles that</span></div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;       <span class="comment">! were previously removed. Now remove remaining particles, starting from the end,</span></div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;       <span class="comment">! by replacing the missing particle with a copy from the end.</span></div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160; </div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;       <span class="comment">! sort remaining indices in ascending order</span></div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;       <span class="keyword">call </span>qksrt_quicksort(<span class="keyword">size</span>(indices_to_remove), indices_to_remove, np_add+1, np_remove)</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160; </div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;       <span class="keywordflow">do</span> i = np_remove, np_add+1, -1</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;          <span class="keywordflow">if</span>(self%np &lt;= 0) <span class="keywordflow">exit</span></div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;          j = indices_to_remove(i)</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;          self%ids      (  j)    = self%ids      (  self%np)</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;          self%positions(:,j)    = self%positions(:,self%np)</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;          self%np = self%np - 1</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;<span class="keywordflow">       enddo</span></div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;<span class="keywordflow">    endif</span></div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160; </div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    <span class="keywordflow">if</span>(ier/=0) ermesg = <span class="stringliteral">&#39;drifters::ERROR in drifters_core_remove_and_add&#39;</span></div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;  <span class="keyword">end subroutine </span>drifters_core_remove_and_add</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160; </div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;<span class="comment">!###############################################################################</span></div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;  <span class="keyword">subroutine </span>drifters_core_print(self1, ermesg1)</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="group__drifters__core__mod.html#structdrifters__core__mod_1_1drifters__core__type">drifters_core_type</a>)        :: self1</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    <span class="keywordtype">character(*)</span>, <span class="keywordtype">intent(out)</span> :: ermesg1</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    <span class="keywordtype">integer</span> j</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    ermesg1 = <span class="stringliteral">&#39;&#39;</span></div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160; </div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    print <span class="stringliteral">&#39;(a,i10,a,i6,a,i6,a,i4,a,i4,a,i4)&#39;</span>,<span class="stringliteral">&#39;it=&#39;</span>,self1%it,  &amp;</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;         &amp; <span class="stringliteral">&#39; np=&#39;</span>, self1%np, <span class="stringliteral">&#39; npdim=&#39;</span>, self1%npdim</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160; </div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    print *,<span class="stringliteral">&#39;ids and positions:&#39;</span></div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    <span class="keywordflow">do</span> j = 1, self1%np</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;       print *,self1%ids(j), self1%positions(:,j)</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;<span class="keywordflow">    enddo</span></div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160; </div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;  <span class="keyword">end subroutine </span>drifters_core_print</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160; </div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;       ermesg = <span class="stringliteral">&#39;drifters::ERROR attempting to remove more elements than there are elements in &#39;</span>// &amp;</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;               &amp;<span class="stringliteral">&#39;drifters_core_remove_and_add&#39;</span></div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;       <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;<span class="keywordflow">    endif</span></div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160; </div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    <span class="comment">! check for overflow, and resize if necessary</span></div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    <span class="keywordflow">if</span>(self%np + n_diff &gt; self%npdim)  &amp;</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;         &amp; <span class="keyword">call </span><a class="code" href="group__drifters__core__mod.html#ga50a2687071f49e5f40ce1441f797c55a">drifters_core_resize</a>(self, int(1.2*(self%np + n_diff))+1, ermesg)</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160; </div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    <span class="keywordflow">do</span> i = 1, min(np_add, np_remove)</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;       j = indices_to_remove(i)</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;       self%ids(j)            = ids_to_add(i)</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;       self%positions(:,j)    = positions_to_add(:,i)</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;<span class="keywordflow">    enddo</span></div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160; </div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    <span class="keywordflow">if</span>(n_diff &gt; 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;       <span class="comment">! all the particles to remove were removed and replaced. Just need to append</span></div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;       <span class="comment">! remaining particles to end of list</span></div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;       self%ids(         self%np+1:self%np+n_diff)   = ids_to_add(        np_remove+1:np_add)</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;       self%positions(:, self%np+1:self%np+n_diff)   = positions_to_add(:,np_remove+1:np_add)</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160; </div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;       self%np = self%np + n_diff</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160; </div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(n_diff &lt; 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;       <span class="comment">! all the particles were added by filling in holes left by particles that</span></div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;       <span class="comment">! were previously removed. Now remove remaining particles, starting from the end,</span></div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;       <span class="comment">! by replacing the missing particle with a copy from the end.</span></div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160; </div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;       <span class="comment">! sort remaining indices in ascending order</span></div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;       <span class="keyword">call </span>qksrt_quicksort(<span class="keyword">size</span>(indices_to_remove), indices_to_remove, np_add+1, np_remove)</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160; </div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;       <span class="keywordflow">do</span> i = np_remove, np_add+1, -1</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;          <span class="keywordflow">if</span>(self%np &lt;= 0) <span class="keywordflow">exit</span></div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;          j = indices_to_remove(i)</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;          self%ids      (  j)    = self%ids      (  self%np)</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;          self%positions(:,j)    = self%positions(:,self%np)</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;          self%np = self%np - 1</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;<span class="keywordflow">       enddo</span></div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;<span class="keywordflow">    endif</span></div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160; </div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    <span class="keywordflow">if</span>(ier/=0) ermesg = <span class="stringliteral">&#39;drifters::ERROR in drifters_core_remove_and_add&#39;</span></div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;  <span class="keyword">end subroutine </span>drifters_core_remove_and_add</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160; </div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;<span class="comment">!###############################################################################</span></div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;  <span class="keyword">subroutine </span>drifters_core_print(self1, ermesg1)</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="group__drifters__core__mod.html#structdrifters__core__mod_1_1drifters__core__type">drifters_core_type</a>)        :: self1</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    <span class="keywordtype">character(*)</span>, <span class="keywordtype">intent(out)</span> :: ermesg1</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    <span class="keywordtype">integer</span> j</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    ermesg1 = <span class="stringliteral">&#39;&#39;</span></div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160; </div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    print <span class="stringliteral">&#39;(a,i10,a,i6,a,i6,a,i4,a,i4,a,i4)&#39;</span>,<span class="stringliteral">&#39;it=&#39;</span>,self1%it,  &amp;</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;         &amp; <span class="stringliteral">&#39; np=&#39;</span>, self1%np, <span class="stringliteral">&#39; npdim=&#39;</span>, self1%npdim</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160; </div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    print *,<span class="stringliteral">&#39;ids and positions:&#39;</span></div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    <span class="keywordflow">do</span> j = 1, self1%np</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;       print *,self1%ids(j), self1%positions(:,j)</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;<span class="keywordflow">    enddo</span></div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160; </div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;  <span class="keyword">end subroutine </span>drifters_core_print</div>
 <div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160; </div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;<span class="keyword">end module </span>drifters_core_mod</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;<span class="comment">!###############################################################################</span><span class="comment"></span></div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;<span class="comment">!&gt; @}</span></div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;<span class="comment">! close documentation grouping</span></div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160; </div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;<span class="keyword">end module </span>drifters_core_mod</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;<span class="comment">!###############################################################################</span><span class="comment"></span></div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;<span class="comment">!&gt; @}</span></div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;<span class="comment">! close documentation grouping</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="agroup__drifters__core__mod_html_ga50a2687071f49e5f40ce1441f797c55a"><div class="ttname"><a href="group__drifters__core__mod.html#ga50a2687071f49e5f40ce1441f797c55a">drifters_core_mod::drifters_core_resize</a></div><div class="ttdeci">subroutine, public drifters_core_resize(self, npdim, ermesg)</div><div class="ttdef"><b>Definition:</b> <a href="drifters__core_8F90_source.html#l00132">drifters_core.F90:132</a></div></div>

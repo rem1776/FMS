@@ -107,12 +107,6 @@ var group__fms2__io__mod =
       [ "unstructured_write_restart", "group__fms2__io__mod.html#a2b423145068441ae0402722863c5e8c3", null ]
     ] ],
     [ "readme", "group__fms2__io__mod.html#md_fms2_io_readme", null ],
-    [ "allocate_array_char_1d", "group__fms2__io__mod.html#gac32d6c9763776287aa51db5191f44013", null ],
-    [ "allocate_array_char_2d", "group__fms2__io__mod.html#ga5cabe63ddbd38aa6f7c50473a78d0f4c", null ],
-    [ "allocate_array_char_3d", "group__fms2__io__mod.html#ga7ca1f58a5b65b675a621bb8ec765fd66", null ],
-    [ "allocate_array_char_4d", "group__fms2__io__mod.html#gabab0419df6538a44415d80321c6e6561", null ],
-    [ "allocate_array_char_5d", "group__fms2__io__mod.html#ga0919f9ca68abda9cf97f9eeb3fd6acbd", null ],
-    [ "allocate_array_char_6d", "group__fms2__io__mod.html#ga1d5f6982f783a7fde575b40992211b9a", null ],
     [ "compressed_read_0d", "group__fms2__io__mod.html#ga3628d0c71f1136ec7970df3f1c9717cf", null ],
     [ "compressed_read_1d", "group__fms2__io__mod.html#ga4e1a1a36d87cbd10b1cf8ea5ef32b3fe", null ],
     [ "compressed_read_2d", "group__fms2__io__mod.html#ga531447a7c5dbf4712cfb36ff0c0ef6d0", null ],

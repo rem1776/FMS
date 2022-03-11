@@ -1,5 +1,9 @@
 var group__fms__mod =
 [
+    [ "fms_c2f_string", "group__fms__mod.html#interfacefms__mod_1_1fms__c2f__string", [
+      [ "cpointer_fortran_conversion", "group__fms__mod.html#aadaafc70b1918799933ea0eef1b5e371", null ],
+      [ "cstring_fortran_conversion", "group__fms__mod.html#a2926018a984f8089aae0df096e093378", null ]
+    ] ],
     [ "nml_errors_type", "group__fms__mod.html#structfms__mod_1_1nml__errors__type", [
       [ "badtype1", "group__fms__mod.html#a45602ba18ce79502e6a75c985ed5ff45", null ],
       [ "badtype2", "group__fms__mod.html#af369597000885987112ef52318fa89ef", null ],
@@ -12,8 +16,9 @@ var group__fms__mod =
       [ "string_from_real", "group__fms__mod.html#a01eb53345a691cf20bd41270d8661c06", null ]
     ] ],
     [ "check_nml_error", "group__fms__mod.html#ga05e7686befc1e49d2be9bdb81d479a76", null ],
+    [ "cpointer_fortran_conversion", "group__fms__mod.html#gacc2555c16c0ef757d7a52fbcb2cfc7be", null ],
+    [ "cstring_fortran_conversion", "group__fms__mod.html#gaa9d68633225dc9e5e69d41e93f38f21b", null ],
     [ "error_mesg", "group__fms__mod.html#gae5c7420e421293e2be14717dd7b3d97f", null ],
-    [ "fms_c2f_string", "group__fms__mod.html#ga9b3ec25e8291f90ac2c4e028590c09e8", null ],
     [ "fms_error_handler", "group__fms__mod.html#ga6695d901d751a75f108c27aa385d9579", null ],
     [ "fms_init", "group__fms__mod.html#ga76099928e3f2e58ea5efe717c7809fce", null ],
     [ "monotonic_array", "group__fms__mod.html#gae80e64e737312192624678ecd590acd6", null ],

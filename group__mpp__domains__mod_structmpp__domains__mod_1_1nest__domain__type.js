@@ -10,6 +10,7 @@ var group__mpp__domains__mod_structmpp__domains__mod_1_1nest__domain__type =
     [ "jstart_fine", "group__mpp__domains__mod.html#a0bbae4ad49d4a37d31747b24eeb818ac", null ],
     [ "name", "group__mpp__domains__mod.html#a8909ec653f6b845f88351bce5bb6406d", null ],
     [ "nest", "group__mpp__domains__mod.html#a92649830d783f10af6bf8a8e8f6c10a3", null ],
+    [ "nest_level", "group__mpp__domains__mod.html#a48acbb9f8967e54405496b42d1c1d804", null ],
     [ "num_level", "group__mpp__domains__mod.html#af488789e75599634547f818f4804346b", null ],
     [ "num_nest", "group__mpp__domains__mod.html#a999928c84dbb841a8effb369cabef26b", null ],
     [ "tile_coarse", "group__mpp__domains__mod.html#a602a21a51f13a08a8bed9c983a0e6b8d", null ],
