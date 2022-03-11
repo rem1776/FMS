@@ -99,7 +99,7 @@ $(document).ready(function(){initNavTree('group__mpp__mod.html',''); initResizab
 </div><!--header-->
 <div class="contents">
 
-<p>This module defines interfaces for common operations using message-passing libraries.  
+<p>This module defines interfaces for common operations using message-passing libraries. Any type-less arguments in the documentation are MPP_TYPE_ which is defined by the pre-processor to create multiple subroutines out of one implementation for use in an interface. See the note below for more information.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
@@ -135,13 +135,13 @@ Data Types</h2></td></tr>
 <tr class="memdesc:interfacempp__mod_1_1mpp__gather"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gather information onto root pe.  <a href="group__mpp__mod.html#interfacempp__mod_1_1mpp__gather">More...</a><br /></td></tr>
 <tr class="separator:interfacempp__mod_1_1mpp__gather"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:interfacempp__mod_1_1mpp__max"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mpp__mod.html#interfacempp__mod_1_1mpp__max">mpp_max</a></td></tr>
-<tr class="memdesc:interfacempp__mod_1_1mpp__max"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reduction operations. Find the max of scalar a the PEs in pelist result is also automatically broadcast to all PEs.  <a href="group__mpp__mod.html#interfacempp__mod_1_1mpp__max">More...</a><br /></td></tr>
+<tr class="memdesc:interfacempp__mod_1_1mpp__max"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reduction operations. Find the max of scalar a from the PEs in pelist result is also automatically broadcast to all PEs.  <a href="group__mpp__mod.html#interfacempp__mod_1_1mpp__max">More...</a><br /></td></tr>
 <tr class="separator:interfacempp__mod_1_1mpp__max"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:interfacempp__mod_1_1mpp__min"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mpp__mod.html#interfacempp__mod_1_1mpp__min">mpp_min</a></td></tr>
-<tr class="memdesc:interfacempp__mod_1_1mpp__min"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get minimum value out of the PEs in pelist Result is also broadcast to all PEs.  <a href="group__mpp__mod.html#interfacempp__mod_1_1mpp__min">More...</a><br /></td></tr>
+<tr class="memdesc:interfacempp__mod_1_1mpp__min"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reduction operations. Find the min of scalar a from the PEs in pelist result is also automatically broadcast to all PEs.  <a href="group__mpp__mod.html#interfacempp__mod_1_1mpp__min">More...</a><br /></td></tr>
 <tr class="separator:interfacempp__mod_1_1mpp__min"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:interfacempp__mod_1_1mpp__recv"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mpp__mod.html#interfacempp__mod_1_1mpp__recv">mpp_recv</a></td></tr>
-<tr class="memdesc:interfacempp__mod_1_1mpp__recv"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recieve data to another PE.  <a href="group__mpp__mod.html#interfacempp__mod_1_1mpp__recv">More...</a><br /></td></tr>
+<tr class="memdesc:interfacempp__mod_1_1mpp__recv"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recieve data from another PE.  <a href="group__mpp__mod.html#interfacempp__mod_1_1mpp__recv">More...</a><br /></td></tr>
 <tr class="separator:interfacempp__mod_1_1mpp__recv"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:interfacempp__mod_1_1mpp__scatter"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mpp__mod.html#interfacempp__mod_1_1mpp__scatter">mpp_scatter</a></td></tr>
 <tr class="memdesc:interfacempp__mod_1_1mpp__scatter"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scatter information to the given pelist.  <a href="group__mpp__mod.html#interfacempp__mod_1_1mpp__scatter">More...</a><br /></td></tr>
@@ -288,6 +288,18 @@ integer function&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_error
 subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mpp__mod.html#ga8d0366d81b9701ccaaf3612b666aada1">mpp_exit</a> ()</td></tr>
 <tr class="memdesc:ga8d0366d81b9701ccaaf3612b666aada1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finalizes process termination. To be called at the end of a run. Certain mpi implementations(openmpi) will fail if this is not called before program termination. <br /></td></tr>
 <tr class="separator:ga8d0366d81b9701ccaaf3612b666aada1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaea756d9d07a32e08387a526401c5711e"><td class="memItemLeft" align="right" valign="top"><a id="gaea756d9d07a32e08387a526401c5711e"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_gather_1d_</b> (sbuf, rbuf, pelist)</td></tr>
+<tr class="separator:gaea756d9d07a32e08387a526401c5711e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga935b56bd9c0e9726113ec49371e784da"><td class="memItemLeft" align="right" valign="top"><a id="ga935b56bd9c0e9726113ec49371e784da"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_gather_1dv_</b> (sbuf, ssize, rbuf, rsize, pelist)</td></tr>
+<tr class="separator:ga935b56bd9c0e9726113ec49371e784da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1d12e608c6f7415b4560fbef10cd47b9"><td class="memItemLeft" align="right" valign="top"><a id="ga1d12e608c6f7415b4560fbef10cd47b9"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_gather_pelist_2d_</b> (is, ie, js, je, pelist, array_seg, data, is_root_pe, ishift, jshift)</td></tr>
+<tr class="separator:ga1d12e608c6f7415b4560fbef10cd47b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab75287cf678a52f584fe159d55d12d18"><td class="memItemLeft" align="right" valign="top"><a id="gab75287cf678a52f584fe159d55d12d18"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_gather_pelist_3d_</b> (is, ie, js, je, nk, pelist, array_seg, data, is_root_pe, ishift, jshift)</td></tr>
+<tr class="separator:gab75287cf678a52f584fe159d55d12d18"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gac01b8c674e7eb1444815e22fa3036c39"><td class="memItemLeft" align="right" valign="top"><a id="gac01b8c674e7eb1444815e22fa3036c39"></a>
 subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_get_current_pelist</b> (pelist, name, commID)</td></tr>
 <tr class="separator:gac01b8c674e7eb1444815e22fa3036c39"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -363,22 +375,38 @@ subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_set_root_pe
 <tr class="memitem:gaaef8748ce5700095c6187b83c4b0e5e4"><td class="memItemLeft" align="right" valign="top"><a id="gaaef8748ce5700095c6187b83c4b0e5e4"></a>
 subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_set_warn_level</b> (flag)</td></tr>
 <tr class="separator:gaaef8748ce5700095c6187b83c4b0e5e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga1507a83a5a065496d840422c0c3b4ff4"><td class="memItemLeft" align="right" valign="top"><a id="ga1507a83a5a065496d840422c0c3b4ff4"></a>
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_sum_2d_</b> (a, length, pelist)</td></tr>
+<tr class="memitem:ga1507a83a5a065496d840422c0c3b4ff4"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mpp__mod.html#ga1507a83a5a065496d840422c0c3b4ff4">mpp_sum_2d_</a> (a, length, pelist)</td></tr>
+<tr class="memdesc:ga1507a83a5a065496d840422c0c3b4ff4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sums 2d array across pes.  <a href="group__mpp__mod.html#ga1507a83a5a065496d840422c0c3b4ff4">More...</a><br /></td></tr>
 <tr class="separator:ga1507a83a5a065496d840422c0c3b4ff4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga60f0bb4ff0338bdf9265f625ce7e3f45"><td class="memItemLeft" align="right" valign="top"><a id="ga60f0bb4ff0338bdf9265f625ce7e3f45"></a>
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_sum_3d_</b> (a, length, pelist)</td></tr>
+<tr class="memitem:gaa86ee5320d8c196f709dff22420bff0c"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mpp__mod.html#gaa86ee5320d8c196f709dff22420bff0c">mpp_sum_2d_ad_</a> (a, length, pelist)</td></tr>
+<tr class="memdesc:gaa86ee5320d8c196f709dff22420bff0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sums 2d array across pes.  <a href="group__mpp__mod.html#gaa86ee5320d8c196f709dff22420bff0c">More...</a><br /></td></tr>
+<tr class="separator:gaa86ee5320d8c196f709dff22420bff0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga60f0bb4ff0338bdf9265f625ce7e3f45"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mpp__mod.html#ga60f0bb4ff0338bdf9265f625ce7e3f45">mpp_sum_3d_</a> (a, length, pelist)</td></tr>
+<tr class="memdesc:ga60f0bb4ff0338bdf9265f625ce7e3f45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sums 3d array across pes.  <a href="group__mpp__mod.html#ga60f0bb4ff0338bdf9265f625ce7e3f45">More...</a><br /></td></tr>
 <tr class="separator:ga60f0bb4ff0338bdf9265f625ce7e3f45"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9e5c12cdbec69e466072a11e28d317cb"><td class="memItemLeft" align="right" valign="top"><a id="ga9e5c12cdbec69e466072a11e28d317cb"></a>
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_sum_4d_</b> (a, length, pelist)</td></tr>
+<tr class="memitem:ga43146a7c278267b15fa6b3f39a9dd9e0"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mpp__mod.html#ga43146a7c278267b15fa6b3f39a9dd9e0">mpp_sum_3d_ad_</a> (a, length, pelist)</td></tr>
+<tr class="memdesc:ga43146a7c278267b15fa6b3f39a9dd9e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sums 3d array across pes.  <a href="group__mpp__mod.html#ga43146a7c278267b15fa6b3f39a9dd9e0">More...</a><br /></td></tr>
+<tr class="separator:ga43146a7c278267b15fa6b3f39a9dd9e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9e5c12cdbec69e466072a11e28d317cb"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mpp__mod.html#ga9e5c12cdbec69e466072a11e28d317cb">mpp_sum_4d_</a> (a, length, pelist)</td></tr>
+<tr class="memdesc:ga9e5c12cdbec69e466072a11e28d317cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sums 4d array across pes.  <a href="group__mpp__mod.html#ga9e5c12cdbec69e466072a11e28d317cb">More...</a><br /></td></tr>
 <tr class="separator:ga9e5c12cdbec69e466072a11e28d317cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae593e15720747b2a88c6aa2c89561876"><td class="memItemLeft" align="right" valign="top"><a id="gae593e15720747b2a88c6aa2c89561876"></a>
-subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>mpp_sum_5d_</b> (a, length, pelist)</td></tr>
+<tr class="memitem:gabf1a4f9ed59a9edfb666d50f30cd7980"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mpp__mod.html#gabf1a4f9ed59a9edfb666d50f30cd7980">mpp_sum_4d_ad_</a> (a, length, pelist)</td></tr>
+<tr class="memdesc:gabf1a4f9ed59a9edfb666d50f30cd7980"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sums 4d array across pes.  <a href="group__mpp__mod.html#gabf1a4f9ed59a9edfb666d50f30cd7980">More...</a><br /></td></tr>
+<tr class="separator:gabf1a4f9ed59a9edfb666d50f30cd7980"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae593e15720747b2a88c6aa2c89561876"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mpp__mod.html#gae593e15720747b2a88c6aa2c89561876">mpp_sum_5d_</a> (a, length, pelist)</td></tr>
+<tr class="memdesc:gae593e15720747b2a88c6aa2c89561876"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sums 5d array across pes.  <a href="group__mpp__mod.html#gae593e15720747b2a88c6aa2c89561876">More...</a><br /></td></tr>
 <tr class="separator:gae593e15720747b2a88c6aa2c89561876"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga146a557b8df5355047252595fe6ac6ba"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mpp__mod.html#ga146a557b8df5355047252595fe6ac6ba">mpp_sum_5d_ad_</a> (a, length, pelist)</td></tr>
+<tr class="memdesc:ga146a557b8df5355047252595fe6ac6ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sums 5d array across pes.  <a href="group__mpp__mod.html#ga146a557b8df5355047252595fe6ac6ba">More...</a><br /></td></tr>
+<tr class="separator:ga146a557b8df5355047252595fe6ac6ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga7327b82b31b53f69e187becf67b65175"><td class="memItemLeft" align="right" valign="top"><a id="ga7327b82b31b53f69e187becf67b65175"></a>
 subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mpp__mod.html#ga7327b82b31b53f69e187becf67b65175">mpp_sum_scalar_</a> (a, pelist)</td></tr>
 <tr class="memdesc:ga7327b82b31b53f69e187becf67b65175"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sums array a when only first element is passed: this routine just converts to a call to MPP_SUM_. <br /></td></tr>
 <tr class="separator:ga7327b82b31b53f69e187becf67b65175"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabfd4e6616799e83f83c24582890fe157"><td class="memItemLeft" align="right" valign="top"><a id="gabfd4e6616799e83f83c24582890fe157"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mpp__mod.html#gabfd4e6616799e83f83c24582890fe157">mpp_sum_scalar_ad_</a> (a, pelist)</td></tr>
+<tr class="memdesc:gabfd4e6616799e83f83c24582890fe157"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sums array a. when only first element is passed: this routine just converts to a call to MPP_SUM_. <br /></td></tr>
+<tr class="separator:gabfd4e6616799e83f83c24582890fe157"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad75482ebfad2337cd236ef0998accdc4"><td class="memItemLeft" align="right" valign="top"><a id="gad75482ebfad2337cd236ef0998accdc4"></a>
 subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mpp__mod.html#gad75482ebfad2337cd236ef0998accdc4">mpp_sync</a> (pelist, do_self)</td></tr>
 <tr class="memdesc:gad75482ebfad2337cd236ef0998accdc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Synchronize PEs in list. <br /></td></tr>
@@ -666,7 +694,7 @@ integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="g
 <tr class="separator:ga7ea956cded1d5ec9c7b726f2c3a2d393"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>This module defines interfaces for common operations using message-passing libraries. </p>
+<p>This module defines interfaces for common operations using message-passing libraries. Any type-less arguments in the documentation are MPP_TYPE_ which is defined by the pre-processor to create multiple subroutines out of one implementation for use in an interface. See the note below for more information. </p>
 <dl class="section author"><dt>Author</dt><dd>V. Balaji &lt;"V.Balaji@noaa.gov"&gt;</dd></dl>
 <p>A set of simple calls to provide a uniform interface to different message-passing libraries. It currently can be implemented either in the SGI/Cray native SHMEM library or in the MPI standard. Other libraries (e.g MPI-2, Co-Array Fortran) can be incorporated as the need arises.</p>
 <p>The data transfer between a processor and its own memory is based on <code>load</code> and <code>store</code> operations upon memory. Shared-memory systems (including distributed shared memory systems) have a single address space and any processor can acquire any data within the memory by <code>load</code> and <code>store</code>. The situation is different for distributed parallel systems. Specialized MPP systems such as the T3E can simulate shared-memory by direct data acquisition from remote memory. But if the parallel code is distributed across a cluster, or across the Net, messages must be sent and received using the protocols for long-distance communication, such as TCP/IP. This requires a `&lsquo;handshaking&rsquo;' between nodes of the distributed system. One can think of the two different methods as involving <code>put</code>s or <code>get</code>s (e.g the SHMEM library), or in the case of negotiated communication (e.g MPI), <code>send</code>s and <code>recv</code>s.</p>
@@ -688,11 +716,11 @@ Performance to be not significantly lower than any native API.  </li>
 <pre>
    if( pe.EQ.0 )call <a class="el" href="group__mpp__mod.html#gad75482ebfad2337cd236ef0998accdc4" title="Synchronize PEs in list.">mpp_sync()</a>
    </pre><p>Here only PE 0 reaches the barrier, where it will wait indefinitely. While this is a particularly egregious example to illustrate the coding flaw, more subtle versions of the same are among the most common errors in parallel code. <br  />
- It is therefore important to be conscious of the context of a subroutine or function call, and the implied synchronization. There are certain calls here (e.g <code>mpp_declare_pelist, mpp_init, mpp_set_stack_size</code>) which must be called by all PEs. There are others which must be called by a subset of PEs (here called a <code>pelist</code>) which must be called by all the PEs in the <code>pelist</code> (e.g <code><a class="el" href="group__mpp__mod.html#interfacempp__mod_1_1mpp__max" title="Reduction operations. Find the max of scalar a the PEs in pelist result is also automatically broadca...">mpp_max</a>, <a class="el" href="group__mpp__mod.html#interfacempp__mod_1_1mpp__sum" title="Reduction operation.">mpp_sum</a>, mpp_sync</code>). Still others imply no synchronization at all. I will make every effort to highlight the context of each call in the MPP modules, so that the implicit synchronization is spelt out. <br  />
+ It is therefore important to be conscious of the context of a subroutine or function call, and the implied synchronization. There are certain calls here (e.g <code>mpp_declare_pelist, mpp_init, mpp_set_stack_size</code>) which must be called by all PEs. There are others which must be called by a subset of PEs (here called a <code>pelist</code>) which must be called by all the PEs in the <code>pelist</code> (e.g <code><a class="el" href="group__mpp__mod.html#interfacempp__mod_1_1mpp__max" title="Reduction operations. Find the max of scalar a from the PEs in pelist result is also automatically br...">mpp_max</a>, <a class="el" href="group__mpp__mod.html#interfacempp__mod_1_1mpp__sum" title="Reduction operation.">mpp_sum</a>, mpp_sync</code>). Still others imply no synchronization at all. I will make every effort to highlight the context of each call in the MPP modules, so that the implicit synchronization is spelt out. <br  />
  For performance it is necessary to keep synchronization as limited as the algorithm being implemented will allow. For instance, a single message between two PEs should only imply synchronization across the PEs in question. A <em>global</em> synchronization (or <em>barrier</em>) is likely to be slow, and is best avoided. But codes first parallelized on a Cray T3E tend to have many global syncs, as very fast barriers were implemented there in hardware. <br  />
  Another reason to use pelists is to run a single program in MPMD mode, where different PE subsets work on different portions of the code. A typical example is to assign an ocean model and atmosphere model to different PE subsets, and couple them concurrently instead of running them serially. The MPP module provides the notion of a <em>current pelist</em>, which is set when a group of PEs branch off into a subset. Subsequent calls that omit the <code>pelist</code> optional argument (seen below in many of the individual calls) assume that the implied synchronization is across the current pelist. The calls <code>mpp_root_pe</code> and <code>mpp_npes</code> also return the values appropriate to the current pelist. The <code>mpp_set_current_pelist</code> call is provided to set the current pelist.  <br  />
 </p>
-<p>F90 is a strictly-typed language, and the syntax pass of the compiler requires matching of type, kind and rank (TKR). Most calls listed here use a generic type, shown here as <code>MPP_TYPE_</code>. This is resolved in the pre-processor stage to any of a variety of types. In general the MPP operations work on 4-byte and 8-byte variants of <code>integer, real, complex, logical</code> variables, of rank 0 to 5, leading to 48 specific module procedures under the same generic interface. Any of the variables below shown as <code>MPP_TYPE_</code> is treated in this way. </p>
+<dl class="section note"><dt>Note</dt><dd>F90 is a strictly-typed language, and the syntax pass of the compiler requires matching of type, kind and rank (TKR). Most calls listed here use a generic type, shown here as <code>MPP_TYPE_</code>. This is resolved in the pre-processor stage to any of a variety of types. In general the MPP operations work on 4-byte and 8-byte variants of <code>integer, real, complex, logical</code> variables, of rank 0 to 5, leading to 48 specific module procedures under the same generic interface. Any of the variables below shown as <code>MPP_TYPE_</code> is treated in this way. </dd></dl>
 <hr/><h2 class="groupheader">Data Type Documentation</h2>
 <a name="interfacempp__mod_1_1array__to__char" id="interfacempp__mod_1_1array__to__char"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#interfacempp__mod_1_1array__to__char">&#9670;&nbsp;</a></span>mpp_mod::array_to_char</h2>
@@ -706,8 +734,15 @@ Performance to be not significantly lower than any native API.  </li>
       </table>
 </div><div class="memdoc">
 <div class="textblock"><p>Takes a given integer or real array and returns it as a string. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">array</td><td>An array of integers or reals </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>string equivalent of given array </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="mpp_8F90_source.html#l00407">407</a> of file <a class="el" href="mpp_8F90_source.html">mpp.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mpp_8F90_source.html#l00412">412</a> of file <a class="el" href="mpp_8F90_source.html">mpp.F90</a>.</p>
 </div><table class="memberdecls">
 <tr><td colspan="2"><h3>Private Member Functions</h3></td></tr>
 <tr class="memitem:a8cb669be0af360392353c5a57993e7cd"><td class="memItemLeft" align="right" valign="top"><a id="a8cb669be0af360392353c5a57993e7cd"></a>
@@ -733,7 +768,7 @@ Performance to be not significantly lower than any native API.  </li>
 </div><div class="memdoc">
 <div class="textblock"><p>a clock contains an array of event profiles for a region </p>
 
-<p class="definition">Definition at line <a class="el" href="mpp_8F90_source.html#l00248">248</a> of file <a class="el" href="mpp_8F90_source.html">mpp.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mpp_8F90_source.html#l00251">251</a> of file <a class="el" href="mpp_8F90_source.html">mpp.F90</a>.</p>
 </div><div class="dynheader">
 Collaboration diagram for clock:</div>
 <div class="dyncontent">
@@ -828,7 +863,7 @@ logical&#160;</td><td class="memItemRight" valign="bottom"><b>when</b></td></tr>
 </div><div class="memdoc">
 <div class="textblock"><p>Summary of information from a clock run. </p>
 
-<p class="definition">Definition at line <a class="el" href="mpp_8F90_source.html#l00264">264</a> of file <a class="el" href="mpp_8F90_source.html">mpp.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mpp_8F90_source.html#l00267">267</a> of file <a class="el" href="mpp_8F90_source.html">mpp.F90</a>.</p>
 </div><div class="dynheader">
 Collaboration diagram for clock_data_summary:</div>
 <div class="dyncontent">
@@ -876,7 +911,7 @@ real(r8_kind)&#160;</td><td class="memItemRight" valign="bottom"><b>total_time</
 <div class="textblock"><p>Communication information for message passing libraries. </p>
 <p>peset hold communicators as SHMEM-compatible triads (start, log2(stride), num) </p>
 
-<p class="definition">Definition at line <a class="el" href="mpp_8F90_source.html#l00228">228</a> of file <a class="el" href="mpp_8F90_source.html">mpp.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mpp_8F90_source.html#l00231">231</a> of file <a class="el" href="mpp_8F90_source.html">mpp.F90</a>.</p>
 </div><div class="dynheader">
 Collaboration diagram for communicator:</div>
 <div class="dyncontent">
@@ -925,7 +960,7 @@ integer&#160;</td><td class="memItemRight" valign="bottom"><b>start</b></td></tr
 </div><div class="memdoc">
 <div class="textblock"><p>Communication event profile. </p>
 
-<p class="definition">Definition at line <a class="el" href="mpp_8F90_source.html#l00239">239</a> of file <a class="el" href="mpp_8F90_source.html">mpp.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mpp_8F90_source.html#l00242">242</a> of file <a class="el" href="mpp_8F90_source.html">mpp.F90</a>.</p>
 </div><div class="dynheader">
 Collaboration diagram for event:</div>
 <div class="dyncontent">
@@ -962,9 +997,10 @@ integer(i8_kind), dimension(max_events)&#160;</td><td class="memItemRight" valig
       </table>
 </div><div class="memdoc">
 <div class="textblock"><p>Scatter a vector across all PEs. </p>
-<p>Transpose the vector and PE index </p>
+<p>Transpose the vector and PE index Wrapper for the MPI_alltoall function, includes more generic _V and _W versions if given displacements/data types</p>
+<p>Generic MPP_TYPE_ implentations:  <a class="el" href="group__mpp__mod.html#gaccdd05aa6132a1f131448d699bf3facb">mpp_alltoall_</a>   <a class="el" href="group__mpp__mod.html#gace58a3c4c7edd72e326b03667fe19da8">mpp_alltoallv_</a>   <a class="el" href="group__mpp__mod.html#ga15b5f9cdfe13158b9557099107b32df0">mpp_alltoallw_</a>  </p>
 
-<p class="definition">Definition at line <a class="el" href="mpp_8F90_source.html#l00710">710</a> of file <a class="el" href="mpp_8F90_source.html">mpp.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mpp_8F90_source.html#l00736">736</a> of file <a class="el" href="mpp_8F90_source.html">mpp.F90</a>.</p>
 </div><table class="memberdecls">
 <tr><td colspan="2"><h3>Private Member Functions</h3></td></tr>
 <tr class="memitem:a6ef61bef51c8727b616fceab0e16af6d"><td class="memItemLeft" align="right" valign="top"><a id="a6ef61bef51c8727b616fceab0e16af6d"></a>
@@ -1054,7 +1090,7 @@ Example usage: </p><pre class="fragment">       call mpp_broadcast( data, length
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="mpp_8F90_source.html#l01039">1039</a> of file <a class="el" href="mpp_8F90_source.html">mpp.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mpp_8F90_source.html#l01065">1065</a> of file <a class="el" href="mpp_8F90_source.html">mpp.F90</a>.</p>
 </div><table class="memberdecls">
 <tr><td colspan="2"><h3>Private Member Functions</h3></td></tr>
 <tr class="memitem:a958c56542ff521e3792d2e386b6d3425"><td class="memItemLeft" align="right" valign="top"><a id="a958c56542ff521e3792d2e386b6d3425"></a>
@@ -1220,9 +1256,9 @@ Example usage: </p><pre class="fragment">       call mpp_broadcast( data, length
       </table>
 </div><div class="memdoc">
 <div class="textblock"><p>Calculate parallel checksums. </p>
-<p><em><a class="el" href="group__mpp__mod.html#interfacempp__mod_1_1mpp__chksum" title="Calculate parallel checksums.">mpp_chksum</a></em> is a parallel checksum routine that returns an identical answer for the same array irrespective of how it has been partitioned across processors. \eint_kind is the KIND parameter corresponding to long integers (see discussion on OS-dependent preprocessor directives) defined in the file <a class="el" href="platform_8F90_source.html">platform.F90</a>. \eMPP_TYPE_ corresponds to any 4-byte and 8-byte variant of \einteger, \ereal, \ecomplex, \elogical variables, of rank 0 to 5.</p>
+<p><em><a class="el" href="group__mpp__mod.html#interfacempp__mod_1_1mpp__chksum" title="Calculate parallel checksums.">mpp_chksum</a></em> is a parallel checksum routine that returns an identical answer for the same array irrespective of how it has been partitioned across processors. <em>int_kind</em> is the KIND parameter corresponding to long integers (see discussion on OS-dependent preprocessor directives) defined in the file <a class="el" href="platform_8F90_source.html">platform.F90</a>. <em>MPP_TYPE_</em> corresponds to any 4-byte and 8-byte variant of <em>integer</em>, <em>real</em>, <em>complex</em>, <em>logical</em> variables, of rank 0 to 5.</p>
 <p>Integer checksums on FP data use the F90 <code>TRANSFER()</code> intrinsic.</p>
-<p>The &lt;LINK SRC="http://www.gfdl.noaa.gov/fms-cgi-bin/cvsweb.cgi/FMS/shared/chksum/chksum.html"&gt;serial checksum module&lt;/LINK&gt; is superseded by this function, and is no longer being actively maintained. This provides identical results on a single-processor job, and to perform serial checksums on a single processor of a parallel job, you only need to use the optional <code>pelist</code> argument. </p><pre>
+<p>This provides identical results on a single-processor job, and to perform serial checksums on a single processor of a parallel job, you only need to use the optional <code>pelist</code> argument. </p><pre>
  use mpp_mod
  integer :: pe, chksum
  real :: a(:)
@@ -1238,9 +1274,10 @@ Example usage: </p><pre class="fragment">       call mpp_broadcast( data, length
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Parallel checksum of var across given or implicit pelist </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Parallel checksum of var across given or implicit pelist</dd></dl>
+<p>Generic MPP_TYPE_ implentations:  <a class="el" href="group__mpp__mod.html#gaff84ea64cb425675de2c987d6b97ef8f">mpp_chksum_</a>  <a class="el" href="group__mpp__mod.html#ga8ea2fd1f548183793990c1426023d142">mpp_chksum_int_</a>  mpp_chksum_int_rmask </p>
 
-<p class="definition">Definition at line <a class="el" href="mpp_8F90_source.html#l01145">1145</a> of file <a class="el" href="mpp_8F90_source.html">mpp.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mpp_8F90_source.html#l01174">1174</a> of file <a class="el" href="mpp_8F90_source.html">mpp.F90</a>.</p>
 </div><table class="memberdecls">
 <tr><td colspan="2"><h3>Private Member Functions</h3></td></tr>
 <tr class="memitem:af49ed6816a83a69ab698636faa74ce95"><td class="memItemLeft" align="right" valign="top"><a id="af49ed6816a83a69ab698636faa74ce95"></a>
@@ -1386,7 +1423,7 @@ Example usage: </p><pre class="fragment">       call mpp_broadcast( data, length
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="mpp_8F90_source.html#l00380">380</a> of file <a class="el" href="mpp_8F90_source.html">mpp.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mpp_8F90_source.html#l00383">383</a> of file <a class="el" href="mpp_8F90_source.html">mpp.F90</a>.</p>
 </div><table class="memberdecls">
 <tr><td colspan="2"><h3>Private Member Functions</h3></td></tr>
 <tr class="memitem:a53e70c0372bd1f01df48990683770b3b"><td class="memItemLeft" align="right" valign="top"><a id="a53e70c0372bd1f01df48990683770b3b"></a>
@@ -1475,7 +1512,7 @@ Example usage: </p><pre class="fragment">       call mpp_broadcast( data, length
 </div><div class="memdoc">
 <div class="textblock"><p>Gather information onto root pe. </p>
 
-<p class="definition">Definition at line <a class="el" href="mpp_8F90_source.html#l00675">675</a> of file <a class="el" href="mpp_8F90_source.html">mpp.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mpp_8F90_source.html#l00688">688</a> of file <a class="el" href="mpp_8F90_source.html">mpp.F90</a>.</p>
 </div><table class="memberdecls">
 <tr><td colspan="2"><h3>Private Member Functions</h3></td></tr>
 <tr class="memitem:a5bd91eaebf6a624a2f235ec76618a927"><td class="memItemLeft" align="right" valign="top"><a id="a5bd91eaebf6a624a2f235ec76618a927"></a>
@@ -1541,7 +1578,7 @@ Example usage: </p><pre class="fragment">       call mpp_broadcast( data, length
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="textblock"><p>Reduction operations. Find the max of scalar a the PEs in pelist result is also automatically broadcast to all PEs. </p>
+<div class="textblock"><p>Reduction operations. Find the max of scalar a from the PEs in pelist result is also automatically broadcast to all PEs. </p>
 <div class="fragment"><div class="line"><span class="keyword">call  </span><a class="code" href="group__mpp__mod.html#interfacempp__mod_1_1mpp__max">mpp_max</a>( a, pelist )</div>
 </div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -1551,7 +1588,7 @@ Example usage: </p><pre class="fragment">       call mpp_broadcast( data, length
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="mpp_8F90_source.html#l00534">534</a> of file <a class="el" href="mpp_8F90_source.html">mpp.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mpp_8F90_source.html#l00539">539</a> of file <a class="el" href="mpp_8F90_source.html">mpp.F90</a>.</p>
 </div><table class="memberdecls">
 <tr><td colspan="2"><h3>Private Member Functions</h3></td></tr>
 <tr class="memitem:a88b056fd3a4666525db824e09ba54a32"><td class="memItemLeft" align="right" valign="top"><a id="a88b056fd3a4666525db824e09ba54a32"></a>
@@ -1593,9 +1630,17 @@ Example usage: </p><pre class="fragment">       call mpp_broadcast( data, length
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="textblock"><p>Get minimum value out of the PEs in pelist Result is also broadcast to all PEs. </p>
+<div class="textblock"><p>Reduction operations. Find the min of scalar a from the PEs in pelist result is also automatically broadcast to all PEs. </p>
+<div class="fragment"><div class="line"><span class="keyword">call  </span><a class="code" href="group__mpp__mod.html#interfacempp__mod_1_1mpp__min">mpp_min</a>( a, pelist )</div>
+</div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td><code>real</code> or <code>integer</code>, of 4-byte of 8-byte kind. </td></tr>
+    <tr><td class="paramname">pelist</td><td>If <code>pelist</code> is omitted, the context is assumed to be the current pelist. This call implies synchronization across the PEs in <code>pelist</code>, or the current pelist if <code>pelist</code> is absent. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="mpp_8F90_source.html#l00548">548</a> of file <a class="el" href="mpp_8F90_source.html">mpp.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mpp_8F90_source.html#l00561">561</a> of file <a class="el" href="mpp_8F90_source.html">mpp.F90</a>.</p>
 </div><table class="memberdecls">
 <tr><td colspan="2"><h3>Private Member Functions</h3></td></tr>
 <tr class="memitem:a3ba82a97e70f1d3181a764bdc2e80cdb"><td class="memItemLeft" align="right" valign="top"><a id="a3ba82a97e70f1d3181a764bdc2e80cdb"></a>
@@ -1637,7 +1682,7 @@ Example usage: </p><pre class="fragment">       call mpp_broadcast( data, length
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="textblock"><p>Recieve data to another PE. </p>
+<div class="textblock"><p>Recieve data from another PE. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[out]</td><td class="paramname">get_data</td><td>scalar or array to get written with received data </td></tr>
@@ -1650,7 +1695,7 @@ Example usage: </p><pre class="fragment">       call mpp_broadcast( data, length
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="mpp_8F90_source.html#l00885">885</a> of file <a class="el" href="mpp_8F90_source.html">mpp.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mpp_8F90_source.html#l00911">911</a> of file <a class="el" href="mpp_8F90_source.html">mpp.F90</a>.</p>
 </div><table class="memberdecls">
 <tr><td colspan="2"><h3>Private Member Functions</h3></td></tr>
 <tr class="memitem:a057ad8fbd8453ce109554d0f5201c06f"><td class="memItemLeft" align="right" valign="top"><a id="a057ad8fbd8453ce109554d0f5201c06f"></a>
@@ -1777,8 +1822,9 @@ Example usage: </p><pre class="fragment">       call mpp_broadcast( data, length
       </table>
 </div><div class="memdoc">
 <div class="textblock"><p>Scatter information to the given pelist. </p>
+<p>Generic MPP_TYPE_ implentations:  mpp_scatter_pelist_   mpp_scatter_pelist_   mpp_scatter_pelist_  </p>
 
-<p class="definition">Definition at line <a class="el" href="mpp_8F90_source.html#l00696">696</a> of file <a class="el" href="mpp_8F90_source.html">mpp.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mpp_8F90_source.html#l00714">714</a> of file <a class="el" href="mpp_8F90_source.html">mpp.F90</a>.</p>
 </div><table class="memberdecls">
 <tr><td colspan="2"><h3>Private Member Functions</h3></td></tr>
 <tr class="memitem:a25b9710766d7dff922ac717a2ddd5b8c"><td class="memItemLeft" align="right" valign="top"><a id="a25b9710766d7dff922ac717a2ddd5b8c"></a>
@@ -1829,7 +1875,7 @@ Example usage: </p><pre class="fragment">       call mpp_broadcast( data, length
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="mpp_8F90_source.html#l00952">952</a> of file <a class="el" href="mpp_8F90_source.html">mpp.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mpp_8F90_source.html#l00978">978</a> of file <a class="el" href="mpp_8F90_source.html">mpp.F90</a>.</p>
 </div><table class="memberdecls">
 <tr><td colspan="2"><h3>Private Member Functions</h3></td></tr>
 <tr class="memitem:a81a69d675aa61091aae49a551b32e9e0"><td class="memItemLeft" align="right" valign="top"><a id="a81a69d675aa61091aae49a551b32e9e0"></a>
@@ -1962,7 +2008,7 @@ Example usage: </p><pre class="fragment">       call mpp_broadcast( data, length
 <p>The <code>bit_reproducible</code> flag provided in earlier versions of this routine has been removed.</p>
 <p>If <code>pelist</code> is omitted, the context is assumed to be the current pelist. This call implies synchronization across the PEs in <code>pelist</code>, or the current pelist if <code>pelist</code> is absent. Example usage: call mpp_sum( a, length, pelist ) </p>
 
-<p class="definition">Definition at line <a class="el" href="mpp_8F90_source.html#l00585">585</a> of file <a class="el" href="mpp_8F90_source.html">mpp.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mpp_8F90_source.html#l00598">598</a> of file <a class="el" href="mpp_8F90_source.html">mpp.F90</a>.</p>
 </div><table class="memberdecls">
 <tr><td colspan="2"><h3>Private Member Functions</h3></td></tr>
 <tr class="memitem:a6254979fd947361f7aecd0fac793060e"><td class="memItemLeft" align="right" valign="top"><a id="a6254979fd947361f7aecd0fac793060e"></a>
@@ -2090,7 +2136,7 @@ Example usage: </p><pre class="fragment">       call mpp_broadcast( data, length
 </div><div class="memdoc">
 <div class="textblock"><p>Calculates sum of a given numerical array across pe's for adjoint domains. </p>
 
-<p class="definition">Definition at line <a class="el" href="mpp_8F90_source.html#l00630">630</a> of file <a class="el" href="mpp_8F90_source.html">mpp.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mpp_8F90_source.html#l00643">643</a> of file <a class="el" href="mpp_8F90_source.html">mpp.F90</a>.</p>
 </div><table class="memberdecls">
 <tr><td colspan="2"><h3>Private Member Functions</h3></td></tr>
 <tr class="memitem:a05cbe2a513501d25a4a3b1f927f87676"><td class="memItemLeft" align="right" valign="top"><a id="a05cbe2a513501d25a4a3b1f927f87676"></a>
@@ -2200,7 +2246,7 @@ Example usage: </p><pre class="fragment">       call mpp_broadcast( data, length
         call mpp_transmit( a, n, NULL_PE, a, n, 0 )
     end if</pre><pre>    call mpp_transmit( a, n, ALL_PES, a, n, 0 )
     </pre><p>The do loop and the broadcast operation above are equivalent.</p>
-<p>Two overloaded calls <code><a class="el" href="group__mpp__mod.html#interfacempp__mod_1_1mpp__send" title="Send data to a receiving PE.">mpp_send</a></code> and <code><a class="el" href="group__mpp__mod.html#interfacempp__mod_1_1mpp__recv" title="Recieve data to another PE.">mpp_recv</a></code> have also been provided. <code><a class="el" href="group__mpp__mod.html#interfacempp__mod_1_1mpp__send" title="Send data to a receiving PE.">mpp_send</a></code> calls <code><a class="el" href="group__mpp__mod.html#interfacempp__mod_1_1mpp__transmit" title="Basic message-passing call.">mpp_transmit</a></code> with <code>get_pe=NULL_PE</code>. <code><a class="el" href="group__mpp__mod.html#interfacempp__mod_1_1mpp__recv" title="Recieve data to another PE.">mpp_recv</a></code> calls <code><a class="el" href="group__mpp__mod.html#interfacempp__mod_1_1mpp__transmit" title="Basic message-passing call.">mpp_transmit</a></code> with <code>put_pe=NULL_PE</code>. Thus the do loop above could be written more succinctly:</p>
+<p>Two overloaded calls <code><a class="el" href="group__mpp__mod.html#interfacempp__mod_1_1mpp__send" title="Send data to a receiving PE.">mpp_send</a></code> and <code><a class="el" href="group__mpp__mod.html#interfacempp__mod_1_1mpp__recv" title="Recieve data from another PE.">mpp_recv</a></code> have also been provided. <code><a class="el" href="group__mpp__mod.html#interfacempp__mod_1_1mpp__send" title="Send data to a receiving PE.">mpp_send</a></code> calls <code><a class="el" href="group__mpp__mod.html#interfacempp__mod_1_1mpp__transmit" title="Basic message-passing call.">mpp_transmit</a></code> with <code>get_pe=NULL_PE</code>. <code><a class="el" href="group__mpp__mod.html#interfacempp__mod_1_1mpp__recv" title="Recieve data from another PE.">mpp_recv</a></code> calls <code><a class="el" href="group__mpp__mod.html#interfacempp__mod_1_1mpp__transmit" title="Basic message-passing call.">mpp_transmit</a></code> with <code>put_pe=NULL_PE</code>. Thus the do loop above could be written more succinctly:</p>
 <pre>
     if( pe.EQ.0 )then
         do p = 1,npes-1
@@ -2212,7 +2258,7 @@ Example usage: </p><pre class="fragment">       call mpp_broadcast( data, length
     </pre><p> <br  />
 Example call: </p><div class="fragment"><div class="line"><span class="keyword">call </span><a class="code" href="group__mpp__mod.html#interfacempp__mod_1_1mpp__transmit">mpp_transmit</a>( put_data, put_len, put_pe, get_data, get_len, get_pe )</div>
 </div><!-- fragment --> 
-<p class="definition">Definition at line <a class="el" href="mpp_8F90_source.html#l00820">820</a> of file <a class="el" href="mpp_8F90_source.html">mpp.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mpp_8F90_source.html#l00846">846</a> of file <a class="el" href="mpp_8F90_source.html">mpp.F90</a>.</p>
 </div><table class="memberdecls">
 <tr><td colspan="2"><h3>Private Member Functions</h3></td></tr>
 <tr class="memitem:a3aafc8f506825d0eb2f408731f49be7c"><td class="memItemLeft" align="right" valign="top"><a id="a3aafc8f506825d0eb2f408731f49be7c"></a>
@@ -2340,7 +2386,7 @@ Example call: </p><div class="fragment"><div class="line"><span class="keyword">
 </div><div class="memdoc">
 <div class="textblock"><p>Data types for generalized data transfer (e.g. MPI_Type) </p>
 
-<p class="definition">Definition at line <a class="el" href="mpp_8F90_source.html#l00285">285</a> of file <a class="el" href="mpp_8F90_source.html">mpp.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mpp_8F90_source.html#l00288">288</a> of file <a class="el" href="mpp_8F90_source.html">mpp.F90</a>.</p>
 </div><div class="dynheader">
 Collaboration diagram for mpp_type:</div>
 <div class="dyncontent">
@@ -2438,7 +2484,7 @@ integer&#160;</td><td class="memItemRight" valign="bottom"><b>within</b></td></t
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="mpp_8F90_source.html#l00506">506</a> of file <a class="el" href="mpp_8F90_source.html">mpp.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mpp_8F90_source.html#l00511">511</a> of file <a class="el" href="mpp_8F90_source.html">mpp.F90</a>.</p>
 </div><table class="memberdecls">
 <tr><td colspan="2"><h3>Private Member Functions</h3></td></tr>
 <tr class="memitem:a8761a7a5a3ec0b962e17e943ee40a5fe"><td class="memItemLeft" align="right" valign="top"><a id="a8761a7a5a3ec0b962e17e943ee40a5fe"></a>
@@ -2482,7 +2528,7 @@ integer&#160;</td><td class="memItemRight" valign="bottom"><b>within</b></td></t
 </div><div class="memdoc">
 <div class="textblock"><p>Persisent elements for linked list interaction. </p>
 
-<p class="definition">Definition at line <a class="el" href="mpp_8F90_source.html#l00301">301</a> of file <a class="el" href="mpp_8F90_source.html">mpp.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mpp_8F90_source.html#l00304">304</a> of file <a class="el" href="mpp_8F90_source.html">mpp.F90</a>.</p>
 </div><div class="dynheader">
 Collaboration diagram for mpp_type_list:</div>
 <div class="dyncontent">
@@ -2517,7 +2563,7 @@ type(<a class="el" href="group__mpp__mod.html#structmpp__mod_1_1mpp__type">mpp_t
 </div><div class="memdoc">
 <div class="textblock"><p>holds name and clock data for use in mpp_util.h </p>
 
-<p class="definition">Definition at line <a class="el" href="mpp_8F90_source.html#l00277">277</a> of file <a class="el" href="mpp_8F90_source.html">mpp.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mpp_8F90_source.html#l00280">280</a> of file <a class="el" href="mpp_8F90_source.html">mpp.F90</a>.</p>
 </div><div class="dynheader">
 Collaboration diagram for summary_struct:</div>
 <div class="dyncontent">
@@ -2573,7 +2619,7 @@ character(len=16)&#160;</td><td class="memItemRight" valign="bottom"><b>name</b>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>number of lines (1) and max line length (2) </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="mpp__util_8inc_source.html#l01314">1314</a> of file <a class="el" href="mpp__util_8inc_source.html">mpp_util.inc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mpp__util_8inc_source.html#l01313">1313</a> of file <a class="el" href="mpp__util_8inc_source.html">mpp_util.inc</a>.</p>
 
 </div>
 </div>
@@ -2920,7 +2966,7 @@ character(len=16)&#160;</td><td class="memItemRight" valign="bottom"><b>name</b>
  optional &lt;TT&gt;grain&lt;/TT&gt; argument is absent, the clock is always
  triggered. This guarantees backward compatibility.
 </pre> 
-<p class="definition">Definition at line <a class="el" href="mpp__util_8inc_source.html#l00610">610</a> of file <a class="el" href="mpp__util_8inc_source.html">mpp_util.inc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mpp__util_8inc_source.html#l00609">609</a> of file <a class="el" href="mpp__util_8inc_source.html">mpp_util.inc</a>.</p>
 
 </div>
 </div>
@@ -3077,11 +3123,10 @@ character(len=16)&#160;</td><td class="memItemRight" valign="bottom"><b>name</b>
 
 <p>Set context pelist. </p>
 <p>This call sets the value of the current pelist, which is the context for all subsequent "global" calls where the optional <code>pelist</code> argument is omitted. All the PEs that are to be in the current pelist must call it.</p>
-<p>In MPI, this call may hang unless <code>pelist</code> has been previous declared using &lt;LINK
- SRC="#mpp_declare_pelist"&gt;<code>mpp_declare_pelist</code>&lt;/LINK&gt;.</p>
+<p>In MPI, this call may hang unless <code>pelist</code> has been previous declared using <a class="el" href="group__mpp__mod.html#gada061a5778228965b5ccfc693c4dc892">mpp_declare_pelist</a></p>
 <p>If the argument <code>pelist</code> is absent, the current pelist is set to the "world" pelist, of all PEs in the job. </p>
 
-<p class="definition">Definition at line <a class="el" href="mpp__util_8inc_source.html#l00459">459</a> of file <a class="el" href="mpp__util_8inc_source.html">mpp_util.inc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mpp__util_8inc_source.html#l00458">458</a> of file <a class="el" href="mpp__util_8inc_source.html">mpp_util.inc</a>.</p>
 
 </div>
 </div>
@@ -3110,6 +3155,366 @@ character(len=16)&#160;</td><td class="memItemRight" valign="bottom"><b>name</b>
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="mpp__comm__mpi_8inc_source.html#l00301">301</a> of file <a class="el" href="mpp__comm__mpi_8inc_source.html">mpp_comm_mpi.inc</a>.</p>
+
+</div>
+</div>
+<a id="ga1507a83a5a065496d840422c0c3b4ff4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1507a83a5a065496d840422c0c3b4ff4">&#9670;&nbsp;</a></span>mpp_sum_2d_()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine mpp_sum_2d_ </td>
+          <td>(</td>
+          <td class="paramtype">dimension(:,:), intent(inout)&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)&#160;</td>
+          <td class="paramname"><em>length</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(:), intent(in), optional&#160;</td>
+          <td class="paramname"><em>pelist</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sums 2d array across pes. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">length</td><td>amount of indices in given 2d array </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pelist</td><td>pelist to calculate sum across </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="mpp__sum_8inc_source.html#l00045">45</a> of file <a class="el" href="mpp__sum_8inc_source.html">mpp_sum.inc</a>.</p>
+
+</div>
+</div>
+<a id="gaa86ee5320d8c196f709dff22420bff0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa86ee5320d8c196f709dff22420bff0c">&#9670;&nbsp;</a></span>mpp_sum_2d_ad_()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine mpp_sum_2d_ad_ </td>
+          <td>(</td>
+          <td class="paramtype">dimension(:,:), intent(inout)&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)&#160;</td>
+          <td class="paramname"><em>length</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(:), intent(in), optional&#160;</td>
+          <td class="paramname"><em>pelist</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sums 2d array across pes. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">length</td><td>amount of indices in given 2d array </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pelist</td><td>pelist to calculate sum across </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="mpp__sum__ad_8inc_source.html#l00046">46</a> of file <a class="el" href="mpp__sum__ad_8inc_source.html">mpp_sum_ad.inc</a>.</p>
+
+</div>
+</div>
+<a id="ga60f0bb4ff0338bdf9265f625ce7e3f45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga60f0bb4ff0338bdf9265f625ce7e3f45">&#9670;&nbsp;</a></span>mpp_sum_3d_()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine mpp_sum_3d_ </td>
+          <td>(</td>
+          <td class="paramtype">dimension(:,:,:), intent(inout)&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)&#160;</td>
+          <td class="paramname"><em>length</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(:), intent(in), optional&#160;</td>
+          <td class="paramname"><em>pelist</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sums 3d array across pes. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">length</td><td>amount of indices in given 3d array </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pelist</td><td>pelist to calculate sum across </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="mpp__sum_8inc_source.html#l00060">60</a> of file <a class="el" href="mpp__sum_8inc_source.html">mpp_sum.inc</a>.</p>
+
+</div>
+</div>
+<a id="ga43146a7c278267b15fa6b3f39a9dd9e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga43146a7c278267b15fa6b3f39a9dd9e0">&#9670;&nbsp;</a></span>mpp_sum_3d_ad_()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine mpp_sum_3d_ad_ </td>
+          <td>(</td>
+          <td class="paramtype">dimension(:,:,:), intent(inout)&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)&#160;</td>
+          <td class="paramname"><em>length</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(:), intent(in), optional&#160;</td>
+          <td class="paramname"><em>pelist</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sums 3d array across pes. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">length</td><td>amount of indices in given 3d array </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pelist</td><td>pelist to calculate sum across </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="mpp__sum__ad_8inc_source.html#l00061">61</a> of file <a class="el" href="mpp__sum__ad_8inc_source.html">mpp_sum_ad.inc</a>.</p>
+
+</div>
+</div>
+<a id="ga9e5c12cdbec69e466072a11e28d317cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9e5c12cdbec69e466072a11e28d317cb">&#9670;&nbsp;</a></span>mpp_sum_4d_()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine mpp_sum_4d_ </td>
+          <td>(</td>
+          <td class="paramtype">dimension(:,:,:,:), intent(inout)&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)&#160;</td>
+          <td class="paramname"><em>length</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(:), intent(in), optional&#160;</td>
+          <td class="paramname"><em>pelist</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sums 4d array across pes. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">length</td><td>amount of indices in given 4d array </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pelist</td><td>pelist to calculate sum across </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="mpp__sum_8inc_source.html#l00075">75</a> of file <a class="el" href="mpp__sum_8inc_source.html">mpp_sum.inc</a>.</p>
+
+</div>
+</div>
+<a id="gabf1a4f9ed59a9edfb666d50f30cd7980"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gabf1a4f9ed59a9edfb666d50f30cd7980">&#9670;&nbsp;</a></span>mpp_sum_4d_ad_()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine mpp_sum_4d_ad_ </td>
+          <td>(</td>
+          <td class="paramtype">dimension(:,:,:,:), intent(inout)&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)&#160;</td>
+          <td class="paramname"><em>length</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(:), intent(in), optional&#160;</td>
+          <td class="paramname"><em>pelist</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sums 4d array across pes. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">length</td><td>amount of indices in given 4d array </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pelist</td><td>pelist to calculate sum across </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="mpp__sum__ad_8inc_source.html#l00076">76</a> of file <a class="el" href="mpp__sum__ad_8inc_source.html">mpp_sum_ad.inc</a>.</p>
+
+</div>
+</div>
+<a id="gae593e15720747b2a88c6aa2c89561876"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae593e15720747b2a88c6aa2c89561876">&#9670;&nbsp;</a></span>mpp_sum_5d_()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine mpp_sum_5d_ </td>
+          <td>(</td>
+          <td class="paramtype">dimension(:,:,:,:,:), intent(inout)&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)&#160;</td>
+          <td class="paramname"><em>length</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(:), intent(in), optional&#160;</td>
+          <td class="paramname"><em>pelist</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sums 5d array across pes. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">length</td><td>amount of indices in given 5d array </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pelist</td><td>pelist to calculate sum across </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="mpp__sum_8inc_source.html#l00090">90</a> of file <a class="el" href="mpp__sum_8inc_source.html">mpp_sum.inc</a>.</p>
+
+</div>
+</div>
+<a id="ga146a557b8df5355047252595fe6ac6ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga146a557b8df5355047252595fe6ac6ba">&#9670;&nbsp;</a></span>mpp_sum_5d_ad_()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine mpp_sum_5d_ad_ </td>
+          <td>(</td>
+          <td class="paramtype">dimension(:,:,:,:,:), intent(inout)&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)&#160;</td>
+          <td class="paramname"><em>length</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(:), intent(in), optional&#160;</td>
+          <td class="paramname"><em>pelist</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sums 5d array across pes. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">length</td><td>amount of indices in given 5d array </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pelist</td><td>pelist to calculate sum across </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="mpp__sum__ad_8inc_source.html#l00091">91</a> of file <a class="el" href="mpp__sum__ad_8inc_source.html">mpp_sum_ad.inc</a>.</p>
 
 </div>
 </div>
@@ -3156,7 +3561,7 @@ character(len=16)&#160;</td><td class="memItemRight" valign="bottom"><b>name</b>
 <p>Reads from this array must be done in a do loop over the number of lines, i.e.:</p>
 <p>do i=1, num_lines read (UNIT=array_name(i), FMT=*) var1, var2, ... end do </p>
 
-<p class="definition">Definition at line <a class="el" href="mpp__util_8inc_source.html#l01407">1407</a> of file <a class="el" href="mpp__util_8inc_source.html">mpp_util.inc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mpp__util_8inc_source.html#l01406">1406</a> of file <a class="el" href="mpp__util_8inc_source.html">mpp_util.inc</a>.</p>
 
 </div>
 </div>
@@ -3189,16 +3594,17 @@ character(len=16)&#160;</td><td class="memItemRight" valign="bottom"><b>name</b>
 <p>Reads an existing input nml file into a character array and broadcasts it to the non-root mpi-tasks. This allows the use of reads from an internal file for namelist settings (requires 2003 compliant compiler) </p>
 <p>read(input_nml_file, nml=&lt;name_nml&gt;, iostat=status) </p>
 
-<p class="definition">Definition at line <a class="el" href="mpp__util_8inc_source.html#l01188">1188</a> of file <a class="el" href="mpp__util_8inc_source.html">mpp_util.inc</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mpp__util_8inc_source.html#l01187">1187</a> of file <a class="el" href="mpp__util_8inc_source.html">mpp_util.inc</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="agroup__mpp__mod_html_interfacempp__mod_1_1mpp__max"><div class="ttname"><a href="group__mpp__mod.html#interfacempp__mod_1_1mpp__max">mpp_mod::mpp_max</a></div><div class="ttdoc">Reduction operations. Find the max of scalar a the PEs in pelist result is also automatically broadca...</div><div class="ttdef"><b>Definition:</b> <a href="mpp_8F90_source.html#l00534">mpp.F90:534</a></div></div>
-<div class="ttc" id="agroup__mpp__mod_html_interfacempp__mod_1_1mpp__send"><div class="ttname"><a href="group__mpp__mod.html#interfacempp__mod_1_1mpp__send">mpp_mod::mpp_send</a></div><div class="ttdoc">Send data to a receiving PE.</div><div class="ttdef"><b>Definition:</b> <a href="mpp_8F90_source.html#l00952">mpp.F90:952</a></div></div>
-<div class="ttc" id="agroup__mpp__mod_html_interfacempp__mod_1_1mpp__transmit"><div class="ttname"><a href="group__mpp__mod.html#interfacempp__mod_1_1mpp__transmit">mpp_mod::mpp_transmit</a></div><div class="ttdoc">Basic message-passing call.</div><div class="ttdef"><b>Definition:</b> <a href="mpp_8F90_source.html#l00820">mpp.F90:820</a></div></div>
-<div class="ttc" id="agroup__mpp__mod_html_interfacempp__mod_1_1mpp__error"><div class="ttname"><a href="group__mpp__mod.html#interfacempp__mod_1_1mpp__error">mpp_mod::mpp_error</a></div><div class="ttdoc">Error handler.</div><div class="ttdef"><b>Definition:</b> <a href="mpp_8F90_source.html#l00380">mpp.F90:380</a></div></div>
+<div class="ttc" id="agroup__mpp__mod_html_interfacempp__mod_1_1mpp__min"><div class="ttname"><a href="group__mpp__mod.html#interfacempp__mod_1_1mpp__min">mpp_mod::mpp_min</a></div><div class="ttdoc">Reduction operations. Find the min of scalar a from the PEs in pelist result is also automatically br...</div><div class="ttdef"><b>Definition:</b> <a href="mpp_8F90_source.html#l00561">mpp.F90:561</a></div></div>
+<div class="ttc" id="agroup__mpp__mod_html_interfacempp__mod_1_1mpp__max"><div class="ttname"><a href="group__mpp__mod.html#interfacempp__mod_1_1mpp__max">mpp_mod::mpp_max</a></div><div class="ttdoc">Reduction operations. Find the max of scalar a from the PEs in pelist result is also automatically br...</div><div class="ttdef"><b>Definition:</b> <a href="mpp_8F90_source.html#l00539">mpp.F90:539</a></div></div>
+<div class="ttc" id="agroup__mpp__mod_html_interfacempp__mod_1_1mpp__send"><div class="ttname"><a href="group__mpp__mod.html#interfacempp__mod_1_1mpp__send">mpp_mod::mpp_send</a></div><div class="ttdoc">Send data to a receiving PE.</div><div class="ttdef"><b>Definition:</b> <a href="mpp_8F90_source.html#l00978">mpp.F90:978</a></div></div>
+<div class="ttc" id="agroup__mpp__mod_html_interfacempp__mod_1_1mpp__transmit"><div class="ttname"><a href="group__mpp__mod.html#interfacempp__mod_1_1mpp__transmit">mpp_mod::mpp_transmit</a></div><div class="ttdoc">Basic message-passing call.</div><div class="ttdef"><b>Definition:</b> <a href="mpp_8F90_source.html#l00846">mpp.F90:846</a></div></div>
+<div class="ttc" id="agroup__mpp__mod_html_interfacempp__mod_1_1mpp__error"><div class="ttname"><a href="group__mpp__mod.html#interfacempp__mod_1_1mpp__error">mpp_mod::mpp_error</a></div><div class="ttdoc">Error handler.</div><div class="ttdef"><b>Definition:</b> <a href="mpp_8F90_source.html#l00383">mpp.F90:383</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
