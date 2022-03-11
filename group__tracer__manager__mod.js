@@ -1,32 +1,31 @@
 var group__tracer__manager__mod =
 [
-    [ "tracer_manager.F90", "tracer__manager_8F90.html", null ],
-    [ "get_tracer_index", "interfacetracer__manager__mod_1_1get__tracer__index.html", [
-      [ "get_tracer_index_integer", "interfacetracer__manager__mod_1_1get__tracer__index.html#ae5b2c7a3248939629c2cd852b7b50dab", null ],
-      [ "get_tracer_index_logical", "interfacetracer__manager__mod_1_1get__tracer__index.html#a3527fdad0336e4c494959d4fcd65d63e", null ]
+    [ "get_tracer_index", "group__tracer__manager__mod.html#interfacetracer__manager__mod_1_1get__tracer__index", [
+      [ "get_tracer_index_integer", "group__tracer__manager__mod.html#ae5b2c7a3248939629c2cd852b7b50dab", null ],
+      [ "get_tracer_index_logical", "group__tracer__manager__mod.html#a3527fdad0336e4c494959d4fcd65d63e", null ]
     ] ],
-    [ "inst_type", "structtracer__manager__mod_1_1inst__type.html", [
-      [ "instances", "structtracer__manager__mod_1_1inst__type.html#a55f960ce5b1ab73a34897f3574171cfb", null ],
-      [ "name", "structtracer__manager__mod_1_1inst__type.html#aae58c3d1a017cc0d36082fdf508df9c1", null ]
+    [ "inst_type", "group__tracer__manager__mod.html#structtracer__manager__mod_1_1inst__type", [
+      [ "instances", "group__tracer__manager__mod.html#a55f960ce5b1ab73a34897f3574171cfb", null ],
+      [ "name", "group__tracer__manager__mod.html#aae58c3d1a017cc0d36082fdf508df9c1", null ]
     ] ],
-    [ "tracer_name_type", "structtracer__manager__mod_1_1tracer__name__type.html", [
-      [ "model_name", "structtracer__manager__mod_1_1tracer__name__type.html#a753c00b3d8d3aef126de84a355d61221", null ],
-      [ "tracer_longname", "structtracer__manager__mod_1_1tracer__name__type.html#a2a7636f9ee45d16b4eda9b73ed546592", null ],
-      [ "tracer_name", "structtracer__manager__mod_1_1tracer__name__type.html#ad5eae85166ad5442ecdbfec0afa6ff76", null ],
-      [ "tracer_units", "structtracer__manager__mod_1_1tracer__name__type.html#a26e3d6cdee9691dcf34d7c19abed060d", null ]
+    [ "tracer_name_type", "group__tracer__manager__mod.html#structtracer__manager__mod_1_1tracer__name__type", [
+      [ "model_name", "group__tracer__manager__mod.html#a753c00b3d8d3aef126de84a355d61221", null ],
+      [ "tracer_longname", "group__tracer__manager__mod.html#a2a7636f9ee45d16b4eda9b73ed546592", null ],
+      [ "tracer_name", "group__tracer__manager__mod.html#ad5eae85166ad5442ecdbfec0afa6ff76", null ],
+      [ "tracer_units", "group__tracer__manager__mod.html#a26e3d6cdee9691dcf34d7c19abed060d", null ]
     ] ],
-    [ "tracer_type", "structtracer__manager__mod_1_1tracer__type.html", [
-      [ "instances", "structtracer__manager__mod_1_1tracer__type.html#a55f960ce5b1ab73a34897f3574171cfb", null ],
-      [ "instances_set", "structtracer__manager__mod_1_1tracer__type.html#a009a717ba9025829d28f1e1696598b34", null ],
-      [ "is_prognostic", "structtracer__manager__mod_1_1tracer__type.html#a12945351fac9aea595fd3e6d76874bfd", null ],
-      [ "model", "structtracer__manager__mod_1_1tracer__type.html#aa28b7897d65131a0db76ed955ccbbf77", null ],
-      [ "needs_init", "structtracer__manager__mod_1_1tracer__type.html#a64daef54a0f098361d68f59773436791", null ],
-      [ "needs_mass_adjust", "structtracer__manager__mod_1_1tracer__type.html#abbb00397d8e82eedf43d1240590f3625", null ],
-      [ "needs_positive_adjust", "structtracer__manager__mod_1_1tracer__type.html#ac611ae494ce509500eaffcf119c1fe66", null ],
-      [ "num_methods", "structtracer__manager__mod_1_1tracer__type.html#ae835abe322e0125c4fcb646c3061f9f5", null ],
-      [ "tracer_longname", "structtracer__manager__mod_1_1tracer__type.html#a2a7636f9ee45d16b4eda9b73ed546592", null ],
-      [ "tracer_name", "structtracer__manager__mod_1_1tracer__type.html#ad5eae85166ad5442ecdbfec0afa6ff76", null ],
-      [ "tracer_units", "structtracer__manager__mod_1_1tracer__type.html#a26e3d6cdee9691dcf34d7c19abed060d", null ]
+    [ "tracer_type", "group__tracer__manager__mod.html#structtracer__manager__mod_1_1tracer__type", [
+      [ "instances", "group__tracer__manager__mod.html#a55f960ce5b1ab73a34897f3574171cfb", null ],
+      [ "instances_set", "group__tracer__manager__mod.html#a009a717ba9025829d28f1e1696598b34", null ],
+      [ "is_prognostic", "group__tracer__manager__mod.html#a12945351fac9aea595fd3e6d76874bfd", null ],
+      [ "model", "group__tracer__manager__mod.html#aa28b7897d65131a0db76ed955ccbbf77", null ],
+      [ "needs_init", "group__tracer__manager__mod.html#a64daef54a0f098361d68f59773436791", null ],
+      [ "needs_mass_adjust", "group__tracer__manager__mod.html#abbb00397d8e82eedf43d1240590f3625", null ],
+      [ "needs_positive_adjust", "group__tracer__manager__mod.html#ac611ae494ce509500eaffcf119c1fe66", null ],
+      [ "num_methods", "group__tracer__manager__mod.html#ae835abe322e0125c4fcb646c3061f9f5", null ],
+      [ "tracer_longname", "group__tracer__manager__mod.html#a2a7636f9ee45d16b4eda9b73ed546592", null ],
+      [ "tracer_name", "group__tracer__manager__mod.html#ad5eae85166ad5442ecdbfec0afa6ff76", null ],
+      [ "tracer_units", "group__tracer__manager__mod.html#a26e3d6cdee9691dcf34d7c19abed060d", null ]
     ] ],
     [ "adjust_mass", "group__tracer__manager__mod.html#ga672fa8babfa045b22792c270dcaef9e9", null ],
     [ "check_if_prognostic", "group__tracer__manager__mod.html#gaaf9f0433a57359e74f51a2c4a0927078", null ],
@@ -41,7 +40,7 @@ var group__tracer__manager__mod =
     [ "query_method", "group__tracer__manager__mod.html#ga518fe1424557bbe2aa3586f42f418e23", null ],
     [ "register_tracers", "group__tracer__manager__mod.html#gac4a2b2cfb680df283bf8419f8151d336", null ],
     [ "set_tracer_atts", "group__tracer__manager__mod.html#gaa41e661c3f5c63d375f7d4eafd82a96e", null ],
-    [ "set_tracer_method", "group__tracer__manager__mod.html#gaed2c43ae4503ec690cf3fabb0dac94a5", null ],
+    [ "set_tracer_method", "group__tracer__manager__mod.html#ga265ed73f474555edfc2befa97a5ccd83", null ],
     [ "set_tracer_profile", "group__tracer__manager__mod.html#ga70e9a23f86dbd85b7c2ad28cc43b6c65", null ],
     [ "tracer_manager_end", "group__tracer__manager__mod.html#ga239bf26810a219b45a50da1cd127ab05", null ],
     [ "tracer_manager_init", "group__tracer__manager__mod.html#gad8158f9c1b49acb5c1d4e7e544af3628", null ]

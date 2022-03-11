@@ -33,7 +33,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">FMS
-   &#160;<span id="projectnumber">2021.04.0-dev</span>
+   &#160;<span id="projectnumber">2022.01.0-dev</span>
    </div>
    <div id="projectbrief">Flexible Modeling System</div>
   </td>
@@ -91,7 +91,6 @@ $(document).ready(function(){initNavTree('group__get__cal__time__mod.html',''); 
 
 <div class="header">
   <div class="summary">
-<a href="#files">Files</a> &#124;
 <a href="#func-members">Functions/Subroutines</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
@@ -101,25 +100,13 @@ $(document).ready(function(){initNavTree('group__get__cal__time__mod.html',''); 
 
 <p>Given a time increment as a real number, and base time and calendar as a character strings, returns time as a time_type variable.  
 <a href="#details">More...</a></p>
-<div class="dynheader">
-Collaboration diagram for get_cal_time_mod:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="group__get__cal__time__mod.svg" width="318" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="files"></a>
-Files</h2></td></tr>
-<tr class="memitem:get__cal__time_8F90"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="get__cal__time_8F90.html">get_cal_time.F90</a></td></tr>
-<tr class="memdesc:get__cal__time_8F90"><td class="mdescLeft">&#160;</td><td class="mdescRight">File for <a class="el" href="group__get__cal__time__mod.html">get_cal_time_mod</a>. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
 <tr class="memitem:ga86e8537abbda318c9344678d1fde1e17"><td class="memItemLeft" align="right" valign="top"><a id="ga86e8537abbda318c9344678d1fde1e17"></a>
 character(len=256) function&#160;</td><td class="memItemRight" valign="bottom"><b>cut0</b> (string)</td></tr>
 <tr class="separator:ga86e8537abbda318c9344678d1fde1e17"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3eb93e699a7c27c535cd6bb35b6f0ef8"><td class="memItemLeft" align="right" valign="top">type(<a class="el" href="structtime__manager__mod_1_1time__type.html">time_type</a>) function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__get__cal__time__mod.html#ga3eb93e699a7c27c535cd6bb35b6f0ef8">get_cal_time</a> (time_increment, units, calendar, permit_calendar_conversion)</td></tr>
+<tr class="memitem:ga3eb93e699a7c27c535cd6bb35b6f0ef8"><td class="memItemLeft" align="right" valign="top">type(<a class="el" href="group__time__manager__mod.html#structtime__manager__mod_1_1time__type">time_type</a>) function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__get__cal__time__mod.html#ga3eb93e699a7c27c535cd6bb35b6f0ef8">get_cal_time</a> (time_increment, units, calendar, permit_calendar_conversion)</td></tr>
 <tr class="memdesc:ga3eb93e699a7c27c535cd6bb35b6f0ef8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates what a given calendar time would be after a interval of time.  <a href="group__get__cal__time__mod.html#ga3eb93e699a7c27c535cd6bb35b6f0ef8">More...</a><br /></td></tr>
 <tr class="separator:ga3eb93e699a7c27c535cd6bb35b6f0ef8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -154,7 +141,7 @@ logical&#160;</td><td class="memItemRight" valign="bottom"><b>this</b></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">type(<a class="el" href="structtime__manager__mod_1_1time__type.html">time_type</a>) function, public get_cal_time_mod::get_cal_time </td>
+          <td class="memname">type(<a class="el" href="group__time__manager__mod.html#structtime__manager__mod_1_1time__type">time_type</a>) function, public get_cal_time_mod::get_cal_time </td>
           <td>(</td>
           <td class="paramtype">real, intent(in)&#160;</td>
           <td class="paramname"><em>time_increment</em>, </td>
@@ -214,7 +201,7 @@ logical&#160;</td><td class="memItemRight" valign="bottom"><b>this</b></td></tr>
 <p>Calendar conversion may result in a fatal error when the input calendar type is a calendar that has more days per year than that of the time_manager's calendar. For example, if the input calendar type is julian and the time_manager's calendar is thirty_day_months, then get_cal_time will try to convert Jan 31 to a time in the thirty_day_months calendar, resulting in a fatal error.</p>
 <dl class="section note"><dt>Note</dt><dd>This option was originally coded to allow noleap calendar as input when the julian calendar was in effect by the time_manager. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="get__cal__time_8F90_source.html#l00158">158</a> of file <a class="el" href="get__cal__time_8F90_source.html">get_cal_time.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="get__cal__time_8F90_source.html#l00154">154</a> of file <a class="el" href="get__cal__time_8F90_source.html">get_cal_time.F90</a>.</p>
 
 </div>
 </div>

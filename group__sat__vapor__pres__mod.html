@@ -33,7 +33,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">FMS
-   &#160;<span id="projectnumber">2021.04.0-dev</span>
+   &#160;<span id="projectnumber">2022.01.0-dev</span>
    </div>
    <div id="projectbrief">Flexible Modeling System</div>
   </td>
@@ -91,7 +91,6 @@ $(document).ready(function(){initNavTree('group__sat__vapor__pres__mod.html','')
 
 <div class="header">
   <div class="summary">
-<a href="#files">Files</a> &#124;
 <a href="#nested-classes">Data Types</a> &#124;
 <a href="#func-members">Functions/Subroutines</a> &#124;
 <a href="#var-members">Variables</a>  </div>
@@ -102,58 +101,46 @@ $(document).ready(function(){initNavTree('group__sat__vapor__pres__mod.html','')
 
 <p>Routines for computing the saturation vapor pressure (es), the specific humidity (qs) and vapor mixing ratio (mrs) Given a specified relative humidity, calculates es, qs, and mrs, as well as their derivatives with respect to temperature, and also includes routines to initialize the look-up table. This module contains routines for determining the saturation vapor pressure (<code>ES</code>) from lookup tables constructed using equations given in the Smithsonian tables. The <code>ES</code> lookup tables are valid between -160C and +100C (approx 113K to 373K).  
 <a href="#details">More...</a></p>
-<div class="dynheader">
-Collaboration diagram for sat_vapor_pres_mod:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="group__sat__vapor__pres__mod.svg" width="407" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="files"></a>
-Files</h2></td></tr>
-<tr class="memitem:sat__vapor__pres_8F90"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sat__vapor__pres_8F90.html">sat_vapor_pres.F90</a></td></tr>
-<tr class="memdesc:sat__vapor__pres_8F90"><td class="mdescLeft">&#160;</td><td class="mdescRight">File for <a class="el" href="group__sat__vapor__pres__mod.html">sat_vapor_pres_mod</a>. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Types</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacesat__vapor__pres__mod_1_1compute__mrs.html">compute_mrs</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">For the given temperatures, pressures and optionally vapor mixing ratio, returns the vapor mixing ratio at saturation (optionally at relative humidity hc instead of at saturation) and optionally the derivative of saturation vapor mixing ratio w.r.t. temperature, and the saturation vapor pressure.  <a href="interfacesat__vapor__pres__mod_1_1compute__mrs.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacesat__vapor__pres__mod_1_1compute__qs.html">compute_qs</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">For the given temperatures, pressures and optionally vapor specific humidity, returns the specific humidity at saturation (optionally at relative humidity hc instead of at saturation) and optionally the derivative of saturation specific humidity w.r.t. temperature, and the saturation vapor pressure.  <a href="interfacesat__vapor__pres__mod_1_1compute__qs.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacesat__vapor__pres__mod_1_1descomp.html">descomp</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provided for backward compatibility (to be removed soon)  <a href="interfacesat__vapor__pres__mod_1_1descomp.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacesat__vapor__pres__mod_1_1escomp.html">escomp</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provided for backward compatibility (to be removed soon)  <a href="interfacesat__vapor__pres__mod_1_1escomp.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacesat__vapor__pres__mod_1_1lookup__des.html">lookup_des</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">For the given temperatures, returns the derivative of saturation vapor pressure with respect to temperature.  <a href="interfacesat__vapor__pres__mod_1_1lookup__des.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacesat__vapor__pres__mod_1_1lookup__des2.html">lookup_des2</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacesat__vapor__pres__mod_1_1lookup__des3.html">lookup_des3</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacesat__vapor__pres__mod_1_1lookup__es.html">lookup_es</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">For the given temperatures, returns the saturation vapor pressures.  <a href="interfacesat__vapor__pres__mod_1_1lookup__es.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacesat__vapor__pres__mod_1_1lookup__es2.html">lookup_es2</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacesat__vapor__pres__mod_1_1lookup__es2__des2.html">lookup_es2_des2</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacesat__vapor__pres__mod_1_1lookup__es3.html">lookup_es3</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacesat__vapor__pres__mod_1_1lookup__es3__des3.html">lookup_es3_des3</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacesat__vapor__pres__mod_1_1lookup__es__des.html">lookup_es_des</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">For the given temperatures, returns the saturation vapor pressure and the derivative of saturation vapor pressure with respect to temperature.  <a href="interfacesat__vapor__pres__mod_1_1lookup__es__des.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacesat__vapor__pres__mod_1_1show__all__bad.html">show_all_bad</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacesat__vapor__pres__mod_1_1temp__check.html">temp_check</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:interfacesat__vapor__pres__mod_1_1compute__mrs"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__sat__vapor__pres__mod.html#interfacesat__vapor__pres__mod_1_1compute__mrs">compute_mrs</a></td></tr>
+<tr class="memdesc:interfacesat__vapor__pres__mod_1_1compute__mrs"><td class="mdescLeft">&#160;</td><td class="mdescRight">For the given temperatures, pressures and optionally vapor mixing ratio, returns the vapor mixing ratio at saturation (optionally at relative humidity hc instead of at saturation) and optionally the derivative of saturation vapor mixing ratio w.r.t. temperature, and the saturation vapor pressure.  <a href="group__sat__vapor__pres__mod.html#interfacesat__vapor__pres__mod_1_1compute__mrs">More...</a><br /></td></tr>
+<tr class="separator:interfacesat__vapor__pres__mod_1_1compute__mrs"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:interfacesat__vapor__pres__mod_1_1compute__qs"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__sat__vapor__pres__mod.html#interfacesat__vapor__pres__mod_1_1compute__qs">compute_qs</a></td></tr>
+<tr class="memdesc:interfacesat__vapor__pres__mod_1_1compute__qs"><td class="mdescLeft">&#160;</td><td class="mdescRight">For the given temperatures, pressures and optionally vapor specific humidity, returns the specific humidity at saturation (optionally at relative humidity hc instead of at saturation) and optionally the derivative of saturation specific humidity w.r.t. temperature, and the saturation vapor pressure.  <a href="group__sat__vapor__pres__mod.html#interfacesat__vapor__pres__mod_1_1compute__qs">More...</a><br /></td></tr>
+<tr class="separator:interfacesat__vapor__pres__mod_1_1compute__qs"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:interfacesat__vapor__pres__mod_1_1descomp"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__sat__vapor__pres__mod.html#interfacesat__vapor__pres__mod_1_1descomp">descomp</a></td></tr>
+<tr class="memdesc:interfacesat__vapor__pres__mod_1_1descomp"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provided for backward compatibility (to be removed soon)  <a href="group__sat__vapor__pres__mod.html#interfacesat__vapor__pres__mod_1_1descomp">More...</a><br /></td></tr>
+<tr class="separator:interfacesat__vapor__pres__mod_1_1descomp"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:interfacesat__vapor__pres__mod_1_1escomp"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__sat__vapor__pres__mod.html#interfacesat__vapor__pres__mod_1_1escomp">escomp</a></td></tr>
+<tr class="memdesc:interfacesat__vapor__pres__mod_1_1escomp"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provided for backward compatibility (to be removed soon)  <a href="group__sat__vapor__pres__mod.html#interfacesat__vapor__pres__mod_1_1escomp">More...</a><br /></td></tr>
+<tr class="separator:interfacesat__vapor__pres__mod_1_1escomp"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:interfacesat__vapor__pres__mod_1_1lookup__des"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__sat__vapor__pres__mod.html#interfacesat__vapor__pres__mod_1_1lookup__des">lookup_des</a></td></tr>
+<tr class="memdesc:interfacesat__vapor__pres__mod_1_1lookup__des"><td class="mdescLeft">&#160;</td><td class="mdescRight">For the given temperatures, returns the derivative of saturation vapor pressure with respect to temperature.  <a href="group__sat__vapor__pres__mod.html#interfacesat__vapor__pres__mod_1_1lookup__des">More...</a><br /></td></tr>
+<tr class="separator:interfacesat__vapor__pres__mod_1_1lookup__des"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:interfacesat__vapor__pres__mod_1_1lookup__des2"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__sat__vapor__pres__mod.html#interfacesat__vapor__pres__mod_1_1lookup__des2">lookup_des2</a></td></tr>
+<tr class="separator:interfacesat__vapor__pres__mod_1_1lookup__des2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:interfacesat__vapor__pres__mod_1_1lookup__des3"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__sat__vapor__pres__mod.html#interfacesat__vapor__pres__mod_1_1lookup__des3">lookup_des3</a></td></tr>
+<tr class="separator:interfacesat__vapor__pres__mod_1_1lookup__des3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:interfacesat__vapor__pres__mod_1_1lookup__es"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__sat__vapor__pres__mod.html#interfacesat__vapor__pres__mod_1_1lookup__es">lookup_es</a></td></tr>
+<tr class="memdesc:interfacesat__vapor__pres__mod_1_1lookup__es"><td class="mdescLeft">&#160;</td><td class="mdescRight">For the given temperatures, returns the saturation vapor pressures.  <a href="group__sat__vapor__pres__mod.html#interfacesat__vapor__pres__mod_1_1lookup__es">More...</a><br /></td></tr>
+<tr class="separator:interfacesat__vapor__pres__mod_1_1lookup__es"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:interfacesat__vapor__pres__mod_1_1lookup__es2"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__sat__vapor__pres__mod.html#interfacesat__vapor__pres__mod_1_1lookup__es2">lookup_es2</a></td></tr>
+<tr class="separator:interfacesat__vapor__pres__mod_1_1lookup__es2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:interfacesat__vapor__pres__mod_1_1lookup__es2__des2"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__sat__vapor__pres__mod.html#interfacesat__vapor__pres__mod_1_1lookup__es2__des2">lookup_es2_des2</a></td></tr>
+<tr class="separator:interfacesat__vapor__pres__mod_1_1lookup__es2__des2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:interfacesat__vapor__pres__mod_1_1lookup__es3"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__sat__vapor__pres__mod.html#interfacesat__vapor__pres__mod_1_1lookup__es3">lookup_es3</a></td></tr>
+<tr class="separator:interfacesat__vapor__pres__mod_1_1lookup__es3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:interfacesat__vapor__pres__mod_1_1lookup__es3__des3"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__sat__vapor__pres__mod.html#interfacesat__vapor__pres__mod_1_1lookup__es3__des3">lookup_es3_des3</a></td></tr>
+<tr class="separator:interfacesat__vapor__pres__mod_1_1lookup__es3__des3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:interfacesat__vapor__pres__mod_1_1lookup__es__des"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__sat__vapor__pres__mod.html#interfacesat__vapor__pres__mod_1_1lookup__es__des">lookup_es_des</a></td></tr>
+<tr class="memdesc:interfacesat__vapor__pres__mod_1_1lookup__es__des"><td class="mdescLeft">&#160;</td><td class="mdescRight">For the given temperatures, returns the saturation vapor pressure and the derivative of saturation vapor pressure with respect to temperature.  <a href="group__sat__vapor__pres__mod.html#interfacesat__vapor__pres__mod_1_1lookup__es__des">More...</a><br /></td></tr>
+<tr class="separator:interfacesat__vapor__pres__mod_1_1lookup__es__des"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:interfacesat__vapor__pres__mod_1_1show__all__bad"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__sat__vapor__pres__mod.html#interfacesat__vapor__pres__mod_1_1show__all__bad">show_all_bad</a></td></tr>
+<tr class="separator:interfacesat__vapor__pres__mod_1_1show__all__bad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:interfacesat__vapor__pres__mod_1_1temp__check"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__sat__vapor__pres__mod.html#interfacesat__vapor__pres__mod_1_1temp__check">temp_check</a></td></tr>
+<tr class="separator:interfacesat__vapor__pres__mod_1_1temp__check"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
@@ -403,7 +390,522 @@ real, parameter&#160;</td><td class="memItemRight" valign="bottom"><b>zvir</b> =
 
          call compute_mrs (temp, press, mrs, mr, hc, dmrsdT, esat,
                            err_msg, es_over_liq)
-</pre> </div><!-- contents -->
+</pre> <hr/><h2 class="groupheader">Data Type Documentation</h2>
+<a name="interfacesat__vapor__pres__mod_1_1compute__mrs" id="interfacesat__vapor__pres__mod_1_1compute__mrs"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#interfacesat__vapor__pres__mod_1_1compute__mrs">&#9670;&nbsp;</a></span>sat_vapor_pres_mod::compute_mrs</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">interface sat_vapor_pres_mod::compute_mrs</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>For the given temperatures, pressures and optionally vapor mixing ratio, returns the vapor mixing ratio at saturation (optionally at relative humidity hc instead of at saturation) and optionally the derivative of saturation vapor mixing ratio w.r.t. temperature, and the saturation vapor pressure. </p>
+<p>For the input temperature and pressure these routines return the vapor mixing ratio (mrsat) at saturation (unless optional argument hc is used to specify the relative humidity at which mrsat should apply) and, if desired, the derivative of mrsat w.r.t temperature (dmrsdT) and / or the saturation vapor pressure (esat). If the optional input argument specific humidity (mr) is present, the exact expression for mrs is used; if qr is not present the tradit- ional form (valid at saturation) is used. if the optional mrsat derivative argument is present, the derivative of mrsat w.r.t. temperature will also be returned, defined consistent with the expression used for mrsat. The return values are derived from lookup tables (see notes below).</p>
+<p><br  />
+Example usage: </p><div class="fragment"><div class="line"><span class="keyword">call </span>compute_mrs( temp, press, mrsat, mr, hc, dmrsdt, esat,</div>
+<div class="line">                      err_msg ) </div>
+</div><!-- fragment --> 
+<p class="definition">Definition at line <a class="el" href="sat__vapor__pres_8F90_source.html#l00646">646</a> of file <a class="el" href="sat__vapor__pres_8F90_source.html">sat_vapor_pres.F90</a>.</p>
+</div><table class="memberdecls">
+<tr><td colspan="2"><h3>Private Member Functions</h3></td></tr>
+<tr class="memitem:a3849334362e8fdaeff42691b16898c07"><td class="memItemLeft" align="right" valign="top"><a id="a3849334362e8fdaeff42691b16898c07"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>compute_mrs_0d</b> (temp, press, mrsat, mr, hc, dmrsdT, esat, err_msg, es_over_liq, es_over_liq_and_ice)</td></tr>
+<tr class="separator:a3849334362e8fdaeff42691b16898c07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65da89ac9284cf412d5cb69071d7d4f8"><td class="memItemLeft" align="right" valign="top"><a id="a65da89ac9284cf412d5cb69071d7d4f8"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>compute_mrs_1d</b> (temp, press, mrsat, mr, hc, dmrsdT, esat, err_msg, es_over_liq, es_over_liq_and_ice)</td></tr>
+<tr class="separator:a65da89ac9284cf412d5cb69071d7d4f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9767d29ac8370a3a093149d087450842"><td class="memItemLeft" align="right" valign="top"><a id="a9767d29ac8370a3a093149d087450842"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>compute_mrs_2d</b> (temp, press, mrsat, mr, hc, dmrsdT, esat, err_msg, es_over_liq, es_over_liq_and_ice)</td></tr>
+<tr class="separator:a9767d29ac8370a3a093149d087450842"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68db09ce190ff38874c4dc519b02d849"><td class="memItemLeft" align="right" valign="top"><a id="a68db09ce190ff38874c4dc519b02d849"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>compute_mrs_3d</b> (temp, press, mrsat, mr, hc, dmrsdT, esat, err_msg, es_over_liq, es_over_liq_and_ice)</td></tr>
+<tr class="separator:a68db09ce190ff38874c4dc519b02d849"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+
+</div>
+</div>
+<a name="interfacesat__vapor__pres__mod_1_1compute__qs" id="interfacesat__vapor__pres__mod_1_1compute__qs"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#interfacesat__vapor__pres__mod_1_1compute__qs">&#9670;&nbsp;</a></span>sat_vapor_pres_mod::compute_qs</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">interface sat_vapor_pres_mod::compute_qs</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>For the given temperatures, pressures and optionally vapor specific humidity, returns the specific humidity at saturation (optionally at relative humidity hc instead of at saturation) and optionally the derivative of saturation specific humidity w.r.t. temperature, and the saturation vapor pressure. </p>
+<p>For the input temperature and pressure these routines return the specific humidity (qsat) at saturation (unless optional argument hc is used to specify the relative humidity at which qsat should apply) and, if desired, the derivative of qsat w.r.t temperature (dqsdT) and / or the saturation vapor pressure (esat). If the optional input argument specific humidity (q) is present, the exact expression for qs is used; if q is not present the tradit- ional form (valid at saturation) is used. if the optional qsat derivative argument is present, the derivative of qsat w.r.t. temperature will also be returned, defined consistent with the expression used for qsat. The return values are derived from lookup tables (see notes below).</p>
+<p>Example usage: </p><div class="fragment"><div class="line"><span class="keyword">call </span>compute_qs( temp, press, qsat, q, hc, dqsdt, esat, err_msg ) </div>
+</div><!-- fragment --> 
+<p class="definition">Definition at line <a class="el" href="sat__vapor__pres_8F90_source.html#l00547">547</a> of file <a class="el" href="sat__vapor__pres_8F90_source.html">sat_vapor_pres.F90</a>.</p>
+</div><table class="memberdecls">
+<tr><td colspan="2"><h3>Private Member Functions</h3></td></tr>
+<tr class="memitem:a222c1126f9829e178176a903e84b766a"><td class="memItemLeft" align="right" valign="top"><a id="a222c1126f9829e178176a903e84b766a"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>compute_qs_0d</b> (temp, press, qsat, q, hc, dqsdT, esat, err_msg, es_over_liq, es_over_liq_and_ice)</td></tr>
+<tr class="separator:a222c1126f9829e178176a903e84b766a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a210636bc8ad334d4b999c871819cf856"><td class="memItemLeft" align="right" valign="top"><a id="a210636bc8ad334d4b999c871819cf856"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>compute_qs_1d</b> (temp, press, qsat, q, hc, dqsdT, esat, err_msg, es_over_liq, es_over_liq_and_ice)</td></tr>
+<tr class="separator:a210636bc8ad334d4b999c871819cf856"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87681f4075ada580cfb68d2909d1d613"><td class="memItemLeft" align="right" valign="top"><a id="a87681f4075ada580cfb68d2909d1d613"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>compute_qs_2d</b> (temp, press, qsat, q, hc, dqsdT, esat, err_msg, es_over_liq, es_over_liq_and_ice)</td></tr>
+<tr class="separator:a87681f4075ada580cfb68d2909d1d613"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b3a5fdfb41a22b4de8b0a6e1ea05f9a"><td class="memItemLeft" align="right" valign="top"><a id="a8b3a5fdfb41a22b4de8b0a6e1ea05f9a"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>compute_qs_3d</b> (temp, press, qsat, q, hc, dqsdT, esat, err_msg, es_over_liq, es_over_liq_and_ice)</td></tr>
+<tr class="separator:a8b3a5fdfb41a22b4de8b0a6e1ea05f9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+
+</div>
+</div>
+<a name="interfacesat__vapor__pres__mod_1_1descomp" id="interfacesat__vapor__pres__mod_1_1descomp"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#interfacesat__vapor__pres__mod_1_1descomp">&#9670;&nbsp;</a></span>sat_vapor_pres_mod::descomp</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">interface sat_vapor_pres_mod::descomp</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>Provided for backward compatibility (to be removed soon) </p>
+
+<p class="definition">Definition at line <a class="el" href="sat__vapor__pres_8F90_source.html#l00341">341</a> of file <a class="el" href="sat__vapor__pres_8F90_source.html">sat_vapor_pres.F90</a>.</p>
+</div><table class="memberdecls">
+<tr><td colspan="2"><h3>Private Member Functions</h3></td></tr>
+<tr class="memitem:aab0851441bf08ec646980a4d016ea1fa"><td class="memItemLeft" align="right" valign="top"><a id="aab0851441bf08ec646980a4d016ea1fa"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_des_0d</b> (temp, desat, err_msg)</td></tr>
+<tr class="separator:aab0851441bf08ec646980a4d016ea1fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a791b3930b71cb3644fb64e75a067f2bd"><td class="memItemLeft" align="right" valign="top"><a id="a791b3930b71cb3644fb64e75a067f2bd"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_des_1d</b> (temp, desat, err_msg)</td></tr>
+<tr class="separator:a791b3930b71cb3644fb64e75a067f2bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3616852c5621d0c15f7917b968715fbd"><td class="memItemLeft" align="right" valign="top"><a id="a3616852c5621d0c15f7917b968715fbd"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_des_2d</b> (temp, desat, err_msg)</td></tr>
+<tr class="separator:a3616852c5621d0c15f7917b968715fbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab65f87e28782b7f87e58ab10294074f7"><td class="memItemLeft" align="right" valign="top"><a id="ab65f87e28782b7f87e58ab10294074f7"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_des_3d</b> (temp, desat, err_msg)</td></tr>
+<tr class="separator:ab65f87e28782b7f87e58ab10294074f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+
+</div>
+</div>
+<a name="interfacesat__vapor__pres__mod_1_1escomp" id="interfacesat__vapor__pres__mod_1_1escomp"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#interfacesat__vapor__pres__mod_1_1escomp">&#9670;&nbsp;</a></span>sat_vapor_pres_mod::escomp</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">interface sat_vapor_pres_mod::escomp</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>Provided for backward compatibility (to be removed soon) </p>
+
+<p class="definition">Definition at line <a class="el" href="sat__vapor__pres_8F90_source.html#l00269">269</a> of file <a class="el" href="sat__vapor__pres_8F90_source.html">sat_vapor_pres.F90</a>.</p>
+</div><table class="memberdecls">
+<tr><td colspan="2"><h3>Private Member Functions</h3></td></tr>
+<tr class="memitem:ac62fe3871a9219814a8cac63216e3ade"><td class="memItemLeft" align="right" valign="top"><a id="ac62fe3871a9219814a8cac63216e3ade"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es_0d</b> (temp, esat, err_msg)</td></tr>
+<tr class="separator:ac62fe3871a9219814a8cac63216e3ade"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17f8acecebacf15224a7ba8ea49db03b"><td class="memItemLeft" align="right" valign="top"><a id="a17f8acecebacf15224a7ba8ea49db03b"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es_1d</b> (temp, esat, err_msg)</td></tr>
+<tr class="separator:a17f8acecebacf15224a7ba8ea49db03b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f6a019a67ae9eace422d7e2a6ee8415"><td class="memItemLeft" align="right" valign="top"><a id="a9f6a019a67ae9eace422d7e2a6ee8415"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es_2d</b> (temp, esat, err_msg)</td></tr>
+<tr class="separator:a9f6a019a67ae9eace422d7e2a6ee8415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27238eff7347501f9388c78fee6a7a4a"><td class="memItemLeft" align="right" valign="top"><a id="a27238eff7347501f9388c78fee6a7a4a"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es_3d</b> (temp, esat, err_msg)</td></tr>
+<tr class="separator:a27238eff7347501f9388c78fee6a7a4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+
+</div>
+</div>
+<a name="interfacesat__vapor__pres__mod_1_1lookup__des" id="interfacesat__vapor__pres__mod_1_1lookup__des"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#interfacesat__vapor__pres__mod_1_1lookup__des">&#9670;&nbsp;</a></span>sat_vapor_pres_mod::lookup_des</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">interface sat_vapor_pres_mod::lookup_des</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>For the given temperatures, returns the derivative of saturation vapor pressure with respect to temperature. </p>
+<p>For the given temperatures these routines return the derivtive of esat w.r.t. temperature (desat). The return values are derived from lookup tables.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">temp</td><td>Temperature in degrees kelvin </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">desat</td><td>Derivative of saturation vapor pressure w.r.t. temperature in pascals/degree. May be a scalar, 1d, 2d, or 3d array. Must have the same order and size as temp. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">err_msg</td><td>Character string containing error message to be returned to calling routine.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>@error FATAL table overflow, nbad=## Temperature(s) provided to the saturation vapor pressure lookup are outside the valid range of the lookup table (-160 to 100 deg C). This may be due to a numerical instability in the model. Information should have been printed to standard output to help determine where the instability may have occurred. If the lookup table needs a larger temperature range, then parameters in the module header must be modified.</p>
+<p><br  />
+Example usage: </p><div class="fragment"><div class="line"><span class="keyword">call </span>lookup_des( temp, desat) </div>
+</div><!-- fragment --> 
+<p class="definition">Definition at line <a class="el" href="sat__vapor__pres_8F90_source.html#l00335">335</a> of file <a class="el" href="sat__vapor__pres_8F90_source.html">sat_vapor_pres.F90</a>.</p>
+</div><table class="memberdecls">
+<tr><td colspan="2"><h3>Private Member Functions</h3></td></tr>
+<tr class="memitem:aab0851441bf08ec646980a4d016ea1fa"><td class="memItemLeft" align="right" valign="top"><a id="aab0851441bf08ec646980a4d016ea1fa"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_des_0d</b> (temp, desat, err_msg)</td></tr>
+<tr class="separator:aab0851441bf08ec646980a4d016ea1fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a791b3930b71cb3644fb64e75a067f2bd"><td class="memItemLeft" align="right" valign="top"><a id="a791b3930b71cb3644fb64e75a067f2bd"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_des_1d</b> (temp, desat, err_msg)</td></tr>
+<tr class="separator:a791b3930b71cb3644fb64e75a067f2bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3616852c5621d0c15f7917b968715fbd"><td class="memItemLeft" align="right" valign="top"><a id="a3616852c5621d0c15f7917b968715fbd"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_des_2d</b> (temp, desat, err_msg)</td></tr>
+<tr class="separator:a3616852c5621d0c15f7917b968715fbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab65f87e28782b7f87e58ab10294074f7"><td class="memItemLeft" align="right" valign="top"><a id="ab65f87e28782b7f87e58ab10294074f7"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_des_3d</b> (temp, desat, err_msg)</td></tr>
+<tr class="separator:ab65f87e28782b7f87e58ab10294074f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+
+</div>
+</div>
+<a name="interfacesat__vapor__pres__mod_1_1lookup__des2" id="interfacesat__vapor__pres__mod_1_1lookup__des2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#interfacesat__vapor__pres__mod_1_1lookup__des2">&#9670;&nbsp;</a></span>sat_vapor_pres_mod::lookup_des2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">interface sat_vapor_pres_mod::lookup_des2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="sat__vapor__pres_8F90_source.html#l00429">429</a> of file <a class="el" href="sat__vapor__pres_8F90_source.html">sat_vapor_pres.F90</a>.</p>
+</div><table class="memberdecls">
+<tr><td colspan="2"><h3>Private Member Functions</h3></td></tr>
+<tr class="memitem:a157d0d73e70388f15a5b769533a0e75d"><td class="memItemLeft" align="right" valign="top"><a id="a157d0d73e70388f15a5b769533a0e75d"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_des2_0d</b> (temp, desat, err_msg)</td></tr>
+<tr class="separator:a157d0d73e70388f15a5b769533a0e75d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a422f5d60329373f97b17f61ff4a14db0"><td class="memItemLeft" align="right" valign="top"><a id="a422f5d60329373f97b17f61ff4a14db0"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_des2_1d</b> (temp, desat, err_msg)</td></tr>
+<tr class="separator:a422f5d60329373f97b17f61ff4a14db0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c25d18924ba8b271147196975abd6da"><td class="memItemLeft" align="right" valign="top"><a id="a3c25d18924ba8b271147196975abd6da"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_des2_2d</b> (temp, desat, err_msg)</td></tr>
+<tr class="separator:a3c25d18924ba8b271147196975abd6da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5ce2d02144bca217216913e1ba64bf7"><td class="memItemLeft" align="right" valign="top"><a id="aa5ce2d02144bca217216913e1ba64bf7"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_des2_3d</b> (temp, desat, err_msg)</td></tr>
+<tr class="separator:aa5ce2d02144bca217216913e1ba64bf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+
+</div>
+</div>
+<a name="interfacesat__vapor__pres__mod_1_1lookup__des3" id="interfacesat__vapor__pres__mod_1_1lookup__des3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#interfacesat__vapor__pres__mod_1_1lookup__des3">&#9670;&nbsp;</a></span>sat_vapor_pres_mod::lookup_des3</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">interface sat_vapor_pres_mod::lookup_des3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="sat__vapor__pres_8F90_source.html#l00444">444</a> of file <a class="el" href="sat__vapor__pres_8F90_source.html">sat_vapor_pres.F90</a>.</p>
+</div><table class="memberdecls">
+<tr><td colspan="2"><h3>Private Member Functions</h3></td></tr>
+<tr class="memitem:a0e913d80f67116c58f75df1b051c7a23"><td class="memItemLeft" align="right" valign="top"><a id="a0e913d80f67116c58f75df1b051c7a23"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_des3_0d</b> (temp, desat, err_msg)</td></tr>
+<tr class="separator:a0e913d80f67116c58f75df1b051c7a23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f5b72a429fa1797ece38d4dbf48f7b1"><td class="memItemLeft" align="right" valign="top"><a id="a6f5b72a429fa1797ece38d4dbf48f7b1"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_des3_1d</b> (temp, desat, err_msg)</td></tr>
+<tr class="separator:a6f5b72a429fa1797ece38d4dbf48f7b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae19d9c9afcc7f4fd54ed4f29ad377f7a"><td class="memItemLeft" align="right" valign="top"><a id="ae19d9c9afcc7f4fd54ed4f29ad377f7a"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_des3_2d</b> (temp, desat, err_msg)</td></tr>
+<tr class="separator:ae19d9c9afcc7f4fd54ed4f29ad377f7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec428f423bdf4928279b0a1efb4e9e7f"><td class="memItemLeft" align="right" valign="top"><a id="aec428f423bdf4928279b0a1efb4e9e7f"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_des3_3d</b> (temp, desat, err_msg)</td></tr>
+<tr class="separator:aec428f423bdf4928279b0a1efb4e9e7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+
+</div>
+</div>
+<a name="interfacesat__vapor__pres__mod_1_1lookup__es" id="interfacesat__vapor__pres__mod_1_1lookup__es"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#interfacesat__vapor__pres__mod_1_1lookup__es">&#9670;&nbsp;</a></span>sat_vapor_pres_mod::lookup_es</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">interface sat_vapor_pres_mod::lookup_es</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>For the given temperatures, returns the saturation vapor pressures. </p>
+<p>For the given temperatures these routines return the saturation vapor pressure(esat). The return values are derived from lookup tables. Example usage: </p><div class="fragment"><div class="line"><span class="keyword">call </span>lookup_es( temp, esat, err_msg ) </div>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">temp</td><td>Temperature in degrees Kelvin. </td></tr>
+    <tr><td class="paramname">esat</td><td>Saturation vapor pressure in pascals. May be a scalar, 1d, 2d, or 3d array Must have the same order and size as temp. </td></tr>
+    <tr><td class="paramname">err_msg</td><td>Character string containing error message to be returned to calling routine. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">FATAL</td><td>table overflow, nbad=## Temperature(s) provided to the saturation vapor pressure lookup are outside the valid range of the lookup table (-160 to 100 deg C). This may be due to a numerical instability in the model. Information should have been printed to standard output to help determine where the instability may have occurred. If the lookup table needs a larger temperature range, then parameters in the module header must be modified. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="sat__vapor__pres_8F90_source.html#l00264">264</a> of file <a class="el" href="sat__vapor__pres_8F90_source.html">sat_vapor_pres.F90</a>.</p>
+</div><table class="memberdecls">
+<tr><td colspan="2"><h3>Private Member Functions</h3></td></tr>
+<tr class="memitem:ac62fe3871a9219814a8cac63216e3ade"><td class="memItemLeft" align="right" valign="top"><a id="ac62fe3871a9219814a8cac63216e3ade"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es_0d</b> (temp, esat, err_msg)</td></tr>
+<tr class="separator:ac62fe3871a9219814a8cac63216e3ade"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17f8acecebacf15224a7ba8ea49db03b"><td class="memItemLeft" align="right" valign="top"><a id="a17f8acecebacf15224a7ba8ea49db03b"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es_1d</b> (temp, esat, err_msg)</td></tr>
+<tr class="separator:a17f8acecebacf15224a7ba8ea49db03b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f6a019a67ae9eace422d7e2a6ee8415"><td class="memItemLeft" align="right" valign="top"><a id="a9f6a019a67ae9eace422d7e2a6ee8415"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es_2d</b> (temp, esat, err_msg)</td></tr>
+<tr class="separator:a9f6a019a67ae9eace422d7e2a6ee8415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27238eff7347501f9388c78fee6a7a4a"><td class="memItemLeft" align="right" valign="top"><a id="a27238eff7347501f9388c78fee6a7a4a"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es_3d</b> (temp, esat, err_msg)</td></tr>
+<tr class="separator:a27238eff7347501f9388c78fee6a7a4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+
+</div>
+</div>
+<a name="interfacesat__vapor__pres__mod_1_1lookup__es2" id="interfacesat__vapor__pres__mod_1_1lookup__es2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#interfacesat__vapor__pres__mod_1_1lookup__es2">&#9670;&nbsp;</a></span>sat_vapor_pres_mod::lookup_es2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">interface sat_vapor_pres_mod::lookup_es2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="sat__vapor__pres_8F90_source.html#l00424">424</a> of file <a class="el" href="sat__vapor__pres_8F90_source.html">sat_vapor_pres.F90</a>.</p>
+</div><table class="memberdecls">
+<tr><td colspan="2"><h3>Private Member Functions</h3></td></tr>
+<tr class="memitem:a432f483d17671c5a969876ec49e0640b"><td class="memItemLeft" align="right" valign="top"><a id="a432f483d17671c5a969876ec49e0640b"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es2_0d</b> (temp, esat, err_msg)</td></tr>
+<tr class="separator:a432f483d17671c5a969876ec49e0640b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a946a3dd4448cade4e5b22461ff772a7e"><td class="memItemLeft" align="right" valign="top"><a id="a946a3dd4448cade4e5b22461ff772a7e"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es2_1d</b> (temp, esat, err_msg)</td></tr>
+<tr class="separator:a946a3dd4448cade4e5b22461ff772a7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe5ddd09ede137de2ee4b9d54665f1bd"><td class="memItemLeft" align="right" valign="top"><a id="afe5ddd09ede137de2ee4b9d54665f1bd"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es2_2d</b> (temp, esat, err_msg)</td></tr>
+<tr class="separator:afe5ddd09ede137de2ee4b9d54665f1bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae078f96deef5de4c3fbf237fdb016a86"><td class="memItemLeft" align="right" valign="top"><a id="ae078f96deef5de4c3fbf237fdb016a86"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es2_3d</b> (temp, esat, err_msg)</td></tr>
+<tr class="separator:ae078f96deef5de4c3fbf237fdb016a86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+
+</div>
+</div>
+<a name="interfacesat__vapor__pres__mod_1_1lookup__es2__des2" id="interfacesat__vapor__pres__mod_1_1lookup__es2__des2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#interfacesat__vapor__pres__mod_1_1lookup__es2__des2">&#9670;&nbsp;</a></span>sat_vapor_pres_mod::lookup_es2_des2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">interface sat_vapor_pres_mod::lookup_es2_des2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="sat__vapor__pres_8F90_source.html#l00434">434</a> of file <a class="el" href="sat__vapor__pres_8F90_source.html">sat_vapor_pres.F90</a>.</p>
+</div><table class="memberdecls">
+<tr><td colspan="2"><h3>Private Member Functions</h3></td></tr>
+<tr class="memitem:a0eef4072acb6f46d1039867e47312d56"><td class="memItemLeft" align="right" valign="top"><a id="a0eef4072acb6f46d1039867e47312d56"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es2_des2_0d</b> (temp, esat, desat, err_msg)</td></tr>
+<tr class="separator:a0eef4072acb6f46d1039867e47312d56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21d0b63dd3905bf88c939f36ba827841"><td class="memItemLeft" align="right" valign="top"><a id="a21d0b63dd3905bf88c939f36ba827841"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es2_des2_1d</b> (temp, esat, desat, err_msg)</td></tr>
+<tr class="separator:a21d0b63dd3905bf88c939f36ba827841"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27ffc5f48952517c1fa5615fa8ec7425"><td class="memItemLeft" align="right" valign="top"><a id="a27ffc5f48952517c1fa5615fa8ec7425"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es2_des2_2d</b> (temp, esat, desat, err_msg)</td></tr>
+<tr class="separator:a27ffc5f48952517c1fa5615fa8ec7425"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ce259326f836ce25a7273085aa06bac"><td class="memItemLeft" align="right" valign="top"><a id="a8ce259326f836ce25a7273085aa06bac"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es2_des2_3d</b> (temp, esat, desat, err_msg)</td></tr>
+<tr class="separator:a8ce259326f836ce25a7273085aa06bac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+
+</div>
+</div>
+<a name="interfacesat__vapor__pres__mod_1_1lookup__es3" id="interfacesat__vapor__pres__mod_1_1lookup__es3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#interfacesat__vapor__pres__mod_1_1lookup__es3">&#9670;&nbsp;</a></span>sat_vapor_pres_mod::lookup_es3</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">interface sat_vapor_pres_mod::lookup_es3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="sat__vapor__pres_8F90_source.html#l00439">439</a> of file <a class="el" href="sat__vapor__pres_8F90_source.html">sat_vapor_pres.F90</a>.</p>
+</div><table class="memberdecls">
+<tr><td colspan="2"><h3>Private Member Functions</h3></td></tr>
+<tr class="memitem:ad34c687cf746ecead447c481e2107065"><td class="memItemLeft" align="right" valign="top"><a id="ad34c687cf746ecead447c481e2107065"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es3_0d</b> (temp, esat, err_msg)</td></tr>
+<tr class="separator:ad34c687cf746ecead447c481e2107065"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a712767ea2d650e8d7b2e4e7cce5a8988"><td class="memItemLeft" align="right" valign="top"><a id="a712767ea2d650e8d7b2e4e7cce5a8988"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es3_1d</b> (temp, esat, err_msg)</td></tr>
+<tr class="separator:a712767ea2d650e8d7b2e4e7cce5a8988"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd3bf267908fd4cf87e3fbd0fa4363cf"><td class="memItemLeft" align="right" valign="top"><a id="abd3bf267908fd4cf87e3fbd0fa4363cf"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es3_2d</b> (temp, esat, err_msg)</td></tr>
+<tr class="separator:abd3bf267908fd4cf87e3fbd0fa4363cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47159225a51a6bb9e4582737d3ca3d83"><td class="memItemLeft" align="right" valign="top"><a id="a47159225a51a6bb9e4582737d3ca3d83"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es3_3d</b> (temp, esat, err_msg)</td></tr>
+<tr class="separator:a47159225a51a6bb9e4582737d3ca3d83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+
+</div>
+</div>
+<a name="interfacesat__vapor__pres__mod_1_1lookup__es3__des3" id="interfacesat__vapor__pres__mod_1_1lookup__es3__des3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#interfacesat__vapor__pres__mod_1_1lookup__es3__des3">&#9670;&nbsp;</a></span>sat_vapor_pres_mod::lookup_es3_des3</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">interface sat_vapor_pres_mod::lookup_es3_des3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="sat__vapor__pres_8F90_source.html#l00449">449</a> of file <a class="el" href="sat__vapor__pres_8F90_source.html">sat_vapor_pres.F90</a>.</p>
+</div><table class="memberdecls">
+<tr><td colspan="2"><h3>Private Member Functions</h3></td></tr>
+<tr class="memitem:a2fde8e5ce3a65f840918ac1c221f8516"><td class="memItemLeft" align="right" valign="top"><a id="a2fde8e5ce3a65f840918ac1c221f8516"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es3_des3_0d</b> (temp, esat, desat, err_msg)</td></tr>
+<tr class="separator:a2fde8e5ce3a65f840918ac1c221f8516"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2906e48b42dc7328159f9022ca4af4d7"><td class="memItemLeft" align="right" valign="top"><a id="a2906e48b42dc7328159f9022ca4af4d7"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es3_des3_1d</b> (temp, esat, desat, err_msg)</td></tr>
+<tr class="separator:a2906e48b42dc7328159f9022ca4af4d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ec1abe3b517da821f3335230a052c14"><td class="memItemLeft" align="right" valign="top"><a id="a2ec1abe3b517da821f3335230a052c14"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es3_des3_2d</b> (temp, esat, desat, err_msg)</td></tr>
+<tr class="separator:a2ec1abe3b517da821f3335230a052c14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85d8caa49c71857b0df84de1f6f902ca"><td class="memItemLeft" align="right" valign="top"><a id="a85d8caa49c71857b0df84de1f6f902ca"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es3_des3_3d</b> (temp, esat, desat, err_msg)</td></tr>
+<tr class="separator:a85d8caa49c71857b0df84de1f6f902ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+
+</div>
+</div>
+<a name="interfacesat__vapor__pres__mod_1_1lookup__es__des" id="interfacesat__vapor__pres__mod_1_1lookup__es__des"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#interfacesat__vapor__pres__mod_1_1lookup__es__des">&#9670;&nbsp;</a></span>sat_vapor_pres_mod::lookup_es_des</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">interface sat_vapor_pres_mod::lookup_es_des</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>For the given temperatures, returns the saturation vapor pressure and the derivative of saturation vapor pressure with respect to temperature. </p>
+<p>For the given temperatures these routines return the saturation vapor pressure (esat) and the derivative of esat w.r.t temperature (desat). The return values are derived from lookup tables (see notes below).</p>
+<p><br  />
+Example usage: </p><div class="fragment"><div class="line"><span class="keyword">call </span>lookup_es_des( temp, esat, desat, err_msg ) </div>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">temp</td><td>Temperature in degrees Kelvin. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">esat</td><td>Saturation vapor pressure in pascals. May be a scalar, 1d, 2d, or 3d array. Must have the same order and size as temp. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">desat</td><td>Derivative of saturation vapor pressure w.r.t. temperature in pascals/degree. May be a scalar, 1d, 2d, or 3d array. Must have the same order and size as temp. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">err_msg</td><td>Character string containing error message to be returned to calling routine. @error FATAL table overflow, nbad=## Temperature(s) provided to the saturation vapor pressure lookup are outside the valid range of the lookup table (-160 to 100 deg C). This may be due to a numerical instability in the model. Information should have been printed to standard output to help determine where the instability may have occurred. If the lookup table needs a larger temperature range, then parameters in the module header must be modified. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="sat__vapor__pres_8F90_source.html#l00419">419</a> of file <a class="el" href="sat__vapor__pres_8F90_source.html">sat_vapor_pres.F90</a>.</p>
+</div><table class="memberdecls">
+<tr><td colspan="2"><h3>Private Member Functions</h3></td></tr>
+<tr class="memitem:a3a4b8ea6e35c1c8267fd1b047e0d47f8"><td class="memItemLeft" align="right" valign="top"><a id="a3a4b8ea6e35c1c8267fd1b047e0d47f8"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es_des_0d</b> (temp, esat, desat, err_msg)</td></tr>
+<tr class="separator:a3a4b8ea6e35c1c8267fd1b047e0d47f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c93315015525b623af476c47645c1b3"><td class="memItemLeft" align="right" valign="top"><a id="a2c93315015525b623af476c47645c1b3"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es_des_1d</b> (temp, esat, desat, err_msg)</td></tr>
+<tr class="separator:a2c93315015525b623af476c47645c1b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6cc87989376e8c45c54c06400fc3a06f"><td class="memItemLeft" align="right" valign="top"><a id="a6cc87989376e8c45c54c06400fc3a06f"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es_des_2d</b> (temp, esat, desat, err_msg)</td></tr>
+<tr class="separator:a6cc87989376e8c45c54c06400fc3a06f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2498ae52f525a10d9b4f4cc6fdd015d"><td class="memItemLeft" align="right" valign="top"><a id="ae2498ae52f525a10d9b4f4cc6fdd015d"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es_des_3d</b> (temp, esat, desat, err_msg)</td></tr>
+<tr class="separator:ae2498ae52f525a10d9b4f4cc6fdd015d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+
+</div>
+</div>
+<a name="interfacesat__vapor__pres__mod_1_1show__all__bad" id="interfacesat__vapor__pres__mod_1_1show__all__bad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#interfacesat__vapor__pres__mod_1_1show__all__bad">&#9670;&nbsp;</a></span>sat_vapor_pres_mod::show_all_bad</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">interface sat_vapor_pres_mod::show_all_bad</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="sat__vapor__pres_8F90_source.html#l00684">684</a> of file <a class="el" href="sat__vapor__pres_8F90_source.html">sat_vapor_pres.F90</a>.</p>
+</div><table class="memberdecls">
+<tr><td colspan="2"><h3>Private Member Functions</h3></td></tr>
+<tr class="memitem:a176a15e9183aac6c1878e16799e1a0cd"><td class="memItemLeft" align="right" valign="top"><a id="a176a15e9183aac6c1878e16799e1a0cd"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>show_all_bad_0d</b> (temp)</td></tr>
+<tr class="separator:a176a15e9183aac6c1878e16799e1a0cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3ab79d24031d7b5f5294757b899e626"><td class="memItemLeft" align="right" valign="top"><a id="ac3ab79d24031d7b5f5294757b899e626"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>show_all_bad_1d</b> (temp)</td></tr>
+<tr class="separator:ac3ab79d24031d7b5f5294757b899e626"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd9ea9d6f62378b9712ec835571633d6"><td class="memItemLeft" align="right" valign="top"><a id="abd9ea9d6f62378b9712ec835571633d6"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>show_all_bad_2d</b> (temp)</td></tr>
+<tr class="separator:abd9ea9d6f62378b9712ec835571633d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b61605f35f1fe0dddc01bb770ee2656"><td class="memItemLeft" align="right" valign="top"><a id="a6b61605f35f1fe0dddc01bb770ee2656"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>show_all_bad_3d</b> (temp)</td></tr>
+<tr class="separator:a6b61605f35f1fe0dddc01bb770ee2656"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+
+</div>
+</div>
+<a name="interfacesat__vapor__pres__mod_1_1temp__check" id="interfacesat__vapor__pres__mod_1_1temp__check"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#interfacesat__vapor__pres__mod_1_1temp__check">&#9670;&nbsp;</a></span>sat_vapor_pres_mod::temp_check</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">interface sat_vapor_pres_mod::temp_check</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="sat__vapor__pres_8F90_source.html#l00679">679</a> of file <a class="el" href="sat__vapor__pres_8F90_source.html">sat_vapor_pres.F90</a>.</p>
+</div><table class="memberdecls">
+<tr><td colspan="2"><h3>Private Member Functions</h3></td></tr>
+<tr class="memitem:a69f6c443609c8efc25cbb5cf7820a46b"><td class="memItemLeft" align="right" valign="top"><a id="a69f6c443609c8efc25cbb5cf7820a46b"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>temp_check_1d</b> (temp)</td></tr>
+<tr class="separator:a69f6c443609c8efc25cbb5cf7820a46b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57f6712079d21ff15b4efa10bc00be27"><td class="memItemLeft" align="right" valign="top"><a id="a57f6712079d21ff15b4efa10bc00be27"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>temp_check_2d</b> (temp)</td></tr>
+<tr class="separator:a57f6712079d21ff15b4efa10bc00be27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a982d9a4382b0e5d503df64acffcc26b8"><td class="memItemLeft" align="right" valign="top"><a id="a982d9a4382b0e5d503df64acffcc26b8"></a>
+subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>temp_check_3d</b> (temp)</td></tr>
+<tr class="separator:a982d9a4382b0e5d503df64acffcc26b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

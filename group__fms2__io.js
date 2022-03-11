@@ -5,7 +5,5 @@ var group__fms2__io =
     [ "fms_io_utils_mod", "group__fms__io__utils__mod.html", "group__fms__io__utils__mod" ],
     [ "fms_netcdf_domain_io_mod", "group__fms__netcdf__domain__io__mod.html", "group__fms__netcdf__domain__io__mod" ],
     [ "fms_netcdf_unstructured_domain_io_mod", "group__fms__netcdf__unstructured__domain__io__mod.html", "group__fms__netcdf__unstructured__domain__io__mod" ],
-    [ "netcdf_io_mod", "group__netcdf__io__mod.html", "group__netcdf__io__mod" ],
-    [ "register_variable_attribute.inc", "register__variable__attribute_8inc.html", null ],
-    [ "scatter_data_bc.inc", "scatter__data__bc_8inc.html", null ]
+    [ "netcdf_io_mod", "group__netcdf__io__mod.html", "group__netcdf__io__mod" ]
 ];

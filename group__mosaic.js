@@ -1,6 +1,6 @@
 var group__mosaic =
 [
-    [ "gradient_mod", "group__gradient__mod.html", "group__gradient__mod" ],
+    [ "gradient_mod", "group__gradient__mod.html", null ],
     [ "grid_mod", "group__grid__mod.html", "group__grid__mod" ],
     [ "mosaic_mod", "group__mosaic__mod.html", "group__mosaic__mod" ],
     [ "create_xgrid.c", "create__xgrid_8c.html", null ],

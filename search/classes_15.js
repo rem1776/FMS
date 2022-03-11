@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['x1_5ftype_2920',['x1_type',['../structxgrid__mod_1_1x1__type.html',1,'xgrid_mod']]],
-  ['x2_5ftype_2921',['x2_type',['../structxgrid__mod_1_1x2__type.html',1,'xgrid_mod']]],
-  ['xcell_5ftype_2922',['xcell_type',['../structxgrid__mod_1_1xcell__type.html',1,'xgrid_mod']]],
-  ['xmap_5ftype_2923',['xmap_type',['../structxgrid__mod_1_1xmap__type.html',1,'xgrid_mod']]]
+  ['x1_5ftype_2844',['x1_type',['../group__xgrid__mod.html#structxgrid__mod_1_1x1__type',1,'xgrid_mod']]],
+  ['x2_5ftype_2845',['x2_type',['../group__xgrid__mod.html#structxgrid__mod_1_1x2__type',1,'xgrid_mod']]],
+  ['xcell_5ftype_2846',['xcell_type',['../group__xgrid__mod.html#structxgrid__mod_1_1xcell__type',1,'xgrid_mod']]],
+  ['xmap_5ftype_2847',['xmap_type',['../group__xgrid__mod.html#structxgrid__mod_1_1xmap__type',1,'xgrid_mod']]]
 ];
