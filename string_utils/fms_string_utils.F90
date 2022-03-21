@@ -86,6 +86,8 @@ module fms_string_utils_mod
 
   end function fms_find_unique
 
+  end interface
+
   !> @brief converts a kind=c_char to type c_ptr
   pure function fms_cstring2cpointer (cs) result (cp) bind(c, name="cstring2cpointer")
    import c_char, c_ptr
