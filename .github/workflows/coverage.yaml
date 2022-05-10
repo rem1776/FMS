@@ -1,0 +1,22 @@
+on: [push,workflow_dispatch]
+jobs:
+  builds:
+    runs-on: ubuntu-latest
+    container: 
+      image: ryanmulhall/coverage:latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@v2
+    - name: Prepare for build
+      run: autoreconf -if ./configure.ac && mkdir build && cd build
+    - name: Configure
+      run: ./configure --enable-code-coverage --with-yaml
+    - name: Compile
+      run: make -j
+    - name: Run coverage report
+      run: make check-code-coverage
+    - name: Archive code coverage results
+      uses: actions/upload-artifact@v3
+      with:
+        name: code-coverage-report
+        path: coverage-report/
