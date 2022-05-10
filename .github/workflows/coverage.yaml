@@ -6,13 +6,13 @@ jobs:
       image: ryanmulhall/coverage:latest
     steps:
     - name: Prepare for build
-      runs: autoreconf -if && mkdir build && cd build
+      run: autoreconf -if && mkdir build && cd build
     - name: Configure
-      runs: ../configure --enable-code-coverage --with-yaml
+      run: ../configure --enable-code-coverage --with-yaml
     - name: Compile
-      runs: make -j
+      run: make -j
     - name: Run coverage report
-      runs: make check-code-coverage
+      run: make check-code-coverage
     - name: Archive code coverage results
       uses: actions/upload-artifact@v3
       with:
