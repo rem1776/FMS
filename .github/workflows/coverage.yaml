@@ -5,6 +5,8 @@ jobs:
     container: 
       image: ryanmulhall/coverage:latest
     steps:
+    - name: checkout
+      uses: actions/checkout@v2
     - name: Prepare for build
       run: autoreconf -if && mkdir build && cd build
     - name: Configure
