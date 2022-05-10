@@ -8,9 +8,9 @@ jobs:
     - name: checkout
       uses: actions/checkout@v2
     - name: Prepare for build
-      run: autoreconf -if && mkdir build && cd build
+      run: autoreconf -if ./configure.ac && mkdir build && cd build
     - name: Configure
-      run: ../configure --enable-code-coverage --with-yaml
+      run: ./configure --enable-code-coverage --with-yaml
     - name: Compile
       run: make -j
     - name: Run coverage report
