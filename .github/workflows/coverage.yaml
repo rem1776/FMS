@@ -3,14 +3,12 @@ jobs:
   builds:
     runs-on: ubuntu-latest
     container: 
-      image: ecpe4s/hpc-me.ubuntu20.04 
+      image: ryanmulhall/coverage
+      env:
+        LDFLAGS: "-L/spack/opt/spack/linux-ubuntu20.04-x86_64/intel-2021.5.0/libyaml-0.2.5/lib -lyaml"
     steps:
     - name: checkout
       uses: actions/checkout@v2
-    - name: install dependencies
-      run: |
-        spack install netcdf-c netcdf-fortran libyaml
-        spack load netcdf-c netcdf-fortran libyaml
     - name: Prepare for build
       run: autoreconf -if ./configure.ac && mkdir build && cd build
     - name: Configure
