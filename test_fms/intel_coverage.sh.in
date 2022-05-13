@@ -106,3 +106,5 @@ echo "$covered covered out of $total total lines"
 echo "::set-output name=total::${TOTAL}"
 echo "::set-output name=covered::${COVERED}"
 echo "::set-output name=percentage::${PERCENTAGE}"
+echo "::notice title=Coverage::${PERCENTAGE}% covered. ${COVERED} covered blocks out of ${TOTAL}"
+echo "${PERCENTAGE}" > /coverage-percent.txt
