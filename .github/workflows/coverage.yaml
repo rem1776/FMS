@@ -32,7 +32,7 @@ jobs:
         test "`cat coverage-percent.txt`" -lt "$RESULT" && \
         echo "::warning title=Coverage Dropped:: Coverage has been decreased between runs from ${RESULT} to `cat coverage-percent.txt`"
       env:
-        RESULT: ${{ jobs.steps.report.outputs.percentage }}
+        RESULT: ${{ steps.report.outputs.percentage }}
     - name: Archive code coverage results
       if: success()
       uses: actions/upload-artifact@v3
