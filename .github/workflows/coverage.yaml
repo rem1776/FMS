@@ -18,6 +18,12 @@ jobs:
     - name: Run coverage report
       run: make check-code-coverage
       id: report
+    - name: Archive code coverage results
+      if: success()
+      uses: actions/upload-artifact@v3
+      with:
+        name: code-coverage-report
+        path: /coverage-percent.txt
     # get coverage results from last successful main run for comparison
     - name: Download last results
       if: success()
@@ -33,9 +39,3 @@ jobs:
         echo "::warning title=Coverage Dropped:: Coverage has been decreased between runs from ${RESULT} to `cat coverage-percent.txt`"
       env:
         RESULT: ${{ steps.report.outputs.percentage }}
-    - name: Archive code coverage results
-      if: success()
-      uses: actions/upload-artifact@v3
-      with:
-        name: code-coverage-report
-        path: /coverage-percent.txt
