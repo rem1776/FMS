@@ -96,15 +96,15 @@ do
   fi
   cd ..
 done
-percentage="$(echo "scale=2; ${COVERED}*100/${TOTAL}" | bc)"
-echo $percentage % 
+percentage="$(echo "scale=2; ${covered}*100/${total}" | bc)"
+echo "$percentage %"
 
 echo "</body>" >> coverage-report/fms-coverage.html
 echo "</html>" >> coverage-report/fms-coverage.html
 
 echo "$covered covered out of $total total lines"
-echo "::set-output name=total::${TOTAL}"
-echo "::set-output name=covered::${COVERED}"
-echo "::set-output name=percentage::${PERCENTAGE}"
-echo "::notice title=Coverage::${PERCENTAGE}% covered. ${COVERED} covered blocks out of ${TOTAL}"
-echo "${PERCENTAGE}" > /coverage-percent.txt
+echo "::set-output name=total::${total}"
+echo "::set-output name=covered::${covered}"
+echo "::set-output name=percentage::${percentage}"
+echo "::notice title=Coverage::${percentage}% covered. ${covered} covered blocks out of ${total}"
+echo "${percentage}" > /coverage-percent.txt
