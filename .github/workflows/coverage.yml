@@ -35,7 +35,7 @@ jobs:
     - name: Compare coverage
       if: success()
       run: |
-        test "`cat coverage-percent.txt`" -lt "$RESULT" && \
-        echo "::warning title=Coverage Dropped:: Coverage has been decreased between runs from ${RESULT} to `cat coverage-percent.txt`"
+        test "`cat code-coverage-report/coverage-percent.txt`" -lt "$RESULT" && \
+        echo "::warning title=Coverage Dropped:: Coverage has been decreased between runs from ${RESULT} to `cat code-coverage-report/coverage-percent.txt`"
       env:
         RESULT: ${{ steps.report.outputs.percentage }}
