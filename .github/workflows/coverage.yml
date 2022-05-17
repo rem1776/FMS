@@ -35,7 +35,7 @@ jobs:
     - name: Compare coverage
       if: success()
       run: |
-        if [ $(bc <<< "`cat code-coverage-report/coverage-percent.txt`" > "$RESULT") -eq 1]; then
+        if [ $(bc <<< "`cat code-coverage-report/coverage-percent.txt` > $RESULT") -eq 1]; then
           echo "::warning title=Coverage Dropped:: Coverage has been decreased between runs from ${RESULT} to `cat code-coverage-report/coverage-percent.txt`"
         fi
       env:

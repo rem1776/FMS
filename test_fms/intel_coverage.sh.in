@@ -103,7 +103,7 @@ echo "</body>" >> coverage-report/fms-coverage.html
 echo "</html>" >> coverage-report/fms-coverage.html
 
 echo "$covered covered out of $total total lines"
-if [ "$CI" ];
+if [ "$CI" ]; then
   echo "::set-output name=total::${total}"
   echo "::set-output name=covered::${covered}"
   echo "::set-output name=percentage::${percentage}"
