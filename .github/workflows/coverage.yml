@@ -14,7 +14,7 @@ jobs:
     - name: Configure
       run: ./configure --enable-code-coverage --with-yaml
     - name: Compile
-      run: make -j
+      run: make
     - name: Run coverage report
       run: make check-code-coverage
       id: report
