@@ -30,8 +30,8 @@ jobs:
       uses: dawidd6/action-download-artifact@v2
       with:
         workflow: coverage.yml
-        #workflow_conclusion: success
         branch: coverage-action
+        workflow_conclusion: completed
     - name: Compare coverage
       if: success()
       run: |
