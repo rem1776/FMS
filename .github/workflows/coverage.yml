@@ -35,7 +35,7 @@ jobs:
     - name: Compare coverage
       if: success()
       run: |
-        archive_val="`cat code-covearge-report/coverage-percent.txt`"
+        archive_val="`cat code-coverage-report/coverage-percent.txt`"
         if [ "`expr $archive_val '>' $RESULT`" ]; then
           echo "::warning title=Coverage Dropped:: Coverage has been decreased between runs from $archive_val to $RESULT"
         fi
