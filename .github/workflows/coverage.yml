@@ -36,7 +36,7 @@ jobs:
       if: success()
       run: |
         archive_val="`cat code-coverage-report/coverage-percent.txt`"
-        if [ "`expr $archive_val '>' $RESULT`" ]; then
+        if [ "`expr $archive_val '>' $RESULT`" -eq 1 ]; then
           echo "::warning title=Coverage Dropped:: Coverage has been decreased between runs from $archive_val to $RESULT"
         fi
       env:
