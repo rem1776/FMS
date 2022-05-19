@@ -19,25 +19,27 @@ jobs:
       run: make check-code-coverage
       id: report
     - name: Archive code coverage results
-      if: success()
       uses: actions/upload-artifact@v3
       with:
         name: code-coverage-report
         path: /coverage-percent.txt
     # get coverage results from last successful main run for comparison
     - name: Download last results
-      if: success()
       uses: dawidd6/action-download-artifact@v2
+      continue-on-error: true
       with:
         workflow: coverage.yml
         branch: coverage-action
         workflow_conclusion: completed
     - name: Compare coverage
-      if: success()
       run: |
-        archive_val="`cat code-coverage-report/coverage-percent.txt`"
-        if [ "`expr $archive_val '>' $RESULT`" -eq 1 ]; then
-          echo "::warning title=Coverage Dropped:: Function coverage has decreased between runs from $archive_val to $RESULT"
+        if [ -f code-coverage-report/coverage-percent.txt ]; then
+          archive_val="`cat code-coverage-report/coverage-percent.txt`"
+          if [ "`expr $archive_val '>' $RESULT`" -eq 1 ]; then
+            echo "::warning title=Coverage Dropped:: Function coverage has decreased between runs from $archive_val to $RESULT"
+          fi
+        else
+          echo "::warning title=Coverage Not Checked:: Archived results could not be downloaded"
         fi
       env:
         RESULT: ${{ steps.report.outputs.percentage }}
