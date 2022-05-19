@@ -85,9 +85,9 @@ do
     mkdir ../coverage-report/$dir
     codecov -prj $dir -spi pgopti.spi -dpi ../fms-global-coverage.dpi
 
-    tmp="`sed -n 58p CodeCoverage/__CODE_COVERAGE.HTML | sed 's/.*>\(.*\)<.*/\1/' | sed 's/,//' `"
+    tmp="`sed -n 55p CodeCoverage/__CODE_COVERAGE.HTML | sed 's/.*>\(.*\)<.*/\1/' | sed 's/,//' `"
     total="`expr $tmp + $total`"
-    tmp="`sed -n 59p CodeCoverage/__CODE_COVERAGE.HTML | sed 's/.*>\(.*\)<.*/\1/' | sed 's/,//' `"
+    tmp="`sed -n 56p CodeCoverage/__CODE_COVERAGE.HTML | sed 's/.*>\(.*\)<.*/\1/' | sed 's/,//' `"
     covered="`expr $tmp + $covered`"
 
     mv CODE_COVERAGE.HTML ../coverage-report/$dir
@@ -97,16 +97,15 @@ do
   cd ..
 done
 percentage="$(echo "scale=2; ${covered}*100/${total}" | bc)"
-echo "$percentage %"
 
 echo "</body>" >> coverage-report/fms-coverage.html
 echo "</html>" >> coverage-report/fms-coverage.html
 
-echo "$covered covered out of $total total lines"
+echo "$covered covered functions out of $total total (${percentage}%)"
 if [ "$CI" ]; then
   echo "::set-output name=total::${total}"
   echo "::set-output name=covered::${covered}"
   echo "::set-output name=percentage::${percentage}"
-  echo "::notice title=Coverage Info::${percentage}% covered. ${covered}% covered blocks out of ${total}% total"
+  echo "::notice title=Coverage Info::${percentage}% function coverage. ${covered}% covered functions out of ${total}% total"
   echo "${percentage}" > /coverage-percent.txt
 fi
