@@ -3,14 +3,16 @@ jobs:
   builds:
     runs-on: ubuntu-latest
     container: 
-      image: ryanmulhall/coverage
-      env:
-        LDFLAGS: "-L/spack/opt/spack/linux-ubuntu20.04-x86_64/intel-2021.5.0/libyaml-0.2.5/lib -lyaml"
+      image: intel/oneapi-hpckit:devel-ubuntu20.04
+      #env:
+        #LDFLAGS: "-L/spack/opt/spack/linux-ubuntu20.04-x86_64/intel-2021.5.0/libyaml-0.2.5/lib -lyaml"
     steps:
     - name: checkout
       uses: actions/checkout@v2
     - name: Prepare for build
-      run: autoreconf -if ./configure.ac && mkdir build && cd build
+      run: |
+        apt update && apt install -y libnetcdf-dev libnetcdff-dev libyaml-dev #netcdf-bin
+        autoreconf -if ./configure.ac && mkdir build && cd build
     - name: Configure
       run: ./configure --enable-code-coverage --with-yaml
     - name: Compile
