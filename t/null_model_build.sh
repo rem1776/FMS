@@ -25,10 +25,13 @@ mk_template=${bld_dir}/mkmf/templates/linux-ubuntu-xenial-gnu.mk
 
 # FMS
 git clone https://github.com/NOAA-GFDL/FMS.git $src_dir/FMS
+# checkout a specific commit, if given
+cd $src_dir/FMS
+git checkout $1
+cd $bld_dir
 
 # ocean_null
 git clone https://github.com/NOAA-GFDL/ocean_null.git $src_dir/ocean_null
-cd $bld_dir
 
 # atmos_null
 git clone https://github.com/NOAA-GFDL/atmos_null.git $src_dir/atmos_null
@@ -39,7 +42,6 @@ git clone https://github.com/NOAA-GFDL/land_null $src_dir/land_null
 # ice_null - need ice_param as well, and depends on ocean_null.
 git clone https://github.com/NOAA-GFDL/ice_param.git $src_dir/ice_param
 git clone https://github.com/NOAA-GFDL/ice_null.git $src_dir/ice_null
-cd $bld_dir
 
 # coupler - simply create symlink, this simplifies using the build system.
 ln -s $(readlink -f ../../) $src_dir/coupler
@@ -170,7 +172,7 @@ else
   exit 1
 fi
 ### 17FEB2021 exit 0 to prevent model running.  This is temporary
-exit 0
+#exit 0
 # Run the null models test
 # Setup the run directory
 mkdir ${bld_dir}/run
@@ -184,7 +186,6 @@ tar zxf ${tarFile}
 # Get the full namelist
 ln -s input-full.nml input.nml
 # Run the null model with the full coupler
-### 17FEB2021 commented out the run because it crashes
 #mpiexec -n 1 ${bld_dir}/coupler_full_test.x
 
 # Report on the status of the run with the full coupler
@@ -205,5 +206,5 @@ rm input.nml
 ln -s input-simple.nml input.nml
 # Run the null simple coupler test
 ### 17FEB2021 commented out the run because it crashes
-#mpiexec -n 1 ${bld_dir}/coupler_simple_test.x
+mpiexec -n 1 ${bld_dir}/coupler_simple_test.x
 

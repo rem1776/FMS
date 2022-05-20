@@ -517,22 +517,21 @@ real :: lon0, lond, latd, amp, t_control, dellon, dom_wid, siggy, tempi
 
    Ice%glon_bnd = glon_bnd
    Ice%glat_bnd = glat_bnd
-  !do j = js, je+1
-  !do i = is, ie+1
-  !   Ice%glon_bnd(i,j) = glon_bnd(i-isg+1,j-jsg+1)
-  !   Ice%glat_bnd(i,j) = glat_bnd(i-isg+1,j-jsg+1)
-  !enddo
-  !enddo
 
-  ! read the land mask from a file (land=1)
-  if (open_file(land_mask_fileobj, 'INPUT/land_mask.nc', 'read', Ice%domain)) then
-      call read_data (land_mask_fileobj, 'land_mask', Ice%glon)
-      where (Ice%glon > 0.50)
-         Ice%gmask = .false.
-      elsewhere
-         Ice%gmask = .true.
-      endwhere
-      call close_file(land_mask_fileobj)
+  !! needs a io domain to check if the file is there
+  if( ASSOCIATED(mpp_get_io_domain(Ice%domain)) ) then
+      ! read the land mask from a file (land=1)
+      if (open_file(land_mask_fileobj, 'INPUT/land_mask.nc', 'read', Ice%domain)) then
+          call read_data (land_mask_fileobj, 'land_mask', Ice%glon)
+          where (Ice%glon > 0.50)
+             Ice%gmask = .false.
+          elsewhere
+             Ice%gmask = .true.
+          endwhere
+          call close_file(land_mask_fileobj)
+      else
+          Ice%gmask = .true.  ! aqua-planet
+      endif
   else
       Ice%gmask = .true.  ! aqua-planet
   endif
@@ -588,6 +587,7 @@ real :: lon0, lond, latd, amp, t_control, dellon, dom_wid, siggy, tempi
 
 need_ic = .false.
 
+!! TODO
 if (open_file(ice_restart_fileobj, 'INPUT/ice_model.res.nc', 'read', Ice%domain, is_restart=.true.)) then
    if (mpp_pe() == mpp_root_pe()) call error_mesg ('ice_model_mod', &
             'Reading NetCDF formatted restart file: INPUT/ice_model.res.nc', NOTE)
