@@ -7,17 +7,16 @@ jobs:
       #env:
         #LDFLAGS: "-L/spack/opt/spack/linux-ubuntu20.04-x86_64/intel-2021.5.0/libyaml-0.2.5/lib -lyaml"
     steps:
-    - name: checkout
-      uses: actions/checkout@v2
     - name: Prepare for build
       run: |
         apt update && apt install -y autoconf libtool automake
-        pushd .. && wget https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.8.1.tar.gz
+        wget https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.8.1.tar.gz
         tar xf v4.8.1.tar.gz && ls && cd netcdf-c*
         autoreconf -if ./configure.ac && ./configure && make -j install
-        popd
+    - name: checkout
+      uses: actions/checkout@v2
     - name: Configure
-      run: ./configure --enable-code-coverage --with-yaml
+      run: autoreconf -if ./configure.ac && ./configure --enable-code-coverage --with-yaml
     - name: Compile
       run: make
     - name: Run coverage report
