@@ -13,7 +13,7 @@ jobs:
       run: |
         apt update && apt install -y autoconf libtool automake
         wget https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.8.1.tar.gz
-        tar xf v4.8.1.tar.gz && cd v4.8.1
+        tar xf v4.8.1.tar.gz && ls && cd netcdf-c*
         autoreconf -if ./configure.ac && mkdir build && cd build
     - name: Configure
       run: ./configure --enable-code-coverage --with-yaml
