@@ -12,11 +12,12 @@ jobs:
     - name: Prepare for build
       run: |
         apt update && apt install -y autoconf libtool automake
-        wget https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.8.1.tar.gz
+        pushd .. && wget https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.8.1.tar.gz
         tar xf v4.8.1.tar.gz && ls && cd netcdf-c*
-        autoreconf -if ./configure.ac && mkdir build && cd build
+        autoreconf -if ./configure.ac && ./configure && make -j install
+        popd
     - name: Configure
-      run: ../configure --enable-code-coverage --with-yaml
+      run: ./configure --enable-code-coverage --with-yaml
     - name: Compile
       run: make
     - name: Run coverage report
