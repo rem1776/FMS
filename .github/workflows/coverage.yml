@@ -9,7 +9,7 @@ jobs:
     steps:
     - name: Prepare for build
       run: |
-        apt update && apt install -y autoconf libtool automake
+        apt update && apt install -y autoconf libtool automake libhdf5-dev
         wget https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.8.1.tar.gz
         tar xf v4.8.1.tar.gz && ls && cd netcdf-c*
         autoreconf -if ./configure.ac && ./configure && make -j install
