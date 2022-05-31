@@ -7,6 +7,7 @@ jobs:
       env:
         CC: mpiicc
         FC: mpiifort
+        LD_LIBRARY_PATH: "/libs/lib:$LD_LIBRARY_PATH"
         #LDFLAGS: "-L/spack/opt/spack/linux-ubuntu20.04-x86_64/intel-2021.5.0/libyaml-0.2.5/lib -lyaml"
     steps:
     - name: Build dependencies
