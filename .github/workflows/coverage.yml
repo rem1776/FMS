@@ -16,7 +16,7 @@ jobs:
         tar xf v4.8.1.tar.gz && ls && cd netcdf-c*
         autoreconf -if ./configure.ac && mkdir build && cd build
     - name: Configure
-      run: ./configure --enable-code-coverage --with-yaml
+      run: ../configure --enable-code-coverage --with-yaml
     - name: Compile
       run: make
     - name: Run coverage report
