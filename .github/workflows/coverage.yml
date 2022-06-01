@@ -13,12 +13,14 @@ jobs:
  
         #LDFLAGS: "-L/spack/opt/spack/linux-ubuntu20.04-x86_64/intel-2021.5.0/libyaml-0.2.5/lib -lyaml"
     steps:
-    #- name: Cache dependencies
-    #  uses: actions/cache@v3
-    #  with:
-    #    path: /libs
-    #    key: ${{ runner.os }}-intel-libs
-    - name: Build dependencies
+    - name: Cache dependencies
+      id: cache
+      uses: actions/cache@v3
+      with:
+        path: /libs
+        key: ${{ runner.os }}-intel-libs
+    - if: ${{ steps.cache.outputs.cache-hit == 'false' }}
+      name: Build dependencies
       run: |
         apt update && apt install -y autoconf libtool automake zlibc zlib1g-dev
         mkdir /libs
@@ -29,7 +31,7 @@ jobs:
         wget https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.8.1.tar.gz
         tar xf v4.8.1.tar.gz && cd netcdf-c-4.8.1
         autoreconf -if ./configure.ac && ./configure --prefix=/libs --enable-remote-fortran-bootstrap
-        make -j install-netcdf-fortran && cd ..
+        make -j install && make -j install-netcdf-fortran && cd ..
     - name: checkout
       uses: actions/checkout@v2
     - name: Configure
