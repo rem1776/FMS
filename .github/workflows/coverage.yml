@@ -2,7 +2,7 @@ on: [push,workflow_dispatch]
 jobs:
   builds:
     runs-on: ubuntu-latest
-    container: 
+    container:
       image: intel/oneapi-hpckit:devel-ubuntu20.04
       env:
         CC: mpiicc
@@ -10,11 +10,16 @@ jobs:
         LD_LIBRARY_PATH: "/libs/lib:$LD_LIBRARY_PATH"
         #LDFLAGS: "-L/spack/opt/spack/linux-ubuntu20.04-x86_64/intel-2021.5.0/libyaml-0.2.5/lib -lyaml"
     steps:
+    #- name: Cache dependencies
+    #  uses: actions/cache@v3
+    #  with:
+    #    path: /libs
+    #    key: ${{ runner.os }}-intel-libs
     - name: Build dependencies
       run: |
-        apt update && apt install -y autoconf libtool automake 
+        apt update && apt install -y autoconf libtool automake zlibc
         mkdir /libs
-        wget https://hdf-wordpress-1.s3.amazonaws.com/wp-content/uploads/manual/HDF5/HDF5_1_12_2/source/hdf5-1.12.2.tar.gz 
+        wget https://hdf-wordpress-1.s3.amazonaws.com/wp-content/uploads/manual/HDF5/HDF5_1_12_2/source/hdf5-1.12.2.tar.gz
         tar xf hdf5-1.12.2.tar.gz && cd hdf5-1.12.2
         autoreconf -if ./configure.ac && ./configure --prefix=/libs
         make -j install && cd ..
@@ -22,11 +27,6 @@ jobs:
         tar xf v4.8.1.tar.gz && cd netcdf-c-4.8.1
         autoreconf -if ./configure.ac && ./configure --prefix=/libs
         make -j install && cd ..
-    - name: Cache dependencies 
-      uses: actions/cache@v3
-      with:
-        path: /libs
-        key: ${{ runner.os }}
     - name: checkout
       uses: actions/checkout@v2
     - name: Configure
