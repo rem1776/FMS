@@ -19,7 +19,7 @@ jobs:
       with:
         path: /libs
         key: ${{ runner.os }}-intel-libs
-    - if: ${{ steps.cache.outputs.cache-hit == 'false' }}
+    - if: steps.cache.outputs.cache-hit != 'true'
       name: Build dependencies
       run: |
         apt update && apt install -y autoconf libtool automake zlibc zlib1g-dev
