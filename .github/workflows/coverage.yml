@@ -10,6 +10,7 @@ jobs:
         CFLAGS:  "-I/libs/include"
         FCFLAGS: "-I/libs/include"
         LDFLAGS: "-L/libs/lib"
+        LD_LIBRARY_PATH: "/libs/lib:$LD_LIBRARY_PATH"
     steps:
     - name: Cache dependencies
       id: cache
@@ -24,15 +25,14 @@ jobs:
         mkdir /libs
         wget https://hdf-wordpress-1.s3.amazonaws.com/wp-content/uploads/manual/HDF5/HDF5_1_12_2/source/hdf5-1.12.2.tar.gz
         tar xf hdf5-1.12.2.tar.gz && cd hdf5-1.12.2
-        autoreconf -if ./configure.ac && ./configure --prefix=/libs
+        ./configure --prefix=/libs
         make -j install && cd ..
         wget https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.8.1.tar.gz
         tar xf v4.8.1.tar.gz && cd netcdf-c-4.8.1
-        autoreconf -if ./configure.ac && ./configure --prefix=/libs --enable-remote-fortran-bootstrap
+        # uses a netcdf config option to clone and build fortran library
+        ./configure --prefix=/libs --enable-remote-fortran-bootstrap
         make -j install
-        # uses a netcdf-c config option to clone and build fortran library
-        # needs CPPFLAGS set here to get passed into fortran's configure for some reason
-        make -j -k build-netcdf-fortran CPPFLAGS="-L/libs/lib -I/libs/include"
+        make -j -k build-netcdf-fortran
         make -j install-netcdf-fortran
     - name: checkout
       uses: actions/checkout@v2
