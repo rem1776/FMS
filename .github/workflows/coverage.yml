@@ -37,7 +37,7 @@ jobs:
     - name: checkout
       uses: actions/checkout@v2
     - name: Configure
-      run: autoreconf -if ./configure.ac && ./configure --enable-code-coverage --with-yaml
+      run: autoreconf -if ./configure.ac && ./configure --enable-code-coverage #--with-yaml
     - name: Compile
       run: make
     - name: Run coverage report
