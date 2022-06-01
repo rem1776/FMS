@@ -31,7 +31,9 @@ jobs:
         wget https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.8.1.tar.gz
         tar xf v4.8.1.tar.gz && cd netcdf-c-4.8.1
         autoreconf -if ./configure.ac && ./configure --prefix=/libs --enable-remote-fortran-bootstrap
-        make -j install && make -j install-netcdf-fortran && cd ..
+        make -j install
+        make -j -k build-netcdf-fortran
+        make -j install-netcdf-fortran
     - name: checkout
       uses: actions/checkout@v2
     - name: Configure
