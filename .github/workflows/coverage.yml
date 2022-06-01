@@ -15,11 +15,13 @@ jobs:
         apt update && apt install -y autoconf libtool automake 
         mkdir /libs
         wget https://hdf-wordpress-1.s3.amazonaws.com/wp-content/uploads/manual/HDF5/HDF5_1_12_2/source/hdf5-1.12.2.tar.gz 
-        tar xf hdf5-1.12.2.tar.gz && cd hdf5* && pwd
-        autoreconf -if ./configure.ac && ./configure --prefix=/libs && make -j install && cd ..
+        tar xf hdf5-1.12.2.tar.gz && cd hdf5-1.12.2
+        autoreconf -if ./configure.ac && ./configure --prefix=/libs
+        make -j install && cd ..
         wget https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.8.1.tar.gz
-        tar xf v4.8.1.tar.gz && ls && cd netcdf-c*
-        autoreconf -if ./configure.ac && ./configure --prefix=/libs && make -j install
+        tar xf v4.8.1.tar.gz && cd netcdf-c-4.8.1
+        autoreconf -if ./configure.ac && ./configure --prefix=/libs
+        make -j install && cd ..
     - name: Cache dependencies 
       uses: actions/cache@v3
       with:
