@@ -7,7 +7,10 @@ jobs:
       env:
         CC: mpiicc
         FC: mpiifort
-        LD_LIBRARY_PATH: "/libs/lib:$LD_LIBRARY_PATH"
+        CFLAGS:  "-I/libs/include"
+        FCFLAGS: "-I/libs/include"
+        LDFLAGS: "-L/libs/lib"
+ 
         #LDFLAGS: "-L/spack/opt/spack/linux-ubuntu20.04-x86_64/intel-2021.5.0/libyaml-0.2.5/lib -lyaml"
     steps:
     #- name: Cache dependencies
@@ -17,7 +20,7 @@ jobs:
     #    key: ${{ runner.os }}-intel-libs
     - name: Build dependencies
       run: |
-        apt update && apt install -y autoconf libtool automake zlibc
+        apt update && apt install -y autoconf libtool automake zlibc zlib1g-dev
         mkdir /libs
         wget https://hdf-wordpress-1.s3.amazonaws.com/wp-content/uploads/manual/HDF5/HDF5_1_12_2/source/hdf5-1.12.2.tar.gz
         tar xf hdf5-1.12.2.tar.gz && cd hdf5-1.12.2
@@ -25,8 +28,8 @@ jobs:
         make -j install && cd ..
         wget https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.8.1.tar.gz
         tar xf v4.8.1.tar.gz && cd netcdf-c-4.8.1
-        autoreconf -if ./configure.ac && ./configure --prefix=/libs
-        make -j install && cd ..
+        autoreconf -if ./configure.ac && ./configure --prefix=/libs --enable-remote-fortran-bootstrap
+        make -j install-netcdf-fortran && cd ..
     - name: checkout
       uses: actions/checkout@v2
     - name: Configure
