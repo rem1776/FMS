@@ -12,10 +12,12 @@ jobs:
     steps:
     - name: Checkout FMS
       uses: actions/checkout@v2
+      with:
+        path: FMS
     - name: Checkout FMScoupler
       uses: actions/checkout@v2
       with:
         repository: 'rem1776/FMScoupler'
         ref: '6c714cd9ba4606c28a0df71cd68d5dcc73562e0f'
     - name: Test Null build
-      run: ls .. && ls && t/null_model_build.sh --link-fms
+      run: t/null_model_build.sh --link-fms
