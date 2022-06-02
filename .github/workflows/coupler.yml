@@ -19,5 +19,6 @@ jobs:
       with:
         repository: 'rem1776/FMScoupler'
         ref: '6c714cd9ba4606c28a0df71cd68d5dcc73562e0f'
+        path: FMScoupler
     - name: Test Null build
-      run: t/null_model_build.sh --link-fms
+      run: FMScoupler/t/null_model_build.sh --link-fms
