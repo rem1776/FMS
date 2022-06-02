@@ -13,6 +13,9 @@ jobs:
     - name: Checkout FMScoupler
       uses: actions/checkout@v2
       with:
-        repository: 'NOAA-GFDL/FMScoupler'
+        repository: 'rem1776/FMScoupler'
+        branch: 'null-script'
+    - name: Checkout FMS
+      uses: actions/checkout@v2
     - name: Test Null build
-      run: t/null_model_build.sh
+      run: t/null_model_build.sh --link-fms
