@@ -17,10 +17,11 @@ jobs:
       with:
         path: /libs
         key: ${{ runner.os }}-intel-libs
+    - name: Install packages for building 
+      run: apt update && apt install -y autoconf libtool automake zlibc zlib1g-dev
     - if: steps.cache.outputs.cache-hit != 'true'
-      name: Build dependencies
+      name: Build netcdf
       run: |
-        apt update && apt install -y autoconf libtool automake zlibc zlib1g-dev
         mkdir /libs
         wget https://hdf-wordpress-1.s3.amazonaws.com/wp-content/uploads/manual/HDF5/HDF5_1_12_2/source/hdf5-1.12.2.tar.gz
         tar xf hdf5-1.12.2.tar.gz && cd hdf5-1.12.2
