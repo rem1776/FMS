@@ -5,9 +5,13 @@ jobs:
   coupler-build:
     runs-on: ubuntu-latest
     container:
-      image: noaagfdl/ubuntu_libfms_gnu
+      image: noaagfdl/hpc-me.ubuntu-minimal:coupler
       env:
-        FCFLAGS: "-I/usr/include" 
+        CC: mpicc
+        FC: mpif90
+        CPPFLAGS: '-I/usr/include -Duse_LARGEFILE -DMAXFIELDMETHODS_=500'
+        FCFLAGS: '-fcray-pointer -fdefault-double-8 -fdefault-real-8 -Waliasing -ffree-line-length-none -fno-range-check -I/usr/include'
+        LDFLAGS: '-L/usr/lib'
         VERBOSE: 1
     steps:
     - name: Checkout FMS
@@ -18,7 +22,7 @@ jobs:
       uses: actions/checkout@v2
       with:
         repository: 'rem1776/FMScoupler'
-        ref: '68f4638162af207cdd580be59ef55df13e1a644e'
+        ref: 'e793f9885de6eb4264512d73fbe5efb55198aeab'
         path: FMScoupler
     - name: Test Null build
       run: FMScoupler/t/null_model_build.sh --link-fms
