@@ -42,7 +42,7 @@ jobs:
     - name: Compile
       run: make
     - name: Run coverage report
-      run: export LD_LIBRARY_PATH="/libs/lib:$LD_LIBRARY_PATH" && make check-code-coverage
+      run: export LD_LIBRARY_PATH="/libs/lib:$LD_LIBRARY_PATH" && make check-code-coverage VERBOSE=1 TEST_VERBOSE=1
       id: report
     - name: Archive code coverage results
       uses: actions/upload-artifact@v3
