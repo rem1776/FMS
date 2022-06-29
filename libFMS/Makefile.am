@@ -33,6 +33,7 @@ libFMS_la_LDFLAGS = -version-info 12:0:0
 # Add the convenience libraries to the FMS library.
 libFMS_la_LIBADD = $(top_builddir)/platform/libplatform.la
 libFMS_la_LIBADD += $(top_builddir)/constants/libconstants.la
+libFMS_la_LIBADD += $(top_builddir)/constants4/libconstants4.la
 libFMS_la_LIBADD += $(top_builddir)/tridiagonal/libtridiagonal.la
 libFMS_la_LIBADD += $(top_builddir)/mpp/libmpp.la
 libFMS_la_LIBADD += $(top_builddir)/memutils/libmemutils.la
