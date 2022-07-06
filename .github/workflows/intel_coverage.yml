@@ -2,11 +2,12 @@
 # Uses an intel image to compile,test and generate a code coverage report.
 # If triggered by PR, it will compare coverage with the last main archived result
 # and output a warning for decreases in function coverage.
-on:
-  push:
-    branches:
-      - main
-  pull_request:
+# on:
+#  push:
+#    branches:
+#      - main
+#  pull_request:
+on: [push, pull_request]
 jobs:
   generate-coverage-report:
     runs-on: ubuntu-latest
