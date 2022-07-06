@@ -1,0 +1,78 @@
+on: [push, pull_request]
+jobs:
+  intel-autotools:
+    runs-on: ubuntu-latest
+    container:
+      image: intel/oneapi-hpckit:2022.2-devel-ubuntu20.04
+      env:
+        CC: mpiicc
+        FC: mpiifort
+        CFLAGS:  "-I/libs/include"
+        FCFLAGS: "-I/libs/include -g -traceback"
+        LDFLAGS: "-L/libs/lib"
+        TEST_VERBOSE: 1
+        I_MPI_FABRICS: "shm" # needed for mpi in image
+        # intel bug causes some failures with shm option(required in container)
+        SKIP_TESTS: "test_mpp_update_domains.1 test_update_domains_performance.1 test_diag_manager2.23"
+    steps:
+    - name: Cache dependencies
+      id: cache
+      uses: actions/cache@v3
+      with:
+        path: /libs
+        key: ${{ runner.os }}-intel-libs
+    - name: Install packages for building
+      run: apt update && apt install -y autoconf libtool automake zlibc zlib1g-dev
+    - if: steps.cache.outputs.cache-hit != 'true'
+      name: Build netcdf
+      run: |
+        mkdir /libs
+        wget https://hdf-wordpress-1.s3.amazonaws.com/wp-content/uploads/manual/HDF5/HDF5_1_12_2/source/hdf5-1.12.2.tar.gz
+        tar xf hdf5-1.12.2.tar.gz && cd hdf5-1.12.2
+        ./configure --prefix=/libs
+        make -j install && cd ..
+        wget https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.8.1.tar.gz
+        tar xf v4.8.1.tar.gz && cd netcdf-c-4.8.1
+        ./configure --prefix=/libs --enable-remote-fortran-bootstrap
+        make -j install
+        # sets this here to pass embeded configure checks
+        export LD_LIBRARY_PATH="/libs/lib:$LD_LIBRARY_PATH"
+        make -j -k build-netcdf-fortran
+        make -j install-netcdf-fortran
+        wget https://github.com/yaml/libyaml/releases/download/0.2.5/yaml-0.2.5.tar.gz
+        tar xf yaml-0.2.5.tar.gz && cd yaml-0.2.5
+        ./configure --prefix=/libs
+        make -j install && cd
+    - name: checkout
+      uses: actions/checkout@v2
+    - name: Configure
+      run: autoreconf -if ./configure.ac && ./configure --with-yaml
+    - name: Compile
+      run: make -j || make
+    - name: Run test suite
+      run: make check-code-coverage LD_LIBRARY_PATH="/libs/lib:$LD_LIBRARY_PATH"
+    - name: Archive code coverage results
+      uses: actions/upload-artifact@v3
+      with:
+        name: code-coverage-report
+        path: /coverage-percent.txt
+    # get coverage results from last successful main run for comparison
+    - name: Download last results
+      uses: dawidd6/action-download-artifact@v2
+      continue-on-error: true
+      with:
+        workflow: coverage.yml
+        branch: coverage-action
+        workflow_conclusion: completed
+    - name: Compare coverage
+      run: |
+        if [ -f code-coverage-report/coverage-percent.txt ]; then
+          archive_val="`cat code-coverage-report/coverage-percent.txt`"
+          if [ "`expr $archive_val '>' $RESULT`" -eq 1 ]; then
+            echo "::warning title=Coverage Dropped:: Function coverage has decreased between runs from $archive_val to $RESULT"
+          fi
+        else
+          echo "::warning title=Coverage Not Checked:: Archived results could not be downloaded"
+        fi
+      env:
+        RESULT: ${{ steps.report.outputs.percentage }}
