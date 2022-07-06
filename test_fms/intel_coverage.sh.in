@@ -106,6 +106,7 @@ if [ "$CI" ]; then
   echo "::set-output name=total::${total}"
   echo "::set-output name=covered::${covered}"
   echo "::set-output name=percentage::${percentage}"
-  echo "::notice title=Coverage Info::${percentage}% function coverage. ${covered} covered functions out of ${total} total"
+  test -z "${percentage}" && echo "::error title=Percentage calculation failed::" && exit 1
+  echo "::notice title=Coverage Info::${percentage}% of routines/functions coverage. ${covered} covered functions out of ${total} total"
   echo "${percentage}" > /coverage-percent.txt
 fi

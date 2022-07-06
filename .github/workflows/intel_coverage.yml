@@ -31,9 +31,9 @@ jobs:
         path: /libs
         key: ${{ runner.os }}-intel-libs
     - name: Install packages for building
-      run: apt update && apt install -y autoconf libtool automake zlibc zlib1g-dev
+      run: apt update && apt install -y autoconf libtool automake zlibc zlib1g-dev bc
     - if: steps.cache.outputs.cache-hit != 'true'
-      name: Build netcdf
+      name: Build dependencies
       run: |
         mkdir /libs
         wget https://hdf-wordpress-1.s3.amazonaws.com/wp-content/uploads/manual/HDF5/HDF5_1_12_2/source/hdf5-1.12.2.tar.gz
@@ -84,7 +84,7 @@ jobs:
         if [ -f code-coverage-report/coverage-percent.txt ]; then
           archive_val="`cat code-coverage-report/coverage-percent.txt`"
           if [ "`expr $archive_val '>' $RESULT`" -eq 1 ]; then
-            echo "::warning title=Coverage Dropped:: Function coverage has decreased between runs from $archive_val to $RESULT"
+            echo "::warning title=Coverage Dropped:: Function/subroutine coverage has decreased between runs from $archive_val to $RESULT"
           fi
         else
           echo "::warning title=Coverage Not Checked:: Archived results could not be downloaded"
