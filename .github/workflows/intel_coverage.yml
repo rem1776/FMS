@@ -1,6 +1,14 @@
-on: [push, pull_request]
+# Ryan Mulhall 7/22
+# Uses an intel image to compile,test and generate a code coverage report.
+# If triggered by PR, it will compare coverage with the last main archived result
+# and output a warning for decreases in function coverage.
+on:
+  push:
+    branches:
+      - main
+  pull_request:
 jobs:
-  intel-autotools:
+  generate-coverage-report:
     runs-on: ubuntu-latest
     container:
       image: intel/oneapi-hpckit:2022.2-devel-ubuntu20.04
@@ -46,25 +54,31 @@ jobs:
     - name: checkout
       uses: actions/checkout@v2
     - name: Configure
-      run: autoreconf -if ./configure.ac && ./configure --with-yaml
+      run: autoreconf -if ./configure.ac && ./configure --enable-code-coverage --with-yaml
     - name: Compile
       run: make -j || make
     - name: Run test suite
+      id: report
       run: make check-code-coverage LD_LIBRARY_PATH="/libs/lib:$LD_LIBRARY_PATH"
+    #- if: ${{ github.ref == 'ref/heads/main' }}
     - name: Archive code coverage results
       uses: actions/upload-artifact@v3
       with:
         name: code-coverage-report
         path: /coverage-percent.txt
     # get coverage results from last successful main run for comparison
+    # the steps below only run on pull requests
+    #- if: ${{ github.ref != 'refs/heads/main' }}
     - name: Download last results
       uses: dawidd6/action-download-artifact@v2
       continue-on-error: true
       with:
-        workflow: coverage.yml
-        branch: coverage-action
+        workflow: intel_coverage.yml
+        branch: intel-coverage-action # TODO will be main when in repo
         workflow_conclusion: completed
+    #- if: ${{ github.ref != 'refs/heads/main' }}
     - name: Compare coverage
+      continue-on-error: true
       run: |
         if [ -f code-coverage-report/coverage-percent.txt ]; then
           archive_val="`cat code-coverage-report/coverage-percent.txt`"
