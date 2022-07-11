@@ -83,7 +83,7 @@ jobs:
       run: |
         if [ -f code-coverage-report/coverage-percent.txt ]; then
           archive_val="`cat code-coverage-report/coverage-percent.txt`"
-          if [ "`expr $archive_val '>' $RESULT`" -eq 1 ]; then
+          if [ 1 -eq "$(echo "${archive_val} > ${RESULT}" | bc)" ]; then
             echo "::warning title=Coverage Dropped:: Function/subroutine coverage has decreased between runs from $archive_val to $RESULT"
           fi
         else
