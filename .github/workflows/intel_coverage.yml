@@ -22,7 +22,7 @@ jobs:
         TEST_VERBOSE: 1
         I_MPI_FABRICS: "shm" # needed for mpi in image
         # intel bug causes some failures with shm option(required in container)
-        SKIP_TESTS: "test_mpp_update_domains.1 test_update_domains_performance.1 test_diag_manager2.23"
+        SKIP_TESTS: "test_mpp_update_domains.1 test_update_domains_performance.1 test_diag_manager2.23 test_field_manager2.1"
     steps:
     - name: Cache dependencies
       id: cache
@@ -84,7 +84,7 @@ jobs:
         if [ -f code-coverage-report/coverage-percent.txt ]; then
           archive_val="`cat code-coverage-report/coverage-percent.txt`"
           if [ 1 -eq "$(echo "${archive_val} > ${RESULT}" | bc)" ]; then
-            echo "::warning title=Coverage Dropped:: Function/subroutine coverage has decreased between runs from $archive_val to $RESULT"
+            echo "::error title=Coverage Dropped:: Function/subroutine coverage has decreased between runs from $archive_val to $RESULT"
           fi
         else
           echo "::warning title=Coverage Not Checked:: Archived results could not be downloaded"
