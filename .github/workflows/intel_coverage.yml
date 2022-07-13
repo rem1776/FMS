@@ -79,12 +79,12 @@ jobs:
         workflow_conclusion: completed
     #- if: ${{ github.ref != 'refs/heads/main' }}
     - name: Compare coverage
-      continue-on-error: true
       run: |
         if [ -f code-coverage-report/coverage-percent.txt ]; then
           archive_val="`cat code-coverage-report/coverage-percent.txt`"
           if [ 1 -eq "$(echo "${archive_val} > ${RESULT}" | bc)" ]; then
             echo "::error title=Coverage Dropped:: Function/subroutine coverage has decreased between runs from $archive_val to $RESULT"
+            exit 1
           fi
         else
           echo "::warning title=Coverage Not Checked:: Archived results could not be downloaded"
