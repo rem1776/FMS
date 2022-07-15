@@ -2,12 +2,12 @@
 # Uses an intel image to compile,test and generate a code coverage report.
 # If triggered by PR, it will compare coverage with the last main archived result
 # and output a warning for decreases in function coverage.
-# on:
-#  push:
-#    branches:
-#      - main
-#  pull_request:
-on: [push, pull_request]
+#on: [push, pull_request]
+ on:
+  push:
+    branches:
+      - main
+  pull_request:
 jobs:
   generate-coverage-report:
     runs-on: ubuntu-latest
@@ -61,29 +61,23 @@ jobs:
     - name: Run test suite
       id: report
       run: make check-code-coverage LD_LIBRARY_PATH="/libs/lib:$LD_LIBRARY_PATH"
-    #- if: ${{ github.ref == 'ref/heads/main' }}
-    - name: Archive code coverage results
-      uses: actions/upload-artifact@v3
-      with:
-        name: code-coverage-report
-        path: /coverage-percent.txt
     # get coverage results from last successful main run for comparison
     # the steps below only run on pull requests
-    #- if: ${{ github.ref != 'refs/heads/main' }}
-    - name: Download last results
+    - if: ${{ github.ref != 'refs/heads/main' }}
+      name: Download last results
       uses: dawidd6/action-download-artifact@v2
       continue-on-error: true
       with:
         workflow: intel_coverage.yml
-        branch: intel-coverage-action # TODO will be main when in repo
-        workflow_conclusion: completed
-    #- if: ${{ github.ref != 'refs/heads/main' }}
-    - name: Compare coverage
+        branch: main
+        workflow_conclusion: success
+    - if: ${{ github.ref != 'refs/heads/main' }}
+      name: Compare coverage
       run: |
         if [ -f code-coverage-report/coverage-percent.txt ]; then
           archive_val="`cat code-coverage-report/coverage-percent.txt`"
-          if [ 1 -eq "$(echo "${archive_val} > ${RESULT}" | bc)" ]; then
-            echo "::error title=Coverage Dropped:: Function/subroutine coverage has decreased between runs from $archive_val to $RESULT"
+          if [ 1 -eq "$(echo "${archive_val} > ${RESULT}" | bc)" ]; the
+            echo "::error title=Coverage Dropped:: This pull request will decrease coverage from $archive_val to $RESULT"
             exit 1
           fi
         else
@@ -91,3 +85,9 @@ jobs:
         fi
       env:
         RESULT: ${{ steps.report.outputs.percentage }}
+    - if: ${{ github.ref == 'ref/heads/main' }}
+      name: Archive code coverage results
+      uses: actions/upload-artifact@v3
+      with:
+        name: code-coverage-report
+        path: /coverage-percent.txt
