@@ -1,9 +1,9 @@
-!> \author Ryan Mulhall 
-!> \email ryan.mulhall@noaa.gov
-!! \brief Contains types/routines for the diag varaible objects used by fmsDiagObject_type
+!> @author Ryan Mulhall
+!> @email ryan.mulhall@noaa.gov
+!! @brief Contains types/routines for diag varaible objects used in fmsDiagObject_type
 !!
-!! \description Holds buffered data for fmsDiagObject_type objects
-module fms_diag_variable_mod
+!! Holds variable data for fmsDiagObject_type objects
+module fms_diag_variable_object_mod
 
 use platform_mod
 use iso_c_binding
@@ -15,7 +15,8 @@ use diag_data_mod, only: DIAG_NULL, DIAG_NULL_STRING, DIAG_NOT_REGISTERED
 
 implicit none
 
-!> \brief Object that holds buffered data 
+!> \brief Object to represent a diag variable as part of a diag object
+!! holds data about variable, and a buffer type with the numerical actual data
 type fmsDiagVariable_type
 
     type (diagYamlFilesVar_type), pointer :: diag_var
@@ -33,26 +34,28 @@ type fmsDiagVariable_type
     character(len=:), allocatable, private :: standname
     character(len=:), allocatable, private :: units
     character(len=:), allocatable, private :: modname
-    !character(len=:), allocatable, private :: realm 
-    !character(len=:), allocatable, private :: interp_method (in metadata)
-    !integer, allocatable, dimension(:), private :: frequency
-    !integer, allocatable, private :: tile_count
     integer, pointer, dimension(:), private :: axis_ids
     class(diagDomain_t), pointer, private :: domain
     INTEGER , private :: type_of_domain
+    !!!!! dimension and id
+    integer, dimension(:,:), allocatable :: buffer_ids
+    class(fmsDiagBuffer_type), pointer :: buffer_object!(:)???
+
+    ! not needed or in buffer type
     !integer, allocatable, private :: area, volume
     !class(*), allocatable, private :: missing_value
     !class(*), allocatable, private :: data_RANGE(:)
+    !character(len=:), allocatable, private :: realm
+    !character(len=:), allocatable, private :: interp_method (in metadata)
+    !integer, allocatable, dimension(:), private :: frequency
+    !integer, allocatable, private :: tile_count
 
-    !!!!! dimension and id
-    integer, dimension(:,:), allocatable :: buffer_ids
-    class(fmsDiagBuffer_type), pointer :: buffer_object
-     
     contains
 
     !TODO getters/has
     !TODO diag_register_var_object
     !TODO diag_register_buffer_to_variable(bufferID)
+
 ! Check functions TODO
     !procedure :: is_static => diag_obj_is_static
     !procedure :: is_registered => diag_ob_registered
@@ -72,15 +75,6 @@ type fmsDiagVariable_type
     procedure :: has_standname
     procedure :: has_units
     procedure :: has_modname
-    !procedure :: has_interp_method
-    !procedure :: has_frequency
-    !procedure :: has_output_units
-    !procedure :: has_t
-    !procedure :: has_tile_count
-    !procedure :: has_area
-    !procedure :: has_volume
-    !procedure :: has_missing_value
-    !procedure :: has_data_RANGE
 ! Get functions
     procedure :: get_var_id
     procedure :: get_metadata
@@ -94,21 +88,12 @@ type fmsDiagVariable_type
     procedure :: get_standname
     procedure :: get_units
     procedure :: get_modname
-    !procedure :: get_interp_method
-    !procedure :: get_frequency
-    !procedure :: get_output_units
-    !procedure :: get_t
-    !procedure :: get_tile_count
-    !procedure :: get_area
-    !procedure :: get_volume
-    !procedure :: get_missing_value
-    !procedure :: get_data_RANGE
 
 end type fmsDiagVariable_type
 
 ! Module variables
 logical,private :: module_is_initialized = .false. !< Flag indicating if the module is initialized
-!!TYPE(fmsDiagVars_type), private, ALLOCATABLE, target :: var_objs(:) !< Array of buffer objects
+
 !!integer, private :: num_vars !< Number of registered variables
 
 contains
@@ -116,7 +101,7 @@ contains
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !! Get functions
 
-!> @brief Gets metedata
+!> @brief Gets metadata string
 !! @return copy of metadata string array, or a single space if metadata is not allocated
 pure function get_metadata (obj) &
 result(rslt)
@@ -135,7 +120,7 @@ end function get_metadata
 pure function get_static (obj) &
 result(rslt)
      class (fmsDiagVariable_type), intent(in) :: obj !< diag object
-     logical :: rslt 
+     logical :: rslt
      rslt = obj%static
 end function get_static
 !> @brief Gets regisetered
@@ -143,7 +128,7 @@ end function get_static
 pure function get_registered (obj) &
 result(rslt)
      class (fmsDiagVariable_type), intent(in) :: obj !< diag object
-     logical :: rslt 
+     logical :: rslt
      rslt = obj%registered
 end function get_registered
 !> @brief Gets mask variant
@@ -151,7 +136,7 @@ end function get_registered
 pure function get_mask_variant (obj) &
 result(rslt)
      class (fmsDiagVariable_type), intent(in) :: obj !< diag object
-     logical :: rslt 
+     logical :: rslt
      rslt = obj%mask_variant
 end function get_mask_variant
 !> @brief Gets local
@@ -159,24 +144,24 @@ end function get_mask_variant
 pure function get_local (obj) &
 result(rslt)
      class (fmsDiagVariable_type), intent(in) :: obj !< diag object
-     logical :: rslt 
+     logical :: rslt
      rslt = obj%local
 end function get_local
-!> @brief Gets initial time 
+!> @brief Gets initial time
 !! @return copy of the initial time
 !! TODO
 !function get_init_time (obj) &
 !result(rslt)
 !     class (fmsDiagVariable_type), intent(in) :: obj !< diag object
-!     TYPE(time_type) :: rslt 
+!     TYPE(time_type) :: rslt
 !
 !end function get_init_time
-!> @brief Gets vartype 
+!> @brief Gets vartype
 !! @return copy of The integer related to the variable type
 pure function get_vartype (obj) &
 result(rslt)
      class (fmsDiagVariable_type), intent(in) :: obj !< diag object
-     integer :: rslt 
+     integer :: rslt
      rslt = obj%vartype
 end function get_vartype
 !> @brief Gets varname
@@ -184,7 +169,7 @@ end function get_vartype
 pure function get_varname (obj) &
 result(rslt)
      class (fmsDiagVariable_type), intent(in) :: obj !< diag object
-     character(len=:), allocatable :: rslt 
+     character(len=:), allocatable :: rslt
      rslt = obj%varname
 end function get_varname
 !> @brief Gets longname
@@ -192,7 +177,7 @@ end function get_varname
 pure function get_longname (obj) &
 result(rslt)
      class (fmsDiagVariable_type), intent(in) :: obj !< diag object
-     character(len=:), allocatable :: rslt 
+     character(len=:), allocatable :: rslt
      if (allocated(obj%longname)) then
        rslt = obj%longname
      else
@@ -204,7 +189,7 @@ end function get_longname
 pure function get_standname (obj) &
 result(rslt)
      class (fmsDiagVariable_type), intent(in) :: obj !< diag object
-     character(len=:), allocatable :: rslt 
+     character(len=:), allocatable :: rslt
      if (allocated(obj%standname)) then
        rslt = obj%standname
      else
@@ -216,7 +201,7 @@ end function get_standname
 pure function get_units (obj) &
 result(rslt)
      class (fmsDiagVariable_type), intent(in) :: obj !< diag object
-     character(len=:), allocatable :: rslt 
+     character(len=:), allocatable :: rslt
      if (allocated(obj%units)) then
        rslt = obj%units
      else
@@ -228,7 +213,7 @@ end function get_units
 pure function get_modname (obj) &
 result(rslt)
      class (fmsDiagVariable_type), intent(in) :: obj !< diag object
-     character(len=:), allocatable :: rslt 
+     character(len=:), allocatable :: rslt
      if (allocated(obj%modname)) then
        rslt = obj%modname
      else
@@ -256,7 +241,7 @@ end function get_var_id
 !function get_axis (obj) &
 !result(rslt)
 !     class (fmsDiagVariable_type), intent(in) :: obj !< diag object
-!     type (diag_axis_type), allocatable, dimension(:) :: rslt 
+!     type (diag_axis_type), allocatable, dimension(:) :: rslt
 !
 !end function get_axis
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -347,4 +332,13 @@ pure logical function has_modname (obj)
   has_modname = allocated(obj%modname)
 end function has_modname
 
-end module fms_diag_variable_mod
+!> @brief TODO ID? 
+subroutine diag_register_buffer_to_variable(obj, bufferID)
+    class( fmsDiagVariable_type ), intent(inout) :: obj
+    integer, intent(in) :: bufferID
+
+     
+
+end subroutine
+
+end module fms_diag_variable_object_mod

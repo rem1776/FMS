@@ -56,6 +56,10 @@ _EOF
 # create and enter directory for in/output files
 output_dir
 
+test_expect_success "diag buffer functionality" '
+  mpirun -n 1 ../test_diag_buffer
+'
+
 my_test_count=1
 cat <<_EOF > diag_table
 test_diag_manager_01
