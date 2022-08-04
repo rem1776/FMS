@@ -37,8 +37,13 @@ type, abstract :: fmsDiagBuffer_type
     procedure :: get_volume
     procedure :: get_missing_value
     procedure :: get_data_RANGE
+    ! deferred routines defined by each type
+    procedure(allocate_buffer), deferred :: allocate_buffer
+    !procedure, deferred :: get_buffer 
+    !procedure, deferred :: initialize_buffer
 
 end type fmsDiagBuffer_type
+
 
 !> Scalar buffer type to extend fmsDiagBuffer_type
 type, extends(fmsDiagBuffer_type) :: buffer0d
@@ -95,6 +100,7 @@ type, extends(fmsDiagBuffer_type) :: buffer5d
     !!procedure :: allocate_buffer => allocate_buffer_5d
 end type buffer5d
 
+
 ! public types
 public :: buffer0d
 public :: buffer1d
@@ -106,12 +112,47 @@ public :: buffer5d
 
 ! Module variables
 logical,private :: module_is_initialized = .false. !< Flag indicating if the module is initialized
-class(fmsDiagBuffer_type), private, ALLOCATABLE, target :: buffer_objs(:) !< Array of buffer objects
 integer, private :: num_buffers = 0 !< Number of available buffers
+
+!> this ?
+class(fmsDiagBuffer_type), private, ALLOCATABLE, target :: buffer_objs(:,:) !< Array of buffer objects
+!> or this?
+!class(buffer0d), private, ALLOCATABLE, target :: buffer_objs_0d(:) !< Array of buffer objects
+!class(buffer1d), private, ALLOCATABLE, target :: buffer_objs_1d(:) !< Array of buffer objects
+!class(buffer2d), private, ALLOCATABLE, target :: buffer_objs_2d(:) !< Array of buffer objects
+!class(buffer3d), private, ALLOCATABLE, target :: buffer_objs_3d(:) !< Array of buffer objects
+!class(buffer4d), private, ALLOCATABLE, target :: buffer_objs_4d(:) !< Array of buffer objects
+!class(buffer5d), private, ALLOCATABLE, target :: buffer_objs_5d(:) !< Array of buffer objects
 
 logical, parameter, private :: DEBUG = .true. !< debugging output
 
+! interface with function declarations needed for deferred routines
+interface allocate_buffer
+    integer function allocate_buffer_0d(buffobj, mold) &
+    result(rslt)
+        import buffer0d 
+        !import time_type 
+        class(buffer0d), intent(inout) :: buffobj !< scalar buffer object
+        class(*),intent(in) :: mold !< allocates to the type of mold
+        !type(time_type), intent(in), optional :: init_time
+    end function
+end interface
+
 contains
+
+
+!!--------module routines
+
+!> Gets a buffer from a given id
+function get_buffer_object(id, dimensions) &
+result(rslt)
+    integer :: id
+    integer :: dimensions 
+    class(fmsDiagBuffer_type), pointer :: rslt 
+
+    rslt => buffer_objs(dimensions, id)
+end function 
+
 
 !!--------generic routines for any fmsDiagBuffer_type objects 
 
@@ -294,11 +335,11 @@ end function get_data_RANGE
 
 !> allocates a scalar buffer to given mold type
 !> @returns buffer id for 
-integer function allocate_buffer_0d(buffobj, mold, init_time) &
+integer function allocate_buffer_0d(buffobj, mold) &
 result(rslt)
     class(buffer0d), intent(inout) :: buffobj !< scalar buffer object
     class(*),intent(in) :: mold !< allocates to the type of mold
-    type(time_type), intent(in), optional :: init_time
+    !type(time_type), intent(in), optional :: init_time
 
     select type (mold)
         type is (integer(kind=i4_kind))
