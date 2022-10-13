@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>FMS: mpp/include/mpp_sum.inc (d0d8fc2ef26fb156ef484c85987b3c892960f0e7) Source File</title>
+<title>FMS: mpp/include/mpp_sum.inc (6fefe2e274096bae003a2e3fbda39fa417cdb6aa) Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -33,7 +33,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">FMS
-   &#160;<span id="projectnumber">2022.01.0-dev</span>
+   &#160;<span id="projectnumber">2022.04.00</span>
    </div>
    <div id="projectbrief">Flexible Modeling System</div>
   </td>
@@ -156,7 +156,7 @@ $(document).ready(function(){initNavTree('mpp__sum_8inc_source.html',''); initRe
 <div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="group__mpp__mod.html#ga60f0bb4ff0338bdf9265f625ce7e3f45">   60</a></span>&#160;      mpp_type_, <span class="keywordtype">intent(inout)</span> :: a(:,:,:) <span class="comment">!&lt; 3d array to sum</span></div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;      <span class="keywordtype">integer</span>, <span class="keywordtype">intent(in)</span> :: length<span class="comment"> !&lt; amount of indices in given 3d array</span></div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;      <span class="keywordtype">integer</span>, <span class="keywordtype">intent(in)</span>, <span class="keywordtype">optional</span> :: pelist(:)<span class="comment"> !&lt; pelist to calculate sum across</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;      mpp_type_, <span class="keywordtype">intent(inout)</span> :: a(:,:,:)</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;      mpp_type_ :: a1d(length)</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;      pointer( ptr, a1d )</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;      ptr = loc(a)</div>
@@ -171,7 +171,7 @@ $(document).ready(function(){initNavTree('mpp__sum_8inc_source.html',''); initRe
 <div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="group__mpp__mod.html#ga9e5c12cdbec69e466072a11e28d317cb">   75</a></span>&#160;      mpp_type_, <span class="keywordtype">intent(inout)</span> :: a(:,:,:,:) <span class="comment">!&lt; 4d array to sum</span></div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;      <span class="keywordtype">integer</span>, <span class="keywordtype">intent(in)</span> :: length<span class="comment"> !&lt; amount of indices in given 4d array</span></div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;      <span class="keywordtype">integer</span>, <span class="keywordtype">intent(in)</span>, <span class="keywordtype">optional</span> :: pelist(:)<span class="comment"> !&lt; pelist to calculate sum across</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;      mpp_type_, <span class="keywordtype">intent(inout)</span> :: a(:,:,:,:)</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;      mpp_type_ :: a1d(length)</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;      pointer( ptr, a1d )</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;      ptr = loc(a)</div>

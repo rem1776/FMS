@@ -33,7 +33,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">FMS
-   &#160;<span id="projectnumber">2022.01.0-dev</span>
+   &#160;<span id="projectnumber">2022.04.00</span>
    </div>
    <div id="projectbrief">Flexible Modeling System</div>
   </td>
@@ -324,7 +324,7 @@ real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="grou
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__grid_8F90_source.html#l00644">644</a> of file <a class="el" href="diag__grid_8F90_source.html">diag_grid.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__grid_8F90_source.html#l00697">697</a> of file <a class="el" href="diag__grid_8F90_source.html">diag_grid.F90</a>.</p>
 
 </div>
 </div>
@@ -343,7 +343,7 @@ real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="grou
 <p>Unallocate the diag_global_grid variable. </p>
 <p>The <code>diag_global_grid</code> variable is only needed during the register field calls, and then only if there are fields requestion regional output. Once all the register fields calls are complete (before the first <code>send_data</code> call this procedure can be called to free up memory. </p>
 
-<p class="definition">Definition at line <a class="el" href="diag__grid_8F90_source.html#l00297">297</a> of file <a class="el" href="diag__grid_8F90_source.html">diag_grid.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__grid_8F90_source.html#l00350">350</a> of file <a class="el" href="diag__grid_8F90_source.html">diag_grid.F90</a>.</p>
 
 </div>
 </div>
@@ -362,25 +362,25 @@ real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="grou
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real, dimension(:,:), intent(in)&#160;</td>
+          <td class="paramtype">class(*), dimension(:,:), intent(in)&#160;</td>
           <td class="paramname"><em>glo_lat</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real, dimension(:,:), intent(in)&#160;</td>
+          <td class="paramtype">class(*), dimension(:,:), intent(in)&#160;</td>
           <td class="paramname"><em>glo_lon</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real, dimension(:,:), intent(in)&#160;</td>
+          <td class="paramtype">class(*), dimension(:,:), intent(in)&#160;</td>
           <td class="paramname"><em>aglo_lat</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real, dimension(:,:), intent(in)&#160;</td>
+          <td class="paramtype">class(*), dimension(:,:), intent(in)&#160;</td>
           <td class="paramname"><em>aglo_lon</em>&#160;</td>
         </tr>
         <tr>
@@ -445,7 +445,7 @@ real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="grou
 <p>Find the distance between two points in the Cartesian coordinate space. </p>
 <p><code>distanceSqrd</code> will find the distance squared between two points in the xyz coordinate space. <code>pt1</code> and <code> pt2</code> can either be both scalars, both arrays of the same size, or one a scalar and one an array. The return value will be a scalar or array of the same size as the input array. </p><dl class="section return"><dt>Returns</dt><dd>The return value will be a scalar or array of the same size as the input array. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__grid_8F90_source.html#l01002">1002</a> of file <a class="el" href="diag__grid_8F90_source.html">diag_grid.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__grid_8F90_source.html#l01055">1055</a> of file <a class="el" href="diag__grid_8F90_source.html">diag_grid.F90</a>.</p>
 
 </div>
 </div>
@@ -495,7 +495,7 @@ The (i, j) location of the closest grid to the given (lat, lon) location. </dd><
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__grid_8F90_source.html#l00821">821</a> of file <a class="el" href="diag__grid_8F90_source.html">diag_grid.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__grid_8F90_source.html#l00874">874</a> of file <a class="el" href="diag__grid_8F90_source.html">diag_grid.F90</a>.</p>
 
 </div>
 </div>
@@ -545,7 +545,7 @@ The (i, j) location of the closest grid to the given (lat, lon) location. </dd><
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__grid_8F90_source.html#l00657">657</a> of file <a class="el" href="diag__grid_8F90_source.html">diag_grid.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__grid_8F90_source.html#l00710">710</a> of file <a class="el" href="diag__grid_8F90_source.html">diag_grid.F90</a>.</p>
 
 </div>
 </div>
@@ -598,7 +598,7 @@ The (i, j) location of the closest grid to the given (lat, lon) location. </dd><
 <p>Find the distance, along the geodesic, between two points. </p>
 <p><code>gCirDistance</code> will find the distance, along the geodesic, between two points defined by the (lat,lon) position of each point. </p><dl class="section return"><dt>Returns</dt><dd>real </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__grid_8F90_source.html#l01015">1015</a> of file <a class="el" href="diag__grid_8F90_source.html">diag_grid.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__grid_8F90_source.html#l01068">1068</a> of file <a class="el" href="diag__grid_8F90_source.html">diag_grid.F90</a>.</p>
 
 </div>
 </div>
@@ -679,7 +679,7 @@ The (i, j) location of the closest grid to the given (lat, lon) location. </dd><
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__grid_8F90_source.html#l00339">339</a> of file <a class="el" href="diag__grid_8F90_source.html">diag_grid.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__grid_8F90_source.html#l00392">392</a> of file <a class="el" href="diag__grid_8F90_source.html">diag_grid.F90</a>.</p>
 
 </div>
 </div>
@@ -732,7 +732,7 @@ The (i, j) location of the closest grid to the given (lat, lon) location. </dd><
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__grid_8F90_source.html#l00588">588</a> of file <a class="el" href="diag__grid_8F90_source.html">diag_grid.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__grid_8F90_source.html#l00641">641</a> of file <a class="el" href="diag__grid_8F90_source.html">diag_grid.F90</a>.</p>
 
 </div>
 </div>
@@ -780,7 +780,7 @@ The (i, j) location of the closest grid to the given (lat, lon) location. </dd><
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__grid_8F90_source.html#l00966">966</a> of file <a class="el" href="diag__grid_8F90_source.html">diag_grid.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__grid_8F90_source.html#l01019">1019</a> of file <a class="el" href="diag__grid_8F90_source.html">diag_grid.F90</a>.</p>
 
 </div>
 </div>
@@ -814,7 +814,7 @@ The (i, j) location of the closest grid to the given (lat, lon) location. </dd><
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="diag__grid_8F90_source.html#l00631">631</a> of file <a class="el" href="diag__grid_8F90_source.html">diag_grid.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="diag__grid_8F90_source.html#l00684">684</a> of file <a class="el" href="diag__grid_8F90_source.html">diag_grid.F90</a>.</p>
 
 </div>
 </div>

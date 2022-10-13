@@ -33,7 +33,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">FMS
-   &#160;<span id="projectnumber">2022.01.0-dev</span>
+   &#160;<span id="projectnumber">2022.04.00</span>
    </div>
    <div id="projectbrief">Flexible Modeling System</div>
   </td>
@@ -408,7 +408,7 @@ real, parameter&#160;</td><td class="memItemRight" valign="bottom"><b>zvir</b> =
 Example usage: </p><div class="fragment"><div class="line"><span class="keyword">call </span>compute_mrs( temp, press, mrsat, mr, hc, dmrsdt, esat,</div>
 <div class="line">                      err_msg ) </div>
 </div><!-- fragment --> 
-<p class="definition">Definition at line <a class="el" href="sat__vapor__pres_8F90_source.html#l00646">646</a> of file <a class="el" href="sat__vapor__pres_8F90_source.html">sat_vapor_pres.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sat__vapor__pres_8F90_source.html#l00648">648</a> of file <a class="el" href="sat__vapor__pres_8F90_source.html">sat_vapor_pres.F90</a>.</p>
 </div><table class="memberdecls">
 <tr><td colspan="2"><h3>Private Member Functions</h3></td></tr>
 <tr class="memitem:a3849334362e8fdaeff42691b16898c07"><td class="memItemLeft" align="right" valign="top"><a id="a3849334362e8fdaeff42691b16898c07"></a>
@@ -442,7 +442,7 @@ subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>compute_mrs_3d<
 <p>For the input temperature and pressure these routines return the specific humidity (qsat) at saturation (unless optional argument hc is used to specify the relative humidity at which qsat should apply) and, if desired, the derivative of qsat w.r.t temperature (dqsdT) and / or the saturation vapor pressure (esat). If the optional input argument specific humidity (q) is present, the exact expression for qs is used; if q is not present the tradit- ional form (valid at saturation) is used. if the optional qsat derivative argument is present, the derivative of qsat w.r.t. temperature will also be returned, defined consistent with the expression used for qsat. The return values are derived from lookup tables (see notes below).</p>
 <p>Example usage: </p><div class="fragment"><div class="line"><span class="keyword">call </span>compute_qs( temp, press, qsat, q, hc, dqsdt, esat, err_msg ) </div>
 </div><!-- fragment --> 
-<p class="definition">Definition at line <a class="el" href="sat__vapor__pres_8F90_source.html#l00547">547</a> of file <a class="el" href="sat__vapor__pres_8F90_source.html">sat_vapor_pres.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sat__vapor__pres_8F90_source.html#l00549">549</a> of file <a class="el" href="sat__vapor__pres_8F90_source.html">sat_vapor_pres.F90</a>.</p>
 </div><table class="memberdecls">
 <tr><td colspan="2"><h3>Private Member Functions</h3></td></tr>
 <tr class="memitem:a222c1126f9829e178176a903e84b766a"><td class="memItemLeft" align="right" valign="top"><a id="a222c1126f9829e178176a903e84b766a"></a>
@@ -474,7 +474,7 @@ subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>compute_qs_3d</
 </div><div class="memdoc">
 <div class="textblock"><p>Provided for backward compatibility (to be removed soon) </p>
 
-<p class="definition">Definition at line <a class="el" href="sat__vapor__pres_8F90_source.html#l00341">341</a> of file <a class="el" href="sat__vapor__pres_8F90_source.html">sat_vapor_pres.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sat__vapor__pres_8F90_source.html#l00343">343</a> of file <a class="el" href="sat__vapor__pres_8F90_source.html">sat_vapor_pres.F90</a>.</p>
 </div><table class="memberdecls">
 <tr><td colspan="2"><h3>Private Member Functions</h3></td></tr>
 <tr class="memitem:aab0851441bf08ec646980a4d016ea1fa"><td class="memItemLeft" align="right" valign="top"><a id="aab0851441bf08ec646980a4d016ea1fa"></a>
@@ -506,7 +506,7 @@ subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_des_3d</
 </div><div class="memdoc">
 <div class="textblock"><p>Provided for backward compatibility (to be removed soon) </p>
 
-<p class="definition">Definition at line <a class="el" href="sat__vapor__pres_8F90_source.html#l00269">269</a> of file <a class="el" href="sat__vapor__pres_8F90_source.html">sat_vapor_pres.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sat__vapor__pres_8F90_source.html#l00271">271</a> of file <a class="el" href="sat__vapor__pres_8F90_source.html">sat_vapor_pres.F90</a>.</p>
 </div><table class="memberdecls">
 <tr><td colspan="2"><h3>Private Member Functions</h3></td></tr>
 <tr class="memitem:ac62fe3871a9219814a8cac63216e3ade"><td class="memItemLeft" align="right" valign="top"><a id="ac62fe3871a9219814a8cac63216e3ade"></a>
@@ -550,7 +550,7 @@ subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es_3d</b
 <p><br  />
 Example usage: </p><div class="fragment"><div class="line"><span class="keyword">call </span>lookup_des( temp, desat) </div>
 </div><!-- fragment --> 
-<p class="definition">Definition at line <a class="el" href="sat__vapor__pres_8F90_source.html#l00335">335</a> of file <a class="el" href="sat__vapor__pres_8F90_source.html">sat_vapor_pres.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sat__vapor__pres_8F90_source.html#l00337">337</a> of file <a class="el" href="sat__vapor__pres_8F90_source.html">sat_vapor_pres.F90</a>.</p>
 </div><table class="memberdecls">
 <tr><td colspan="2"><h3>Private Member Functions</h3></td></tr>
 <tr class="memitem:aab0851441bf08ec646980a4d016ea1fa"><td class="memItemLeft" align="right" valign="top"><a id="aab0851441bf08ec646980a4d016ea1fa"></a>
@@ -581,7 +581,7 @@ subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_des_3d</
       </table>
 </div><div class="memdoc">
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="sat__vapor__pres_8F90_source.html#l00429">429</a> of file <a class="el" href="sat__vapor__pres_8F90_source.html">sat_vapor_pres.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sat__vapor__pres_8F90_source.html#l00431">431</a> of file <a class="el" href="sat__vapor__pres_8F90_source.html">sat_vapor_pres.F90</a>.</p>
 </div><table class="memberdecls">
 <tr><td colspan="2"><h3>Private Member Functions</h3></td></tr>
 <tr class="memitem:a157d0d73e70388f15a5b769533a0e75d"><td class="memItemLeft" align="right" valign="top"><a id="a157d0d73e70388f15a5b769533a0e75d"></a>
@@ -612,7 +612,7 @@ subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_des2_3d<
       </table>
 </div><div class="memdoc">
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="sat__vapor__pres_8F90_source.html#l00444">444</a> of file <a class="el" href="sat__vapor__pres_8F90_source.html">sat_vapor_pres.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sat__vapor__pres_8F90_source.html#l00446">446</a> of file <a class="el" href="sat__vapor__pres_8F90_source.html">sat_vapor_pres.F90</a>.</p>
 </div><table class="memberdecls">
 <tr><td colspan="2"><h3>Private Member Functions</h3></td></tr>
 <tr class="memitem:a0e913d80f67116c58f75df1b051c7a23"><td class="memItemLeft" align="right" valign="top"><a id="a0e913d80f67116c58f75df1b051c7a23"></a>
@@ -659,7 +659,7 @@ subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_des3_3d<
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="sat__vapor__pres_8F90_source.html#l00264">264</a> of file <a class="el" href="sat__vapor__pres_8F90_source.html">sat_vapor_pres.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sat__vapor__pres_8F90_source.html#l00266">266</a> of file <a class="el" href="sat__vapor__pres_8F90_source.html">sat_vapor_pres.F90</a>.</p>
 </div><table class="memberdecls">
 <tr><td colspan="2"><h3>Private Member Functions</h3></td></tr>
 <tr class="memitem:ac62fe3871a9219814a8cac63216e3ade"><td class="memItemLeft" align="right" valign="top"><a id="ac62fe3871a9219814a8cac63216e3ade"></a>
@@ -690,7 +690,7 @@ subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es_3d</b
       </table>
 </div><div class="memdoc">
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="sat__vapor__pres_8F90_source.html#l00424">424</a> of file <a class="el" href="sat__vapor__pres_8F90_source.html">sat_vapor_pres.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sat__vapor__pres_8F90_source.html#l00426">426</a> of file <a class="el" href="sat__vapor__pres_8F90_source.html">sat_vapor_pres.F90</a>.</p>
 </div><table class="memberdecls">
 <tr><td colspan="2"><h3>Private Member Functions</h3></td></tr>
 <tr class="memitem:a432f483d17671c5a969876ec49e0640b"><td class="memItemLeft" align="right" valign="top"><a id="a432f483d17671c5a969876ec49e0640b"></a>
@@ -721,7 +721,7 @@ subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es2_3d</
       </table>
 </div><div class="memdoc">
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="sat__vapor__pres_8F90_source.html#l00434">434</a> of file <a class="el" href="sat__vapor__pres_8F90_source.html">sat_vapor_pres.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sat__vapor__pres_8F90_source.html#l00436">436</a> of file <a class="el" href="sat__vapor__pres_8F90_source.html">sat_vapor_pres.F90</a>.</p>
 </div><table class="memberdecls">
 <tr><td colspan="2"><h3>Private Member Functions</h3></td></tr>
 <tr class="memitem:a0eef4072acb6f46d1039867e47312d56"><td class="memItemLeft" align="right" valign="top"><a id="a0eef4072acb6f46d1039867e47312d56"></a>
@@ -752,7 +752,7 @@ subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es2_des2
       </table>
 </div><div class="memdoc">
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="sat__vapor__pres_8F90_source.html#l00439">439</a> of file <a class="el" href="sat__vapor__pres_8F90_source.html">sat_vapor_pres.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sat__vapor__pres_8F90_source.html#l00441">441</a> of file <a class="el" href="sat__vapor__pres_8F90_source.html">sat_vapor_pres.F90</a>.</p>
 </div><table class="memberdecls">
 <tr><td colspan="2"><h3>Private Member Functions</h3></td></tr>
 <tr class="memitem:ad34c687cf746ecead447c481e2107065"><td class="memItemLeft" align="right" valign="top"><a id="ad34c687cf746ecead447c481e2107065"></a>
@@ -783,7 +783,7 @@ subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es3_3d</
       </table>
 </div><div class="memdoc">
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="sat__vapor__pres_8F90_source.html#l00449">449</a> of file <a class="el" href="sat__vapor__pres_8F90_source.html">sat_vapor_pres.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sat__vapor__pres_8F90_source.html#l00451">451</a> of file <a class="el" href="sat__vapor__pres_8F90_source.html">sat_vapor_pres.F90</a>.</p>
 </div><table class="memberdecls">
 <tr><td colspan="2"><h3>Private Member Functions</h3></td></tr>
 <tr class="memitem:a2fde8e5ce3a65f840918ac1c221f8516"><td class="memItemLeft" align="right" valign="top"><a id="a2fde8e5ce3a65f840918ac1c221f8516"></a>
@@ -827,7 +827,7 @@ Example usage: </p><div class="fragment"><div class="line"><span class="keyword"
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="sat__vapor__pres_8F90_source.html#l00419">419</a> of file <a class="el" href="sat__vapor__pres_8F90_source.html">sat_vapor_pres.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sat__vapor__pres_8F90_source.html#l00421">421</a> of file <a class="el" href="sat__vapor__pres_8F90_source.html">sat_vapor_pres.F90</a>.</p>
 </div><table class="memberdecls">
 <tr><td colspan="2"><h3>Private Member Functions</h3></td></tr>
 <tr class="memitem:a3a4b8ea6e35c1c8267fd1b047e0d47f8"><td class="memItemLeft" align="right" valign="top"><a id="a3a4b8ea6e35c1c8267fd1b047e0d47f8"></a>
@@ -858,7 +858,7 @@ subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>lookup_es_des_3
       </table>
 </div><div class="memdoc">
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="sat__vapor__pres_8F90_source.html#l00684">684</a> of file <a class="el" href="sat__vapor__pres_8F90_source.html">sat_vapor_pres.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sat__vapor__pres_8F90_source.html#l00686">686</a> of file <a class="el" href="sat__vapor__pres_8F90_source.html">sat_vapor_pres.F90</a>.</p>
 </div><table class="memberdecls">
 <tr><td colspan="2"><h3>Private Member Functions</h3></td></tr>
 <tr class="memitem:a176a15e9183aac6c1878e16799e1a0cd"><td class="memItemLeft" align="right" valign="top"><a id="a176a15e9183aac6c1878e16799e1a0cd"></a>
@@ -889,7 +889,7 @@ subroutine&#160;</td><td class="memItemRight" valign="bottom"><b>show_all_bad_3d
       </table>
 </div><div class="memdoc">
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="sat__vapor__pres_8F90_source.html#l00679">679</a> of file <a class="el" href="sat__vapor__pres_8F90_source.html">sat_vapor_pres.F90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sat__vapor__pres_8F90_source.html#l00681">681</a> of file <a class="el" href="sat__vapor__pres_8F90_source.html">sat_vapor_pres.F90</a>.</p>
 </div><table class="memberdecls">
 <tr><td colspan="2"><h3>Private Member Functions</h3></td></tr>
 <tr class="memitem:a69f6c443609c8efc25cbb5cf7820a46b"><td class="memItemLeft" align="right" valign="top"><a id="a69f6c443609c8efc25cbb5cf7820a46b"></a>

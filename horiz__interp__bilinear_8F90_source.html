@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>FMS: horiz_interp/horiz_interp_bilinear.F90 (d0d8fc2ef26fb156ef484c85987b3c892960f0e7) Source File</title>
+<title>FMS: horiz_interp/horiz_interp_bilinear.F90 (6fefe2e274096bae003a2e3fbda39fa417cdb6aa) Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -33,7 +33,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">FMS
-   &#160;<span id="projectnumber">2022.01.0-dev</span>
+   &#160;<span id="projectnumber">2022.04.00</span>
    </div>
    <div id="projectbrief">Flexible Modeling System</div>
   </td>
@@ -127,7 +127,7 @@ $(document).ready(function(){initNavTree('horiz__interp__bilinear_8F90_source.ht
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="keywordtype">use </span>mpp_mod,               <span class="keywordtype">only</span>: <a class="code" href="group__mpp__mod.html#interfacempp__mod_1_1mpp__error">mpp_error</a>, fatal, <a class="code" href="group__mpp__mod.html#ga172901d39c9b0cf14aa83b1e94fdf21b">stdout</a>, <a class="code" href="group__mpp__mod.html#gacfeba7de56f9dd6000b3fd78f9d56c50">mpp_pe</a>, mpp_root_pe</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keywordtype">use </span>fms_mod,               <span class="keywordtype">only</span>: <a class="code" href="group__fms__mod.html#ga0c093df98a75dbd9e0f3add67aa6c23a">write_version_number</a></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keywordtype">use </span>constants_mod,         <span class="keywordtype">only</span>: <a class="code" href="group__constants__mod.html#gadc909cc70e4e20bc99fc3d3c53125808">pi</a></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keywordtype">use </span>constants_mod,         <span class="keywordtype">only</span>: pi</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <span class="keywordtype">use </span>horiz_interp_type_mod, <span class="keywordtype">only</span>: <a class="code" href="group__horiz__interp__type__mod.html#structhoriz__interp__type__mod_1_1horiz__interp__type">horiz_interp_type</a>, <a class="code" href="group__horiz__interp__type__mod.html#ga1c6f1880c2031ea711611df5b4b081c6">stats</a></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="keywordtype">implicit none</span></div>
@@ -190,7 +190,7 @@ $(document).ready(function(){initNavTree('horiz__interp__bilinear_8F90_source.ht
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    src_is_modulo = .true.</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">present</span>(src_modulo)) src_is_modulo = src_modulo</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    hpi = 0.5*<a class="code" href="group__constants__mod.html#gadc909cc70e4e20bc99fc3d3c53125808">pi</a></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    hpi = 0.5*pi</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    tpi = 4.0*hpi</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    glt_min = hpi</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    glt_max = -hpi</div>
@@ -355,7 +355,7 @@ $(document).ready(function(){initNavTree('horiz__interp__bilinear_8F90_source.ht
 <div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;<span class="keywordtype">    real</span>                                   :: epsln2</div>
 <div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    <span class="keywordtype">logical</span>                                :: use_new_search, no_crash</div>
 <div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160; </div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    tpi = 2.0*<a class="code" href="group__constants__mod.html#gadc909cc70e4e20bc99fc3d3c53125808">pi</a></div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    tpi = 2.0*pi</div>
 <div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160; </div>
 <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    warns = 0</div>
 <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    <span class="keywordflow">if</span>(<span class="keyword">present</span>(verbose)) warns = verbose</div>
@@ -535,7 +535,7 @@ $(document).ready(function(){initNavTree('horiz__interp__bilinear_8F90_source.ht
 <div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;    <span class="keywordtype">logical</span>                                :: found</div>
 <div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;<span class="keywordtype">    real</span>                                   :: lon1, lat1, lon2, lat2, lon3, lat3, lon4, lat4</div>
 <div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160; </div>
-<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;    tpi = 2.0*<a class="code" href="group__constants__mod.html#gadc909cc70e4e20bc99fc3d3c53125808">pi</a></div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;    tpi = 2.0*pi</div>
 <div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;    nlon_in  = <span class="keyword">size</span>(lon_in,1) ; nlat_in  = <span class="keyword">size</span>(lat_in,2)</div>
 <div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;    nlon_out = <span class="keyword">size</span>(lon_out,1); nlat_out = <span class="keyword">size</span>(lon_out,2)</div>
 <div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160; </div>
@@ -740,18 +740,18 @@ $(document).ready(function(){initNavTree('horiz__interp__bilinear_8F90_source.ht
 <div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;<span class="keywordflow">             enddo</span></div>
 <div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;<span class="keywordflow">          endif</span></div>
 <div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;          <span class="keywordflow">if</span>(.not.found) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;              print *,<span class="stringliteral">&#39;lon,lat=&#39;</span>,lon*180./<a class="code" href="group__constants__mod.html#gadc909cc70e4e20bc99fc3d3c53125808">pi</a>,lat*180./<a class="code" href="group__constants__mod.html#gadc909cc70e4e20bc99fc3d3c53125808">pi</a></div>
+<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;              print *,<span class="stringliteral">&#39;lon,lat=&#39;</span>,lon*180./pi,lat*180./pi</div>
 <div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;              print *,<span class="stringliteral">&#39;npts=&#39;</span>,npts</div>
 <div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;              print *,<span class="stringliteral">&#39;is,ie= &#39;</span>,istart,iend</div>
 <div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;              print *,<span class="stringliteral">&#39;js,je= &#39;</span>,jstart,jend</div>
-<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;              print *,<span class="stringliteral">&#39;lon_in(is,js)=&#39;</span>,lon_in(istart,jstart)*180./<a class="code" href="group__constants__mod.html#gadc909cc70e4e20bc99fc3d3c53125808">pi</a></div>
-<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;              print *,<span class="stringliteral">&#39;lon_in(ie,js)=&#39;</span>,lon_in(iend,jstart)*180./<a class="code" href="group__constants__mod.html#gadc909cc70e4e20bc99fc3d3c53125808">pi</a></div>
-<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;              print *,<span class="stringliteral">&#39;lat_in(is,js)=&#39;</span>,lat_in(istart,jstart)*180./<a class="code" href="group__constants__mod.html#gadc909cc70e4e20bc99fc3d3c53125808">pi</a></div>
-<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;              print *,<span class="stringliteral">&#39;lat_in(ie,js)=&#39;</span>,lat_in(iend,jstart)*180./<a class="code" href="group__constants__mod.html#gadc909cc70e4e20bc99fc3d3c53125808">pi</a></div>
-<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;              print *,<span class="stringliteral">&#39;lon_in(is,je)=&#39;</span>,lon_in(istart,jend)*180./<a class="code" href="group__constants__mod.html#gadc909cc70e4e20bc99fc3d3c53125808">pi</a></div>
-<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;              print *,<span class="stringliteral">&#39;lon_in(ie,je)=&#39;</span>,lon_in(iend,jend)*180./<a class="code" href="group__constants__mod.html#gadc909cc70e4e20bc99fc3d3c53125808">pi</a></div>
-<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;              print *,<span class="stringliteral">&#39;lat_in(is,je)=&#39;</span>,lat_in(istart,jend)*180./<a class="code" href="group__constants__mod.html#gadc909cc70e4e20bc99fc3d3c53125808">pi</a></div>
-<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;              print *,<span class="stringliteral">&#39;lat_in(ie,je)=&#39;</span>,lat_in(iend,jend)*180./<a class="code" href="group__constants__mod.html#gadc909cc70e4e20bc99fc3d3c53125808">pi</a></div>
+<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;              print *,<span class="stringliteral">&#39;lon_in(is,js)=&#39;</span>,lon_in(istart,jstart)*180./pi</div>
+<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;              print *,<span class="stringliteral">&#39;lon_in(ie,js)=&#39;</span>,lon_in(iend,jstart)*180./pi</div>
+<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;              print *,<span class="stringliteral">&#39;lat_in(is,js)=&#39;</span>,lat_in(istart,jstart)*180./pi</div>
+<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;              print *,<span class="stringliteral">&#39;lat_in(ie,js)=&#39;</span>,lat_in(iend,jstart)*180./pi</div>
+<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;              print *,<span class="stringliteral">&#39;lon_in(is,je)=&#39;</span>,lon_in(istart,jend)*180./pi</div>
+<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;              print *,<span class="stringliteral">&#39;lon_in(ie,je)=&#39;</span>,lon_in(iend,jend)*180./pi</div>
+<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;              print *,<span class="stringliteral">&#39;lat_in(is,je)=&#39;</span>,lat_in(istart,jend)*180./pi</div>
+<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;              print *,<span class="stringliteral">&#39;lat_in(ie,je)=&#39;</span>,lat_in(iend,jend)*180./pi</div>
 <div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160; </div>
 <div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;             <span class="keyword">call </span><a class="code" href="group__mpp__mod.html#interfacempp__mod_1_1mpp__error">mpp_error</a>(fatal, &amp;</div>
 <div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;                  <span class="stringliteral">&#39;find_neighbor: the destination point is not inside the source grid&#39;</span> )</div>
@@ -814,7 +814,7 @@ $(document).ready(function(){initNavTree('horiz__interp__bilinear_8F90_source.ht
 <div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160; </div>
 <div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;    <span class="keywordtype">integer</span>, <span class="keywordtype">parameter</span> :: step_div=8</div>
 <div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160; </div>
-<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;    tpi = 2.0*<a class="code" href="group__constants__mod.html#gadc909cc70e4e20bc99fc3d3c53125808">pi</a></div>
+<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;    tpi = 2.0*pi</div>
 <div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;    nlon_in  = <span class="keyword">size</span>(lon_in,1) ; nlat_in  = <span class="keyword">size</span>(lat_in,2)</div>
 <div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;    nlon_out = <span class="keyword">size</span>(lon_out,1); nlat_out = <span class="keyword">size</span>(lon_out,2)</div>
 <div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160; </div>
@@ -1407,11 +1407,10 @@ $(document).ready(function(){initNavTree('horiz__interp__bilinear_8F90_source.ht
 <div class="ttc" id="agroup__horiz__interp__bilinear__mod_html_ga42f51db0787f452654bf625c5cd2c791"><div class="ttname"><a href="group__horiz__interp__bilinear__mod.html#ga42f51db0787f452654bf625c5cd2c791">horiz_interp_bilinear_mod::horiz_interp_bilinear_new_2d</a></div><div class="ttdeci">subroutine horiz_interp_bilinear_new_2d(Interp, lon_in, lat_in, lon_out, lat_out, verbose, src_modulo, new_search, no_crash_when_not_found)</div><div class="ttdoc">Initialization routine.</div><div class="ttdef"><b>Definition:</b> <a href="horiz__interp__bilinear_8F90_source.html#l00236">horiz_interp_bilinear.F90:236</a></div></div>
 <div class="ttc" id="agroup__horiz__interp__type__mod_html_ga1c6f1880c2031ea711611df5b4b081c6"><div class="ttname"><a href="group__horiz__interp__type__mod.html#ga1c6f1880c2031ea711611df5b4b081c6">horiz_interp_type_mod::stats</a></div><div class="ttdeci">subroutine, public stats(dat, low, high, avg, miss, missing_value, mask)</div><div class="ttdoc">This statistics is for bilinear interpolation and spherical regrid.</div><div class="ttdef"><b>Definition:</b> <a href="horiz__interp__type_8F90_source.html#l00115">horiz_interp_type.F90:115</a></div></div>
 <div class="ttc" id="agroup__mpp__mod_html_ga172901d39c9b0cf14aa83b1e94fdf21b"><div class="ttname"><a href="group__mpp__mod.html#ga172901d39c9b0cf14aa83b1e94fdf21b">stdout</a></div><div class="ttdeci">integer function stdout()</div><div class="ttdoc">This function returns the current standard fortran unit numbers for output.</div><div class="ttdef"><b>Definition:</b> <a href="mpp__util_8inc_source.html#l00043">mpp_util.inc:43</a></div></div>
-<div class="ttc" id="agroup__constants__mod_html_gadc909cc70e4e20bc99fc3d3c53125808"><div class="ttname"><a href="group__constants__mod.html#gadc909cc70e4e20bc99fc3d3c53125808">constants_mod::pi</a></div><div class="ttdeci">real, parameter, public pi</div><div class="ttdoc">Ratio of circle circumference to diameter [N/A].</div><div class="ttdef"><b>Definition:</b> <a href="constants_8F90_source.html#l00104">constants.F90:104</a></div></div>
 <div class="ttc" id="agroup__horiz__interp__bilinear__mod_html_ga33f7657fee7ef736ce2babf1f9027113"><div class="ttname"><a href="group__horiz__interp__bilinear__mod.html#ga33f7657fee7ef736ce2babf1f9027113">horiz_interp_bilinear_mod::horiz_interp_bilinear_del</a></div><div class="ttdeci">subroutine, public horiz_interp_bilinear_del(Interp)</div><div class="ttdoc">Deallocates memory used by &quot;horiz_interp_type&quot; variables.</div><div class="ttdef"><b>Definition:</b> <a href="horiz__interp__bilinear_8F90_source.html#l01237">horiz_interp_bilinear.F90:1237</a></div></div>
 <div class="ttc" id="agroup__horiz__interp__bilinear__mod_html_gad9333ccf7fd748ffd664e364dc66200b"><div class="ttname"><a href="group__horiz__interp__bilinear__mod.html#gad9333ccf7fd748ffd664e364dc66200b">horiz_interp_bilinear_mod::horiz_interp_bilinear_init</a></div><div class="ttdeci">subroutine, public horiz_interp_bilinear_init</div><div class="ttdoc">Initialize this module and writes version number to logfile.</div><div class="ttdef"><b>Definition:</b> <a href="horiz__interp__bilinear_8F90_source.html#l00066">horiz_interp_bilinear.F90:66</a></div></div>
 <div class="ttc" id="agroup__horiz__interp__bilinear__mod_html_ga607577a86a6198bd854b1240d5bd0c00"><div class="ttname"><a href="group__horiz__interp__bilinear__mod.html#ga607577a86a6198bd854b1240d5bd0c00">horiz_interp_bilinear_mod::horiz_interp_bilinear</a></div><div class="ttdeci">subroutine, public horiz_interp_bilinear(Interp, data_in, data_out, verbose, mask_in, mask_out, missing_value, missing_permit, new_handle_missing)</div><div class="ttdoc">Subroutine for performing the horizontal interpolation between two grids.</div><div class="ttdef"><b>Definition:</b> <a href="horiz__interp__bilinear_8F90_source.html#l00924">horiz_interp_bilinear.F90:924</a></div></div>
-<div class="ttc" id="agroup__fms__mod_html_ga0c093df98a75dbd9e0f3add67aa6c23a"><div class="ttname"><a href="group__fms__mod.html#ga0c093df98a75dbd9e0f3add67aa6c23a">fms_mod::write_version_number</a></div><div class="ttdeci">subroutine, public write_version_number(version, tag, unit)</div><div class="ttdoc">Prints to the log file (or a specified unit) the version id string and tag name.</div><div class="ttdef"><b>Definition:</b> <a href="fms_8F90_source.html#l00860">fms.F90:860</a></div></div>
+<div class="ttc" id="agroup__fms__mod_html_ga0c093df98a75dbd9e0f3add67aa6c23a"><div class="ttname"><a href="group__fms__mod.html#ga0c093df98a75dbd9e0f3add67aa6c23a">fms_mod::write_version_number</a></div><div class="ttdeci">subroutine, public write_version_number(version, tag, unit)</div><div class="ttdoc">Prints to the log file (or a specified unit) the version id string and tag name.</div><div class="ttdef"><b>Definition:</b> <a href="fms_8F90_source.html#l00772">fms.F90:772</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

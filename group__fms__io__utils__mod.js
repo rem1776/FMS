@@ -92,10 +92,6 @@ var group__fms__io__utils__mod =
       [ "put_array_section_r8_kind_4d", "group__fms__io__utils__mod.html#aad3b2b57b9298dda8e183229fc34297d", null ],
       [ "put_array_section_r8_kind_5d", "group__fms__io__utils__mod.html#a73b4fe877849cbcede97deec2e79f2df", null ]
     ] ],
-    [ "string2", "group__fms__io__utils__mod.html#interfacefms__io__utils__mod_1_1string2", [
-      [ "string_from_integer2", "group__fms__io__utils__mod.html#a91c0d494a3aaa882cf916087380b936e", null ],
-      [ "string_from_real2", "group__fms__io__utils__mod.html#a10278a744cbccf5fbcd06c6837964801", null ]
-    ] ],
     [ "allocate_array_char_1d", "group__fms__io__utils__mod.html#gac32d6c9763776287aa51db5191f44013", null ],
     [ "allocate_array_char_2d", "group__fms__io__utils__mod.html#ga5cabe63ddbd38aa6f7c50473a78d0f4c", null ],
     [ "allocate_array_char_3d", "group__fms__io__utils__mod.html#ga7ca1f58a5b65b675a621bb8ec765fd66", null ],
@@ -190,6 +186,5 @@ var group__fms__io__utils__mod =
     [ "put_array_section_r8_kind_5d", "group__fms__io__utils__mod.html#gae1458e81f3643a122a0282b7232f3791", null ],
     [ "restart_filepath_mangle", "group__fms__io__utils__mod.html#ga341c74a8c8df5190de10e05dc4092550", null ],
     [ "set_filename_appendix", "group__fms__io__utils__mod.html#ga899ffaee79bff8effd01a7cf6f23940b", null ],
-    [ "string_compare", "group__fms__io__utils__mod.html#ga903b8517432214a95f6c4abc57756fac", null ],
-    [ "string_copy", "group__fms__io__utils__mod.html#ga54969ab10f27be5137288c2edc6fc5c3", null ]
+    [ "string_compare", "group__fms__io__utils__mod.html#ga903b8517432214a95f6c4abc57756fac", null ]
 ];
