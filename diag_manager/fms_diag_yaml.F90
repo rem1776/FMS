@@ -1334,6 +1334,169 @@ function get_diag_files_id(indices) &
   end do
 
 end function get_diag_files_id
+
+!> outputs yaml with info from the entire yaml object
+subroutine fms_diag_yaml_out(this, write_all)
+  type(diagYamlObject_type), target, intent(inout) :: this !< yaml object
+  logical, optional, intent(in)            :: write_all !< Include all files listed in the diag file, 
+                                                        !! not just written ones
+  type(diagYamlFiles_type), pointer :: fileptr !< pointer for individual variables
+  type(diagYamlFilesVar_type), pointer :: varptr !< pointer for individual variables
+  type (fmsyamloutkeys_type), allocatable :: keys(:), keys2(:), keys3(:)
+  type (fmsyamloutvalues_type), allocatable :: vals(:), vals2(:), vals3(:)
+  integer :: i, j 
+  character(len=128) :: tmpstr1, tmpstr2 !< string to store output fields
+  logical :: writing_all
+  integer, parameter :: tier1size = 3 !< size of first tier, will always be 3 for basedate, title and diag_files
+  integer :: tier2size, tier3size !< size of each 'tier'(based one numbers of tabs) in the yaml 
+  integer, allocatable :: tier3each(:) !< tier 3 list sizes corresponding to where they are in the second tier
+
+  if(present(write_all)) then
+    writing_all = write_all
+  else
+    writing_all = .false.
+  endif
+
+  tier3size = 0
+  allocate(tier3each(SIZE(this%diag_files)))
+
+  !! tier 1 - title, basedate, diag_files
+  allocate(keys(1))
+  allocate(vals(1))
+  call initialize_key_struct(keys(1))
+  call initialize_val_struct(vals(1))
+  call fms_f2c_string( keys(1)%key1, 'title')
+  call fms_f2c_string( vals(1)%val1, this%diag_title)
+  call fms_f2c_string( keys(1)%key2, 'basedate')
+  write (tmpstr1, '(I)') varptr%var_zbounds(1)
+  call fms_f2c_string(vals(1)%val2, tmpstr1) 
+  call fms_f2c_string(keys(1)%level2key, 'diag_files')
+  !! tier 2 - diag files
+  allocate(keys2(1))
+  allocate(vals2(1))
+  call initialize_key_struct(keys2(1))
+  call initialize_val_struct(vals2(1))
+  do i=1, SIZE(this%diag_files)
+    fileptr => this%diag_files(i)
+
+    call fms_f2c_string(keys2(1)%key1, 'file_name') 
+    call fms_f2c_string(keys2(1)%key2, 'freq') 
+    call fms_f2c_string(keys2(1)%key3, 'freq_units') 
+    call fms_f2c_string(keys2(1)%key4, 'time_units') 
+    call fms_f2c_string(keys2(1)%key5, 'unlimdim') 
+    if (fileptr%has_file_fname())     call fms_f2c_string(vals2(1)%val1, fileptr%file_fname)
+    if (fileptr%has_file_unlimdim())  call fms_f2c_string(vals2(1)%val5, fileptr%file_unlimdim)
+    if (fileptr%has_file_timeunit()) then 
+      call fms_f2c_string(vals2(1)%val4, get_diag_unit_type(fileptr%file_timeunit))
+    endif
+    if (fileptr%has_file_freq()) then
+      write(tmpstr1, '(I)') fileptr%file_freq
+      call fms_f2c_string(vals2(1)%val2, tmpstr1) 
+    endif
+    if (fileptr%has_file_frequnit()) then
+      call fms_f2c_string(vals2(1)%val3, get_diag_unit_type(fileptr%file_frequnit)) 
+    endif
+    !! tier 3 - varlists
+    if (allocated(fileptr%file_varlist)) then
+      call fms_f2c_string(keys2(1)%level2key, 'varlist')
+      j = 0
+      if( SIZE(fileptr%file_varlist) .gt. 0) then 
+        do j=1, SIZE(fileptr%file_varlist)
+          allocate(keys3(1))
+          allocate(keys3(1))
+          call initialize_key_struct(keys3(1))
+          call initialize_val_struct(vals3(1))
+          !! find the variable object from the list
+          varptr = get_yaml_variable_by_name(fileptr%file_varlist(i))
+          call fms_f2c_string(keys3(1)%key1, 'module')
+          call fms_f2c_string(keys3(1)%key2, 'varname')
+          call fms_f2c_string(keys3(1)%key3, 'reduction')
+          call fms_f2c_string(keys3(1)%key4, 'kind')
+          call fms_f2c_string(keys3(1)%key5, 'outname')
+          call fms_f2c_string(keys3(1)%key6, 'longname')
+          call fms_f2c_string(keys3(1)%key7, 'units')
+          call fms_f2c_string(keys3(1)%key8, 'zbounds')
+          call fms_f2c_string(keys3(1)%key9, 'n_diurnal')
+          call fms_f2c_string(keys3(1)%key10, 'pow_value')
+          if (varptr%has_var_module())   call fms_f2c_string(vals3(1)%val1, varptr%var_module) 
+          if (varptr%has_var_varname())  call fms_f2c_string(vals3(1)%val2, varptr%var_varname)
+          if (varptr%has_var_varname())  call fms_f2c_string(vals3(1)%val3, varptr%var_varname)
+          if (varptr%has_var_outname())  call fms_f2c_string(vals3(1)%val5, varptr%var_outname)
+          if (varptr%has_var_longname()) call fms_f2c_string(vals3(1)%val6, varptr%var_longname)
+          if (varptr%has_var_units()) call fms_f2c_string(vals3(1)%val7, varptr%var_units)
+          if (varptr%has_var_kind()) then
+            select case(varptr%var_kind)
+              case(i4)
+                call fms_f2c_string(vals3(1)%val4, 'i4') 
+              case(i8)
+                call fms_f2c_string(vals3(1)%val4, 'i8') 
+              case(r4)
+                call fms_f2c_string(vals3(1)%val4, 'r4') 
+              case(r8)
+                call fms_f2c_string(vals3(1)%val4, 'r8') 
+            end select
+          endif
+          if (varptr%has_var_zbounds()) then
+            tmpstr1 = ''
+            write (tmpstr1, '(F)') varptr%var_zbounds(1)
+            write (tmpstr2, '(F)') varptr%var_zbounds(2)
+            tmpstr1 = tmpstr1 // ', ' //tmpstr2
+            call fms_f2c_string(vals3(1)%val8, tmpstr1)
+          endif
+          if (varptr%has_n_diurnal()) then
+            tmpstr1 = ''; write(tmpstr1, '(I)') varptr%n_diurnal
+            call fms_f2c_string(vals3(1)%val9, tmpstr1) 
+          endif
+          if (varptr%has_pow_value()) then
+            tmpstr1 = ''; write(tmpstr1, '(I)') varptr%pow_value
+            call fms_f2c_string(vals3(1)%val10, tmpstr1) 
+          endif
+        enddo
+      endif
+    endif
+    !! sum tier 3 size and set each section size
+    tier3each(i) = j 
+    tier3size = tier3size + j
+  enddo
+  tier2size = i
+  call write_yaml_from_struct_3( 'diag_out.yml',  tier1size, keys, vals, tier2size, keys2, vals2, tier3size, tier3each, keys3, vals3)
+  deallocate( keys, keys2, keys3, vals, vals2, vals3)
+end subroutine
+
+!> internal function for getting unit string from diag_data parameter values 
+character(len=7) function get_diag_unit_type( unit_param )
+  integer, intent(in) :: unit_param !< A diag unit parameter value from diag_data_mod.
+                                    !! <br>eg. DIAG_SECONDS, DIAG_MINUTES,DIAG_HOURS, DIAG_DAYS, DIAG_YEARS
+  select case(unit_param)
+    case (DIAG_SECONDS)
+      get_diag_unit_type = 'seconds'
+    case (DIAG_MINUTES)
+      get_diag_unit_type = 'minutes'
+    case (DIAG_HOURS)
+      get_diag_unit_type = 'hours'
+    case (DIAG_DAYS)
+      get_diag_unit_type = 'days'
+    case (DIAG_YEARS)
+      get_diag_unit_type = 'years'
+    case default
+      get_diag_unit_type = ''
+  end select  
+end function
+
+!> internal function, gets a yaml variable object from the list by name 
+type(diagYamlFilesVar_type) function get_yaml_variable_by_name( name )
+  character(len=*), intent(in) :: name
+  integer :: i
+  do i=1, SIZE(diag_yaml%diag_fields)
+    if( diag_yaml%diag_fields(i)%var_fname .eq. name) then
+      get_yaml_variable_by_name = diag_yaml%diag_fields(i)
+      return 
+    endif
+  enddo
+  call mpp_error(FATAL, 'get_yaml_variable_by_name: variable name from object not found in diag_field list' // &
+                        ' during yaml output.')
+end function
+
 #endif
 end module fms_diag_yaml_mod
 !> @}

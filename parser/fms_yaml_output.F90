@@ -122,6 +122,49 @@ end subroutine write_yaml_from_struct_3
 
 end interface
 
+contains
+
+!> Initialize one instance of the fmsYamlOutKeys_type structure.
+subroutine initialize_key_struct( yk )
+  type (fmsYamlOutKeys_type), intent(inout) :: yk !< Instance of the stucture
+  call fms_f2c_string (yk%key1,"")
+  call fms_f2c_string (yk%key2,"")
+  call fms_f2c_string (yk%key3,"")
+  call fms_f2c_string (yk%key4,"")
+  call fms_f2c_string (yk%key5,"")
+  call fms_f2c_string (yk%key6,"")
+  call fms_f2c_string (yk%key7,"")
+  call fms_f2c_string (yk%key8,"")
+  call fms_f2c_string (yk%key9,"")
+  call fms_f2c_string (yk%key10,"")
+  call fms_f2c_string (yk%key11,"")
+  call fms_f2c_string (yk%key12,"")
+  call fms_f2c_string (yk%key13,"")
+  call fms_f2c_string (yk%key14,"")
+  call fms_f2c_string (yk%key15,"")
+  call fms_f2c_string(yk%level2key,"")
+end subroutine initialize_key_struct
+
+!> Initialize one instance of the fmsYamlOutValues_type structure.
+subroutine initialize_val_struct( yv)
+  type (fmsYamlOutValues_type), intent(inout):: yv !< Instance of the stucture
+  call fms_f2c_string (yv%val1,"")
+  call fms_f2c_string (yv%val2,"")
+  call fms_f2c_string (yv%val3,"")
+  call fms_f2c_string (yv%val4,"")
+  call fms_f2c_string (yv%val5,"")
+  call fms_f2c_string (yv%val6,"")
+  call fms_f2c_string (yv%val7,"")
+  call fms_f2c_string (yv%val8,"")
+  call fms_f2c_string (yv%val9,"")
+  call fms_f2c_string (yv%val10,"")
+  call fms_f2c_string (yv%val11,"")
+  call fms_f2c_string (yv%val12,"")
+  call fms_f2c_string (yv%val13,"")
+  call fms_f2c_string (yv%val14,"")
+  call fms_f2c_string (yv%val15,"")
+end subroutine initialize_val_struct
+
 #endif
 end module fms_yaml_output_mod
 !> @}
