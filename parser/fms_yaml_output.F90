@@ -59,9 +59,20 @@ module fms_yaml_output_mod
 use iso_c_binding
 implicit none
 
-integer, parameter :: string_len_parameter = 255 !< Number of characters in the keys and strings.
+private 
+
+public :: fmsYamlOutKeys_type, fmsYamlOutValues_type
+public :: write_yaml_from_struct_3
+public :: yaml_out_add_level2key
+public :: string_len_parameter
+
+integer, parameter :: string_len_parameter = 255 !< Max number of characters in the key and value strings.
+                                                 !! Must match whats in yaml_output_functions.c 
+integer, parameter :: lvl2_key_parameter = 8     !< Max number of strings to be stored in lvl2keys
                                                  !! Must match whats in yaml_output_functions.c 
 !> Keys for the output yaml on a given level corresponding to the struct in yaml_output_functions.c
+!! Should be set using the fms_f2c_string routine to get properly formatted c style strings
+!! level2keys should be set with  add_level2key()
 type, bind(c) :: fmsYamlOutKeys_type
         character (c_char) :: key1 (string_len_parameter)
         character (c_char) :: key2 (string_len_parameter)
@@ -78,7 +89,8 @@ type, bind(c) :: fmsYamlOutKeys_type
         character (c_char) :: key13 (string_len_parameter)
         character (c_char) :: key14 (string_len_parameter)
         character (c_char) :: key15 (string_len_parameter)
-        character (c_char) :: level2key (string_len_parameter)
+        character (c_char) :: level2key (string_len_parameter * lvl2_key_parameter)
+        integer(c_int)     :: level2key_offset
 end type fmsYamlOutKeys_type
 !> Values for the output yaml on a given level corresponding to the struct in yaml_output_functions.c
 type, bind(c) :: fmsYamlOutValues_type
@@ -102,24 +114,33 @@ end type fmsYamlOutValues_type
 
 interface
 subroutine write_yaml_from_struct_3 (yamlname, a1size, keys, vals, a2size, key2, val2, a3size, a3each,&
-                       key3, val3) bind(C, name="write_yaml_from_struct_3")
+                       key3, val3, lvl2keyeach) bind(C, name="write_yaml_from_struct_3")
 use iso_c_binding
-import fmsYamlOutKeys_type, fmsYamlOutValues_type
+import fmsYamlOutKeys_type, fmsYamlOutValues_type, lvl2_key_parameter
 character (c_char) :: yamlname !< The output yaml file name
-integer (c_int), value :: a1size !< The size of the first yaml array (only supports 1)
+integer (c_int), value :: a1size !< The size of the first yaml array
 type (fmsYamlOutKeys_type) :: keys(a1size) !< Top level yaml keys
 type (fmsYamlOutValues_type) :: vals(a1size) !< Values corresponding to keys
 integer (c_int), value :: a2size !< The size of the second yaml array
 type (fmsYamlOutKeys_type) :: key2(a2size) !< Second level keys
 type (fmsYamlOutValues_type) :: val2(a2size) !< Values corresponding to key2
 integer (c_int), value :: a3size !< The size of the third yaml array
-integer (c_int) :: a3each (a2size) !< Array that has the number of elements for each level 2 array's 
-                                   !! third level elements
+integer (c_int) :: a3each (a2size) !< Array that has the number of elements for each level 2 array's
+                                   !! third level elements. If using multiple level2keys, will use the same value
+                                   !! for each key.
 type (fmsYamlOutKeys_type) :: key3(a3size) !< Third level keys
 type (fmsYamlOutValues_type) :: val3(a3size) !< Values corresponding to keys2
-
+integer (c_int)        :: lvl2keyeach(lvl2_key_parameter) !< amount of key2 'blocks' to print per level2key in keys
 end subroutine write_yaml_from_struct_3
-
+!> Adds a level 2 key (key that starts new tabbed section) to the list.
+!! @ref yaml_out_add_level2key (wrapper routine) should be used instead.
+subroutine yaml_out_add_level2key_c(key_length, key_name, keytype) bind(C, name="add_level2key")
+  use iso_c_binding
+  import fmsYamlOutKeys_type
+  character(c_char), intent(in) :: key_name !< name of level 2 key (starts a new tabbed section) to add to list 
+  integer(c_int), value    :: key_length !< length of key_name
+  type(fmsYamlOutKeys_type), intent(inout) :: keytype !< struct of keys to output
+end subroutine
 end interface
 
 contains
@@ -164,6 +185,14 @@ subroutine initialize_val_struct( yv)
   call fms_f2c_string (yv%val14,"")
   call fms_f2c_string (yv%val15,"")
 end subroutine initialize_val_struct
+!> Adds a level 2 key (key that starts new tabbed section) to the list.
+!! Will print level 2 keys in the order added. See write_yaml_from_struct_3 for more details.
+!! This routine is a wrapper for @ref yaml_out_add_level2key_c . 
+subroutine yaml_out_add_level2key(key_name, keytype)
+  character(len=*) :: key_name
+  type(fmsYamlOutKeys_type), intent(inout) :: keytype
+  call yaml_out_add_level2key_c(len_trim(key_name), key_name, keytype )
+end subroutine
 
 #endif
 end module fms_yaml_output_mod

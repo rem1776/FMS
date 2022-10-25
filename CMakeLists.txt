@@ -26,7 +26,7 @@ set(CMAKE_Fortran_FLAGS_DEBUG)
 
 # Define the CMake project
 project(FMS
-  VERSION 2022.02.0
+  VERSION 2022.04.0
   DESCRIPTION  "GFDL FMS Library"
   HOMEPAGE_URL "https://www.gfdl.noaa.gov/fms"
   LANGUAGES C Fortran)
@@ -143,6 +143,7 @@ list(APPEND fms_fortran_src_files
   exchange/xgrid.F90
   field_manager/field_manager.F90
   field_manager/fm_util.F90
+  field_manager/fm_yaml.F90
   fms/fms_io.F90
   fms/fms.F90
   fms2_io/blackboxio.F90
