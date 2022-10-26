@@ -57,6 +57,7 @@ module fms_yaml_output_mod
 #ifdef use_yaml
 
 use iso_c_binding
+use fms_string_utils_mod, only: fms_f2c_string
 implicit none
 
 private 
@@ -65,6 +66,7 @@ public :: fmsYamlOutKeys_type, fmsYamlOutValues_type
 public :: write_yaml_from_struct_3
 public :: yaml_out_add_level2key
 public :: string_len_parameter
+public :: initialize_key_struct, initialize_val_struct
 
 integer, parameter :: string_len_parameter = 255 !< Max number of characters in the key and value strings.
                                                  !! Must match whats in yaml_output_functions.c 

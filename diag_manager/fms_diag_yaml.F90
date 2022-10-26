@@ -38,8 +38,9 @@ use yaml_parser_mod, only: open_and_parse_file, get_value_from_key, get_num_bloc
                            get_block_ids, get_key_value, get_key_ids, get_key_name
 use mpp_mod,         only: mpp_error, FATAL
 use, intrinsic :: iso_c_binding, only : c_ptr, c_null_char
-use fms_string_utils_mod, only: fms_array_to_pointer, fms_find_my_string, fms_sort_this, fms_find_unique
+use fms_string_utils_mod, only: fms_array_to_pointer, fms_find_my_string, fms_sort_this, fms_find_unique, fms_f2c_string
 use platform_mod, only: r4_kind, i4_kind
+use fms_yaml_output_mod
 
 implicit none
 
@@ -1459,8 +1460,10 @@ subroutine fms_diag_yaml_out(this, write_all)
     tier3size = tier3size + j
   enddo
   tier2size = i
-  call write_yaml_from_struct_3( 'diag_out.yml',  tier1size, keys, vals, tier2size, keys2, vals2, tier3size, tier3each, keys3, vals3)
+  call write_yaml_from_struct_3( 'diag_out.yaml',  tier1size, keys, vals, tier2size, keys2, vals2, tier3size, &
+                                 tier3each, keys3, vals3, (/size(this%diag_files),0,0,0,0,0,0,0/))
   deallocate( keys, keys2, keys3, vals, vals2, vals3)
+  
 end subroutine
 
 !> internal function for getting unit string from diag_data parameter values 
@@ -1484,6 +1487,7 @@ character(len=7) function get_diag_unit_type( unit_param )
 end function
 
 !> internal function, gets a yaml variable object from the list by name 
+!! TODO think theres a string sorting routine for a binary/quick search, not sure if worth it
 type(diagYamlFilesVar_type) function get_yaml_variable_by_name( name )
   character(len=*), intent(in) :: name
   integer :: i
