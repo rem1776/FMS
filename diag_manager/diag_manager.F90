@@ -237,7 +237,7 @@ use platform_mod
   USE diag_output_mod, ONLY: get_diag_global_att, set_diag_global_att
   USE diag_grid_mod, ONLY: diag_grid_init, diag_grid_end
 #ifdef use_yaml
-  use fms_diag_yaml_mod, only: diag_yaml_object_init, diag_yaml_object_end, get_num_unique_fields, find_diag_field
+  use fms_diag_yaml_mod, only: diag_yaml_object_init, diag_yaml_object_end, get_num_unique_fields, find_diag_field, fms_diag_yaml_out
 #endif
   use fms_diag_object_mod, only:fms_diag_object
 
@@ -3699,6 +3699,7 @@ INTEGER FUNCTION register_diag_field_array_old(module_name, field_name, axes, in
 
 #ifdef use_yaml
     if (use_modern_diag) then
+      call fms_diag_yaml_out
       call diag_yaml_object_end
       call fms_diag_object%diag_end()
     endif
