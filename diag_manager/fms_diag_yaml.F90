@@ -1353,7 +1353,9 @@ subroutine fms_diag_yaml_out(write_all)
   integer :: tier2size, tier3size !< size of each 'tier'(based one numbers of tabs) in the yaml 
   integer, allocatable :: tier3each(:) !< tier 3 list sizes corresponding to where they are in the second tier
   integer, dimension(basedate_size) :: basedate_loc !< local copy of basedate to loop through
-  integer :: varnum_i
+  integer :: varnum_i, key3_i
+
+  if( mpp_pe() .ne. mpp_root_pe()) return
 
   if(present(write_all)) then
     writing_all = write_all
@@ -1361,8 +1363,8 @@ subroutine fms_diag_yaml_out(write_all)
     writing_all = .false.
   endif
 
-  tier3size = 0
   allocate(tier3each(SIZE(diag_yaml%diag_files)))
+  tier3size = 0; tier3each = 0
 
   !! allocations for key+val structs
   allocate(keys(1))
@@ -1398,6 +1400,7 @@ subroutine fms_diag_yaml_out(write_all)
   enddo
   call fms_f2c_string(vals(1)%val2, trim(tmpstr2)) 
   call yaml_out_add_level2key('diag_files', keys(1))
+  key3_i = 0
   !! tier 2 - diag files
   do i=1, SIZE(diag_yaml%diag_files)
     ! TODO if written
@@ -1412,14 +1415,14 @@ subroutine fms_diag_yaml_out(write_all)
     if (fileptr%has_file_fname())     call fms_f2c_string(vals2(i)%val1, fileptr%file_fname)
     if (fileptr%has_file_unlimdim())  call fms_f2c_string(vals2(i)%val5, fileptr%file_unlimdim)
     if (fileptr%has_file_timeunit()) then 
-      call fms_f2c_string(vals2(i)%val4, get_diag_unit_type(fileptr%file_timeunit))
+      call fms_f2c_string(vals2(i)%val4, get_diag_unit_string(fileptr%file_timeunit))
     endif
     if (fileptr%has_file_freq()) then
       write(tmpstr1, '(I0)') fileptr%file_freq
       call fms_f2c_string(vals2(i)%val2, trim(tmpstr1)) 
     endif
     if (fileptr%has_file_frequnit()) then
-      call fms_f2c_string(vals2(i)%val3, get_diag_unit_type(fileptr%file_frequnit)) 
+      call fms_f2c_string(vals2(i)%val3, get_diag_unit_string(fileptr%file_frequnit)) 
     endif
     !! tier 3 - varlists
     if (allocated(fileptr%file_varlist) ) then
@@ -1427,64 +1430,84 @@ subroutine fms_diag_yaml_out(write_all)
       j = 0
       if( SIZE(fileptr%file_varlist) .gt. 0) then 
         do j=1, SIZE(fileptr%file_varlist)
-          call initialize_key_struct(keys3(j))
-          call initialize_val_struct(vals3(j))
+          key3_i = key3_i + 1
+          call initialize_key_struct(keys3(key3_i))
+          call initialize_val_struct(vals3(key3_i))
           !! find the variable object from the list
           !print *, fileptr%file_varlist(j)
           !varptr = get_yaml_variable_by_name( fileptr%file_varlist(j))
           !
+          varptr => NULL()
           do varnum_i=1, SIZE(diag_yaml%diag_fields)
-            if( trim(diag_yaml%diag_fields(varnum_i)%var_varname) .eq. trim(fileptr%file_varlist(j))) then
+            print *, 'diag_obj', trim(diag_yaml%diag_fields(varnum_i)%var_varname)
+            print *, 'file obj', trim(diag_yaml%diag_fields(varnum_i)%var_varname)
+            if( trim(diag_yaml%diag_fields(varnum_i)%var_varname ) .eq. trim(fileptr%file_varlist(j)) .and. &
+                trim(diag_yaml%diag_fields(varnum_i)%var_fname) .eq. trim(fileptr%file_fname)) then
+              print *, 'match'
               varptr => diag_yaml%diag_fields(varnum_i)
+              exit
             endif
           enddo
+          if( .not. associated(varptr)) call mpp_error(FATAL, "diag_yaml_output: var name: "// trim(fileptr%file_varlist(j)))
           !
-          call fms_f2c_string(keys3(j)%key1, 'module')
-          call fms_f2c_string(keys3(j)%key2, 'varname')
-          call fms_f2c_string(keys3(j)%key3, 'reduction')
-          call fms_f2c_string(keys3(j)%key4, 'kind')
-          call fms_f2c_string(keys3(j)%key5, 'outname')
-          call fms_f2c_string(keys3(j)%key6, 'longname')
-          call fms_f2c_string(keys3(j)%key7, 'units')
-          call fms_f2c_string(keys3(j)%key8, 'zbounds')
-          call fms_f2c_string(keys3(j)%key9, 'n_diurnal')
-          call fms_f2c_string(keys3(j)%key10, 'pow_value')
-          if (varptr%has_var_module())   call fms_f2c_string(vals3(j)%val1, varptr%var_module) 
-          if (varptr%has_var_varname())  call fms_f2c_string(vals3(j)%val2, varptr%var_varname)
-          if (varptr%has_var_varname())  call fms_f2c_string(vals3(j)%val3, varptr%var_varname)
-          if (varptr%has_var_outname())  call fms_f2c_string(vals3(j)%val5, varptr%var_outname)
-          if (varptr%has_var_longname()) call fms_f2c_string(vals3(j)%val6, varptr%var_longname)
-          if (varptr%has_var_units()) call fms_f2c_string(vals3(j)%val7, varptr%var_units)
+          call fms_f2c_string(keys3(key3_i)%key1, 'module')
+          call fms_f2c_string(keys3(key3_i)%key2, 'varname')
+          call fms_f2c_string(keys3(key3_i)%key3, 'reduction')
+          call fms_f2c_string(keys3(key3_i)%key4, 'kind')
+          call fms_f2c_string(keys3(key3_i)%key5, 'outname')
+          call fms_f2c_string(keys3(key3_i)%key6, 'longname')
+          call fms_f2c_string(keys3(key3_i)%key7, 'units')
+          call fms_f2c_string(keys3(key3_i)%key8, 'zbounds')
+          call fms_f2c_string(keys3(key3_i)%key9, 'n_diurnal')
+          call fms_f2c_string(keys3(key3_i)%key10, 'pow_value')
+          if (varptr%has_var_module())   call fms_f2c_string(vals3(key3_i)%val1, varptr%var_module) 
+          if (varptr%has_var_varname())  call fms_f2c_string(vals3(key3_i)%val2, varptr%var_varname)
+          if (varptr%has_var_reduction())call fms_f2c_string(vals3(key3_i)%val3, &
+                                                             get_diag_reduction_string(varptr%var_reduction))
+          if (varptr%has_var_outname())  call fms_f2c_string(vals3(key3_i)%val5, varptr%var_outname)
+          if (varptr%has_var_longname()) call fms_f2c_string(vals3(key3_i)%val6, varptr%var_longname)
+          if (varptr%has_var_units()) call fms_f2c_string(vals3(key3_i)%val7, varptr%var_units)
           if (varptr%has_var_kind()) then
             select case(varptr%var_kind)
               case(i4)
-                call fms_f2c_string(vals3(j)%val4, 'i4') 
+                call fms_f2c_string(vals3(key3_i)%val4, 'i4') 
               case(i8)
-                call fms_f2c_string(vals3(j)%val4, 'i8') 
+                call fms_f2c_string(vals3(key3_i)%val4, 'i8') 
               case(r4)
-                call fms_f2c_string(vals3(j)%val4, 'r4') 
+                call fms_f2c_string(vals3(key3_i)%val4, 'r4') 
               case(r8)
-                call fms_f2c_string(vals3(j)%val4, 'r8') 
+                call fms_f2c_string(vals3(key3_i)%val4, 'r8') 
             end select
           endif
           if (varptr%has_var_zbounds()) then
             tmpstr1 = ''
-            write (tmpstr1, '(F)') varptr%var_zbounds(1)
+            !! trims don't seem to work with just (F) for the format code
+            !! these are just abritrary lengths
+            write (tmpstr1, '(F10.5)') varptr%var_zbounds(1)
             tmpstr2 = trim(tmpstr1)
-            write (tmpstr1, '(F)') varptr%var_zbounds(2)
+            write (tmpstr1, '(F10.5)') varptr%var_zbounds(2)
             tmpstr2 = trim(tmpstr2) // ', ' // trim(tmpstr1)
-            call fms_f2c_string(vals3(j)%val8, trim(tmpstr2))
+            call fms_f2c_string(vals3(key3_i)%val8, trim(tmpstr2))
           endif
           if (varptr%has_n_diurnal()) then
             tmpstr1 = ''; write(tmpstr1, '(I0)') varptr%n_diurnal
-            call fms_f2c_string(vals3(j)%val9, tmpstr1) 
+            call fms_f2c_string(vals3(key3_i)%val9, tmpstr1) 
           endif
           if (varptr%has_pow_value()) then
             tmpstr1 = ''; write(tmpstr1, '(I0)') varptr%pow_value
-            call fms_f2c_string(vals3(j)%val10, tmpstr1) 
+            call fms_f2c_string(vals3(key3_i)%val10, tmpstr1) 
           endif
         enddo
       endif
+    endif
+    call yaml_out_add_level2key('subregion', keys3(key3_i))
+    call fms_f2c_string(keys3(key3_i)%key1, 'grid_type')
+    if ( fileptr%file_sub_region%grid_type .ne. null_gridtype ) then
+      call fms_f2c_string(keys3(key3_i)%key2, 'tile')
+      call fms_f2c_string(keys3(key3_i)%key3, 'corner1')
+      call fms_f2c_string(keys3(key3_i)%key4, 'corner2')
+      call fms_f2c_string(keys3(key3_i)%key5, 'corner3')
+      call fms_f2c_string(keys3(key3_i)%key6, 'corner4')
     endif
     !! sum tier 3 size and set each section size
     tier3each(i) = j-1 
@@ -1493,7 +1516,7 @@ subroutine fms_diag_yaml_out(write_all)
   if (DEBUG .and. mpp_root_pe() .eq. mpp_pe()) print *, 'tier1size', 1, 'tier2size', SIZE(diag_yaml%diag_files), 'tier3size', tier3size, 'tier3each', tier3each
   call write_yaml_from_struct_3( 'diag_out.yaml',  1, keys, vals, SIZE(diag_yaml%diag_files), keys2, vals2, tier3size, &
                                  tier3each, keys3, vals3, &
-                                 (/size(diag_yaml%diag_files),0,0,0,0,0,0,0/))
+                                 (/size(diag_yaml%diag_files), 0, 0, 0, 0, 0, 0, 0/))
                                  !(/size(diag_yaml%diag_files),0,0,0,0,0,0,0/))
   deallocate( keys, keys2, keys3, vals, vals2, vals3)
   !deallocate( keys, keys2, vals, vals2 )
@@ -1501,27 +1524,48 @@ subroutine fms_diag_yaml_out(write_all)
 end subroutine
 
 !> internal function for getting unit string from diag_data parameter values 
-character(len=7) function get_diag_unit_type( unit_param )
+character(len=7) function get_diag_unit_string( unit_param )
   integer, intent(in) :: unit_param !< A diag unit parameter value from diag_data_mod.
                                     !! <br>eg. DIAG_SECONDS, DIAG_MINUTES,DIAG_HOURS, DIAG_DAYS, DIAG_YEARS
   select case(unit_param)
     case (DIAG_SECONDS)
-      get_diag_unit_type = 'seconds'
+      get_diag_unit_string = 'seconds'
     case (DIAG_MINUTES)
-      get_diag_unit_type = 'minutes'
+      get_diag_unit_string = 'minutes'
     case (DIAG_HOURS)
-      get_diag_unit_type = 'hours'
+      get_diag_unit_string = 'hours'
     case (DIAG_DAYS)
-      get_diag_unit_type = 'days'
+      get_diag_unit_string = 'days'
     case (DIAG_YEARS)
-      get_diag_unit_type = 'years'
+      get_diag_unit_string = 'years'
     case default
-      get_diag_unit_type = ''
-  end select  
+      get_diag_unit_string = ''
+  end select
+end function
+
+!> internal function for getting unit string from diag_data parameter values 
+character(len=7) function get_diag_reduction_string( reduction_val ) &
+  result(rslt)
+  integer, intent(in) :: reduction_val !< reduction type (eg. time_average)
+  select case (reduction_val)
+    case (time_none)
+      rslt = 'none'
+    case (time_average)
+      rslt = 'average'
+    case (time_min)
+      rslt = 'min'
+    case (time_max)
+      rslt = 'max'
+    case (time_rms)
+      rslt = 'rms'
+    case (time_sum)
+      rslt = 'sum'
+    case default
+      call mpp_error(FATAL, 'get_diag_reduction_string: passed in value is invalid reduction type')
+  end select 
 end function
 
 !> internal function, gets a yaml variable object from the list by name 
-!! TODO think theres a string sorting routine for a binary search, not sure if worth it
 function get_yaml_variable_by_name( name )
   type(diagYamlFilesVar_type), pointer :: get_yaml_variable_by_name
   character(len=*), intent(in) :: name

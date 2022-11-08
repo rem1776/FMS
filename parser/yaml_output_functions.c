@@ -30,7 +30,7 @@
 #define KEY_STR_LEN 255
 #define LVL2KEY_SIZE LVL2KEY_NUM*KEY_STR_LEN
 
-#define DEBUG 0
+#define DEBUG 1
 
 struct fmsyamloutkeys {
 	char key1 [KEY_STR_LEN];
@@ -426,6 +426,7 @@ void write_yaml_from_struct_3 (char *yamlname, int asize, struct fmsyamloutkeys 
     	  /* loop through the structs */
         int s3start = s3count;
         int s3end = s3start + n3each[s2count];
+        if(DEBUG) printf("s3 loop start: %d\tend:%d\n", s3start, s3end);
         for (int s3 = s3start ; s3 < s3end ; s3++){
           yaml_mapping_start_event_initialize(&event, NULL, (yaml_char_t *)YAML_MAP_TAG,
                     1, YAML_ANY_MAPPING_STYLE);
