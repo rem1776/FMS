@@ -91,7 +91,6 @@ type, bind(c) :: fmsYamlOutKeys_type
         character (c_char) :: key13 (string_len_parameter)
         character (c_char) :: key14 (string_len_parameter)
         character (c_char) :: key15 (string_len_parameter)
-        character (c_char) :: key16 (string_len_parameter)
         character (c_char) :: level2key (string_len_parameter * lvl2_key_parameter)
         integer(c_int)     :: level2key_offset
 end type fmsYamlOutKeys_type
@@ -112,7 +111,6 @@ type, bind(c) :: fmsYamlOutValues_type
         character (c_char) :: val13 (string_len_parameter)
         character (c_char) :: val14 (string_len_parameter)
         character (c_char) :: val15 (string_len_parameter)
-        character (c_char) :: val16 (string_len_parameter)
 end type fmsYamlOutValues_type
 
 
@@ -167,7 +165,6 @@ subroutine initialize_key_struct( yk )
   call fms_f2c_string (yk%key13,"")
   call fms_f2c_string (yk%key14,"")
   call fms_f2c_string (yk%key15,"")
-  call fms_f2c_string (yk%key16,"")
   call fms_f2c_string(yk%level2key,"")
 end subroutine initialize_key_struct
 
@@ -189,7 +186,6 @@ subroutine initialize_val_struct( yv)
   call fms_f2c_string (yv%val13,"")
   call fms_f2c_string (yv%val14,"")
   call fms_f2c_string (yv%val15,"")
-  call fms_f2c_string (yv%val16,"")
 end subroutine initialize_val_struct
 !> Adds a level 2 key (key that starts new tabbed section) to the list.
 !! Will print level 2 keys in the order added. See write_yaml_from_struct_3 for more details.

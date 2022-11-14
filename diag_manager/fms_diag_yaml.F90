@@ -1338,15 +1338,17 @@ function get_diag_files_id(indices) &
 
 end function get_diag_files_id
 
-!> Writes an output yaml file (diag_out.yaml) containing any information passed into the written files.
-!! Will only write if on root pe.
-subroutine fms_diag_yaml_out()
+!> outputs yaml with info from the entire yaml object
+subroutine fms_diag_yaml_out(write_all)
+  logical, optional, intent(in)            :: write_all !< Include all files listed in the diag file, 
+                                                        !! not just written ones
   type(diagYamlFiles_type), pointer :: fileptr !< pointer for individual variables
   type(diagYamlFilesVar_type), pointer :: varptr !< pointer for individual variables
   type (fmsyamloutkeys_type), allocatable :: keys(:), keys2(:), keys3(:)
   type (fmsyamloutvalues_type), allocatable :: vals(:), vals2(:), vals3(:)
   integer :: i, j 
   character(len=128) :: tmpstr1, tmpstr2 !< string to store output fields
+  logical :: writing_all
   integer, parameter :: tier1size = 3 !< size of first tier, will always be 3 for basedate, title and diag_files
   integer :: tier2size, tier3size !< size of each 'tier'(based one numbers of tabs) in the yaml 
   integer, allocatable :: tier3each(:) !< tier 3 list sizes corresponding to where they are in the second tier
@@ -1355,7 +1357,13 @@ subroutine fms_diag_yaml_out()
 
   if( mpp_pe() .ne. mpp_root_pe()) return
 
-  allocate(tier3each(SIZE(diag_yaml%diag_files) * 2))
+  if(present(write_all)) then
+    writing_all = write_all
+  else
+    writing_all = .false.
+  endif
+
+  allocate(tier3each(SIZE(diag_yaml%diag_files)))
   tier3size = 0; tier3each = 0
 
   !! allocations for key+val structs
@@ -1372,7 +1380,6 @@ subroutine fms_diag_yaml_out()
         tier3size = tier3size + 1
       enddo
     endif
-    tier3size = tier3size + 1
   enddo
   allocate(keys3(tier3size))
   allocate(vals3(tier3size))
@@ -1382,7 +1389,7 @@ subroutine fms_diag_yaml_out()
   call initialize_val_struct(vals(1))
   call fms_f2c_string( keys(1)%key1, 'title')
   call fms_f2c_string( vals(1)%val1, diag_yaml%diag_title)
-  call fms_f2c_string( keys(1)%key2, 'base_date')
+  call fms_f2c_string( keys(1)%key2, 'basedate')
   basedate_loc = diag_yaml%get_basedate()
   tmpstr1 = ''; tmpstr2 = ''
   write (tmpstr1, '(I0)') basedate_loc(1)
@@ -1417,7 +1424,7 @@ subroutine fms_diag_yaml_out()
     if (fileptr%has_file_frequnit()) then
       call fms_f2c_string(vals2(i)%val3, get_diag_unit_string(fileptr%file_frequnit)) 
     endif
-    !! tier 3 - varlists, subregions
+    !! tier 3 - varlists
     if (allocated(fileptr%file_varlist) ) then
       call yaml_out_add_level2key('varlist', keys2(i))
       j = 0
@@ -1427,20 +1434,27 @@ subroutine fms_diag_yaml_out()
           call initialize_key_struct(keys3(key3_i))
           call initialize_val_struct(vals3(key3_i))
           !! find the variable object from the list
+          !print *, fileptr%file_varlist(j)
+          !varptr = get_yaml_variable_by_name( fileptr%file_varlist(j))
+          !
           varptr => NULL()
           do varnum_i=1, SIZE(diag_yaml%diag_fields)
+            print *, 'diag_obj', trim(diag_yaml%diag_fields(varnum_i)%var_varname)
+            print *, 'file obj', trim(diag_yaml%diag_fields(varnum_i)%var_varname)
             if( trim(diag_yaml%diag_fields(varnum_i)%var_varname ) .eq. trim(fileptr%file_varlist(j)) .and. &
                 trim(diag_yaml%diag_fields(varnum_i)%var_fname) .eq. trim(fileptr%file_fname)) then
+              print *, 'match'
               varptr => diag_yaml%diag_fields(varnum_i)
               exit
             endif
           enddo
           if( .not. associated(varptr)) call mpp_error(FATAL, "diag_yaml_output: var name: "// trim(fileptr%file_varlist(j)))
+          !
           call fms_f2c_string(keys3(key3_i)%key1, 'module')
-          call fms_f2c_string(keys3(key3_i)%key2, 'var_name')
+          call fms_f2c_string(keys3(key3_i)%key2, 'varname')
           call fms_f2c_string(keys3(key3_i)%key3, 'reduction')
           call fms_f2c_string(keys3(key3_i)%key4, 'kind')
-          call fms_f2c_string(keys3(key3_i)%key5, 'output_name')
+          call fms_f2c_string(keys3(key3_i)%key5, 'outname')
           call fms_f2c_string(keys3(key3_i)%key6, 'longname')
           call fms_f2c_string(keys3(key3_i)%key7, 'units')
           call fms_f2c_string(keys3(key3_i)%key8, 'zbounds')
@@ -1486,44 +1500,26 @@ subroutine fms_diag_yaml_out()
         enddo
       endif
     endif
-    key3_i = key3_i + 1
-    call yaml_out_add_level2key('sub_region', keys2(i))
-    call fms_f2c_string(keys3(key3_i)%key11, 'grid_type')
-    call fms_f2c_string(keys3(key3_i)%key12, 'tile')
-    call fms_f2c_string(keys3(key3_i)%key13, 'corner1')
-    call fms_f2c_string(keys3(key3_i)%key14, 'corner2')
-    call fms_f2c_string(keys3(key3_i)%key15, 'corner3')
-    call fms_f2c_string(keys3(key3_i)%key16, 'corner4')
-    select case (fileptr%file_sub_region%grid_type)
-      case(latlon_gridtype)
-        call fms_f2c_string(vals3(key3_i)%val11, 'latlon')
-      case(index_gridtype)
-        call fms_f2c_string(vals3(key3_i)%val11, 'index')
-      case default
-        call fms_f2c_string(vals3(key3_i)%val11, 'null') 
-    end select
-    tmpstr1 = ''; write(tmpstr1, '(I0)') fileptr%file_sub_region%tile
-    call fms_f2c_string(vals3(key3_i)%val12, tmpstr1)
-    tmpstr1 = ''; write(tmpstr1, '(I0)') fileptr%file_sub_region%corners(1,:)
-    call fms_f2c_string(vals3(key3_i)%val13, tmpstr1)
-    tmpstr1 = ''; write(tmpstr1, '(I0)') fileptr%file_sub_region%corners(2,:)
-    call fms_f2c_string(vals3(key3_i)%val14, tmpstr1)
-    tmpstr1 = ''; write(tmpstr1, '(I0)') fileptr%file_sub_region%corners(3,:)
-    call fms_f2c_string(vals3(key3_i)%val15, tmpstr1)
-    tmpstr1 = ''; write(tmpstr1, '(I0)') fileptr%file_sub_region%corners(4,:)
-    call fms_f2c_string(vals3(key3_i)%val16, tmpstr1)
-
-
+    call yaml_out_add_level2key('subregion', keys3(key3_i))
+    call fms_f2c_string(keys3(key3_i)%key1, 'grid_type')
+    if ( fileptr%file_sub_region%grid_type .ne. null_gridtype ) then
+      call fms_f2c_string(keys3(key3_i)%key2, 'tile')
+      call fms_f2c_string(keys3(key3_i)%key3, 'corner1')
+      call fms_f2c_string(keys3(key3_i)%key4, 'corner2')
+      call fms_f2c_string(keys3(key3_i)%key5, 'corner3')
+      call fms_f2c_string(keys3(key3_i)%key6, 'corner4')
+    endif
     !! sum tier 3 size and set each section size
-    tier3each(i*2-1) = j -1 
-    tier3each(i*2) = 1
+    tier3each(i) = j-1 
   enddo
   tier2size = i
   if (DEBUG .and. mpp_root_pe() .eq. mpp_pe()) print *, 'tier1size', 1, 'tier2size', SIZE(diag_yaml%diag_files), 'tier3size', tier3size, 'tier3each', tier3each
   call write_yaml_from_struct_3( 'diag_out.yaml',  1, keys, vals, SIZE(diag_yaml%diag_files), keys2, vals2, tier3size, &
                                  tier3each, keys3, vals3, &
                                  (/size(diag_yaml%diag_files), 0, 0, 0, 0, 0, 0, 0/))
+                                 !(/size(diag_yaml%diag_files),0,0,0,0,0,0,0/))
   deallocate( keys, keys2, keys3, vals, vals2, vals3)
+  !deallocate( keys, keys2, vals, vals2 )
   
 end subroutine
 
@@ -1567,6 +1563,21 @@ character(len=7) function get_diag_reduction_string( reduction_val ) &
     case default
       call mpp_error(FATAL, 'get_diag_reduction_string: passed in value is invalid reduction type')
   end select 
+end function
+
+!> internal function, gets a yaml variable object from the list by name 
+function get_yaml_variable_by_name( name )
+  type(diagYamlFilesVar_type), pointer :: get_yaml_variable_by_name
+  character(len=*), intent(in) :: name
+  integer :: i
+  do i=1, SIZE(diag_yaml%diag_fields)
+    if( trim(diag_yaml%diag_fields(i)%var_varname) .eq. trim(name)) then
+      get_yaml_variable_by_name => diag_yaml%diag_fields(i)
+      return 
+    endif
+  enddo
+  call mpp_error(FATAL, 'get_yaml_variable_by_name: variable name from object not found in diag_field list' // &
+                        ' during yaml output. var name:' // name)
 end function
 
 #endif

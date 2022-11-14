@@ -711,8 +711,4 @@ test_expect_success "Test the modern diag manager end to end (test $my_test_coun
   mpirun -n 6 ../test_modern_diag
 '
 
-test_expect_sucess "check output yaml from previous test (test $my_test_count)" '
-  mpirun -n 1 ../test_modern_diag
-'
-
 test_done
