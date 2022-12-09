@@ -293,7 +293,7 @@ bool open_and_parse_file_wrap(char *filename, int *file_id)
        }
     case YAML_BLOCK_END_TOKEN:
        {
-        layer = layer - 1;
+        if( layer > 0) layer = layer - 1;
         break;
        }
     case YAML_SCALAR_TOKEN:
