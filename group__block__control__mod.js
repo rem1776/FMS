@@ -26,6 +26,6 @@ var group__block__control__mod =
       [ "ii", "group__block__control__mod.html#a453c591c12dc5856910aefacca38301f", null ],
       [ "jj", "group__block__control__mod.html#a1d1f476b5789f7e645421303a400b57f", null ]
     ] ],
-    [ "define_blocks", "group__block__control__mod.html#gaf9b25442e22bc46f0d247a7acff71516", null ],
-    [ "define_blocks_packed", "group__block__control__mod.html#ga21fb0963e6ded8c790c9b47346221415", null ]
+    [ "define_blocks", "group__block__control__mod.html#ga41c0b85a2dd911dd902927a6101840bf", null ],
+    [ "define_blocks_packed", "group__block__control__mod.html#ga9f8de977e464f7008f1bccc443224f31", null ]
 ];

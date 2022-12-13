@@ -1,5 +1,5 @@
 var group__tridiagonal__mod =
 [
-    [ "close_tridiagonal", "group__tridiagonal__mod.html#gac20f9a37588dd7974b825e2762dbc429", null ],
-    [ "tri_invert", "group__tridiagonal__mod.html#ga89a69203b0824c997b11cab8b2cd4d22", null ]
+    [ "close_tridiagonal", "group__tridiagonal__mod.html#ga8636d1c53657742b2e0c768b0ea2fe1b", null ],
+    [ "tri_invert", "group__tridiagonal__mod.html#ga0f7f0f4bd770b5674bab7539e07e8581", null ]
 ];

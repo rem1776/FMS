@@ -6,8 +6,8 @@ var group__stock__constants__mod =
       [ "q_now", "group__stock__constants__mod.html#abd16f11b5766f2615166ed233c147711", null ],
       [ "q_start", "group__stock__constants__mod.html#a14b6c27bac0e5df5e35a6067bf1031d2", null ]
     ] ],
-    [ "stocks_report", "group__stock__constants__mod.html#ga71dd62388a3f8a39b4457d199ede2110", null ],
-    [ "stocks_report_init", "group__stock__constants__mod.html#ga8e42ea824c5dce612e7364bebe30a311", null ],
-    [ "stocks_set_init_time", "group__stock__constants__mod.html#ga9902e9a9d1fda8509931371fc3a76eb1", null ],
-    [ "nsides", "group__stock__constants__mod.html#gaf58e9da841d22fb8927f19008ee4beb5", null ]
+    [ "stocks_report", "group__stock__constants__mod.html#ga059d40cfe9b64330db741fdd2c91bd47", null ],
+    [ "stocks_report_init", "group__stock__constants__mod.html#ga655472b8aec40173cf19a9dc71fbfb12", null ],
+    [ "stocks_set_init_time", "group__stock__constants__mod.html#gabc6f4b18f7b17e86d83da7df94611281", null ],
+    [ "nsides", "group__stock__constants__mod.html#gad1c22a2532e553445ea1cdf53f9db3aa", null ]
 ];

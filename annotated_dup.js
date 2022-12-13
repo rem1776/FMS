@@ -120,6 +120,8 @@ var annotated_dup =
     [ "field_manager_mod", null, [
       [ "field_def", "group__field__manager__mod.html#structfield__manager__mod_1_1field__def", "group__field__manager__mod_structfield__manager__mod_1_1field__def" ],
       [ "field_mgr_type", "group__field__manager__mod.html#structfield__manager__mod_1_1field__mgr__type", "group__field__manager__mod_structfield__manager__mod_1_1field__mgr__type" ],
+      [ "field_names_type", "group__field__manager__mod.html#structfield__manager__mod_1_1field__names__type", "group__field__manager__mod_structfield__manager__mod_1_1field__names__type" ],
+      [ "field_names_type_short", "group__field__manager__mod.html#structfield__manager__mod_1_1field__names__type__short", "group__field__manager__mod_structfield__manager__mod_1_1field__names__type__short" ],
       [ "find_field_index", "group__field__manager__mod.html#interfacefield__manager__mod_1_1find__field__index", "group__field__manager__mod_interfacefield__manager__mod_1_1find__field__index" ],
       [ "fm_get_value", "group__field__manager__mod.html#interfacefield__manager__mod_1_1fm__get__value", "group__field__manager__mod_interfacefield__manager__mod_1_1fm__get__value" ],
       [ "fm_list_iter_type", "group__field__manager__mod.html#structfield__manager__mod_1_1fm__list__iter__type", "group__field__manager__mod_structfield__manager__mod_1_1fm__list__iter__type" ],
@@ -227,7 +229,8 @@ var annotated_dup =
     [ "fms_yaml_output_mod", null, [
       [ "fmsyamloutkeys_type", "group__fms__yaml__output__mod.html#structfms__yaml__output__mod_1_1fmsyamloutkeys__type", "group__fms__yaml__output__mod_structfms__yaml__output__mod_1_1fmsyamloutkeys__type" ],
       [ "fmsyamloutvalues_type", "group__fms__yaml__output__mod.html#structfms__yaml__output__mod_1_1fmsyamloutvalues__type", "group__fms__yaml__output__mod_structfms__yaml__output__mod_1_1fmsyamloutvalues__type" ],
-      [ "write_yaml_from_struct_3", "group__fms__yaml__output__mod.html#interfacefms__yaml__output__mod_1_1write__yaml__from__struct__3", "group__fms__yaml__output__mod_interfacefms__yaml__output__mod_1_1write__yaml__from__struct__3" ]
+      [ "write_yaml_from_struct_3", "group__fms__yaml__output__mod.html#interfacefms__yaml__output__mod_1_1write__yaml__from__struct__3", "group__fms__yaml__output__mod_interfacefms__yaml__output__mod_1_1write__yaml__from__struct__3" ],
+      [ "yaml_out_add_level2key_c", "interfacefms__yaml__output__mod_1_1yaml__out__add__level2key__c.html", "interfacefms__yaml__output__mod_1_1yaml__out__add__level2key__c" ]
     ] ],
     [ "grid2_mod", null, [
       [ "get_grid_cell_area", "group__grid2__mod.html#interfacegrid2__mod_1_1get__grid__cell__area", "group__grid2__mod_interfacegrid2__mod_1_1get__grid__cell__area" ],
@@ -245,21 +248,32 @@ var annotated_dup =
     ] ],
     [ "horiz_interp_bicubic_mod", null, [
       [ "fill_xy", "group__horiz__interp__bicubic__mod.html#interfacehoriz__interp__bicubic__mod_1_1fill__xy", "group__horiz__interp__bicubic__mod_interfacehoriz__interp__bicubic__mod_1_1fill__xy" ],
+      [ "horiz_interp_bicubic", "interfacehoriz__interp__bicubic__mod_1_1horiz__interp__bicubic.html", "interfacehoriz__interp__bicubic__mod_1_1horiz__interp__bicubic" ],
       [ "horiz_interp_bicubic_new", "group__horiz__interp__bicubic__mod.html#interfacehoriz__interp__bicubic__mod_1_1horiz__interp__bicubic__new", "group__horiz__interp__bicubic__mod_interfacehoriz__interp__bicubic__mod_1_1horiz__interp__bicubic__new" ]
     ] ],
     [ "horiz_interp_bilinear_mod", null, [
+      [ "horiz_interp_bilinear", "interfacehoriz__interp__bilinear__mod_1_1horiz__interp__bilinear.html", "interfacehoriz__interp__bilinear__mod_1_1horiz__interp__bilinear" ],
       [ "horiz_interp_bilinear_new", "group__horiz__interp__bilinear__mod.html#interfacehoriz__interp__bilinear__mod_1_1horiz__interp__bilinear__new", "group__horiz__interp__bilinear__mod_interfacehoriz__interp__bilinear__mod_1_1horiz__interp__bilinear__new" ]
     ] ],
     [ "horiz_interp_conserve_mod", null, [
+      [ "horiz_interp_conserve", "interfacehoriz__interp__conserve__mod_1_1horiz__interp__conserve.html", "interfacehoriz__interp__conserve__mod_1_1horiz__interp__conserve" ],
       [ "horiz_interp_conserve_new", "group__horiz__interp__conserve__mod.html#interfacehoriz__interp__conserve__mod_1_1horiz__interp__conserve__new", "group__horiz__interp__conserve__mod_interfacehoriz__interp__conserve__mod_1_1horiz__interp__conserve__new" ]
     ] ],
     [ "horiz_interp_mod", null, [
       [ "horiz_interp", "group__horiz__interp__mod.html#interfacehoriz__interp__mod_1_1horiz__interp", "group__horiz__interp__mod_interfacehoriz__interp__mod_1_1horiz__interp" ],
       [ "horiz_interp_new", "interfacehoriz__interp__mod_1_1horiz__interp__new.html", "interfacehoriz__interp__mod_1_1horiz__interp__new" ]
     ] ],
+    [ "horiz_interp_spherical_mod", null, [
+      [ "horiz_interp_spherical", "interfacehoriz__interp__spherical__mod_1_1horiz__interp__spherical.html", "interfacehoriz__interp__spherical__mod_1_1horiz__interp__spherical" ],
+      [ "horiz_interp_spherical_new", "group__horiz__interp__spherical__mod.html#interfacehoriz__interp__spherical__mod_1_1horiz__interp__spherical__new", "group__horiz__interp__spherical__mod_interfacehoriz__interp__spherical__mod_1_1horiz__interp__spherical__new" ],
+      [ "horiz_interp_spherical_wght", "group__horiz__interp__spherical__mod.html#interfacehoriz__interp__spherical__mod_1_1horiz__interp__spherical__wght", "group__horiz__interp__spherical__mod_interfacehoriz__interp__spherical__mod_1_1horiz__interp__spherical__wght" ]
+    ] ],
     [ "horiz_interp_type_mod", null, [
       [ "assignment(=)", "group__horiz__interp__type__mod.html#interfacehoriz__interp__type__mod_1_1assignment_07_0a_08", "group__horiz__interp__type__mod_interfacehoriz__interp__type__mod_1_1assignment_07_0a_08" ],
-      [ "horiz_interp_type", "group__horiz__interp__type__mod.html#structhoriz__interp__type__mod_1_1horiz__interp__type", "group__horiz__interp__type__mod_structhoriz__interp__type__mod_1_1horiz__interp__type" ]
+      [ "horiz_interp_reals4", "structhoriz__interp__type__mod_1_1horiz__interp__reals4.html", "structhoriz__interp__type__mod_1_1horiz__interp__reals4" ],
+      [ "horiz_interp_reals8", "structhoriz__interp__type__mod_1_1horiz__interp__reals8.html", "structhoriz__interp__type__mod_1_1horiz__interp__reals8" ],
+      [ "horiz_interp_type", "group__horiz__interp__type__mod.html#structhoriz__interp__type__mod_1_1horiz__interp__type", "group__horiz__interp__type__mod_structhoriz__interp__type__mod_1_1horiz__interp__type" ],
+      [ "stats", "group__horiz__interp__type__mod.html#interfacehoriz__interp__type__mod_1_1stats", "group__horiz__interp__type__mod_interfacehoriz__interp__type__mod_1_1stats" ]
     ] ],
     [ "interpolator_mod", null, [
       [ "assignment(=)", "group__interpolator__mod.html#interfaceinterpolator__mod_1_1assignment_07_0a_08", "group__interpolator__mod_interfaceinterpolator__mod_1_1assignment_07_0a_08" ],

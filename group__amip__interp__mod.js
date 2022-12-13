@@ -2,6 +2,8 @@ var group__amip__interp__mod =
 [
     [ "amip_interp_new", "group__amip__interp__mod.html#interfaceamip__interp__mod_1_1amip__interp__new", [
       [ "amip_interp_new_1d", "group__amip__interp__mod.html#aefdaa09f371957b7436b7b5549e1ba41", null ],
+      [ "amip_interp_new_1d", "group__amip__interp__mod.html#aefdaa09f371957b7436b7b5549e1ba41", null ],
+      [ "amip_interp_new_2d", "group__amip__interp__mod.html#a2caba36ff0a5bdd0ae2bc334a05465e3", null ],
       [ "amip_interp_new_2d", "group__amip__interp__mod.html#a2caba36ff0a5bdd0ae2bc334a05465e3", null ]
     ] ],
     [ "amip_interp_type", "group__amip__interp__mod.html#structamip__interp__mod_1_1amip__interp__type", [
@@ -16,6 +18,7 @@ var group__amip__interp__mod =
       [ "use_climo", "group__amip__interp__mod.html#a4deb7b50610ca6140cfd775bb47c879f", null ]
     ] ],
     [ "assignment(=)", "group__amip__interp__mod.html#interfaceamip__interp__mod_1_1assignment_07_0a_08", [
+      [ "amip_interp_type_eq", "group__amip__interp__mod.html#a5af76df22471110045a0e6a8f856cb92", null ],
       [ "amip_interp_type_eq", "group__amip__interp__mod.html#a5af76df22471110045a0e6a8f856cb92", null ]
     ] ],
     [ "date_type", "group__amip__interp__mod.html#structamip__interp__mod_1_1date__type", [
@@ -24,26 +27,29 @@ var group__amip__interp__mod =
       [ "year", "group__amip__interp__mod.html#a14514b729794038873fad0f73c1ed648", null ]
     ] ],
     [ "operator(/=)", "group__amip__interp__mod.html#interfaceamip__interp__mod_1_1operator_07_2_0a_08", [
+      [ "date_not_equals", "group__amip__interp__mod.html#a1b4a8516bb223e5a67e138f79e8eb972", null ],
       [ "date_not_equals", "group__amip__interp__mod.html#a1b4a8516bb223e5a67e138f79e8eb972", null ]
     ] ],
     [ "operator(==)", "group__amip__interp__mod.html#interfaceamip__interp__mod_1_1operator_07_0a_0a_08", [
+      [ "date_equals", "group__amip__interp__mod.html#ac649fa336040cfb37034b4612093d574", null ],
       [ "date_equals", "group__amip__interp__mod.html#ac649fa336040cfb37034b4612093d574", null ]
     ] ],
     [ "operator(>)", "group__amip__interp__mod.html#interfaceamip__interp__mod_1_1operator_07_4_08", [
+      [ "date_gt", "group__amip__interp__mod.html#aa0a36d51ed8a5fcb5d0413349ead8c4a", null ],
       [ "date_gt", "group__amip__interp__mod.html#aa0a36d51ed8a5fcb5d0413349ead8c4a", null ]
     ] ],
-    [ "a2a_bilinear", "group__amip__interp__mod.html#gae83cd779d19f1e9bda44b5b958cbe56b", null ],
-    [ "amip_interp_del", "group__amip__interp__mod.html#gaa680c8750f89c6444c6caf3d93b54cb4", null ],
-    [ "amip_interp_init", "group__amip__interp__mod.html#ga6da33323528930f4680012957d27d6db", null ],
+    [ "a2a_bilinear", "group__amip__interp__mod.html#ga2fcf31c445943b30d5b9de16c307b901", null ],
+    [ "amip_interp_del", "group__amip__interp__mod.html#gafee551b568b55a3b20f569b1574a5d9a", null ],
+    [ "amip_interp_init", "group__amip__interp__mod.html#gada1c5b9964db4bab1a9ac4c6215bb49e", null ],
     [ "amip_interp_new_1d", "group__amip__interp__mod.html#gabd2d93a46d61e06656c1d6fb0bc860ed", null ],
     [ "amip_interp_new_2d", "group__amip__interp__mod.html#gaa1b090c156ea2e60936d5da08fb84dba", null ],
-    [ "date_equals", "group__amip__interp__mod.html#ga78cc915a2f75e5194c47758fb9cb1654", null ],
-    [ "date_gt", "group__amip__interp__mod.html#gae2ca4248791964f82f9a57dd37d893fa", null ],
-    [ "date_not_equals", "group__amip__interp__mod.html#ga3c40cf9b8032cf49729e129ba7f82ee6", null ],
-    [ "get_amip_ice", "group__amip__interp__mod.html#ga5f77efe6bfff8ab1bfac97d498559f80", null ],
-    [ "get_amip_sst", "group__amip__interp__mod.html#gae4985aae40b07468c1b5853c6bf85e56", null ],
-    [ "get_sst_grid_boundary", "group__amip__interp__mod.html#ga05d006da6918f318b38af8d13f13e140", null ],
-    [ "get_sst_grid_size", "group__amip__interp__mod.html#gaea83ce3a245a88edbea7527ab57f09e9", null ],
+    [ "date_equals", "group__amip__interp__mod.html#gac649fa336040cfb37034b4612093d574", null ],
+    [ "date_gt", "group__amip__interp__mod.html#gaa0a36d51ed8a5fcb5d0413349ead8c4a", null ],
+    [ "date_not_equals", "group__amip__interp__mod.html#ga1b4a8516bb223e5a67e138f79e8eb972", null ],
+    [ "get_amip_ice", "group__amip__interp__mod.html#ga98322c4a2f115f668fb9e91ab9120650", null ],
+    [ "get_amip_sst", "group__amip__interp__mod.html#ga33255761af7f1df2c59e52912a7eedeb", null ],
+    [ "get_sst_grid_boundary", "group__amip__interp__mod.html#ga4940dbfa8f47a6f2f32294ac594ae3e6", null ],
+    [ "get_sst_grid_size", "group__amip__interp__mod.html#gafa0687cae33c9018793e559e35f8a07d", null ],
     [ "amip_date", "group__amip__interp__mod.html#gab7579e5e6f55370c72227a97cb2ccdfc", null ],
     [ "data_set", "group__amip__interp__mod.html#ga152699dfbacd6122d5bb6be55ad94ff9", null ],
     [ "date_out_of_range", "group__amip__interp__mod.html#gaa167c4eb43e85f8c99c1a8a1b180d7cd", null ],
@@ -59,7 +65,7 @@ var group__amip__interp__mod =
     [ "use_daily", "group__amip__interp__mod.html#gacb88542e724acc5be8b5ee0d91a273ea", null ],
     [ "use_mpp_io", "group__amip__interp__mod.html#ga6354efeadfde9254bc8a3c2698bff1a0", null ],
     [ "use_ncep_ice", "group__amip__interp__mod.html#ga76b02f44ed43c67c14731a011046e039", null ],
-    [ "use_ncep_sst", "group__amip__interp__mod.html#gaa8eedc1bda43c7a973f0ee345f1703f5", null ],
+    [ "use_ncep_sst", "group__amip__interp__mod.html#ga6f4009eae2b5bf19e9e53c2e04809cf2", null ],
     [ "use_zonal", "group__amip__interp__mod.html#gacb2ca3b0d018a1722dc8ed8a4bc2963a", null ],
     [ "verbose", "group__amip__interp__mod.html#ga9e8dcf56a77b1b156ccc0fa7e082a46b", null ]
 ];

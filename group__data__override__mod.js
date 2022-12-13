@@ -2,11 +2,16 @@ var group__data__override__mod =
 [
     [ "data_override", "group__data__override__mod.html#interfacedata__override__mod_1_1data__override", [
       [ "data_override_0d", "group__data__override__mod.html#af96935254adf9244126eac38447749da", null ],
+      [ "data_override_0d", "group__data__override__mod.html#af96935254adf9244126eac38447749da", null ],
       [ "data_override_2d", "group__data__override__mod.html#aadc22eb1ca02590bc16a32f96d3df485", null ],
+      [ "data_override_2d", "group__data__override__mod.html#aadc22eb1ca02590bc16a32f96d3df485", null ],
+      [ "data_override_3d", "group__data__override__mod.html#a606e0bf4e8f9527a3906179c2f7e7658", null ],
       [ "data_override_3d", "group__data__override__mod.html#a606e0bf4e8f9527a3906179c2f7e7658", null ]
     ] ],
     [ "data_override_ug", "group__data__override__mod.html#interfacedata__override__mod_1_1data__override__ug", [
       [ "data_override_ug_1d", "group__data__override__mod.html#a131bfed766bd0e1634e33252fa154d27", null ],
+      [ "data_override_ug_1d", "group__data__override__mod.html#a131bfed766bd0e1634e33252fa154d27", null ],
+      [ "data_override_ug_2d", "group__data__override__mod.html#a8d44f0d204a28d7b7ad53fc76a819929", null ],
       [ "data_override_ug_2d", "group__data__override__mod.html#a8d44f0d204a28d7b7ad53fc76a819929", null ]
     ] ],
     [ "data_type", "group__data__override__mod.html#structdata__override__mod_1_1data__type", [
@@ -40,15 +45,15 @@ var group__data__override__mod =
       [ "t_index", "group__data__override__mod.html#aa40faba956e3774dedd514fd753ca028", null ],
       [ "window_size", "group__data__override__mod.html#ab0c4cba15e56b02404bc1384aa4fe99f", null ]
     ] ],
-    [ "data_override_0d", "group__data__override__mod.html#ga755e344bff837fddf7d6228ac5a29560", null ],
-    [ "data_override_2d", "group__data__override__mod.html#ga10a705be2480cc365529671393403a58", null ],
-    [ "data_override_3d", "group__data__override__mod.html#gaca2e734308287c6596f2f741fe7a8106", null ],
-    [ "data_override_init", "group__data__override__mod.html#ga6d2557fc803f0e4cec3a34728079c6c5", null ],
-    [ "data_override_ug_1d", "group__data__override__mod.html#ga1eee2afc9eaf949b7e07703ccfe99198", null ],
-    [ "data_override_ug_2d", "group__data__override__mod.html#ga7173691eb6f6c1bcb0330cf0672b56c8", null ],
-    [ "data_override_unset_domains", "group__data__override__mod.html#gae6a3ddf1fdbcd12f51b04211c9b406bb", null ],
-    [ "get_domain", "group__data__override__mod.html#ga6d9f6120e4f0ec9d4638595667f9f882", null ],
-    [ "get_domainug", "group__data__override__mod.html#ga12523810e1d295fd71f8690f9b6bc032", null ],
+    [ "data_override_0d", "group__data__override__mod.html#gaf96935254adf9244126eac38447749da", null ],
+    [ "data_override_2d", "group__data__override__mod.html#gaadc22eb1ca02590bc16a32f96d3df485", null ],
+    [ "data_override_3d", "group__data__override__mod.html#ga606e0bf4e8f9527a3906179c2f7e7658", null ],
+    [ "data_override_init", "group__data__override__mod.html#gacad7a8f7496b1a3d29e2393696f83d7b", null ],
+    [ "data_override_ug_1d", "group__data__override__mod.html#ga131bfed766bd0e1634e33252fa154d27", null ],
+    [ "data_override_ug_2d", "group__data__override__mod.html#ga8d44f0d204a28d7b7ad53fc76a819929", null ],
+    [ "data_override_unset_domains", "group__data__override__mod.html#ga52d9287b14cd5baa3822ed45b42caa12", null ],
+    [ "get_domain", "group__data__override__mod.html#gae5bfd3e4b9ef836dd592e6ad50854be5", null ],
+    [ "get_domainug", "group__data__override__mod.html#gabc3b2fa9aefb630434769ad6e553b941", null ],
     [ "data_table", "group__data__override__mod.html#ga836d40537b1b65012f0674526662bf90", null ],
     [ "num_fields", "group__data__override__mod.html#gabfaffcec6d80f4f9dd8232df6671d99b", null ],
     [ "override_array", "group__data__override__mod.html#ga18693b454bf695b32e482c65782160c1", null ],

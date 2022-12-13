@@ -1,6 +1,6 @@
 var group__atmos__ocean__fluxes__mod =
 [
-    [ "aof_set_coupler_flux", "group__atmos__ocean__fluxes__mod.html#ga1bd0443a803dd443bd7a4f24dae28e13", null ],
-    [ "atmos_ocean_fluxes_init", "group__atmos__ocean__fluxes__mod.html#gaf3814a4cf6be2f317d74e21269b69758", null ],
-    [ "atmos_ocean_type_fluxes_init", "group__atmos__ocean__fluxes__mod.html#ga1be62040e5fb14991285cc66a4105717", null ]
+    [ "aof_set_coupler_flux", "group__atmos__ocean__fluxes__mod.html#ga26fff852109b90c54cd06a241ba4caac", null ],
+    [ "atmos_ocean_fluxes_init", "group__atmos__ocean__fluxes__mod.html#gac81b4d0b29215a15a1475fe707d98df6", null ],
+    [ "atmos_ocean_type_fluxes_init", "group__atmos__ocean__fluxes__mod.html#gabbad43efed27aa1a9dda7847a4365ed9", null ]
 ];

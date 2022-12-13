@@ -220,6 +220,7 @@ var group__netcdf__io__mod =
     [ "register_global_attribute_1d", "group__netcdf__io__mod.html#ga7b2740ed662cb8203d9c0cf3a6c0cbd4", null ],
     [ "register_restart_region_2d", "group__netcdf__io__mod.html#gaf0de21b157b27c976a496e0d053fb0e9", null ],
     [ "register_restart_region_3d", "group__netcdf__io__mod.html#ga7a848edf630c7e5f7a0859849efa5d27", null ],
+    [ "register_unlimited_compressed_axis", "group__netcdf__io__mod.html#gab03d798b88db75d96ecf30f8aab8bef7", null ],
     [ "scatter_data_bc_2d", "group__netcdf__io__mod.html#ga33f2332549738c113af405df9ecd957d", null ],
     [ "scatter_data_bc_3d", "group__netcdf__io__mod.html#gaece3b55f327bf0328e3af770bac1ae1e", null ],
     [ "set_dimensions", "group__netcdf__io__mod.html#ga3e52d09b0b9de3caae8171ab1dcf190b", null ],

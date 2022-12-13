@@ -4,11 +4,30 @@ digraph "horiz_interp_type"
  // LATEX_PDF_SIZE
   edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
   node [fontname="Helvetica",fontsize="10",shape=record];
-  Node1 [label="horiz_interp_type",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
-  Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" i_am_initialized\nfound_neighbors" ,fontname="Helvetica"];
+  rankdir="LR";
+  Node1 [label="horiz_interp_type",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Holds data pointers and metadata for horizontal interpolations, passed between the horiz_interp modul..."];
+  Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" found_neighbors\ni_am_initialized" ,fontname="Helvetica"];
   Node2 [label="logical",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
-  Node3 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" nlat_dst\nnlat_src\nj_lat\nilon\nnum_found\njlat\ninterp_method\ni_src\ni_dst\nj_src\n..." ,fontname="Helvetica"];
-  Node3 [label="integer",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
-  Node4 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" faci\nfacj\narea_frac_dst\nmax_src_dist\nsrc_dist\nrat_x\nrat_y\nwti\nlat_in\nwtj\n..." ,fontname="Helvetica"];
-  Node4 [label="real",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node3 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" kind8_reals" ,fontname="Helvetica"];
+  Node3 [label="horiz_interp_reals8",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structhoriz__interp__type__mod_1_1horiz__interp__reals8.html",tooltip="real(8) pointers for use in horiz_interp_type"];
+  Node4 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" max_src_dist" ,fontname="Helvetica"];
+  Node4 [label="real(kind=r8_kind)",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node5 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" area_dst\narea_src\nfaci\nfacj\nmask_in\nrat_x\nrat_y" ,fontname="Helvetica"];
+  Node5 [label="real(kind=r8_kind),\l dimension(:,:), pointer",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node6 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" area_frac_dst\nlat_in\nlon_in" ,fontname="Helvetica"];
+  Node6 [label="real(kind=r8_kind),\l dimension(:), pointer",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node7 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" src_dist\nwti\nwtj" ,fontname="Helvetica"];
+  Node7 [label="real(kind=r8_kind),\l dimension(:,:,:), pointer",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node8 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" i_dst\ni_lon\ni_src\nilon\ninterp_method\nj_dst\nj_lat\nj_src\njlat\nnlat_dst\n..." ,fontname="Helvetica"];
+  Node8 [label="integer",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node9 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" kind4_reals" ,fontname="Helvetica"];
+  Node9 [label="horiz_interp_reals4",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structhoriz__interp__type__mod_1_1horiz__interp__reals4.html",tooltip="holds real(4) pointers for use in horiz_interp_type"];
+  Node10 -> Node9 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" area_frac_dst\nlat_in\nlon_in" ,fontname="Helvetica"];
+  Node10 [label="real(kind=r4_kind),\l dimension(:), pointer",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node11 -> Node9 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" area_dst\narea_src\nfaci\nfacj\nmask_in\nrat_x\nrat_y" ,fontname="Helvetica"];
+  Node11 [label="real(kind=r4_kind),\l dimension(:,:), pointer",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node12 -> Node9 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" src_dist\nwti\nwtj" ,fontname="Helvetica"];
+  Node12 [label="real(kind=r4_kind),\l dimension(:,:,:), pointer",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node13 -> Node9 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" max_src_dist" ,fontname="Helvetica"];
+  Node13 [label="real(kind=r4_kind)",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
 }
