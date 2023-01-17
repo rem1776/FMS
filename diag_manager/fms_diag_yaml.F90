@@ -30,7 +30,7 @@
 !> @{
 module fms_diag_yaml_mod
 
-#define DEBUG .false.
+#define DEBUG .TRUE.
 #ifdef use_yaml
 use diag_data_mod,   only: DIAG_NULL, DIAG_OCEAN, DIAG_ALL, DIAG_OTHER, set_base_time, latlon_gridtype, &
                            index_gridtype, null_gridtype, DIAG_SECONDS, DIAG_MINUTES, DIAG_HOURS, DIAG_DAYS, &
