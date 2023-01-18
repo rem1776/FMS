@@ -682,6 +682,7 @@ subroutine set_file_freq(fileobj, file_freq, file_frequnit)
   character(len=10) :: file_freq_units(MAX_FREQ) !< Array of file frequencies as a string
   integer           :: err_unit                  !< Dummy error unit
 
+  fileobj%file_freq = DIAG_NULL !< rm init before read (for output)
   file_freq_units = ""
   read(file_freq, *, iostat=err_unit) fileobj%file_freq
   read(file_frequnit, *, iostat=err_unit) file_freq_units
@@ -1578,6 +1579,7 @@ subroutine fms_diag_yaml_out()
         write(tmpstr2, '(I0)') fileptr%file_freq(k)
         tmpstr1 = trim(tmpstr1)//" "//trim(tmpstr2)
     enddo
+    print *, '********** file name:', fileptr%file_fname, ' freq:', adjustl(tempstr1)
     call fms_f2c_string(vals2(i)%val2, adjustl(tmpstr1))
     call fms_f2c_string(vals2(i)%val3, get_diag_unit_string(fileptr%file_frequnit))
     tmpstr1 = ''

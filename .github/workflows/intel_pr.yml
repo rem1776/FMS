@@ -52,3 +52,5 @@ jobs:
       run: make -j || make
     - name: Run test suite
       run: make check LD_LIBRARY_PATH="/libs/lib:$LD_LIBRARY_PATH" SKIP_TESTS="$SKIP_TESTS" VERBOSE=1
+    - name: print output
+      run: cat test_fms/diag_manager/test_diag_manager2-files/diag_out.yaml
