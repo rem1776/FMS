@@ -1580,7 +1580,7 @@ subroutine fms_diag_yaml_out()
     do k=1, SIZE(fileptr%file_freq) 
         tmpstr1 = trim(tmpstr1)//" "//trim(string(fileptr%file_freq(k)))
     enddo
-    print *, '********** file name:', fileptr%file_fname, ' freq:', adjustl(tmpstr1)
+    print *, '********** file name:', fileptr%file_fname, 'freq:', fileptr%file_freq, 'tmp:',adjustl(tmpstr1)
     call fms_f2c_string(vals2(i)%val2, adjustl(tmpstr1))
     call fms_f2c_string(vals2(i)%val3, get_diag_unit_string(fileptr%file_frequnit))
     tmpstr1 = ''
