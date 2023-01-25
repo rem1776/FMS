@@ -41,7 +41,7 @@ use yaml_parser_mod, only: open_and_parse_file, get_value_from_key, get_num_bloc
 use mpp_mod,         only: mpp_error, FATAL, mpp_pe, mpp_root_pe, stdout
 use, intrinsic :: iso_c_binding, only : c_ptr, c_null_char
 use fms_string_utils_mod, only: fms_array_to_pointer, fms_find_my_string, fms_sort_this, fms_find_unique, &
-                                fms_f2c_string
+                                fms_f2c_string, string
 use fms_yaml_output_mod
 use platform_mod
 
@@ -1578,9 +1578,7 @@ subroutine fms_diag_yaml_out()
     call fms_f2c_string(vals2(i)%val4, get_diag_unit_string((/fileptr%file_timeunit/)))
     tmpstr1 = ''
     do k=1, SIZE(fileptr%file_freq) 
-        tmpstr2 = ''
-        write(tmpstr2, '(I0)') fileptr%file_freq(k)
-        tmpstr1 = trim(tmpstr1)//" "//trim(tmpstr2)
+        tmpstr1 = trim(tmpstr1)//" "//trim(string(fileptr%file_freq(k)))
     enddo
     print *, '********** file name:', fileptr%file_fname, ' freq:', adjustl(tmpstr1)
     call fms_f2c_string(vals2(i)%val2, adjustl(tmpstr1))
