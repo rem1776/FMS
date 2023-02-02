@@ -35,10 +35,7 @@
 program test_mpp_alltoall
 
   use platform_mod
-  use mpp_mod, only : mpp_init, mpp_init_test_requests_allocated, mpp_init_test_peset_allocated, mpp_error, FATAL
-  use mpp_mod, only : mpp_pe, mpp_npes, mpp_alltoall
-  use mpp_mod, only : mpp_type_create, mpp_type, mpp_byte
-
+  use mpp_mod
   implicit none
 
   integer :: npes, ierr
