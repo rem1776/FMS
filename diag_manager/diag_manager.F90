@@ -213,12 +213,12 @@ use platform_mod
   USE fms_mod, ONLY: error_mesg, FATAL, WARNING, NOTE, stdout, stdlog, write_version_number,&
        & fms_error_handler, check_nml_error, lowercase
   USE diag_axis_mod, ONLY: diag_axis_init, get_axis_length, get_axis_num, get_domain2d, get_tile_count,&
-       & diag_axis_add_attribute, axis_compatible_check, CENTER, NORTH, EAST
+       & diag_axis_add_attribute, axis_compatible_check, CENTER, NORTH, EAST, get_diag_axis_name
   USE diag_util_mod, ONLY: get_subfield_size, log_diag_field_info, update_bounds,&
        & check_out_of_bounds, check_bounds_are_exact_dynamic, check_bounds_are_exact_static,&
        & diag_time_inc, find_input_field, init_input_field, init_output_field,&
        & diag_data_out, write_static, get_date_dif, get_subfield_vert_size, sync_file_times,&
-       & prepend_attribute, attribute_init, diag_util_init
+       & prepend_attribute, attribute_init, diag_util_init, field_log_separator
   USE diag_data_mod, ONLY: max_files, CMOR_MISSING_VALUE, DIAG_OTHER, DIAG_OCEAN, DIAG_ALL, EVERY_TIME,&
        & END_OF_RUN, DIAG_SECONDS, DIAG_MINUTES, DIAG_HOURS, DIAG_DAYS, DIAG_MONTHS, DIAG_YEARS, num_files,&
        & max_input_fields, max_output_fields, num_output_fields, EMPTY, FILL_VALUE, null_axis_id,&
@@ -758,7 +758,8 @@ INTEGER FUNCTION register_diag_field_array_old(module_name, field_name, axes, in
     INTEGER :: tile, file_num
     LOGICAL :: mask_variant1, dynamic1, allow_log
     CHARACTER(len=128) :: msg
-    INTEGER :: domain_type
+    INTEGER :: domain_type, i
+    character(len=256) :: axes_list, axis_name
 
     ! Fatal error if the module has not been initialized.
     IF ( .NOT.module_is_initialized ) THEN
@@ -815,12 +816,16 @@ INTEGER FUNCTION register_diag_field_array_old(module_name, field_name, axes, in
        END IF
     END IF
 
-    ! Namelist do_diag_field_log is by default false.  Thus to log the
-    ! registration of the data field, but the OPTIONAL parameter
-    ! do_not_log == .FALSE. and the namelist variable
-    ! do_diag_field_log == .TRUE..
+    ! only writes log if do_diag_field_log is true in the namelist (default false)
+    ! if do_diag_field_log is true and do_not_log arg is present as well, it will only print if do_not_log = false
     IF ( do_diag_field_log.AND.allow_log ) THEN
-       CALL log_diag_field_info (module_name, field_name, axes, &
+        axes_list=''
+        DO i = 1, SIZE(axes)
+            CALL get_diag_axis_name(axes(i),axis_name)
+            IF ( TRIM(axes_list) /= '' ) axes_list = TRIM(axes_list)//','
+            axes_list = TRIM(axes_list)//TRIM(axis_name)
+        END DO
+        CALL log_diag_field_info (module_name, field_name, axes, axes_list, &
             & long_name, units, missing_value=missing_value, range=range, &
             & DYNAMIC=dynamic1)
     END IF
@@ -1218,16 +1223,9 @@ INTEGER FUNCTION register_diag_field_array_old(module_name, field_name, axes, in
     CHARACTER(len=*), INTENT(in) :: module_name !< Module name that registered the variable
     CHARACTER(len=*), INTENT(in) :: field_name !< Variable name
 
-    integer :: i !< For do loops
-
-    get_diag_field_id = DIAG_FIELD_NOT_FOUND
-    if (use_modern_diag) then
-      get_diag_field_id = fms_diag_object%fms_get_diag_field_id_from_name(module_name, field_name)
-    else
-      ! find_input_field will return DIAG_FIELD_NOT_FOUND if the field is not
-      ! included in the diag_table
-      get_diag_field_id = find_input_field(module_name, field_name, tile_count=1)
-    endif
+    ! find_input_field will return DIAG_FIELD_NOT_FOUND if the field is not
+    ! included in the diag_table
+    get_diag_field_id = find_input_field(module_name, field_name, tile_count=1)
   END FUNCTION get_diag_field_id
 
   !> @brief Finds the corresponding related output field and file for a given input field
@@ -3799,7 +3797,6 @@ INTEGER FUNCTION register_diag_field_array_old(module_name, field_name, axes, in
     INTEGER, DIMENSION(6), OPTIONAL, INTENT(IN) :: time_init !< Model time diag_manager initialized
     CHARACTER(len=*), INTENT(out), OPTIONAL :: err_msg
 
-    CHARACTER(len=*), PARAMETER :: SEP = '|'
 
     INTEGER, PARAMETER :: FltKind = R4_KIND
     INTEGER, PARAMETER :: DblKind = R8_KIND
@@ -3809,12 +3806,13 @@ INTEGER FUNCTION register_diag_field_array_old(module_name, field_name, axes, in
     INTEGER :: stdlog_unit, stdout_unit
     integer :: j
     CHARACTER(len=256) :: err_msg_local
+    logical :: use_mpp_io
 
     NAMELIST /diag_manager_nml/ append_pelist_name, mix_snapshot_average_fields, max_output_fields, &
          & max_input_fields, max_axes, do_diag_field_log, write_bytes_in_file, debug_diag_manager,&
          & max_num_axis_sets, max_files, use_cmor, issue_oor_warnings,&
          & oor_warnings_fatal, max_out_per_in_field, flush_nc_files, region_out_use_alt_value, max_field_attributes,&
-         & max_file_attributes, max_axis_attributes, prepend_date, use_modern_diag, use_clock_average
+         & max_file_attributes, max_axis_attributes, prepend_date, use_mpp_io
 
     ! If the module was already initialized do nothing
     IF ( module_is_initialized ) RETURN
@@ -3909,12 +3907,20 @@ INTEGER FUNCTION register_diag_field_array_old(module_name, field_name, axes, in
     END DO
 !> Allocate files
     ALLOCATE(files(max_files))
-    ALLOCATE(fileobjU(max_files))
-    ALLOCATE(fileobj(max_files))
-    ALLOCATE(fileobjND(max_files))
-    ALLOCATE(fnum_for_domain(max_files))
-    !> Initialize fnum_for_domain with "dn" which stands for done
-    fnum_for_domain(:) = "dn"
+    if (.not.use_mpp_io) then
+      ALLOCATE(fileobjU(max_files))
+      ALLOCATE(fileobj(max_files))
+      ALLOCATE(fileobjND(max_files))
+      ALLOCATE(fnum_for_domain(max_files))
+      !> Initialize fnum_for_domain with "dn" which stands for done
+      fnum_for_domain(:) = "dn"
+      CALL error_mesg('diag_manager_mod::diag_manager_init',&
+               & 'diag_manager is using fms2_io', NOTE)
+    else
+       CALL error_mesg('diag_manager_mod::diag_manager_init',&
+             &'MPP_IO is no longer supported.  Please remove use_mpp_io from diag_manager_nml namelist',&
+              &FATAL)
+    endif
     ALLOCATE(pelist(mpp_npes()))
     CALL mpp_get_current_pelist(pelist, pelist_name)
 
@@ -3935,23 +3941,24 @@ INTEGER FUNCTION register_diag_field_array_old(module_name, field_name, axes, in
       CALL fms_diag_object%init(diag_subset_output)
     endif
    if (.not. use_modern_diag) then
-     CALL parse_diag_table(DIAG_SUBSET=diag_subset_output, ISTAT=mystat, ERR_MSG=err_msg_local)
-     IF ( mystat /= 0 ) THEN
+    CALL parse_diag_table(DIAG_SUBSET=diag_subset_output, ISTAT=mystat, ERR_MSG=err_msg_local)
+    IF ( mystat /= 0 ) THEN
        IF ( fms_error_handler('diag_manager_mod::diag_manager_init',&
             & 'Error parsing diag_table. '//TRIM(err_msg_local), err_msg) ) RETURN
-     END IF
+    END IF
    endif
     !initialize files%bytes_written to zero
     files(:)%bytes_written = 0
 
     ! open diag field log file
     IF ( do_diag_field_log.AND.mpp_pe().EQ.mpp_root_pe() ) THEN
-       open(newunit=diag_log_unit, file='diag_field_log.out', action='WRITE')
-       WRITE (diag_log_unit,'(777a)') &
-            & 'Module',        SEP, 'Field',          SEP, 'Long Name',    SEP,&
-            & 'Units',         SEP, 'Number of Axis', SEP, 'Time Axis',    SEP,&
-            & 'Missing Value', SEP, 'Min Value',      SEP, 'Max Value',    SEP,&
-            & 'AXES LIST'
+      open(newunit=diag_log_unit, file='diag_field_log.out', action='WRITE')
+      WRITE (diag_log_unit,'(777a)') &
+           & 'Module',         FIELD_LOG_SEPARATOR, 'Field',     FIELD_LOG_SEPARATOR, &
+           & 'Long Name',      FIELD_LOG_SEPARATOR, 'Units',     FIELD_LOG_SEPARATOR, &
+           & 'Number of Axis', FIELD_LOG_SEPARATOR, 'Time Axis', FIELD_LOG_SEPARATOR, &
+           & 'Missing Value',  FIELD_LOG_SEPARATOR, 'Min Value', FIELD_LOG_SEPARATOR,  &
+           & 'Max Value',      FIELD_LOG_SEPARATOR, 'AXES LIST'
     END IF
 
     module_is_initialized = .TRUE.
