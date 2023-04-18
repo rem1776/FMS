@@ -52,3 +52,7 @@ jobs:
       run: make -j || make
     - name: Run test suite
       run: make check LD_LIBRARY_PATH="/libs/lib:$LD_LIBRARY_PATH" SKIP_TESTS="$SKIP_TESTS" VERBOSE=1
+    - name: SSH debug
+      uses: lhotari/action-upterm@v1
+      with:
+        limit-access-to-actor: true
