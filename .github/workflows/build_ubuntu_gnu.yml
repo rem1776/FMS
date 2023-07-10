@@ -18,8 +18,7 @@ jobs:
       env:
         TEST_VERBOSE: 1
         DISTCHECK_CONFIGURE_FLAGS: "${{ matrix.conf-flags }} ${{ matrix.input-flag }} ${{ matrix.io-flag }}"
-        OMP_NUM_THREADS: 2
-        GOMP_CPU_AFFINITY: "0 1"
+        OMP_NUM_THREADS: 8
         GOMP_DEBUG: 1
     steps:
     - name: Checkout code
