@@ -70,7 +70,7 @@ test_diag_manager_01
 _EOF
 setup_test
 test_expect_success "Data array is too large in x and y direction (test $my_test_count)" '
-  mpirun -n 1 ../test_diag_manager
+  mpirun -n 1 --cpus-per-task=2 ../test_diag_manager
 '
 
 my_test_count=2
