@@ -26,8 +26,10 @@
 . ../test-lib.sh
 
 touch input.nml
+export OMP_NUM_THREADS="17"
+
 test_expect_success "test_string_utils" '
-  mpirun -n 4 ./test_string_utils
+  mpirun -n 2 ./test_string_utils
 '
 
 test_done
