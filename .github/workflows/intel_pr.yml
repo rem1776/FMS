@@ -1,7 +1,14 @@
-on: pull_request
+on: push
 jobs:
   intel-autotools:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        CC: [ icc, icx ]
+        FC: [ ifort, ifx ]
+        exclude:
+          - CC: icx
+            FC: ifort
     container:
       image: intel/oneapi-hpckit:2023.1.0-devel-ubuntu20.04
       env:
@@ -12,8 +19,9 @@ jobs:
         LDFLAGS: "-L/libs/lib"
         TEST_VERBOSE: 1
         I_MPI_FABRICS: "shm" # needed for mpi in image
-        # intel bug causes some failures with shm option(required in container)
-        SKIP_TESTS: "test_mpp_update_domains.1 test_update_domains_performance.1 test_diag_manager2.23"
+        #SKIP_TESTS: "test_mpp_update_domains.1 test_update_domains_performance.1 test_diag_manager2.23"
+        I_MPI_CC: ${{ matrix.CC }}
+        I_MPI_FC: ${{ matrix.FC }}
     steps:
     - name: Cache dependencies
       id: cache
