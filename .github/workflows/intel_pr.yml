@@ -1,7 +1,43 @@
 on: push
 jobs:
-  intel-autotools:
+  build-netcdf:
     runs-on: ubuntu-latest
+    container:
+      image: intel/oneapi-hpckit:2023.1.0-devel-ubuntu20.04
+      env:
+        CC: mpiicc
+        FC: mpiifort
+    steps:
+     - name: Install packages for building
+       run: apt-get update && apt-get install -y autoconf libtool automake zlibc zlib1g-dev
+     - if: steps.cache.outputs.cache-hit != 'true'
+       name: Build netcdf
+       run: |
+         mkdir /libs
+         wget https://hdf-wordpress-1.s3.amazonaws.com/wp-content/uploads/manual/HDF5/HDF5_1_12_2/source/hdf5-1.12.2.tar.gz
+         tar xf hdf5-1.12.2.tar.gz && cd hdf5-1.12.2
+         ./configure --prefix=/libs
+         make -j install && cd ..
+         wget https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.8.1.tar.gz
+         tar xf v4.8.1.tar.gz && cd netcdf-c-4.8.1
+         ./configure --prefix=/libs --enable-remote-fortran-bootstrap
+         make -j install
+         # sets this here to pass embeded configure checks
+         export LD_LIBRARY_PATH="/libs/lib:$LD_LIBRARY_PATH"
+         make -j -k build-netcdf-fortran
+         make -j install-netcdf-fortran
+         wget https://github.com/yaml/libyaml/releases/download/0.2.5/yaml-0.2.5.tar.gz
+         tar xf yaml-0.2.5.tar.gz && cd yaml-0.2.5
+         ./configure --prefix=/libs
+         make -j install && cd
+     - uses: actions/upload-artifact@master
+       with:
+         name: fms-deps
+         path: /libs
+    
+  makecheck-fms:
+    runs-on: ubuntu-latest
+    needs: build-netcdf
     strategy:
       matrix:
         CC: [ icc, icx ]
@@ -23,34 +59,10 @@ jobs:
         I_MPI_CC: ${{ matrix.CC }}
         I_MPI_FC: ${{ matrix.FC }}
     steps:
-    - name: Cache dependencies
-      id: cache
-      uses: actions/cache@v3
+    - uses: actions/download-artifact@master
       with:
+        name: fms-deps
         path: /libs
-        key: ${{ runner.os }}-intel-libs
-    - name: Install packages for building
-      run: apt-get update && apt-get install -y autoconf libtool automake zlibc zlib1g-dev
-    - if: steps.cache.outputs.cache-hit != 'true'
-      name: Build netcdf
-      run: |
-        mkdir /libs
-        wget https://hdf-wordpress-1.s3.amazonaws.com/wp-content/uploads/manual/HDF5/HDF5_1_12_2/source/hdf5-1.12.2.tar.gz
-        tar xf hdf5-1.12.2.tar.gz && cd hdf5-1.12.2
-        ./configure --prefix=/libs
-        make -j install && cd ..
-        wget https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.8.1.tar.gz
-        tar xf v4.8.1.tar.gz && cd netcdf-c-4.8.1
-        ./configure --prefix=/libs --enable-remote-fortran-bootstrap
-        make -j install
-        # sets this here to pass embeded configure checks
-        export LD_LIBRARY_PATH="/libs/lib:$LD_LIBRARY_PATH"
-        make -j -k build-netcdf-fortran
-        make -j install-netcdf-fortran
-        wget https://github.com/yaml/libyaml/releases/download/0.2.5/yaml-0.2.5.tar.gz
-        tar xf yaml-0.2.5.tar.gz && cd yaml-0.2.5
-        ./configure --prefix=/libs
-        make -j install && cd
     - name: checkout
       uses: actions/checkout@v2
     - name: Configure
