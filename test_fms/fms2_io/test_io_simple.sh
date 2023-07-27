@@ -47,7 +47,7 @@ test_expect_success "Test the get_valid is_valid functionality single PE" '
   mpirun -n 1 ../test_get_is_valid
 '
 test_expect_success "Test the get_valid is_valid functionality multiple PE" '
-  mpirun -n 1 ../test_get_is_valid
+  mpirun -n 6 ../test_get_is_valid
 '
 test_expect_success "Test the unlimited compressed axis functionality" '
   mpirun -n 6 ../test_unlimit_compressed

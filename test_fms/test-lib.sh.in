@@ -328,7 +328,7 @@ test_expect_success () {
   if test "${!rank_override}"
   then
     local arglist=($mpi_cmd)
-    echo "Overriding MPI ranks for ${TEST_NAME}, test number ${test_count}"
+    echo "Overriding MPI ranks for ${TEST_NAME}, test ${test_count}"
     echo "Running with ${!rank_override} ranks"
     printf -v mpi_cmd "\n  ${arglist[0]} ${arglist[1]} ${!rank_override} ${arglist[3]}"
   fi

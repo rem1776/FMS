@@ -110,6 +110,16 @@ AS_IF([test ${enable_8byte_int:-no} = yes],
   [enable_8byte_int=yes],
   [enable_8byte_int=no])
 
+AC_ARG_ENABLE([scaling-tests],
+  [AS_HELP_STRING([--enable-scaling-tests],
+    [Enables larger core counts for unit tests. (Default no)])])
+AS_IF([test ${enable_scaling_tests:-no} = yes],
+  [enable_scaling_tests=yes],
+  [enable_scaling_tests=no])
+AS_IF([test "x$enable_scaling_tests" != "xno"],
+        [ AM_CONDITIONAL([DO_SCALING_TESTS], true)],
+        [ AM_CONDITIONAL([DO_SCALING_TESTS], false)])
+
 # user enabled testing with input files
 AC_MSG_CHECKING([whether to enable tests with input files])
 AC_ARG_ENABLE([test-input],

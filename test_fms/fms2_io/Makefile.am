@@ -65,6 +65,22 @@ test_fms2_io.$(OBJEXT): argparse.mod
 # Run the test program.
 TESTS = test_bc_restart.sh test_fms2_io.sh test_atmosphere_io.sh test_io_simple.sh test_io_with_mask.sh test_global_att.sh test_read_ascii_file.sh
 
+TESTS_ENVIRONMENT= srcdir="$(abs_top_srcdir)" ncdump_skip=${skipflag}
+
+# conditional testing options, scaling by 100 * current ranks
+if DO_SCALING_TESTS
+ TESTS_ENVIRONMENT+= TEST_FMS2_IO_1_RANKS=600 \
+                     TEST_ATMOSPHERE_IO_1_RANKS=600 \
+                     TEST_ATMOSPHERE_IO_2_RANKS=600 \
+                     TEST_ATMOSPHERE_IO_3_RANKS=600 \
+                     TEST_BC_RESTART_1_RANKS=1600 \
+                     TEST_BC_RESTART_2_RANKS=1600 \
+                     TEST_BC_RESTART_3_RANKS=1600 \
+                     TEST_GLOBAL_ATT_1_RANKS=100 \
+                     TEST_IO_WITH_MASK_1_RANKS=500 \
+                     TEST_READ_ASCII_FILE_1_RANKS=600
+endif
+
 if SKIP_NCDUMP_CHECKS
 skipflag="skip"
 else
@@ -75,6 +91,5 @@ endif
 TEST_EXTENSIONS = .sh
 SH_LOG_DRIVER = env AM_TAP_AWK='$(AWK)' $(SHELL) \
                   $(abs_top_srcdir)/test_fms/tap-driver.sh
-TESTS_ENVIRONMENT = srcdir="$(abs_top_srcdir)" ncdump_skip=${skipflag}
 
 CLEANFILES = *.mod *.nc *.nc.* input.nml logfile.000000.out the_mask ascii_test1 *.dpi *.spi *.dyn *.spl *-files/*

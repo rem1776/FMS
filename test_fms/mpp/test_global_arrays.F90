@@ -67,7 +67,7 @@ program test_global_arrays
   call mpp_set_root_pe(0)
   root = mpp_root_pe()
   !> define domains and allocate
-  call mpp_define_domains( (/1,length,1,length/), (/4,2/), domain, xhalo=0)
+  call mpp_define_domains( (/1,length,1,length/), (/npes/2,2/), domain, xhalo=0)
   call mpp_get_compute_domain(domain, jsc, jec, isc, iec)
   call mpp_get_data_domain(domain, jsd, jed, isd, ied)
   allocate(dataI4(jsd:jed, isd:ied),dataI8(jsd:jed, isd:ied), rands(length*length))
