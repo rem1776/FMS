@@ -61,7 +61,6 @@ integer :: i
 
 namelist / test_fms2_io_nml / nx, ny, nz
 
-
 !Initialize mpp.
 call mpp_init()
 my_rank = mpp_pe()
@@ -96,7 +95,13 @@ tests(:) = .true.
 io_layout(:) = 1
 ocn_io_layout(:) = 1
 npes_group = 1
-debug = .false.
+debug = .true.
+
+! using large test option
+if ( npes .eq. 768) then
+    nx = nx * 10; ny = ny * 10; nz = nz * 10
+    io_layout = (/ 1, 64/)
+endif
 
 !Parse command line arguments.
 call get_argument(parser, "-t",  buf)
@@ -115,6 +120,7 @@ if (trim(buf) .ne. "not present") then
     stop 1
   endif
 endif
+
 call get_argument(parser, "-x", buf)
 if (trim(buf) .ne. "not present") then
   read(buf,*) nx
@@ -143,7 +149,7 @@ endif
 call mpp_domains_init()
 do i = 1,ntiles
   global_indices(:, i) = (/1, nx, 1, ny/)
-  layout(:, i) = (/1, npes/ntiles/)
+  layout(:, i) = (/2, npes/ntiles/2 /)
   pe_start(i) = (i-1)*(npes/ntiles)
   pe_end(i) = i*(npes/ntiles) - 1
 enddo

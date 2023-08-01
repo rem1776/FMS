@@ -69,7 +69,7 @@ TESTS_ENVIRONMENT= srcdir="$(abs_top_srcdir)" ncdump_skip=${skipflag}
 
 # conditional testing options, scaling by 100 * current ranks
 if DO_SCALING_TESTS
- TESTS_ENVIRONMENT+= TEST_FMS2_IO_1_RANKS=600 \
+ TESTS_ENVIRONMENT+= TEST_FMS2_IO_1_RANKS=768 \
                      TEST_ATMOSPHERE_IO_1_RANKS=600 \
                      TEST_ATMOSPHERE_IO_2_RANKS=600 \
                      TEST_ATMOSPHERE_IO_3_RANKS=600 \
