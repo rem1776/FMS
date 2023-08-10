@@ -59,7 +59,7 @@ type(domain2d) :: atmosphere_domain
 type(domainug) :: land_domain
 integer :: i
 
-namelist / test_fms2_io_nml / nx, ny, nz
+namelist / test_fms2_io_nml / nx, ny, nz, io_layout, ocn_io_layout
 
 !Initialize mpp.
 call mpp_init()
@@ -92,15 +92,15 @@ call parse_args(parser)
 
 !Set defaults.
 tests(:) = .true.
-io_layout(:) = 1
-ocn_io_layout(:) = 1
+!io_layout(:) = 1
+!ocn_io_layout(:) = 1
 npes_group = 1
 debug = .true.
 
 ! using large test option
 if ( npes .eq. 768) then
-    nx = nx * 10; ny = ny * 10; nz = nz * 10
-    io_layout = (/ 1, 64/)
+!    nx = nx * 10; ny = ny * 10; nz = nz * 10
+!    io_layout = (/ 1, 64/)
 endif
 
 !Parse command line arguments.

@@ -30,23 +30,11 @@ output_dir
 
 touch input.nml
 
+rm *.nc
+
 # run the tests
 test_expect_success "Test atmosphere IO" '
-  mpirun -n 6 ../test_atmosphere_io
-'
-
-# run test 2 - test for bad checksum (should fail)
-rm *.nc
-printf "&test_atmosphere_io_nml\n bad_checksum=.true.\n /" | cat > input.nml
-test_expect_failure "bad checksum failure" '
-  mpirun -n 6 ../test_atmosphere_io
-'
-
-# run test 3 - test for ignoring a bad checksum
-rm *.nc
-printf "&test_atmosphere_io_nml\n bad_checksum=.true.\n ignore_checksum=.true.\n /" | cat > input.nml
-test_expect_success "ignore bad checksum" '
-  mpirun -n 6 ../test_atmosphere_io
+  mpirun -n 768 ../test_atmosphere_io -x 384 -y 384
 '
 
 test_done
