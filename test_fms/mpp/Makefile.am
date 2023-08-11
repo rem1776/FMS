@@ -25,13 +25,6 @@ AM_CPPFLAGS = -I${top_srcdir}/include -I$(MODDIR)
 # Link to the FMS library.
 LDADD = ${top_builddir}/libFMS/libFMS.la
 
-if DO_SCALING_TESTS
- TESTS_ENVIRONMENT= TEST_MPP_DOMAINS2_2_RANKS=1028  \
-                    TEST_MPP_ALLTOALL_1_RANKS=64  \
-                    TEST_MPP_BROADCAST_1_RANKS=1028 \
-                    TEST_MPP2_1_RANKS=128
-endif
-
 # Build these test programs.
 check_PROGRAMS = test_mpp \
   test_super_grid \

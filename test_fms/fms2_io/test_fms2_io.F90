@@ -97,11 +97,6 @@ ocn_io_layout(:) = 1
 npes_group = 1
 debug = .true.
 
-! using large test option
-if ( npes .eq. 768) then
-    nx = nx * 10; ny = ny * 10; nz = nz * 10
-    io_layout = (/ 1, 64/)
-endif
 
 !Parse command line arguments.
 call get_argument(parser, "-t",  buf)
@@ -149,11 +144,17 @@ endif
 call mpp_domains_init()
 do i = 1,ntiles
   global_indices(:, i) = (/1, nx, 1, ny/)
-  layout(:, i) = (/2, npes/ntiles/2 /)
+  layout(:, i) = (/12 , npes/ntiles/16 /)
   pe_start(i) = (i-1)*(npes/ntiles)
   pe_end(i) = i*(npes/ntiles) - 1
 enddo
-ocn_layout = (/1, npes/)
+ocn_layout = (/12, 36/)
+
+! using large test option
+if ( npes .eq. 2880) then
+    nx = 1080; ny = 1080; nz = 10 
+    io_layout = (/ 6, 3/)
+endif
 
 call fms2_io_init()
 !Run tests.
