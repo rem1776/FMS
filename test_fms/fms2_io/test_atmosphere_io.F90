@@ -85,17 +85,37 @@ character(len=6), dimension(4) :: names
 character(len=8) :: timestamp
 logical :: ignore_checksum = .false.
 logical :: bad_checksum = .false.
-integer :: io_layout(2)
+integer :: io_layout1(2) !< io layout used for domain
+integer :: io_layout2(2) !< io layout used for domain2
+logical :: run_large_tests = .false. !< gets set to true if running with --enable-large-tests configure option
+                                !! Checks pe count is 4608, and if so adjusts layouts and data set sizes
+integer, parameter :: lrge_test_npes = 4608 !< actual pe count set in makefile.am
 
 integer :: io    !< Error code when reading namelist
 integer :: ierr  !< Error code when reading namelist
 
-namelist /test_atmosphere_io_nml/ bad_checksum, ignore_checksum, io_layout
+namelist /test_atmosphere_io_nml/ bad_checksum, ignore_checksum
 
 !Initialize.
 call init(test_params, ntiles)
-call create_cubed_sphere_domain(test_params, domain, io_layout ) 
-call create_cubed_sphere_domain(test_params, domain2, (/2, mpp_npes()/ntiles/2/))
+
+run_large_tests = mpp_npes() .eq. lrge_test_npes
+
+! these could be passed in as flags due to the arg parser
+! but checking pes and setting them is a lot less complicated
+if(run_large_tests) then
+  test_params%nx = 1080
+  test_params%ny = 1080
+  test_params%nz = 10
+  io_layout1 = (/ 6, 12/)
+  io_layout1 = (/ 12, mpp_npes()/ntiles/12 /)
+else
+  io_layout1 = 1
+  io_layout1 = (/ 1, mpp_npes()/ntiles /)
+endif
+
+call create_cubed_sphere_domain(test_params, domain, io_layout1 )
+call create_cubed_sphere_domain(test_params, domain2, io_layout2)
 call mpi_barrier(mpi_comm_world, err)
 call mpi_check(err)
 call random_seed()
