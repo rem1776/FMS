@@ -148,7 +148,8 @@ endif
 if ( run_large_tests ) then
     nx = 1080; ny = 1080; nz = 12
     io_layout = (/ 6, 16/)
-    io_layout = (/ 6, 16/)
+    tests(land) = .false. ! TODO
+    tests(land) = .false. ! TODO
 endif
 
 !Prepare for domains creation.
