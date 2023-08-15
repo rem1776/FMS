@@ -33,8 +33,14 @@ output_dir
 # make an input.nml for mpp_init to read
 touch input.nml
 
-test_expect_success "Simple IO test" '
-  mpirun -n 6 ../test_io_simple
+# run the tests
+test_expect_success "Test the filename_appendix functionality" '
+  mpirun -n 1 ../test_file_appendix
 '
-
-test_done
+test_expect_success "Test the get_mosaic_tile_grid functionality" '
+  mpirun -n 6 ../test_get_mosaic_tile_grid
+'
+test_expect_success "Test the get_valid is_valid functionality single PE" '
+  mpirun -n 1 ../test_get_is_valid
+'
+test_expect_success "Test the get_valid is_valid functionality multiple PE" '

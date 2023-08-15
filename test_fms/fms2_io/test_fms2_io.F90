@@ -97,12 +97,6 @@ tests(:) = .true.
 npes_group = 1
 debug = .true.
 
-! using large test option
-if ( npes .eq. 768) then
-!    nx = nx * 10; ny = ny * 10; nz = nz * 10
-!    io_layout = (/ 1, 64/)
-endif
-
 !Parse command line arguments.
 call get_argument(parser, "-t",  buf)
 if (trim(buf) .ne. "not present") then
@@ -145,15 +139,23 @@ if (trim(buf) .eq. "present") then
   debug = .true.
 endif
 
+! using large test option
+if ( npes .eq. 4608) then
+    nx = 1080; ny = 1080; nz = 12 
+    io_layout = (/ 6, 16/)
+endif
+
 !Prepare for domains creation.
 call mpp_domains_init()
 do i = 1,ntiles
   global_indices(:, i) = (/1, nx, 1, ny/)
-  layout(:, i) = (/2, npes/ntiles/2 /)
+  layout(:, i) = (/12 , npes/ntiles/12 /)
   pe_start(i) = (i-1)*(npes/ntiles)
   pe_end(i) = i*(npes/ntiles) - 1
 enddo
-ocn_layout = (/1, npes/)
+ocn_layout = (/12, 36/)
+
+if (mpp_pe() .eq. mpp_root_pe()) print *, 'layout', layout, 'pe_start', pe_start, 'pe_end', pe_end
 
 call fms2_io_init()
 !Run tests.
@@ -167,6 +169,7 @@ if (tests(atmos)) then
                                 io_layout, atmosphere_domain)
   call atmosphere_restart_file(atmosphere_domain, nz, 3, debug)
 endif
+call mpp_sync()
 if (tests(land)) then
   if (.not. tests(atmos)) then
     if (mod(npes, ntiles) .ne. 0) then
@@ -177,10 +180,11 @@ if (tests(land)) then
                                   global_indices, layout, pe_start, pe_end, &
                                   io_layout, atmosphere_domain)
   endif
-  call create_land_domain(atmosphere_domain, nx, ny, ntiles, land_domain, npes_group)
+  call create_land_domain(atmosphere_domain, nx, ny, ntiles, land_domain, 8)
   call land_unstructured_restart_file(land_domain, nz, 2, debug)
   call land_compressed_restart_file(nz, 4, debug)
 endif
+call mpp_sync()
 if (tests(ocean)) then
   call create_ocean_domain(ntiles*nx, ntiles*ny, npes, ocean_domain, ocn_layout, &
                            ocn_io_layout)

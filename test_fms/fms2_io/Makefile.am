@@ -50,7 +50,9 @@ test_file_appendix_SOURCES=test_file_appendix.F90
 test_unlimit_compressed_SOURCES=test_unlimit_compressed.F90
 test_chunksizes_SOURCES = test_chunksizes.F90
 
-EXTRA_DIST = test_bc_restart.sh test_fms2_io.sh test_atmosphere_io.sh test_io_simple.sh test_global_att.sh test_io_with_mask.sh test_read_ascii_file.sh
+EXTRA_DIST = test_bc_restart.sh test_fms2_io.sh test_atmosphere_io.sh test_io_simple.sh \
+             test_global_att.sh test_io_with_mask.sh test_read_ascii_file.sh \
+             test_io_functionality.sh
 
 # fixes issue with make implicitly trying to use m2c for argparse
 %.o: %.mod
@@ -63,22 +65,17 @@ test_io_simple.$(OBJEXT): setup.mod
 test_fms2_io.$(OBJEXT): argparse.mod
 
 # Run the test program.
-TESTS = test_bc_restart.sh test_fms2_io.sh test_atmosphere_io.sh test_io_simple.sh test_io_with_mask.sh test_global_att.sh test_read_ascii_file.sh
+TESTS = test_bc_restart.sh test_fms2_io.sh test_atmosphere_io.sh test_io_simple.sh \
+        test_io_with_mask.sh test_global_att.sh test_read_ascii_file.sh \
+        test_io_functionality.sh
 
 TESTS_ENVIRONMENT= srcdir="$(abs_top_srcdir)" ncdump_skip=${skipflag}
 
 # conditional testing options, scaling by 100 * current ranks
-if DO_SCALING_TESTS
- TESTS_ENVIRONMENT+= TEST_FMS2_IO_1_RANKS=768 \
-                     TEST_ATMOSPHERE_IO_1_RANKS=600 \
-                     TEST_ATMOSPHERE_IO_2_RANKS=600 \
-                     TEST_ATMOSPHERE_IO_3_RANKS=600 \
-                     TEST_BC_RESTART_1_RANKS=1600 \
-                     TEST_BC_RESTART_2_RANKS=1600 \
-                     TEST_BC_RESTART_3_RANKS=1600 \
-                     TEST_GLOBAL_ATT_1_RANKS=100 \
-                     TEST_IO_WITH_MASK_1_RANKS=500 \
-                     TEST_READ_ASCII_FILE_1_RANKS=600
+if DO_LARGE_TESTS
+ TESTS_ENVIRONMENT+= TEST_FMS2_IO_1_RANKS=4608 \
+                     TEST_IO_SIMPLE_1_RANKS=4608 \
+                     TEST_IO_ATMOSPHERE_1_RANKS=4608
 endif
 
 if SKIP_NCDUMP_CHECKS

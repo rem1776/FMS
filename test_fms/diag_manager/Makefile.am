@@ -35,33 +35,6 @@ test_diag_manager_SOURCES = test_diag_manager.F90
 test_diag_manager_time_SOURCES = test_diag_manager_time.F90
 test_diag_update_buffer_SOURCES= test_diag_update_buffer.F90
 
-if DO_SCALING_TESTS
- TESTS_ENVIRONMENT= TEST_DIAG_MANAGER2_1_RANKS=1028 \
-                    TEST_DIAG_MANAGER2_2_RANKS=1028 \
-                    TEST_DIAG_MANAGER2_3_RANKS=1028 \
-                    TEST_DIAG_MANAGER2_4_RANKS=1028 \
-                    TEST_DIAG_MANAGER2_5_RANKS=1028 \
-                    TEST_DIAG_MANAGER2_6_RANKS=1028 \
-                    TEST_DIAG_MANAGER2_7_RANKS=1028 \
-                    TEST_DIAG_MANAGER2_8_RANKS=1028 \
-                    TEST_DIAG_MANAGER2_9_RANKS=1028 \
-                    TEST_DIAG_MANAGER2_10_RANKS=1028 \
-                    TEST_DIAG_MANAGER2_11_RANKS=1028 \
-                    TEST_DIAG_MANAGER2_12_RANKS=1028 \
-                    TEST_DIAG_MANAGER2_13_RANKS=1028 \
-                    TEST_DIAG_MANAGER2_14_RANKS=1028 \
-                    TEST_DIAG_MANAGER2_15_RANKS=1028 \
-                    TEST_DIAG_MANAGER2_16_RANKS=1028 \
-                    TEST_DIAG_MANAGER2_17_RANKS=1028 \
-                    TEST_DIAG_MANAGER2_18_RANKS=1028 \
-                    TEST_DIAG_MANAGER2_19_RANKS=1028 \
-                    TEST_DIAG_MANAGER2_20_RANKS=1028 \
-                    TEST_DIAG_MANAGER2_21_RANKS=1028 \
-                    TEST_DIAG_MANAGER2_22_RANKS=1028 \
-                    TEST_DIAG_MANAGER2_23_RANKS=1028
-endif
-
-
 TEST_EXTENSIONS = .sh
 SH_LOG_DRIVER = env AM_TAP_AWK='$(AWK)' $(SHELL) \
                   $(abs_top_srcdir)/test_fms/tap-driver.sh

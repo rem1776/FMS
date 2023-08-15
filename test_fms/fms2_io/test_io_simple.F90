@@ -83,6 +83,10 @@ program test_io_simple
   do i = 1, 96
      double_buffer(i) = i
   end do
+  
+  if(mpp_npes() .eq. 4320) then
+
+  endif
 
   ! Initialize.
   call init(test_params, ntiles)

@@ -7425,6 +7425,7 @@ if ( is == ie ) then      ! x-alignment
  else if ( is == ieg ) then
     alignment = EAST
  else
+    print *, 'asdfg',  'is', is, 'ie', ie, 'isg', isg, 'ieg', ieg
     call mpp_error(FATAL, 'mpp_domains_define.inc: The contact region is not on the x-boundary of the tile')
  end if
  if ( js > je ) then
