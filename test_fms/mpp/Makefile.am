@@ -134,7 +134,6 @@ test_mpp_clock_begin_end_id_SOURCES=test_mpp_clock_begin_end_id.F90
 test_super_grid_SOURCES = test_super_grid.F90
 test_mpp_chksum_SOURCES = test_mpp_chksum.F90
 
-
 if DO_LARGE_TESTS
  TESTS_ENVIRONMENT=TEST_MPP_BROADCAST_1_RANKS=4608 \
                    TEST_MPP_CHKSUM_1_RANKS=4608 \
@@ -142,6 +141,11 @@ if DO_LARGE_TESTS
                    TEST_MPP_CHKSUM_3_RANKS=4608 \
                    TEST_MPP_GATSCAT_1_RANKS=4608
 endif
+
+# ifort gets a internal error during compilation for this test, issue #1071
+# we'll just remove the openmp flag if present since it doesn't use openmp at all
+test_mpp_alltoall.$(OBJEXT): FCFLAGS:=  $(filter-out -fopenmp,$(FCFLAGS))
+test_mpp_alltoall.$(OBJEXT): CPPFLAGS:= $(filter-out -fopenmp,$(CPPFLAGS))
 
 
 # Run the test programs.
