@@ -134,6 +134,16 @@ test_mpp_clock_begin_end_id_SOURCES=test_mpp_clock_begin_end_id.F90
 test_super_grid_SOURCES = test_super_grid.F90
 test_mpp_chksum_SOURCES = test_mpp_chksum.F90
 
+
+if DO_LARGE_TESTS
+ TESTS_ENVIRONMENT=TEST_MPP_BROADCAST_1_RANKS=4608 \
+                   TEST_MPP_CHKSUM_1_RANKS=4608 \
+                   TEST_MPP_CHKSUM_2_RANKS=4608 \
+                   TEST_MPP_CHKSUM_3_RANKS=4608 \
+                   TEST_MPP_GATSCAT_1_RANKS=4608
+endif
+
+
 # Run the test programs.
 TESTS = test_mpp_domains2.sh \
   test_redistribute_int.sh \

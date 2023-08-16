@@ -71,7 +71,6 @@ TESTS = test_bc_restart.sh test_fms2_io.sh test_atmosphere_io.sh test_io_simple.
 
 TESTS_ENVIRONMENT= srcdir="$(abs_top_srcdir)" ncdump_skip=${skipflag}
 
-# conditional testing options, scaling by 100 * current ranks
 if DO_LARGE_TESTS
  TESTS_ENVIRONMENT+= TEST_FMS2_IO_1_RANKS=4608 \
                      TEST_IO_SIMPLE_1_RANKS=4608 \
