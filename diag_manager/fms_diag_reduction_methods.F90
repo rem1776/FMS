@@ -1,22 +1,39 @@
-!> \author Ganga Purja Pun
-!> \email GFDL.Climate.Model.Info@noaa.gov
-!! \brief Contains routines for the modern diag manager
-!! These routines are meant to be used for checks and in reduction methods.
+!***********************************************************************
+!*                   GNU Lesser General Public License
+!*
+!* This file is part of the GFDL Flexible Modeling System (FMS).
+!*
+!* FMS is free software: you can redistribute it and/or modify it under
+!* the terms of the GNU Lesser General Public License as published by
+!* the Free Software Foundation, either version 3 of the License, or (at
+!* your option) any later version.
+!*
+!* FMS is distributed in the hope that it will be useful, but WITHOUT
+!* ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+!* FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+!* for more details.
+!*
+!* You should have received a copy of the GNU Lesser General Public
+!* License along with FMS.  If not, see <http://www.gnu.org/licenses/>.
+!***********************************************************************
 
+!> @defgroup fms_diag_reduction_methods_mod fms_diag_reduction_methods_mod
+!> @ingroup diag_manager
+!! @brief fms_diag_reduction_methods_mod contains routines that are meant to be used for
+!! error checking and setting up to do the reduction methods
+
+!> @file
+!> @brief File for @ref fms_diag_reduction_methods_mod
+
+!> @addtogroup fms_diag_reduction_methods_mod
+!> @{
 module fms_diag_reduction_methods_mod
-  use platform_mod
-  use mpp_mod, only: mpp_error
-  use fms_mod, only: fms_error_handler
-  use fms_diag_bbox_mod
-  use fms_diag_output_buffer_mod
-  use diag_data_mod, only: debug_diag_manager, time_max, time_min
-
+  use platform_mod, only: r8_kind, r4_kind
   implicit none
   private
 
-#ifdef use_yaml
-  public :: compare_two_sets_of_bounds, real_copy_set, check_indices_order, init_mask_3d
-  public :: fms_diag_update_extremum, update_scalar_extremum, update_array_extremum
+  public :: check_indices_order, init_mask, set_weight
+
   contains
 
   !> @brief Compares the corresponding bounding indices of the first set with the second set.
@@ -63,7 +80,7 @@ module fms_diag_reduction_methods_mod
   END FUNCTION compare_two_sets_of_bounds
 
   !> @brief Checks improper combinations of is, ie, js, and je.
-  !> @return Returns .false. if there is no error else .true.
+  !! @return The error message, empty string if no errors were found
   !> @note accept_data works in either one or another of two modes.
   !! 1. Input field is a window (e.g. FMS physics)
   !! 2. Input field includes halo data
@@ -75,38 +92,31 @@ module fms_diag_reduction_methods_mod
   !> @par
   !! There are a number of ways a user could mess up this logic, depending on the combination
   !! of presence/absence of is,ie,js,je. The checks below should catch improper combinations.
-  function check_indices_order(is_in, ie_in, js_in, je_in, error_msg) result(rslt)
+  pure function check_indices_order(is_in, ie_in, js_in, je_in) &
+  result(error_msg)
     integer, intent(in), optional :: is_in, ie_in, js_in, je_in !< Indices passed to fms_diag_accept_data()
-    character(len=*), intent(inout), optional :: error_msg !< An error message used only for testing purpose!!!
+    character(len=128) :: error_msg !< An error message used only for testing purpose!!!
 
-    character(len=52) :: err_module_name !< Stores the module name to be used in error calls
-    logical :: rslt !< Return value
-
-    rslt = .false. !< If no error occurs.
-
-    err_module_name = 'fms_diag_reduction_methods_mod::check_indices_order'
-
+    error_msg = ""
     IF ( PRESENT(ie_in) ) THEN
       IF ( .NOT.PRESENT(is_in) ) THEN
-        rslt = fms_error_handler(trim(err_module_name), 'ie_in present without is_in', error_msg)
-        IF (rslt) return
+        error_msg = 'ie_in present without is_in'
+        return
       END IF
       IF ( PRESENT(js_in) .AND. .NOT.PRESENT(je_in) ) THEN
-        rslt = fms_error_handler(trim(err_module_name),&
-          & 'is_in and ie_in present, but js_in present without je_in', error_msg)
-        IF (rslt) return
+        error_msg = 'is_in and ie_in present, but js_in present without je_in'
+        return
       END IF
     END IF
 
     IF ( PRESENT(je_in) ) THEN
       IF ( .NOT.PRESENT(js_in) ) THEN
-        rslt = fms_error_handler(trim(err_module_name), 'je_in present without js_in', error_msg)
-        IF (rslt) return
+        error_msg = 'je_in present without js_in'
+        return
       END IF
       IF ( PRESENT(is_in) .AND. .NOT.PRESENT(ie_in) ) THEN
-        rslt = fms_error_handler(trim(err_module_name),&
-          & 'js_in and je_in present, but is_in present without ie_in', error_msg)
-        IF (rslt) return
+        error_msg = 'js_in and je_in present, but is_in present without ie_in'
+        return
       END IF
     END IF
   end function check_indices_order
@@ -739,3 +749,52 @@ module fms_diag_reduction_methods_mod
   end subroutine update_array_extremum
 #endif
 end module fms_diag_reduction_methods_mod
+  !> @brief Sets the logical mask based on mask or rmask
+  !> @return logical mask
+  function init_mask(rmask, mask, field) &
+  result(oor_mask)
+    LOGICAL,  DIMENSION(:,:,:,:), pointer, INTENT(in) :: mask  !< The location of the mask
+    CLASS(*), DIMENSION(:,:,:,:), pointer, INTENT(in) :: rmask !< The masking values
+    CLASS(*), DIMENSION(:,:,:,:),          intent(in) :: field !< Field_data
+
+    logical, allocatable, dimension(:,:,:,:) :: oor_mask !< mask
+
+    ALLOCATE(oor_mask(SIZE(field, 1), SIZE(field, 2), SIZE(field, 3), SIZE(field, 4)))
+    oor_mask = .true.
+
+    if (associated(mask)) then
+      oor_mask = mask
+    elseif (associated(rmask)) then
+      select type (rmask)
+      type is (real(kind=r8_kind))
+        WHERE (rmask < 0.5_r8_kind) oor_mask = .FALSE.
+      type is (real(kind=r4_kind))
+        WHERE (rmask < 0.5_r4_kind) oor_mask = .FALSE.
+      end select
+    endif
+
+  end function init_mask
+
+  !> @brief Sets the weight based on the weight passed into send_data (1.0_r8_kind if the weight is not passed in)
+  !! The weight will be saved as an r8 and converted to r4 as needed
+  !! @return weight to use when averaging
+  pure function set_weight(weight) &
+  result(out_weight)
+    CLASS(*), INTENT(in), OPTIONAL :: weight !< The weight use when averaging
+
+    real(kind=r8_kind) :: out_weight
+
+    out_weight = 1.0_r8_kind
+    if (present(weight)) then
+      select type(weight)
+      type is (real(kind=r8_kind))
+        out_weight = real(weight, kind = r8_kind)
+      type is (real(kind=r4_kind))
+        out_Weight = real(weight, kind = r8_kind)
+      end select
+    endif
+  end function set_weight
+
+end module fms_diag_reduction_methods_mod
+!> @}
+! close documentation grouping
