@@ -29,6 +29,13 @@
 !> @{
 module fms_diag_reduction_methods_mod
   use platform_mod, only: r8_kind, r4_kind
+  use fms_diag_output_buffer_mod, only: fmsDiagOutputBuffer_type
+  use fms_diag_bbox_mod, only: fmsDiagBoundsHalos_type, fmsDiagIbounds_type
+  use diag_data_mod, only: debug_diag_manager, time_max, time_min
+  use fms_mod, only: fms_error_handler
+  use mpp_mod, only: mpp_error, FATAL ! TODO should double check we actually need both error routines (one might be for nonfatals)
+  use platform_mod, only: i4_kind, i8_kind, r4_kind, r8_kind
+
   implicit none
   private
 
@@ -221,7 +228,7 @@ module fms_diag_reduction_methods_mod
   subroutine fms_diag_update_extremum(flag, buffer_obj, field_data, recon_bounds, l_start, &
     l_end, is_regional, reduced_k_range, sample, mask, fieldName, hasDiurnalAxis, err_msg)
     integer, intent(in) :: flag !< Flag to indicate what to update: time_min for minimum; time_max for maximum
-    class(fmsDiagOutputBuffer_class), intent(inout) :: buffer_obj !< Remapped buffer to update
+    class(fmsDiagOutputBuffer_type), target, intent(inout) :: buffer_obj !< Remapped buffer to update
     class(*), intent(in) :: field_data(:,:,:,:) !< Field data
     type(fmsDiagBoundsHalos_type), intent(inout) :: recon_bounds !< Indices of bounds in the first three dimension
                                                                  !! of the field data
@@ -268,8 +275,7 @@ module fms_diag_reduction_methods_mod
       call mpp_error( FATAL, "fms_diag_reduction_methods_mod::fms_diag_update_extremum: flag must be either 3 or 4.")
     end if
 
-    !! TODO: remap buffer before passing to subroutines update_scalar_extremum and update_array_extremum
-    ptr_buffer => buffer_obj%remap_buffer(fieldName, hasDiurnalAxis)
+    ptr_buffer => buffer_obj%buffer
 
     ! Update buffer
     regional_if: IF (is_regional) THEN
@@ -281,31 +287,8 @@ module fms_diag_reduction_methods_mod
               & j <= l_end(2)+hj ) THEN
               i1 = i-l_start(1)-hi+1
               j1=  j-l_start(2)-hj+1
-              select type (buffer_obj)
-              type is (outputBuffer0d_type)
-                call update_scalar_extremum(flag, field_data, ptr_buffer, mask, sample, &
-                  recon_bounds, (/i,j,k/), (/i1,j1,k1/))
-              type is (outputBuffer1d_type)
-                call update_scalar_extremum(flag, field_data, ptr_buffer, mask, sample, &
-                  recon_bounds, (/i,j,k/), (/i1,j1,k1/))
-              type is (outputBuffer2d_type)
-                call update_scalar_extremum(flag, field_data, ptr_buffer, mask, sample, &
-                  recon_bounds, (/i,j,k/), (/i1,j1,k1/))
-              type is (outputBuffer3d_type)
-                call update_scalar_extremum(flag, field_data, ptr_buffer, mask, sample, &
-                  recon_bounds, (/i,j,k/), (/i1,j1,k1/))
-              type is (outputBuffer4d_type)
-                call update_scalar_extremum(flag, field_data, ptr_buffer, mask, sample, &
-                  recon_bounds, (/i,j,k/), (/i1,j1,k1/))
-              type is (outputBuffer5d_type)
-                call update_scalar_extremum(flag, field_data, ptr_buffer, mask, sample, &
-                  recon_bounds, (/i,j,k/), (/i1,j1,k1/))
-              class default
-                call mpp_error(FATAL, 'fms_diag_reduction_methods_mod::fms_diag_update_extremum'//&
-                  ' regional buffer_obj is not one of the support buffer types: outputBuffer0d_type'//&
-                  ' outputBuffer1d_type outputBuffer2d_type outputBuffer3d_type'//&
-                  ' outputBuffer4d_type outputBuffer5d_type')
-              end select
+              call update_scalar_extremum(flag, field_data, ptr_buffer, mask, sample, &
+                                          recon_bounds, (/i,j,k/), (/i1,j1,k1/)) ! TODO fix call
             end if
           END DO
         END DO
@@ -313,25 +296,7 @@ module fms_diag_reduction_methods_mod
     ELSE !< if not regional
       reduced_k_range_if: IF (reduced_k_range) THEN
         call IJKBounds%set_kbounds(l_start(3), l_end(3))
-        select type (buffer_obj)
-        type is (outputBuffer0d_type)
-          call update_array_extremum(flag, field_data, ptr_buffer, mask, sample, recon_bounds, reduced_k_range)
-        type is (outputBuffer1d_type)
-          call update_array_extremum(flag, field_data, ptr_buffer, mask, sample, recon_bounds, reduced_k_range)
-        type is (outputBuffer2d_type)
-          call update_array_extremum(flag, field_data, ptr_buffer, mask, sample, recon_bounds, reduced_k_range)
-        type is (outputBuffer3d_type)
-          call update_array_extremum(flag, field_data, ptr_buffer, mask, sample, recon_bounds, reduced_k_range)
-        type is (outputBuffer4d_type)
-          call update_array_extremum(flag, field_data, ptr_buffer, mask, sample, recon_bounds, reduced_k_range)
-        type is (outputBuffer5d_type)
-          call update_array_extremum(flag, field_data, ptr_buffer, mask, sample, recon_bounds, reduced_k_range)
-        class default
-          call mpp_error(FATAL, 'fms_diag_reduction_methods_mod::fms_diag_update_extremum in reduced_k_range_if'//&
-            ' regional buffer_obj is not one of the support buffer types: outputBuffer0d_type'//&
-            ' outputBuffer1d_type outputBuffer2d_type outputBuffer3d_type'//&
-            ' outputBuffer4d_type outputBuffer5d_type')
-        end select
+        call update_array_extremum(flag, field_data, ptr_buffer, mask, sample, recon_bounds, reduced_k_range)
       ELSE !< does not have reduced_k_range
         debug_diag_if: IF ( debug_diag_manager ) THEN
           ! Compare bounds {is-hi, ie-hi, js-hj, je-hj, ks, ke} with the bounds of first three dimensions of the buffer
@@ -345,92 +310,19 @@ module fms_diag_reduction_methods_mod
         END IF debug_diag_if
 
         !> If no error above, do update the buffer
-        select type (buffer_obj)
-        type is (outputBuffer0d_type)
-          call update_array_extremum(flag, field_data, ptr_buffer, mask, sample, recon_bounds, reduced_k_range)
-        type is (outputBuffer1d_type)
-          call update_array_extremum(flag, field_data, ptr_buffer, mask, sample, recon_bounds, reduced_k_range)
-        type is (outputBuffer2d_type)
-          call update_array_extremum(flag, field_data, ptr_buffer, mask, sample, recon_bounds, reduced_k_range)
-        type is (outputBuffer3d_type)
-          call update_array_extremum(flag, field_data, ptr_buffer, mask, sample, recon_bounds, reduced_k_range)
-        type is (outputBuffer4d_type)
-          call update_array_extremum(flag, field_data, ptr_buffer, mask, sample, recon_bounds, reduced_k_range)
-        type is (outputBuffer5d_type)
-          call update_array_extremum(flag, field_data, ptr_buffer, mask, sample, recon_bounds, reduced_k_range)
-        class default
-          call mpp_error(FATAL, 'fms_diag_reduction_methods_mod::fms_diag_update_extremum'//&
-            ' regional buffer_obj is not one of the support buffer types: outputBuffer0d_type'//&
-            ' outputBuffer1d_type outputBuffer2d_type outputBuffer3d_type'//&
-            ' outputBuffer4d_type outputBuffer5d_type')
-        end select
+        call update_array_extremum(flag, field_data, ptr_buffer, mask, sample, recon_bounds, reduced_k_range)
       END IF reduced_k_range_if
     end if regional_if
 
     ! Reset counter count_0d of the buffer object
-    select type (buffer_obj)
-    type is (outputBuffer0d_type)
-      select type (real_counter => buffer_obj%count_0d)
-      type is (real(kind=r4_kind))
-        real_counter(sample) = 1.0_r4_kind
-      type is (real(kind=r8_kind))
-        real_counter(sample) = 1.0_r8_kind
-      class default
-        call mpp_error(FATAL, 'fms_diag_reduction_methods_mod::fms_diag_update_extremum'//&
-          ' Unsupported type of buffer_obj%count_0d')
-      end select
-    type is (outputBuffer1d_type)
-      select type (real_counter => buffer_obj%count_0d)
-      type is (real(kind=r4_kind))
-        real_counter(sample) = 1.0_r4_kind
-      type is (real(kind=r8_kind))
-        real_counter(sample) = 1.0_r8_kind
-      class default
-        call mpp_error(FATAL, 'fms_diag_reduction_methods_mod::fms_diag_update_extremum'//&
-          ' Unsupported type of buffer_obj%count_0d')
-      end select
-    type is (outputBuffer2d_type)
-      select type (real_counter => buffer_obj%count_0d)
-      type is (real(kind=r4_kind))
-        real_counter(sample) = 1.0_r4_kind
-      type is (real(kind=r8_kind))
-        real_counter(sample) = 1.0_r8_kind
-      class default
-        call mpp_error(FATAL, 'fms_diag_reduction_methods_mod::fms_diag_update_extremum'//&
-          ' Unsupported type of buffer_obj%count_0d')
-      end select
-    type is (outputBuffer3d_type)
-      select type (real_counter => buffer_obj%count_0d)
-      type is (real(kind=r4_kind))
-        real_counter(sample) = 1.0_r4_kind
-      type is (real(kind=r8_kind))
-        real_counter(sample) = 1.0_r8_kind
-      class default
-        call mpp_error(FATAL, 'fms_diag_reduction_methods_mod::fms_diag_update_extremum'//&
-          ' Unsupported type of buffer_obj%count_0d')
-      end select
-    type is (outputBuffer4d_type)
-      select type (real_counter => buffer_obj%count_0d)
-      type is (real(kind=r4_kind))
-        real_counter(sample) = 1.0_r4_kind
-      type is (real(kind=r8_kind))
-        real_counter(sample) = 1.0_r8_kind
-      class default
-        call mpp_error(FATAL, 'fms_diag_reduction_methods_mod::fms_diag_update_extremum'//&
-          ' Unsupported type of buffer_obj%count_0d')
-      end select
-    type is (outputBuffer5d_type)
-      select type (real_counter => buffer_obj%count_0d)
-      type is (real(kind=r4_kind))
-        real_counter(sample) = 1.0_r4_kind
-      type is (real(kind=r8_kind))
-        real_counter(sample) = 1.0_r8_kind
-      class default
-        call mpp_error(FATAL, 'fms_diag_reduction_methods_mod::fms_diag_update_extremum'//&
-          ' Unsupported type of buffer_obj%count_0d')
-      end select
+    select type (real_counter => buffer_obj%count_0d)
+    type is (real(kind=r4_kind))
+      real_counter(sample) = 1.0_r4_kind
+    type is (real(kind=r8_kind))
+      real_counter(sample) = 1.0_r8_kind
     class default
-      call mpp_error(FATAL, 'fms_diag_reduction_methods_mod::fms_diag_update_extremum unsupported buffer type')
+      call mpp_error(FATAL, 'fms_diag_reduction_methods_mod::fms_diag_update_extremum'//&
+                            ' Unsupported type of buffer_obj%count_0d')
     end select
   end subroutine fms_diag_update_extremum
 
@@ -747,8 +639,7 @@ module fms_diag_reduction_methods_mod
       call mpp_error( FATAL, "fms_diag_reduction_methods_mod::update_array_extremum unsupported field data type")
     end select
   end subroutine update_array_extremum
-#endif
-end module fms_diag_reduction_methods_mod
+
   !> @brief Sets the logical mask based on mask or rmask
   !> @return logical mask
   function init_mask(rmask, mask, field) &
