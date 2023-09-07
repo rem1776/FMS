@@ -47,11 +47,21 @@ module fms_diag_reduction_methods_mod
     module procedure do_time_none_r4, do_time_none_r8
   end interface do_time_none
 
- ! helper routines from the include
+  ! helper routines from the include
   interface fms_diag_update_extremum
     module procedure fms_diag_update_extremum_r4
     module procedure fms_diag_update_extremum_r8
   end interface fms_diag_update_extremum
+
+  interface update_scalar_extremum
+    module procedure update_scalar_extremum_r4
+    module procedure update_scalar_extremum_r8
+  end interface
+
+  interface update_array_extremum
+    module procedure update_array_extremum_r4
+    module procedure update_array_extremum_r8
+  end interface
 
   contains
 
