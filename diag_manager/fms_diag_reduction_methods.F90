@@ -39,7 +39,7 @@ module fms_diag_reduction_methods_mod
   private
 
   public :: check_indices_order, init_mask, set_weight
-  public :: do_time_none
+  public :: do_time_none, init_mask_3d, real_copy_set, fms_diag_update_extremum
 
   !> @brief Does the time_none reduction method. See include/fms_diag_reduction_methods.inc
   !TODO This needs to be extended to integers
@@ -231,10 +231,11 @@ module fms_diag_reduction_methods_mod
 
   !> @brief Updates the buffer with the field data based on the value of the flag passed:
   !! time_min for minimum; time_max for maximum.
-  subroutine fms_diag_update_extremum(flag, buffer_obj, field_data, recon_bounds, l_start, &
+  subroutine fms_diag_update_extremum(flag, buffer, counter, count_0d, field_data, recon_bounds, l_start, &
     l_end, is_regional, reduced_k_range, sample, mask, fieldName, hasDiurnalAxis, err_msg)
     integer, intent(in) :: flag !< Flag to indicate what to update: time_min for minimum; time_max for maximum
-    class(fmsDiagOutputBuffer_type), target, intent(inout) :: buffer_obj !< Remapped buffer to update
+    class(*), target, intent(inout) :: buffer(:,:,:,:,:) !< buffer data from output buffer object
+    real(r8_kind), intent(inout) :: counter(:,:,:,:,:), count_0d !< counts used for weighted reductions
     class(*), intent(in) :: field_data(:,:,:,:) !< Field data
     type(fmsDiagBoundsHalos_type), intent(inout) :: recon_bounds !< Indices of bounds in the first three dimension
                                                                  !! of the field data
@@ -257,7 +258,6 @@ module fms_diag_reduction_methods_mod
     integer :: i, j, k !< For loops
     integer :: i1, j1, k1 !< Intermediate computed indices
     character(len=128) :: err_msg_local !< Stores local error message
-    class(*), pointer :: ptr_buffer(:,:,:,:,:) !< Pointer to 5D buffer for remapping
     type(fmsDiagIbounds_type) :: IJKBounds !< Bounding object for the I, J, and K indices
 
     !> Get the `bounds3D` member of the `recon_bounds`
@@ -281,8 +281,6 @@ module fms_diag_reduction_methods_mod
       call mpp_error( FATAL, "fms_diag_reduction_methods_mod::fms_diag_update_extremum: flag must be either 3 or 4.")
     end if
 
-    ptr_buffer => buffer_obj%buffer
-
     ! Update buffer
     regional_if: IF (is_regional) THEN
       DO k = l_start(3), l_end(3)
@@ -293,7 +291,7 @@ module fms_diag_reduction_methods_mod
               & j <= l_end(2)+hj ) THEN
               i1 = i-l_start(1)-hi+1
               j1=  j-l_start(2)-hj+1
-              call update_scalar_extremum(flag, field_data, ptr_buffer, mask, sample, &
+              call update_scalar_extremum(flag, field_data, buffer, mask, sample, &
                                           recon_bounds, (/i,j,k/), (/i1,j1,k1/)) ! TODO fix call
             end if
           END DO
@@ -302,13 +300,13 @@ module fms_diag_reduction_methods_mod
     ELSE !< if not regional
       reduced_k_range_if: IF (reduced_k_range) THEN
         call IJKBounds%set_kbounds(l_start(3), l_end(3))
-        call update_array_extremum(flag, field_data, ptr_buffer, mask, sample, recon_bounds, reduced_k_range)
+        call update_array_extremum(flag, field_data, buffer, mask, sample, recon_bounds, reduced_k_range)
       ELSE !< does not have reduced_k_range
         debug_diag_if: IF ( debug_diag_manager ) THEN
           ! Compare bounds {is-hi, ie-hi, js-hj, je-hj, ks, ke} with the bounds of first three dimensions of the buffer
           if (compare_two_sets_of_bounds((/is-hi, ie-hi, js-hj, je-hj, ks, ke/), &
-            (/LBOUND(ptr_buffer,1), UBOUND(ptr_buffer,1), LBOUND(ptr_buffer,2), UBOUND(ptr_buffer,2), &
-            LBOUND(ptr_buffer,3), UBOUND(ptr_buffer,3)/), err_msg_local)) THEN
+            (/LBOUND(buffer,1), UBOUND(buffer,1), LBOUND(buffer,2), UBOUND(buffer,2), &
+            LBOUND(buffer,3), UBOUND(buffer,3)/), err_msg_local)) THEN
             IF ( fms_error_handler('fms_diag_object_mod::fms_diag_update_extremum', err_msg_local, err_msg) ) THEN
               RETURN
             END IF
@@ -316,20 +314,14 @@ module fms_diag_reduction_methods_mod
         END IF debug_diag_if
 
         !> If no error above, do update the buffer
-        call update_array_extremum(flag, field_data, ptr_buffer, mask, sample, recon_bounds, reduced_k_range)
+        call update_array_extremum(flag, field_data, buffer, mask, sample, recon_bounds, reduced_k_range)
       END IF reduced_k_range_if
     end if regional_if
 
     ! Reset counter count_0d of the buffer object
-    select type (real_counter => buffer_obj%count_0d)
-    type is (real(kind=r4_kind))
-      real_counter(sample) = 1.0_r4_kind
-    type is (real(kind=r8_kind))
-      real_counter(sample) = 1.0_r8_kind
-    class default
-      call mpp_error(FATAL, 'fms_diag_reduction_methods_mod::fms_diag_update_extremum'//&
-                            ' Unsupported type of buffer_obj%count_0d')
-    end select
+    counter = 1.0_r8_kind
+    ! count_0d = 1.0_r8_kind ?
+
   end subroutine fms_diag_update_extremum
 
   !> @brief Updates individual element of the buffer associated with indices in running_indx1 and running_indx2
