@@ -33,7 +33,7 @@ use diag_data_mod, only: DIAG_NULL, DIAG_NOT_REGISTERED, i4, i8, r4, r8, time_ma
 use fms2_io_mod, only: FmsNetcdfFile_t, write_data, FmsNetcdfDomainFile_t, FmsNetcdfUnstructuredDomainFile_t
 use fms_diag_yaml_mod, only: diag_yaml
 use fms_diag_bbox_mod, only: fmsDiagIbounds_type, fmsDiagBoundsHalos_type, recondition_indices
-use fms_diag_reduction_methods_mod, only: do_time_none
+use fms_diag_reduction_methods_mod, only: do_time_none, fms_diag_update_extremum
 
 implicit none
 
@@ -471,14 +471,16 @@ end function do_time_none_wrapper
 
   !> @brief Does the time_max reduction method on the buffer object
   !! @return Error message if the math was not successful
-  function do_time_max_wrapper(this, field_data, mask, bounds_in, bounds_out, is_regional) &
+  function do_time_max_wrapper(this, field_data, mask, bounds_in, bounds_out, is_regional, reduced_k_range, fieldName) &
     result(err_msg)
     class(fmsDiagOutputBuffer_type), intent(inout) :: this                !< buffer object to write
     class(*),                        intent(in)    :: field_data(:,:,:,:) !< Buffer data for current time
     type(fmsDiagIbounds_type),       intent(in)    :: bounds_in           !< Indicies for the buffer passed in
     type(fmsDiagIbounds_type),       intent(in)    :: bounds_out          !< Indicies for the output buffer
     logical,                         intent(in)    :: mask(:,:,:,:)       !< Mask for the field
-    logical,                         intent(in)    :: is_regional
+    logical,                         intent(in)    :: is_regional         !< if doing reduction over a subregion
+    logical,                         intent(in)    :: reduced_k_range     !< if doing reduction over a specific range of k values 
+    character(len=*),                intent(in)    :: fieldName           !< name of field for error messaging
     character(len=128) :: err_msg
     integer :: halo_in_loc(2), halo_out_loc(2)
     type(fmsDiagBoundsHalos_type) :: halo_bounds_t !< Ibounds type + halos to pass in
@@ -504,14 +506,15 @@ end function do_time_none_wrapper
           ! TODO(rem) fix these calls, need to figure out if we still need to pass in (sub)regional and reduced k range flags
           ! since they seem to be handled via fms_diag_object so this might be even more straightforward
           call fms_diag_update_extremum(time_max, output_buffer, this%counter, this%count_0d, field_data, &
-                                        halo_bounds_t, bounds_out, is_regional, reduced_k_range, sample, mask, fieldName)
+                                        halo_bounds_t, bounds_out, is_regional, reduced_k_range, SIZE(this%count_0d), mask, fieldName)
         class default
           err_msg="the output buffer and the buffer send in are not of the same type (r8_kind)"
         end select
       type is (real(kind=r4_kind))
         select type (field_data)
         type is (real(kind=r4_kind))
-          call fms_diag_update_extremum(output_buffer, field_data, mask, bounds_in, bounds_out)
+          call fms_diag_update_extremum(time_max, output_buffer, this%counter, this%count_0d, field_data, &
+                                        halo_bounds_t, bounds_out, is_regional, reduced_k_range, SIZE(this%count_0d), mask, fieldName)
         class default
           err_msg="the output buffer and the buffer send in are not of the same type (r4_kind)"
         end select

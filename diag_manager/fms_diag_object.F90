@@ -851,7 +851,8 @@ function fms_diag_do_reduction(this, field_data, diag_field_id, oor_mask, weight
       endif
     case (time_min)
     case (time_max)
-      error_msg = buffer_ptr%do_time_max_wrapper(field_data, oor_mask, bounds_in, bounds_out, is_subregional)
+      error_msg = buffer_ptr%do_time_max_wrapper(field_data, oor_mask, bounds_in, bounds_out, &
+                                                 is_subregional, reduced_k_range, field_ptr%get_longname())
       if (trim(error_msg) .ne. "") then
         return
       endif
