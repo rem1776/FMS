@@ -20,7 +20,9 @@ module fms_diag_object_mod
 use mpp_mod, only: fatal, note, warning, mpp_error, mpp_pe, mpp_root_pe, stdout
 use diag_data_mod,  only: diag_null, diag_not_found, diag_not_registered, diag_registered_id, &
                          &DIAG_FIELD_NOT_FOUND, diag_not_registered, max_axes, TWO_D_DOMAIN, &
-                         &get_base_time, NULL_AXIS_ID, get_var_type, diag_not_registered
+                         &get_base_time, NULL_AXIS_ID, get_var_type, diag_not_registered, &
+                         &time_none, time_max, time_min, time_sum, time_average, time_diurnal, &
+                         &time_power, time_rms, r8
 
   USE time_manager_mod, ONLY: set_time, set_date, get_time, time_type, OPERATOR(>=), OPERATOR(>),&
        & OPERATOR(<), OPERATOR(==), OPERATOR(/=), OPERATOR(/), OPERATOR(+), ASSIGNMENT(=), get_date, &
@@ -195,8 +197,9 @@ integer function fms_register_diag_field_obj &
  LOGICAL,          OPTIONAL,     INTENT(in)    :: static                !< True if the variable is static
 #ifdef use_yaml
 
- class (fmsDiagFile_type), pointer :: fileptr => null() !< Pointer to the diag_file
- class (fmsDiagField_type), pointer :: fieldptr => null() !< Pointer to the diag_field
+ class (fmsDiagFile_type), pointer :: fileptr !< Pointer to the diag_file
+ class (fmsDiagField_type), pointer :: fieldptr !< Pointer to the diag_field
+ class (fmsDiagOutputBuffer_type), pointer :: bufferptr !< Pointer to the output buffer
  integer, allocatable :: file_ids(:) !< The file IDs for this variable
  integer :: i !< For do loops
  integer, allocatable :: diag_field_indices(:) !< indices where the field was found in the yaml
@@ -221,13 +224,17 @@ CALL MPP_ERROR(FATAL,"You can not use the modern diag manager without compiling 
 
 !> Use pointers for convenience
   fieldptr => this%FMS_diag_fields(this%registered_variables)
+!> Get the file IDs from the field indicies from the yaml
+  file_ids = get_diag_files_id(diag_field_indices)
+  call fieldptr%set_file_ids(file_ids)
 
 !> Initialize buffer_ids of this field with the diag_field_indices(diag_field_indices)
 !! of the sorted variable list
   fieldptr%buffer_ids = get_diag_field_ids(diag_field_indices)
   do i = 1, size(fieldptr%buffer_ids)
-    call this%FMS_diag_output_buffers(fieldptr%buffer_ids(i))%set_field_id(this%registered_variables)
-    call this%FMS_diag_output_buffers(fieldptr%buffer_ids(i))%set_yaml_id(fieldptr%buffer_ids(i))
+    bufferptr => this%FMS_diag_output_buffers(fieldptr%buffer_ids(i))
+    call bufferptr%set_field_id(this%registered_variables)
+    call bufferptr%set_yaml_id(fieldptr%buffer_ids(i))
   enddo
 
 !> Allocate and initialize member buffer_allocated of this field
@@ -239,9 +246,7 @@ CALL MPP_ERROR(FATAL,"You can not use the modern diag manager without compiling 
        mask_variant= mask_variant, standname=standname, do_not_log=do_not_log, err_msg=err_msg, &
        interp_method=interp_method, tile_count=tile_count, area=area, volume=volume, realm=realm, &
        static=static)
-!> Get the file IDs from the field indicies from the yaml
-  file_ids = get_diag_files_id(diag_field_indices)
-  call fieldptr%set_file_ids(file_ids)
+
 !> Add the axis information, initial time, and field IDs to the files
   if (present(axes) .and. present(init_time)) then
     do i = 1, size(file_ids)
@@ -714,12 +719,13 @@ subroutine fms_diag_do_io(this, is_end_of_run)
 #endif
 end subroutine fms_diag_do_io
 
- !> @brief Computes average, min, max, rms error, etc.
-  !! based on the specified reduction method for the field.
-  !> @return .True. if no error occurs.
-logical function fms_diag_do_reduction(this, field_data, diag_field_id, oor_mask, weight, &
-  time, is_in, js_in, ks_in, ie_in, je_in, ke_in)
-  class(fmsDiagObject_type), intent(in), target   :: this                !< Diag Object
+!> @brief Computes average, min, max, rms error, etc.
+!! based on the specified reduction method for the field.
+!> @return Empty string if successful, error message if it fails
+function fms_diag_do_reduction(this, field_data, diag_field_id, oor_mask, weight, &
+  bounds, using_blocking, time) &
+  result(error_msg)
+  class(fmsDiagObject_type), intent(inout), target:: this                !< Diag Object
   class(*),                  intent(in)           :: field_data(:,:,:,:) !< Field data
   integer,                   intent(in)           :: diag_field_id       !< ID of the input field
   logical,                   intent(in), target   :: oor_mask(:,:,:,:)   !< mask
@@ -728,8 +734,145 @@ logical function fms_diag_do_reduction(this, field_data, diag_field_id, oor_mask
   integer,                   intent(in), optional :: is_in, js_in, ks_in !< Starting indices of the variable
   integer,                   intent(in), optional :: ie_in, je_in, ke_in !< Ending indices of the variable
 
-  !TODO Everything
-  fms_diag_do_reduction = .true.
+  character(len=50)         :: error_msg          !< Error message to check
+  !TODO Mostly everything
+#ifdef use_yaml
+  type(fmsDiagField_type),          pointer :: field_ptr      !< Pointer to the field's object
+  type(fmsDiagOutputBuffer_type),   pointer :: buffer_ptr     !< Pointer to the field's buffer
+  class(fmsDiagFileContainer_type), pointer :: file_ptr       !< Pointer to the field's file
+  type(diagYamlFilesVar_type),      pointer :: field_yaml_ptr !< Pointer to the field's yaml
+
+  integer                   :: reduction_method   !< Integer representing a reduction method
+  integer                   :: ids                !< For looping through buffer ids
+  integer                   :: buffer_id          !< Id of the buffer
+  integer                   :: file_id            !< File id
+  integer, allocatable      :: axis_ids(:)        !< Axis ids for the buffer
+  logical                   :: is_subregional     !< .True. if the buffer is subregional
+  logical                   :: reduced_k_range    !< .True. is the field is only outputing a section
+                                                  !! of the z dimension
+  type(fmsDiagIbounds_type) :: bounds_in          !< Starting and ending indices of the input field_data
+  type(fmsDiagIbounds_type) :: bounds_out         !< Starting and ending indices of the output buffer
+  integer                   :: i                  !< For looping through axid ids
+  integer                   :: sindex             !< Starting index of a subregion
+  integer                   :: eindex             !< Ending index of a subregion
+  integer                   :: compute_idx(2)     !< Starting and Ending of the compute domain
+  character(len=1)          :: cart_axis          !< Cartesian axis of the axis
+  logical                   :: block_in_subregion !< .True. if the current block is part of the subregion
+  integer                   :: starting           !< Starting index of the subregion relative to the compute domain
+  integer                   :: ending             !< Ending index of the subregion relative to the compute domain
+  real(kind=r8_kind)        :: missing_value      !< Missing_value for data points that are masked
+                                                  !! This will obtained as r8 and converted to the right type as
+                                                  !! needed. This is to avoid yet another select type ...
+
+  !TODO mostly everything
+  field_ptr => this%FMS_diag_fields(diag_field_id)
+  if (field_ptr%has_missing_value()) then
+    select type (missing_val => field_ptr%get_missing_value(r8))
+    type is (real(kind=r8_kind))
+      missing_value = missing_val
+    class default
+      call mpp_error(FATAl, "The missing value for the field:"//trim(field_ptr%get_varname())//&
+        &" was not allocated to the correct type. This shouldn't have happened")
+    end select
+  endif
+
+  buffer_loop: do ids = 1, size(field_ptr%buffer_ids)
+    error_msg = ""
+    buffer_id = this%FMS_diag_fields(diag_field_id)%buffer_ids(ids)
+    file_id = this%FMS_diag_fields(diag_field_id)%file_ids(ids)
+
+    !< Gather all the objects needed for the buffer
+    field_yaml_ptr => field_ptr%diag_field(ids)
+    buffer_ptr     => this%FMS_diag_output_buffers(buffer_id)
+    file_ptr       => this%FMS_diag_files(file_id)
+
+    !< Go away if the file is a subregional file and the current PE does not have any data for it
+    if (.not. file_ptr%writing_on_this_pe()) cycle
+
+    !< Go away if finished doing math for this buffer
+    if (buffer_ptr%is_done_with_math()) cycle
+
+    bounds_out = bounds
+    if (.not. using_blocking) then
+      !< Set output bounds to start at 1:size(buffer_ptr%buffer)
+      call bounds_out%reset_bounds_from_array_4D(buffer_ptr%buffer(:,:,:,:,1))
+    endif
+
+    bounds_in = bounds
+    if (.not. bounds%has_halos) then
+      !< If field_data does not contain halos, set bounds_in to start at 1:size(field_data)
+      call bounds_in%reset_bounds_from_array_4D(field_data)
+    endif
+
+    is_subregional = file_ptr%is_regional()
+    reduced_k_range = field_yaml_ptr%has_var_zbounds()
+
+    !< Reset the bounds based on the reduced k range and subregional
+    is_subregional_reduced_k_range: if (is_subregional .or. reduced_k_range) then
+      axis_ids = buffer_ptr%get_axis_ids()
+      block_in_subregion = .true.
+      axis_loops: do i = 1, size(axis_ids)
+        !< Move on if the block does not have any data for the subregion
+        if (.not. block_in_subregion) cycle
+
+        select type (diag_axis => this%diag_axis(axis_ids(i))%axis)
+        type is (fmsDiagSubAxis_type)
+          sindex = diag_axis%get_starting_index()
+          eindex = diag_axis%get_ending_index()
+          compute_idx = diag_axis%get_compute_indices()
+          starting=sindex-compute_idx(1)+1
+          ending=eindex-compute_idx(1)+1
+          if (using_blocking) then
+            block_in_subregion = determine_if_block_is_in_region(starting, ending, bounds, i)
+            if (.not. block_in_subregion) cycle
+
+            !< Set bounds_in so that you can the correct section of the data for the block (starting at 1)
+            call bounds_in%rebase_input(bounds, starting, ending, i)
+
+            !< Set bounds_out to be the correct section relative to the block starting and ending indices
+            call bounds_out%rebase_output(starting, ending, i)
+          else
+            !< Set bounds_in so that only the subregion section of the data will be used (starting at 1)
+            call bounds_in%update_index(starting, ending, i, .false.)
+
+            !< Set bounds_out to 1:size(subregion) for the PE
+            call bounds_out%update_index(1, ending-starting+1, i, .true.)
+          endif
+        end select
+      enddo axis_loops
+      deallocate(axis_ids)
+      !< Move on to the next buffer if the block does not have any data for the subregion
+      if (.not. block_in_subregion) cycle
+    endif is_subregional_reduced_k_range
+
+    !< Determine the reduction method for the buffer
+    reduction_method = field_yaml_ptr%get_var_reduction()
+    select case(reduction_method)
+    case (time_none)
+      error_msg = buffer_ptr%do_time_none_wrapper(field_data, oor_mask, bounds_in, bounds_out, missing_value)
+      if (trim(error_msg) .ne. "") then
+        return
+      endif
+    case (time_min)
+    case (time_max)
+    case (time_sum)
+    case (time_average)
+    case (time_power)
+    case (time_rms)
+    case (time_diurnal)
+    case default
+      error_msg = "The reduction method is not supported. "//&
+        "Only none, min, max, sum, average, power, rms, and diurnal are supported."
+    end select
+
+    if (field_ptr%is_static() .or. file_ptr%FMS_diag_file%is_done_writing_data()) then
+      call buffer_ptr%set_done_with_math()
+    endif
+  enddo buffer_loop
+#else
+  error_msg = ""
+  CALL MPP_ERROR(FATAL,"You can not use the modern diag manager without compiling with -Duse_yaml")
+#endif
 end function fms_diag_do_reduction
 
 !> @brief Adds the diag ids of the Area and or Volume of the diag_field_object
@@ -1003,7 +1146,6 @@ subroutine allocate_diag_field_output_buffers(this, field_data, field_id)
   class(DiagYamlFilesVar_type), pointer :: ptr_diag_field_yaml !< Pointer to a field from yaml fields
   integer, allocatable :: axis_ids(:) !< Pointer to indices of axes of the field variable
   integer :: var_type !< Stores type of the field data (r4, r8, i4, i8, and string) represented as an integer.
-  class(*), allocatable :: missing_value !< Missing value to initialize the data to
   character(len=128), allocatable :: var_name !< Field name to initialize output buffers
   logical :: is_scalar !< Flag indicating that the variable is a scalar
   integer :: yaml_id
@@ -1015,29 +1157,6 @@ subroutine allocate_diag_field_output_buffers(this, field_data, field_id)
 
   ! Get variable/field name
   var_name = this%Fms_diag_fields(field_id)%get_varname()
-
-  ! Get missing value for the field
-  !TODO class (*) is weird missing_value = this%FMS_diag_fields(field_id)%get_missing_value(var_type)
-  !!should work ...
-  if (this%FMS_diag_fields(field_id)%has_missing_value()) then
-    select type (my_type => this%FMS_diag_fields(field_id)%get_missing_value(var_type))
-      type is (real(kind=r4_kind))
-        missing_value = real(my_type, kind=r4_kind)
-      type is (real(kind=r8_kind))
-        missing_value = real(my_type, kind=r8_kind)
-      class default
-        call mpp_error( FATAL, 'fms_diag_object_mod:allocate_diag_field_output_buffers Invalid type')
-    end select
-  else
-    select type (my_type => get_default_missing_value(var_type))
-      type is (real(kind=r4_kind))
-        missing_value = real(my_type, kind=r4_kind)
-      type is (real(kind=r8_kind))
-        missing_value = real(my_type, kind=r8_kind)
-      class default
-        call mpp_error( FATAL, 'fms_diag_object_mod:allocate_diag_field_output_buffers Invalid type')
-    end select
-  endif
 
   ! Determine dimensions of the field
   is_scalar = this%FMS_diag_fields(field_id)%is_scalar()
@@ -1070,7 +1189,7 @@ subroutine allocate_diag_field_output_buffers(this, field_data, field_id)
     ptr_diag_buffer_obj => this%FMS_diag_output_buffers(buffer_id)
     call ptr_diag_buffer_obj%allocate_buffer(field_data(1, 1, 1, 1), ndims, axes_length(1:5), &
           this%FMS_diag_fields(field_id)%get_varname(), num_diurnal_samples)
-    call ptr_diag_buffer_obj%initialize_buffer(missing_value, var_name)
+    call ptr_diag_buffer_obj%initialize_buffer(ptr_diag_field_yaml%get_var_reduction(), var_name)
 
     if (allocated(axis_ids)) deallocate(axis_ids)
   enddo
