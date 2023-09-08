@@ -18,7 +18,7 @@
 !***********************************************************************
 
 !> @brief Do the time_none reduction method (i.e copy the correct portion of the input data)
-subroutine DO_TIME_NONE_ (data_out, data_in, mask, bounds_in, bounds_out)
+subroutine DO_TIME_NONE_ (data_out, data_in, mask, bounds_in, bounds_out, missing_value)
   real(FMS_TRM_KIND_),       intent(inout) :: data_out(:,:,:,:,:) !< output data
   real(FMS_TRM_KIND_),       intent(in)    :: data_in(:,:,:,:)    !< data to update the buffer with
   logical,                   intent(in)    :: mask(:,:,:,:)       !< mask
@@ -26,6 +26,7 @@ subroutine DO_TIME_NONE_ (data_out, data_in, mask, bounds_in, bounds_out)
                                                                   !! of the input buffer
   type(fmsDiagIbounds_type), intent(in)    :: bounds_out          !< indices indicating the correct portion
                                                                   !! of the output buffer
+  real(FMS_TRM_KIND_),       intent(in)    :: missing_value       !< Missing_value for data points that are masked
 
   integer :: is_in, ie_in, js_in, je_in, ks_in, ke_in       !< Starting and ending indices of each dimention for
                                                             !! the input buffer
@@ -46,9 +47,12 @@ subroutine DO_TIME_NONE_ (data_out, data_in, mask, bounds_in, bounds_out)
   ks_in = bounds_in%get_kmin()
   ke_in = bounds_in%get_kmax()
 
-  where (mask(is_in:ie_in, js_in:je_in, ks_in:ke_in, :)) &
+  where (mask(is_in:ie_in, js_in:je_in, ks_in:ke_in, :))
     data_out(is_out:ie_out, js_out:je_out, ks_out:ke_out, :, 1) = &
     data_in(is_in:ie_in, js_in:je_in, ks_in:ke_in, :)
+  elsewhere
+    data_out(is_out:ie_out, js_out:je_out, ks_out:ke_out, :, 1) = missing_value
+  end where
 
 end subroutine DO_TIME_NONE_
 
@@ -58,7 +62,7 @@ end subroutine DO_TIME_NONE_
     bounds_out, is_regional, reduced_k_range, sample, mask, fieldName, hasDiurnalAxis, err_msg)
     integer, intent(in) :: flag !< Flag to indicate what to update: time_min for minimum; time_max for maximum
     real(FMS_TRM_KIND_), target, intent(inout) :: buffer(:,:,:,:,:) !< buffer data from output buffer object
-    real(r8_kind), intent(inout) :: counter(:,:,:,:,:), count_0d !< counts used for weighted reductions
+    real(r8_kind), intent(inout) :: counter(:,:,:,:,:), count_0d(:) !< counts used for weighted reductions
     real(FMS_TRM_KIND_), intent(in) :: field_data(:,:,:,:) !< Field data
     type(fmsDiagBoundsHalos_type), intent(inout) :: bounds_halos_in !< Indices of bounds and halos for the first three dimension
                                                                  !! of the field data
