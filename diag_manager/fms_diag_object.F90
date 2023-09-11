@@ -41,7 +41,7 @@ use fms_mod, only: fms_error_handler
 use fms_diag_reduction_methods_mod, only: check_indices_order, init_mask, set_weight
 use constants_mod, only: SECONDS_PER_DAY
 use fms_diag_bbox_mod, only: fmsDiagBoundsHalos_type, recondition_indices, fmsDiagIbounds_type
-use fms_diag_reduction_methods_mod, only: check_indices_order, init_mask_3d, real_copy_set, fms_diag_update_extremum
+use fms_diag_reduction_methods_mod, only: check_indices_order, fms_diag_update_extremum
 #endif
 USE fms_diag_bbox_mod, ONLY: fmsDiagIbounds_type, determine_if_block_is_in_region
 #if defined(_OPENMP)

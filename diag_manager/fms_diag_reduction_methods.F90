@@ -39,7 +39,7 @@ module fms_diag_reduction_methods_mod
   private
 
   public :: check_indices_order, init_mask, set_weight
-  public :: do_time_none, init_mask_3d, real_copy_set, fms_diag_update_extremum
+  public :: do_time_none, fms_diag_update_extremum
 
   !> @brief Does the time_none reduction method. See include/fms_diag_reduction_methods.inc
   !TODO This needs to be extended to integers
@@ -149,101 +149,6 @@ module fms_diag_reduction_methods_mod
       END IF
     END IF
   end function check_indices_order
-
-  !> @brief Copies input data to output data with specific type and precision
-  !! if the input data is present else sets the output data to a given value val if it is present.
-  !! If the value val and the input data are not present, the output data is untouched.
-  subroutine real_copy_set(out_data, in_data, val, err_msg)
-    real, intent(out) :: out_data !< Proper type copy of in_data
-    class(*), intent(in), optional :: in_data !< Data to copy to out_data
-    real, intent(in), optional :: val !< Default value to assign to out_data if in_data is absent
-    character(len=*), intent(out), optional :: err_msg !< Error message to pass back to caller
-
-    IF ( PRESENT(err_msg) ) err_msg = ''
-
-    IF ( PRESENT(in_data) ) THEN
-      SELECT TYPE (in_data)
-      TYPE IS (real(kind=r4_kind))
-        out_data = in_data
-      TYPE IS (real(kind=r8_kind))
-        out_data = real(in_data)
-      CLASS DEFAULT
-        if (fms_error_handler('fms_diag_reduction_methods_mod::real_copy_set',&
-          & 'The in_data is not one of the supported types of real(kind=4) or real(kind=8)', err_msg)) THEN
-          return
-        end if
-      END SELECT
-    ELSE
-      if (present(val)) then
-        out_data = val
-      else
-        call mpp_error(FATAL, 'fms_diag_reduction_methods_mod::real_copy_set both in_data and val can be absent')
-      end if
-    END IF
-  end subroutine real_copy_set
-
-  !> @brief Allocates `outmask'(second argument) with sizes of the first three dimensions of
-  !! the field(first argument).
-  !! Initializes the `outmask' depending on presence/absence of `inmask' and `rmask'.
-  !! Uses `rmask_threshold' to set the `outmask'.
-  subroutine init_mask_3d(field, outmask, rmask_threshold, inmask, rmask, err_msg)
-    class(*), intent(in) :: field(:,:,:,:)  !< Dummy variable whose sizes only in the first three
-                                            !! dimensions are important
-    logical, allocatable, intent(inout) :: outmask(:,:,:) !< Output logical mask
-    class(*), intent(in) :: rmask_threshold !< Holds the values 0.5_r4_kind or 0.5_r8_kind, or related threhold values
-                                          !! needed to be passed to the math/buffer update functions.
-    logical, intent(in), optional :: inmask(:,:,:) !< Input logical mask
-    class(*), intent(in), optional :: rmask(:,:,:) !< Floating point input mask value
-    character(len=*), intent(out), optional :: err_msg !< Error message to relay back to caller
-
-    character(len=256) :: err_msg_local !< Stores locally generated error message
-    integer :: status !< Stores status of memory allocation call
-
-    ! Initialize character strings
-    err_msg_local = ''
-    if (present(err_msg)) err_msg = ''
-
-    ! Check if outmask is allocated
-    if (allocated(outmask)) deallocate(outmask)
-    ALLOCATE(outmask(SIZE(field, 1), SIZE(field, 2), SIZE(field, 3)), STAT=status)
-    IF ( status .NE. 0 ) THEN
-      WRITE (err_msg_local, FMT='("Unable to allocate outmask(",I5,",",I5,",",I5,"). (STAT: ",I5,")")')&
-            & SIZE(field, 1), SIZE(field, 2), SIZE(field, 3), status
-      if (fms_error_handler('fms_diag_reduction_methods_mod::init_mask_3d', trim(err_msg_local), err_msg)) then
-        return
-      end if
-    END IF
-
-    IF ( PRESENT(inmask) ) THEN
-      outmask = inmask
-    ELSE
-      outmask = .TRUE.
-    END IF
-
-    IF ( PRESENT(rmask) ) THEN
-      SELECT TYPE (rmask)
-        TYPE IS (real(kind=r4_kind))
-          select type (rmask_threshold)
-          type is (real(kind=r4_kind))
-            WHERE (rmask < rmask_threshold) outmask = .FALSE.
-          class default
-            call mpp_error(FATAL, 'fms_diag_reduction_methods_mod::init_mask_3d'//&
-              ' types of rmask and rmask_threshold do not match')
-          end select
-        TYPE IS (real(kind=r8_kind))
-          select type (rmask_threshold)
-          type is (real(kind=r8_kind))
-            WHERE (rmask < rmask_threshold) outmask = .FALSE.
-          class default
-            call mpp_error(FATAL, 'fms_diag_reduction_methods_mod::init_mask_3d'//&
-              ' types of rmask and rmask_threshold do not match')
-          end select
-        CLASS DEFAULT
-          call mpp_error(FATAL, 'fms_diag_reduction_methods_mod::init_mask_3d'//&
-            & ' The rmask is not one of the supported types of real(kind=4) or real(kind=8)')
-      END SELECT
-    END IF
-  end subroutine init_mask_3d
 
   !> @brief Sets the logical mask based on mask or rmask
   !> @return logical mask
