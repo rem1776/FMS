@@ -52,7 +52,7 @@ use fms2_io_mod,       only : FmsNetcdfFile_t, fms2_io_file_exist => file_exists
                               get_num_variables, get_dimension_size,   &
                               get_variable_units, get_variable_names,  &
                               get_time_calendar, close_file,           &
-                              get_variable_dimension_names, get_variable_sense
+                              get_variable_dimension_names, get_variable_sense, assignment(=)
 
 use horiz_interp_mod,  only : horiz_interp_type, &
                               horiz_interp_new,  &
@@ -346,6 +346,7 @@ type(interpolate_type), intent(inout) :: Out
 
      Out%interph = In%interph
      if (allocated(In%time_slice)) Out%time_slice =  In%time_slice
+     Out%fileobj   = In%fileobj
      Out%file_name = In%file_name
      Out%time_flag = In%time_flag
      Out%level_type = In%level_type
@@ -3423,6 +3424,8 @@ if (allocated (clim_type%has_level))  deallocate(clim_type%has_level)
 if (allocated (clim_type%field_name)) deallocate(clim_type%field_name)
 if (allocated (clim_type%time_init )) deallocate(clim_type%time_init)
 if (allocated (clim_type%mr        )) deallocate(clim_type%mr)
+if (allocated (clim_type%out_of_bounds )) deallocate(clim_type%out_of_bounds)
+if (allocated (clim_type%vert_interp )) deallocate(clim_type%vert_interp)
 if (allocated (clim_type%data)) then
   deallocate(clim_type%data)
 endif
@@ -3432,6 +3435,10 @@ if (allocated (clim_type%pmon_pyear)) then
   deallocate(clim_type%nmon_nyear)
   deallocate(clim_type%nmon_pyear)
 endif
+if (allocated(clim_type%indexm)) deallocate(clim_type%indexm)
+if (allocated(clim_type%indexp)) deallocate(clim_type%indexp)
+if (allocated(clim_type%climatology)) deallocate(clim_type%climatology)
+if (allocated(clim_type%clim_times)) deallocate(clim_type%clim_times)
 
 !! RSH mod
 if(  .not. (clim_type%TIME_FLAG .eq. LINEAR  .and.    &
