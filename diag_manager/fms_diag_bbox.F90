@@ -213,6 +213,10 @@ CONTAINS
       this%jmax = UBOUND(array,2)
       this%kmin = LBOUND(array,3)
       this%kmax = UBOUND(array,3)
+
+      this%has_halos = .false.
+      this%nhalo_I = 0
+      this%nhalo_J = 0
    END SUBROUTINE  reset_bounds_from_array_4D
 
    !> @brief Reset the instance bounding box with the bounds determined from the
