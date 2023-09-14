@@ -508,7 +508,6 @@ AC_CONFIG_FILES([
   test_fms/tracer_manager/Makefile
   test_fms/random_numbers/Makefile
   test_fms/column_diagnostics/Makefile
-
   FMS.pc
   ])
 
