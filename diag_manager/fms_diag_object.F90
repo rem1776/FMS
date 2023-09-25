@@ -636,12 +636,15 @@ subroutine fms_diag_send_complete(this, time_step)
 
   integer :: ifile !< For file loops
   integer :: ifield !< For field loops
+  integer :: ibuff !< for output buffer loops
+  integer :: reduct !< store reduction method used
 #ifndef use_yaml
 CALL MPP_ERROR(FATAL,"You can not use the modern diag manager without compiling with -Duse_yaml")
 #else
 
   class(fmsDiagFileContainer_type), pointer :: diag_file !< Pointer to this%FMS_diag_files(i) (for convenience
   class(fmsDiagField_type), pointer :: diag_field !< Pointer to this%FMS_diag_files(i)%diag_field(j)
+  class(fmsDiagOutputBuffer_type), pointer :: diag_buff !< Pointer to diag_field's allocated output buffers
   logical :: math !< True if the math functions need to be called using the data buffer,
   !! False if the math functions were done in accept_data
   integer, dimension(:), allocatable :: file_field_ids !< Array of field IDs for a file
@@ -676,6 +679,18 @@ CALL MPP_ERROR(FATAL,"You can not use the modern diag manager without compiling 
           if (trim(error_string) .ne. "") call mpp_error(FATAL, "Field:"//trim(diag_field%get_varname()//&
             " -"//trim(error_string)))
         endif calling_math
+
+        ! loop through buffers and finish their reduction method calculations if needed (average,rms,pow) 
+        if( reduct .eq. time_average) then
+          do ibuff=1, SIZE(diag_field%buffer_ids)
+            diag_buff => this%FMS_diag_output_buffers(diag_field%buffer_ids(ibuff))
+            reduct = diag_buff%reduction_method
+            error_string = diag_buff%diag_reduction_done(reduct, diag_field%has_mask_variant())
+            if (trim(error_string) .ne. "") call mpp_error(FATAL, &
+                "fms_diag_send_complete:: error finishing reduction for output: "//error_string)
+          enddo
+        endif
+
         !> Clean up, clean up, everybody everywhere
         if (associated(diag_field)) nullify(diag_field)
       enddo field_loop
@@ -879,6 +894,7 @@ function fms_diag_do_reduction(this, field_data, diag_field_id, oor_mask, weight
 
     !< Determine the reduction method for the buffer
     reduction_method = field_yaml_ptr%get_var_reduction()
+    buffer_ptr%reduction_method = reduction_method
     select case(reduction_method)
     case (time_none)
       error_msg = buffer_ptr%do_time_none_wrapper(field_data, oor_mask, field_ptr%get_mask_variant(), &
@@ -900,7 +916,7 @@ function fms_diag_do_reduction(this, field_data, diag_field_id, oor_mask, weight
       endif
     case (time_sum)
     case (time_average)
-      error_msg = buffer_ptr%do_time_avg_wrapper(field_data, buffer_ptr%counter, oor_mask, field_ptr%get_mask_variant(), &
+      error_msg = buffer_ptr%do_time_avg_wrapper(field_data, oor_mask, field_ptr%get_mask_variant(), &
         bounds_in, bounds_out, missing_value, weight)
       if (trim(error_msg) .ne. "") then
         return

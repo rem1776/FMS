@@ -59,6 +59,10 @@ module fms_diag_reduction_methods_mod
     module procedure do_time_avg_r4, do_time_avg_r8
   end interface
 
+  interface time_avg_done
+    module procedure time_avg_done_r4, time_avg_done_r8
+  end interface
+
   contains
 
   !> @brief Checks improper combinations of is, ie, js, and je.

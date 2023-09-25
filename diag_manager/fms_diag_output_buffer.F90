@@ -30,7 +30,7 @@ use iso_c_binding
 use time_manager_mod, only: time_type, operator(==)
 use mpp_mod, only: mpp_error, FATAL
 use diag_data_mod, only: DIAG_NULL, DIAG_NOT_REGISTERED, i4, i8, r4, r8, get_base_time, MIN_VALUE, MAX_VALUE, EMPTY, &
-                         time_min, time_max
+                         time_min, time_max, time_average
 use fms2_io_mod, only: FmsNetcdfFile_t, write_data, FmsNetcdfDomainFile_t, FmsNetcdfUnstructuredDomainFile_t
 use fms_diag_yaml_mod, only: diag_yaml
 use fms_diag_bbox_mod, only: fmsDiagIbounds_type
@@ -56,6 +56,8 @@ type :: fmsDiagOutputBuffer_type
   integer               :: field_id           !< The id of the field the buffer belongs to
   integer               :: yaml_id            !< The id of the yaml id the buffer belongs to
   logical               :: done_with_math     !< .True. if done doing the math
+  integer               :: reduction_method   !< Reduction method as defined in diag_data
+                                              !! only used to finish certain reductions(sum,)
 
   contains
   procedure :: add_axis_ids
@@ -79,6 +81,7 @@ type :: fmsDiagOutputBuffer_type
   procedure :: do_time_min_wrapper
   procedure :: do_time_max_wrapper
   procedure :: do_time_avg_wrapper
+  procedure :: diag_reduction_done
 
 end type fmsDiagOutputBuffer_type
 
@@ -575,11 +578,10 @@ end function do_time_max_wrapper
 
 !> @brief Does the time_avg reduction method on the buffer object
 !! @return Error message if the math was not successful
-function do_time_avg_wrapper(this, field_data, counter, mask, is_masked, bounds_in, bounds_out, missing_value, weight) &
+function do_time_avg_wrapper(this, field_data, mask, is_masked, bounds_in, bounds_out, missing_value, weight) &
   result(err_msg)
   class(fmsDiagOutputBuffer_type), intent(inout) :: this                !< buffer object to write
   class(*),                        intent(in)    :: field_data(:,:,:,:) !< Buffer data for current time
-  class(*),                        intent(in)    :: counter(:,:,:,:) !< Buffer data for current time
   type(fmsDiagIbounds_type),       intent(in)    :: bounds_in           !< Indicies for the buffer passed in
   type(fmsDiagIbounds_type),       intent(in)    :: bounds_out          !< Indicies for the output buffer
   logical,                         intent(in)    :: mask(:,:,:,:)       !< Mask for the field
@@ -594,19 +596,43 @@ function do_time_avg_wrapper(this, field_data, counter, mask, is_masked, bounds_
     type is (real(kind=r8_kind))
       select type (field_data)
       type is (real(kind=r8_kind))
-        call do_time_avg(output_buffer, field_data, mask, is_masked, bounds_in, bounds_out, missing_value, weight)
+        call do_time_avg(output_buffer, this%counter, field_data, mask, is_masked, bounds_in, bounds_out, missing_value, weight)
       class default
         err_msg="do_time_avg_wrapper::the output buffer and the buffer send in are not of the same type (r8_kind)"
       end select
     type is (real(kind=r4_kind))
       select type (field_data)
       type is (real(kind=r4_kind))
-        call do_time_avg(output_buffer, field_data, mask, is_masked, bounds_in, bounds_out, &
+        call do_time_avg(output_buffer, this%counter, field_data, mask, is_masked, bounds_in, bounds_out, &
           real(missing_value, kind=r4_kind), weight)
       class default
         err_msg="do_time_avg_wrapper::the output buffer and the buffer send in are not of the same type (r4_kind)"
       end select
   end select
 end function do_time_avg_wrapper
+
+!> No args since the buffer and counter data should already be set up, just need to finish the calculation
+function diag_reduction_done(this, reduction_method, has_mask) &
+  result(err_msg)
+  class(fmsDiagOutputBuffer_type), intent(inout) :: this !< Updated buffer object
+  integer, intent(in)                            :: reduction_method !< enumerated reduction method from diag_data 
+  logical, intent(in)                            :: has_mask !< whether a mask variant reduction
+  character(len=51)                              :: err_msg !< error message to return, blank if sucessful
+
+  err_msg = ""
+  select case(reduction_method)
+  case(time_average)
+    select type(buff => this%buffer)
+    type is (real(r8_kind))
+      call time_avg_done(buff, this%counter, has_mask) 
+    type is (real(r4_kind))
+      !! conversion here could be sketchy 
+      call time_avg_done(buff, real(this%counter, r4_kind), has_mask) 
+    end select
+  case default
+     err_msg = "diag_reduction_done: invalid reduction method given" 
+  end select
+
+end function
 #endif
 end module fms_diag_output_buffer_mod

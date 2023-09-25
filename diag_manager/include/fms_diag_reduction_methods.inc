@@ -260,6 +260,8 @@ subroutine DO_TIME_AVG_(data_out, counter, data_in, mask, is_masked, bounds_in, 
                       counter(is_out + i, js_out + j, ks_out + k, l + 1, 1) + weight
             else
               data_out(is_out + i, js_out + j, ks_out + k, l + 1, 1) = missing_value
+              ! if masked, should counter be set to 0?
+              !counter(is_out + i, js_out + j, ks_out + k, l + 1, 1) = 0.0 
             endif
           enddo
         enddo
@@ -280,5 +282,40 @@ subroutine DO_TIME_AVG_(data_out, counter, data_in, mask, is_masked, bounds_in, 
       enddo
     enddo
   endif
+end subroutine
 
-end subroutine DO_TIME_AVG_
+!> To be called with diag_send_complete, does the averages from the data summed on the buffer 
+!! Just divides the buffer by the counter array(which is just the sum of the weights used in the buffer's reduction)
+subroutine TIME_AVG_DONE_(out_buffer_data, counter, has_mask)
+  real(FMS_TRM_KIND_), intent(inout) :: out_buffer_data(:,:,:,:,:)
+  real(FMS_TRM_KIND_), intent(in)    :: counter(:,:,:,:,:)
+  logical, intent(in)                :: has_mask
+  integer :: i, j, k, l
+  integer, parameter :: kindl = FMS_TRM_KIND_
+
+  i=SIZE(out_buffer_data,1)
+  j=SIZE(out_buffer_data,2)
+  k=SIZE(out_buffer_data,3)
+  l=SIZE(out_buffer_data,4)
+  if ( has_mask ) then
+    do l=1, l
+      do k=1, k
+        do j=1, j
+          do i=1, i
+            if ( ANY(counter(i,j,k,l,:) > 0.0_kindl) )then
+              out_buffer_data(i,j,k,l,:) = out_buffer_data(i,j,k,l,:) &
+                                         / counter(i,j,k,l,:)
+            else
+              !out_buffer_data(i,j,k,l) =  missvalue ! redundant?
+            end if
+          end do
+        end do
+      end do
+     end do
+  else  !not mask variant
+    ! ineffecient? 
+    out_buffer_data = out_buffer_data / counter
+  endif
+
+
+end subroutine
