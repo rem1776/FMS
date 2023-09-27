@@ -34,7 +34,7 @@ use diag_data_mod, only: DIAG_NULL, DIAG_NOT_REGISTERED, i4, i8, r4, r8, get_bas
 use fms2_io_mod, only: FmsNetcdfFile_t, write_data, FmsNetcdfDomainFile_t, FmsNetcdfUnstructuredDomainFile_t
 use fms_diag_yaml_mod, only: diag_yaml
 use fms_diag_bbox_mod, only: fmsDiagIbounds_type
-use fms_diag_reduction_methods_mod, only: do_time_none, do_time_min, do_time_max
+use fms_diag_reduction_methods_mod, only: do_time_none, do_time_min, do_time_max, do_time_avg, time_avg_done
 use fms_diag_time_utils_mod, only: diag_time_inc
 
 implicit none
@@ -56,8 +56,6 @@ type :: fmsDiagOutputBuffer_type
   integer               :: field_id           !< The id of the field the buffer belongs to
   integer               :: yaml_id            !< The id of the yaml id the buffer belongs to
   logical               :: done_with_math     !< .True. if done doing the math
-  integer               :: reduction_method   !< Reduction method as defined in diag_data
-                                              !! only used to finish certain reductions(sum,)
 
   contains
   procedure :: add_axis_ids
@@ -615,9 +613,11 @@ end function do_time_avg_wrapper
 function diag_reduction_done(this, reduction_method, has_mask) &
   result(err_msg)
   class(fmsDiagOutputBuffer_type), intent(inout) :: this !< Updated buffer object
-  integer, intent(in)                            :: reduction_method !< enumerated reduction method from diag_data 
+  integer, intent(in)                            :: reduction_method !< enumerated reduction type from diag_data
   logical, intent(in)                            :: has_mask !< whether a mask variant reduction
   character(len=51)                              :: err_msg !< error message to return, blank if sucessful
+
+  if(.not. allocated(this%buffer)) return
 
   err_msg = ""
   select case(reduction_method)
@@ -626,8 +626,7 @@ function diag_reduction_done(this, reduction_method, has_mask) &
     type is (real(r8_kind))
       call time_avg_done(buff, this%counter, has_mask) 
     type is (real(r4_kind))
-      !! conversion here could be sketchy 
-      call time_avg_done(buff, real(this%counter, r4_kind), has_mask) 
+      call time_avg_done(buff, this%counter, has_mask) 
     end select
   case default
      err_msg = "diag_reduction_done: invalid reduction method given" 

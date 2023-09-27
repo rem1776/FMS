@@ -211,7 +211,7 @@ end subroutine DO_TIME_MAX_
 !! B) ofc(l) = ofc(l) + weight
 subroutine DO_TIME_AVG_(data_out, counter, data_in, mask, is_masked, bounds_in, bounds_out, missing_value, weight)
   real(FMS_TRM_KIND_),       intent(inout) :: data_out(:,:,:,:,:) !< output data
-  real(FMS_TRM_KIND_),       intent(inout) :: counter(:,:,:,:,:)  !< counter to sum weights
+  real(r8_kind),             intent(inout) :: counter(:,:,:,:,:)  !< counter to sum weights
   real(FMS_TRM_KIND_),       intent(in)    :: data_in(:,:,:,:)    !< data to update the buffer with
   logical,                   intent(in)    :: mask(:,:,:,:)       !< mask
   logical,                   intent(in)    :: is_masked           !< .True. if the field is using a mask
@@ -220,7 +220,7 @@ subroutine DO_TIME_AVG_(data_out, counter, data_in, mask, is_masked, bounds_in, 
   type(fmsDiagIbounds_type), intent(in)    :: bounds_out          !< indices indicating the correct portion
                                                                   !! of the output buffer
   real(FMS_TRM_KIND_),       intent(in)    :: missing_value       !< Missing_value for data points that are masked
-  real(FMS_TRM_KIND_),       intent(in)    :: weight              !< Weight if doing weighted averages (1 for normal average)
+  real(r8_kind),             intent(in)    :: weight              !< Weight if doing weighted averages (1 for normal average)
 
   integer :: is_in, ie_in, js_in, je_in, ks_in, ke_in       !< Starting and ending indices of each dimention for
                                                             !! the input buffer
@@ -284,14 +284,20 @@ subroutine DO_TIME_AVG_(data_out, counter, data_in, mask, is_masked, bounds_in, 
   endif
 end subroutine
 
+!> This is not thread safe
+!! 
 !> To be called with diag_send_complete, does the averages from the data summed on the buffer 
 !! Just divides the buffer by the counter array(which is just the sum of the weights used in the buffer's reduction)
 subroutine TIME_AVG_DONE_(out_buffer_data, counter, has_mask)
   real(FMS_TRM_KIND_), intent(inout) :: out_buffer_data(:,:,:,:,:)
-  real(FMS_TRM_KIND_), intent(in)    :: counter(:,:,:,:,:)
+  real(r8_kind), intent(in)          :: counter(:,:,:,:,:)
   logical, intent(in)                :: has_mask
   integer :: i, j, k, l
   integer, parameter :: kindl = FMS_TRM_KIND_
+
+  print *, "finishing average reduction, has mask:", has_mask
+  print *, "out_buffer(1,1,1,:,1)", out_buffer_data(1,1,1,:,1)
+  print *, "counter(1,1,1,:,1)", counter(1,1,1,:,1)
 
   i=SIZE(out_buffer_data,1)
   j=SIZE(out_buffer_data,2)
@@ -313,8 +319,16 @@ subroutine TIME_AVG_DONE_(out_buffer_data, counter, has_mask)
       end do
      end do
   else  !not mask variant
-    ! ineffecient? 
-    out_buffer_data = out_buffer_data / counter
+    do l=1, l
+      do k=1, k
+        do j=1, j
+          do i=1, i
+            out_buffer_data(i,j,k,l,:) = out_buffer_data(i,j,k,l,:) &
+                                         / counter(i,j,k,l,:)
+          enddo
+        enddo
+      enddo
+    enddo
   endif
 
 

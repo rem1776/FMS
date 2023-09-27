@@ -615,7 +615,7 @@ CALL MPP_ERROR(FATAL,"You can not use the modern diag manager without compiling 
 
     call this%allocate_diag_field_output_buffers(field_data, diag_field_id)
     error_string = this%fms_diag_do_reduction(field_data, diag_field_id, oor_mask, field_weight, &
-      bounds, using_blocking, Time=Time)
+                                              bounds, using_blocking, Time=Time)
     if (trim(error_string) .ne. "") call mpp_error(FATAL, trim(error_string)//". "//trim(field_info))
     call this%FMS_diag_fields(diag_field_id)%set_math_needs_to_be_done(.FALSE.)
     return
@@ -637,14 +637,14 @@ subroutine fms_diag_send_complete(this, time_step)
   integer :: ifile !< For file loops
   integer :: ifield !< For field loops
   integer :: ibuff !< for output buffer loops
-  integer :: reduct !< store reduction method used
 #ifndef use_yaml
 CALL MPP_ERROR(FATAL,"You can not use the modern diag manager without compiling with -Duse_yaml")
 #else
 
   class(fmsDiagFileContainer_type), pointer :: diag_file !< Pointer to this%FMS_diag_files(i) (for convenience
-  class(fmsDiagField_type), pointer :: diag_field !< Pointer to this%FMS_diag_files(i)%diag_field(j)
+  class(fmsDiagField_type), pointer :: diag_field_ptr !< Pointer to this%FMS_diag_files(i)%diag_field(j)
   class(fmsDiagOutputBuffer_type), pointer :: diag_buff !< Pointer to diag_field's allocated output buffers
+  class(diagYamlFilesVar_type), pointer :: field_yaml_ptr !< Pointer to yaml file type fro reduction method
   logical :: math !< True if the math functions need to be called using the data buffer,
   !! False if the math functions were done in accept_data
   integer, dimension(:), allocatable :: file_field_ids !< Array of field IDs for a file
@@ -666,33 +666,39 @@ CALL MPP_ERROR(FATAL,"You can not use the modern diag manager without compiling 
         ! If the field is not registered go away
         if (.not. diag_file%FMS_diag_file%is_field_registered(ifield)) cycle
 
-        diag_field => this%FMS_diag_fields(file_field_ids(ifield))
+        diag_field_ptr => this%FMS_diag_fields(file_field_ids(ifield))
         !> Check if math needs to be done
-        math = diag_field%get_math_needs_to_be_done()
+        math = diag_field_ptr%get_math_needs_to_be_done()
         calling_math: if (math) then
-          input_data_buffer => diag_field%get_data_buffer()
+          input_data_buffer => diag_field_ptr%get_data_buffer()
           call bounds%reset_bounds_from_array_4D(input_data_buffer)
           call this%allocate_diag_field_output_buffers(input_data_buffer, file_field_ids(ifield))
           error_string = this%fms_diag_do_reduction(input_data_buffer, file_field_ids(ifield), &
-            diag_field%get_mask(), diag_field%get_weight(), &
+            diag_field_ptr%get_mask(), diag_field_ptr%get_weight(), &
             bounds, .False., Time=this%current_model_time)
-          if (trim(error_string) .ne. "") call mpp_error(FATAL, "Field:"//trim(diag_field%get_varname()//&
+          if (trim(error_string) .ne. "") call mpp_error(FATAL, "Field:"//trim(diag_field_ptr%get_varname()//&
             " -"//trim(error_string)))
         endif calling_math
 
-        ! loop through buffers and finish their reduction method calculations if needed (average,rms,pow) 
-        if( reduct .eq. time_average) then
-          do ibuff=1, SIZE(diag_field%buffer_ids)
-            diag_buff => this%FMS_diag_output_buffers(diag_field%buffer_ids(ibuff))
-            reduct = diag_buff%reduction_method
-            error_string = diag_buff%diag_reduction_done(reduct, diag_field%has_mask_variant())
+        !! TODO move this??
+        ! storing reduction type in output buffer could allow this to be done later
+        ! loop through buffers for the current field and finish their reduction method calculations
+!$omp critical
+        do ibuff=1, SIZE(diag_field_ptr%buffer_ids)
+          diag_buff => this%FMS_diag_output_buffers(diag_field_ptr%buffer_ids(ibuff))
+          ! also need the yaml field object for reduction type
+          field_yaml_ptr => diag_field_ptr%diag_field(ibuff)
+          ! finish the reduction if needed
+          if ( field_yaml_ptr%get_var_reduction() .eq. time_average ) then
+            error_string = diag_buff%diag_reduction_done(field_yaml_ptr%get_var_reduction(), diag_field_ptr%has_mask_variant())
             if (trim(error_string) .ne. "") call mpp_error(FATAL, &
                 "fms_diag_send_complete:: error finishing reduction for output: "//error_string)
-          enddo
-        endif
+          endif 
+        enddo
+!$omp end critical
 
         !> Clean up, clean up, everybody everywhere
-        if (associated(diag_field)) nullify(diag_field)
+        if (associated(diag_field_ptr)) nullify(diag_field_ptr)
       enddo field_loop
       !> Clean up, clean up, everybody do your share
       if (allocated(file_field_ids)) deallocate(file_field_ids)
@@ -894,7 +900,6 @@ function fms_diag_do_reduction(this, field_data, diag_field_id, oor_mask, weight
 
     !< Determine the reduction method for the buffer
     reduction_method = field_yaml_ptr%get_var_reduction()
-    buffer_ptr%reduction_method = reduction_method
     select case(reduction_method)
     case (time_none)
       error_msg = buffer_ptr%do_time_none_wrapper(field_data, oor_mask, field_ptr%get_mask_variant(), &
