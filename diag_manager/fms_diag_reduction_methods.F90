@@ -62,6 +62,10 @@ module fms_diag_reduction_methods_mod
     module procedure do_time_sum_update_r4, do_time_sum_update_r8
   end interface
 
+  interface sum_update_done
+    module procedure sum_update_done_r4, sum_update_done_r8
+  end interface 
+
   contains
 
   !> @brief Checks improper combinations of is, ie, js, and je.

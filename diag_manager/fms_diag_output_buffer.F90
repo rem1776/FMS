@@ -30,7 +30,7 @@ use iso_c_binding
 use time_manager_mod, only: time_type, operator(==)
 use mpp_mod, only: mpp_error, FATAL
 use diag_data_mod, only: DIAG_NULL, DIAG_NOT_REGISTERED, i4, i8, r4, r8, get_base_time, MIN_VALUE, MAX_VALUE, EMPTY, &
-                         time_min, time_max
+                         time_min, time_max, time_average
 use fms2_io_mod, only: FmsNetcdfFile_t, write_data, FmsNetcdfDomainFile_t, FmsNetcdfUnstructuredDomainFile_t
 use fms_diag_yaml_mod, only: diag_yaml
 use fms_diag_bbox_mod, only: fmsDiagIbounds_type
@@ -77,6 +77,7 @@ type :: fmsDiagOutputBuffer_type
   procedure :: do_time_min_wrapper
   procedure :: do_time_max_wrapper
   procedure :: do_time_sum_wrapper
+  procedure :: diag_reduction_done_wrapper
 
 end type fmsDiagOutputBuffer_type
 
@@ -588,5 +589,26 @@ function do_time_sum_wrapper(this, field_data, mask, is_masked, bounds_in, bound
       err_msg="do_time_sum_wrapper::the output buffer is not a valid type, must be real(r8_kind) or real(r4_kind)"
   end select
 end function do_time_sum_wrapper
+
+ !> No args since the buffer and counter data should already be set up, just need to finish the calculation
+function diag_reduction_done_wrapper(this, reduction_method, has_mask) &
+  result(err_msg)
+  class(fmsDiagOutputBuffer_type), intent(inout) :: this !< Updated buffer object
+  integer, intent(in)                            :: reduction_method !< enumerated reduction type from diag_data
+  logical, intent(in)                            :: has_mask !< whether a mask variant reduction
+  character(len=51)                              :: err_msg !< error message to return, blank if sucessful
+
+  if(.not. allocated(this%buffer)) return
+
+  err_msg = ""
+  select type(buff => this%buffer)
+    type is (real(r8_kind))
+      call sum_update_done(buff, this%weight_sum, reduction_method, has_mask) 
+    type is (real(r4_kind))
+      call sum_update_done(buff, this%weight_sum, reduction_method, has_mask) 
+  end select
+
+end function
+
 #endif
 end module fms_diag_output_buffer_mod

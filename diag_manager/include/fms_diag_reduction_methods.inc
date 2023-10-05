@@ -217,7 +217,7 @@ end subroutine DO_TIME_MAX_
 subroutine DO_TIME_SUM_UPDATE_(data_out, weight_sum, data_in, mask, is_masked, bounds_in, bounds_out, &
                                missing_value, weight, pow)
   real(FMS_TRM_KIND_),       intent(inout) :: data_out(:,:,:,:,:) !< output data
-  real(r8_kind),       intent(inout) :: weight_sum          !< Sum of weights from the output buffer object
+  real(r8_kind),       intent(inout)       :: weight_sum          !< Sum of weights from the output buffer object
   real(FMS_TRM_KIND_),       intent(in)    :: data_in(:,:,:,:)    !< data to update the buffer with
   logical,                   intent(in)    :: mask(:,:,:,:)       !< mask
   logical,                   intent(in)    :: is_masked           !< .True. if the field is using a mask
@@ -299,3 +299,51 @@ subroutine DO_TIME_SUM_UPDATE_(data_out, weight_sum, data_in, mask, is_masked, b
     enddo
   endif
 end subroutine DO_TIME_SUM_UPDATE_
+
+!> To be called with diag_send_complete, finishes reductions
+!! Just divides the buffer by the counter array(which is just the sum of the weights used in the buffer's reduction)
+subroutine SUM_UPDATE_DONE_(out_buffer_data, weight_sum, reduction_method, has_mask)
+  real(FMS_TRM_KIND_), intent(inout) :: out_buffer_data(:,:,:,:,:) !< data buffer previosuly updated with do_time_sum_update
+  real(r8_kind), intent(in)          :: weight_sum !< sum of weights for averaging, provided via argument to send data
+  integer, intent(in)                :: reduction_method !< which reduction method to use, should be time_avg
+  logical, intent(in)                :: has_mask !< whether or not the updates were done with a mask
+  integer :: i, j, k, l
+  integer, parameter :: kindl = FMS_TRM_KIND_
+
+  i=SIZE(out_buffer_data,1)
+  j=SIZE(out_buffer_data,2)
+  k=SIZE(out_buffer_data,3)
+  l=SIZE(out_buffer_data,4)
+  if ( has_mask ) then
+    do l=1, l
+      do k=1, k
+        do j=1, j
+          do i=1, i
+            if ( weight_sum > 0.0_kindl) then
+              out_buffer_data(i,j,k,l,:) = out_buffer_data(i,j,k,l,:) &
+                                         / weight_sum 
+            else
+              !redundant? should be set during update
+              !out_buffer_data(i,j,k,l) =  missvalue
+            end if
+          end do
+        end do
+      end do
+     end do
+  else  !not mask variant
+    ! since we are looping through the entire array anyway this should work
+    !out_buffer_data = out_buffer_data &
+    !                           / weight_sum 
+    do l=1, l
+      do k=1, k
+        do j=1, j
+          do i=1, i
+            out_buffer_data(i,j,k,l,:) = out_buffer_data(i,j,k,l,:) &
+                                         / weight_sum 
+          enddo
+        enddo
+      enddo
+    enddo
+  endif
+
+end subroutine
