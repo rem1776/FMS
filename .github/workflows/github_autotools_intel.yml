@@ -2,21 +2,16 @@ on: pull_request
 jobs:
   intel-autotools:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        io-flag: ["--disable-deprecated-io", "--enable-deprecated-io"]
     container:
       image: intel/oneapi-hpckit:2023.1.0-devel-ubuntu20.04
       env:
         CC: mpiicc
         FC: mpiifort
         CFLAGS:  "-I/libs/include"
-        FCFLAGS: "-I/libs/include -g -traceback ${{ matrix.io-flag }}"
+        FCFLAGS: "-I/libs/include -g -traceback"
         LDFLAGS: "-L/libs/lib"
         TEST_VERBOSE: 1
         I_MPI_FABRICS: "shm" # needed for mpi in image
-        # intel bug causes some failures with shm option(required in container)
-        SKIP_TESTS: "test_mpp_update_domains.1 test_update_domains_performance.1 test_diag_manager2.23"
     steps:
     - name: Cache dependencies
       id: cache
@@ -49,7 +44,7 @@ jobs:
     - name: checkout
       uses: actions/checkout@v2
     - name: Configure
-      run: autoreconf -if ./configure.ac && ./configure --with-yaml
+      run: autoreconf -if ./configure.ac && ./configure --with-yaml --enable-deprecated-io
     - name: Compile
       run: make -j || make
     - name: Run test suite
