@@ -34,7 +34,7 @@ use diag_data_mod, only: DIAG_NULL, DIAG_NOT_REGISTERED, i4, i8, r4, r8, get_bas
 use fms2_io_mod, only: FmsNetcdfFile_t, write_data, FmsNetcdfDomainFile_t, FmsNetcdfUnstructuredDomainFile_t
 use fms_diag_yaml_mod, only: diag_yaml
 use fms_diag_bbox_mod, only: fmsDiagIbounds_type
-use fms_diag_reduction_methods_mod, only: do_time_none, do_time_min, do_time_max, do_time_sum_update
+use fms_diag_reduction_methods_mod, only: do_time_none, do_time_min, do_time_max, do_time_sum_update, sum_update_done
 use fms_diag_time_utils_mod, only: diag_time_inc
 
 implicit none

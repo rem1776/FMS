@@ -310,6 +310,8 @@ subroutine SUM_UPDATE_DONE_(out_buffer_data, weight_sum, reduction_method, has_m
   integer :: i, j, k, l
   integer, parameter :: kindl = FMS_TRM_KIND_
 
+  print*, "FINISHING REDUCTION, weight_sum:", weight_sum
+
   i=SIZE(out_buffer_data,1)
   j=SIZE(out_buffer_data,2)
   k=SIZE(out_buffer_data,3)

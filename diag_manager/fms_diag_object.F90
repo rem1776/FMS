@@ -681,6 +681,7 @@ CALL MPP_ERROR(FATAL,"You can not use the modern diag manager without compiling 
         endif calling_math
 
         ! if we're ready to write, loop through buffers for the current field and finish their reduction methods
+        ! TODO never seems to be time to write in unit test 
         if ( diag_file%is_time_to_write(time_step)) then
           do ibuff=1, SIZE(diag_field%buffer_ids)
             diag_buff => this%FMS_diag_output_buffers(diag_field%buffer_ids(ibuff))
