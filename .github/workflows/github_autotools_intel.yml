@@ -2,9 +2,6 @@ on: pull_request
 jobs:
   intel-autotools:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        io-flag: ["--disable-deprecated-io", "--enable-deprecated-io"]
     container:
       image: intel/oneapi-hpckit:2023.1.0-devel-ubuntu20.04
       env:
@@ -49,7 +46,7 @@ jobs:
     - name: checkout
       uses: actions/checkout@v2
     - name: Configure
-      run: autoreconf -if ./configure.ac && ./configure --with-yaml
+      run: autoreconf -if ./configure.ac && ./configure --with-yaml --enable-deprecated-io
     - name: Compile
       run: make -j || make
     - name: Run test suite
