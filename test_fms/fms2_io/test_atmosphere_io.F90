@@ -85,16 +85,17 @@ character(len=6), dimension(4) :: names
 character(len=8) :: timestamp
 logical :: ignore_checksum = .false.
 logical :: bad_checksum = .false.
+integer :: io_domain(2)
 
 integer :: io    !< Error code when reading namelist
 integer :: ierr  !< Error code when reading namelist
 
-namelist /test_atmosphere_io_nml/ bad_checksum, ignore_checksum
+namelist /test_atmosphere_io_nml/ bad_checksum, ignore_checksum, io_domain
 
 !Initialize.
 call init(test_params, ntiles)
-call create_cubed_sphere_domain(test_params, domain, (/1, 1/))
-call create_cubed_sphere_domain(test_params, domain2, (/1, mpp_npes()/ntiles/))
+call create_cubed_sphere_domain(test_params, domain, io_domain ) 
+call create_cubed_sphere_domain(test_params, domain2, (/2, mpp_npes()/ntiles/2/))
 call mpi_barrier(mpi_comm_world, err)
 call mpi_check(err)
 call random_seed()
