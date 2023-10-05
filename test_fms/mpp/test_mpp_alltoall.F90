@@ -34,6 +34,7 @@
 
 program test_mpp_alltoall
 
+#ifndef _OPENMP
   use platform_mod
   use mpp_mod, only : mpp_init, mpp_init_test_requests_allocated, mpp_init_test_peset_allocated, mpp_error, FATAL
   use mpp_mod, only : mpp_pe, mpp_npes, mpp_alltoall
@@ -1654,4 +1655,5 @@ program test_mpp_alltoall
 
   end subroutine test_mpp_alltoallw_int8
 
+#endif
 end program test_mpp_alltoall

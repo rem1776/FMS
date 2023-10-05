@@ -58,6 +58,9 @@ type(domain2d) :: ocean_domain
 type(domain2d) :: atmosphere_domain
 type(domainug) :: land_domain
 integer :: i
+logical :: run_large_tests = .false. !< gets set to true if running with --enable-large-tests configure option
+                                !! Checks pe count is 4608, and if so adjusts layouts and data set sizes
+integer, parameter :: lrge_test_npes = 4608 !< actual pe count set in makefile.am
 
 namelist / test_fms2_io_nml / nx, ny, nz, io_layout, ocn_io_layout
 
@@ -73,6 +76,8 @@ call mpi_check(err)
 
 read(input_nml_file, nml=test_fms2_io_nml, iostat=err)
 err = check_nml_error(err, 'test_fms2_io_nml')
+
+run_large_tests = mpp_npes() .eq. lrge_test_npes
 
 !Define command line arguments.
 parser = get_parser()
@@ -139,21 +144,29 @@ if (trim(buf) .eq. "present") then
   debug = .true.
 endif
 
+! using large test option
+if ( run_large_tests ) then
+    nx = 1080; ny = 1080; nz = 12
+    io_layout = (/ 6, 16/)
+    tests(land) = .false. ! TODO
+    tests(land) = .false. ! TODO
+endif
+
 !Prepare for domains creation.
 call mpp_domains_init()
 do i = 1,ntiles
   global_indices(:, i) = (/1, nx, 1, ny/)
-  layout(:, i) = (/12 , npes/ntiles/16 /)
   pe_start(i) = (i-1)*(npes/ntiles)
   pe_end(i) = i*(npes/ntiles) - 1
+  if(run_large_tests) then
+    layout(:, i) = (/12 , npes/ntiles/12 /)
+  else
+    layout(:, i) = (/1 , npes/ntiles/1 /)
+  endif
 enddo
 ocn_layout = (/12, 36/)
 
-! using large test option
-if ( npes .eq. 2880) then
-    nx = 1080; ny = 1080; nz = 10 
-    io_layout = (/ 6, 3/)
-endif
+if (mpp_pe() .eq. mpp_root_pe()) print *, 'layout', layout, 'pe_start', pe_start, 'pe_end', pe_end
 
 call fms2_io_init()
 !Run tests.
@@ -167,6 +180,7 @@ if (tests(atmos)) then
                                 io_layout, atmosphere_domain)
   call atmosphere_restart_file(atmosphere_domain, nz, 3, debug)
 endif
+call mpp_sync()
 if (tests(land)) then
   if (.not. tests(atmos)) then
     if (mod(npes, ntiles) .ne. 0) then
@@ -177,10 +191,11 @@ if (tests(land)) then
                                   global_indices, layout, pe_start, pe_end, &
                                   io_layout, atmosphere_domain)
   endif
-  call create_land_domain(atmosphere_domain, nx, ny, ntiles, land_domain, npes_group)
+  call create_land_domain(atmosphere_domain, nx, ny, ntiles, land_domain, 8)
   call land_unstructured_restart_file(land_domain, nz, 2, debug)
   call land_compressed_restart_file(nz, 4, debug)
 endif
+call mpp_sync()
 if (tests(ocean)) then
   call create_ocean_domain(ntiles*nx, ntiles*ny, npes, ocean_domain, ocn_layout, &
                            ocn_io_layout)

@@ -75,6 +75,10 @@ program test_io_simple
   integer :: i    !> Index for do loop.
   integer :: j    !> Index for do loop.
   integer :: err  !> Return code.
+  integer :: io_layout(2)
+  logical :: run_large_tests = .false. !< gets set to true if running with --enable-large-tests configure option
+                                       !! Checks pe count is 4608, and if so adjusts layouts and data set sizes
+  integer, parameter :: lrge_test_npes = 4608 !< actual pe count set in makefile.am
 
   my_format(1) = '64bit'
   my_format(2) = 'classic'
@@ -83,10 +87,21 @@ program test_io_simple
   do i = 1, 96
      double_buffer(i) = i
   end do
+  
+  run_large_tests = mpp_npes() .eq. lrge_test_npes 
 
   ! Initialize.
   call init(test_params, ntiles)
-  call create_cubed_sphere_domain(test_params, domain, (/1, 1/))
+
+  if(run_large_tests) then
+    test_params%nx = 1080
+    test_params%ny = 1080
+    test_params%nz = 1080
+    io_layout = (/ 12, mpp_npes()/ntiles/12 /)
+  else
+    io_layout = 1
+  endif
+  call create_cubed_sphere_domain(test_params, domain, io_layout)
 
   if (mpp_pe() .eq. mpp_root_pe()) then
      write(error_unit,'(/a)') "Running simple IO test ... "

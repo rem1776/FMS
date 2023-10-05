@@ -23,7 +23,10 @@
 !> single pe and distributed checksums
 program test_mpp_chksum
 
-  use fms
+  use mpp_mod
+  use mpp_domains_mod
+  use fms_mod
+  use platform_mod
 
   implicit none
 
@@ -68,7 +71,7 @@ program test_mpp_chksum
   out_unit = stdout()
 
   !> generate random arrays
-  length = 1024
+  length = 4608 
   allocate(rands(length), data8(length), data4(length), distData(length))
   call random_number(rands)
   do i = 1, length
@@ -102,12 +105,12 @@ program test_mpp_chksum
   end subroutine
 
   subroutine test_chksum_simple()
-    integer :: n2, m, n = 1048576
-    real, dimension(1024) :: a
+    integer :: n2, m, n = 4608*4608 
+    real, dimension(4608) :: a
     real, dimension(:), allocatable :: c
 
    if( modulo(n,npes).EQ.0 )then  !only set up for even division
-     n2 = 1024
+     n2 = 4608 
      a = 0.d0
      if( pe.EQ.root )call random_number(a(1:n2))
 
