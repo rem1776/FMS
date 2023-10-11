@@ -164,6 +164,7 @@ type fmsDiagField_type
      procedure :: get_math_needs_to_be_done
      procedure :: add_area_volume
      procedure :: append_time_cell_methods
+     procedure :: set_missing_value
 end type fmsDiagField_type
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! variables !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 type(fmsDiagField_type) :: null_ob
@@ -1639,5 +1640,21 @@ result(compute_domain)
   enddo axis_loop
 end function get_starting_compute_domain
 
+subroutine set_missing_value (this, missing_value)
+  class(fmsDiagField_type), intent(inout) :: this     !< diag object
+  class(*),                 intent(in) :: missing_value !< The type of the variable as it will writen to the netcdf file
+                                                    !! and the missing value is return as
+
+  if( .not. allocated(this%missing_value)) then
+    select case(this%get_vartype())
+    case(r8)
+        allocate(real(r8_kind) :: this%missing_value)
+    case(r4) 
+        allocate(real(r4_kind) :: this%missing_value)
+    end select
+  endif
+  this%missing_value = missing_value
+
+end subroutine  
 #endif
 end module fms_diag_field_object_mod

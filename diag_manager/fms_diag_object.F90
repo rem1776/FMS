@@ -22,11 +22,11 @@ use diag_data_mod,  only: diag_null, diag_not_found, diag_not_registered, diag_r
                          &DIAG_FIELD_NOT_FOUND, diag_not_registered, max_axes, TWO_D_DOMAIN, &
                          &get_base_time, NULL_AXIS_ID, get_var_type, diag_not_registered, &
                          &time_none, time_max, time_min, time_sum, time_average, time_diurnal, &
-                         &time_power, time_rms, r8
+                         &time_power, time_rms, r8, r4
 
   USE time_manager_mod, ONLY: set_time, set_date, get_time, time_type, OPERATOR(>=), OPERATOR(>),&
        & OPERATOR(<), OPERATOR(==), OPERATOR(/=), OPERATOR(/), OPERATOR(+), ASSIGNMENT(=), get_date, &
-       & get_ticks_per_second
+       & get_ticks_per_second, OPERATOR(<=)
 #ifdef use_yaml
 use fms_diag_file_object_mod, only: fmsDiagFileContainer_type, fmsDiagFile_type, fms_diag_files_object_init
 use fms_diag_field_object_mod, only: fmsDiagField_type, fms_diag_fields_object_init, get_default_missing_value
@@ -651,6 +651,8 @@ CALL MPP_ERROR(FATAL,"You can not use the modern diag manager without compiling 
   class(fmsDiagOutputBuffer_type), pointer :: diag_buff
   class(diagYamlFilesVar_type), pointer :: field_yaml
   integer :: ibuff !< for looping through output buffers
+  real(r8_kind) :: missing_val !< missed value to set
+  integer :: vtype
 
   !< Update the current model time by adding the time_step
   this%current_model_time = this%current_model_time + time_step
@@ -680,18 +682,46 @@ CALL MPP_ERROR(FATAL,"You can not use the modern diag manager without compiling 
             " -"//trim(error_string)))
         endif calling_math
 
-        ! if we're ready to write, loop through buffers for the current field and finish their reduction methods
-        ! TODO never seems to be time to write in unit test 
-        if ( diag_file%is_time_to_write(time_step)) then
+
+        !! TODO getting the missed element value from the field
+        !! might not even need to be done
+        select type(input_data_buffer)
+          type is(real(r8_kind))
+            vtype = r8
+          type is(real(r4_kind))
+            vtype = r4
+        end select
+        ! need to get missing value (and its type for getter call) for anything masked when finishing the reduction 
+        !if( .not. diag_field%has_vartype() ) call mpp_error(FATAL, "fms_diag_send_complete::"// &
+        !                                             " error getting vartype from field for missing value")
+        select type(mval => diag_field%get_missing_value(r8))
+          type is(real(r8_kind))
+            missing_val = mval
+          type is(real(r4_kind))
+            missing_val = real(mval, r8_kind)
+          class default
+            !call mpp_error(FATAL, "fms_diag_send_complete:: invalid type for missing value retrieved for variable:"// &
+            !                      diag_field%get_varname())
+            missing_val = -69.0 ! placeholder for testing
+        end select
+
+        ! do the same check but no error check for skipping
+        if( this%current_model_time <= diag_file%FMS_diag_file%next_next_output .and. this%current_model_time >= diag_file%FMS_diag_file%next_output) then
           do ibuff=1, SIZE(diag_field%buffer_ids)
             diag_buff => this%FMS_diag_output_buffers(diag_field%buffer_ids(ibuff))
-            field_yaml => diag_field%diag_field(ibuff)
-            ! only some reductions need to be finished
-            if ( field_yaml%get_var_reduction() .eq. time_average ) then 
-              error_string = diag_buff%diag_reduction_done_wrapper(field_yaml%get_var_reduction(), diag_field%has_mask_variant())
-              if (trim(error_string) .ne. "") call mpp_error(FATAL, &
-                  "fms_diag_send_complete:: error finishing reduction for output: "//error_string)
-            endif 
+            !! TODO do we need this?
+            !if(diag_buff%is_done_with_math()) then
+              field_yaml => diag_field%diag_field(ibuff)
+              ! only some reductions need to be finished
+              ! others can fall through
+              select case(field_yaml%get_var_reduction())
+              case(time_average)
+                error_string = diag_buff%diag_reduction_done_wrapper(field_yaml%get_var_reduction(), diag_field%has_mask_variant(), &
+                                                                     missing_val)
+                if (trim(error_string) .ne. "") call mpp_error(FATAL, &
+                    "fms_diag_send_complete:: error finishing reduction for output: "//error_string)
+              end select
+            !endif
           enddo
         endif
 
@@ -813,6 +843,7 @@ function fms_diag_do_reduction(this, field_data, diag_field_id, oor_mask, weight
     select type (missing_val => field_ptr%get_missing_value(r8))
     type is (real(kind=r8_kind))
       missing_value = missing_val
+      call field_ptr%set_missing_value(missing_val)
     class default
       call mpp_error(FATAl, "The missing value for the field:"//trim(field_ptr%get_varname())//&
         &" was not allocated to the correct type. This shouldn't have happened")
@@ -821,6 +852,7 @@ function fms_diag_do_reduction(this, field_data, diag_field_id, oor_mask, weight
     select type (missing_val => get_default_missing_value(r8))
     type is (real(kind=r8_kind))
       missing_value = missing_val
+      call field_ptr%set_missing_value(missing_val)
     class default
       call mpp_error(FATAl, "The missing value for the field:"//trim(field_ptr%get_varname())//&
         &" was not allocated to the correct type. This shouldn't have happened")

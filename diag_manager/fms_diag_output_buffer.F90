@@ -590,12 +590,13 @@ function do_time_sum_wrapper(this, field_data, mask, is_masked, bounds_in, bound
   end select
 end function do_time_sum_wrapper
 
- !> No args since the buffer and counter data should already be set up, just need to finish the calculation
-function diag_reduction_done_wrapper(this, reduction_method, has_mask) &
+!> Finishes calculations for any reductions that use an average (avg, rms, pow)
+function diag_reduction_done_wrapper(this, reduction_method, has_mask, missing_value) &
   result(err_msg)
   class(fmsDiagOutputBuffer_type), intent(inout) :: this !< Updated buffer object
   integer, intent(in)                            :: reduction_method !< enumerated reduction type from diag_data
   logical, intent(in)                            :: has_mask !< whether a mask variant reduction
+  real(kind=r8_kind), intent(in)                 :: missing_value !< missing_value for masked data points
   character(len=51)                              :: err_msg !< error message to return, blank if sucessful
 
   if(.not. allocated(this%buffer)) return
@@ -603,10 +604,11 @@ function diag_reduction_done_wrapper(this, reduction_method, has_mask) &
   err_msg = ""
   select type(buff => this%buffer)
     type is (real(r8_kind))
-      call sum_update_done(buff, this%weight_sum, reduction_method, has_mask) 
+      call sum_update_done(buff, this%weight_sum, reduction_method, has_mask, missing_value) 
     type is (real(r4_kind))
-      call sum_update_done(buff, this%weight_sum, reduction_method, has_mask) 
+      call sum_update_done(buff, this%weight_sum, reduction_method, has_mask, real(missing_value, r4_kind)) 
   end select
+  this%weight_sum = 0.0_r8_kind
 
 end function
 

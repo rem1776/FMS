@@ -64,8 +64,8 @@ type :: fmsDiagFile_type
   integer :: id !< The number associated with this file in the larger array of files
   TYPE(time_type) :: start_time       !< The start time for the file
   TYPE(time_type) :: last_output      !< Time of the last time output was writen
-  TYPE(time_type) :: next_output      !< Time of the next write
-  TYPE(time_type) :: next_next_output !< Time of the next next write
+  TYPE(time_type), public :: next_output      !< Time of the next write
+  TYPE(time_type), public :: next_next_output !< Time of the next next write
   TYPE(time_type) :: no_more_data     !< Time to stop receiving data for this file
   logical         :: done_writing_data!< .True. if finished writing data
 

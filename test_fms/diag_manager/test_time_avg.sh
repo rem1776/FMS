@@ -80,6 +80,10 @@ diag_files:
     kind: r4
 _EOF
 
+# remove any existing files that would result in false passes during checks
+rm -f *.nc
+
+# tests with no mask, no openmp
 my_test_count=1
 printf "&diag_manager_nml \n use_modern_diag=.true. \n / \n&test_reduction_methods_nml \n test_case = 0 \n/" | cat > input.nml
 test_expect_success "Running diag_manager with "avg" reduction method (test $my_test_count)" '
@@ -107,7 +111,9 @@ test_expect_success "Checking answers for the "avg" reduction method, real mask 
   mpirun -n 1 ../check_time_avg
 '
 
-export OMP_NUM_THREADS=1
+# openmp tests
+
+export OMP_NUM_THREADS=2
 my_test_count=`expr $my_test_count + 1`
 printf "&diag_manager_nml \n use_modern_diag=.true. \n / \n&test_reduction_methods_nml \n test_case = 1 \n \n/" | cat > input.nml
 test_expect_success "Running diag_manager with "avg" reduction method with openmp (test $my_test_count)" '
@@ -134,7 +140,10 @@ test_expect_success "Running diag_manager with "avg" reduction method with openm
 test_expect_success "Checking answers for the "avg" reduction method with openmp, real mask (test $my_test_count)" '
   mpirun -n 1 ../check_time_avg
 '
-export OMP_NUM_THREADS=2
+
+# halo output and mask tests
+
+export OMP_NUM_THREADS=1
 
 my_test_count=`expr $my_test_count + 1`
 printf "&diag_manager_nml \n use_modern_diag=.true. \n / \n&test_reduction_methods_nml \n test_case = 2 \n \n/" | cat > input.nml
