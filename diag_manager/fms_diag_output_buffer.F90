@@ -54,6 +54,7 @@ type :: fmsDiagOutputBuffer_type
   integer               :: field_id           !< The id of the field the buffer belongs to
   integer               :: yaml_id            !< The id of the yaml id the buffer belongs to
   logical               :: done_with_math     !< .True. if done doing the math
+  logical               :: reduction_done = .false.     !< .True. if reduction has been finished (for averaging)
 
   contains
   procedure :: add_axis_ids
@@ -78,6 +79,8 @@ type :: fmsDiagOutputBuffer_type
   procedure :: do_time_max_wrapper
   procedure :: do_time_sum_wrapper
   procedure :: diag_reduction_done_wrapper
+  procedure :: is_reduction_done
+  procedure :: set_reduction_done
 
 end type fmsDiagOutputBuffer_type
 
@@ -611,6 +614,18 @@ function diag_reduction_done_wrapper(this, reduction_method, has_mask, missing_v
   this%weight_sum = 0.0_r8_kind
 
 end function
+
+!> Getter for reduction_done
+pure logical function is_reduction_done(this)
+  class(fmsDiagOutputBuffer_type),intent(in) :: this
+  is_reduction_done = this%reduction_done
+end function
+
+!> Sets the reduction_done field to true when averaging is finished
+subroutine set_reduction_done(this)
+  class(fmsDiagOutputBuffer_type),intent(inout) :: this
+  this%reduction_done = .True.
+end subroutine 
 
 #endif
 end module fms_diag_output_buffer_mod

@@ -302,28 +302,29 @@ end subroutine DO_TIME_SUM_UPDATE_
 
 !> To be called with diag_send_complete, finishes reductions
 !! Just divides the buffer by the counter array(which is just the sum of the weights used in the buffer's reduction)
-subroutine SUM_UPDATE_DONE_(out_buffer_data, weight_sum, reduction_method, has_mask, missing_value)
+subroutine SUM_UPDATE_DONE_(out_buffer_data, weight_sum, reduction_method, has_mask, missing_val)
   real(FMS_TRM_KIND_), intent(inout) :: out_buffer_data(:,:,:,:,:) !< data buffer previosuly updated with do_time_sum_update
   real(r8_kind), intent(in)          :: weight_sum !< sum of weights for averaging, provided via argument to send data
   integer, intent(in)                :: reduction_method !< which reduction method to use, should be time_avg
   logical, intent(in)                :: has_mask !< whether or not the updates were done with a mask
-  real(FMS_TRM_KIND_), intent(in)    :: missing_value !< missing value for masked out elements
+  real(FMS_TRM_KIND_), intent(in)    :: missing_val !< missing value for masked elements
   integer :: i, j, k, l
   integer, parameter :: kindl = FMS_TRM_KIND_
 
   if(DEBUG_REDUCT) then
     call mpp_error(NOTE, "FINISHING REDUCTION, weight_sum:"//string(weight_sum)// &
                          " kind size:"//string(KIND(out_buffer_data(1,1,1,1,1))))
-    if(weight_sum .eq. 0.0_r8_kind) then
-      call mpp_error(NOTE, "skipping reduction, called with zero weight")
-      return
-    endif
+    print *, "buff shape", SHAPE(out_buffer_data)
+  endif
+
+  if(weight_sum .eq. 0.0_r8_kind) then
+    call mpp_error(NOTE, "skipping reduction, called with zero weight")
+    return
   endif
 
   ! TODO certain written out values (starting at var2d, (1,3) )
   ! are way smaller than they should be
-  ! possibly related:
-  !   weight is 1 for some of the reductions
+  ! getting divided twice
   i=SIZE(out_buffer_data,1)
   j=SIZE(out_buffer_data,2)
   k=SIZE(out_buffer_data,3)
@@ -334,11 +335,11 @@ subroutine SUM_UPDATE_DONE_(out_buffer_data, weight_sum, reduction_method, has_m
         do j=1, j
           do i=1, i
             if ( weight_sum > 0.0_kindl) then
-              ! does the division with the higher precision regardless due to weight_sum being r8
-              out_buffer_data(i,j,k,l,:) = real(out_buffer_data(i,j,k,l,:), r8_kind) &
+              out_buffer_data(i,j,k,l,:) = out_buffer_data(i,j,k,l,:) &
                                          / weight_sum 
             else
-              !out_buffer_data(i,j,k,l,:) =  missing_value
+              !redundant?
+              out_buffer_data(i,j,k,l,:) =  missing_val
             end if
           end do
         end do

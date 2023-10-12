@@ -691,26 +691,23 @@ CALL MPP_ERROR(FATAL,"You can not use the modern diag manager without compiling 
           type is(real(r4_kind))
             vtype = r4
         end select
+
         ! need to get missing value (and its type for getter call) for anything masked when finishing the reduction 
-        !if( .not. diag_field%has_vartype() ) call mpp_error(FATAL, "fms_diag_send_complete::"// &
-        !                                             " error getting vartype from field for missing value")
         select type(mval => diag_field%get_missing_value(r8))
           type is(real(r8_kind))
             missing_val = mval
           type is(real(r4_kind))
             missing_val = real(mval, r8_kind)
           class default
-            !call mpp_error(FATAL, "fms_diag_send_complete:: invalid type for missing value retrieved for variable:"// &
-            !                      diag_field%get_varname())
-            missing_val = -69.0 ! placeholder for testing
+            call mpp_error(FATAL, "fms_diag_send_complete:: invalid type for missing value retrieved for variable:"// &
+                                  diag_field%get_varname())
         end select
 
-        ! do the same check but no error check for skipping
+        ! do the same check as is_time_to_write but no error check for skipping
         if( this%current_model_time <= diag_file%FMS_diag_file%next_next_output .and. this%current_model_time >= diag_file%FMS_diag_file%next_output) then
           do ibuff=1, SIZE(diag_field%buffer_ids)
             diag_buff => this%FMS_diag_output_buffers(diag_field%buffer_ids(ibuff))
-            !! TODO do we need this?
-            !if(diag_buff%is_done_with_math()) then
+            if(.not. diag_buff%is_reduction_done()) then
               field_yaml => diag_field%diag_field(ibuff)
               ! only some reductions need to be finished
               ! others can fall through
@@ -720,8 +717,9 @@ CALL MPP_ERROR(FATAL,"You can not use the modern diag manager without compiling 
                                                                      missing_val)
                 if (trim(error_string) .ne. "") call mpp_error(FATAL, &
                     "fms_diag_send_complete:: error finishing reduction for output: "//error_string)
+                call diag_buff%set_reduction_done()
               end select
-            !endif
+            endif
           enddo
         endif
 
