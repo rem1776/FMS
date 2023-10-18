@@ -621,10 +621,12 @@ pure logical function is_reduction_done(this)
   is_reduction_done = this%reduction_done
 end function
 
-!> Sets the reduction_done field to true when averaging is finished
-subroutine set_reduction_done(this)
+!> Sets the reduction_done field to a given logical value
+!! Indicates a fields reduction has been completed or not when averaging
+subroutine set_reduction_done(this, val)
   class(fmsDiagOutputBuffer_type),intent(inout) :: this
-  this%reduction_done = .True.
+  logical, intent(in)                           :: val !< logical value to set
+  this%reduction_done = val 
 end subroutine 
 
 #endif

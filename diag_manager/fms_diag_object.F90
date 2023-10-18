@@ -16,6 +16,10 @@
 !* You should have received a copy of the GNU Lesser General Public
 !* License along with FMS.  If not, see <http://www.gnu.org/licenses/>.
 !***********************************************************************
+#ifndef DEBUG_REDUCT
+#define DEBUG_REDUCT .true.
+#endif
+
 module fms_diag_object_mod
 use mpp_mod, only: fatal, note, warning, mpp_error, mpp_pe, mpp_root_pe, stdout
 use diag_data_mod,  only: diag_null, diag_not_found, diag_not_registered, diag_registered_id, &
@@ -26,7 +30,7 @@ use diag_data_mod,  only: diag_null, diag_not_found, diag_not_registered, diag_r
 
   USE time_manager_mod, ONLY: set_time, set_date, get_time, time_type, OPERATOR(>=), OPERATOR(>),&
        & OPERATOR(<), OPERATOR(==), OPERATOR(/=), OPERATOR(/), OPERATOR(+), ASSIGNMENT(=), get_date, &
-       & get_ticks_per_second, OPERATOR(<=)
+       & get_ticks_per_second, OPERATOR(<=), time_type_to_real
 #ifdef use_yaml
 use fms_diag_file_object_mod, only: fmsDiagFileContainer_type, fmsDiagFile_type, fms_diag_files_object_init
 use fms_diag_field_object_mod, only: fmsDiagField_type, fms_diag_fields_object_init, get_default_missing_value
@@ -47,6 +51,7 @@ use omp_lib
 #endif
 use mpp_domains_mod, only: domain1d, domain2d, domainUG, null_domain2d
 use platform_mod
+use fms_string_utils_mod, only: string
 implicit none
 private
 
@@ -683,7 +688,8 @@ CALL MPP_ERROR(FATAL,"You can not use the modern diag manager without compiling 
         endif calling_math
 
 
-        !! TODO getting the missed element value from the field
+        !! TODO this doesn't seem to work, below its just defaulting to r8 for kind
+        !! getting the missed element value from the field
         !! might not even need to be done
         select type(input_data_buffer)
           type is(real(r8_kind))
@@ -692,34 +698,44 @@ CALL MPP_ERROR(FATAL,"You can not use the modern diag manager without compiling 
             vtype = r4
         end select
 
-        ! need to get missing value (and its type for getter call) for anything masked when finishing the reduction 
-        select type(mval => diag_field%get_missing_value(r8))
-          type is(real(r8_kind))
-            missing_val = mval
-          type is(real(r4_kind))
-            missing_val = real(mval, r8_kind)
-          class default
-            call mpp_error(FATAL, "fms_diag_send_complete:: invalid type for missing value retrieved for variable:"// &
-                                  diag_field%get_varname())
-        end select
+        ! finish reduction method if its time to write
+        ! does the same check as is_time_to_write, just no erroring out 
+        if( this%current_model_time <= diag_file%FMS_diag_file%next_next_output .and. &
+            this%current_model_time >= diag_file%FMS_diag_file%next_output) then
 
-        ! do the same check as is_time_to_write but no error check for skipping
-        if( this%current_model_time <= diag_file%FMS_diag_file%next_next_output .and. this%current_model_time >= diag_file%FMS_diag_file%next_output) then
+          print *, string(time_type_to_real(time_step))
+
+          ! first need to get missing value (and its type for getter call) for anything masked when finishing the reduction 
+          select type(mval => diag_field%get_missing_value(r8))
+            type is(real(r8_kind))
+              missing_val = mval
+            type is(real(r4_kind))
+              missing_val = real(mval, r8_kind)
+            class default
+              call mpp_error(FATAL, "fms_diag_send_complete:: invalid type for missing value retrieved for variable:"// &
+                                     diag_field%get_varname())
+          end select
+
+          if( DEBUG_REDUCT) call mpp_error(NOTE, "fms_diag_send_complete:: finishing buffer reductions for var:" &
+                                                //diag_field%get_varname())
+          ! loop through the buffers and finish reduction if needed
           do ibuff=1, SIZE(diag_field%buffer_ids)
             diag_buff => this%FMS_diag_output_buffers(diag_field%buffer_ids(ibuff))
-            if(.not. diag_buff%is_reduction_done()) then
-              field_yaml => diag_field%diag_field(ibuff)
-              ! only some reductions need to be finished
-              ! others can fall through
-              select case(field_yaml%get_var_reduction())
-              case(time_average)
-                error_string = diag_buff%diag_reduction_done_wrapper(field_yaml%get_var_reduction(), diag_field%has_mask_variant(), &
-                                                                     missing_val)
-                if (trim(error_string) .ne. "") call mpp_error(FATAL, &
-                    "fms_diag_send_complete:: error finishing reduction for output: "//error_string)
-                call diag_buff%set_reduction_done()
-              end select
-            endif
+            field_yaml => diag_field%diag_field(ibuff)
+            if(DEBUG_REDUCT) call mpp_error(NOTE, "buff id:"//string(ibuff))
+            if(DEBUG_REDUCT .and. mpp_pe() .eq. mpp_root_pe()) print *, "shape", SHAPE(diag_buff%buffer)
+            !if(.not. diag_buff%is_reduction_done()) then
+              ! time_average and greater values all involve averaging so need to be divided
+              if( field_yaml%has_var_reduction()) then
+                if( field_yaml%get_var_reduction() .ge. time_average) then
+                  error_string = diag_buff%diag_reduction_done_wrapper(field_yaml%get_var_reduction(), diag_field%has_mask_variant(), &
+                                                                   missing_val)
+                  if (trim(error_string) .ne. "") call mpp_error(FATAL, &
+                       "fms_diag_send_complete:: error finishing reduction for output: "//error_string)
+                endif
+              endif
+              !call diag_buff%set_reduction_done(.true.)
+            !endif
           enddo
         endif
 
@@ -959,6 +975,7 @@ function fms_diag_do_reduction(this, field_data, diag_field_id, oor_mask, weight
       if (trim(error_msg) .ne. "") then
         return
       endif
+      call buffer_ptr%set_reduction_done(.false.)
     case (time_power)
     case (time_rms)
     case (time_diurnal)

@@ -311,12 +311,6 @@ subroutine SUM_UPDATE_DONE_(out_buffer_data, weight_sum, reduction_method, has_m
   integer :: i, j, k, l
   integer, parameter :: kindl = FMS_TRM_KIND_
 
-  if(DEBUG_REDUCT) then
-    call mpp_error(NOTE, "FINISHING REDUCTION, weight_sum:"//string(weight_sum)// &
-                         " kind size:"//string(KIND(out_buffer_data(1,1,1,1,1))))
-    print *, "buff shape", SHAPE(out_buffer_data)
-  endif
-
   if(weight_sum .eq. 0.0_r8_kind) then
     call mpp_error(NOTE, "skipping reduction, called with zero weight")
     return
@@ -335,7 +329,7 @@ subroutine SUM_UPDATE_DONE_(out_buffer_data, weight_sum, reduction_method, has_m
         do j=1, j
           do i=1, i
             if ( weight_sum > 0.0_kindl) then
-              out_buffer_data(i,j,k,l,:) = out_buffer_data(i,j,k,l,:) &
+              out_buffer_data(i,j,k,l,1) = out_buffer_data(i,j,k,l,1) &
                                          / weight_sum 
             else
               !redundant?
@@ -346,19 +340,23 @@ subroutine SUM_UPDATE_DONE_(out_buffer_data, weight_sum, reduction_method, has_m
       end do
      end do
   else  !not mask variant
-    ! since we are looping through the entire array anyway this should work
-    !out_buffer_data = out_buffer_data &
-    !                           / weight_sum 
-    do l=1, l
-      do k=1, k
-        do j=1, j
-          do i=1, i
-            out_buffer_data(i,j,k,l,:) = out_buffer_data(i,j,k,l,:) &
-                                         / weight_sum 
-          enddo
-        enddo
-      enddo
-    enddo
+    out_buffer_data(:,:,:,:,1) = out_buffer_data(:,:,:,:,1) &
+                               / weight_sum 
+    !do l=1, l
+    !  do k=1, k
+    !    do j=1, j
+    !      do i=1, i
+    !        out_buffer_data(i,j,k,l,1) = out_buffer_data(i,j,k,l,1) &
+    !                                     / weight_sum 
+    !      enddo
+    !    enddo
+    !  enddo
+    !enddo
   endif
+
+  if(DEBUG_REDUCT) then
+    call mpp_error(NOTE, "FINISHED REDUCTION, weight_sum:"//string(weight_sum)// " buffer size:"//string(size(out_buffer_data)))
+  endif
+
 
 end subroutine

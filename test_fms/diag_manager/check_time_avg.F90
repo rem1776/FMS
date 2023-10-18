@@ -251,7 +251,7 @@ contains
                        real(step_avg, kind=r8_kind)/file_freq/100.0_kindl, kind=r4_kind)
           if (use_mask .and. ii .eq. 1 .and. j .eq. 1 .and. k .eq. 1 .and. .not. is_regional) buffer_exp = -666_r4_kind
           if (abs(buffer(ii, j, k) - buffer_exp) > 0.0) then
-            print *, mpp_pe(), ii, j, k, buffer(ii, j, k), buffer_exp
+            print *, mpp_pe(),'indices:',ii, j, k, "read in:", buffer(ii, j, k), "expected:",buffer_exp
             call mpp_error(FATAL, "Check_time_avg::check_data_3d:: Data is not correct")
           endif
         enddo
