@@ -156,6 +156,7 @@ type fmsDiagField_type
      procedure :: get_domain
      procedure :: get_type_of_domain
      procedure :: set_file_ids
+     procedure :: get_file_ids
      procedure :: get_dimnames
      procedure :: get_var_skind
      procedure :: get_longname_to_write
@@ -653,7 +654,7 @@ end function get_local
 
 !> @brief Gets vartype
 !! @return copy of The integer related to the variable type
-pure function get_vartype (this) &
+function get_vartype (this) &
 result(rslt)
      class (fmsDiagField_type), intent(in) :: this !< diag object
      integer :: rslt
@@ -960,6 +961,20 @@ subroutine set_file_ids(this, file_ids)
   allocate(this%file_ids(size(file_ids)))
   this%file_ids = file_ids
 end subroutine set_file_ids
+
+!> Get the file id list for the files the field belongs to
+!! If unallocated, returns an empty array
+pure function get_file_ids(this)
+  class(fmsDiagField_type), intent(in) :: this !< diag field object
+  integer, allocatable     :: get_file_ids(:) !< File_ids to add
+
+  if(allocated(this%file_ids)) then
+    allocate(get_file_ids(SIZE(this%file_ids)))
+    get_file_ids = this%file_ids 
+  else
+    allocate(get_file_ids(0))
+  endif
+end function get_file_ids
 
 !> @brief Get the kind of the variable based on the yaml
 !! @return A string indicating the kind of the variable (as it is used in fms2_io)

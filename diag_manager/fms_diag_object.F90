@@ -26,7 +26,7 @@ use diag_data_mod,  only: diag_null, diag_not_found, diag_not_registered, diag_r
                          &DIAG_FIELD_NOT_FOUND, diag_not_registered, max_axes, TWO_D_DOMAIN, &
                          &get_base_time, NULL_AXIS_ID, get_var_type, diag_not_registered, &
                          &time_none, time_max, time_min, time_sum, time_average, time_diurnal, &
-                         &time_power, time_rms, r8, r4
+                         &time_power, time_rms, r8, r4, i8, i4
 
   USE time_manager_mod, ONLY: set_time, set_date, get_time, time_type, OPERATOR(>=), OPERATOR(>),&
        & OPERATOR(<), OPERATOR(==), OPERATOR(/=), OPERATOR(/), OPERATOR(+), ASSIGNMENT(=), get_date, &
@@ -599,6 +599,17 @@ CALL MPP_ERROR(FATAL,"You can not use the modern diag manager without compiling 
   IF ( PRESENT(je_in) ) je = je_in
   IF ( PRESENT(ke_in) ) ke = ke_in
 
+    select type(field_data)
+      type is (real(r4_kind))
+        call this%FMS_diag_fields(diag_field_id)%set_type(r4)
+      type is (real(r8_kind))
+        call this%FMS_diag_fields(diag_field_id)%set_type(r8)
+      type is (integer(i4_kind))
+        call this%FMS_diag_fields(diag_field_id)%set_type(i4)
+      type is (integer(i8_kind))
+        call this%FMS_diag_fields(diag_field_id)%set_type(i8)
+    end select
+
   !If this is true, buffer data
   main_if: if (buffer_the_data) then
 !> Only 1 thread allocates the output buffer and sets set_math_needs_to_be_done
@@ -649,7 +660,7 @@ CALL MPP_ERROR(FATAL,"You can not use the modern diag manager without compiling 
   class(fmsDiagField_type), pointer :: diag_field !< Pointer to this%FMS_diag_files(i)%diag_field(j)
   logical :: math !< True if the math functions need to be called using the data buffer,
   !! False if the math functions were done in accept_data
-  integer, dimension(:), allocatable :: file_field_ids !< Array of field IDs for a file
+  integer, dimension(:), allocatable :: file_ids !< Array of file IDs for a field
   class(*), pointer :: input_data_buffer(:,:,:,:)
   character(len=128) :: error_string
   type(fmsDiagIbounds_type) :: bounds
@@ -664,88 +675,73 @@ CALL MPP_ERROR(FATAL,"You can not use the modern diag manager without compiling 
 
   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   !! In the future, this may be parallelized for offloading
-  file_loop: do ifile = 1, size(this%FMS_diag_files)
-    diag_file => this%FMS_diag_files(ifile)
-    field_outer_if: if (size(diag_file%FMS_diag_file%get_field_ids()) .ge. 1) then
-      allocate (file_field_ids(size(diag_file%FMS_diag_file%get_field_ids() )))
-      file_field_ids = diag_file%FMS_diag_file%get_field_ids()
-      field_loop: do ifield = 1, size(file_field_ids)
+
+  ! loop through all fields
+  field_loop: do ifield = 1, size(this%FMS_diag_fields)
+    diag_field => this%FMS_diag_fields(ifield)
+    call mpp_error(NOTE, "fms_diag_send_complete:: var: "//diag_field%get_varname())
+    ! loop through files the field is in
+    allocate (file_ids(size(diag_field%get_file_ids() )))
+    file_ids = diag_field%get_file_ids()
+    math = diag_field%get_math_needs_to_be_done()
+
+    if (size(file_ids) .ge. 1 .and. math) then
+      file_loop: do ifile = 1, size(file_ids)
+        diag_file => this%FMS_diag_files(ifile)
+        if(.not. allocated(diag_file%FMS_diag_file)) then
+          call mpp_error(NOTE, "file id:"//string(ifile)//" not allocated for field:"//diag_field%get_varname())
+          cycle
+        endif
         ! If the field is not registered go away
-        if (.not. diag_file%FMS_diag_file%is_field_registered(ifield)) cycle
-
-        diag_field => this%FMS_diag_fields(file_field_ids(ifield))
-        !> Check if math needs to be done
-        math = diag_field%get_math_needs_to_be_done()
-        calling_math: if (math) then
-          input_data_buffer => diag_field%get_data_buffer()
-          call bounds%reset_bounds_from_array_4D(input_data_buffer)
-          call this%allocate_diag_field_output_buffers(input_data_buffer, file_field_ids(ifield))
-          error_string = this%fms_diag_do_reduction(input_data_buffer, file_field_ids(ifield), &
-            diag_field%get_mask(), diag_field%get_weight(), &
-            bounds, .False., Time=this%current_model_time)
-          if (trim(error_string) .ne. "") call mpp_error(FATAL, "Field:"//trim(diag_field%get_varname()//&
-            " -"//trim(error_string)))
-        endif calling_math
-
-
-        !! TODO this doesn't seem to work, below its just defaulting to r8 for kind
-        !! getting the missed element value from the field
-        !! might not even need to be done
-        select type(input_data_buffer)
-          type is(real(r8_kind))
-            vtype = r8
-          type is(real(r4_kind))
-            vtype = r4
-        end select
-
-        ! finish reduction method if its time to write
-        ! does the same check as is_time_to_write, just no erroring out 
-        if( this%current_model_time <= diag_file%FMS_diag_file%next_next_output .and. &
-            this%current_model_time >= diag_file%FMS_diag_file%next_output) then
-
-          print *, string(time_type_to_real(time_step))
-
-          ! first need to get missing value (and its type for getter call) for anything masked when finishing the reduction 
-          select type(mval => diag_field%get_missing_value(r8))
-            type is(real(r8_kind))
-              missing_val = mval
-            type is(real(r4_kind))
-              missing_val = real(mval, r8_kind)
-            class default
-              call mpp_error(FATAL, "fms_diag_send_complete:: invalid type for missing value retrieved for variable:"// &
-                                     diag_field%get_varname())
-          end select
-
-          if( DEBUG_REDUCT) call mpp_error(NOTE, "fms_diag_send_complete:: finishing buffer reductions for var:" &
-                                                //diag_field%get_varname())
-          ! loop through the buffers and finish reduction if needed
-          do ibuff=1, SIZE(diag_field%buffer_ids)
-            diag_buff => this%FMS_diag_output_buffers(diag_field%buffer_ids(ibuff))
-            field_yaml => diag_field%diag_field(ibuff)
-            if(DEBUG_REDUCT) call mpp_error(NOTE, "buff id:"//string(ibuff))
-            if(DEBUG_REDUCT .and. mpp_pe() .eq. mpp_root_pe()) print *, "shape", SHAPE(diag_buff%buffer)
-            !if(.not. diag_buff%is_reduction_done()) then
-              ! time_average and greater values all involve averaging so need to be divided
-              if( field_yaml%has_var_reduction()) then
-                if( field_yaml%get_var_reduction() .ge. time_average) then
-                  error_string = diag_buff%diag_reduction_done_wrapper(field_yaml%get_var_reduction(), diag_field%has_mask_variant(), &
-                                                                   missing_val)
-                  if (trim(error_string) .ne. "") call mpp_error(FATAL, &
-                       "fms_diag_send_complete:: error finishing reduction for output: "//error_string)
-                endif
-              endif
-              !call diag_buff%set_reduction_done(.true.)
-            !endif
-          enddo
+        ! redundant ?
+        if (.not. diag_file%FMS_diag_file%is_field_registered(ifield) .or. &
+            .not. diag_field%is_registered()) then
+          call mpp_error(NOTE, "file id:"//string(ifile)//" not registered for field:"//diag_field%get_varname())
+          cycle
         endif
 
-        !> Clean up, clean up, everybody everywhere
-        if (associated(diag_field)) nullify(diag_field)
-      enddo field_loop
-      !> Clean up, clean up, everybody do your share
-      if (allocated(file_field_ids)) deallocate(file_field_ids)
-    endif field_outer_if
-  enddo file_loop
+        !> Check if math needs to be done
+        ! reset bounds and allocate
+        !math = diag_field%get_math_needs_to_be_done()
+        !calling_math: if (math) then
+
+        !if(diag_field%has_input_data_buffer()) then
+        !endif
+
+        ! do reduction if needed
+          calling_math: if (diag_field%has_input_data_buffer()) then
+            input_data_buffer => diag_field%get_data_buffer()
+            call bounds%reset_bounds_from_array_4D(input_data_buffer)
+
+            ! prob not needed?
+            !select type(input_data_buffer)
+              !type is (real(r4_kind))
+                !call diag_field%set_type(r4)
+              !type is (real(r8_kind))
+                !call diag_field%set_type(r8)
+              !type is (integer(i4_kind))
+                !call diag_field%set_type(i4)
+              !type is (integer(i8_kind))
+                !call diag_field%set_type(i8)
+              !class default
+                !call mpp_error(FATAL, "invalid type for input_data_buffer")
+            !end select
+
+            call this%allocate_diag_field_output_buffers(input_data_buffer, ifield)
+            error_string = this%fms_diag_do_reduction(input_data_buffer, ifield, &
+                                diag_field%get_mask(), diag_field%get_weight(), &
+                                bounds, .False., Time=this%current_model_time)
+            if (trim(error_string) .ne. "") call mpp_error(FATAL, "Field:"//trim(diag_field%get_varname()//&
+                                                           " -"//trim(error_string)))
+          endif calling_math
+
+      enddo file_loop
+    endif
+    !> Clean up, clean up, everybody do your share
+    if (allocated(file_ids)) deallocate(file_ids)
+    !> Clean up, clean up, everybody everywhere
+    !if (associated(diag_field)) nullify(diag_field)
+  enddo field_loop
 
   call this%fms_diag_do_io()
 #endif
@@ -766,6 +762,14 @@ subroutine fms_diag_do_io(this, is_end_of_run)
   logical :: file_is_opened_this_time_step !< True if the file was opened in this time_step
                                            !! If true the metadata will need to be written
   logical :: force_write
+  integer, allocatable :: field_ids(:)
+  integer :: ibuff, ifield
+  class(fmsDiagOutputBuffer_type), pointer :: diag_buff
+  class(diagYamlFilesVar_type), pointer :: field_yaml
+  class(fmsDiagField_type), pointer :: diag_field !< Pointer to this%FMS_diag_files(i)%diag_field(j)
+  real(r8_kind) :: missing_val
+  character(128) :: error_string
+
 
   force_write = .false.
   if (present (is_end_of_run)) force_write = .true.
@@ -786,6 +790,63 @@ subroutine fms_diag_do_io(this, is_end_of_run)
       call diag_file%write_field_metadata(this%FMS_diag_fields, this%diag_axis)
       call diag_file%write_axis_data(this%diag_axis)
     endif
+
+
+    !! TODO this doesn't seem to work, below its just defaulting to r8 for kind
+    !! getting the missed element value from the field
+    !select type(input_data_buffer)
+    !  type is(real(r8_kind))
+    !    vtype = r8
+    !  type is(real(r4_kind))
+    !    vtype = r4
+    !end select
+
+    !if( this%current_model_time <= diag_file%FMS_diag_file%next_next_output .and. &
+    !    this%current_model_time >= diag_file%FMS_diag_file%next_output) then
+    ! finish reduction method if its time to write
+    !if (diag_file%is_time_to_write(model_time) .or. force_write) then
+    if( .false.) then ! testing send complete
+
+      print *, "finishing reduction at time: ", string(time_type_to_real(model_time))
+      allocate(field_ids(SIZE(diag_file%FMS_diag_file%get_field_ids())))
+      field_ids = diag_file%FMS_diag_file%get_field_ids()
+      field_loop: do ifield=1, SIZE(field_ids)
+
+        diag_field => this%FMS_diag_fields(field_ids(ifield))
+        ! first need to get missing value (and its type for getter call) for anything masked when finishing the reduction 
+        select type(mval => diag_field%get_missing_value(r8))
+          type is(real(r8_kind))
+            missing_val = mval
+          type is(real(r4_kind))
+            missing_val = real(mval, r8_kind)
+          class default
+            call mpp_error(FATAL, "fms_diag_send_complete:: invalid type for missing value retrieved for variable:"// &
+                                  diag_field%get_varname())
+        end select
+        if( DEBUG_REDUCT) call mpp_error(NOTE, "fms_diag_send_complete:: finishing buffer reductions for var:" &
+                                              //diag_field%get_varname())
+        ! loop through the buffers and finish reduction if needed
+        buff_loop: do ibuff=1, SIZE(diag_field%buffer_ids)
+          diag_buff => this%FMS_diag_output_buffers(diag_field%buffer_ids(ibuff))
+          field_yaml => diag_field%diag_field(ibuff)
+          if(DEBUG_REDUCT) call mpp_error(NOTE, "buff id:"//string(ibuff))
+          if(DEBUG_REDUCT .and. mpp_pe() .eq. mpp_root_pe()) print *, "shape", SHAPE(diag_buff%buffer)
+          !if(.not. diag_buff%is_reduction_done()) then
+            ! time_average and greater values all involve averaging so need to be divided
+            if( field_yaml%has_var_reduction()) then
+              if( field_yaml%get_var_reduction() .ge. time_average) then
+                error_string = diag_buff%diag_reduction_done_wrapper(field_yaml%get_var_reduction(), diag_field%has_mask_variant(), &
+                                                                missing_val)
+                if (trim(error_string) .ne. "") call mpp_error(FATAL, &
+                    "fms_diag_send_complete:: error finishing reduction for output: "//error_string)
+              endif
+            endif
+            !call diag_buff%set_reduction_done(.true.)
+          !endif
+        enddo buff_loop
+      enddo field_loop
+    endif
+
 
     if (diag_file%is_time_to_write(model_time)) then
       call diag_file%increase_unlim_dimension_level()
@@ -1285,6 +1346,7 @@ subroutine allocate_diag_field_output_buffers(this, field_data, field_id)
   integer :: yaml_id !< Yaml id for the buffer
   integer :: file_id !< File id for the buffer
 
+  if (.not.allocated(this%FMS_diag_fields(field_id)%buffer_allocated)) return
   if (this%FMS_diag_fields(field_id)%buffer_allocated) return
 
   ! Determine the type of the field data
