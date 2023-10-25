@@ -28,7 +28,7 @@ module fms_diag_output_buffer_mod
 use platform_mod
 use iso_c_binding
 use time_manager_mod, only: time_type, operator(==)
-use mpp_mod, only: mpp_error, FATAL
+use mpp_mod, only: mpp_error, FATAL, NOTE
 use diag_data_mod, only: DIAG_NULL, DIAG_NOT_REGISTERED, i4, i8, r4, r8, get_base_time, MIN_VALUE, MAX_VALUE, EMPTY, &
                          time_min, time_max, time_average
 use fms2_io_mod, only: FmsNetcdfFile_t, write_data, FmsNetcdfDomainFile_t, FmsNetcdfUnstructuredDomainFile_t
@@ -36,6 +36,7 @@ use fms_diag_yaml_mod, only: diag_yaml
 use fms_diag_bbox_mod, only: fmsDiagIbounds_type
 use fms_diag_reduction_methods_mod, only: do_time_none, do_time_min, do_time_max, do_time_sum_update, sum_update_done
 use fms_diag_time_utils_mod, only: diag_time_inc
+use fms_string_utils_mod, only: string
 
 implicit none
 
@@ -55,6 +56,7 @@ type :: fmsDiagOutputBuffer_type
   integer               :: yaml_id            !< The id of the yaml id the buffer belongs to
   logical               :: done_with_math     !< .True. if done doing the math
   logical               :: reduction_done = .false.     !< .True. if reduction has been finished (for averaging)
+  logical, allocatable  :: mask(:,:,:,:) !< mask from last accept data call
 
   contains
   procedure :: add_axis_ids
@@ -81,6 +83,7 @@ type :: fmsDiagOutputBuffer_type
   procedure :: diag_reduction_done_wrapper
   procedure :: is_reduction_done
   procedure :: set_reduction_done
+  procedure :: set_mask
 
 end type fmsDiagOutputBuffer_type
 
@@ -147,6 +150,8 @@ subroutine allocate_buffer(this, buff_type, ndim, buff_sizes, field_name, diurna
   else
     n_samples = 1
   endif
+
+  call mpp_error(NOTE, "allocated "//string(ndim)//"d buffer for field:"//field_name)
 
   this%ndim =ndim
   if(allocated(this%buffer)) call mpp_error(FATAL, "allocate_buffer: buffer already allocated for field:" // &
@@ -419,6 +424,7 @@ subroutine write_buffer_wrapper_domain(this, fms2io_fileobj, unlim_dim_level)
   case (1)
     call write_data(fms2io_fileobj, varname, this%buffer(:,1,1,1,1), unlim_dim_level=unlim_dim_level)
   case (2)
+    print *, shape(this%buffer)
     call write_data(fms2io_fileobj, varname, this%buffer(:,:,1,1,1), unlim_dim_level=unlim_dim_level)
   case (3)
     call write_data(fms2io_fileobj, varname, this%buffer(:,:,:,1,1), unlim_dim_level=unlim_dim_level)
@@ -556,7 +562,7 @@ function do_time_max_wrapper(this, field_data, mask, is_masked, bounds_in, bound
   end select
 end function do_time_max_wrapper
 
-!> @brief Does the time_sum reduction method on the buffer object
+!> @brief Sums data for any reduction method that involve summation or averaging on the buffer object
 !! @return Error message if the math was not successful
 function do_time_sum_wrapper(this, field_data, mask, is_masked, bounds_in, bounds_out, missing_value) &
   result(err_msg)
@@ -568,6 +574,9 @@ function do_time_sum_wrapper(this, field_data, mask, is_masked, bounds_in, bound
   logical,                         intent(in)    :: is_masked           !< .True. if the field has a mask
   real(kind=r8_kind),              intent(in)    :: missing_value       !< Missing_value for data points that are masked
   character(len=50) :: err_msg
+
+  ! save mask to use if were doing an average
+  call this%set_mask(mask)
 
   !TODO This will be expanded for integers
   err_msg = ""
@@ -594,22 +603,54 @@ function do_time_sum_wrapper(this, field_data, mask, is_masked, bounds_in, bound
 end function do_time_sum_wrapper
 
 !> Finishes calculations for any reductions that use an average (avg, rms, pow)
-function diag_reduction_done_wrapper(this, reduction_method, has_mask, missing_value) &
+function diag_reduction_done_wrapper(this, reduction_method, has_mask, missing_value, is_subregional, z_bounds) &
   result(err_msg)
   class(fmsDiagOutputBuffer_type), intent(inout) :: this !< Updated buffer object
   integer, intent(in)                            :: reduction_method !< enumerated reduction type from diag_data
   logical, intent(in)                            :: has_mask !< whether a mask variant reduction
   real(kind=r8_kind), intent(in)                 :: missing_value !< missing_value for masked data points
+  logical, intent(in)                            :: is_subregional !< present and true if subregional output
+  integer, optional, intent(in)                  :: z_bounds(2) !< present if field doing reduction over a specified 3rd index range
   character(len=51)                              :: err_msg !< error message to return, blank if sucessful
+  integer                                        :: z_lbound, z_ubound
+  logical, allocatable                           :: mask_tmp(:,:,:,:)
 
-  if(.not. allocated(this%buffer)) return
+  if(.not. allocated(this%buffer)) then
+    call mpp_error(NOTE, "diag_reduction_done_wrapper:: called on unallocated buffer")
+    return 
+  endif
+
+  ! make mask smaller for reduced z bounds if present, otherwise just uses the whole mask
+  if(present(z_bounds)) then
+    z_lbound = z_bounds(1); z_ubound = z_bounds(2) 
+    print *, "zbounds present:", z_bounds
+  else
+    z_lbound = LBOUND(this%mask,3); z_ubound = UBOUND(this%mask,3)
+  endif
+  
+  ! if subregional, mask will be different per pe
+  ! this is a janky way of doing it for now
+  ! TODO need a routine to translate masks for subregional output
+  if(is_subregional) then
+      allocate(mask_tmp(this%buffer_dims(1), this%buffer_dims(2), this%buffer_dims(3), this%buffer_dims(4)))
+      mask_tmp = .true.
+      call this%set_mask(mask_tmp)
+  endif
 
   err_msg = ""
   select type(buff => this%buffer)
     type is (real(r8_kind))
-      call sum_update_done(buff, this%weight_sum, reduction_method, has_mask, missing_value) 
+      if(has_mask) then
+        call sum_update_done(buff, this%weight_sum, reduction_method, missing_value, mask=this%mask(:,:,z_lbound:z_ubound,:)) 
+      else
+        call sum_update_done(buff, this%weight_sum, reduction_method, missing_value) 
+      endif
     type is (real(r4_kind))
-      call sum_update_done(buff, this%weight_sum, reduction_method, has_mask, real(missing_value, r4_kind)) 
+      if(has_mask) then
+        call sum_update_done(buff, this%weight_sum, reduction_method, real(missing_value, r4_kind), this%mask(:,:,z_lbound:z_ubound,:)) 
+      else
+        call sum_update_done(buff, this%weight_sum, reduction_method, real(missing_value, r4_kind)) 
+      endif
   end select
   this%weight_sum = 0.0_r8_kind
 
@@ -628,6 +669,15 @@ subroutine set_reduction_done(this, val)
   logical, intent(in)                           :: val !< logical value to set
   this%reduction_done = val 
 end subroutine 
+
+!> Allocates and sets input mask to use when finishing reductions
+subroutine set_mask(this, mask_in)
+  class(fmsDiagOutputBuffer_type), intent(inout) :: this
+  logical, intent(in)                            :: mask_in(:,:,:,:)
+
+  if(.not. allocated(this%mask)) allocate(this%mask(SIZE(mask_in,1), SIZE(mask_in,2), SIZE(mask_in,3), SIZE(mask_in,4)))
+  this%mask = mask_in
+end subroutine set_mask
 
 #endif
 end module fms_diag_output_buffer_mod

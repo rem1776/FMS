@@ -35,7 +35,7 @@ use diag_data_mod,  only: diag_null, diag_not_found, diag_not_registered, diag_r
 use fms_diag_file_object_mod, only: fmsDiagFileContainer_type, fmsDiagFile_type, fms_diag_files_object_init
 use fms_diag_field_object_mod, only: fmsDiagField_type, fms_diag_fields_object_init, get_default_missing_value
 use fms_diag_yaml_mod, only: diag_yaml_object_init, diag_yaml_object_end, find_diag_field, &
-                           & get_diag_files_id, diag_yaml, get_diag_field_ids, DiagYamlFilesVar_type
+                           & get_diag_files_id, diag_yaml, get_diag_field_ids, DiagYamlFilesVar_type, subRegion_type
 use fms_diag_axis_object_mod, only: fms_diag_axis_object_init, fmsDiagAxis_type, fmsDiagSubAxis_type, &
                                    &diagDomain_t, get_domain_and_domain_type, diagDomain2d_t, &
                                    &fmsDiagAxisContainer_type, fms_diag_axis_object_end, fmsDiagFullAxis_type, &
@@ -740,7 +740,7 @@ CALL MPP_ERROR(FATAL,"You can not use the modern diag manager without compiling 
     !> Clean up, clean up, everybody do your share
     if (allocated(file_ids)) deallocate(file_ids)
     !> Clean up, clean up, everybody everywhere
-    !if (associated(diag_field)) nullify(diag_field)
+    if (associated(diag_field)) nullify(diag_field)
   enddo field_loop
 
   call this%fms_diag_do_io()
@@ -762,13 +762,15 @@ subroutine fms_diag_do_io(this, is_end_of_run)
   logical :: file_is_opened_this_time_step !< True if the file was opened in this time_step
                                            !! If true the metadata will need to be written
   logical :: force_write
-  integer, allocatable :: field_ids(:)
-  integer :: ibuff, ifield
+  integer, allocatable :: buff_ids(:)
+  integer :: ibuff, ifield, mask_zbounds(2)
   class(fmsDiagOutputBuffer_type), pointer :: diag_buff
   class(diagYamlFilesVar_type), pointer :: field_yaml
   class(fmsDiagField_type), pointer :: diag_field !< Pointer to this%FMS_diag_files(i)%diag_field(j)
   real(r8_kind) :: missing_val
   character(128) :: error_string
+  logical :: writing_time
+  logical :: subregional
 
 
   force_write = .false.
@@ -778,6 +780,8 @@ subroutine fms_diag_do_io(this, is_end_of_run)
 
   do i = 1, size(this%FMS_diag_files)
     diag_file => this%FMS_diag_files(i)
+
+    if(.not. allocated(diag_file%FMS_diag_file)) cycle
 
     !< Go away if the file is a subregional file and the current PE does not have any data for it
     if (.not. diag_file%writing_on_this_pe()) cycle
@@ -800,55 +804,61 @@ subroutine fms_diag_do_io(this, is_end_of_run)
     !  type is(real(r4_kind))
     !    vtype = r4
     !end select
+    writing_time = diag_file%is_time_to_write(model_time)
 
-    !if( this%current_model_time <= diag_file%FMS_diag_file%next_next_output .and. &
-    !    this%current_model_time >= diag_file%FMS_diag_file%next_output) then
     ! finish reduction method if its time to write
-    !if (diag_file%is_time_to_write(model_time) .or. force_write) then
-    if( .false.) then ! testing send complete
-
-      print *, "finishing reduction at time: ", string(time_type_to_real(model_time))
-      allocate(field_ids(SIZE(diag_file%FMS_diag_file%get_field_ids())))
-      field_ids = diag_file%FMS_diag_file%get_field_ids()
-      field_loop: do ifield=1, SIZE(field_ids)
-
-        diag_field => this%FMS_diag_fields(field_ids(ifield))
-        ! first need to get missing value (and its type for getter call) for anything masked when finishing the reduction 
+    buff_reduct: if (writing_time .or. force_write) then
+      allocate(buff_ids(diag_file%FMS_diag_file%get_number_of_buffers()))
+      buff_ids = diag_file%FMS_diag_file%get_buffer_ids()
+      print *, "file:", diag_file%FMS_diag_file%get_file_fname(), "buffer ids:", buff_ids
+      ! loop through the buffers and finish reduction if needed
+      buff_loop: do ibuff=1, SIZE(buff_ids)
+        diag_buff => this%FMS_diag_output_buffers(buff_ids(ibuff))
+        field_yaml => diag_yaml%get_diag_field_from_id(diag_buff%get_yaml_id())
+        diag_field => this%FMS_diag_fields(diag_buff%get_field_id())
         select type(mval => diag_field%get_missing_value(r8))
           type is(real(r8_kind))
             missing_val = mval
           type is(real(r4_kind))
             missing_val = real(mval, r8_kind)
           class default
-            call mpp_error(FATAL, "fms_diag_send_complete:: invalid type for missing value retrieved for variable:"// &
+            call mpp_error(FATAL, "fms_do_io:: invalid type for missing value retrieved for variable:"// &
                                   diag_field%get_varname())
         end select
-        if( DEBUG_REDUCT) call mpp_error(NOTE, "fms_diag_send_complete:: finishing buffer reductions for var:" &
-                                              //diag_field%get_varname())
-        ! loop through the buffers and finish reduction if needed
-        buff_loop: do ibuff=1, SIZE(diag_field%buffer_ids)
-          diag_buff => this%FMS_diag_output_buffers(diag_field%buffer_ids(ibuff))
-          field_yaml => diag_field%diag_field(ibuff)
-          if(DEBUG_REDUCT) call mpp_error(NOTE, "buff id:"//string(ibuff))
-          if(DEBUG_REDUCT .and. mpp_pe() .eq. mpp_root_pe()) print *, "shape", SHAPE(diag_buff%buffer)
-          !if(.not. diag_buff%is_reduction_done()) then
-            ! time_average and greater values all involve averaging so need to be divided
-            if( field_yaml%has_var_reduction()) then
-              if( field_yaml%get_var_reduction() .ge. time_average) then
-                error_string = diag_buff%diag_reduction_done_wrapper(field_yaml%get_var_reduction(), diag_field%has_mask_variant(), &
-                                                                missing_val)
-                if (trim(error_string) .ne. "") call mpp_error(FATAL, &
-                    "fms_diag_send_complete:: error finishing reduction for output: "//error_string)
-              endif
-            endif
-            !call diag_buff%set_reduction_done(.true.)
-          !endif
-        enddo buff_loop
-      enddo field_loop
-    endif
+        if(DEBUG_REDUCT) print *, "buff id:"//string(ibuff)
+        if(DEBUG_REDUCT) print *, "pe:", mpp_pe(), "shape", SHAPE(diag_buff%buffer)
+        ! time_average and greater values all involve averaging so need to be divided
+        if( field_yaml%has_var_reduction()) then
+          if( field_yaml%get_var_reduction() .ge. time_average) then
+            subregional =  diag_file%FMS_diag_file%has_file_sub_region()
+            !! normal call to finish reductions
+            if(.not.field_yaml%has_var_zbounds()) then
+              error_string = diag_buff%diag_reduction_done_wrapper( &
+                                  field_yaml%get_var_reduction(), &
+                                  diag_field%get_mask_variant(), &
+                                  missing_val, subregional)
+              if (trim(error_string) .ne. "") call mpp_error(FATAL, &
+                "fms_diag_send_complete:: error finishing reduction for output: "//error_string)
+            !! has reduced zbounds, need to grab relevant slice of the mask
+            else
+              mask_zbounds = field_yaml%get_var_zbounds()
+              error_string = diag_buff%diag_reduction_done_wrapper( &
+                                  field_yaml%get_var_reduction(), &
+                                  diag_field%get_mask_variant(), &
+                                  missing_val, subregional, &
+                                  z_bounds=mask_zbounds)
+            endif 
+          endif
+        endif
+        !endif
+        nullify(diag_buff)
+        nullify(field_yaml)
+      enddo buff_loop
+      deallocate(buff_ids)
+    endif buff_reduct
 
 
-    if (diag_file%is_time_to_write(model_time)) then
+    if (writing_time) then
       call diag_file%increase_unlim_dimension_level()
       call diag_file%write_time_data()
       call diag_file%write_field_data(this%FMS_diag_fields, this%FMS_diag_output_buffers)
@@ -1037,6 +1047,7 @@ function fms_diag_do_reduction(this, field_data, diag_field_id, oor_mask, weight
         return
       endif
       call buffer_ptr%set_reduction_done(.false.)
+      if(SIZE(field_data) .gt. 1)call buffer_ptr%set_mask(oor_mask)
     case (time_power)
     case (time_rms)
     case (time_diurnal)

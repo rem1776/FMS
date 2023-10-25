@@ -302,12 +302,13 @@ end subroutine DO_TIME_SUM_UPDATE_
 
 !> To be called with diag_send_complete, finishes reductions
 !! Just divides the buffer by the counter array(which is just the sum of the weights used in the buffer's reduction)
-subroutine SUM_UPDATE_DONE_(out_buffer_data, weight_sum, reduction_method, has_mask, missing_val)
+subroutine SUM_UPDATE_DONE_(out_buffer_data, weight_sum, reduction_method, missing_val, mask)
   real(FMS_TRM_KIND_), intent(inout) :: out_buffer_data(:,:,:,:,:) !< data buffer previosuly updated with do_time_sum_update
   real(r8_kind), intent(in)          :: weight_sum !< sum of weights for averaging, provided via argument to send data
   integer, intent(in)                :: reduction_method !< which reduction method to use, should be time_avg
-  logical, intent(in)                :: has_mask !< whether or not the updates were done with a mask
   real(FMS_TRM_KIND_), intent(in)    :: missing_val !< missing value for masked elements
+  logical, optional, intent(in)      :: mask(:,:,:,:) !< logical mask from accept data call, if using one
+  logical                            :: has_mask !< whether or not mask is present 
   integer :: i, j, k, l
   integer, parameter :: kindl = FMS_TRM_KIND_
 
@@ -315,6 +316,8 @@ subroutine SUM_UPDATE_DONE_(out_buffer_data, weight_sum, reduction_method, has_m
     call mpp_error(NOTE, "skipping reduction, called with zero weight")
     return
   endif
+
+  has_mask = present(mask)
 
   ! TODO certain written out values (starting at var2d, (1,3) )
   ! are way smaller than they should be
@@ -324,21 +327,28 @@ subroutine SUM_UPDATE_DONE_(out_buffer_data, weight_sum, reduction_method, has_m
   k=SIZE(out_buffer_data,3)
   l=SIZE(out_buffer_data,4)
   if ( has_mask ) then
-    do l=1, l
-      do k=1, k
-        do j=1, j
-          do i=1, i
-            if ( weight_sum > 0.0_kindl) then
-              out_buffer_data(i,j,k,l,1) = out_buffer_data(i,j,k,l,1) &
-                                         / weight_sum 
-            else
-              !redundant?
-              out_buffer_data(i,j,k,l,:) =  missing_val
-            end if
-          end do
-        end do
-      end do
-     end do
+    print *, "pe", mpp_pe(), "SHAPE(mask):", SHAPE(mask), "SHAPE(out_buffer_data)", SHAPE(out_buffer_data)
+    !do l=1, l
+    !  do k=1, k
+    !    do j=1, j
+    !      do i=1, i
+    !        if (mask(i,j,k,l)) then 
+    !          out_buffer_data(i,j,k,l,1) = out_buffer_data(i,j,k,l,1) &
+    !                                     / weight_sum 
+    !        else
+              !!redundant?
+    !          out_buffer_data(i,j,k,l,:) =  missing_val
+    !        end if
+    !      end do
+    !    end do
+    !  end do
+    ! end do
+    where(mask(:,:,:,:))
+      out_buffer_data(:,:,:,:,1) = out_buffer_data(:,:,:,:,1) &
+                                   / weight_sum 
+    elsewhere
+      out_buffer_data(:,:,:,:,1) = missing_val 
+    endwhere
   else  !not mask variant
     out_buffer_data(:,:,:,:,1) = out_buffer_data(:,:,:,:,1) &
                                / weight_sum 

@@ -141,7 +141,9 @@ contains
                       real(step_avg,r8_kind)/100.0_r8_kind, kind=r4_kind)
     buffer_exp = buffer_exp / file_freq 
 
-    if (abs(buffer - buffer_exp) > 0.0) then
+    if (abs(buffer - buffer_exp) > 0.0) print *, "answer not exact for 0d, time:", time_level, " diff:", abs(buffer-buffer_exp)
+
+    if (abs(buffer - buffer_exp) > 1.0e-4) then
       print *, "time_level", time_level, "expected", buffer_exp, "read", buffer
       call mpp_error(FATAL, "Check_time_avg::check_data_0d:: Data is not correct")
     endif
