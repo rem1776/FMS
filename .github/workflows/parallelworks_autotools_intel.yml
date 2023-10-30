@@ -2,13 +2,13 @@ on: push
 jobs:
   intel-autotools:
     runs-on: self-hosted
-    strategy:
+    #strategy:
       #matrix:
       #  io-flag: ["--disable-deprecated-io", "--enable-deprecated-io"]
-      env:
-        CC: mpiicc
-        FC: mpiifort
-        TEST_VERBOSE: 1
+    env:
+      CC: mpiicc
+      FC: mpiifort
+      TEST_VERBOSE: 1
     steps:
     - name: checkout
       uses: actions/checkout@v2
