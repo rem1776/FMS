@@ -8,23 +8,29 @@ jobs:
       #  compilers: [ "intel", "intel-classic", "intel-oneapi"]
       #  target: [ "PROD", "DEBUG" ] 
     env:
-      CC: mpiicc
-      FC: mpiifort
       NC_VERSION: 4.7.0
       INTEL_VERSION: 2022.1.2
       TEST_VERBOSE: 1
     steps:
     - name: checkout
       uses: actions/checkout@v2
-    - name: Configure
-      run: | # module loads for versions set above, hdf5 just uses latest
+    - name: Set up enviroment
+      run: | # writes env variables onto file to allow them to persist across steps
         module load intel/${INTEL_VERSION} impi/${INTEL_VERSION} netcdf/${NC_VERSION} hdf5
-        autoreconf -if ./configure.ac 
-        ./configure FCFLAGS="`nf-config --fflags`" CFLAGS="`nc-config --cflags`" LDFLAGS="`nc-config --libs`"
-      #env:
+        echo "FC=`which mpiifort`"              >> "$GITHUB_ENV"
+        echo "CC=`which mpiicc`"                >> "$GITHUB_ENV"
+        echo "FCFLAGS=`nf-config --fflags`"     >> "$GITHUB_ENV"
+        echo "CCFLAGS=`nc-config --cflags`"     >> "$GITHUB_ENV"
+        echo "LDFLAGS=`nc-config --libs`"       >> "$GITHUB_ENV"
+        echo "LD_LIBRARY_PATH=$LD_LIBRARY_PATH" >> "$GITHUB_ENV"
+        echo "PATH=$PATH"                       >> "$GITHUB_ENV"
+      # env:
       #  CC: mpifc -fc=${{ matrix.compilers == 'intel-classic' && 'icc' || 'icx'}}
       #  FC: mpifc -fc=${{ matrix.compilers != 'intel-oneapi' && 'ifort' || 'ifx'}}
+    - name: Configure
+      run: autoreconf -if ./configure.ac && ./configure
     - name: Compile
       run: make -j || make
     - name: Run test suite
       run: make check TEST_VERBOSE=1
+      
