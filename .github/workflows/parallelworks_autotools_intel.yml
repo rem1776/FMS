@@ -20,8 +20,7 @@ jobs:
         echo "FC=`which mpiifort`"              >> "$GITHUB_ENV"
         echo "CC=`which mpiicc`"                >> "$GITHUB_ENV"
         echo "FCFLAGS=`nf-config --fflags`"     >> "$GITHUB_ENV"
-        echo "CCFLAGS=`nc-config --cflags`"     >> "$GITHUB_ENV"
-        echo "LDFLAGS=`nc-config --libs`"       >> "$GITHUB_ENV"
+        echo "CFLAGS=`nc-config --cflags`"      >> "$GITHUB_ENV"
         echo "LD_LIBRARY_PATH=$LD_LIBRARY_PATH" >> "$GITHUB_ENV"
         echo "PATH=$PATH"                       >> "$GITHUB_ENV"
       # env:
