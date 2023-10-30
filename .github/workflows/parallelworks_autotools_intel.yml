@@ -21,7 +21,7 @@ jobs:
         echo "CC=`which mpiicc`"                >> "$GITHUB_ENV"
         echo "FCFLAGS=`nf-config --fflags`"     >> "$GITHUB_ENV"
         echo "CFLAGS=`nc-config --cflags`"      >> "$GITHUB_ENV"
-        env >> "$GITHUB_ENV" # set everything else currently set by lmod
+        env >> "$GITHUB_ENV"
       # env:
       #  CC: mpifc -fc=${{ matrix.compilers == 'intel-classic' && 'icc' || 'icx'}}
       #  FC: mpifc -fc=${{ matrix.compilers != 'intel-oneapi' && 'ifort' || 'ifx'}}
