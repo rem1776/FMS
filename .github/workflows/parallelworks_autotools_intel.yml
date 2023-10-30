@@ -16,7 +16,7 @@ jobs:
       run: |
         module load intel/2022.1.2 impi/2022.1.2 hdf5/1.10.6 netcdf/4.7.0
         autoreconf -if ./configure.ac
-        ./configure --with-yaml FCFLAGS="`nf-config --fflags`" CFLAGS="`nc-config --cflags`"
+        ./configure FCFLAGS="`nf-config --fflags`" CFLAGS="`nc-config --cflags`"
     - name: Compile
       run: make -j || make
     - name: Run test suite
