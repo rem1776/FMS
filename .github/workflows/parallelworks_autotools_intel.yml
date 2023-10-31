@@ -11,11 +11,12 @@ jobs:
       NC_VERSION: 4.7.0
       INTEL_VERSION: 2022.1.2
       TEST_VERBOSE: 1
+      MPI_LAUNCHER: "srun --mpi=pmi2 --partition n384"
     steps:
     - name: checkout
       uses: actions/checkout@v2
     # TODO env command doesn't seem to work in the runner
-    # if it was we'd be able not not module load every step
+    # if it was we'd be able not module load every step
     - name: Set up enviroment
       run: | # writes env variables onto file to allow them to persist across steps
         module load intel/${INTEL_VERSION} impi/${INTEL_VERSION} netcdf/${NC_VERSION} hdf5
@@ -38,5 +39,6 @@ jobs:
     - name: Run test suite
       run: |
         module load intel/${INTEL_VERSION} impi/${INTEL_VERSION} netcdf/${NC_VERSION} hdf5
-        make check TEST_VERBOSE=1
+        ${MPI_LAUNCHER} -n 25 hostname > /dev/null
+        make check -k
       
