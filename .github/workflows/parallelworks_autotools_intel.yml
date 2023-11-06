@@ -35,10 +35,9 @@ jobs:
     - name: Compile
       run: |
         module load intel/${INTEL_VERSION} impi/${INTEL_VERSION} netcdf/${NC_VERSION} hdf5
-        make -j || make
+        cd build && make -j || make
     - name: Run test suite
       run: |
         module load intel/${INTEL_VERSION} impi/${INTEL_VERSION} netcdf/${NC_VERSION} hdf5
         ${MPI_LAUNCHER} -n 25 hostname > /dev/null
-        make check -k
-      
+        cd build && make check -k
