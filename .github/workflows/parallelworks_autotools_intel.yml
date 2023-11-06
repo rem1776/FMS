@@ -15,8 +15,6 @@ jobs:
     steps:
     - name: checkout
       uses: actions/checkout@v2
-    # TODO env command doesn't seem to work in the runner
-    # if it was we'd be able not module load every step
     - name: Set up enviroment
       run: | # writes env variables onto file to allow them to persist across steps
         module load intel/${INTEL_VERSION} impi/${INTEL_VERSION} netcdf/${NC_VERSION} hdf5
@@ -25,13 +23,15 @@ jobs:
         echo "FCFLAGS=`nf-config --fflags`"     >> "$GITHUB_ENV"
         echo "CFLAGS=`nc-config --cflags`"      >> "$GITHUB_ENV"
         echo "LDFLAGS=`nc-config --libs`"       >> "$GITHUB_ENV"
+    # TODO env cmd doesn't work, workaround is to module load every step
+    # env >> "$GITHUB_ENV"
     #    env:
     #      CC: mpifc -fc=${{ matrix.compilers == 'intel-classic' && 'icc' || 'icx'}}
     #      FC: mpifc -fc=${{ matrix.compilers != 'intel-oneapi' && 'ifort' || 'ifx'}}
     - name: Configure
       run: |
         module load intel/${INTEL_VERSION} impi/${INTEL_VERSION} netcdf/${NC_VERSION} hdf5
-        autoreconf -if ./configure.ac && ./configure
+        autoreconf -if ./configure.ac && mkdir build && cd build && ../configure
     - name: Compile
       run: |
         module load intel/${INTEL_VERSION} impi/${INTEL_VERSION} netcdf/${NC_VERSION} hdf5
