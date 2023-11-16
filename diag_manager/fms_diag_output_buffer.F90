@@ -81,10 +81,6 @@ type :: fmsDiagOutputBuffer_type
   procedure :: do_time_max_wrapper
   procedure :: do_time_sum_wrapper
   procedure :: diag_reduction_done_wrapper
-  procedure :: is_reduction_done
-  procedure :: set_reduction_done
-  procedure :: set_mask
-
 end type fmsDiagOutputBuffer_type
 
 ! public types
@@ -574,9 +570,6 @@ function do_time_sum_wrapper(this, field_data, mask, is_masked, bounds_in, bound
   logical,                         intent(in)    :: is_masked           !< .True. if the field has a mask
   real(kind=r8_kind),              intent(in)    :: missing_value       !< Missing_value for data points that are masked
   character(len=50) :: err_msg
-
-  ! save mask to use if were doing an average
-  call this%set_mask(mask)
 
   !TODO This will be expanded for integers
   err_msg = ""
