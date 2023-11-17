@@ -53,10 +53,8 @@ use platform_mod
   USE fms_mod, ONLY: WARNING, write_version_number
   USE fms_diag_bbox_mod, ONLY: fmsDiagIbounds_type
 
-#ifdef use_netCDF
   ! NF90_FILL_REAL has value of 9.9692099683868690e+36.
   USE netcdf, ONLY: NF_FILL_REAL => NF90_FILL_REAL
-#endif
   use fms2_io_mod
 
   IMPLICIT NONE
@@ -260,7 +258,7 @@ use platform_mod
      CHARACTER(len=128) :: name
      CHARACTER(len=256) :: units, long_name
      CHARACTER(len=1) :: cart_name
-     REAL, DIMENSION(:), POINTER :: data
+     REAL, DIMENSION(:), POINTER :: diag_type_data
      INTEGER, DIMENSION(MAX_SUBAXES) :: start
      INTEGER, DIMENSION(MAX_SUBAXES) :: end
      CHARACTER(len=128), DIMENSION(MAX_SUBAXES) :: subaxis_name
@@ -335,13 +333,9 @@ use platform_mod
 
   ! <!-- netCDF variable -->
 
-#ifdef use_netCDF
   REAL :: FILL_VALUE = NF_FILL_REAL !< Fill value used.  Value will be <TT>NF90_FILL_REAL</TT> if using the
                                     !! netCDF module, otherwise will be 9.9692099683868690e+36.
                                     ! from file /usr/local/include/netcdf.inc
-#else
-  REAL :: FILL_VALUE = 9.9692099683868690e+36
-#endif
 
   INTEGER :: pack_size = 1 !< 1 for double and 2 for float
 
