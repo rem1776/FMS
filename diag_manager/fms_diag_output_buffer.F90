@@ -621,15 +621,6 @@ function diag_reduction_done_wrapper(this, reduction_method, has_mask, missing_v
     z_lbound = LBOUND(this%mask,3); z_ubound = UBOUND(this%mask,3)
   endif
   
-  ! if subregional, mask will be different per pe
-  ! this is a janky way of doing it for now
-  ! TODO need a routine to translate masks for subregional output
-  if(is_subregional) then
-      allocate(mask_tmp(this%buffer_dims(1), this%buffer_dims(2), this%buffer_dims(3), this%buffer_dims(4)))
-      mask_tmp = .true.
-      call this%set_mask(mask_tmp)
-  endif
-
   err_msg = ""
   select type(buff => this%buffer)
     type is (real(r8_kind))

@@ -157,7 +157,6 @@ type fmsDiagField_type
      procedure :: get_domain
      procedure :: get_type_of_domain
      procedure :: set_file_ids
-     procedure :: get_file_ids
      procedure :: get_dimnames
      procedure :: get_var_skind
      procedure :: get_longname_to_write
@@ -972,7 +971,6 @@ pure function get_file_ids(this)
   integer, allocatable     :: get_file_ids(:) !< File_ids to add
 
   if(allocated(this%file_ids)) then
-    allocate(get_file_ids(SIZE(this%file_ids)))
     get_file_ids = this%file_ids 
   else
     allocate(get_file_ids(0))
@@ -1661,12 +1659,6 @@ subroutine set_missing_value (this, missing_value)
   this%missing_value = missing_value
 
 end subroutine  
-!> Get list of field ids
-pure function get_file_ids(this)
-  class(fmsDiagField_type), intent(in) :: this
-  integer, allocatable :: get_file_ids(:) !< Ids of the FMS_diag_files the variable
-  get_file_ids = this%file_ids
-end function
 
 !> @brief Get the mask from the input buffer object
 !! @return a pointer to the mask

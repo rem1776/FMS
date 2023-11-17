@@ -772,6 +772,7 @@ subroutine fms_diag_do_io(this, is_end_of_run)
     !end select
     writing_time = diag_file%is_time_to_write(model_time)
 
+
     ! finish reduction method if its time to write
     buff_reduct: if (writing_time .or. force_write) then
       allocate(buff_ids(diag_file%FMS_diag_file%get_number_of_buffers()))
@@ -822,7 +823,6 @@ subroutine fms_diag_do_io(this, is_end_of_run)
       enddo buff_loop
       deallocate(buff_ids)
     endif buff_reduct
-
 
     if (writing_time) then
       call diag_file%increase_unlim_dimension_level()
