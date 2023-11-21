@@ -38,7 +38,7 @@ jobs:
         cd build && make -j || make
     - name: Run test suite
       run: |
-        salloc -n 24 -p 384 -t 60
+        salloc -n 24 -p n384 -t 60
         module load intel/${INTEL_VERSION} impi/${INTEL_VERSION} netcdf/${NC_VERSION} hdf5
         cd build
         make check -k | tee test.out
