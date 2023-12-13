@@ -11,7 +11,9 @@ jobs:
       NC_VERSION: 4.7.0
       INTEL_VERSION: 2022.1.2
       TEST_VERBOSE: 1
-      MPI_LAUNCHER: "srun --partition n384 --mpi=pmi2"
+      MPI_LAUNCHER: "srun --mpi=pmi2"
+      I_MPI_FABRICS: "shm:ofi"
+      I_MPI_OFI_PROVIDER: "tcp"
     steps:
     - name: checkout
       uses: actions/checkout@v2
@@ -38,8 +40,8 @@ jobs:
         cd build && make -j || make
     - name: Run test suite
       run: |
-        salloc -n 24 -p n384 -t 60
+        salloc -n 25 -p n384 -t 60
         module load intel/${INTEL_VERSION} impi/${INTEL_VERSION} netcdf/${NC_VERSION} hdf5
         cd build
         make check -k | tee test.out
-        cat test.out # | grep "^FAIL:"
+        cat test.out | grep "^FAIL:"
