@@ -11,7 +11,7 @@ jobs:
       NC_VERSION: 4.7.0
       INTEL_VERSION: 2022.1.2
       TEST_VERBOSE: 1
-      MPI_LAUNCHER: "srun --mpi=pmi2"
+      MPI_LAUNCHER: "srun -J $GITHUB_SHA --mpi=pmi2"
       I_MPI_FABRICS: "shm:ofi"
       I_MPI_OFI_PROVIDER: "tcp"
     steps:
@@ -30,6 +30,9 @@ jobs:
     #    env:
     #      CC: mpifc -fc=${{ matrix.compilers == 'intel-classic' && 'icc' || 'icx'}}
     #      FC: mpifc -fc=${{ matrix.compilers != 'intel-oneapi' && 'ifort' || 'ifx'}}
+    # TODO does this need sleep and the &? will hang until allocation is done if those are provided
+    - name: Spin up nodes
+      run: salloc -n 25 -p n384 -t 60 -J $GITHUB_SHA sleep 20m &
     - name: Configure
       run: |
         module load intel/${INTEL_VERSION} impi/${INTEL_VERSION} netcdf/${NC_VERSION} hdf5
@@ -40,7 +43,6 @@ jobs:
         cd build && make -j || make
     - name: Run test suite
       run: |
-        salloc -n 25 -p n384 -t 60
         module load intel/${INTEL_VERSION} impi/${INTEL_VERSION} netcdf/${NC_VERSION} hdf5
         cd build
         make check -k | tee test.out
