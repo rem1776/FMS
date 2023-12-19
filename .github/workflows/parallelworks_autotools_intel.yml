@@ -34,7 +34,7 @@ jobs:
     - name: Configure
       run: |
         module load intel/${INTEL_VERSION} impi/${INTEL_VERSION} netcdf/${NC_VERSION} hdf5
-        autoreconf -if ./configure.ac && mkdir build && cd build && ../configure MPI_LAUNCHER="srun -J ${GITHUB_SHA} --mpi=pmi2"
+        autoreconf -if ./configure.ac && mkdir build && cd build && ../configure MPI_LAUNCHER="srun -J ${GITHUB_SHA} -p n384 --mpi=pmi2"
     - name: Compile
       run: |
         module load intel/${INTEL_VERSION} impi/${INTEL_VERSION} netcdf/${NC_VERSION} hdf5
