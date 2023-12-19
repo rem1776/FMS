@@ -30,7 +30,7 @@ jobs:
     #      CC: mpifc -fc=${{ matrix.compilers == 'intel-classic' && 'icc' || 'icx'}}
     #      FC: mpifc -fc=${{ matrix.compilers != 'intel-oneapi' && 'ifort' || 'ifx'}}
     - name: Spin up nodes
-      run: salloc -n 25 -p n384 -t 60 -J $GITHUB_SHA sleep 20m &
+      run: salloc -n 25 -p n384 -t 60 -J $GITHUB_SHA sleep 40m &
     - name: Configure
       run: |
         module load intel/${INTEL_VERSION} impi/${INTEL_VERSION} netcdf/${NC_VERSION} hdf5
