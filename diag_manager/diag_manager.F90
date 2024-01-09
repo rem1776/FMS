@@ -1774,6 +1774,13 @@ INTEGER FUNCTION register_diag_field_array_old(module_name, field_name, axes, in
     END SELECT
   ! Split old and modern2023 here
   modern_if: iF (use_modern_diag) then
+    field_name = fms_diag_object%fms_get_field_name_from_id(diag_field_id)
+    call copy_3d_to_4d(field, field_remap, trim(field_name)//"'s data")
+    if (present(rmask)) call copy_3d_to_4d(rmask, rmask_remap, trim(field_name)//"'s mask")
+    if (present(mask)) then
+      allocate(mask_remap(1:size(mask,1), 1:size(mask,2), 1:size(mask,3), 1))
+      mask_remap(:,:,:,1) = mask
+    endif
     diag_send_data = fms_diag_object%fms_diag_accept_data(diag_field_id, field_remap, mask_remap, rmask_remap, &
                                                           time, is_in, js_in, ks_in, ie_in, je_in, ke_in, weight, &
                                                           err_msg)
@@ -4568,6 +4575,38 @@ INTEGER FUNCTION register_diag_field_array_old(module_name, field_name, axes, in
        END DO
     END IF
   END SUBROUTINE diag_field_add_cell_measures
+
+  !> @brief Copies a 3d buffer to a 4d buffer
+  subroutine copy_3d_to_4d(data_in, data_out, field_name)
+    class (*),        intent(in) :: data_in(:,:,:) !< Data to copy
+    character(len=*), intent(in) :: field_name     !< Name of the field copying (for error messages)
+    class (*), allocatable, intent(out) :: data_out(:,:,:,:) !< 4D version of the data
+
+    !TODO this should be extended to integers
+    select type(data_in)
+    type is (real(kind=r8_kind))
+      allocate(real(kind=r8_kind) :: data_out(1:size(data_in,1), 1:size(data_in,2), 1:size(data_in,3), 1))
+      select type (data_out)
+      type is (real(kind=r8_kind))
+        data_out(:,:,:,1) = data_in
+      class default
+        call mpp_error(FATAL, "The copy of "//trim(field_name)//&
+          " was not allocated to the correct type (r8_kind). This shouldn't have happened")
+      end select
+    type is (real(kind=r4_kind))
+      allocate(real(kind=r4_kind) :: data_out(1:size(data_in,1), 1:size(data_in,2), 1:size(data_in,3), 1))
+      select type (data_out)
+      type is (real(kind=r4_kind))
+        data_out(:,:,:,1) = data_in
+      class default
+        call mpp_error(FATAL, "The copy of "//trim(field_name)//&
+          " was not allocated to the correct type (r4_kind). This shouldn't have happened")
+      end select
+    class default
+      call mpp_error(FATAL, "The data for "//trim(field_name)//&
+        &" is not a valid type. Currently only r4 and r8 are supported")
+    end select
+  end subroutine copy_3d_to_4d
 
 END MODULE diag_manager_mod
 !> @}
