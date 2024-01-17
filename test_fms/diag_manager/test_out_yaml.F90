@@ -36,7 +36,7 @@ program test_diag_out_yaml
     call diag_manager_init
     call diag_manager_set_time_end(time)
     call diag_manager_end(time)
-    !call check_output_yaml
+    call check_output_yaml
     call fms_end
     
     contains
