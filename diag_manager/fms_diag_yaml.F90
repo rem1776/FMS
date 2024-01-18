@@ -98,7 +98,7 @@ end type subRegion_type
 type diagYamlFiles_type
   private
   character (len=:),    allocatable :: file_fname                        !< file name
-  integer                           :: file_frequnit(MAX_FREQ)           !< the frequency unit (DIAG_SECONDS,
+  integer                           :: file_frequnit(MAX_FREQ) = DIAG_NULL !< the frequency unit (DIAG_SECONDS,
                                                                          !! DIAG_MINUTES, DIAG_HOURS, DIAG_DAYS,
                                                                          !! DIAG_YEARS)
   integer                           :: file_freq(MAX_FREQ)               !< the frequency of data
