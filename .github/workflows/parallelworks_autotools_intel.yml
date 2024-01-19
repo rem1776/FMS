@@ -11,8 +11,7 @@ jobs:
       NC_VERSION: 4.7.0
       INTEL_VERSION: 2022.1.2
       TEST_VERBOSE: 1
-      I_MPI_FABRICS: "shm:ofi"
-      I_MPI_OFI_PROVIDER: "tcp"
+      I_MPI_FABRICS_LIST: "ofa,ofi,dapl,tcp"
     steps:
     - name: checkout
       uses: actions/checkout@v2
@@ -44,4 +43,5 @@ jobs:
         module load intel/${INTEL_VERSION} impi/${INTEL_VERSION} netcdf/${NC_VERSION} hdf5
         cd build
         make check -k | tee test.out
-        cat test.out | grep "^FAIL:"
+        grep "^FAIL:" test.out
+        test $? -eq 1 && exit 1
