@@ -2,32 +2,32 @@ on: push
 jobs:
   intel-autotools:
     runs-on: self-hosted
-    #strategy:
-      #matrix:
+    strategy:
+      matrix:
       #  io-flag: ["--disable-deprecated-io", "--enable-deprecated-io"]
-      #  compilers: [ "intel", "intel-classic", "intel-oneapi"]
+        compilers: [ "intel", "intel-classic", "intel-oneapi"]
       #  target: [ "PROD", "DEBUG" ] 
     env:
       NC_VERSION: 4.7.0
       INTEL_VERSION: 2022.1.2
       TEST_VERBOSE: 1
-      I_MPI_FABRICS_LIST: "ofa,ofi,dapl,tcp"
+      I_MPI_FABRICS: "shm:ofi"
+      I_MPI_OFI_PROVIDER: "tcp"
     steps:
     - name: checkout
       uses: actions/checkout@v2
     - name: Set up enviroment
       run: | # writes env variables onto file to allow them to persist across steps
         module load intel/${INTEL_VERSION} impi/${INTEL_VERSION} netcdf/${NC_VERSION} hdf5
-        echo "FC=`which mpiifort`"              >> "$GITHUB_ENV"
-        echo "CC=`which mpiicc`"                >> "$GITHUB_ENV"
+        echo "FC=`which mpi$FCOMP`"              >> "$GITHUB_ENV"
+        echo "CC=`which mpi$CCOMP`"                >> "$GITHUB_ENV"
         echo "FCFLAGS=`nf-config --fflags`"     >> "$GITHUB_ENV"
         echo "CFLAGS=`nc-config --cflags`"      >> "$GITHUB_ENV"
         echo "LDFLAGS=`nc-config --libs`"       >> "$GITHUB_ENV"
-    # TODO env cmd doesn't work, workaround is to module load every step
-    # env >> "$GITHUB_ENV"
-    #    env:
-    #      CC: mpifc -fc=${{ matrix.compilers == 'intel-classic' && 'icc' || 'icx'}}
-    #      FC: mpifc -fc=${{ matrix.compilers != 'intel-oneapi' && 'ifort' || 'ifx'}}
+        with:
+          env:
+            CCOMP: ${{ matrix.compilers == 'intel-classic' && 'icc' || 'icx'}}
+            FCOMP: ${{ matrix.compilers != 'intel-oneapi' && 'ifort' || 'ifx'}}
     - name: Spin up nodes
       run: salloc -n 25 -p n384 -t 60 -J $GITHUB_SHA sleep 40m &
     - name: Configure
