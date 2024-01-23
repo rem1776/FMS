@@ -13,21 +13,19 @@ jobs:
       TEST_VERBOSE: 1
       I_MPI_FABRICS: "shm:ofi"
       I_MPI_OFI_PROVIDER: "tcp"
+      CCOMP: ${{ matrix.compilers == 'intel-classic' && 'icc' || 'icx'}}
+      FCOMP: ${{ matrix.compilers != 'intel-oneapi' && 'ifort' || 'ifx'}}
     steps:
     - name: checkout
       uses: actions/checkout@v2
     - name: Set up enviroment
       run: | # writes env variables onto file to allow them to persist across steps
         module load intel/${INTEL_VERSION} impi/${INTEL_VERSION} netcdf/${NC_VERSION} hdf5
-        echo "FC=`which mpi$FCOMP`"              >> "$GITHUB_ENV"
-        echo "CC=`which mpi$CCOMP`"                >> "$GITHUB_ENV"
+        echo "FC=`which mpi$FCOMP`"             >> "$GITHUB_ENV"
+        echo "CC=`which mpi$CCOMP`"             >> "$GITHUB_ENV"
         echo "FCFLAGS=`nf-config --fflags`"     >> "$GITHUB_ENV"
         echo "CFLAGS=`nc-config --cflags`"      >> "$GITHUB_ENV"
         echo "LDFLAGS=`nc-config --libs`"       >> "$GITHUB_ENV"
-        with:
-          env:
-            CCOMP: ${{ matrix.compilers == 'intel-classic' && 'icc' || 'icx'}}
-            FCOMP: ${{ matrix.compilers != 'intel-oneapi' && 'ifort' || 'ifx'}}
     - name: Spin up nodes
       run: salloc -n 25 -p n384 -t 60 -J $GITHUB_SHA sleep 40m &
     - name: Configure
