@@ -46,7 +46,7 @@ cat <<_EOF  > input.nml
 _EOF
 
 test_expect_success "mpp_global_sum/max/min with symmetry and halos" '
-    mpirun -n 6 ./test_global_arrays
+    mpirun -n 8 ./test_global_arrays
 '
 
 test_done

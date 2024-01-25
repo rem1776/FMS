@@ -53,8 +53,13 @@ test_expect_success "Test the unlimited compressed axis functionality" '
   mpirun -n 6 ../test_unlimit_compressed
 '
 
+# create a separate directory for file output checks
+mkdir -p nc_default
+cd nc_default
+touch input.nml
+
 test_expect_success "Test the chunksizes functionality with the default behavior" '
-  mpirun -n 1 ../test_chunksizes
+  mpirun -n 1 ../../test_chunksizes
 '
 
 if test ! -z "$ncdump_skip" ; then
@@ -72,13 +77,17 @@ if test ! -z "$ncdump_skip" ; then
   '
 fi
 
+cd ..
+mkdir -p nc_4
+cd nc_4
 cat <<_EOF > input.nml
 &fms2_io_nml
   netcdf_default_format = "netcdf4"
 /
 _EOF
+
 test_expect_success "Test the chunksizes functionality with netcdf4 as the default file format" '
-  mpirun -n 1 ../test_chunksizes
+  mpirun -n 1 ../../test_chunksizes
 '
 if test ! -z "$ncdump_skip" ; then
   test_expect_success "test_chunksizes_netcdf4.res.nc should be chunked" '
@@ -94,6 +103,9 @@ if test ! -z "$ncdump_skip" ; then
     ncdump -hsv var1 test_chunksizes.res.nc | grep "ChunkSizes"
   '
 fi
+cd ..
+mkdir -p nc_deflate
+cd nc_deflate
 cat <<_EOF > input.nml
 &fms2_io_nml
   deflate_level = 3
@@ -101,7 +113,7 @@ cat <<_EOF > input.nml
 /
 _EOF
 test_expect_success "Test the deflate level and shuffle functionality with the default behavior" '
-  mpirun -n 1 ../test_chunksizes
+  mpirun -n 1 ../../test_chunksizes
 '
 if test ! -z "$ncdump_skip" ; then
   test_expect_success "test_chunksizes_netcdf4.res.nc should be compressed" '
@@ -117,6 +129,9 @@ if test ! -z "$ncdump_skip" ; then
     ncdump -hsv var1 test_chunksizes.res.nc | grep "DeflateLevel"
   '
 fi
+cd ..
+mkdir -p nc_4_deflate
+cd nc_4_deflate
 cat <<_EOF > input.nml
 &fms2_io_nml
   deflate_level = 3
@@ -125,7 +140,7 @@ cat <<_EOF > input.nml
 /
 _EOF
 test_expect_success "Test the deflate level and shuffle functionality with netcdf4 as the default file format" '
-  mpirun -n 1 ../test_chunksizes
+  mpirun -n 1 ../../test_chunksizes
 '
 if test ! -z "$ncdump_skip" ; then
   test_expect_success "test_chunksizes_netcdf4.res.nc should be compressed" '
@@ -141,4 +156,5 @@ if test ! -z "$ncdump_skip" ; then
     ncdump -hsv var1 test_chunksizes.res.nc | grep "DeflateLevel"
   '
 fi
+cd ..
 test_done

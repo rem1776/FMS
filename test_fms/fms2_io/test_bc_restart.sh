@@ -37,10 +37,14 @@ test_expect_success "test bc restart" '
 '
 
 # run test 2 - test for bad checksum (should fail)
+# create a new directory so inputs don't get messed up
+mkdir -p bad_chksum
+cd bad_chksum
 printf "&test_bc_restart_nml\n bad_checksum=.true.\n /" | cat > input.nml
 test_expect_failure "bad checksum" '
   mpirun -n 16 ../test_bc_restart
 '
+cd ..
 
 # run test 3 - test for ignoring a bad checksum
 printf "&test_bc_restart_nml\n bad_checksum=.true.\n ignore_checksum=.true.\n /" | cat > input.nml
