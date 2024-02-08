@@ -46,6 +46,9 @@
                                               !! indicating to reproduce the mpp_io bug where
                                               !! the null characters were not removed after reading a string attribute
   integer, parameter                                   :: lkind = FMS_AU_KIND_
+  integer :: edge_index(2) !< Index to use when reading the edges from the file
+                           !! (/1, 2/) if the axis data is monotonically increasing
+                           !! (/2, 1/) if the axis data is monotonically decreasing
 
   ndims = get_variable_num_dimensions(fileobj, name)
   allocate(dim_sizes(ndims))
@@ -108,8 +111,10 @@
 
       allocate(r2d(dim_sizes(1), dim_sizes(2)))
       call read_data(fileobj, buffer, r2d)
-      edge_data(1:dim_sizes(2)) = r2d(1,:)
-      edge_data(dim_sizes(2)+1) = r2d(2,dim_sizes(2))
+      edge_index = (/1, 2/)
+      if (r2d(1,1) .gt. r2d(1,2)) edge_index = (/2, 1 /)
+      edge_data(1:dim_sizes(2)) = r2d(edge_index(1),:)
+      edge_data(dim_sizes(2)+1) = r2d(edge_index(2),dim_sizes(2))
       deallocate(r2d)
     endif
     deallocate(dim_sizes)
@@ -265,7 +270,7 @@
   !!     inputs:
   !!
   !!     rval   = arbitrary data...same units as elements in "array"
-  !!     array  = array of data points  (must be monotonically increasing)
+  !!     array  = array of data points  (must be monotonically)
   !!     ia     = dimension of "array"
   !!
   !!     output:
@@ -293,49 +298,70 @@
   !!     z(k1) would be the nearest data point to 12.5 and z(k2) would
   !!     be the nearest data point to 0.0
   !! @return integer nearest_index
-
-
-
   function NEAREST_INDEX_(rval, array)
+    real(kind=FMS_AU_KIND_), intent(in)               :: rval !< arbitrary data...same units as elements in "array"
+    real(kind=FMS_AU_KIND_), intent(in), dimension(:) :: array !< array of data points  (must be monotonic)
 
     integer                               :: NEAREST_INDEX_
     integer                               :: ia !< dimension of "array"
-    integer                               :: i, ii, iunit
-    real(kind=FMS_AU_KIND_)               :: rval !< arbitrary data...same units as elements in "array"
-    real(kind=FMS_AU_KIND_), dimension(:) :: array !< array of data points  (must be monotonically increasing)
-    logical                               :: keep_going
+    integer                               :: i !< For looping through "array"
 
-    ia = size(array(:))
+    logical :: increasing !< .True. if the array is increasing
 
-    do i = 2, ia
-       if (array(i) < array(i-1)) then
-          iunit = stdout()
-          write (iunit,*) '=> Error: "nearest_index" array must be monotonically increasing' &
-                         & // 'when searching for nearest value to ', rval
-          write (iunit,*) '          array(i) < array(i-1) for i=',i
-          write (iunit,*) '          array(i) for i=1..ia follows:'
-          do ii = 1, ia
-             write (iunit,*) 'i=',ii, ' array(i)=', array(ii)
-          enddo
-          call mpp_error(FATAL,' "nearest_index" array must be monotonically increasing.')
+    ia = SIZE(array(:))
+
+    ! check if array is increasing
+    increasing = .true.
+    DO i = 2, ia-1
+       IF( array(i) .lt. array(i-1)) then
+         increasing = .false.
+         exit
        endif
-    enddo
+    END DO
 
-    if (rval < array(1) .or. rval > array(ia)) then
-       if (rval < array(1))  NEAREST_INDEX_ = 1
-       if (rval > array(ia)) NEAREST_INDEX_ = ia
-    else
-       i = 1
-       keep_going = .true.
-       do while (i <= ia .and. keep_going)
-          i = i+1
-          if (rval <= array(i)) then
-             NEAREST_INDEX_ = i
-             if (array(i)-rval > rval-array(i-1)) NEAREST_INDEX_ = i-1
-             keep_going = .false.
-          endif
-       enddo
+    if (.not. increasing) then
+      ! if not increasing, check that it is decreasing
+      DO i = 2, ia-1
+         IF( array(i) .gt. array(i-1)) &
+            call mpp_error(FATAL, 'axis_utils2::nearest_index array is NOT monotonously ordered')
+      END DO
     endif
+
+    array_is_increasing: if (increasing) then
+      !< Check if the rval is outside the range of the array
+      if (rval .le. array(1)) then
+        NEAREST_INDEX_ = 1
+        return
+      elseif (rval .ge. array(ia)) then
+        NEAREST_INDEX_ = ia
+        return
+      endif
+
+      DO i = 2, ia
+        if (rval .le. array(i)) then
+          NEAREST_INDEX_ = i
+          if (array(i) -rval .gt. rval - array(i-1)) NEAREST_INDEX_ = i - 1
+          return
+        endif
+      END DO
+    else !array_is_decreasing
+      !< Check if the rval is outside the range of the array
+      if (rval .le. array(ia)) then
+        NEAREST_INDEX_ = ia
+        return
+      elseif (rval .gt. array(1)) then
+        NEAREST_INDEX_ = 1
+        return
+      endif
+
+      DO i = 2, ia
+        if (rval .ge. array(i)) then
+          NEAREST_INDEX_ = i
+          if (rval - array(i) .gt. array(i-1) -rval ) NEAREST_INDEX_ = i - 1
+            return
+        endif
+      END DO
+    endif array_is_increasing
   end function NEAREST_INDEX_
 
   !#############################################################################
