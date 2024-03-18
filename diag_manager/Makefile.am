@@ -60,7 +60,13 @@ libdiag_manager_la_SOURCES = \
 	fms_diag_bbox.F90 \
   fms_diag_reduction_methods.F90 \
   include/fms_diag_fieldbuff_update.inc \
-  include/fms_diag_fieldbuff_update.fh
+  include/fms_diag_fieldbuff_update.fh \
+  include/fms_diag_reduction_methods.inc \
+  include/fms_diag_reduction_methods_r4.fh \
+  include/fms_diag_reduction_methods_r8.fh \
+  include/fms_diag_input_buffer.inc \
+  include/fms_diag_input_buffer_r4.fh \
+  include/fms_diag_input_buffer_r8.fh
 
 # Some mods are dependant on other mods in this dir.
 diag_data_mod.$(FC_MODEXT): fms_diag_bbox_mod.$(FC_MODEXT)
@@ -128,7 +134,12 @@ MODFILES = \
   fms_diag_fieldbuff_update_mod.$(FC_MODEXT) \
   fms_diag_reduction_methods_mod.$(FC_MODEXT) \
   include/fms_diag_fieldbuff_update.inc \
-  include/fms_diag_fieldbuff_update.fh
+  include/fms_diag_fieldbuff_update.fh \
+  include/fms_diag_reduction_methods_r4.fh \
+  include/fms_diag_reduction_methods_r8.fh \
+  include/fms_diag_input_buffer.inc \
+  include/fms_diag_input_buffer_r4.fh \
+  include/fms_diag_input_buffer_r8.fh
 
 nodist_include_HEADERS = $(MODFILES)
 BUILT_SOURCES = $(MODFILES)
