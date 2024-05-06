@@ -375,6 +375,9 @@ AS_IF([$MPI_LAUNCHER --oversubscribe hostname >/dev/null 2>&1], \
       [ AC_SUBST([OVERSUBSCRIBE], [--oversubscribe])])
 
 
+AS_IF([ test ! -z "$CONTAINER"], \
+      [ AC_SUBST([CONTAINER], ["$CONTAINER"])])
+
 # Compiler with version information. This consists of the full path
 # name of the compiler and the reported version number.
 AC_SUBST([CC_VERSION])
