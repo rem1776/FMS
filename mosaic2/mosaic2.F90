@@ -39,6 +39,7 @@ use constants_mod, only : PI, RADIUS
 use fms2_io_mod,   only : FmsNetcdfFile_t, open_file, close_file, get_dimension_size
 use fms2_io_mod,   only : read_data, variable_exists
 use platform_mod,  only : r4_kind, r8_kind
+use grid_utils_mod, only: get_grid_area, get_grid_great_circle_area
 
 implicit none
 private

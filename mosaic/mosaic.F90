@@ -60,8 +60,6 @@ public :: calc_mosaic_grid_great_circle_area
 public :: is_inside_polygon
 
 logical :: module_is_initialized = .true.
-!--- external c routines
-external get_grid_area, get_grid_great_circle_area, grad_c2l, calc_c2l_grid_info
 
 ! Include variable "version" to be written to log file.
 #include<file_version.h>

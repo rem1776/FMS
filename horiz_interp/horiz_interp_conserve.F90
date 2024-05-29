@@ -45,7 +45,8 @@ module horiz_interp_conserve_mod
   use grid2_mod,             only: get_great_circle_algorithm
   use constants_mod,         only: PI
   use horiz_interp_type_mod, only: horiz_interp_type
-
+  use grid_utils_mod,        only: create_xgrid_2DX1D_order1, get_maxxgrid, create_xgrid_great_circle, &
+                                   create_xgrid_1DX2D_order1, create_xgrid_2DX2D_order1
 
   implicit none
   private

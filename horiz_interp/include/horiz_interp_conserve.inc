@@ -229,8 +229,6 @@ subroutine HORIZ_INTERP_CONSERVE_NEW_1DX1D_ ( Interp, lon_in, lat_in, lon_out, l
     integer, intent(in), optional                 :: verbose
 
 
-    integer :: create_xgrid_1DX2D_order1, get_maxxgrid, maxxgrid
-    integer :: create_xgrid_great_circle
     integer :: nlon_in, nlat_in, nlon_out, nlat_out, nxgrid, i, j
     real(r8_kind), dimension(size(lon_in(:))-1, size(lat_in(:))-1) :: mask_src
     integer, allocatable, dimension(:)   :: i_src, j_src, i_dst, j_dst
@@ -241,6 +239,7 @@ subroutine HORIZ_INTERP_CONSERVE_NEW_1DX1D_ ( Interp, lon_in, lat_in, lon_out, l
     real(r8_kind),    allocatable, dimension(:)   :: lon_in_r8, lat_in_r8
     real(r8_kind),    allocatable, dimension(:,:) :: lon_out_r8, lat_out_r8
 
+    integer :: maxxgrid
     integer :: nincrease, ndecrease
     logical :: flip_lat
     integer :: wordsz
@@ -397,8 +396,7 @@ subroutine HORIZ_INTERP_CONSERVE_NEW_1DX1D_ ( Interp, lon_in, lat_in, lon_out, l
     real(FMS_HI_KIND_), intent(inout), optional, dimension(:,:) :: mask_out
     integer, intent(in), optional                 :: verbose
 
-    integer :: create_xgrid_2DX1D_order1, get_maxxgrid, maxxgrid
-    integer :: create_xgrid_great_circle
+    integer :: maxxgrid
     integer :: nlon_in, nlat_in, nlon_out, nlat_out, nxgrid, i, j
     integer, allocatable, dimension(:)   :: i_src, j_src, i_dst, j_dst
     real(r8_kind),    allocatable, dimension(:,:) :: dst_area
@@ -506,8 +504,7 @@ subroutine HORIZ_INTERP_CONSERVE_NEW_1DX1D_ ( Interp, lon_in, lat_in, lon_out, l
     real(FMS_HI_KIND_), intent(inout), optional, dimension(:,:) :: mask_out
     integer, intent(in), optional                 :: verbose
 
-    integer :: create_xgrid_2DX2D_order1, get_maxxgrid, maxxgrid
-    integer :: create_xgrid_great_circle
+    integer :: maxxgrid
     integer :: nlon_in, nlat_in, nlon_out, nlat_out, nxgrid, i
     integer, allocatable, dimension(:)   :: i_src, j_src, i_dst, j_dst
     real(r8_kind), dimension(size(lon_in,1)-1, size(lon_in,2)-1) :: mask_src

@@ -33,18 +33,7 @@ noinst_LTLIBRARIES = libmosaic.la
 libmosaic_la_SOURCES = \
 mosaic.F90 \
 grid.F90 \
-gradient.F90 \
-create_xgrid.c \
-gradient_c2l.c \
-interp.c \
-mosaic_util.c \
-read_mosaic.c \
-constant.h \
-create_xgrid.h \
-gradient_c2l.h \
-interp.h \
-mosaic_util.h \
-read_mosaic.h
+gradient.F90
 
 # Some mods are dependant on other mods in this dir.
 grid_mod.$(FC_MODEXT): mosaic_mod.$(FC_MODEXT)

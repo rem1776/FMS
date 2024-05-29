@@ -34,11 +34,25 @@ libmosaic2_la_SOURCES = \
 mosaic2.F90 \
 grid2.F90 \
 include/mosaic2_r4.fh  include/mosaic2_r8.fh  include/mosaic2.inc \
-include/grid2_r4.fh  include/grid2_r8.fh include/grid2.inc
+include/grid2_r4.fh  include/grid2_r8.fh include/grid2.inc \
+create_xgrid.c \
+gradient_c2l.c \
+interp.c \
+mosaic_util.c \
+read_mosaic.c \
+constant.h \
+create_xgrid.h \
+gradient_c2l.h \
+interp.h \
+mosaic_util.h \
+read_mosaic.h \
+grid_utils.F90
 
 # Some mods are dependant on other mods in this dir.
-grid2_mod.$(FC_MODEXT): mosaic2_mod.$(FC_MODEXT) include/grid2_r4.fh include/grid2_r8.fh include/grid2.inc
-mosaic2_mod.$(FC_MODEXT): include/mosaic2_r4.fh include/mosaic2_r8.fh include/mosaic2.inc
+grid2_mod.$(FC_MODEXT): mosaic2_mod.$(FC_MODEXT)
+mosaic2_mod.$(FC_MODEXT): grid_utils.$(FC_MODEXT) 
+
+grid_utils_mod.$(FC_MODEXT): create_xgrid.c gradient_c2l.c interp.c mosaic_util.c read_mosaic.c 
 
 MODFILES = \
 	mosaic2_mod.$(FC_MODEXT) \
