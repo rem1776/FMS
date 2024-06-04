@@ -1,0 +1,10 @@
+on: push
+jobs:
+  makecheck:
+    steps:
+    - name: checkout
+      uses: actions/checkout@v2
+    - name: Spin up nodes
+      run: salloc -n 25 -p n384 -t 60 -J $GITHUB_SHA sleep 40m &
+    - name: Run build script
+      run: /contrib/fms_intel_ci/fms_container_run_full.sh
