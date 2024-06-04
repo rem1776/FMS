@@ -1,6 +1,7 @@
 on: push
 jobs:
   makecheck:
+    runs-on: [self-hosted, cloud]
     steps:
     - name: checkout
       uses: actions/checkout@v2
