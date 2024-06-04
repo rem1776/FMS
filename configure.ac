@@ -25,7 +25,7 @@ AC_PREREQ([2.69])
 
 # Initialize with name, version, and support email address.
 AC_INIT([GFDL FMS Library],
-  [2023.04.00-dev],
+  [2024.01.01-dev],
   [gfdl.climate.model.info@noaa.gov],
   [FMS],
   [https://www.github.com/NOAA-GFDL/FMS])
@@ -191,9 +191,9 @@ if test $with_yaml = yes; then
   #If the test pass, define use_yaml macro
   AC_DEFINE([use_yaml], [1], [This is required to use yaml parser])
 
-  AM_CONDITIONAL([SKIP_PARSER_TESTS], false )
+  AM_CONDITIONAL([USING_YAML], true)
 else
-  AM_CONDITIONAL([SKIP_PARSER_TESTS], true )
+  AM_CONDITIONAL([USING_YAML], false)
 fi
 
 # Require netCDF
@@ -265,7 +265,7 @@ AC_MSG_CHECKING([if HDF5 version causes floating point exceptions with set flags
 AC_RUN_IFELSE([AC_LANG_PROGRAM([], [[
       use netcdf
       integer i, j
-      j = nf90_open("test.nc", NC_WRITE, i)
+      j = nf90_create("test.nc", NC_WRITE, i)
 ]])], [hdf5_fpe_bug=no], [hdf5_fpe_bug=yes])
 AC_MSG_RESULT([$hdf5_fpe_bug])
 if test $hdf5_fpe_bug = yes; then
