@@ -97,9 +97,6 @@ mpirun () {
   local mpi_launcher='@MPI_LAUNCHER@'
   local oversubscribe='@OVERSUBSCRIBE@'
   local container='@CONTAINER@'
-# get the filename and pe count
-  local args="`echo $@ | awk '{print $1;}'`"
-  local file="`echo $@ | awk '{print $2;}'`"
   # need to strip off any args that may be included with MPI_LAUNCHER arg for check below to work
   local mpi_cmd="`echo $mpi_launcher | awk '{print $1;}'`"
   # Check if running with MPI: if so, the mpi_launcher will point to a command
@@ -109,7 +106,11 @@ mpirun () {
     # use `command` to keep from reusing this function
     if test "$container"
     then
-      eval "command ${mpi_launcher} $oversubscribe -n $args $container $file"
+      # get the filename and pe count
+      local ncount="`echo $@ | awk '{print $1;}'`"
+      local file="`echo $@ | awk '{print $2;}'`"
+      local arg="`echo $@ | awk '{print $3;}'`"
+      eval "command ${mpi_launcher} $oversubscribe -n $ncount $container $file $arg"
     else
       eval "command ${mpi_launcher} $oversubscribe $@"
     fi
