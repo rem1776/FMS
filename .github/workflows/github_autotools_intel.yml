@@ -1,4 +1,4 @@
-on: pull_request
+on: push
 
 # cancel running jobs if theres a newer push
 concurrency:
@@ -55,7 +55,7 @@ jobs:
     - name: checkout
       uses: actions/checkout@v4
     - name: Configure
-      run: autoreconf -if ./configure.ac && ./configure --with-yaml
+      run: autoreconf -if ./configure.ac && ./configure --with-yaml || cat config.log
     - name: Compile
       run: make -j || make
     - name: Run test suite
