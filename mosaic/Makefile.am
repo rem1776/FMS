@@ -23,7 +23,7 @@
 # Ed Hartnett 2/22/19
 
 # Include .h and .mod files.
-AM_CPPFLAGS = -I$(top_srcdir)/include
+AM_CPPFLAGS = -I$(top_srcdir)/include -I$(top_srcdir)/mosaic2/include
 AM_FCFLAGS = $(FC_MODINC). $(FC_MODOUT)$(MODDIR)
 
 # Build these uninstalled convenience libraries.
@@ -32,8 +32,7 @@ noinst_LTLIBRARIES = libmosaic.la
 
 libmosaic_la_SOURCES = \
 mosaic.F90 \
-grid.F90 \
-gradient.F90
+grid.F90
 
 # Some mods are dependant on other mods in this dir.
 grid_mod.$(FC_MODEXT): mosaic_mod.$(FC_MODEXT)
@@ -41,8 +40,7 @@ grid_mod.$(FC_MODEXT): mosaic_mod.$(FC_MODEXT)
 # Mod files are built and then installed as headers.
 MODFILES = \
 	mosaic_mod.$(FC_MODEXT) \
-	grid_mod.$(FC_MODEXT) \
-	gradient_mod.$(FC_MODEXT)
+	grid_mod.$(FC_MODEXT)
 nodist_include_HEADERS = $(MODFILES)
 BUILT_SOURCES = $(MODFILES)
 

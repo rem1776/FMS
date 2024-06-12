@@ -28,7 +28,7 @@
 module grid_utils_mod
 
   !> for mosaic2
-  public :: get_grid_area, get_grid_great_circle_area
+  public :: get_grid_great_circle_area, get_grid_area
   !> for horiz_interp
   public :: create_xgrid_2DX1D_order1, create_xgrid_1DX2D_order1, get_maxxgrid, create_xgrid_great_circle, &
             create_xgrid_2Dx2D_order1
@@ -38,14 +38,17 @@ module grid_utils_mod
 !!#endif
 
   interface 
-    !>
-    subroutine get_grid_area(nlon, nlat, lon, lat, area) bind(C, name="get_grid_area")
-      use iso_c_binding, only: c_int, c_double, c_ptr
+    !> Calculates the area of each cell in the given lon/lat arrays
+    !! x/y_sizes were added for cbinding
+    subroutine get_grid_area(nlon, nlat, lon, lat, area, x_size, y_size) bind(C, name="get_grid_area_wrap")
+      use iso_c_binding, only: c_int, c_double
       integer(c_int), value :: nlon
       integer(c_int), value :: nlat
-      real(c_double) :: lon(:,:)
-      real(c_double) :: lat(:,:)
-      real(c_double) :: area(:,:)
+      integer(c_int), value :: x_size
+      integer(c_int), value :: y_size
+      real(c_double), intent(in) :: lon(x_size, y_size)
+      real(c_double), intent(in) :: lat(x_size, y_size)
+      real(c_double) :: area(x_size, y_size)
     end subroutine
 
     !>

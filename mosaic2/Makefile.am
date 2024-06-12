@@ -23,7 +23,7 @@
 # Ed Hartnett 2/22/19
 
 # Include .h and .mod files.
-AM_CPPFLAGS = -I$(top_srcdir)/include -I$(top_srcdir)/mosaic -I$(top_srcdir)/mosaic2/include
+AM_CPPFLAGS = -I$(top_srcdir)/include -I$(top_srcdir)/mosaic2/include
 AM_FCFLAGS = $(FC_MODINC). $(FC_MODOUT)$(MODDIR)
 
 # Build these uninstalled convenience libraries.
@@ -33,6 +33,8 @@ noinst_LTLIBRARIES = libmosaic2.la
 libmosaic2_la_SOURCES = \
 mosaic2.F90 \
 grid2.F90 \
+grid_utils.F90 \
+gradient.F90 \
 include/mosaic2_r4.fh  include/mosaic2_r8.fh  include/mosaic2.inc \
 include/grid2_r4.fh  include/grid2_r8.fh include/grid2.inc \
 create_xgrid.c \
@@ -45,8 +47,7 @@ create_xgrid.h \
 gradient_c2l.h \
 interp.h \
 mosaic_util.h \
-read_mosaic.h \
-grid_utils.F90
+read_mosaic.h
 
 # Some mods are dependant on other mods in this dir.
 grid2_mod.$(FC_MODEXT): mosaic2_mod.$(FC_MODEXT)
@@ -56,7 +57,9 @@ grid_utils_mod.$(FC_MODEXT): create_xgrid.c gradient_c2l.c interp.c mosaic_util.
 
 MODFILES = \
 	mosaic2_mod.$(FC_MODEXT) \
-	grid2_mod.$(FC_MODEXT)
+	grid2_mod.$(FC_MODEXT) \
+	gradient_mod.$(FC_MODEXT) \
+	grid_utils_mod.$(FC_MODEXT)
 nodist_include_HEADERS = $(MODFILES)
 BUILT_SOURCES = $(MODFILES)
 

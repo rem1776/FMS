@@ -50,6 +50,8 @@ int get_maxxgrid_(void);
 
 void get_grid_area(const int nlon, const int nlat, const double *lon, const double *lat, double *area);
 
+void get_grid_area_wrap(const int nlon, const int nlat, const double *lon, const double *lat, double *area, const int x_size, const int y_size);
+
 void get_grid_great_circle_area(const int nlon, const int nlat, const double *lon, const double *lat, double *area);
 
 void get_grid_area_dimensionless(const int nlon, const int nlat, const double *lon, const double *lat, double *area);
