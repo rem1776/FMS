@@ -20,7 +20,7 @@
 !> @brief This module is to provide fortran-native access to c functions used within mosaic,
 !! mosaic2, and horiz_interp.
 !!
-!> @author Ryan Mulhall 
+!> @author Ryan Mulhall
 
 !> @addtogroup mosaic2_mod
 !> @{
@@ -37,13 +37,13 @@ module grid_utils_mod
 !!#endif
 
 #ifndef MAXXGRID
-#define MAXXGRID 1e6 
+#define MAXXGRID 1e6
 #endif
 
     !! TODO
     !! change nlon/nlat to x/y or something more descriptive, they are used as the 1st and 2nd dims of both lon and lat arrays
 
-  interface 
+  interface
     !> Calculates the area of each cell in the given lon/lat arrays
     subroutine get_grid_area(nlon, nlat, lon, lat, area) bind(C, name="get_grid_area")
       use iso_c_binding, only: c_int, c_double
@@ -124,7 +124,7 @@ module grid_utils_mod
     !>
     integer function create_xgrid_2Dx1D_order1(nlon_in, nlat_in, nlon_out, nlat_out, lon_in, lat_in, &
                                          lon_out, lat_out, mask_in, i_in, j_in, i_out, j_out, &
-                                         xgrid_area) bind(C, name="create_xgrid_2dx1d_order1") 
+                                         xgrid_area) bind(C, name="create_xgrid_2dx1d_order1")
       use iso_c_binding, only: c_int, c_double
       integer(c_int), value :: nlon_in
       integer(c_int), value :: nlat_in
@@ -140,12 +140,12 @@ module grid_utils_mod
       integer(c_int) :: i_out(MAXXGRID)
       integer(c_int) :: j_out(MAXXGRID)
       real(c_double) :: xgrid_area(MAXXGRID)
-    end function create_xgrid_2Dx1D_order1 
+    end function create_xgrid_2Dx1D_order1
 
 
     integer function create_xgrid_1Dx2D_order1(nlon_in, nlat_in, nlon_out, nlat_out, lon_in, lat_in, &
                                          lon_out, lat_out, mask_in, i_in, j_in, i_out, j_out, &
-                                         xgrid_area) bind(C, name="create_xgrid_1dx2d_order1") 
+                                         xgrid_area) bind(C, name="create_xgrid_1dx2d_order1")
       use iso_c_binding, only: c_int, c_double
       integer(c_int), value :: nlon_in
       integer(c_int), value :: nlat_in
@@ -161,11 +161,11 @@ module grid_utils_mod
       integer(c_int) :: i_out(MAXXGRID)
       integer(c_int) :: j_out(MAXXGRID)
       real(c_double) :: xgrid_area(MAXXGRID)
-    end function create_xgrid_1Dx2D_order1 
+    end function create_xgrid_1Dx2D_order1
 
     integer function create_xgrid_2Dx2D_order1(nlon_in, nlat_in, nlon_out, nlat_out, lon_in, lat_in, &
                                          lon_out, lat_out, mask_in, i_in, j_in, i_out, j_out, &
-                                         xgrid_area) bind(C, name="create_xgrid_2dx2d_order1") 
+                                         xgrid_area) bind(C, name="create_xgrid_2dx2d_order1")
       use iso_c_binding, only: c_int, c_double
       integer(c_int), value :: nlon_in
       integer(c_int), value :: nlat_in
@@ -181,14 +181,14 @@ module grid_utils_mod
       integer(c_int) :: i_out(MAXXGRID)
       integer(c_int) :: j_out(MAXXGRID)
       real(c_double) :: xgrid_area(MAXXGRID)
-    end function create_xgrid_2Dx2D_order1 
-    
+    end function create_xgrid_2Dx2D_order1
+
 
     !> Returns the MAXXGRID size, which is the maximum number of grid points to calculate.
     !! Default is 1e6, but can be set via the MAXXGRID cpp macro
-    integer function get_maxxgrid() bind(C, name="get_maxxgrid") 
-    end function get_maxxgrid 
- 
+    integer function get_maxxgrid() bind(C, name="get_maxxgrid")
+    end function get_maxxgrid
+
     integer function create_xgrid_great_circle(nlon_in, nlat_in, nlon_out, nlat_out, lon_in, lat_in, &
                                          lon_out, lat_out, mask_in, i_in, j_in, i_out, j_out, &
                                          xgrid_area, xgrid_clon, xgrid_clat) bind(C, name="create_xgrid_great_circle")
