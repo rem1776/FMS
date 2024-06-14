@@ -145,43 +145,6 @@ void get_grid_great_circle_area(const int nlon, const int nlat, const double *lo
 
 }  /* get_grid_great_circle_area */
 
-void get_grid_great_circle_area_ug(const int *npts, const double *lon, const double *lat, double *area)
-{
-  int l, nl, nv;
-  int n0, n1, n2, n3;
-  struct Node *grid=NULL;
-  double *x=NULL, *y=NULL, *z=NULL;
-
-  nl = *npts;
-  nv = 4;
-
-  x = (double *)malloc(nl*nv*sizeof(double));
-  y = (double *)malloc(nl*nv*sizeof(double));
-  z = (double *)malloc(nl*nv*sizeof(double));
-
-  latlon2xyz(nl*nv, lon, lat, x, y, z);
-
-  for(l=0; l<nv; l++) {
-      /* clockwise */
-      n0 = l*nv;
-      n1 = l*nv+1;
-      n2 = l*nv+2;
-      n3 = l*nv+3;
-      rewindList();
-      grid = getNext();
-      addEnd(grid, x[n0], y[n0], z[n0], 0, 0, 0, -1);
-      addEnd(grid, x[n1], y[n1], z[n1], 0, 0, 0, -1);
-      addEnd(grid, x[n2], y[n2], z[n2], 0, 0, 0, -1);
-      addEnd(grid, x[n3], y[n3], z[n3], 0, 0, 0, -1);
-      area[l] = gridArea(grid);
-    }
-
-  free(x);
-  free(y);
-  free(z);
-
-}  /* get_grid_great_circle_area_ug */
-
 void get_grid_area_dimensionless(const int nlon, const int nlat, const double *lon, const double *lat, double *area)
 {
   int nx, ny, nxp, i, j, n_in;
