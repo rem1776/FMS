@@ -30,6 +30,7 @@ module gradient_mod
 
 use mpp_mod,       only : mpp_error, FATAL
 use constants_mod, only : RADIUS
+use grid_utils_mod,only : grad_c2l, calc_c2l_grid_info
 use platform_mod
 
 implicit none

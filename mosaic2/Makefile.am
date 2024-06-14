@@ -53,8 +53,6 @@ read_mosaic.h
 grid2_mod.$(FC_MODEXT): mosaic2_mod.$(FC_MODEXT)
 mosaic2_mod.$(FC_MODEXT): grid_utils.$(FC_MODEXT) 
 
-grid_utils_mod.$(FC_MODEXT): create_xgrid.c gradient_c2l.c interp.c mosaic_util.c read_mosaic.c 
-
 MODFILES = \
 	mosaic2_mod.$(FC_MODEXT) \
 	grid2_mod.$(FC_MODEXT) \

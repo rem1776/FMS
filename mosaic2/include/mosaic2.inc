@@ -104,7 +104,7 @@
         call mpp_error(FATAL, "mosaic_mod: size(lon,2) and size(lat,2) should equal to size(area,2)+1")
 
      ! get_grid_area only accepts double precision data
-     call get_grid_area( nlon, nlat, real(lon,r8_kind), real(lat,r8_kind), area_r8, SIZE(lon,1), SIZE(lon,2))
+     call get_grid_area( nlon, nlat, real(lon,r8_kind), real(lat,r8_kind), area_r8)
 
      area=real(area_r8,FMS_MOS_KIND_)
 

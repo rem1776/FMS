@@ -45,35 +45,25 @@
   The size of vlon   will be (nx, ny, 3)  T-cell center
   The size of vlat   will be (nx, ny, 3), T-cell center
   ----------------------------------------------------------------------------*/
-void grad_c2l_(const int *nlon, const int *nlat, const double *pin, const double *dx, const double *dy, const double *area,
-               const double *edge_w, const double *edge_e, const double *edge_s, const double *edge_n,
-               const double *en_n, const double *en_e, const double *vlon, const double *vlat,
-               double *grad_x, double *grad_y, const int *on_west_edge, const int *on_east_edge,
-               const int *on_south_edge, const int *on_north_edge)
-{
-  grad_c2l(nlon, nlat, pin, dx, dy, area, edge_w, edge_e, edge_s, edge_n, en_n, en_e, vlon, vlat, grad_x, grad_y,
-           on_west_edge, on_east_edge, on_south_edge, on_north_edge);
-}
-
-void grad_c2l(const int *nlon, const int *nlat, const double *pin, const double *dx, const double *dy, const double *area,
+void grad_c2l(const int nlon, const int nlat, const double *pin, const double *dx, const double *dy, const double *area,
               const double *edge_w, const double *edge_e, const double *edge_s, const double *edge_n,
               const double *en_n, const double *en_e, const double *vlon, const double *vlat,
-              double *grad_x, double *grad_y, const int *on_west_edge, const int *on_east_edge,
-              const int *on_south_edge, const int *on_north_edge)
+              double *grad_x, double *grad_y, const int on_west_edge, const int on_east_edge,
+              const int on_south_edge, const int on_north_edge)
 {
 
   double *pb, *pdx, *pdy, *grad3;
   int nx, ny, nxp, nyp, i, j, m0, m1, n;
 
-  nx    = *nlon;
-  ny    = *nlat;
+  nx    = nlon;
+  ny    = nlat;
   nxp   = nx+1;
   nyp   = ny+1;
   pb    = (double *)malloc(nxp*nyp*sizeof(double));
   pdx   = (double *)malloc(3*nx*(ny+1)*sizeof(double));
   pdy   = (double *)malloc(3*(nx+1)*ny*sizeof(double));
   grad3 = (double *)malloc(3*nx*ny*sizeof(double));
-  a2b_ord2(nx, ny, pin, edge_w, edge_e, edge_s, edge_n, pb, *on_west_edge, *on_east_edge,*on_south_edge, *on_north_edge);
+  a2b_ord2(nx, ny, pin, edge_w, edge_e, edge_s, edge_n, pb, on_west_edge, on_east_edge,on_south_edge, on_north_edge);
 
   for(j=0; j<nyp; j++) for(i=0; i<nx; i++) {
       m0 = j*nx+i;
@@ -371,28 +361,18 @@ void mid_pt3_cart(const double *p1, const double *p2, double *e)
   The size of vlon   will be (nx, ny)     T-cell center
   The size of vlat   will be (nx, ny),    T-cell center
 **********************************************************************************************/
-void calc_c2l_grid_info_(int *nx_pt, int *ny_pt, const double *xt, const double *yt, const double *xc, const double *yc,
-                         double *dx, double *dy, double *area, double *edge_w, double *edge_e, double *edge_s,
-                         double *edge_n, double *en_n, double *en_e, double *vlon, double *vlat,
-                         int *on_west_edge, int *on_east_edge, int *on_south_edge, int *on_north_edge)
-{
-  calc_c2l_grid_info(nx_pt, ny_pt, xt, yt, xc, yc, dx, dy, area, edge_w, edge_e, edge_s, edge_n,
-                     en_n, en_e, vlon, vlat, on_west_edge, on_east_edge, on_south_edge, on_north_edge);
-
-}
-
-void calc_c2l_grid_info(int *nx_pt, int *ny_pt, const double *xt, const double *yt, const double *xc, const double *yc,
+void calc_c2l_grid_info(int nx_pt, int ny_pt, const double *xt, const double *yt, const double *xc, const double *yc,
                         double *dx, double *dy, double *area, double *edge_w, double *edge_e, double *edge_s,
                         double *edge_n, double *en_n, double *en_e, double *vlon, double *vlat,
-                        int *on_west_edge, int *on_east_edge, int *on_south_edge, int *on_north_edge)
+                        int on_west_edge, int on_east_edge, int on_south_edge, int on_north_edge)
 {
   double *x, *y, *z, *xt_tmp, *yt_tmp;
   int    nx, ny, nxp, nyp, i, j;
   double p1[3], p2[3], p3[3], p4[3];
 
 
-  nx  = *nx_pt;
-  ny  = *ny_pt;
+  nx  = nx_pt;
+  ny  = ny_pt;
   nxp = nx+1;
   nyp = ny+1;
 
@@ -458,8 +438,8 @@ void calc_c2l_grid_info(int *nx_pt, int *ny_pt, const double *xt, const double *
       yt_tmp[j*nx+i] = yt[(j+1)*(nx+2)+i+1];
     }
   unit_vect_latlon(nx*ny, xt_tmp, yt_tmp, vlon, vlat);
-  get_edge(nx, ny, xt, yt, xc, yc, edge_w, edge_e, edge_s, edge_n, *on_west_edge, *on_east_edge,
-           *on_south_edge, *on_north_edge);
+  get_edge(nx, ny, xt, yt, xc, yc, edge_w, edge_e, edge_s, edge_n, on_west_edge, on_east_edge,
+           on_south_edge, on_north_edge);
 
   free(x);
   free(y);

@@ -76,12 +76,6 @@ void get_grid_area(const int nlon, const int nlat, const double *lon, const doub
 
 }  /* get_grid_area */
 
-// wrapper for c/fortran binding to work properly
-void get_grid_area_wrap(const int nlon, const int nlat, const double *lon, const double *lat, double *area, int x_size, int y_size)
-{
-  get_grid_area(nlon, nlat, lon, lat, area);
-}
-
 
 /*******************************************************************************
 void get_grid_area_ug(const int *npts, const double *lon, const double *lat, const double *area)
