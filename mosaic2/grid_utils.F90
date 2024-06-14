@@ -28,16 +28,17 @@ module grid_utils_mod
 
   !> for mosaic2
   public :: get_grid_great_circle_area, get_grid_area
-  !> for horiz_interp
+  !> for horiz_interp (conservative)
   public :: create_xgrid_2DX1D_order1, create_xgrid_1DX2D_order1, get_maxxgrid, create_xgrid_great_circle, &
             create_xgrid_2Dx2D_order1
-!!#ifdef use_deprecated_io
-  !> for mosaic
+  !> for gradient_mod
   public :: grad_c2l, calc_c2l_grid_info
 !!#endif
 
+!! This is also defined for the C code in create_xgrid.h
+!! 1e6 was original value, but that doesn't evaluate as an integer with gfortran
 #ifndef MAXXGRID
-#define MAXXGRID 1e6
+#define MAXXGRID 1000000
 #endif
 
     !! TODO
@@ -86,10 +87,10 @@ module grid_utils_mod
       real(c_double) :: vlat(nlon, nlat, 3)
       real(c_double) :: grad_x (nlon, nlat)
       real(c_double) :: grad_y (nlon, nlat)
-      integer(c_int), value :: on_west_edge
-      integer(c_int), value :: on_east_edge
-      integer(c_int), value :: on_south_edge
-      integer(c_int), value :: on_north_edge
+      logical(c_int), value :: on_west_edge
+      logical(c_int), value :: on_east_edge
+      logical(c_int), value :: on_south_edge
+      logical(c_int), value :: on_north_edge
     end subroutine
 
     !> This routine is used to calculate grid information for second order conservative interpolation
@@ -115,10 +116,10 @@ module grid_utils_mod
       real(c_double) :: en_e(nx_pt+1, ny_pt, 3)
       real(c_double) :: vlon(nx_pt, ny_pt)
       real(c_double) :: vlat(nx_pt, ny_pt)
-      integer(c_int), value :: on_west_edge
-      integer(c_int), value :: on_east_edge
-      integer(c_int), value :: on_south_edge
-      integer(c_int), value :: on_north_edge
+      logical(c_int), value :: on_west_edge
+      logical(c_int), value :: on_east_edge
+      logical(c_int), value :: on_south_edge
+      logical(c_int), value :: on_north_edge
     end subroutine
 
     !>
