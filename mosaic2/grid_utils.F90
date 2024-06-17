@@ -17,8 +17,9 @@
 !***********************************************************************
 !> @defgroup mosaic2_mod mosaic2_mod
 !> @ingroup mosaic2
-!> @brief This module is to provide fortran-native access to c functions used within mosaic,
-!! mosaic2, and horiz_interp.
+!> @brief This module is to provide fortran-native access to c functions that are used for 
+!! calculating grid areas and weights used by the exchange grid.
+!! These routines are used within mosaic2, and horiz_interp.
 !!
 !> @author Ryan Mulhall
 
@@ -26,14 +27,15 @@
 !> @{
 module grid_utils_mod
 
+  use platform_mod, only: r8_kind
+
   !> for mosaic2
-  public :: get_grid_great_circle_area, get_grid_area
+  public :: get_grid_great_circle_area, get_grid_area, get_global_area
   !> for horiz_interp (conservative)
   public :: create_xgrid_2DX1D_order1, create_xgrid_1DX2D_order1, get_maxxgrid, create_xgrid_great_circle, &
             create_xgrid_2Dx2D_order1
   !> for gradient_mod
   public :: grad_c2l, calc_c2l_grid_info
-!!#endif
 
 !! This is also defined for the C code in create_xgrid.h
 !! 1e6 was original value, but that doesn't evaluate as an integer with gfortran
@@ -41,32 +43,29 @@ module grid_utils_mod
 #define MAXXGRID 1000000
 #endif
 
-    !! TODO
-    !! change nlon/nlat to x/y or something more descriptive, they are used as the 1st and 2nd dims of both lon and lat arrays
-
   interface
-    !> Calculates the area of each cell in the given lon/lat arrays
+
+    !> Fortran bind to get_grid_area function defined in gradient_c2l.c
     subroutine get_grid_area(nlon, nlat, lon, lat, area) bind(C, name="get_grid_area")
       use iso_c_binding, only: c_int, c_double
-      integer(c_int), value :: nlon
-      integer(c_int), value :: nlat
-      real(c_double), intent(in) :: lon(nlon, nlat)
-      real(c_double), intent(in) :: lat(nlon, nlat)
-      real(c_double) :: area(nlon, nlat)
+      integer(c_int), value :: nlon !< number of lon/lat points in grids x direction
+      integer(c_int), value :: nlat !< nummber of lon/lat points in grids y direction
+      real(c_double), intent(in) :: lon(nlon, nlat) !< lon values for grid
+      real(c_double), intent(in) :: lat(nlon, nlat) !< lat values for grid
+      real(c_double) :: area(nlon, nlat) !< area of each grid cell
     end subroutine
 
-    !>
+    !> Calculates the area of a cell using the great circle distance
     subroutine get_grid_great_circle_area(nlon, nlat, lon, lat, area) bind(C, name="get_grid_great_circle_area")
       use iso_c_binding, only: c_int, c_double
-      integer(c_int), value :: nlon
-      integer(c_int), value :: nlat
-      real(c_double) :: lon(nlon,nlat)
-      real(c_double) :: lat(nlon,nlat)
-      real(c_double) :: area(nlon,nlat)
+      integer(c_int), value :: nlon !< number of lon/lat points in grid's x direction
+      integer(c_int), value :: nlat !< number of lon/lat points in grid's y direction
+      real(c_double) :: lon(nlon,nlat) !< lon values for grid
+      real(c_double) :: lat(nlon,nlat) !< lat values for grid
+      real(c_double) :: area(nlon,nlat) !< area of each grid cell
     end subroutine
 
-    !> Routine to compute gradient terms for SCRIP
-    !! pin has halo size = 1.
+    !> Fortran bind to grad_c2l function defined in gradient_c2l.c
     subroutine grad_c2l(nlon, nlat, pin, dx, dy, area, edge_w, edge_e, edge_s, edge_n, &
                         en_n, en_e, vlon, vlat, grad_x, grad_y, on_west_edge, on_east_edge, &
                         on_south_edge, on_north_edge) bind(C, name="grad_c2l")
@@ -93,8 +92,7 @@ module grid_utils_mod
       logical(c_int), value :: on_north_edge
     end subroutine
 
-    !> This routine is used to calculate grid information for second order conservative interpolation
-    !! from cubic grid to other grid
+    !> 
     subroutine calc_c2l_grid_info(nx_pt, ny_pt, xt, yt, xc, yc, dx, dy, area, edge_w, edge_e, edge_s, edge_n, &
                                   en_n, en_e, vlon, vlat, on_west_edge, on_east_edge, on_south_edge, on_north_edge) &
                                   bind(C, name="calc_c2l_grid_info")
@@ -122,7 +120,7 @@ module grid_utils_mod
       logical(c_int), value :: on_north_edge
     end subroutine
 
-    !>
+    !> Calculate weights for the exchange grid from 2d to 1d lat/lon data
     integer function create_xgrid_2Dx1D_order1(nlon_in, nlat_in, nlon_out, nlat_out, lon_in, lat_in, &
                                          lon_out, lat_out, mask_in, i_in, j_in, i_out, j_out, &
                                          xgrid_area) bind(C, name="create_xgrid_2dx1d_order1")
@@ -143,7 +141,7 @@ module grid_utils_mod
       real(c_double) :: xgrid_area(MAXXGRID)
     end function create_xgrid_2Dx1D_order1
 
-
+    !> Calculate weights for the exchange grid from 2d to 1d lat/lon data
     integer function create_xgrid_1Dx2D_order1(nlon_in, nlat_in, nlon_out, nlat_out, lon_in, lat_in, &
                                          lon_out, lat_out, mask_in, i_in, j_in, i_out, j_out, &
                                          xgrid_area) bind(C, name="create_xgrid_1dx2d_order1")
@@ -164,6 +162,7 @@ module grid_utils_mod
       real(c_double) :: xgrid_area(MAXXGRID)
     end function create_xgrid_1Dx2D_order1
 
+    !> Calculate weights for the exchange grid from 2d to 2d lat/lon data
     integer function create_xgrid_2Dx2D_order1(nlon_in, nlat_in, nlon_out, nlat_out, lon_in, lat_in, &
                                          lon_out, lat_out, mask_in, i_in, j_in, i_out, j_out, &
                                          xgrid_area) bind(C, name="create_xgrid_2dx2d_order1")
@@ -184,12 +183,17 @@ module grid_utils_mod
       real(c_double) :: xgrid_area(MAXXGRID)
     end function create_xgrid_2Dx2D_order1
 
-
     !> Returns the MAXXGRID size, which is the maximum number of grid points to calculate.
     !! Default is 1e6, but can be set via the MAXXGRID cpp macro
     integer function get_maxxgrid() bind(C, name="get_maxxgrid")
     end function get_maxxgrid
 
+    !> Returns the global radius calculated from the radius macro defined in constant.h
+    real(c_double) function get_global_area() bind(C, name="get_global_area")
+      use iso_c_binding, only: c_double
+    end function get_global_area
+
+    !> Calculate exchange grid weights and grid points using great circle distances
     integer function create_xgrid_great_circle(nlon_in, nlat_in, nlon_out, nlat_out, lon_in, lat_in, &
                                          lon_out, lat_out, mask_in, i_in, j_in, i_out, j_out, &
                                          xgrid_area, xgrid_clon, xgrid_clat) bind(C, name="create_xgrid_great_circle")

@@ -5,6 +5,7 @@ module write_files
   use mpp_mod,     only: mpp_init, mpp_sync, mpp_npes, mpp_get_current_pelist
   use fms_mod,     only: fms_init
   use constants_mod, only:  PI, RADIUS
+  use grid_utils_mod, only: get_global_area
   use platform_mod, only :r4_kind, r8_kind
 
   implicit none
@@ -280,7 +281,6 @@ contains
     type(FmsNetcdfFile_t):: fileobj        !< Fileobj for the files written by the test
     integer, allocatable :: pes(:)
     integer :: i, j, k
-    real(r8_kind) :: get_global_area !< get_global_area returns a double
 
     !> These are made up numbers, numbers chosen
     !! for computational convenience

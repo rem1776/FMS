@@ -35,7 +35,6 @@
     real(kind=FMS_MOS_KIND_),  dimension(2, size(i1(:))) :: tile1_cell, tile2_cell
     integer                 :: nxgrid, n
     real(kind=r8_kind) :: garea
-    real(kind=r8_kind) :: get_global_area
 
     garea = get_global_area() !< get_global_area returns a r8_kind
 

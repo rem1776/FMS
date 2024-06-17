@@ -33,6 +33,7 @@ use mpp_mod,       only : mpp_init, mpp_error, FATAL, mpp_pe, mpp_root_pe
 use fms2_io_mod,   only : open_file, close_file, FmsNetcdfFile_t, fms2_io_init, read_data
 use fms_mod,       only : fms_init, fms_end
 use constants_mod, only : DEG_TO_RAD
+use grid_utils_mod, only: get_global_area
 use platform_mod,  only : r4_kind, r8_kind
 
 implicit none
@@ -209,7 +210,7 @@ subroutine test_get_mosaic_xgrid
 
   integer, dimension(ncells) :: i1, j1, i2, j2 !< indices of parent cells
   real(TEST_MOS_KIND_), dimension(ncells) :: area !< area to be returned
-  real(r8_kind) :: garea, get_global_area !< global area
+  real(r8_kind) :: garea!< global area
   integer :: i !< counter
 
   type(FmsNetcdfFile_t) x_fileobj

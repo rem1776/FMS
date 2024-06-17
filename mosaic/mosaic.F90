@@ -113,7 +113,6 @@ end subroutine mosaic_init
     real,    dimension(2, size(i1(:))) :: tile1_cell, tile2_cell
     integer                            :: nxgrid, n
     real                               :: garea
-    real                               :: get_global_area;
 
     garea = get_global_area();
 

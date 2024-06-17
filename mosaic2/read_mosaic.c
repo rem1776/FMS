@@ -37,12 +37,3 @@ double get_global_area(void)
 
   return garea;
 }
-
-double get_global_area_(void)
-{
-  double garea;
-  garea = 4*M_PI*RADIUS*RADIUS;
-
-  return garea;
-}
-
