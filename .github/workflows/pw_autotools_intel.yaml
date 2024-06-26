@@ -1,11 +1,13 @@
-on: push
+on: [push, pull_request]
 jobs:
-  makecheck:
-    runs-on: [self-hosted, cloud]
+  intel-pw-makecheck:
+    runs-on: [self-hosted, pw-platform]
     steps:
     - name: checkout
       uses: actions/checkout@v2
     - name: Spin up nodes
       run: salloc -n 25 -p n384 -J $GITHUB_SHA sleep 60m &
     - name: Run build script
-      run: /contrib/fms_intel_ci/fms_container_run_full.sh
+      run: /contrib/fms_intel_ci/fms_container_build.sh
+    - name: Run unit testing
+      run: /contrib/fms_intel_ci/fms_container_run.sh
