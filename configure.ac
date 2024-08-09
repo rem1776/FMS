@@ -45,13 +45,6 @@ AM_INIT_AUTOMAKE([foreign dist-zip subdir-objects])
 LT_PREREQ([2.4])
 LT_INIT()
 
-# If building on a Cray PE system, check if CRAYPE_LINK_TYPE is 'static'.  If it
-# is, then disable building shared libraries.  Note, the user can still override
-# this by using --enable-shared when running the configure script.
-AS_IF([test x${CRAYPE_VERSION:+yes} = "xyes"],[
-  AS_IF([test x${CRAYPE_LINK_TYPE} = "xstatic"],
-        [AC_DISABLE_SHARED])])
-
 
 # Process user optons.
 AC_ARG_WITH([mpi],
@@ -97,7 +90,17 @@ AC_ARG_ENABLE([8byte-int],
 AS_IF([test ${enable_8byte_int:-no} = yes],
   [enable_8byte_int=yes],
   [enable_8byte_int=no])
-
+AC_ARG_ENABLE([large-tests],
+  [AS_HELP_STRING([--enable-large-tests],
+    [Enables larger core counts for unit tests. (Default no)])])
+# Set makefile conditional
+AM_CONDITIONAL(LARGE_TESTS, [test "$enable_large_tests" = yes])
+AS_IF([test ${enable_large_tests:-no} = yes],
+  [enable_large_tests=yes],
+  [enable_large_tests=no])
+AS_IF([test "x$enable_large_tests" != "xno"],
+        [ AM_CONDITIONAL([DO_LARGE_TESTS], true)],
+        [ AM_CONDITIONAL([DO_LARGE_TESTS], false)])
 AC_ARG_ENABLE([deprecated-io],
   [AS_HELP_STRING([--enable-deprecated-io],
     [Enables compilation of deprecated mpp_io and fms_io modules in addition to the updated fms2_io modules (default no)])])
@@ -470,6 +473,7 @@ AC_CONFIG_FILES([
   string_utils/Makefile
   test_fms/test-lib.sh
   test_fms/intel_coverage.sh
+  test_fms/test_large.sh
   test_fms/Makefile
   test_fms/astronomy/Makefile
   test_fms/diag_manager/Makefile

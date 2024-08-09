@@ -40,7 +40,7 @@ program test_global_arrays
 
   implicit none
 
-  integer, parameter            :: length=64
+  integer                       :: length=64
   integer                       :: id, pe, npes, root, i, j, icount, jcount, io
   integer(i4_kind)              :: maxI4, minI4, ierr, sumI4, sumI4_5d, sumI4_shuf
   integer(i8_kind)              :: maxI8, minI8, sumI8, sumI8_5d, sumI8_shuf
@@ -58,6 +58,7 @@ program test_global_arrays
   integer(i4_kind), parameter   :: randmaxI4 = 2048
   integer(i8_kind), parameter   :: randmaxI8 = 4096
   real(r8_kind), parameter      :: tol4 = 1e-4, tol8 = 1e-6!> tolerance for real comparisons
+  logical :: test_large = .false.
 
   ! namelist variables - just logicals to enable individual tests
   ! simple just does normal max/min + sums across a domain
@@ -77,6 +78,10 @@ program test_global_arrays
   npes = mpp_npes()
   call mpp_set_root_pe(0)
   root = mpp_root_pe()
+  test_large = npes .eq. 4608
+  if(test_large) then
+    length = 1152
+  endif
   if( test_simple) then
     call test_mpp_global_simple()
     deallocate(dataI4, dataI8, dataR4, dataR8, rands)
@@ -104,7 +109,7 @@ program test_global_arrays
 subroutine test_mpp_global_simple()
 
   !> define domains and allocate
-  call mpp_define_domains( (/1,length,1,length/), (/1,8/), domain, xhalo=0)
+  call mpp_define_domains( (/1,length,1,length/), (/npes/16,16/), domain, xhalo=0)
   call mpp_get_compute_domain(domain, jsc, jec, isc, iec)
   call mpp_get_data_domain(domain, jsd, jed, isd, ied)
   allocate(dataI4(jsd:jed, isd:ied),dataI8(jsd:jed, isd:ied), rands(length*length))

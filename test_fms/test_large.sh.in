@@ -1,0 +1,75 @@
+#!/usr/bin/sh
+#***********************************************************************
+#                   GNU Lesser General Public License
+#
+# This file is part of the GFDL Flexible Modeling System (FMS).
+#
+# FMS is free software: you can redistribute it and/or modify it under
+# the terms of the GNU Lesser General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or (at
+# your option) any later version.
+#
+# FMS is distributed in the hope that it will be useful, but WITHOUT
+# ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+# FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+# for more details.
+#
+# You should have received a copy of the GNU Lesser General Public
+# License along with FMS.  If not, see <http://www.gnu.org/licenses/>.
+#***********************************************************************
+# Runs larger scale (4608 pes) versions of certain unit tests
+# only runs via `make check-scaling`
+# Ryan Mulhall
+
+# Set common test settings.
+. ./test-lib.sh
+
+# make sure all our tests are built prior to being run
+cd fms2_io
+make test_fms2_io test_domain_io test_atmosphere_io test_io_simple
+cd ../mpp
+make test_mpp_alltoall test_mpp_chksum test_global_arrays
+cd ..
+
+# set up directories for in/out-put
+mkdir -p test_large
+cd test_large
+touch input.nml
+
+echo "Running large scale tests for fms2_io"
+
+
+test_expect_success "test_fms2_io large scale" ' 
+  mpirun -n 4608 ../fms2_io/test_fms2_io
+'
+
+test_expect_success "test_atmosphere_io large scale" ' 
+  mpirun -n 4608 ../fms2_io/test_atmospere_io
+'
+
+test_expect_success "test_io_simple large scale" ' 
+  mpirun -n 4608 ../fms2_io/test_io_simple
+'
+
+echo "Running large scale tests for mpp"
+
+test_expect_success "mpp_alltoall 4608 ranks" ' 
+  mpirun -n 4608 ../mpp/test_mpp_alltoall
+'
+
+test_expect_success "mpp_chksum 4608 ranks" ' 
+  mpirun -n 4608 ../mpp/test_mpp_chksum
+'
+
+cat <<_EOF  > input.nml
+&test_global_arrays_nml
+  test_simple = .true.
+  test_full = .false.
+/
+_EOF
+
+test_expect_success "mpp_global_min/max/sum 4608 ranks" '
+  mpirun -n 4608 ../mpp/test_global_arrays
+'
+
+test_done

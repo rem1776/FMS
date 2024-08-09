@@ -58,9 +58,11 @@ type(domain2d) :: ocean_domain
 type(domain2d) :: atmosphere_domain
 type(domainug) :: land_domain
 integer :: i
+logical :: run_large_tests = .false. !< gets set to true if running with --enable-large-tests configure option
+                                !! Checks pe count is 4608, and if so adjusts layouts and data set sizes
+integer, parameter :: lrge_test_npes = 4608 !< actual pe count set in makefile.am
 
 namelist / test_fms2_io_nml / nx, ny, nz
-
 
 !Initialize mpp.
 call mpp_init()
@@ -74,6 +76,8 @@ call mpi_check(err)
 
 read(input_nml_file, nml=test_fms2_io_nml, iostat=err)
 err = check_nml_error(err, 'test_fms2_io_nml')
+
+run_large_tests = mpp_npes() .eq. lrge_test_npes
 
 !Define command line arguments.
 parser = get_parser()
@@ -96,7 +100,7 @@ tests(:) = .true.
 io_layout(:) = 1
 ocn_io_layout(:) = 1
 npes_group = 1
-debug = .false.
+debug = .true.
 
 !Parse command line arguments.
 call get_argument(parser, "-t",  buf)
@@ -139,15 +143,30 @@ if (trim(buf) .eq. "present") then
   debug = .true.
 endif
 
+! using large test option
+if ( run_large_tests ) then
+    nx = 1080; ny = 1080; nz = 12
+    io_layout = (/ 6, 16/)
+    npes_group = npes / ntiles
+    tests(land) = .false. ! TODO
+    tests(ocean) = .false. ! TODO
+endif
+
 !Prepare for domains creation.
 call mpp_domains_init()
 do i = 1,ntiles
   global_indices(:, i) = (/1, nx, 1, ny/)
-  layout(:, i) = (/1, npes/ntiles/)
   pe_start(i) = (i-1)*(npes/ntiles)
   pe_end(i) = i*(npes/ntiles) - 1
+  if(run_large_tests) then
+    layout(:, i) = (/12 , npes/ntiles/12 /)
+  else
+    layout(:, i) = (/1 , npes/ntiles/1 /)
+  endif
 enddo
 ocn_layout = (/1, npes/)
+
+if (mpp_pe() .eq. mpp_root_pe()) print *, 'layout', layout, 'pe_start', pe_start, 'pe_end', pe_end
 
 call fms2_io_init()
 !Run tests.

@@ -118,6 +118,16 @@ include $(top_srcdir)/mkmods.mk
 EXTRA_DIST = README.md #_package_init_cmake
 
 
+# conditional targets, available if enabled via configure
+if LARGE_TESTS
+check-scaling:
+	-cd ${top_builddir}/test_fms && chmod +x test_large.sh && ./test_large.sh
+
+.PHONY: check-scaling
+
+endif
+
+
 if COV
 check-code-coverage: check
 	-cd ${top_builddir}/test_fms && chmod +x intel_coverage.sh && ./intel_coverage.sh
@@ -126,6 +136,7 @@ check-code-coverage: check
 
 clean-local:
 	-rm -rf .mods coverage-data coverage-report
+
 else
 clean-local:
 	-rm -rf .mods
