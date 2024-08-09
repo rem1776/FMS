@@ -41,7 +41,7 @@ module coupler_types_mod
   use mpp_domains_mod,   only: domain2D, mpp_redistribute
   use mpp_mod,           only: mpp_error, FATAL, mpp_chksum
   use fms_string_utils_mod,  only: string
-  use platform_mod,      only: r4_kind, r8_kind, i8_kind
+  use platform_mod,      only: r4_kind, r8_kind, i8_kind, FMS_FILE_LEN, FMS_PATH_LEN
 
   implicit none
   private
@@ -103,8 +103,8 @@ module coupler_types_mod
     character(len=128)                :: implementation = ' ' !< implementation
     logical, pointer, dimension(:)    :: flag => NULL() !< flag
     integer                           :: atm_tr_index = 0 !< atm_tr_index
-    character(len=128)                :: ice_restart_file = ' ' !< ice_restart_file
-    character(len=128)                :: ocean_restart_file = ' ' !< ocean_restart_file
+    character(len=FMS_FILE_LEN)       :: ice_restart_file = ' ' !< ice_restart_file
+    character(len=FMS_FILE_LEN)       :: ocean_restart_file = ' ' !< ocean_restart_file
 #ifdef use_deprecated_io
     type(restart_file_type), pointer  :: rest_type => NULL() !< A pointer to the restart_file_type
                                                              !! that is used for this field.
@@ -146,8 +146,8 @@ module coupler_types_mod
     character(len=128)                :: implementation = ' ' !< implementation
     logical, pointer, dimension(:)    :: flag => NULL() !< flag
     integer                           :: atm_tr_index = 0 !< atm_tr_index
-    character(len=128)                :: ice_restart_file = ' ' !< ice_restart_file
-    character(len=128)                :: ocean_restart_file = ' ' !< ocean_restart_file
+    character(len=FMS_FILE_LEN)       :: ice_restart_file = ' ' !< ice_restart_file
+    character(len=FMS_FILE_LEN)       :: ocean_restart_file = ' ' !< ocean_restart_file
 #ifdef use_deprecated_io
     type(restart_file_type), pointer  :: rest_type => NULL() !< A pointer to the restart_file_type
                                                              !! that is used for this field.
@@ -207,8 +207,8 @@ module coupler_types_mod
     real(r8_kind), pointer, dimension(:)       :: param => NULL() !< param
     logical, pointer, dimension(:)    :: flag => NULL() !< flag
     integer                           :: atm_tr_index = 0 !< atm_tr_index
-    character(len=128)                :: ice_restart_file = ' ' !< ice_restart_file
-    character(len=128)                :: ocean_restart_file = ' ' !< ocean_restart_file
+    character(len=FMS_FILE_LEN)       :: ice_restart_file = ' ' !< ice_restart_file
+    character(len=FMS_FILE_LEN)       :: ocean_restart_file = ' ' !< ocean_restart_file
 #ifdef use_deprecated_io
     type(restart_file_type), pointer  :: rest_type => NULL() !< A pointer to the restart_file_type
                                                              !! that is used for this field.
@@ -253,8 +253,8 @@ module coupler_types_mod
     real(r8_kind), pointer, dimension(:)       :: param => NULL() !< param
     logical, pointer, dimension(:)    :: flag => NULL() !< flag
     integer                           :: atm_tr_index = 0 !< atm_tr_index
-    character(len=124)                :: ice_restart_file = ' ' !< ice_restart_file
-    character(len=124)                :: ocean_restart_file = ' ' !< ocean_restart_file
+    character(len=FMS_FILE_LEN)       :: ice_restart_file = ' ' !< ice_restart_file
+    character(len=FMS_FILE_LEN)       :: ocean_restart_file = ' ' !< ocean_restart_file
 #ifdef use_deprecated_io
     type(restart_file_type), pointer  :: rest_type => NULL() !< A pointer to the restart_file_type
                                                              !! that is used for this field.
@@ -309,8 +309,8 @@ module coupler_types_mod
     real(r8_kind), pointer, dimension(:) :: param => NULL() !< param
     logical, pointer, dimension(:) :: flag => NULL() !< flag
     integer                        :: atm_tr_index = 0 !< atm_tr_index
-    character(len=128)             :: ice_restart_file = ' ' !< ice_restart_file
-    character(len=128)             :: ocean_restart_file = ' ' !< ocean_restart_file
+    character(len=FMS_FILE_LEN)    :: ice_restart_file = ' ' !< ice_restart_file
+    character(len=FMS_FILE_LEN)    :: ocean_restart_file = ' ' !< ocean_restart_file
     logical                        :: use_atm_pressure !< use_atm_pressure
     logical                        :: use_10m_wind_speed !< use_10m_wind_speed
     logical                        :: pass_through_ice !< pass_through_ice
@@ -350,8 +350,8 @@ module coupler_types_mod
     real(r8_kind), pointer, dimension(:) :: param => NULL() !< param
     logical, pointer, dimension(:) :: flag => NULL() !< flag
     integer                        :: atm_tr_index = 0 !< atm_tr_index
-    character(len=128)             :: ice_restart_file = ' ' !< ice_restart_file
-    character(len=128)             :: ocean_restart_file = ' ' !< ocean_restart_file
+    character(len=FMS_FILE_LEN)    :: ice_restart_file = ' ' !< ice_restart_file
+    character(len=FMS_FILE_LEN)    :: ocean_restart_file = ' ' !< ocean_restart_file
     logical                        :: use_atm_pressure !< use_atm_pressure
     logical                        :: use_10m_wind_speed !< use_10m_wind_speed
     logical                        :: pass_through_ice !< pass_through_ice
@@ -2944,10 +2944,12 @@ contains
 
 
   !> @brief Write out all diagnostics of elements of a coupler_2d_bc_type
-  !! TODO this should really be a function in order to return the status of send_data call
-  subroutine CT_send_data_2d(var, Time)
+  subroutine CT_send_data_2d(var, Time, return_statuses)
     type(coupler_2d_bc_type), intent(in) :: var  !< BC_type structure with the diagnostics to write
     type(time_type),          intent(in) :: time !< The current model time
+    logical, allocatable, optional, intent(out) :: return_statuses(:,:) !< Return status of send data calls
+                                                          !! first index is index of boundary condition
+                                                          !! second index is field/value within that boundary condition
 
     integer :: m, n
     logical :: used
@@ -2966,18 +2968,33 @@ contains
 
     ! num_bcs .lt. 1 -> loop doesn't run but shouldn't error out
     if(associated(var%bc) .or. var%num_bcs .lt. 1) then
+
+      ! allocate array for returned send data statuses
+      if( present(return_statuses) .and. var%num_bcs .gt. 0) then
+        allocate(return_statuses(var%num_bcs, var%bc(1)%num_fields))
+      endif
+
       do n = 1, var%num_bcs
         do m = 1, var%bc(n)%num_fields
           if (var%bc(n)%field(m)%id_diag > 0) then
             used = send_data(var%bc(n)%field(m)%id_diag, var%bc(n)%field(m)%values, Time)
+            if(allocated(return_statuses)) return_statuses(n,m) = used
           endif
         enddo
       enddo
+
     else if(associated(var%bc_r4)) then
+
+      ! allocate array for returned send data statuses
+      if( present(return_statuses) .and. var%num_bcs .gt. 0) then
+        allocate(return_statuses(var%num_bcs, var%bc_r4(1)%num_fields))
+      endif
+
       do n = 1, var%num_bcs
         do m = 1, var%bc_r4(n)%num_fields
           if (var%bc_r4(n)%field(m)%id_diag > 0) then
             used = send_data(var%bc_r4(n)%field(m)%id_diag, var%bc_r4(n)%field(m)%values, Time)
+            if(allocated(return_statuses)) return_statuses(n,m) = used
           endif
         enddo
       enddo
@@ -2988,10 +3005,12 @@ contains
   end subroutine CT_send_data_2d
 
   !> @brief Write out all diagnostics of elements of a coupler_3d_bc_type
-  !! TODO this should really be a function in order to return the status of send_data call
-  subroutine CT_send_data_3d(var, Time)
+  subroutine CT_send_data_3d(var, Time, return_statuses)
     type(coupler_3d_bc_type), intent(in) :: var  !< BC_type structure with the diagnostics to write
     type(time_type),          intent(in) :: time !< The current model time
+    logical, allocatable, optional, intent(out) :: return_statuses(:,:) !< Return status of send data calls
+                                                          !! first index is index of boundary condition
+                                                          !! second index is field/value within that boundary condition
 
     integer :: m, n
     logical :: used
@@ -3010,18 +3029,32 @@ contains
 
     ! num_bcs .lt. 1 -> loop doesn't run but shouldn't error out
     if(associated(var%bc) .or. var%num_bcs .lt. 1) then
+
+      ! allocate array for returned send data statuses
+      if( present(return_statuses) .and. var%num_bcs .gt. 0) then
+        allocate(return_statuses(var%num_bcs, var%bc(1)%num_fields))
+      endif
+
       do n = 1, var%num_bcs
         do m = 1, var%bc(n)%num_fields
           if (var%bc(n)%field(m)%id_diag > 0) then
             used = send_data(var%bc(n)%field(m)%id_diag, var%bc(n)%field(m)%values, Time)
+            if(allocated(return_statuses)) return_statuses(n,m) = used
           endif
         enddo
       enddo
     else if(associated(var%bc_r4)) then
+
+      ! allocate array for returned send data statuses
+      if( present(return_statuses) .and. var%num_bcs .gt. 0) then
+        allocate(return_statuses(var%num_bcs, var%bc_r4(1)%num_fields))
+      endif
+
       do n = 1, var%num_bcs
         do m = 1, var%bc_r4(n)%num_fields
           if (var%bc_r4(n)%field(m)%id_diag > 0) then
             used = send_data(var%bc_r4(n)%field(m)%id_diag, var%bc_r4(n)%field(m)%values, Time)
+            if(allocated(return_statuses)) return_statuses(n,m) = used
           endif
         enddo
       enddo
@@ -3043,15 +3076,15 @@ contains
     logical,         optional,intent(in)  :: ocean_restart  !< If true, use the ocean restart file name.
     character(len=*),optional,intent(in)  :: directory      !< Directory where to open the file
 
-    character(len=80), dimension(max(1,var%num_bcs)) :: rest_file_names
-    character(len=80) :: file_nm
+    character(len=FMS_FILE_LEN), dimension(max(1,var%num_bcs)) :: rest_file_names
+    character(len=FMS_FILE_LEN) :: file_nm
     logical :: ocn_rest
     integer :: f, n, m
 
     character(len=20), allocatable, dimension(:)             :: dim_names !< Array of dimension names
     character(len=20)                          :: io_type   !< flag indicating io type: "read" "overwrite"
     logical, dimension(max(1,var%num_bcs))     :: file_is_open !< flag indicating if file is open
-    character(len=20)                          :: dir       !< Directory where to open the file
+    character(len=FMS_PATH_LEN)                          :: dir       !< Directory where to open the file
 
     if(var%set .and. var%num_bcs .gt. 0) then
       if(associated(var%bc) .eqv. associated(var%bc_r4)) then
@@ -3325,15 +3358,15 @@ contains
     logical,         optional,intent(in)  :: ocean_restart  !< If true, use the ocean restart file name.
     character(len=*),optional,intent(in)  :: directory      !< Directory where to open the file
 
-    character(len=80), dimension(max(1,var%num_bcs)) :: rest_file_names
-    character(len=80) :: file_nm
+    character(len=FMS_FILE_LEN), dimension(max(1,var%num_bcs)) :: rest_file_names
+    character(len=FMS_FILE_LEN) :: file_nm
     logical :: ocn_rest
     integer :: f, n, m
 
     character(len=20), allocatable, dimension(:) :: dim_names !< Array of dimension names
     character(len=20)                          :: io_type   !< flag indicating io type: "read" "overwrite"
     logical, dimension(max(1,var%num_bcs))     :: file_is_open !< Flag indicating if file is open
-    character(len=20)                          :: dir       !< Directory where to open the file
+    character(len=FMS_PATH_LEN)                :: dir       !< Directory where to open the file
     integer                                    :: nz        !< Length of the z direction of each file
 
     if(var%set .and. var%num_bcs .gt. 0) then

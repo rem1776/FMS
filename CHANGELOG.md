@@ -6,6 +6,143 @@ and this project uses `yyyy.rr[.pp]`, where `yyyy` is the year a patch is releas
 `rr` is a sequential release number (starting from `01`), and an optional two-digit
 sequential patch number (starting from `01`).
 
+## [2024.02] - 2024-07-11
+
+### Known Issues
+- Diag Manager Rewrite: See [below](#20240102---2024-06-14) for known output file differences regarding the new diag manager. The new diag_manager is disabled by default, so this differences will only be present if `use_modern_diag` is set to true in the `diag_manager_nml`.
+- BUILD(HDF5): HDF5 version 1.14.3 generates floating point exceptions, and will cause errors if FMS is built with FPE traps enabled. FPE traps are turned on when using the debug target in mkmf.
+- GCC: version 14.1.0 is unsupported due to a bug with strings that has come up previously in earlier versions. This will be caught by the configure script, but will cause compilation errors if using other build systems.
+
+### Added
+- TIME_INTERP: Enables use of `verbose` option in `time_interp_external2` calls from `data_override`. The option is enabled in `data_override_nml` by setting `debug_data_override` to true. (#1516)
+- COUPLER: Adds optional argument to `coupler_types_send_data` routine that contains the return statuses for any calls made to the diag_manager's `send_data` routine. (#1530)
+- MPP: Adds a separate error log file `warnfile.<root pe num>.out` that only holds output from any `mpp_error` calls made during a run (#1544)
+### Changed
+- DIAG_MANAGER: The `diag_field_log.out` output file of all registered fields will now include the PE number of the root PE at the time of writing (ie. diag_field_log.out.0). This is to prevent overwritting the file in cases where the root PE may change. (#1497)
+
+### Fixed
+- CMAKE: Fixes real kind flags being overwritten when using the Debug release type (#1532)
+- HORIZ_INTERP: Fixes allocation issues when using method-specific horiz_interp_new routines (such as `horiz_interp_bilinear_new`) by setting `is_allocated` and the `method_type` during initialization for each method. (#1538)
+
+
+### Tag Commit Hashes
+- 2024.02-alpha1 5757c7813f1170efd28f5a4206395534894095b4
+- 2024.02-alpha2 5757c7813f1170efd28f5a4206395534894095b4
+- 2024.02-beta1  ca592ef8f47c246f4dc56d348d62235bd0ceaa9d
+- 2024.02-beta2  ca592ef8f47c246f4dc56d348d62235bd0ceaa9d
+
+## [2024.01.02] - 2024-06-14
+
+### Known Issues
+- Diag Manager Rewrite:
+	- Expected output file changes:
+		- If the model run time is less than the output frequency, old diag_manager would write a specific value (9.96921e+36). The new diag_manager will not, so only fill values will be present.
+		- A `scalar_axis` dimension will not be added to scalar variables
+		- The `average_*` variables will no longer be added as they are non-standard conventions
+		- Attributes added via `diag_field_add_attributes` in the old code were saved as `NF90_FLOAT` regardless of precision, but will now be written as the precision that is passed in
+		- Subregional output will have a global attribute `is_subregional = True` set for non-global history files.
+		- The `grid_type` and `grid_tile` global attributes will no longer be added for all files, and some differences may be seen in the exact order of the `associated_files` attribute
+
+- DIAG_MANAGER: When using the `do_diag_field_log` nml option, the output log file may be ovewritten if using a multiple root pe's
+- BUILD(HDF5): HDF5 version 1.14.3 generates floating point exceptions, and will cause errors if FMS is built with FPE traps enabled.
+- GCC: version 14.1.0 is unsupported due to a bug with strings that has come up previously in earlier versions. This will be caught by the configure script, but will cause compilation errors if using other build systems.
+
+### Fixed
+- DIAG_MANAGER: Fixes incorrect dates being appended to static file names
+
+## [2024.01.01] - 2024-05-30
+
+### Known Issues
+- Diag Manager Rewrite:
+	- Expected output file changes:
+		- If the model run time is less than the output frequency, old diag_manager would write a specific value (9.96921e+36). The new diag_manager will not, so only fill values will be present.
+		- A `scalar_axis` dimension will not be added to scalar variables
+		- The `average_*` variables will no longer be added as they are non-standard conventions
+		- Attributes added via `diag_field_add_attributes` in the old code were saved as `NF90_FLOAT` regardless of precision, but will now be written as the precision that is passed in
+		- Subregional output will have a global attribute `is_subregional = True` set for non-global history files.
+		- The `grid_type` and `grid_tile` global attributes will no longer be added for all files, and some differences may be seen in the exact order of the `associated_files` attribute
+
+- DIAG_MANAGER: When using the `do_diag_field_log` nml option, the output log file may be ovewritten if using a multiple root pe's
+- BUILD(HDF5): HDF5 version 1.14.3 generates floating point exceptions, and will cause errors if FMS is built with FPE traps enabled.
+- GCC: version 14.1.0 is unsupported due to a bug with strings that has come up previously in earlier versions. This will be caught by the configure script, but will cause compilation errors if using other build systems.
+
+### Added
+- DIAG_MANAGER: Implements `flush_nc_files` functionality from legacy diag_manager.
+
+### Changed
+- FMS2_IO: Changed `register_unlimited_compressed_axis` to use a collective gather rather than send and recieves to improve efficiency when reading in iceberg restarts.
+
+### Fixed
+- DIAG_MANAGER: Fixes 0 day output frequencies causing error stating a time_step was skipped. Also adds checks to crash if averaged fields have -1 or 0 day frequencies or if mixing averaged and non-averaged fields in the same file.
+- DIAG_MANAGER: Fixes issue with the weight argument not getting passed through to reduction methods.
+- DIAG_MANAGER: Allocation errors when using two empty files.
+- DIAG_MANAGER: `time` and `time_bnds` being larger than expected when running for 1 day and using daily data.
+- DIAG_MANAGER: Allows for mixing static and non-static fields when frequency is 0 days.
+- TESTS: Fixes compile failure with ifort 2024.01 from test_mpp_gatscat.F90.
+
+### Removed
+- DIAG_MANAGER: The `mix_snapshot_average_fields` option is deprecated for the rewritten diag_manager only.
+
+### Tag Commit Hashes
+- 2024.01.01-beta2 c00367fa810960e87610162f0f012c5da724c5a9
+- 2024.01.01-beta1 42f8506512e1b5b43982320f5b9d4ca1ca9cbebd
+
+## [2024.01] - 2024-05-03
+
+### Known Issues
+- Diag Manager Rewrite:
+	- If two empty files are present in the diag_table.yaml file the code will crash with a allocation error (#1506)
+	- Setting an output frequency of '0 days' does not work as expected and may cause an error stating a time_step has been skipped (#1502)
+	- The `flush_nc_files` and `mix_snapshot_average_fields` nml options are not yet functional. The `mix_snapshot_average_fields` option is planned to be deprecated (for the rewritten diag_manager only).
+	- Expected output file changes:
+		- If the model run time is less than the output frequency, old diag_manager would write a specific value (9.96921e+36). The new diag_manager will not, so only fill values will be present.
+		- A `scalar_axis` dimension will not be added to scalar variables
+		- The `average_*` variables will no longer be added as they are non-standard conventions
+ 		- Attributes added via `diag_field_add_attributes` in the old code were saved as `NF90_FLOAT` regardless of precision, but will now be written as the precision that is passed in
+		- Subregional output will have a global attribute `is_subregional = True` set for non-global history files.
+		- The `grid_type` and `grid_tile` global attributes will no longer be added for all files, and some differences may be seen in the exact order of the `associated_files` attribute
+
+- DIAG_MANAGER: When using the `do_diag_field_log` nml option, the output log file may be ovewritten if using a multiple root pe's
+- TESTS: `test_mpp_gatscat.F90` fails to compile with the Intel Oneapi 2024.01's version of ifort
+- BUILD(HDF5): HDF5 version 1.14.3 generates floating point exceptions, and will cause errors if FMS is built with FPE traps enabled.
+
+### Added
+- DIAG_MANAGER: The diag manager has been rewritten with a object oriented design. The old diag_manager code has been kept intact and will be used by default. The rewritten diag manager can be enabled via `use_modern_diag = .true.` to your `diag_manager_nml`. New features include:
+	- Self-describing YAML formatting for diag_table's
+	- Allows 4d variables
+  - Support defining subregions with indices
+  - More flexibility when adding metadata and defining output frequency
+- FMS2_IO: Adds support for collective parallel reads to improve model startup time. The collective reads are disabled by default and enabled via the `use_collective` flag in `netcdf_io_mod`.
+- DATA_OVERRIDE: Adds option to use multiple data files for one field within data_override in order to use annual data files in yearly runs without having to append/prepend timesteps from previous and next year. With the legacy data_table, filenames  can be set in order and separated with `:` ie. `prev_year.nc:curr_year.nc:next_year.nc`. With the data_table.yaml format, the key `is_multi_file` enables the functionality and `prev_file_name` and `next_file_name` sets the file paths.
+
+- INTERPOLATOR: Adds support for yearly/annual data
+- DATA_OVERRIDE: Adds support for monotonically decreasing arrays for `nearest_index`, `axis_edges`, `horiz_interp`(bilinear), and `data_override` (#1388)
+- DOCS: Add documentation for the exchange grid (xgrid_mod) and update the contribution guide to add a section on code reviews
+- MPP: MPI sub-communicators for domains are now accessible via `mpp_get_domain_tile_commid` and `mpp_get_domain_commid` in `mpp_domains_mod`
+
+### Changed
+- DATA_OVERRIDE: Changes behavior to crash if both data_table and data_table.yaml are present and adds error checking when reading in yaml files
+- FIELD_MANAGER: Changes behavior to crash if both field_table and field_table.yaml are present as well as adds a namelist flag (`use_field_table_yaml`) to enable support for the yaml input.
+
+### Fixed
+- DATA_OVERRIDE: Fixes allocation error with scalar routine and replaces pointers with allocatables
+- INTERPOLATOR: Increase max string size for file paths
+- AXIS_UTILS: Improves performance of `nearest_index` routine
+- CMAKE: Fixes macOS linking issues with OpenMP
+
+### Tag Commit Hashes
+- 2024.01-beta5  d3bab5a84b6a51eddd46ab6fb65eaa532830c6c7
+- 2024.01-beta4  ac363ddfd3075637cecae30ddfbae7a78751197b
+- 2024.01-alpha6 2ace94564a08aec4d7ab7eca0e57c0289e52d5b1
+- 2024.01-alpha5 5ed0bd373cc59a9681052fa837cb83a67169d102
+- 2024.01-alpha4 8dd90d72b58f0de3632dc62920f8adfb996b2265
+- 2024.01-beta3  f71405a075102aef42f5811dc09e239ddd002637
+- 2024.01-beta2  bb6de937f70a08a440f5e63b8553b047c1921509
+- 2024.01-beta1  913f8aaecca374d5e10280056de862d5e4a7a668
+- 2024.01-alpha3 085c6bfc945a6f1c586b842ca6268fca442884d8
+- 2024.01-alpha2 38bfde30e1cb8bf5222410a9c37e71529567bf69
+- 2024.01-alpha1 ac0d086296ea8b9196552463655cb9a848db39fe
+
 ## [2023.04] - 2023-12-04
 ### Known Issues
 - GCC 9 and below as well as GCC 11.1.0 are unsupported due to compilation issues. See prior releases for more details.

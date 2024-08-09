@@ -66,16 +66,16 @@ field_table:
     - variable: radon
       longname: radon-222
       units: VMR*1E21
-      profile_type: fixed
-      subparams:
-      - surface_value: 0.0E+00
+      profile_type:
+      - value: fixed
+        surface_value: 0.0E+00
       convection: all
   - model_type: ocean_mod
     varlist:
     - variable: biotic1
-      diff_horiz: linear
-      subparams:
-      - slope: ok
+      diff_horiz:
+      - value: linear
+        slope: ok
       longname: biotic one
     - variable: age_ctl
   - model_type: land_mod
@@ -100,7 +100,7 @@ cat <<_EOF > input.nml
 /
 _EOF
 
-if [ ! -z $parser_skip ]; then
+if [ ! $parser_skip ]; then
   test_expect_failure "field table read with use_field_table.yaml = .true. but not compiling with yaml" 'mpirun -n 1 ./test_field_table_read'
 else
   test_expect_success "field table read with use_field_table.yaml = .true." 'mpirun -n 1 ./test_field_table_read'
