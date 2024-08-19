@@ -24,41 +24,48 @@
 # Set common test settings.
 . ./test-lib.sh
 
-# make sure all our tests are built prior to being run
-cd fms2_io
-make test_fms2_io test_domain_io test_atmosphere_io test_io_simple
-cd ../mpp
-make test_mpp_alltoall test_mpp_chksum test_global_arrays
-cd ..
+# Set build directory via configure
+top_builddir='@abs_top_builddir@'
 
+fms2_io_tests="test_fms2_io test_domain_io test_atmosphere_io test_io_simple"
+mpp_tests="test_mpp_alltoall test_mpp_chksum test_global_arrays test_mpp_broadcast"
+
+
+# make sure all our tests are built prior to being run
+cd ${top_builddir}
+pwd
+cd fms2_io
+make ${fms2_io_tests}
+cd ${top_builddir}/mpp
+make ${mpp_tests}
 # set up directories for in/out-put
+cd ${top_builddir}
 mkdir -p test_large
 cd test_large
 touch input.nml
 
 echo "Running large scale tests for fms2_io"
 
-
-test_expect_success "test_fms2_io large scale" ' 
-  mpirun -n 4608 ../fms2_io/test_fms2_io
+test_expect_success "test_fms2_io large scale" '
+  mpirun -n 4608 ${top_builddir}/test_fms/fms2_io/test_fms2_io
 '
 
-test_expect_success "test_atmosphere_io large scale" ' 
-  mpirun -n 4608 ../fms2_io/test_atmospere_io
+test_expect_success "test_atmosphere_io large scale" '
+  mpirun -n 4608 ${top_builddir}/test_fms/fms2_io/test_atmosphere_io
 '
 
-test_expect_success "test_io_simple large scale" ' 
-  mpirun -n 4608 ../fms2_io/test_io_simple
+test_expect_success "test_io_simple large scale" '
+  mpirun -n 4608 ${top_builddir}/test_fms/fms2_io/test_io_simple
 '
 
 echo "Running large scale tests for mpp"
 
-test_expect_success "mpp_alltoall 4608 ranks" ' 
-  mpirun -n 4608 ../mpp/test_mpp_alltoall
+test_expect_success "mpp_alltoall 4608 ranks" '
+  mpirun -n 4608 ${top_builddir}/test_fms/mpp/test_mpp_alltoall
 '
 
-test_expect_success "mpp_chksum 4608 ranks" ' 
-  mpirun -n 4608 ../mpp/test_mpp_chksum
+test_expect_success "mpp_chksum 4608 ranks" '
+  mpirun -n 4608 ${top_builddir}/test_fms/mpp/test_mpp_chksum
 '
 
 cat <<_EOF  > input.nml
@@ -69,7 +76,15 @@ cat <<_EOF  > input.nml
 _EOF
 
 test_expect_success "mpp_global_min/max/sum 4608 ranks" '
-  mpirun -n 4608 ../mpp/test_global_arrays
+  mpirun -n 4608 ${top_builddir}/test_fms/mpp/test_global_arrays
+'
+
+test_expect_success "mpp_broadcast 4608 ranks" '
+  mpirun -n 4608 ${top_builddir}/test_fms/mpp/test_mpp_broadcast
+'
+
+test_expect_success "mpp_gather and mpp_scatter 4608 ranks" '
+  mpirun -n 4608 ${top_builddir}/test_fms/mpp/test_mpp_broadcast
 '
 
 test_done

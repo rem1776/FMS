@@ -16,6 +16,7 @@
 !* You should have received a copy of the GNU Lesser General Public
 !* License along with FMS.  If not, see <http://www.gnu.org/licenses/>.
 !***********************************************************************
+!! TODO remove shmem usage
 #ifdef SYSTEM_CLOCK
 #undef SYSTEM_CLOCK
 #endif
@@ -86,7 +87,7 @@ contains
     if(npes < 3)then
        call mpp_error(FATAL, "Test_scatter_2D: minimum of 3 ranks required. Not testing gather; too few ranks.")
     endif
-    write(out_unit,*)
+    if( pe .eq. root) write(out_unit,*)
 
     call test_scatter_2D_R4(npes, pe, root, out_unit)
 
@@ -102,7 +103,7 @@ contains
     if(npes < 3)then
        call mpp_error(FATAL, "Test_scatter_3D: minimum of 3 ranks required. Not testing gather; too few ranks.")
     endif
-    write(out_unit,*)
+    if( pe .eq. root) write(out_unit,*)
 
     call test_scatter_3D_R4(npes, pe, root, out_unit)
 
@@ -199,7 +200,7 @@ contains
     endif
 
     call mpp_sync() !
-    write(out_unit,*) "Test test_scatter_2D_R4  successful at general scatter section."
+    if( pe .eq. root) write(out_unit,*) "Test test_scatter_2D_R4  successful at general scatter section."
 
     !!Verify that the last pe (numbered npes) did not get the segment array updated!
     if(pe == pelist(npes)) then
@@ -213,7 +214,7 @@ contains
     endif
 
     call mpp_sync() !
-    write(out_unit,*) "Test test_scatter_2D_R4  successful ."
+    if( pe .eq. root) write(out_unit,*) "Test test_scatter_2D_R4  successful ."
 
 end subroutine test_scatter_2D_R4
 
@@ -306,7 +307,7 @@ end subroutine test_scatter_2D_R4
     endif
 
     call mpp_sync()
-    write(out_unit,*) "Test test_scatter_2D_R8  successful at general scatter section."
+    if( pe .eq. root) write(out_unit,*) "Test test_scatter_2D_R8  successful at general scatter section."
 
     !!Verify that the last pe (numbered npes) did not get the segment array updated!
     if(pe == pelist(npes)) then
@@ -320,7 +321,7 @@ end subroutine test_scatter_2D_R4
     endif
 
     call mpp_sync()
-    write(out_unit,*) "Test test_scatter_2D_R8  successful ."
+    if( pe .eq. root) write(out_unit,*) "Test test_scatter_2D_R8  successful ."
 
 end subroutine test_scatter_2D_R8
 
@@ -433,7 +434,7 @@ end subroutine test_scatter_2D_R8
     endif
 
     call mpp_sync() !
-    write(out_unit,*) "Test test_scatter_2D_R4  successful at general scatter section."
+    if( pe .eq. root) write(out_unit,*) "Test test_scatter_2D_R4  successful at general scatter section."
 
     !!Verify that the last pe (numbered npes) did not get the segment array updated!
     if(pe == pelist(npes)) then
@@ -449,7 +450,7 @@ end subroutine test_scatter_2D_R8
     endif
 
     call mpp_sync()
-    write(out_unit,*) "Test scatter 3D R4 successful."
+    if( pe .eq. root) write(out_unit,*) "Test scatter 3D R4 successful."
 
   end subroutine test_scatter_3D_R4
 
@@ -563,7 +564,7 @@ end subroutine test_scatter_2D_R8
     endif
 
     call mpp_sync() !
-    write(out_unit,*) "Test test_scatter_2D_R8  successful at general scatter section."
+    if( pe .eq. root) write(out_unit,*) "Test test_scatter_2D_R8  successful at general scatter section."
 
     !!Verify that the last pe (numbered npes) did not get the segment array updated!
     if(pe == pelist(npes)) then
@@ -579,7 +580,7 @@ end subroutine test_scatter_2D_R8
     endif
 
     call mpp_sync()
-    write(out_unit,*) "Test scatter 3D R8 successful."
+    if( pe .eq. root) write(out_unit,*) "Test scatter 3D R8 successful."
 
   end subroutine test_scatter_3D_R8
 
@@ -592,7 +593,7 @@ end subroutine test_scatter_2D_R8
      if(npes < 3)then
        call mpp_error(FATAL, "Test_gather: minimum of 3 ranks required. Not testing gather; too few ranks.")
      endif
-     write(out_unit,*)
+     if( pe .eq. root) write(out_unit,*)
 
      call test_gather_R4(npes, pe, root, out_unit)
 
@@ -612,7 +613,7 @@ end subroutine test_scatter_2D_R8
      if(npes < 3)then
        call mpp_error(FATAL, "Test_gather: minimum of 3 ranks required. Not testing gather; too few ranks.")
      endif
-     write(out_unit,*)
+     if( pe .eq. root) write(out_unit,*)
 
      val = pe
      rdata = -1.0
@@ -631,7 +632,7 @@ end subroutine test_scatter_2D_R8
      endif
 
      call mpp_sync()
-     write(out_unit,*) "Test gather uniform vector with global pelist successful"
+     if( pe .eq. root) write(out_unit,*) "Test gather uniform vector with global pelist successful"
 
      rdata = -1.0
      if(ANY(pe == pelist(2:npes)))call mpp_gather((/val/),rdata(2:npes),pelist(2:npes))
@@ -644,7 +645,7 @@ end subroutine test_scatter_2D_R8
        enddo
      endif
      call mpp_sync()
-     write(out_unit,*) "Test gather uniform vector with reduced pelist successful"
+     if( pe .eq. root) write(out_unit,*) "Test gather uniform vector with reduced pelist successful"
 
   end subroutine test_gather_R4
 
@@ -661,7 +662,7 @@ end subroutine test_scatter_2D_R8
      if(npes < 3)then
        call mpp_error(FATAL, "Test_gather: minimum of 3 ranks required. Not testing gather; too few ranks.")
      endif
-     write(out_unit,*)
+     if( pe .eq. root) write(out_unit,*)
 
      val = pe
      rdata = -1.0
@@ -680,7 +681,7 @@ end subroutine test_scatter_2D_R8
      endif
 
      call mpp_sync()
-     write(out_unit,*) "Test gather uniform vector with global pelist successful"
+     if( pe .eq. root) write(out_unit,*) "Test gather uniform vector with global pelist successful"
 
      rdata = -1.0
      if(ANY(pe == pelist(2:npes)))call mpp_gather((/val/),rdata(2:npes),pelist(2:npes))
@@ -693,7 +694,7 @@ end subroutine test_scatter_2D_R8
        enddo
      endif
      call mpp_sync()
-     write(out_unit,*) "Test gather uniform vector with reduced pelist successful"
+     if( pe .eq. root) write(out_unit,*) "Test gather uniform vector with reduced pelist successful"
 
    end subroutine test_gather_R8
 
@@ -712,7 +713,7 @@ end subroutine test_scatter_2D_R8
      elseif(npes > 9999)then
        call mpp_error(FATAL, "Test_gatherV: maximum of 9999 ranks supported. Not testing gatherV; too many ranks.")
      endif
-     write(out_unit,*)
+     if( pe .eq. root) write(out_unit,*)
 
      ssize = pe+1
      allocate(sdata(ssize))
@@ -749,7 +750,7 @@ end subroutine test_scatter_2D_R8
      endif
 
      call mpp_sync()
-     write(out_unit,*) "Test gatherV with global pelist successful"
+     if( pe .eq. root) write(out_unit,*) "Test gatherV with global pelist successful"
 
      rdata = -1.0
      ref(1) = -1.0
@@ -769,7 +770,7 @@ end subroutine test_scatter_2D_R8
      endif
      call mpp_sync()
 
-     write(out_unit,*) "Test gatherV with reduced pelist successful"
+     if( pe .eq. root) write(out_unit,*) "Test gatherV with reduced pelist successful"
      deallocate(sdata,rdata,ref)
   end subroutine test_gatherV
 
