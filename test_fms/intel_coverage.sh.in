@@ -71,19 +71,42 @@ cat <<_EOF > coverage-report/fms-coverage.html
 </head>
 <body>
 _EOF
-
+# comment that seems to prevent the _EOF from inexplicably being included in the output file
+total=0
+covered=0
 # generate code coverage report and links for each (src) subdirectory
-for dir in `find . -maxdepth 1 -mindepth 1 -type d -printf '%f\n' | grep -v test_fms | sort`
+# also sums the covered and total block counts
+for dir in `find . -not -path '*/.*' -maxdepth 1 -mindepth 1 -type d -printf '%f\n' | grep -v test_fms | grep -v 'coverage-*'`
 do
   cd $dir
+  echo $dir
   if [ ! -z "`find . -type f -name "*.spi"`" ] ; then
     mkdir ../coverage-report/$dir
     codecov -prj $dir -spi pgopti.spi -dpi ../fms-global-coverage.dpi
+
+    tmp="`sed -n 54p CodeCoverage/__CODE_COVERAGE.HTML | sed 's/.*>\(.*\)<.*/\1/' | sed 's/,//' `"
+    total="`expr $tmp + $total`"
+    tmp="`sed -n 55p CodeCoverage/__CODE_COVERAGE.HTML | sed 's/.*>\(.*\)<.*/\1/' | sed 's/,//' `"
+    covered="`expr $tmp + $covered`"
+
     mv CODE_COVERAGE.HTML ../coverage-report/$dir
     mv CodeCoverage ../coverage-report/$dir
     echo "<p><a href=\"${dir}/CODE_COVERAGE.HTML\">${dir}</a></p>" >> ../coverage-report/fms-coverage.html
   fi
   cd ..
 done
+percentage="$(echo "scale=2; ${covered}*100/${total}" | bc)"
+
 echo "</body>" >> coverage-report/fms-coverage.html
 echo "</html>" >> coverage-report/fms-coverage.html
+# print results for total coverage since each report is per directory
+# extra output if in CI
+echo "$covered covered functions out of $total total (${percentage}%)"
+if [ "$CI" ]; then
+  echo "::set-output name=total::${total}"
+  echo "::set-output name=covered::${covered}"
+  echo "::set-output name=percentage::${percentage}"
+  test -z "${percentage}" && echo "::error title=Percentage calculation failed::" && exit 1
+  echo "::notice title=Coverage Info::${percentage}% of routine/function coverage. ${covered} covered functions out of ${total} total"
+  echo "${percentage}" > /coverage-percent.txt
+fi
