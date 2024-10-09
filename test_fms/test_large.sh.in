@@ -17,74 +17,110 @@
 # You should have received a copy of the GNU Lesser General Public
 # License along with FMS.  If not, see <http://www.gnu.org/licenses/>.
 #***********************************************************************
-# Runs larger scale (4608 pes) versions of certain unit tests
-# only runs via `make check-scaling`
+# Runs unit tests with very large pe counts
+# runs via `make check-scaling` (only available if configured with --enable-large-tests)
 # Ryan Mulhall
 
 # Set common test settings.
 . ./test-lib.sh
 
-# Set build directory via configure
 top_builddir='@abs_top_builddir@'
 
+# tests to build
 fms2_io_tests="test_fms2_io test_domain_io test_atmosphere_io test_io_simple"
-mpp_tests="test_mpp_alltoall test_mpp_chksum test_global_arrays test_mpp_broadcast"
+mpp_tests="test_mpp_alltoall test_mpp_chksum test_global_arrays test_mpp_broadcast test_mpp_sum test_super_grid test_mpp_gatscat test_mpp_transmit test_domains_simple test_mpp_root_pe"
 
+# pe count for all tests
+npes=4608
 
 # make sure all our tests are built prior to being run
 cd ${top_builddir}
-pwd
-cd fms2_io
+cd test_fms/fms2_io
 make ${fms2_io_tests}
-cd ${top_builddir}/mpp
+test $? -ne 0 && echo "fms2_io tests failed to build" && exit 1
+cd ${top_builddir}/test_fms/mpp
 make ${mpp_tests}
+test $? -ne 0 && echo "mpp tests failed to build" && exit 1
+
 # set up directories for in/out-put
 cd ${top_builddir}
 mkdir -p test_large
 cd test_large
 touch input.nml
 
+echo "********************Using ${npes} pe's********************"
+
 echo "Running large scale tests for fms2_io"
 
-test_expect_success "test_fms2_io large scale" '
-  mpirun -n 4608 ${top_builddir}/test_fms/fms2_io/test_fms2_io
+test_expect_success "test_fms2_io" '
+  mpirun -n ${npes} ${top_builddir}/test_fms/fms2_io/test_fms2_io
+'
+rm -f *nc*
+ls
+
+test_expect_success "test_atmosphere_io" '
+  mpirun -n ${npes} ${top_builddir}/test_fms/fms2_io/test_atmosphere_io -x 1080 -y 1080 -z 12
+'
+rm -f *nc*
+ls
+
+test_expect_success "test_io_simple" '
+  mpirun -n ${npes} ${top_builddir}/test_fms/fms2_io/test_io_simple -x 1080 -y 1080 -z 12
 '
 
-test_expect_success "test_atmosphere_io large scale" '
-  mpirun -n 4608 ${top_builddir}/test_fms/fms2_io/test_atmosphere_io
-'
-
-test_expect_success "test_io_simple large scale" '
-  mpirun -n 4608 ${top_builddir}/test_fms/fms2_io/test_io_simple
-'
+rm -f *nc*
+ls
 
 echo "Running large scale tests for mpp"
 
-test_expect_success "mpp_alltoall 4608 ranks" '
-  mpirun -n 4608 ${top_builddir}/test_fms/mpp/test_mpp_alltoall
+test_expect_success "mpp_alltoall" '
+  mpirun -n ${npes} ${top_builddir}/test_fms/mpp/test_mpp_alltoall
 '
 
-test_expect_success "mpp_chksum 4608 ranks" '
-  mpirun -n 4608 ${top_builddir}/test_fms/mpp/test_mpp_chksum
+test_expect_success "mpp_chksum" '
+  mpirun -n ${npes} ${top_builddir}/test_fms/mpp/test_mpp_chksum
 '
 
 cat <<_EOF  > input.nml
 &test_global_arrays_nml
   test_simple = .true.
-  test_full = .false.
 /
 _EOF
 
-test_expect_success "mpp_global_min/max/sum 4608 ranks" '
-  mpirun -n 4608 ${top_builddir}/test_fms/mpp/test_global_arrays
+test_expect_success "mpp_global_min/max/sum" '
+  mpirun -n ${npes} ${top_builddir}/test_fms/mpp/test_global_arrays
 '
 
-test_expect_success "mpp_broadcast 4608 ranks" '
-  mpirun -n 4608 ${top_builddir}/test_fms/mpp/test_mpp_broadcast
+test_expect_success "mpp_broadcast" '
+  mpirun -n ${npes} ${top_builddir}/test_fms/mpp/test_mpp_broadcast
 '
 
-test_expect_success "mpp_gather and mpp_scatter 4608 ranks" '
-  mpirun -n 4608 ${top_builddir}/test_fms/mpp/test_mpp_broadcast
+test_expect_success "mpp_gather and mpp_scatter" '
+  mpirun -n ${npes} ${top_builddir}/test_fms/mpp/test_mpp_gatscat
+'
+
+test_expect_success "mpp_sum" '
+  mpirun -n ${npes} ${top_builddir}/test_fms/mpp/test_mpp_sum
+'
+
+test_expect_success "mpp_domain_copy and mpp_create_supergrid" '
+  mpirun -n ${npes} ${top_builddir}/test_fms/mpp/test_super_grid
+'
+
+test_expect_success "mpp_root_pe" '
+  mpirun -n ${npes} ${top_builddir}/test_fms/mpp/test_mpp_root_pe
+'
+
+test_expect_success "mpp_transmit" '
+  mpirun -n ${npes} ${top_builddir}/test_fms/mpp/test_mpp_transmit
+'
+
+test_expect_success "mpp_domains simple" '
+  mpirun -n ${npes} ${top_builddir}/test_fms/mpp/test_domains_simple
+'
+
+test_expect_success "mpp_peset" '
+  mpirun -n ${npes} ${top_builddir}/test_fms/mpp/test_peset
 '
 
 test_done

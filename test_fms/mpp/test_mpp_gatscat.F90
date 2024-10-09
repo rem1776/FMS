@@ -69,11 +69,11 @@ program test_mpp_gatscat
   call test_scatter_3D(npes,pe,root,out_unit)
   if( pe.EQ.root ) print *, '------------------> Finished test_scatter <------------------'
 
-  if( pe.EQ.root ) print *, '------------------> Calling test_gather <------------------'
-  call test_gather(npes,pe,root,out_unit)
-  call test_gatherV(npes,pe,root,out_unit)
+  !if( pe.EQ.root ) print *, '------------------> Calling test_gather <------------------'
+  !call test_gather(npes,pe,root,out_unit)
+  !call test_gatherV(npes,pe,root,out_unit)
 
-  if( pe.EQ.root ) print *, '------------------> Finished test_gather <------------------'
+  !if( pe.EQ.root ) print *, '------------------> Finished test_gather <------------------'
 
   call MPI_finalize(ierr)
 

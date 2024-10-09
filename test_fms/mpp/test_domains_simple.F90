@@ -35,11 +35,26 @@ program test_domains_simple
   type(domain2D) :: domain_2D !> A 2D domain.
   type(domain1D) :: domain_1D !> A 1D domain.
   integer :: is, ie, js, je   !> For checking domains.
+  logical :: large_pe_count = .false.
+  integer :: i
+  integer, allocatable :: pes(:)
 
   call mpp_init()
 
   pe = mpp_pe()
   npes = mpp_npes()
+
+  large_pe_count = npes .eq. 4608
+
+  if ( large_pe_count ) then
+    nx = 128
+    ny = 64
+  endif
+
+  allocate(pes(npes))
+  do i=0, npes-1
+    pes(i+1) = i
+  enddo
 
   ! Initialize mpp domains.
   call mpp_domains_init(MPP_DEBUG)
@@ -56,7 +71,7 @@ program test_domains_simple
   !call mpp_define_domains((/1, nx/), 4, domain_1D)
 
   ! Define a 1D domain.
-  call mpp_define_domains((/1, nx/), 4, domain_1D, pelist=(/0, 1, 2, 3/))
+  call mpp_define_domains((/1, nx*ny/), npes, domain_1D, pelist=pes)
 
   ! Get the values of the compute domain.
   call mpp_get_compute_domain(domain_1D, is, ie)

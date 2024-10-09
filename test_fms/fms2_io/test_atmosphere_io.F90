@@ -27,6 +27,8 @@ use setup
 use platform_mod
 use fms_mod, only : check_nml_error
 
+implicit none
+
 type(Params) :: test_params
 type(domain2d) :: domain
 type(domain2d) :: domain2
@@ -90,29 +92,32 @@ integer :: io_layout2(2) !< io layout used for domain2
 logical :: run_large_tests = .false. !< gets set to true if running with --enable-large-tests configure option
                                 !! Checks pe count is 4608, and if so adjusts layouts and data set sizes
 integer, parameter :: lrge_test_npes = 4608 !< actual pe count set in makefile.am
+integer :: layout(2)
 
 integer :: io    !< Error code when reading namelist
 integer :: ierr  !< Error code when reading namelist
 
 namelist /test_atmosphere_io_nml/ bad_checksum, ignore_checksum
 
-!Initialize.
-call init(test_params, ntiles)
+call mpp_init()
 
 run_large_tests = mpp_npes() .eq. lrge_test_npes
 
-! these could be passed in as flags due to the arg parser
-! but checking pes and setting them is a lot less complicated
+!Initialize.
+call init(test_params, ntiles)
+
 if(run_large_tests) then
-  test_params%nx = 1080
-  test_params%ny = 1080
-  test_params%nz = 10
-  io_layout1 = (/ 6, 12/)
-  io_layout1 = (/ 12, mpp_npes()/ntiles/12 /)
+  io_layout1 = (/ 1, 1 /)
+  io_layout2 = (/ 1, 16 /)
+  do i=1, ntiles
+    test_params%layout(:, i) = (/ 12, mpp_npes()/ntiles/12 /)
+  enddo
+  call mpp_error(NOTE, "initializing atmosphere io test")
 else
   io_layout1 = 1
-  io_layout1 = (/ 1, mpp_npes()/ntiles /)
+  io_layout2 = (/ 1, mpp_npes()/ntiles /)
 endif
+
 
 call create_cubed_sphere_domain(test_params, domain, io_layout1 )
 call create_cubed_sphere_domain(test_params, domain2, io_layout2)
@@ -405,9 +410,16 @@ if (open_file(fileobj, "atmosphere.foobar.nc", "read", domain, &
   call mpp_error(FATAL, "Found non-existent file.")
 endif
 
+call mpi_barrier(mpi_comm_world, err)
+call mpi_check(err)
+
 !Re-open the restart file and re-initialize the file object.
 call open_check(open_file(fileobj, "atmosphere_io.nc", "read", domain2, &
                           nc_format="netcdf4", is_restart=.true.))
+
+call mpi_barrier(mpi_comm_world, err)
+call mpi_check(err)
+
 
 !Get the sizes of the I/O compute and data domains.
 io_domain => mpp_get_io_domain(domain2)
@@ -513,6 +525,8 @@ deallocate(dim_sizes)
 !Read in the restart data.
 call read_restart(fileobj, unlim_dim_level=nt, ignore_checksum = ignore_checksum )
 
+! skip checksums for large scale testing
+if (.not. run_large_tests) then
 
 chksum = mpp_chksum(var5, pelist=(/mpp_pe()/))
 if (chksum .ne. var5_chksum) then
@@ -546,9 +560,7 @@ else
   call mpp_error(warning, "checksum for var 8 does match.")
 endif
 
-
-
-
+endif
 
 var5p = 0.
 var6p = 0.

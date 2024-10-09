@@ -24,10 +24,10 @@ program test_super_grid
 use   fms_mod,            only: fms_init, fms_end
 use   mpp_mod,            only: mpp_error, mpp_pe, mpp_root_pe, mpp_npes, FATAL
 use   mpp_domains_mod,    only: domain2d, mpp_define_domains, mpp_copy_domain
-use   mpp_domains_mod,    only: mpp_get_data_domain
+use   mpp_domains_mod,    only: mpp_get_data_domain, mpp_domains_init
 use   mpp_domains_mod,    only: mpp_get_compute_domain, mpp_get_compute_domains
 use   mpp_domains_mod,    only: mpp_get_global_domain, mpp_get_global_domains
-use   mpp_domains_mod,    only: mpp_create_super_grid_domain
+use   mpp_domains_mod,    only: mpp_create_super_grid_domain, mpp_define_layout
 
 implicit none
 
@@ -41,6 +41,11 @@ call fms_init()
 
 nlon = 360
 nlat = 90
+
+if( mpp_npes() .ne. 6 ) then
+  call mpp_domains_init()
+  call mpp_define_layout( (/1, nlon, 1, nlat/), mpp_npes(), layout)
+endif
 
 call mpp_define_domains( (/1,nlon,1,nlat/), layout, Domain, xhalo=2, yhalo=2, name='test_supergrid')
 call mpp_copy_domain(Domain, Domain2)

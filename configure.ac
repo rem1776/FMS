@@ -101,6 +101,9 @@ AS_IF([test ${enable_large_tests:-no} = yes],
 AS_IF([test "x$enable_large_tests" != "xno"],
         [ AM_CONDITIONAL([DO_LARGE_TESTS], true)],
         [ AM_CONDITIONAL([DO_LARGE_TESTS], false)])
+if test "x$enable_large_tests" == xyes; then
+   AC_MSG_WARN(["--disable-shared should be used to run test executables directly for large scale testing."])
+fi
 AC_ARG_ENABLE([deprecated-io],
   [AS_HELP_STRING([--enable-deprecated-io],
     [Enables compilation of deprecated mpp_io and fms_io modules in addition to the updated fms2_io modules (default no)])])

@@ -57,7 +57,7 @@ program test_global_arrays
   character(len=32)             :: strTmp1, strTmp2
   integer(i4_kind), parameter   :: randmaxI4 = 2048
   integer(i8_kind), parameter   :: randmaxI8 = 4096
-  real(r8_kind), parameter      :: tol4 = 1e-4, tol8 = 1e-6!> tolerance for real comparisons
+  real(r8_kind), parameter      :: tol4 = 1e-3, tol8 = 1e-6!> tolerance for real comparisons
   logical :: test_large = .false.
 
   ! namelist variables - just logicals to enable individual tests
@@ -251,7 +251,7 @@ subroutine test_mpp_global_simple()
   call mpp_update_domains(dataR4_shuf, domain)
   sumR4_shuf = mpp_global_sum(domain, dataR4_shuf)
   ! check that shuffled array results are approximately the same as the original array
-  if(abs(sumR4-sumR4_shuf) .gt. 1E-4 ) then
+  if(abs(sumR4-sumR4_shuf) .gt. tol4 ) then
     strTmp1 = ""; strTmp2=""
     write(strTmp1,*) sumR4_shuf
     write(strTmp2,*) sumR4

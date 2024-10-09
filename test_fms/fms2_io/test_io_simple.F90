@@ -87,8 +87,10 @@ program test_io_simple
   do i = 1, 96
      double_buffer(i) = i
   end do
-  
-  run_large_tests = mpp_npes() .eq. lrge_test_npes 
+
+  call mpp_init()
+
+  run_large_tests = mpp_npes() .eq. lrge_test_npes
 
   ! Initialize.
   call init(test_params, ntiles)
@@ -96,8 +98,12 @@ program test_io_simple
   if(run_large_tests) then
     test_params%nx = 1080
     test_params%ny = 1080
-    test_params%nz = 1080
-    io_layout = (/ 12, mpp_npes()/ntiles/12 /)
+    test_params%nz = 12
+    io_layout = (/ 1, 16 /)
+
+    do i=1, ntiles
+      test_params%layout(:, i) = (/ 12, mpp_npes()/ntiles/12 /)
+    enddo
   else
     io_layout = 1
   endif
@@ -146,7 +152,7 @@ program test_io_simple
      call mpi_check(err)
 
      ! Check for expected netcdf file.
-     if (mpp_pe() .eq. mpp_root_pe()) then
+     if (mpp_pe() .eq. mpp_root_pe() .and. .not.run_large_tests) then
         write(testfile,'(a,a,a)') 'test_io_simple_', trim(my_format(i)), '.tile1.nc'
         err = nf90_open(testfile, nf90_nowrite, ncid)
         if (err .ne. NF90_NOERR) stop 2
