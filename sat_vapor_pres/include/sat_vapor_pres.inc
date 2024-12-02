@@ -1901,7 +1901,8 @@
 
  subroutine SHOW_ALL_BAD_1D_ ( temp )
  real(kind=FMS_SVP_KIND_)   , intent(in) :: temp(:) !< temperature in degrees Kelvin (K)
- integer :: i, ind, iunit
+ integer :: i, ind
+ character(len=256) :: output_msg
  !> DTINV, TMIN, TEPS are module level variables declared in r8_kind
  !! Thus they need to be converted to FMS_SVP_KIND_
  real(FMS_SVP_KIND_) :: dtinvll !< local version of module variable dtinvl
@@ -1912,11 +1913,11 @@
  tminll=real(tmin,FMS_SVP_KIND_)
  tepsll=real(teps,FMS_SVP_KIND_)
 
- iunit = stdoutunit
  do i=1,size(temp)
    ind = int( dtinvll*(temp(i)-tminll+tepsll) )
    if (ind < 0 .or. ind > nlim) then
-     write(iunit,'(a,e10.3,a,i4,a,i6)') 'Bad temperature=',temp(i),'  at i=',i,' pe=',mpp_pe()
+     write(output_msg,'(a,e10.3,a,i4)') 'Bad temperature=',temp(i),'  at i=',i
+     call mpp_error(WARNING, output_msg)
    endif
  enddo
 
