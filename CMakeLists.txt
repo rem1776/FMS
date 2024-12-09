@@ -61,6 +61,7 @@ option(SHARED_LIBS "Build shared/dynamic libraries"       OFF)
 # Options for compiler definitions
 option(INTERNAL_FILE_NML     "Enable compiler definition -DINTERNAL_FILE_NML"      ON)
 option(ENABLE_QUAD_PRECISION "Enable compiler definition -DENABLE_QUAD_PRECISION"  ON)
+option(PORTABLE_KINDS        "Enable compiler definition -DPORTABLE_KINDS"        OFF)
 option(GFS_PHYS              "Enable compiler definition -DGFS_PHYS"              OFF)
 option(LARGEFILE             "Enable compiler definition -Duse_LARGEFILE"         OFF)
 option(WITH_YAML             "Enable compiler definition -Duse_yaml"              OFF)
@@ -256,6 +257,8 @@ if(WITH_YAML)
 endif()
 
 if(USE_DEPRECATED_IO)
+  message( WARNING "fms_io WILL BE DEPRECATED IN A FUTURE RELEASE. PLEASE UPDATE TO USE FMS2_IO AND REMOVE "
+                   "-DUSE_DEPRECATED_IO=on FROM YOUR OPTIONS")
   list(APPEND fms_defs use_deprecated_io)
 endif()
 
@@ -265,6 +268,10 @@ endif()
 
 if(ENABLE_QUAD_PRECISION)
   list(APPEND fms_defs ENABLE_QUAD_PRECISION)
+endif()
+
+if(PORTABLE_KINDS)
+  list(APPEND fms_defs PORTABLE_KINDS)
 endif()
 
 if(LARGEFILE)
@@ -424,13 +431,13 @@ endforeach()
 install(
   TARGETS ${LIB_TARGETS}
   EXPORT FMSExports
-  RUNTIME DESTINATION bin
-  LIBRARY DESTINATION lib
-  ARCHIVE DESTINATION lib)
+  RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+  LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+  ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR})
 
 ### Package config
 include(CMakePackageConfigHelpers)
-set(CONFIG_INSTALL_DESTINATION lib/cmake/fms)
+set(CONFIG_INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/fms)
 
 export(EXPORT FMSExports
   NAMESPACE FMS::
@@ -453,3 +460,34 @@ install(EXPORT FMSExports
   NAMESPACE FMS::
   FILE fms-targets.cmake
   DESTINATION ${CONFIG_INSTALL_DESTINATION})
+
+# pkgconf
+set(prefix ${CMAKE_INSTALL_PREFIX})
+set(exec_prefix ${CMAKE_INSTALL_PREFIX})
+set(libdir ${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDIR})
+set(includedir ${CMAKE_INSTALL_PREFIX}/${includeDir})
+
+set(CC ${CMAKE_C_COMPILER})
+set(FC ${CMAKE_Fortran_COMPILER})
+set(CFLAGS "${CMAKE_C_FLAGS} ${CMAKE_C_FLAGS_${CMAKE_BUILD_TYPE}}")
+set(CPPFLAGS "${CMAKE_CPP_FLAGS} ${CMAKE_CPP_FLAGS_${CMAKE_BUILD_TYPE}}")
+set(FCFLAGS "${CMAKE_Fortran_FLAGS} ${CMAKE_Fortran_FLAGS_${CMAKE_BUILD_TYPE}}")
+set(LDFLAGS "${CMAKE_SHARED_LINKER_FLAGS} ${CMAKE_SHARED_LINKER_FLAGS_${CMAKE_BUILD_TYPE}}")
+
+set(VERSION ${PROJECT_VERSION})
+
+# TODO: If FMS depends on a library that is built as a static library, it
+#       should be listed here as an ldflag.
+set(LIBS "")
+
+if(NOT ${NetCDF_Fortran_LIBRARY_SHARED})
+  # autotools: Libs.private: -lnetcdff -lnetcdf
+  string(APPEND LIBS ${NetCDF_Fortran_LIBRARIES})
+endif()
+
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/FMS.pc.in
+               ${CMAKE_CURRENT_BINARY_DIR}/FMS.pc @ONLY)
+
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/FMS.pc
+              DESTINATION ${CMAKE_INSTALL_LIBDIR}/pkgconfig
+              COMPONENT utilities)
