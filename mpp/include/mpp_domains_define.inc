@@ -746,6 +746,7 @@
 
     !--- first compute domain decomposition.
     call mpp_compute_extent(isg, ieg, ndivx, ibegin, iend, xextent)
+    if(mpp_pe() .eq. mpp_root_pe()) print *, "start:", jsg, "end:", jeg, "divs:", ndivy, jbegin, jend, yextent
     call mpp_compute_extent(jsg, jeg, ndivy, jbegin, jend, yextent)
 
     xhalosz = 0; yhalosz = 0

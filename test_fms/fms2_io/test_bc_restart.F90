@@ -21,12 +21,13 @@
 !conditions restarts
 program test_bc_restart
 
-use   mpp_mod,         only : mpp_init, mpp_exit, mpp_pe, mpp_root_pe, mpp_sync, input_nml_file
+use   mpp_mod,         only : mpp_init, mpp_exit, mpp_pe, mpp_root_pe, mpp_sync, input_nml_file, mpp_npes
+use   mpp_domains_mod, only : mpp_define_layout
 use   fms_mod,         only : check_nml_error
 use   fms2_io_mod,     only : FmsNetcdfFile_t, fms2_io_init, open_file, register_restart_field, &
                               register_variable_attribute, read_restart_bc, write_restart_bc, close_file
 use   mpp_domains_mod, only : mpp_get_global_domain, mpp_get_data_domain, mpp_get_compute_domain, &
-                              mpp_define_domains, mpp_get_global_domain, domain2d, CORNER
+                              mpp_define_domains, mpp_get_global_domain, domain2d, CORNER, mpp_define_layout
 
 implicit none
 
@@ -63,6 +64,12 @@ call fms2_io_init
 
 read(input_nml_file, nml=test_bc_restart_nml, iostat=io)
 ierr = check_nml_error(io, 'test_bc_restart_nml')
+
+if( mpp_npes() .eq. 4608 ) then
+  nlon = 128
+  nlat = 144
+  call mpp_define_layout((/1,nlon,1,nlat/), mpp_npes(), layout)
+endif
 
 nlon = 144
 nlat = 144

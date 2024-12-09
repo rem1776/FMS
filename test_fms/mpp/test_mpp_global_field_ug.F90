@@ -56,6 +56,10 @@ program test_mpp_global_field_ug
   !> call mpp_init
   call mpp_init(test_level=mpp_init_test_requests_allocated)
 
+  if(npes .eq. 4608) then
+    ny = 144
+  endif
+
   !> get pe info
   pe   = mpp_pe()
   npes = mpp_npes()

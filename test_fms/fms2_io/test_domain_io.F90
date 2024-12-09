@@ -87,6 +87,8 @@ program test_domain_read
     call parse_mask_table(trim(mask_table), parsed_mask, 'test_io_with_mask')
   endif
 
+  print *, "using layout:", layout
+
   call mpp_domains_set_stack_size(17280000)
   call mpp_define_domains( (/1,nx,1,ny/), layout, Domain, xhalo=xhalo, yhalo=yhalo, &
     maskmap=parsed_mask)

@@ -27,8 +27,8 @@
 top_builddir='@abs_top_builddir@'
 
 # tests to build
-fms2_io_tests="test_fms2_io test_domain_io test_atmosphere_io test_io_simple"
-mpp_tests="test_mpp_alltoall test_mpp_chksum test_global_arrays test_mpp_broadcast test_mpp_sum test_super_grid test_mpp_gatscat test_mpp_transmit test_domains_simple test_mpp_root_pe"
+fms2_io_tests="test_fms2_io test_domain_io test_atmosphere_io test_io_simple test_bc_restart test_chunksizes test_compressed_writes test_file_appendix test_get_is_valid test_get_mosaic_tile_grid test_global_att"
+mpp_tests="test_mpp_alltoall test_mpp_chksum test_global_arrays test_mpp_broadcast test_mpp_sum test_super_grid test_mpp_gatscat test_mpp_transmit test_domains_simple test_mpp_root_pe test_clock_init test_mpp test_mpp_clock_begin_end_id test_mpp_global_field test_mpp_get_ascii_lines test_mpp_init_logfile test_mpp_mem_dump test_mpp_global_field_ug"
 
 # pe count for all tests
 npes=4608
@@ -56,20 +56,74 @@ test_expect_success "test_fms2_io" '
   mpirun -n ${npes} ${top_builddir}/test_fms/fms2_io/test_fms2_io
 '
 rm -f *nc*
-ls
 
 test_expect_success "test_atmosphere_io" '
   mpirun -n ${npes} ${top_builddir}/test_fms/fms2_io/test_atmosphere_io -x 1080 -y 1080 -z 12
 '
 rm -f *nc*
-ls
 
 test_expect_success "test_io_simple" '
   mpirun -n ${npes} ${top_builddir}/test_fms/fms2_io/test_io_simple -x 1080 -y 1080 -z 12
 '
+rm -f *nc*
+
+cat <<_EOF > input.nml
+&test_domain_io_nml
+  layout = 36, 128
+  io_layout = 1, 1
+  nx = 1080 
+  ny = 1024
+  filename = "test_simple_layout.nc"
+/
+_EOF
+
+test_expect_success "test_domain_io (simple layout)" '
+  mpirun -n ${npes} ${top_builddir}/test_fms/fms2_io/test_domain_io
+'
+
+cat <<_EOF > input.nml
+&test_domain_io_nml
+  layout = 36, 128
+  io_layout = 1, 8
+  nx = 1080
+  ny = 1024
+  filename = "test_simple_layout.nc"
+/
+_EOF
+
+test_expect_success "test_domain_io (distributed file)" '
+  mpirun -n ${npes} ${top_builddir}/test_fms/fms2_io/test_domain_io
+'
+
+test_expect_success "test writing boundary condition restarts" '
+  mpirun -n ${npes} ${top_builddir}/test_fms/fms2_io/test_bc_restart
+'
+
+test_expect_success "test chunksize" '
+  mpirun -n ${npes} ${top_builddir}/test_fms/fms2_io/test_chunksizes
+'
+
+test_expect_success "test compressed writes" '
+  mpirun -n ${npes} ${top_builddir}/test_fms/fms2_io/test_compressed_writes
+'
+
+test_expect_success "test file appendix" '
+  mpirun -n ${npes} ${top_builddir}/test_fms/fms2_io/test_file_appendix
+'
+
+test_expect_success "test get_is_valid" '
+  mpirun -n ${npes} ${top_builddir}/test_fms/fms2_io/test_get_is_valid
+'
+
+test_expect_success "test get_mosaic_tile_grid" '
+  mpirun -n ${npes} ${top_builddir}/test_fms/fms2_io/test_get_mosaic_tile_grid
+'
+
+test_expect_success "test global attributes" '
+  mpirun -n ${npes} ${top_builddir}/test_fms/fms2_io/test_global_att
+'
 
 rm -f *nc*
-ls
 
 echo "Running large scale tests for mpp"
 
@@ -121,6 +175,55 @@ test_expect_success "mpp_domains simple" '
 
 test_expect_success "mpp_peset" '
   mpirun -n ${npes} ${top_builddir}/test_fms/mpp/test_peset
+'
+
+test_expect_success "mpp_clock_id" '
+  mpirun -n ${npes} ${top_builddir}/test_fms/mpp/test_clock_init
+'
+
+test_expect_success "test_mpp (mpp_sum)" '
+  mpirun -n ${npes} ${top_builddir}/test_fms/mpp/test_mpp
+'
+
+echo "&test_mpp_clock_begin_end_id_nml" > clock.nml
+echo "test_number = 0" >> clock.nml
+echo "/" >> clock.nml
+
+test_expect_success "mpp_clock_begin and end" '
+  mpirun -n ${npes} ${top_builddir}/test_fms/mpp/test_mpp_clock_begin_end_id
+'
+
+test_expect_success "mpp_global_field" '
+  mpirun -n ${npes} ${top_builddir}/test_fms/mpp/test_mpp_global_field
+'
+
+test_expect_success "mpp_global_field_ug" '
+  mpirun -n ${npes} ${top_builddir}/test_fms/mpp/test_mpp_global_field
+'
+
+# create input/nml for ascii test
+# just does the first 5 line test
+echo "&test_mpp_get_ascii_lines_nml" > test_numb2.nml
+echo "test_number = 1" >> test_numb2.nml
+echo "/" >> test_numb2.nml
+cat <<_EOF > ascii_5
+"this is an ascii file with 5 lines"
+"it will contain commas inside quotes", "as well as outside quotes"
+"it will not have the same number of fields on every line"
+some lines will not have quotes
+"there might be a line with the character string \n"
+_EOF
+
+test_expect_success "mpp_get_ascii_lines" '
+  mpirun -n ${npes} ${top_builddir}/test_fms/mpp/test_mpp_get_ascii_lines
+'
+
+test_expect_success "mpp_init_logfile" '
+  mpirun -n ${npes} ${top_builddir}/test_fms/mpp/test_mpp_init_logfile
+'
+
+test_expect_success "mpp_mem_dump" '
+  mpirun -n ${npes} ${top_builddir}/test_fms/mpp/test_mpp_mem_dump
 '
 
 test_done

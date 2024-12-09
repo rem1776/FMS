@@ -33,7 +33,7 @@ program test_mpp_global_field
 
   implicit none
 
-  integer, parameter :: nx=20, ny=20, nz=40
+  integer            :: nx=20, ny=20, nz=40
   integer, parameter :: whalo=2, ehalo=2, shalo=2, nhalo=2
   integer, parameter :: stackmax=4000000
 
@@ -47,6 +47,10 @@ program test_mpp_global_field
   !> get pe info
   pe = mpp_pe()
   npes = mpp_npes()
+
+  if(npes .eq. 4608) then
+    nx = 64; ny = 72
+  endif
 
   !> initialize mpp domain(s)
   call mpp_domains_init()
