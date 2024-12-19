@@ -12,17 +12,15 @@ jobs:
       matrix:
         io-flag: ["--disable-deprecated-io", "--enable-deprecated-io"]
     container:
-      image: intel/oneapi-hpckit:2023.1.0-devel-ubuntu20.04
+      image: intel/hpckit:2024.2.1-0-devel-ubuntu22.04
       env:
-        CC: mpiicc
-        FC: mpiifort
-        CFLAGS:  "-I/libs/include"
-        FCFLAGS: "-I/libs/include -g -traceback"
+        CC: mpiicx
+        FC: mpiifx
+        CFLAGS:  "-I/libs/include -O0 -g -ftrapuv -sox -traceback"
+        FCFLAGS: "-I/libs/include -g -O0 -traceback -check -check noarg_temp_created -check nopointer -warn -warn noerrors -fpe0 -ftrapuv"
         LDFLAGS: "-L/libs/lib"
         TEST_VERBOSE: 1
         I_MPI_FABRICS: "shm" # needed for mpi in image
-        # intel bug causes some failures with shm option(required in container)
-        SKIP_TESTS: "test_mpp_update_domains.1 test_update_domains_performance.1 test_diag_manager2.23"
     steps:
     - name: Cache dependencies
       id: cache
