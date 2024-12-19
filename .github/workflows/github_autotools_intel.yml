@@ -16,10 +16,12 @@ jobs:
       env:
         CC: mpiicx
         FC: mpiifx
-        CFLAGS:  "-I/libs/include -O0 -g -ftrapuv -sox -traceback"
-        FCFLAGS: "-I/libs/include -g -O0 -traceback -check -check noarg_temp_created -check nopointer -warn -warn noerrors -fpe0 -ftrapuv"
+        CFLAGS:  "-I/libs/include"
+        FCFLAGS: "-I/libs/include"
         LDFLAGS: "-L/libs/lib"
         TEST_VERBOSE: 1
+        DEBUG_CFLAGS: "-O0 -g -ftrapuv -sox -traceback"
+        DEBUG_FCFLAGS: "-O0 -g -traceback -check -check noarg_temp_created -check nopointer -warn -warn noerrors -fpe0 -ftrapuv"
         I_MPI_FABRICS: "shm" # needed for mpi in image
     steps:
     - name: Cache dependencies
@@ -31,21 +33,26 @@ jobs:
     - name: Install packages for building
       run: apt-get update && apt-get install -y autoconf libtool automake zlib1g-dev
     - if: steps.cache.outputs.cache-hit != 'true'
-      name: Build netcdf
+      name: Build dependencies
       run: |
         mkdir /libs
-        wget https://hdf-wordpress-1.s3.amazonaws.com/wp-content/uploads/manual/HDF5/HDF5_1_12_2/source/hdf5-1.12.2.tar.gz
-        tar xf hdf5-1.12.2.tar.gz && cd hdf5-1.12.2
+        export LD_LIBRARY_PATH="/libs/lib:$LD_LIBRARY_PATH"
+        # hdf5
+        wget https://support.hdfgroup.org/releases/hdf5/v1_14/v1_14_5/downloads/hdf5-1.14.5.tar.gz
+        tar xf hdf5-1.14.5.tar.gz && cd hdf5-1.14.5
         ./configure --prefix=/libs
         make -j install && cd ..
-        wget https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.8.1.tar.gz
-        tar xf v4.8.1.tar.gz && cd netcdf-c-4.8.1
-        ./configure --prefix=/libs --enable-remote-fortran-bootstrap
+        # netcdf-c
+        wget https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.9.2.tar.gz
+        tar xf v4.9.2.tar.gz && cd netcdf-c-4.9.2
+        ./configure --prefix=/libs --disable-libxml2
         make -j install
-        # sets this here to pass embeded configure checks
-        export LD_LIBRARY_PATH="/libs/lib:$LD_LIBRARY_PATH"
-        make -j -k build-netcdf-fortran
-        make -j install-netcdf-fortran
+        # netcdf-fortran
+        wget https://github.com/Unidata/netcdf-fortran/archive/refs/tags/v4.6.1.tar.gz
+        tar xf v4.6.1.tar.gz && cd netcdf-fortran-4.6.1
+        ./configure --prefix=/libs
+        make -j install
+        # libyaml
         wget https://github.com/yaml/libyaml/releases/download/0.2.5/yaml-0.2.5.tar.gz
         tar xf yaml-0.2.5.tar.gz && cd yaml-0.2.5
         ./configure --prefix=/libs
