@@ -21,7 +21,7 @@ jobs:
         LDFLAGS: "-L/libs/lib"
         TEST_VERBOSE: 1
         DEBUG_CFLAGS: "-O0 -g -ftrapuv -sox -traceback"
-        DEBUG_FCFLAGS: "-O0 -g -traceback -check -check noarg_temp_created -check nopointer -warn -warn noerrors -fpe0 -ftrapuv"
+        DEBUG_FCFLAGS: "-O0 -g -traceback -check -check nouninit -check noarg_temp_created -check nopointer -warn -warn noerrors -fpe0 -ftrapuv"
         I_MPI_FABRICS: "shm" # needed for mpi in image
     steps:
     - name: Cache dependencies

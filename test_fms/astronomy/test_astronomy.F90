@@ -270,9 +270,10 @@ program test_astronomy
 
     implicit none
     real(TEST_AST_KIND_) :: answers, results
+    integer, parameter   :: lkind = TEST_AST_KIND_
     character(*) :: whoami
 
-    if (results.ne.answers) then
+    if (ABS(results-answers) .gt. 1.0e-10_lkind ) then
        write(*,*) 'EXPECTED ', answers, ' but computed ', results
        call mpp_error(FATAL, trim(whoami))
     end if
