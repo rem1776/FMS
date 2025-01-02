@@ -67,4 +67,4 @@ jobs:
     - name: Compile
       run: make -j || make
     - name: Run test suite
-      run: make check LD_LIBRARY_PATH="/libs/lib:$LD_LIBRARY_PATH" TEST_VERBOSE=1
+      run: make check -k LD_LIBRARY_PATH="/libs/lib:$LD_LIBRARY_PATH" TEST_VERBOSE=1
