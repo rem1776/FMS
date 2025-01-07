@@ -1,3 +1,12 @@
+#!/bin/sh
+
+#***********************************************************************
+#*                   GNU Lesser General Public License
+#*
+#* This file is part of the GFDL Flexible Modeling System (FMS).
+#*
+#* FMS is free software: you can redistribute it and/or modify it under
+#* the terms of the GNU Lesser General Public License as published by
 #* the Free Software Foundation, either version 3 of the License, or (at
 #* your option) any later version.
 #*
@@ -13,25 +22,12 @@
 # This is part of the GFDL FMS package. This is a shell script to
 # execute tests in the test_fms/horiz_interp directory.
 
-# Copyright 2021 Seth Underwood
+# Ed Hartnett 11/29/19
+# Ryan Mulhall 01/23
 
 # Set common test settings.
 . ../test-lib.sh
 
-cat <<EOF > input.nml
-&diag_integral_nml
-      file_name  = 'diag_integral.out',
-      time_units = 'days',
-      output_interval = 1.0
-      fields_per_print_line = 6
-/
-EOF
 
-mkdir -p INPUT
-
-test_expect_success "test_diag_integral r4" 'mpirun -n 1 ./test_diag_integral_r4'
-test_expect_success "test_diag_integral r8" 'mpirun -n 1 ./test_diag_integral_r8'
-
-rm -rf INPUT
-
+test_expect_success "create_xgrid order2" 'mpirun -n 1 ./test_create_xgrid_order2_r8'
 test_done
