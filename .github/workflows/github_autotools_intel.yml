@@ -14,8 +14,8 @@ jobs:
     container:
       image: intel/hpckit:2024.2.1-0-devel-ubuntu22.04
       env:
-        CC: mpiicx
-        FC: mpiifx
+        CC: mpiicc
+        FC: mpiifort
         CFLAGS:  "-I/libs/include"
         FCFLAGS: "-I/libs/include"
         LDFLAGS: "-L/libs/lib"
