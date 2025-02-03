@@ -59,14 +59,14 @@ SUBDIRS = \
   data_override \
   astronomy \
   field_manager \
+  tracer_manager \
+  coupler \
   diag_integral \
   monin_obukhov \
   interpolator \
   amip_interp \
   exchange \
   topography \
-  tracer_manager \
-  coupler \
   sat_vapor_pres \
   random_numbers \
   . \
