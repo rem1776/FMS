@@ -60,7 +60,7 @@ program test_compressed_writes
     names(4) = "dim4"
     names(5) = "dim5"
 
-    call register_axis(fileobj, "c_xy", mpp_pe()+1, is_compressed=.true.)
+    call register_axis(fileobj, "c_xy", (mpp_pe()/2304)+1, is_compressed=.true.)
     call register_axis(fileobj, "dim2", ndim2)
     call register_axis(fileobj, "dim3", ndim3)
     call register_axis(fileobj, "dim4", ndim4)

@@ -85,14 +85,19 @@ call mpi_barrier(mpi_comm_world, err)
 
 npes = mpp_npes()
 
+if(npes .eq. 4608) then
+    nx = 1080; ny = 1080
+    io_layout = (/ 6, 16/)
+endif
+
 !< Create a 6 tile cube sphere domain
 do i = 1,ntiles
   global_indices(:, i) = (/1, nx, 1, ny/)
-  layout(:, i) = (/1, npes/ntiles/)
+  layout(:, i) = (/12, npes/ntiles/12 /)
   pe_start(i) = (i-1)*(npes/ntiles)
   pe_end(i) = i*(npes/ntiles) - 1
 enddo
-io_layout(:) = 1
+!io_layout(:) = 1
 
 call create_atmosphere_domain((/nx, nx, nx, nx, nx, nx/), &
                               (/ny, ny, ny, ny, ny, ny/), &

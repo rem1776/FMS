@@ -20,13 +20,13 @@
 program test_chunksizes
   use fms2_io_mod,  only: open_file, close_file, register_axis, register_restart_field, write_restart, &
                           unlimited, fmsnetcdffile_t, read_restart
-  use mpp_mod,      only: mpp_error, FATAL
+  use mpp_mod,      only: mpp_error, FATAL, mpp_root_pe, mpp_pe, mpp_sync
   use fms_mod,      only: fms_init, fms_end
   use platform_mod, only: r8_kind
 
   implicit none
 
-  integer, parameter     :: dim_len = 24                           !< The dimension length
+  integer, parameter     :: dim_len = 1024 !24                     !< The dimension length (modified for large scale)
   integer                :: i, j, k                                !< For do loops
   type(fmsnetcdffile_t)  :: fileobj                                !< FMS2_io fileobj
   character (len = 120) :: my_format(3)                            !< Array of formats to try.
@@ -74,25 +74,29 @@ program test_chunksizes
     call close_file(fileobj)
   enddo
 
+  call mpp_sync()
+
   !< Loop through each of the file formats and read out a file
-  do i = 1, 4
-    if (i .ne. 4) then
-      if (.not. open_file(fileobj, "test_chunksizes_"//trim(my_format(i))//".nc", "read", &
-        is_restart=.true., nc_format=my_format(i))) &
-      call mpp_error(FATAL, "Error opening the file to read:test_chunksizes_"//trim(my_format(i))//".nc")
-    else
-      if (.not. open_file(fileobj, "test_chunksizes.nc", "read", is_restart=.true.)) &
-      call mpp_error(FATAL, "Error opening the file to read:test_chunksizes.nc")
-    endif
+  if ( mpp_pe() .eq. mpp_root_pe()) then
+    do i = 1, 4
+      if (i .ne. 4) then
+        if (.not. open_file(fileobj, "test_chunksizes_"//trim(my_format(i))//".nc", "read", &
+             is_restart=.true., nc_format=my_format(i))) &
+          call mpp_error(FATAL, "Error opening the file to read:test_chunksizes_"//trim(my_format(i))//".nc")
+      else
+         if (.not. open_file(fileobj, "test_chunksizes.nc", "read", is_restart=.true.)) &
+           call mpp_error(FATAL, "Error opening the file to read:test_chunksizes.nc")
+      endif
 
-    vardata_out = -999.
-    call register_restart_field(fileobj, "var1", vardata_out, dimnames, chunksizes=chunksizes)
-    call read_restart(fileobj)
-    call close_file(fileobj)
+      vardata_out = -999.
+      call register_restart_field(fileobj, "var1", vardata_out, dimnames, chunksizes=chunksizes)
+      call read_restart(fileobj)
+      call close_file(fileobj)
 
-    if (sum(vardata_out) .ne. sum(vardata_in)) &
-      call mpp_error(FATAL, "Error reading the data back from file")
-  enddo
+      if (sum(vardata_out) .ne. sum(vardata_in)) &
+        call mpp_error(FATAL, "Error reading the data back from file")
+    enddo
+  endif
 
   call fms_end()
 

@@ -27,8 +27,8 @@
 top_builddir='@abs_top_builddir@'
 
 # tests to build
-fms2_io_tests="test_fms2_io test_domain_io test_atmosphere_io test_io_simple test_bc_restart test_chunksizes test_compressed_writes test_file_appendix test_get_is_valid test_get_mosaic_tile_grid test_global_att"
-mpp_tests="test_mpp_alltoall test_mpp_chksum test_global_arrays test_mpp_broadcast test_mpp_sum test_super_grid test_mpp_gatscat test_mpp_transmit test_domains_simple test_mpp_root_pe test_clock_init test_mpp test_mpp_clock_begin_end_id test_mpp_global_field test_mpp_get_ascii_lines test_mpp_init_logfile test_mpp_mem_dump test_mpp_global_field_ug"
+fms2_io_tests="test_fms2_io test_domain_io test_atmosphere_io test_io_simple test_bc_restart test_chunksizes test_compressed_writes test_file_appendix test_get_is_valid test_get_mosaic_tile_grid test_global_att test_io_with_mask test_packed_reads test_read_ascii_file test_unlimit_compressed"
+mpp_tests="test_mpp_alltoall test_mpp_chksum test_global_arrays test_mpp_broadcast test_mpp_sum test_super_grid test_mpp_gatscat test_mpp_transmit test_domains_simple test_mpp_root_pe test_clock_init test_mpp test_mpp_clock_begin_end_id test_mpp_global_field test_mpp_get_ascii_lines test_mpp_init_logfile test_mpp_mem_dump test_mpp_global_field_ug test_peset"
 
 # pe count for all tests
 npes=4608
@@ -47,6 +47,9 @@ cd ${top_builddir}
 mkdir -p test_large
 cd test_large
 touch input.nml
+
+# required to run on gaea
+export FI_VERBS_PREFER_XRC=0
 
 echo "********************Using ${npes} pe's********************"
 
@@ -67,12 +70,14 @@ test_expect_success "test_io_simple" '
 '
 rm -f *nc*
 
+
+## fails from mpp broadcast with x/y=(1080,1024), layout=(36,128)
 cat <<_EOF > input.nml
 &test_domain_io_nml
-  layout = 36, 128
+  layout = 12, 384
   io_layout = 1, 1
   nx = 1080 
-  ny = 1024
+  ny = 1152
   filename = "test_simple_layout.nc"
 /
 _EOF
@@ -81,16 +86,18 @@ test_expect_success "test_domain_io (simple layout)" '
   mpirun -n ${npes} ${top_builddir}/test_fms/fms2_io/test_domain_io
 '
 
+## same as above, just different io layout 
 cat <<_EOF > input.nml
 &test_domain_io_nml
-  layout = 36, 128
-  io_layout = 1, 8
+  layout = 24, 192
+  io_layout = 1, 4
   nx = 1080
-  ny = 1024
+  ny = 1152
   filename = "test_simple_layout.nc"
 /
 _EOF
 
+# 
 test_expect_success "test_domain_io (distributed file)" '
   mpirun -n ${npes} ${top_builddir}/test_fms/fms2_io/test_domain_io
 '
@@ -121,6 +128,22 @@ test_expect_success "test get_mosaic_tile_grid" '
 
 test_expect_success "test global attributes" '
   mpirun -n ${npes} ${top_builddir}/test_fms/fms2_io/test_global_att
+'
+
+test_expect_success "test io with mask" '
+  mpirun -n ${npes} ${top_builddir}/test_fms/fms2_io/test_io_with_mask
+'
+
+test_expect_success "test packed reads" '
+  mpirun -n ${npes} ${top_builddir}/test_fms/fms2_io/test_packed_reads
+'
+
+test_expect_success "test read ascii file" '
+  mpirun -n ${npes} ${top_builddir}/test_fms/fms2_io/test_read_ascii_file
+'
+
+test_expect_success "test unlimited compressed" '
+  mpirun -n ${npes} ${top_builddir}/test_fms/fms2_io/test_unlimit_compressed
 '
 
 rm -f *nc*
@@ -186,7 +209,7 @@ test_expect_success "test_mpp (mpp_sum)" '
 '
 
 echo "&test_mpp_clock_begin_end_id_nml" > clock.nml
-echo "test_number = 0" >> clock.nml
+echo "test_number = 1" >> clock.nml
 echo "/" >> clock.nml
 
 test_expect_success "mpp_clock_begin and end" '
@@ -212,6 +235,7 @@ cat <<_EOF > ascii_5
 "it will not have the same number of fields on every line"
 some lines will not have quotes
 "there might be a line with the character string \n"
+asdf
 _EOF
 
 test_expect_success "mpp_get_ascii_lines" '

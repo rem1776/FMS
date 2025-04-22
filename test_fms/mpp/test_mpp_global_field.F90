@@ -49,7 +49,7 @@ program test_mpp_global_field
   npes = mpp_npes()
 
   if(npes .eq. 4608) then
-    nx = 64; ny = 72
+    nx = 1080; ny = 1080
   endif
 
   !> initialize mpp domain(s)

@@ -66,8 +66,8 @@ read(input_nml_file, nml=test_bc_restart_nml, iostat=io)
 ierr = check_nml_error(io, 'test_bc_restart_nml')
 
 if( mpp_npes() .eq. 4608 ) then
-  nlon = 128
-  nlat = 144
+  nlon = 1080
+  nlat = 1080
   call mpp_define_layout((/1,nlon,1,nlat/), mpp_npes(), layout)
 endif
 

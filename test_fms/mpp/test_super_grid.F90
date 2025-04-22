@@ -44,6 +44,7 @@ nlat = 90
 
 if( mpp_npes() .ne. 6 ) then
   call mpp_domains_init()
+  nlon = 1080; nlat = 1080
   call mpp_define_layout( (/1, nlon, 1, nlat/), mpp_npes(), layout)
 endif
 

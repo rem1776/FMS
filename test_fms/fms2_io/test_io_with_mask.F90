@@ -26,8 +26,8 @@ program test_io_with_mask
 !! not be read.
 
 use   mpp_domains_mod, only: mpp_domains_set_stack_size, mpp_define_domains, mpp_define_io_domain, &
-                             mpp_get_compute_domain,domain2d
-use   mpp_mod,         only: mpp_pe, mpp_root_pe, mpp_error, FATAL
+                             mpp_get_compute_domain,domain2d, mpp_define_layout
+use   mpp_mod,         only: mpp_pe, mpp_root_pe, mpp_error, FATAL, mpp_npes
 use   fms2_io_mod,     only: open_file, register_axis, register_variable_attribute, close_file, &
                              FmsNetcdfDomainFile_t, write_data, register_field, read_data, &
                              parse_mask_table
@@ -63,6 +63,11 @@ call fms_init
 
 nlon = 60
 nlat = 60
+
+if( mpp_npes() .eq. 4608) then
+  nlon = 1080; nlat = 1080
+  call mpp_define_layout((/1,nlon,1,nlat/), mpp_npes(), layout)
+endif
 
 !< Parse the mask table
 allocate(parsed_mask(layout(1), layout(2)))

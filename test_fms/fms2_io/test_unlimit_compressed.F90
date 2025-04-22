@@ -34,10 +34,16 @@ type(FmsNetcdfDomainFile_t) :: fileobj        !< Fms2_io fileobj
 type(domain2d)              :: Domain         !< Domain
 integer, allocatable        :: vdata(:)       !< Variable data
 integer                     :: dimsize        !< Size of the dimension
+integer                     :: nlon = 96, nlat = 96, layout = (/1, 6/)
 
 call fms_init()
 
-call mpp_define_domains( (/1,96,1,96/), (/1,6/), Domain)
+if( mpp_npes() .eq. 4608) then
+  nlon = 1080; nlat = 1080
+  call mpp_define_layout( (/1,nlon,1,nlat/), mpp_npes(), layout)
+endif
+
+call mpp_define_domains( (/1,nlon,1,nlat/), layout, Domain)
 call mpp_define_io_domain(Domain, (/1,2/))
 
 allocate(vdata(mpp_pe())) !< The size of vdata each different for each PE
@@ -66,16 +72,18 @@ if (open_file(fileobj, "filename.nc", "read", Domain, is_restart=.true.)) then
 endif
 
 !< Check if it worked:
-select case (mpp_pe())
-case (0, 1, 2)
-  !< PE 0, 1, and 2 are going to be reading the .0001 file and the size of i for
-  !! that file is 3
-  if (dimsize .ne. 3) call mpp_error(FATAL, "dimsize is not the correct the size")
-case (3, 4, 5)
-  !< PE 3, 4, and 5 are going to be reading the .0002 file and the size of i for
-  !! that file is 12
-  if (dimsize .ne. 12) call mpp_error(FATAL, "dimsize is not the correct the size")
-end select
+if( mpp_npes() .ne. 4608) then
+  select case (mpp_pe())
+  case (0, 1, 2)
+    !< PE 0, 1, and 2 are going to be reading the .0001 file and the size of i for
+    !! that file is 3
+    if (dimsize .ne. 3) call mpp_error(FATAL, "dimsize is not the correct the size")
+  case (3, 4, 5)
+    !< PE 3, 4, and 5 are going to be reading the .0002 file and the size of i for
+    !! that file is 12
+    if (dimsize .ne. 12) call mpp_error(FATAL, "dimsize is not the correct the size")
+  end select
+endif
 
 call fms_end()
 
