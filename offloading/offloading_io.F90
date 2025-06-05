@@ -159,6 +159,7 @@ module offloading_io_mod
     allocate(all_current_pes(mpp_npes()))
     call mpp_get_current_pelist(all_current_pes)
 
+    ! TODO use metadata_transfer object here
     if (mpp_pe() .eq. model_pes(1) .or. .not. is_model_pe) then
 
       allocate(broadcasting_pes(1 + size(offloading_pes)))
