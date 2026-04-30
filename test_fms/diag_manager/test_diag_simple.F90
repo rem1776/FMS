@@ -15,7 +15,8 @@
 !* PARTICULAR PURPOSE. See the License for the specific language
 !* governing permissions and limitations under the License.
 !***********************************************************************
-!> Simple test that registers a single 3d variable
+!> Simple test that registers a single 3d variable by default, and checks for
+!! errors when trying to register more than 2 axes with a 2D domain.
 program test_register_axis
   use fms_mod
   use diag_manager_mod
@@ -28,19 +29,21 @@ program test_register_axis
 
   real(r8_kind), allocatable :: cdata(:,:,:), missing_value
   integer :: nx, ny, nz, layout(2), io_layout(2), nhalox, nhaloy, ntimes
-  integer :: id_x, id_y, id_z, id_var3, i
+  integer :: id_x, id_y, id_z, id_var3, i, io_status
   integer :: isc, iec, jsc, jec, isd, ied, jsd, jed
   type(time_type) :: Time, Time_step
   type(domain2d) :: Domain
   logical :: used
-
   logical :: use_domain_for_vertical_axis = .false.
+  
   namelist / test_register_axis_nml / use_domain_for_vertical_axis
    
-
   call fms_init
   call set_calendar_type(JULIAN)
   call diag_manager_init
+
+  read (input_nml_file, test_register_axis_nml, iostat=io_status)
+  if (io_status > 0) call mpp_error(FATAL,'=>test_register_axis: Error reading input.nml')
 
   Time = set_date(2,1,1,0,0,0)
   Time_step = set_time (3600,0) !< 1 hour

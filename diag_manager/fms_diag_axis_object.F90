@@ -60,7 +60,7 @@ module fms_diag_axis_object_mod
   !! This type was created to avoid having to send in "Domain", "Domain2", "DomainUG" as arguments into subroutines
   !! and instead only 1 class(diagDomain_t) argument can be send
   !> @ingroup diag_axis_object_mod
-  type diagDomain_t
+  type, abstract :: diagDomain_t
     contains
       procedure :: set => set_axis_domain
       procedure :: length => get_length
@@ -1103,6 +1103,7 @@ module fms_diag_axis_object_mod
 
     integer :: i !< For do loops
     integer :: j !< axis_id(i) (for less typing)
+    integer :: two_d_domain_axis_count = 0
 
     domain_type = NO_DOMAIN
     domain => null()
@@ -1111,6 +1112,15 @@ module fms_diag_axis_object_mod
       j = axis_id(i)
       select type (axis => diag_axis(j)%axis)
       type is (fmsDiagFullAxis_type)
+        !< This just checks for more than 2 axes belonging to a 2D domain, which isn't allowed because then it
+        !! would be ambiguous which axes belong to the 2D domain 
+        if (axis%type_of_domain .eq. TWO_D_DOMAIN) then
+          two_d_domain_axis_count = two_d_domain_axis_count + 1
+          if (two_d_domain_axis_count > 2) then
+            call mpp_error(FATAL, "The variable: "//trim(var_name)//" has more than two axis ids associated with" // &
+              " a 2D domain. Only up to two axis ids for a given field may be registered with a domain decomposition.")
+          endif
+        endif
         !< Check that all the axis are in the same domain
         if (domain_type .ne. axis%type_of_domain) then
           !< If they are different domains, one of them can be NO_DOMAIN

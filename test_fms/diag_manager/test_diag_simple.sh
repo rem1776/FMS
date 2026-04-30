@@ -34,21 +34,22 @@ diag_files:
   unlimdim: time
   freq: 1 hours
   varlist:
-  - module: atmos
-    var_name: ua
+  - module: ocn_mod
+    var_name: var3
     reduction: average
-    kind: r4
+    kind: r8
 _EOF
 
+printf "&diag_manager_nml\n  use_modern_diag=.true.\n/\n" | cat > input.nml
+printf "&test_register_axis_nml\n  use_domain_for_vertical_axis = .false.\n/\n" | cat >> input.nml
 
 # remove any existing files that would result in false passes during checks
-printf "&diag_manager_nml \n use_modern_diag=.true. \n/" | cat > input.nml
 test_expect_success "modern diag simple 3d field test" '
   mpirun -n 4 ../test_diag_simple
 '
-echo "\n&test_diag_simple_nml\n  use_domain_for_vertical_axis = .true.\n/" >> input.nml
+sed -i 's/use_domain_for_vertical_axis = .false./use_domain_for_vertical_axis = .true./' input.nml
 test_expect_failure "check for errors when more than 2 domain axes registered" '
-  mpirun -n 4 ../test_var_masks
+  mpirun -n 4 ../test_diag_simple
 '
 fi
 
