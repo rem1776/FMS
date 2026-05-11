@@ -32,8 +32,8 @@ jobs:
         key: intel-libs
     - name: Update CA certificates
       run: |
-        sudo apt-get update -o Acquire::AllowInsecureRepositories=true -o Acquire::AllowUnauthenticatedRepositories=true || true
-        sudo update-ca-certificates --fresh
+        apt-get update -o Acquire::AllowInsecureRepositories=true -o Acquire::AllowUnauthenticatedRepositories=true || true
+        update-ca-certificates --fresh
     - name: Install packages for building
       run: apt-get update && apt-get install -y autoconf libtool automake zlibc zlib1g-dev
     - if: steps.cache.outputs.cache-hit != 'true'
