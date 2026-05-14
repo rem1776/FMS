@@ -19,18 +19,16 @@ jobs:
     steps:
     - name: checkout
       uses: actions/checkout@v4.2.2
-    - name: Set up spack and build cache
+    - name: Set up spack and build compiler
       run: |
         source /opt/spack/share/spack/setup-env.sh
         spack mirror add rem-gh-cache oci://ghcr.io/rem1776/ci-cache-rocky9
         spack compiler find
-    - name: Install NVHPC
-      run: |
-        source /opt/spack/share/spack/setup-env.sh
-        spack install nvhpc@26.1
+        spack install nvhpc
     - name: Install dependencies
       run: |
         source /opt/spack/share/spack/setup-env.sh
+        spack compiler find
         spack install netcdf-fortran %%nvhpc mpich %%nvhpc libyaml %%nvhpc
     - name: Configure
       run: |
