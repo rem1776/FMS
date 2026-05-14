@@ -24,11 +24,14 @@ jobs:
       run: |
         spack mirror add \
             --autopush \
-            --oci-username-variable rem1776 \
-            --oci-password-variable ${{ secrets.GITHUB_TOKEN }} \
+            --oci-username-variable REGISTRY_USER \
+            --oci-password-variable REGISTRY_TOKEN \
             rem-gh-cache oci://ghcr.io/rem1776/ci-cache-ubuntu
         spack compiler find
         spack install nvhpc
+      env:
+        REGISTRY_USER: "rem1776" # TODO get username from action vars
+        REGISTRY_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
     - name: Install dependencies
       run: |
         spack compiler find
