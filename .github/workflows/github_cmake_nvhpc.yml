@@ -25,11 +25,13 @@ jobs:
         spack mirror add rem-gh-cache oci://ghcr.io/rem1776/ci-cache-rocky9
         spack compiler find
         spack install nvhpc
+        spack buildcache push rem-gh-cache nvhpc
     - name: Install dependencies
       run: |
         source /opt/spack/share/spack/setup-env.sh
         spack compiler find
-        spack install netcdf-fortran %%nvhpc mpich %%nvhpc libyaml %%nvhpc
+        spack install netcdf-fortran %nvhpc mpich %nvhpc libyaml %nvhpc
+        spack buildcache push rem-gh-cache nvhpc
     - name: Configure
       run: |
         source /opt/spack/share/spack/setup-env.sh
