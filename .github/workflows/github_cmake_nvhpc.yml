@@ -9,42 +9,38 @@ concurrency:
 jobs:
   intel-autotools:
     runs-on: ubuntu-latest
-    container:
-      image: spack/rockylinux9:1.1.1
-      env:
-        CC: mpicc
-        FC: mpifort
-        FCFLAGS: "-g -traceback"
-        TEST_VERBOSE: 1
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
     steps:
+    - name: Setup Spack
+      uses: spack/setup-spack@v3.0.0
     - name: checkout
       uses: actions/checkout@v4.2.2
-    - name: Set up spack and build compiler
+    - name: Set up build cache and build compiler
       run: |
-        source /opt/spack/share/spack/setup-env.sh
-        spack mirror add rem-gh-cache oci://ghcr.io/rem1776/ci-cache-rocky9
+        spack mirror add \
+            --autopush \
+            --oci-username-variable rem1776 \
+            --oci-password-variable ${{ secrets.GITHUB_TOKEN }} \
+            rem-gh-cache oci://ghcr.io/rem1776/ci-cache-ubuntu
         spack compiler find
         spack install nvhpc
-        spack buildcache push rem-gh-cache nvhpc
     - name: Install dependencies
       run: |
-        source /opt/spack/share/spack/setup-env.sh
         spack compiler find
         spack install netcdf-fortran %nvhpc mpich %nvhpc libyaml %nvhpc
-        spack buildcache push rem-gh-cache nvhpc
     - name: Configure
       run: |
-        source /opt/spack/share/spack/setup-env.sh
         spack load nvhpc netcdf-fortran libyaml mpich
         autoreconf -if ./configure.ac
         ./configure --with-yaml
     - name: Compile
       run: |
-        source /opt/spack/share/spack/setup-env.sh
         spack load nvhpc netcdf-fortran libyaml mpich
         make -j || make
     - name: Run test suite
       run: |
-        source /opt/spack/share/spack/setup-env.sh
         spack load nvhpc netcdf-fortran libyaml mpich
         make check TEST_VERBOSE=1
