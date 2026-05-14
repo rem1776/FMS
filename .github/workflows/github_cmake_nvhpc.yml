@@ -21,18 +21,30 @@ jobs:
       uses: actions/checkout@v4.2.2
     - name: Set up spack and build cache
       run: |
+        source /opt/spack/share/spack/setup-env.sh
         spack mirror add rem-gh-cache oci://ghcr.io/rem1776/ci-cache-rocky9
         spack compiler find
-    - name: Install compilers
-      run: spack install nvhpc@26.1
+    - name: Install NVHPC
+      run: |
+        source /opt/spack/share/spack/setup-env.sh
+        spack install nvhpc@26.1
     - name: Install dependencies
-      run: spack install netcdf-fortran %%nvhpc mpich %%nvhpc libyaml %%nvhpc
+      run: |
+        source /opt/spack/share/spack/setup-env.sh
+        spack install netcdf-fortran %%nvhpc mpich %%nvhpc libyaml %%nvhpc
     - name: Configure
       run: |
+        source /opt/spack/share/spack/setup-env.sh
         spack load nvhpc netcdf-fortran libyaml mpich
         autoreconf -if ./configure.ac
         ./configure --with-yaml
     - name: Compile
-      run: make -j || make
+      run: |
+        source /opt/spack/share/spack/setup-env.sh
+        spack load nvhpc netcdf-fortran libyaml mpich
+        make -j || make
     - name: Run test suite
-      run: make check TEST_VERBOSE=1
+      run: |
+        source /opt/spack/share/spack/setup-env.sh
+        spack load nvhpc netcdf-fortran libyaml mpich
+        make check TEST_VERBOSE=1
