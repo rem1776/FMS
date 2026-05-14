@@ -14,10 +14,12 @@ jobs:
       packages: write
       id-token: write
     steps:
-    - name: Setup Spack
-      uses: spack/setup-spack@v3.0.0
     - name: checkout
       uses: actions/checkout@v4.2.2
+    - name: Setup Spack
+      uses: spack/setup-spack@v3.0.0
+      with:
+        buildcache: true
     - name: Set up build cache and build compiler
       run: |
         spack mirror add \
