@@ -7,8 +7,11 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  intel-autotools:
+  nvhpc-autotools:
     runs-on: ubuntu-latest
+    env:
+      REGISTRY_USER: "rem1776" # TODO get username from action vars
+      REGISTRY_TOKEN: "${{ secrets.IMAGE_PUSH_TOKEN }}"
     permissions:
       contents: read
       packages: write
@@ -31,9 +34,6 @@ jobs:
             rem-gh-cache oci://ghcr.io/rem1776/ci-cache-ubuntu
         spack compiler find
         spack install nvhpc
-      env:
-        REGISTRY_USER: "rem1776" # TODO get username from action vars
-        REGISTRY_TOKEN: "${{ secrets.IMAGE_PUSH_TOKEN }}"
     - name: Install dependencies
       run: |
         spack compiler find
