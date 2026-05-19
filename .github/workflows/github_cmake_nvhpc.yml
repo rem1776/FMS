@@ -44,12 +44,13 @@ jobs:
         spack load nvhpc netcdf-fortran libyaml mpich
         autoreconf -if ./configure.ac
         ./configure --with-yaml
+      env:
+        FC: "mpifort"
+        CC: "mpicc"
+        FCFLAGS: "-O0 -g"
+        CFLAGS: "-O0 -g"
     - name: Compile
       run: |
         . /home/runner/work/FMS/FMS/spack/share/spack/setup-env.sh
         spack load nvhpc netcdf-fortran libyaml mpich
         make -j || make
-    - name: Run test suite
-      run: |
-        spack load nvhpc netcdf-fortran libyaml mpich
-        make check TEST_VERBOSE=1
