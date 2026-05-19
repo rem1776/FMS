@@ -16,6 +16,8 @@ jobs:
     steps:
     - name: checkout
       uses: actions/checkout@v4.2.2
+    - name: Free Disk Space
+      uses: jlumbroso/free-disk-space@v1.3.1        
     - name: Setup Spack
       uses: spack/setup-spack@v3.0.0
       with:
@@ -31,7 +33,7 @@ jobs:
         spack install nvhpc
       env:
         REGISTRY_USER: "rem1776" # TODO get username from action vars
-        REGISTRY_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+        REGISTRY_TOKEN: "${{ secrets.IMAGE_PUSH_TOKEN }}"
     - name: Install dependencies
       run: |
         spack compiler find
