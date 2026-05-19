@@ -43,12 +43,10 @@ jobs:
         . /home/runner/work/FMS/FMS/spack/share/spack/setup-env.sh
         spack load nvhpc netcdf-fortran libyaml mpich
         autoreconf -if ./configure.ac
-        ./configure --with-yaml
-      env:
-        FC: "mpifort"
-        CC: "mpicc"
-        FCFLAGS: "-O0 -g"
-        CFLAGS: "-O0 -g"
+        ./configure --with-yaml CC=mpicc FC=mpifort FCFLAGS="-O0 -g" CFLAGS="-O0 -g"
+    - name: Output configure log if failed
+      if: failure()
+      run: cat config.log
     - name: Compile
       run: |
         . /home/runner/work/FMS/FMS/spack/share/spack/setup-env.sh
