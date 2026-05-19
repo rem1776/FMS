@@ -31,6 +31,7 @@ jobs:
       run: |
         spack mirror add \
             --autopush \
+            --unsigned \
             --oci-username-variable REGISTRY_USER \
             --oci-password-variable REGISTRY_TOKEN \
             rem-gh-cache oci://ghcr.io/rem1776/ci-cache-ubuntu
