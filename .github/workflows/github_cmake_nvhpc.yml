@@ -25,7 +25,7 @@ jobs:
       uses: spack/setup-spack@v3.0.0
       with:
         buildcache: true
-    - name: Set up build cache and build compiler
+    - name: Set up custom build cache and build compiler
       run: |
         spack mirror add \
             --autopush \
@@ -40,11 +40,13 @@ jobs:
         spack install netcdf-fortran %nvhpc mpich %nvhpc libyaml %nvhpc
     - name: Configure
       run: |
+        . /home/runner/work/FMS/FMS/spack/share/spack/setup-env.sh
         spack load nvhpc netcdf-fortran libyaml mpich
         autoreconf -if ./configure.ac
         ./configure --with-yaml
     - name: Compile
       run: |
+        . /home/runner/work/FMS/FMS/spack/share/spack/setup-env.sh
         spack load nvhpc netcdf-fortran libyaml mpich
         make -j || make
     - name: Run test suite
