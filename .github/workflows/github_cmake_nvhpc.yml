@@ -46,7 +46,11 @@ jobs:
         . /home/runner/work/FMS/FMS/spack/share/spack/setup-env.sh
         spack load nvhpc netcdf-c netcdf-fortran libyaml mpich
         autoreconf -if ./configure.ac
-        ./configure --with-yaml CC=mpicc FC=mpifort FCFLAGS="-O0 -g `nf-config --fflags`" CFLAGS="-O0 -g `nc-config --cflags` `pkg-config --cflags yaml-0.1`"
+        export FC=mpifort FCFLAGS="-O0 -g `nf-config --fflags`"
+        export CC=mpicc CFLAGS="-O0 -g `nc-config --cflags` `pkg-config --cflags yaml-0.1`"
+        export LDFLAGS="`nc-config --libs` `nf-config --flibs`"
+        export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:`nc-config --libdir`:`nf-config --prefix`/lib64"
+        ./configure --with-yaml
     - name: Output configure log if failed
       if: failure()
       run: cat config.log
