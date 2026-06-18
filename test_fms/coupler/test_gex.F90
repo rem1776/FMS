@@ -60,7 +60,7 @@ contains
 
 subroutine atm_to_land
   integer :: i, n
-  character(:), allocatable :: name, units
+  character(len=64) :: name, units
 
   ! Number of atmosphere-to-land tracers (there should only be one)
   n = gex_get_n_ex(MODEL_ATMOS, MODEL_LAND)

@@ -995,6 +995,9 @@ if(UNIT_TESTS)
     set_tests_properties(test_collective_io PROPERTIES
         ENVIRONMENT "parallel_skip=skip"
     )
+    set_tests_properties(test_time_none_netcdf4 PROPERTIES
+        ENVIRONMENT "parallel_skip=skip"
+    )
   endif()
 
   set(CMAKE_CTEST_ARGUMENTS "--output-on-failure")
