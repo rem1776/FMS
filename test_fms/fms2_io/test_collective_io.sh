@@ -25,9 +25,7 @@
 # Set common test settings.
 . ../test-lib.sh
 
-if [ ! -z $parallel_skip ]; then
-  SKIP_TESTS="test_collective_io.[1-3]"
-fi
+skip_if_no_parallel_nc "[1-3]"
 
 # Create and enter output directory
 output_dir
@@ -49,7 +47,7 @@ cat <<_EOF > input.nml
 /
 _EOF
 
-test_expect_failure "Attempt to open a 64-bit NetCDF file for MPI-IO collective reads" '
+test_expect_error "Attempt to open a 64-bit NetCDF file for MPI-IO collective reads" '
   mpirun -n 6 ../test_collective_io
 '
 

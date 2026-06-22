@@ -1391,13 +1391,13 @@ my_test_count=`expr $my_test_count + 1`
     mpirun -n 1 ../test_flexible_time
   '
 printf "&diag_manager_nml \n use_modern_diag = .false. \n use_clock_average = .true. \n /" | cat > input.nml
-  test_expect_failure "Test if use_modern_diag = .false. and use_clock_average = .true. fails (test $my_test_count)" '
+  test_expect_error "Test if use_modern_diag = .false. and use_clock_average = .true. fails (test $my_test_count)" '
     mpirun -n 1 ../test_flexible_time
   '
 
 else
   my_test_count=`expr $my_test_count + 1`
-  test_expect_failure "test modern diag manager failure when compiled without -Duse-yaml flag (test $my_test_count)" '
+  test_expect_error "test modern diag manager failure when compiled without -Duse-yaml flag (test $my_test_count)" '
     mpirun -n 6 ../test_modern_diag
   '
 fi

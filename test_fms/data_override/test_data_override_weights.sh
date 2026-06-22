@@ -65,7 +65,7 @@ cat <<_EOF > input_base.nml
 _EOF
 
 #The test only runs with yaml
-if [ -z $parser_skip ]; then
+if [ -z "${parser_skip}" ]; then
   rm -rf INPUT/.
 
   sed 's/write_only = .False./write_only = .True./g' input_base.nml > input.nml

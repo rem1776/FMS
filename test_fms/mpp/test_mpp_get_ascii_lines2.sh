@@ -88,7 +88,7 @@ test_expect_success "blank line" '
     mpirun -n 2 ../test_mpp_get_ascii_lines
 '
 sed "s/test_number = [0-9]/test_number = 5/" test_numb_base2.nml > test_numb2.nml
-test_expect_failure "failure caught from long line" '
+test_expect_error "failure caught from long line" '
     mpirun -n 2 ../test_mpp_get_ascii_lines
 '
 test_done

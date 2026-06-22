@@ -78,7 +78,7 @@ _EOF
 
 printf "&diag_manager_nml \n use_modern_diag=.true. \n/ \n &test_prepend_date_nml \n pass_diag_time=.false. \n /" | cat > input.nml
 
-test_expect_failure "Running diag_manager with fields that have a different start time (test $my_test_count)" '
+test_expect_error "Running diag_manager with fields that have a different start time (test $my_test_count)" '
   mpirun -n 1 ../test_prepend_date
 '
 

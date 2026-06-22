@@ -24,9 +24,7 @@
 # Set common test settings.
 . ../test-lib.sh
 
-if [ ! -z $parser_skip ]; then
-  SKIP_TESTS='test_yaml_parser.[1-27]'
-fi
+skip_if_no_yaml "[1-27]"
 
 touch input.nml
 
@@ -177,93 +175,93 @@ test_expect_success "yaml output with multiple level2keys" '
   mpirun -n 1 ./test_output_yaml
 '
 printf "&check_crashes_nml \n bad_conversion = .true. \n/" | cat > input.nml
-test_expect_failure "bad conversion" '
+test_expect_error "bad conversion" '
   mpirun -n 1 ./check_crashes
 '
 
 printf "&check_crashes_nml \n missing_key = .true. \n/" | cat > input.nml
-test_expect_failure "missing key" '
+test_expect_error "missing key" '
   mpirun -n 1 ./check_crashes
 '
 
 printf "&check_crashes_nml \n get_block_ids_bad_id = .true. \n/" | cat > input.nml
-test_expect_failure "get_block_ids bad id" '
+test_expect_error "get_block_ids bad id" '
   mpirun -n 1 ./check_crashes
 '
 
 printf "&check_crashes_nml \n get_num_blocks_bad_id = .true. \n/" | cat > input.nml
-test_expect_failure "get_num_blocks bad id" '
+test_expect_error "get_num_blocks bad id" '
   mpirun -n 1 ./check_crashes
 '
 
 printf "&check_crashes_nml \n get_nkeys_bad_id = .true. \n/" | cat > input.nml
-test_expect_failure "get_nkeys bad id" '
+test_expect_error "get_nkeys bad id" '
   mpirun -n 1 ./check_crashes
 '
 
 printf "&check_crashes_nml \n get_key_ids_bad_id = .true. \n/" | cat > input.nml
-test_expect_failure "get_key_ids bad id" '
+test_expect_error "get_key_ids bad id" '
   mpirun -n 1 ./check_crashes
 '
 
 printf "&check_crashes_nml \n get_key_name_bad_id = .true. \n/" | cat > input.nml
-test_expect_failure "get_key_name bad id" '
+test_expect_error "get_key_name bad id" '
   mpirun -n 1 ./check_crashes
 '
 
 printf "&check_crashes_nml \n get_key_value_bad_id = .true. \n/" | cat > input.nml
-test_expect_failure "get_key_value bad id" '
+test_expect_error "get_key_value bad id" '
   mpirun -n 1 ./check_crashes
 '
 
 printf "&check_crashes_nml \n get_value_from_key_bad_id = .true. \n/" | cat > input.nml
-test_expect_failure "get_value_from_key bad id" '
+test_expect_error "get_value_from_key bad id" '
   mpirun -n 1 ./check_crashes
 '
 
 printf "&check_crashes_nml \n get_key_name_bad_key_id = .true. \n/" | cat > input.nml
-test_expect_failure "get_key_name bad key id" '
+test_expect_error "get_key_name bad key id" '
   mpirun -n 1 ./check_crashes
 '
 
 printf "&check_crashes_nml \n get_key_value_bad_key_id = .true. \n/" | cat > input.nml
-test_expect_failure "get_key_value bad key id" '
+test_expect_error "get_key_value bad key id" '
   mpirun -n 1 ./check_crashes
 '
 
 ###
 printf "&check_crashes_nml \n get_key_ids_bad_block_id = .true. \n/" | cat > input.nml
-test_expect_failure "get_key_ids bad block id" '
+test_expect_error "get_key_ids bad block id" '
   mpirun -n 1 ./check_crashes
 '
 
 printf "&check_crashes_nml \n get_nkeys_bad_block_id = .true. \n/" | cat > input.nml
-test_expect_failure "get_nkeys bad block id" '
+test_expect_error "get_nkeys bad block id" '
   mpirun -n 1 ./check_crashes
 '
 
 printf "&check_crashes_nml \n get_block_ids_bad_block_id = .true. \n/" | cat > input.nml
-test_expect_failure "get_block_ids bad block id" '
+test_expect_error "get_block_ids bad block id" '
   mpirun -n 1 ./check_crashes
 '
 
 printf "&check_crashes_nml \n get_num_blocks_bad_block_id = .true. \n/" | cat > input.nml
-test_expect_failure "get_num_blocks bad block id" '
+test_expect_error "get_num_blocks bad block id" '
   mpirun -n 1 ./check_crashes
 '
 
 printf "&check_crashes_nml \n get_value_from_key_bad_block_id = .true. \n/" | cat > input.nml
-test_expect_failure "get_value_from_key bad block id" '
+test_expect_error "get_value_from_key bad block id" '
   mpirun -n 1 ./check_crashes
 '
 
 printf "&check_crashes_nml \n wrong_buffer_size_key_id = .true. \n/" | cat > input.nml
-test_expect_failure "wrong buffer size key id" '
+test_expect_error "wrong buffer size key id" '
   mpirun -n 1 ./check_crashes
 '
 
 printf "&check_crashes_nml \n wrong_buffer_size_block_id = .true. \n/" | cat > input.nml
-test_expect_failure "wrong buffer size block id" '
+test_expect_error "wrong buffer size block id" '
   mpirun -n 1 ./check_crashes
 '
 
@@ -325,7 +323,7 @@ diag_files:
        module: "moist"
 _EOF
 
-test_expect_failure "Use an invalid yaml" '
+test_expect_error "Use an invalid yaml" '
   mpirun -n 1 ./parser_demo
 '
 
@@ -371,7 +369,7 @@ test_expect_success "test_yaml_parser using anchors" '
 '
 
 sed 's/\*name/*invalid_name/' diag_table.yaml > diag_table.yaml
-test_expect_failure "test_yaml_parser using anchors" '
+test_expect_error "test_yaml_parser using anchors" '
   mpirun -n 1 ./test_yaml_parser
 '
 

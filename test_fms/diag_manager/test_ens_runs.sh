@@ -88,7 +88,7 @@ diag_files:
 _EOF
 
 my_test_count=`expr $my_test_count + 1`
-test_expect_failure "Running diag_manager with both diag_table.yaml and diag_table.ens_xx.yaml files present (test $my_test_count)" '
+test_expect_error "Running diag_manager with both diag_table.yaml and diag_table.ens_xx.yaml files present (test $my_test_count)" '
   mpirun -n 2 ../test_ens_runs
 '
 

@@ -80,7 +80,7 @@ diag_files:
 _EOF
 
 my_test_count=`expr $my_test_count + 1`
-test_expect_failure "Running diag_manager with 0 days frequency and variable are calling send data at different frequencies (test $my_test_count)" '
+test_expect_error "Running diag_manager with 0 days frequency and variable are calling send data at different frequencies (test $my_test_count)" '
   mpirun -n 1 ../test_output_every_freq
 '
 
@@ -100,7 +100,7 @@ diag_files:
 _EOF
 
 my_test_count=`expr $my_test_count + 1`
-test_expect_failure "Running diag_manager with 0 days frequency but using average reduction method (test $my_test_count)" '
+test_expect_error "Running diag_manager with 0 days frequency but using average reduction method (test $my_test_count)" '
   mpirun -n 1 ../test_output_every_freq
 '
 
@@ -120,7 +120,7 @@ diag_files:
 _EOF
 
 my_test_count=`expr $my_test_count + 1`
-test_expect_failure "Running diag_manager with -1 days frequency but using average reduction method (test $my_test_count)" '
+test_expect_error "Running diag_manager with -1 days frequency but using average reduction method (test $my_test_count)" '
   mpirun -n 1 ../test_output_every_freq
 '
 fi

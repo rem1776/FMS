@@ -37,7 +37,7 @@ test_expect_success "Test atmosphere IO" '
 # run test 2 - test for bad checksum (should fail)
 rm *.nc
 printf "&test_atmosphere_io_nml\n bad_checksum=.true.\n /" | cat > input.nml
-test_expect_failure "bad checksum failure" '
+test_expect_error "bad checksum failure" '
   mpirun -n 6 ../test_atmosphere_io
 '
 

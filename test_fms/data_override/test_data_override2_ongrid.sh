@@ -32,7 +32,7 @@ SKIP_TESTS="test_data_override2_ongrid.2 \
 output_dir
 rm -rf data_table data_table.yaml input.nml input_base.nml
 
-if [ -z $parser_skip ]; then
+if [ -z "${parser_skip}" ]; then
   use_yaml=true
   cat <<_EOF > data_table.yaml
 data_table:

@@ -39,7 +39,7 @@ test_expect_success "test stdlog and stdwarn" '
     mpirun -n 2 ../test_stdlog
 '
 sed -i 's/1/2/' input.nml
-test_expect_failure "test stdlog and stdwarn with fatal output" '
+test_expect_error "test stdlog and stdwarn with fatal output" '
     mpirun -n 2 ../test_stdlog
 '
 # move file so we don't overwrite

@@ -25,6 +25,8 @@
 # Set common test settings.
 . ../test-lib.sh
 
+output_dir
+
 touch input.nml
 touch clock.nml
 echo "&test_mpp_clock_begin_end_id_nml" > clock.nml
@@ -33,86 +35,86 @@ echo "/" >> clock.nml
 
 sed -i "s/test_number = [0-9]*/test_number = 1/" clock.nml
 test_expect_success "test 1" '
-    mpirun -n 1 ./test_mpp_clock_begin_end_id
+    mpirun -n 1 ../test_mpp_clock_begin_end_id
 '
 
 sed -i "s/test_number = [0-9]*/test_number = 2/" clock.nml
 test_expect_success "test 2" '
-    mpirun -n 1 ./test_mpp_clock_begin_end_id
+    mpirun -n 1 ../test_mpp_clock_begin_end_id
 '
 
 sed -i "s/test_number = [0-9]*/test_number = 3/" clock.nml
 test_expect_success "test 3" '
-    mpirun -n 1 ./test_mpp_clock_begin_end_id
+    mpirun -n 1 ../test_mpp_clock_begin_end_id
 '
 
 sed -i "s/test_number = [0-9]*/test_number = 4/" clock.nml
 test_expect_success "test 4" '
-    mpirun -n 1 ./test_mpp_clock_begin_end_id
+    mpirun -n 1 ../test_mpp_clock_begin_end_id
 '
 
 sed -i "s/test_number = [0-9]*/test_number = 5/" clock.nml
-test_expect_failure "test 5" '
-    mpirun -n 1 ./test_mpp_clock_begin_end_id
+test_expect_error "test 5" '
+    mpirun -n 1 ../test_mpp_clock_begin_end_id
 '
 
 sed -i "s/test_number = [0-9]*/test_number = 6/" clock.nml
 test_expect_success "" '
-    mpirun -n 1 ./test_mpp_clock_begin_end_id
+    mpirun -n 1 ../test_mpp_clock_begin_end_id
 '
 
 sed -i "s/test_number = [0-9]*/test_number = 7/" clock.nml
 test_expect_success "" '
-    mpirun -n 1 ./test_mpp_clock_begin_end_id
+    mpirun -n 1 ../test_mpp_clock_begin_end_id
 '
 
 sed -i "s/test_number = [0-9]*/test_number = 8/" clock.nml
-test_expect_failure "" '
-    mpirun -n 1 ./test_mpp_clock_begin_end_id
+test_expect_error "" '
+    mpirun -n 1 ../test_mpp_clock_begin_end_id
 '
 
 sed -i "s/test_number = [0-9]*/test_number = 9/" clock.nml
-test_expect_failure "" '
-    mpirun -n 1 ./test_mpp_clock_begin_end_id
+test_expect_error "" '
+    mpirun -n 1 ../test_mpp_clock_begin_end_id
 '
 
 sed -i "s/test_number = [0-9]*/test_number = 10/" clock.nml
-test_expect_failure "" '
-    mpirun -n 1 ./test_mpp_clock_begin_end_id
+test_expect_error "" '
+    mpirun -n 1 ../test_mpp_clock_begin_end_id
 '
 
 sed -i "s/test_number = [0-9]*/test_number = 11/" clock.nml
 test_expect_success "" '
-    mpirun -n 1 ./test_mpp_clock_begin_end_id
+    mpirun -n 1 ../test_mpp_clock_begin_end_id
 '
 
 sed -i "s/test_number = [0-9]*/test_number = 12/" clock.nml
 test_expect_success "" '
-    mpirun -n 1 ./test_mpp_clock_begin_end_id
+    mpirun -n 1 ../test_mpp_clock_begin_end_id
 '
 
 sed -i "s/test_number = [0-9]*/test_number = 13/" clock.nml
-test_expect_failure "" '
-    mpirun -n 1 ./test_mpp_clock_begin_end_id
+test_expect_error "" '
+    mpirun -n 1 ../test_mpp_clock_begin_end_id
 '
 
 sed -i "s/test_number = [0-9]*/test_number = 14/" clock.nml
 test_expect_success "" '
-    mpirun -n 1 ./test_mpp_clock_begin_end_id
+    mpirun -n 1 ../test_mpp_clock_begin_end_id
 '
 
 sed -i "s/test_number = [0-9]*/test_number = 15/" clock.nml
-test_expect_failure "" '
-    mpirun -n 1 ./test_mpp_clock_begin_end_id
+test_expect_error "" '
+    mpirun -n 1 ../test_mpp_clock_begin_end_id
 '
 
 sed -i "s/test_number = [0-9]*/test_number = 16/" clock.nml
-test_expect_failure "" '
-    mpirun -n 1 ./test_mpp_clock_begin_end_id
+test_expect_error "" '
+    mpirun -n 1 ../test_mpp_clock_begin_end_id
 '
 
 sed -i "s/test_number = [0-9]*/test_number = 17/" clock.nml
-test_expect_failure "" '
-    mpirun -n 1 ./test_mpp_clock_begin_end_id
+test_expect_error "" '
+    mpirun -n 1 ../test_mpp_clock_begin_end_id
 '
 test_done

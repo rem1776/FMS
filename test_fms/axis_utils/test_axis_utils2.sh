@@ -48,8 +48,8 @@ do
   r4cmd="./test_axis_utils_r4 $t"
   r8cmd="./test_axis_utils_r8 $t"
 
-  test_expect_failure "Testing axis utils: $r4cmd" "mpirun -n 1 $r4cmd"
-  test_expect_failure "Testing axis utils: $r8cmd" "mpirun -n 1 $r8cmd"
+  test_expect_error "Testing axis utils: $r4cmd" "mpirun -n 1 $r4cmd"
+  test_expect_error "Testing axis utils: $r8cmd" "mpirun -n 1 $r8cmd"
 done
 
 test_done

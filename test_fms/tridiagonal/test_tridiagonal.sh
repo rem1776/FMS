@@ -40,10 +40,10 @@ cat <<_EOF > input.nml
 do_error_check = .true.
 /
 _EOF
-test_expect_failure "error out if passed in incorrect real size (r4_kind)" '
+test_expect_error "error out if passed in incorrect real size (r4_kind)" '
     mpirun -n 1 ./test_tridiagonal_r4
 '
-test_expect_failure "error out if passed in incorrect real size (r8_kind)" '
+test_expect_error "error out if passed in incorrect real size (r8_kind)" '
     mpirun -n 1 ./test_tridiagonal_r8
 '
 

@@ -60,13 +60,13 @@ if test ! -z "$ncdump_skip" ; then
   test_expect_success "test_chunksizes_netcdf4.res.nc should be chunked" '
     ncdump -hsv var1 test_chunksizes_netcdf4.res.nc | grep "ChunkSizes"
   '
-  test_expect_failure "test_chunksizes_classic.res.nc should not be chunked" '
+  test_expect_error "test_chunksizes_classic.res.nc should not be chunked" '
     ncdump -hsv var1 test_chunksizes_classic.res.nc | grep "ChunkSizes"
   '
-  test_expect_failure "test_chunksizes_64bit.res.nc should not be chunked" '
+  test_expect_error "test_chunksizes_64bit.res.nc should not be chunked" '
     ncdump -hsv var1 test_chunksizes_64bit.res.nc | grep "ChunkSizes"
   '
-  test_expect_failure "test_chunksizes.res.nc should not be chunked" '
+  test_expect_error "test_chunksizes.res.nc should not be chunked" '
     ncdump -hsv var1 test_chunksizes.res.nc | grep "ChunkSizes"
   '
 fi
@@ -83,10 +83,10 @@ if test ! -z "$ncdump_skip" ; then
   test_expect_success "test_chunksizes_netcdf4.res.nc should be chunked" '
     ncdump -hsv var1 test_chunksizes_netcdf4.res.nc | grep "ChunkSizes"
   '
-  test_expect_failure "test_chunksizes_classic.res.nc should not be chunked" '
+  test_expect_error "test_chunksizes_classic.res.nc should not be chunked" '
     ncdump -hsv var1 test_chunksizes_classic.res.nc | grep "ChunkSizes"
   '
-  test_expect_failure "test_chunksizes_64bit.res.nc should not be chunked" '
+  test_expect_error "test_chunksizes_64bit.res.nc should not be chunked" '
     ncdump -hsv var1 test_chunksizes_64bit.res.nc | grep "ChunkSizes"
   '
   test_expect_success "test_chunksizes.res.nc should be chunked" '
@@ -106,13 +106,13 @@ if test ! -z "$ncdump_skip" ; then
   test_expect_success "test_chunksizes_netcdf4.res.nc should be compressed" '
     ncdump -hsv var1 test_chunksizes_netcdf4.res.nc | grep "DeflateLevel"
   '
-  test_expect_failure "test_chunksizes_classic.res.nc should not be compressed" '
+  test_expect_error "test_chunksizes_classic.res.nc should not be compressed" '
     ncdump -hsv var1 test_chunksizes_classic.res.nc | grep "DeflateLevel"
   '
-  test_expect_failure "test_chunksizes_64bit.res.nc should not be compressed" '
+  test_expect_error "test_chunksizes_64bit.res.nc should not be compressed" '
     ncdump -hsv var1 test_chunksizes_64bit.res.nc | grep "DeflateLevel"
   '
-  test_expect_failure "test_chunksizes.res.nc should not be compressed" '
+  test_expect_error "test_chunksizes.res.nc should not be compressed" '
     ncdump -hsv var1 test_chunksizes.res.nc | grep "DeflateLevel"
   '
 fi
@@ -130,10 +130,10 @@ if test ! -z "$ncdump_skip" ; then
   test_expect_success "test_chunksizes_netcdf4.res.nc should be compressed" '
     ncdump -hsv var1 test_chunksizes_netcdf4.res.nc | grep "DeflateLevel"
   '
-  test_expect_failure "test_chunksizes_classic.res.nc should not be compressed" '
+  test_expect_error "test_chunksizes_classic.res.nc should not be compressed" '
     ncdump -hsv var1 test_chunksizes_classic.res.nc | grep "DeflateLevel"
   '
-  test_expect_failure "test_chunksizes_64bit.res.nc should not be compressed" '
+  test_expect_error "test_chunksizes_64bit.res.nc should not be compressed" '
     ncdump -hsv var1 test_chunksizes_64bit.res.nc | grep "DeflateLevel"
   '
   test_expect_success "test_chunksizes.res.nc should be compressed" '

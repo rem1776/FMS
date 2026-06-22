@@ -86,15 +86,15 @@ if [ -z "$parser_skip" ]; then
 fi
 
 prepare_legacy get_n_ex_invalid_model_src
-test_expect_failure "Test gex_get_n_ex with invalid model_src" "$test_cmd"
+test_expect_error "Test gex_get_n_ex with invalid model_src" "$test_cmd"
 
 prepare_legacy get_n_ex_invalid_model_rec
-test_expect_failure "Test gex_get_n_ex with invalid model_rec" "$test_cmd"
+test_expect_error "Test gex_get_n_ex with invalid model_rec" "$test_cmd"
 
 prepare_legacy get_property_invalid_tracer
-test_expect_failure "Test gex_get_property with invalid tracer ID" "$test_cmd"
+test_expect_error "Test gex_get_property with invalid tracer ID" "$test_cmd"
 
 prepare_legacy get_property_invalid_property
-test_expect_failure "Test gex_get_property with invalid property ID" "$test_cmd"
+test_expect_error "Test gex_get_property with invalid property ID" "$test_cmd"
 
 test_done

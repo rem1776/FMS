@@ -26,7 +26,7 @@
 output_dir
 rm -rf data_table data_table.yaml input.nml input_base.nml
 
-if [ ! -z $parser_skip ]; then
+if [ -n "${parser_skip}" ]; then
   cat <<_EOF > input_base.nml
 &data_override_nml
 use_data_table_yaml=.False.

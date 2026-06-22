@@ -64,7 +64,7 @@ cat <<_EOF > input_base.nml
 _EOF
 
 #The test only runs with yaml
-if [ -z $parser_skip ]; then
+if [ -z "${parser_skip}" ]; then
   # TODO: Enable these tests once generalized indices work is complete
   SKIP_TESTS="test_data_override_ensembles.2 \
               test_data_override_ensembles.3 \
@@ -93,7 +93,7 @@ data_table:
    factor: 1.0
 _EOF
 
-  test_expect_failure "test_data_override with both data_table.yaml and data_table.ens_xx.yaml files" '
+  test_expect_error "test_data_override with both data_table.yaml and data_table.ens_xx.yaml files" '
     mpirun -n 12 ../test_data_override_ongrid
   '
 

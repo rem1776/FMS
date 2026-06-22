@@ -52,14 +52,14 @@ test_expect_success "normal ascii usage" '
 # Test 2
 # get_ascii_file_num_lines not called before, fatal error
 sed "s/test_numb = [0-9]/test_numb = 2/" test_numb_base_ascii.nml>test_numb_ascii.nml
-test_expect_failure "failure caught if get_ascii_file_num_lines not called before" '
+test_expect_error "failure caught if get_ascii_file_num_lines not called before" '
     mpirun -n 1 ../test_mpp_read_ascii_file
 '
 
 # Test 3
 # File does not exist, fatal error
 sed "s/test_numb = [0-9]/test_numb = 3/" test_numb_base_ascii.nml>test_numb_ascii.nml
-test_expect_failure "failure caught if file does not exist" '
+test_expect_error "failure caught if file does not exist" '
     mpirun -n 1 ../test_mpp_read_ascii_file
 '
 
@@ -67,20 +67,20 @@ test_expect_failure "failure caught if file does not exist" '
 # Number of line in file is greater than size(Content(:)), fatal error
 sed "s/test_numb = [0-9]/test_numb = 4/" test_numb_base_ascii.nml>test_numb_ascii.nml
 echo "" > empty.nml
-test_expect_failure "failure caught from too few input lines" '
+test_expect_error "failure caught from too few input lines" '
     mpirun -n 1 ../test_mpp_read_ascii_file
 '
 # Test 5
 # Length of output string is too small, fatal error
 sed "s/test_numb = [0-9]/test_numb = 5/" test_numb_base_ascii.nml>test_numb_ascii.nml
-test_expect_failure "failure caught from too small output string" '
+test_expect_error "failure caught from too small output string" '
     mpirun -n 1 ../test_mpp_read_ascii_file
 '
 
 # Test 6
 # Number of lines in file does not equal to size(Content(:)), fatal error
 sed "s/test_numb = [0-9]/test_numb = 6/" test_numb_base_ascii.nml>test_numb_ascii.nml
-test_expect_failure "failure caught from mismatching numbers of lines" '
+test_expect_error "failure caught from mismatching numbers of lines" '
     mpirun -n 1 ../test_mpp_read_ascii_file
 '
 

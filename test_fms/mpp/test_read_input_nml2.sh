@@ -51,7 +51,7 @@ test_expect_success "read input nml with file name" '
 
 # Test 3
 sed "s/test_numb = [0-9]/test_numb = 3/" test_numb_base.nml > test_numb.nml
-test_expect_failure "failure caught on invalid nml" '
+test_expect_error "failure caught on invalid nml" '
     mpirun -n 1 ../test_read_input_nml
 '
 

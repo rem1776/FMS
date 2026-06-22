@@ -89,7 +89,7 @@ cat <<_EOF > input.nml
   use_field_table_yaml = .false.
 /
 _EOF
-test_expect_failure "field table read with use_field_table.yaml = .false. both version of the table present" 'mpirun -n 1 ./test_field_table_read'
+test_expect_error "field table read with use_field_table.yaml = .false. both version of the table present" 'mpirun -n 1 ./test_field_table_read'
 
 rm -rf field_table
 
@@ -101,7 +101,7 @@ _EOF
 
 if [ ! -z "$parser_skip" ]; then
 
-  test_expect_failure "field table read with use_field_table.yaml = .true. but not compiling with yaml" 'mpirun -n 1 ./test_field_table_read'
+  test_expect_error "field table read with use_field_table.yaml = .true. but not compiling with yaml" 'mpirun -n 1 ./test_field_table_read'
 
 else
 
@@ -145,7 +145,7 @@ cat <<_EOF > input.nml
    ensemble_size = 2
 /
 _EOF
-  test_expect_failure "field manager test with both field_table.yaml and field_table.ens_XX.yaml files present" 'mpirun -n 2 ./test_field_table_read'
+  test_expect_error "field manager test with both field_table.yaml and field_table.ens_XX.yaml files present" 'mpirun -n 2 ./test_field_table_read'
 
   rm -rf field_table.yaml
 

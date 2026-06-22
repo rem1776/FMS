@@ -40,6 +40,8 @@ exec 4>&2 3>&1 7>&2
 test_count=0
 test_success=0
 test_failure=0
+test_broken=0
+test_fixed=0
 
 EXIT_OK=
 
@@ -150,6 +152,18 @@ test_known_broken_failure_ () {
   say_color warn "not ok $test_count - $@ # TODO known breakage"
 }
 
+test_error_caught_ () {
+  test_success=$(($test_success + 1))
+  say_color "" "ok $test_count - $@ # expected error"
+}
+
+test_error_missing_ () {
+  test_failure=$(($test_failure + 1))
+  say_color error "not ok $test_count - $1 # expected program to error out but it succeeded"
+  shift
+  printf '%s\n' "$*" | sed -e 's/^/#\t/'
+}
+
 trace_level_=0
 want_trace_ () {
   test "$trace" = t && {
@@ -225,41 +239,39 @@ match_pattern_list_ () {
   test -z "$*" && return 1
   for pattern_
   do
-    # modified original logic to be able to work with more than one digit test numbers
-    # check test name matches
-    pInd=`expr index $arg '.'`
-    tNameArg=`expr substr $arg 1 $pInd`
-    tNamePattern=`expr substr $pattern_ 1 $pInd`
-    isRange="`expr index $pattern_ '-'`"
-    # individual test num
-    if test $isRange -eq 0 ; then
-      say "is range.."
-      if test "$pattern_" = "$arg" ; then
-           test "$tNameArg" = "$tNamePattern" && return 0
-      fi
-    # num range
-    else
-      # get numbers from range and arg
-      num=${arg##*.}
-      range=${pattern_##*.}
+    # Extract the test name prefix (everything up to and including the last dot)
+    # e.g. "test_gex.3" -> prefix "test_gex.", number "3"
+    prefix_arg="${arg%.*}."
+    prefix_pat="${pattern_%.*}."
+    num_arg="${arg##*.}"
+    num_pat="${pattern_##*.}"
 
-      mid=`expr index $range '-'`
-      len=`expr $mid - 2`
-      first="`expr substr $range 2 $len`"
+    # Only compare patterns that belong to the same test name
+    test "${prefix_arg}" = "${prefix_pat}" || continue
 
-      beg=`expr $mid + 1`
-      len=`expr length $range`
-      len=`expr $len - $beg`
-      last="`expr substr $range $beg $len`"
-      # check range is valid
-      if test $num == *[!0-9]* -o $first == *[!0-9]* -o $last == *[!0-9]* -o $first -ge $last ; then
-          say "Warning: SKIP_TESTS contains an invalid range in $pattern_"
-          break
-      fi
-      if test $num -ge $first -a $num -le $last ; then
-          test "$tNameArg" = "$tNamePattern" && return 0
-      fi
-    fi
+    case "${num_pat}" in
+      # Range: [N-M] bracket syntax
+      \[*-*\])
+        inner="${num_pat#[}"
+        inner="${inner%]}"
+        first="${inner%%-*}"
+        last="${inner##*-}"
+        # Validate both bounds are integers
+        case "${first}${last}" in
+          *[!0-9]*)
+            say_color warn "Warning: SKIP_TESTS contains an invalid range in $pattern_"
+            continue
+            ;;
+        esac
+        if test "${num_arg}" -ge "${first}" && test "${num_arg}" -le "${last}" ; then
+          return 0
+        fi
+        ;;
+      # Exact match on number
+      *)
+        test "${num_arg}" = "${num_pat}" && return 0
+        ;;
+    esac
   done
   return 1
 }
@@ -267,7 +279,7 @@ match_pattern_list_ () {
 test_skip_ () {
   local to_skip=
   local skipped_reason=
-  if match_pattern_list_ $TEST_NAME.$test_count $SKIP_TESTS
+  if match_pattern_list_ "${TEST_NAME}.${test_count}" ${SKIP_TESTS}
   then
     to_skip=t
     skipped_reason="SKIP_TESTS"
@@ -281,10 +293,34 @@ test_skip_ () {
   fi
 }
 
+# skip_if_no_yaml: call near the top of a test script to add all test numbers
+# that require libyaml/yaml to SKIP_TESTS when yaml support is disabled.
+# Usage: skip_if_no_yaml N [N ...]
+#   N can be a single number or a bracketed range like [3-7]
+# The 'parser_skip' env var is set by CMake (or autotools) when yaml is off.
+skip_if_no_yaml () {
+  test -z "${parser_skip}" && return 0
+  for n do
+    SKIP_TESTS="${SKIP_TESTS} ${TEST_NAME}.${n}"
+  done
+}
+
+# skip_if_no_parallel_nc: same idea for tests requiring parallel NetCDF/HDF5.
+# The 'parallel_skip' env var is set by CMake when NetCDF_PARALLEL is FALSE.
+skip_if_no_parallel_nc () {
+  test -z "${parallel_skip}" && return 0
+  for n do
+    SKIP_TESTS="${SKIP_TESTS} ${TEST_NAME}.${n}"
+  done
+}
+
+# test_expect_failure: marks a test as a known-broken case that is expected
+# to fail. If the test starts passing, it is flagged as "TODO known breakage
+# vanished" and counts as a failure (so you notice the fix and can promote it).
 test_expect_failure () {
   test_start_
   test "$#" = 2 ||
-    BUG "not 2 or 3 parameters to test-expect-failure"
+    BUG "test_expect_failure requires 2 parameters"
   if ! test_skip_ "$@"
   then
     if test_run_ "$2" expecting_failure
@@ -292,6 +328,27 @@ test_expect_failure () {
       test_known_broken_ok_ "$1"
     else
       test_known_broken_failure_ "$1"
+    fi
+  fi
+  test_finish_
+}
+
+# test_expect_error: use this (not test_expect_failure) for tests that
+# intentionally trigger an error condition to verify error handling works.
+# These tests are expected to fail — if they succeed (no error raised)
+# that is a real test failure.
+test_expect_error () {
+  test_start_
+  test "$#" = 2 ||
+    BUG "test_expect_error requires 2 parameters"
+  if ! test_skip_ "$@"
+  then
+    say "expecting error from $TEST_NAME.$test_count '$1': $2"
+    if test_run_ "$2" expecting_failure
+    then
+      test_error_missing_ "$1"
+    else
+      test_error_caught_ "$1"
     fi
   fi
   test_finish_

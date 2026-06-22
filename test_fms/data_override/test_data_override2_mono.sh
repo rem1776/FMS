@@ -85,7 +85,7 @@ data_table:
 _EOF
 
 #Repeat the test with yaml if needed
-if [ -z $parser_skip ]; then
+if [ -z "${parser_skip}" ]; then
   # TODO: Enable this test once generalized indices work is complete
   SKIP_TESTS="$SKIP_TESTS test_data_override2_mono.4"
 

@@ -193,7 +193,7 @@ test_expect_success "Checking answers for the "avg" reduction method with halo o
 
 my_test_count=`expr $my_test_count + 1`
 printf "&diag_manager_nml \n use_modern_diag=.true. \n mix_snapshot_average_fields = .true. \n /" | cat > input.nml
-test_expect_failure "Running diag_manager with with mix_snapshot_average_fields = .true. (test $my_test_count)" '
+test_expect_error "Running diag_manager with with mix_snapshot_average_fields = .true. (test $my_test_count)" '
   mpirun -n 6 ../test_reduction_methods
 '
 
@@ -220,7 +220,7 @@ _EOF
 
 my_test_count=`expr $my_test_count + 1`
 printf "&diag_manager_nml \n use_modern_diag=.true. \n /" | cat > input.nml
-test_expect_failure "Running diag_manager with with a file with instantaneous and averaged output (test $my_test_count)" '
+test_expect_error "Running diag_manager with with a file with instantaneous and averaged output (test $my_test_count)" '
   mpirun -n 6 ../test_reduction_methods
 '
 
@@ -240,7 +240,7 @@ diag_files:
 _EOF
 
   my_test_count=`expr $my_test_count + 1`
-  test_expect_failure "Fail if passing in missing_values without masking them (test $my_test_count)" '
+  test_expect_error "Fail if passing in missing_values without masking them (test $my_test_count)" '
     mpirun -n 6 ../test_reduction_methods
   '
 fi
