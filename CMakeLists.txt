@@ -58,6 +58,7 @@ option(FPIC        "Build with position independent code" OFF)
 option(SHARED_LIBS "Build shared/dynamic libraries"       OFF)
 option(OPENACC     "Build FMS with OpenACC support"       OFF)
 option(UNIT_TESTS  "Build FMS tests"                      OFF)
+option(MPI         "Build FMS with MPI support"           ON)
 
 # Options for compiler definitions
 option(ENABLE_QUAD_PRECISION "Enable compiler definition -DENABLE_QUAD_PRECISION"  ON)
@@ -85,7 +86,9 @@ if(NOT kinds)
 endif()
 
 # Find dependencies
-find_package(MPI REQUIRED COMPONENTS C Fortran)
+if(MPI)
+  find_package(MPI REQUIRED COMPONENTS C Fortran)
+endif()
 find_package(NetCDF REQUIRED COMPONENTS C Fortran)
 
 # Check compilers support for OpenMP and OpenACC directives, if requested
@@ -231,7 +234,6 @@ list(APPEND fms_header_files
 
 # Standard FMS compiler definitions
 list(APPEND fms_defs
-  use_libMPI
   use_netCDF)
 
 # check gettid
@@ -280,6 +282,10 @@ if(LARGEFILE)
   list(APPEND fms_defs use_LARGEFILE)
 endif()
 
+if(MPI)
+  list(APPEND fms_defs use_libMPI)
+endif()
+
 # Add platform specific compiler definitions
 if(APPLE)
   list(APPEND fms_defs __APPLE__)
@@ -307,9 +313,10 @@ foreach(kind ${kinds})
   target_include_directories(${libTgt}_c PRIVATE include
                                                  grid_utils)
   target_compile_definitions(${libTgt}_c PRIVATE "${fms_defs}")
-  target_link_libraries(${libTgt}_c PRIVATE NetCDF::NetCDF_C
-                                            MPI::MPI_C)
-
+  target_link_libraries(${libTgt}_c PRIVATE NetCDF::NetCDF_C)
+  if(MPI)
+    target_link_libraries(${libTgt}_c PRIVATE MPI::MPI_C)
+  endif()
   if(OpenMP_C_FOUND)
     target_link_libraries(${libTgt}_c PRIVATE OpenMP::OpenMP_C)
   endif()
@@ -354,8 +361,10 @@ foreach(kind ${kinds})
   set_target_properties(${libTgt}_f PROPERTIES COMPILE_FLAGS "${${kind}_flags}")
   set_target_properties(${libTgt}_f PROPERTIES Fortran_MODULE_DIRECTORY
                                                ${moduleDir})
-  target_link_libraries(${libTgt}_f PRIVATE NetCDF::NetCDF_Fortran
-                                            MPI::MPI_Fortran)
+  target_link_libraries(${libTgt}_f PRIVATE NetCDF::NetCDF_Fortran)
+  if(MPI)
+    target_link_libraries(${libTgt}_f PRIVATE MPI::MPI_Fortran)
+  endif()
   if(OpenMP_Fortran_FOUND)
     target_link_libraries(${libTgt}_f PRIVATE OpenMP::OpenMP_Fortran)
   endif()
@@ -421,8 +430,10 @@ foreach(kind ${kinds})
   target_compile_definitions(${libTgt} PRIVATE "${${kind}_defs}")
 
   target_link_libraries(${libTgt} PUBLIC NetCDF::NetCDF_C
-                                         NetCDF::NetCDF_Fortran
-                                         MPI::MPI_Fortran)
+                                         NetCDF::NetCDF_Fortran)
+  if(MPI)
+    target_link_libraries(${libTgt} PUBLIC MPI::MPI_Fortran)
+  endif()
 
   if(YAML_FOUND)
     target_link_libraries(${libTgt} PRIVATE PkgConfig::YAML)
@@ -454,8 +465,10 @@ if(NOT kinds)
     target_include_directories(${libTgt}_c PRIVATE include
                                                    grid_utils)
     target_compile_definitions(${libTgt}_c PRIVATE "${fms_defs}")
-    target_link_libraries(${libTgt}_c PRIVATE NetCDF::NetCDF_C
-                                              MPI::MPI_C)
+    target_link_libraries(${libTgt}_c PRIVATE NetCDF::NetCDF_C)
+    if(MPI)
+      target_link_libraries(${libTgt}_c PRIVATE MPI::MPI_C)
+    endif()
 
     if(OpenMP_C_FOUND)
       target_link_libraries(${libTgt}_c PRIVATE OpenMP::OpenMP_C)
@@ -500,8 +513,10 @@ if(NOT kinds)
     set_target_properties(${libTgt}_f PROPERTIES COMPILE_FLAGS ${${kind}_flags})
     set_target_properties(${libTgt}_f PROPERTIES Fortran_MODULE_DIRECTORY
                                                  ${moduleDir})
-    target_link_libraries(${libTgt}_f PRIVATE NetCDF::NetCDF_Fortran
-                                              MPI::MPI_Fortran)
+    target_link_libraries(${libTgt}_f PRIVATE NetCDF::NetCDF_Fortran)
+    if(MPI)
+      target_link_libraries(${libTgt}_f PRIVATE MPI::MPI_Fortran)
+    endif()
     if(OpenMP_Fortran_FOUND)
       target_link_libraries(${libTgt}_f PRIVATE OpenMP::OpenMP_Fortran)
     endif()
@@ -564,8 +579,10 @@ if(NOT kinds)
     set_target_properties(${libTgt}_f PROPERTIES COMPILE_FLAGS ${${kind}_flags})
 
     target_link_libraries(${libTgt} PUBLIC NetCDF::NetCDF_C
-                                           NetCDF::NetCDF_Fortran
-                                           MPI::MPI_Fortran)
+                                           NetCDF::NetCDF_Fortran)
+    if(MPI)
+      target_link_libraries(${libTgt} PUBLIC MPI::MPI_Fortran)
+    endif()
 
     if(YAML_FOUND)
       target_link_libraries(${libTgt} PRIVATE PkgConfig::YAML)
