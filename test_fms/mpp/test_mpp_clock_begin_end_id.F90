@@ -175,8 +175,10 @@ program test_mpp_clock_begin_end_id
     subroutine test8()
       integer :: clock_id, i
       character(len=12) :: buff
+      integer :: bp
+      bp = 1
 
-      call mpp_init()!test_level=bp)
+      call mpp_init(test_level=bp)
       do i=1, MAX_CLOCKS + 1
         write(buff,'(i12)') i
         clock_id = mpp_clock_id("Ultraclock"//buff)
@@ -203,7 +205,7 @@ program test_mpp_clock_begin_end_id
       bp = 6
 
       clock_id = 1
-      call mpp_init()!test_level=bp)
+      call mpp_init(test_level=bp)
       call mpp_exit()
       call mpp_clock_begin(clock_id)
 
