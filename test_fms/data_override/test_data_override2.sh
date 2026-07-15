@@ -24,17 +24,20 @@
 . ../test-lib.sh
 
 output_dir
-rm -rf data_table data_table.yaml input.nml input_base.nml
+rm -rf data_table data_table.yaml input.nml input_base.nml INPUT
 
-for KIND in r4 r8
-do
-# Run tests with input if enabled
-# skips if built with yaml parser(tests older behavior)
-if test ! -z "$test_input_path" && test ! -z "$parser_skip"  ; then
+# Generate input files for testing
+mkdir -p INPUT
+touch input.nml
+test_expect_success "generate data_override input files" '
+  mpirun -n 1 ../test_data_override_generate_inputs
+'
+
+# Only run tests if not skipping due to parser configuration
+if test -z "$parser_skip" ; then
   cat <<_EOF > input.nml
 _EOF
 
-  cp -r $test_input_path/data_override/INPUT .
   cat <<_EOF > diag_table
 test_data_override
 1 3 1 0 0 0
@@ -53,21 +56,23 @@ _EOF
 "LND", "sst_obs",  "SST", "INPUT/sst_ice_clim.nc", .false., 300.0
 _EOF
 
-  test_expect_success "data_override on cubic-grid with input (${KIND})" '
-    mpirun -n 6 ../test_data_override_${KIND}
-  '
+  for KIND in r4 r8
+  do
+    test_expect_success "data_override on cubic-grid with input (${KIND})" '
+      mpirun -n 6 ../test_data_override_${KIND}
+    '
 
-cat <<_EOF > input.nml
+    cat <<_EOF > input.nml
 &test_data_override_nml
    test_num=2
 /
 _EOF
 
-  test_expect_success "data_override on latlon-grid with input (${KIND})" '
-    mpirun -n 6 ../test_data_override_${KIND}
-  '
+    test_expect_success "data_override on latlon-grid with input (${KIND})" '
+      mpirun -n 6 ../test_data_override_${KIND}
+    '
+  done
 fi
-done
 rm -rf INPUT *.nc # remove any leftover files to reduce size
 
 test_done
