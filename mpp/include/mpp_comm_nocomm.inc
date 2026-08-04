@@ -252,6 +252,59 @@ end subroutine mpp_exit
       return
     end subroutine mpp_broadcast_char
 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!                                                                             !
+!                   CHARACTER STRING TRANSMIT / SEND / RECV                   !
+!                                                                             !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+    !> @brief Transmit/receive a character string between two PEs (no-comm stub)
+    subroutine mpp_transmit_char(put_data, put_len, to_pe, get_data, get_len, from_pe, &
+                                 block, tag, recv_request, send_request)
+      integer,          intent(in)  :: put_len, to_pe, get_len, from_pe
+      character(len=*), intent(in)  :: put_data
+      character(len=*), intent(out) :: get_data
+      logical,          intent(in),  optional :: block
+      integer,          intent(in),  optional :: tag
+      type(mpi_request), intent(out), optional :: recv_request, send_request
+      integer :: i
+
+      if( .NOT.module_is_initialized ) &
+        call mpp_error(FATAL, 'mpp_transmit_char: You must first call mpp_init.')
+      if( to_pe.EQ.NULL_PE .AND. from_pe.EQ.NULL_PE ) return
+
+      if( to_pe.GE.0 .AND. to_pe.LT.npes .AND. from_pe.GE.0 .AND. from_pe.LT.npes ) then
+        get_data = put_data(1:min(put_len, get_len))
+      else if( to_pe.NE.NULL_PE .AND. to_pe.LT.0 ) then
+        call mpp_error(FATAL, 'mpp_transmit_char: invalid to_pe.')
+      else if( from_pe.NE.NULL_PE .AND. from_pe.LT.0 ) then
+        call mpp_error(FATAL, 'mpp_transmit_char: invalid from_pe.')
+      end if
+
+    end subroutine mpp_transmit_char
+
+    !> @brief Send a character string to another PE (no-comm stub)
+    subroutine mpp_send_char(put_data, put_len, to_pe, tag, request)
+      integer,          intent(in)  :: put_len, to_pe
+      character(len=*), intent(in)  :: put_data
+      integer,          intent(in),  optional :: tag
+      type(mpi_request), intent(out), optional :: request
+
+      character(len=1) :: dummy
+      call mpp_transmit_char(put_data, put_len, to_pe, dummy, 1, NULL_PE, tag=tag, send_request=request)
+    end subroutine mpp_send_char
+
+    !> @brief Receive a character string from another PE (no-comm stub)
+    subroutine mpp_recv_char(get_data, get_len, from_pe, block, tag, request)
+      integer,          intent(in)  :: get_len, from_pe
+      character(len=*), intent(out) :: get_data
+      logical,          intent(in),  optional :: block
+      integer,          intent(in),  optional :: tag
+      type(mpi_request), intent(out), optional :: request
+
+      character(len=1) :: dummy
+      call mpp_transmit_char(dummy, 1, NULL_PE, get_data, get_len, from_pe, block, tag, recv_request=request)
+    end subroutine mpp_recv_char
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !                                                                             !

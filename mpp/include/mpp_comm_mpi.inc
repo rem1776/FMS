@@ -375,6 +375,120 @@ end subroutine mpp_exit
       return
     end subroutine mpp_broadcast_char
 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!                                                                             !
+!                   CHARACTER STRING TRANSMIT / SEND / RECV                   !
+!                                                                             !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+    !> @brief Transmit/receive a character string between two PEs
+    !! @param put_data  Character string to send
+    !! @param put_len   Number of characters to send
+    !! @param to_pe     Destination PE (or NULL_PE to skip send)
+    !! @param get_data  Character string to receive into
+    !! @param get_len   Number of characters to receive
+    !! @param from_pe   Source PE (or NULL_PE to skip receive)
+    !! @param block     .true. for blocking receive (default), .false. for non-blocking
+    !! @param tag       Optional communication tag
+    !! @param recv_request  Optional MPI request handle for non-blocking receive
+    !! @param send_request  Optional MPI request handle for non-blocking send
+    subroutine mpp_transmit_char(put_data, put_len, to_pe, get_data, get_len, from_pe, &
+                                 block, tag, recv_request, send_request)
+      integer,          intent(in)  :: put_len, to_pe, get_len, from_pe
+      character(len=*), intent(in)  :: put_data
+      character(len=*), intent(out) :: get_data
+      logical,          intent(in),  optional :: block
+      integer,          intent(in),  optional :: tag
+      type(mpi_request), intent(out), optional :: recv_request, send_request
+
+      logical :: block_comm
+      integer :: comm_tag
+
+      if( .NOT.module_is_initialized ) &
+        call mpp_error(FATAL, 'mpp_transmit_char: You must first call mpp_init.')
+      if( to_pe.EQ.NULL_PE .AND. from_pe.EQ.NULL_PE ) return
+
+      block_comm = .true.
+      if(present(block)) block_comm = block
+
+      comm_tag = DEFAULT_TAG
+      if(present(tag)) comm_tag = tag
+
+      if( to_pe.GE.0 .AND. to_pe.LT.npes ) then
+        if(present(send_request)) then
+          call MPI_ISEND(put_data, put_len, MPI_CHARACTER, to_pe, comm_tag, &
+                         mpp_comm_private, send_request, error)
+        else
+          cur_send_request = cur_send_request + 1
+          if(cur_send_request > max_request) &
+            call mpp_error(FATAL, "mpp_transmit_char: cur_send_request exceeds max_request, " // &
+                                  "increase mpp_nml request_multiply")
+          call MPI_ISEND(put_data, put_len, MPI_CHARACTER, to_pe, comm_tag, &
+                         mpp_comm_private, request_send(cur_send_request), error)
+        end if
+      else if( to_pe.NE.NULL_PE ) then
+        call mpp_error(FATAL, 'mpp_transmit_char: invalid to_pe.')
+      end if
+
+      if( from_pe.GE.0 .AND. from_pe.LT.npes ) then
+        if( block_comm ) then
+          call MPI_RECV(get_data, get_len, MPI_CHARACTER, from_pe, comm_tag, &
+                        mpp_comm_private, stat, error)
+        else
+          if(present(recv_request)) then
+            call MPI_IRECV(get_data, get_len, MPI_CHARACTER, from_pe, comm_tag, &
+                           mpp_comm_private, recv_request, error)
+          else
+            cur_recv_request = cur_recv_request + 1
+            if(cur_recv_request > max_request) &
+              call mpp_error(FATAL, "mpp_transmit_char: cur_recv_request exceeds max_request, " // &
+                                    "increase mpp_nml request_multiply")
+            call MPI_IRECV(get_data, get_len, MPI_CHARACTER, from_pe, comm_tag, &
+                           mpp_comm_private, request_recv(cur_recv_request), error)
+            size_recv(cur_recv_request) = get_len
+            type_recv(cur_recv_request) = MPI_CHARACTER
+          end if
+        end if
+      else if( from_pe.NE.NULL_PE ) then
+        call mpp_error(FATAL, 'mpp_transmit_char: invalid from_pe.')
+      end if
+
+    end subroutine mpp_transmit_char
+
+    !> @brief Send a character string to another PE (non-blocking)
+    !! @param put_data  Character string to send
+    !! @param put_len   Number of characters to send
+    !! @param to_pe     Destination PE
+    !! @param tag       Optional communication tag
+    !! @param request   Optional MPI request handle for non-blocking send
+    subroutine mpp_send_char(put_data, put_len, to_pe, tag, request)
+      integer,          intent(in)  :: put_len, to_pe
+      character(len=*), intent(in)  :: put_data
+      integer,          intent(in),  optional :: tag
+      type(mpi_request), intent(out), optional :: request
+
+      character(len=1) :: dummy
+      call mpp_transmit_char(put_data, put_len, to_pe, dummy, 1, NULL_PE, tag=tag, send_request=request)
+    end subroutine mpp_send_char
+
+    !> @brief Receive a character string from another PE
+    !! @param get_data  Character string to receive into
+    !! @param get_len   Number of characters to receive
+    !! @param from_pe   Source PE
+    !! @param block     .true. for blocking (default), .false. for non-blocking
+    !! @param tag       Optional communication tag
+    !! @param request   Optional MPI request handle for non-blocking receive
+    subroutine mpp_recv_char(get_data, get_len, from_pe, block, tag, request)
+      integer,          intent(in)  :: get_len, from_pe
+      character(len=*), intent(out) :: get_data
+      logical,          intent(in),  optional :: block
+      integer,          intent(in),  optional :: tag
+      type(mpi_request), intent(out), optional :: request
+
+      character(len=1) :: dummy
+      call mpp_transmit_char(dummy, 1, NULL_PE, get_data, get_len, from_pe, block, tag, recv_request=request)
+    end subroutine mpp_recv_char
+
 ! defines initialization value for mpp_type data
 #define MPP_TYPE_INIT_VALUE 0.
 

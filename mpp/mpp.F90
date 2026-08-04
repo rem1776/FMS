@@ -986,6 +986,7 @@ private
      module procedure mpp_transmit_logical4_3d
      module procedure mpp_transmit_logical4_4d
      module procedure mpp_transmit_logical4_5d
+     module procedure mpp_transmit_char
   end interface
   !> @brief Receive data from another PE
   !!
@@ -1051,6 +1052,7 @@ private
      module procedure mpp_recv_logical4_3d
      module procedure mpp_recv_logical4_4d
      module procedure mpp_recv_logical4_5d
+     module procedure mpp_recv_char
   end interface
   !> Send data to a receiving PE.
   !!
@@ -1118,6 +1120,7 @@ private
      module procedure mpp_send_logical4_3d
      module procedure mpp_send_logical4_4d
      module procedure mpp_send_logical4_5d
+     module procedure mpp_send_char
   end interface
 
 
