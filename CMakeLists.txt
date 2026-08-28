@@ -1134,3 +1134,20 @@ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/FMS.pc.in
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/FMS.pc
               DESTINATION ${CMAKE_INSTALL_LIBDIR}/pkgconfig
               COMPONENT utilities)
+
+### CPack source distribution (a la `make dist`)
+set(CPACK_PACKAGE_NAME "FMS")
+set(CPACK_PACKAGE_VERSION ${PROJECT_VERSION})
+set(CPACK_SOURCE_PACKAGE_FILE_NAME "FMS-${PROJECT_VERSION}")
+set(CPACK_SOURCE_GENERATOR "TGZ")
+set(CPACK_VERBATIM_VARIABLES TRUE)
+set(CPACK_SOURCE_IGNORE_FILES
+  "/\\.git/"
+  "/\\.gitignore$"
+  "/\\.gitmodules$"
+  "/build.*/"
+  "/CMakeFiles/"
+  "/CMakeCache\\.txt$"
+  "/\\.vscode/"
+  ${CMAKE_CURRENT_BINARY_DIR})
+include(CPack)
