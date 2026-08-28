@@ -102,6 +102,9 @@ if (WITH_YAML)
   pkg_check_modules(YAML REQUIRED IMPORTED_TARGET "yaml-0.1")
 endif ()
 
+# Used to skip ncdump-dependent test checks when ncdump isn't available, mirroring autotools
+find_program(NCDUMP_EXECUTABLE NAMES ncdump)
+
 # Enables position independent code (i.e., -fPIC)
 if (FPIC)
   set(CMAKE_POSITION_INDEPENDENT_CODE ON)
@@ -598,12 +601,37 @@ install(
 ### Unit Testing
 include(CTest)
 
-# TODO autotools also checks if srun is available
-set(MPI_LAUNCHER "mpirun")
+# Prefer srun/aprun over mpirun when available, matching configure.ac's AC_CHECK_PROGS order
+find_program(MPI_LAUNCHER_EXE NAMES srun aprun mpirun)
+if(NOT MPI_LAUNCHER_EXE)
+  message(WARNING "No MPI launcher (srun/aprun/mpirun) found on PATH, defaulting to 'mpirun'")
+  set(MPI_LAUNCHER_EXE "mpirun")
+endif()
+set(MPI_LAUNCHER "${MPI_LAUNCHER_EXE}")
 # used in the test-lib.sh.in to make it behave differently when parsed by cmake
 set(USING_CMAKE "true")
+
+# Auto-detect a working oversubscribe flag for the launcher, unless the user already
+# overrode OVERSUBSCRIBE_FLAG, mirroring the AS_IF probes in configure.ac
+if(OVERSUBSCRIBE_FLAG STREQUAL " --oversubscribe ")
+  execute_process(COMMAND ${MPI_LAUNCHER} --oversubscribe true
+                  RESULT_VARIABLE _oversubscribe_rc
+                  OUTPUT_QUIET ERROR_QUIET)
+  if(_oversubscribe_rc EQUAL 0)
+    set(OVERSUBSCRIBE_FLAG " --oversubscribe ")
+  else()
+    execute_process(COMMAND ${MPI_LAUNCHER} --map-by :OVERSUBSCRIBE true
+                    RESULT_VARIABLE _mapby_rc
+                    OUTPUT_QUIET ERROR_QUIET)
+    if(_mapby_rc EQUAL 0)
+      set(OVERSUBSCRIBE_FLAG " --map-by :OVERSUBSCRIBE ")
+    else()
+      set(OVERSUBSCRIBE_FLAG "")
+    endif()
+  endif()
+endif()
 set(OVERSUBSCRIBE "${OVERSUBSCRIBE_FLAG}")
-message(STATUS "Using '${OVERSUBSCRIBE}' flag to oversubscribe ranks in test scripts")
+message(STATUS "Using MPI launcher '${MPI_LAUNCHER}' with '${OVERSUBSCRIBE}' flag to oversubscribe ranks in test scripts")
 
 # set the fms library to link tests with based on whats built
 if(NOT kinds)
@@ -615,8 +643,9 @@ elseif(32BIT)
 endif()
 
 if(UNIT_TESTS)
-  # parse and add build info to test script util file
-  configure_file(${CMAKE_CURRENT_SOURCE_DIR}/test_fms/test-lib.sh.in ${CMAKE_CURRENT_SOURCE_DIR}/test-lib.sh
+  # write test-lib.sh into the build tree (one level above each per-subdirectory
+  # test working directory) so scripts' ". ../test-lib.sh" resolves correctly
+  configure_file(${CMAKE_CURRENT_SOURCE_DIR}/test_fms/test-lib.sh.in ${CMAKE_CURRENT_BINARY_DIR}/test_fms/test-lib.sh
                 @ONLY)
 
   # build any helper modules that are used by unit tests
@@ -639,6 +668,7 @@ if(UNIT_TESTS)
   add_library(testLibs "${TEST_MODS_SRC}")
   target_link_libraries(testLibs ${fmsLibraryName})
   target_compile_definitions(testLibs PRIVATE TEST_MOS_KIND_=r8_kind)
+  set_target_properties(testLibs PROPERTIES COMPILE_FLAGS "${r8_flags}")
   target_include_directories(testLibs PRIVATE ${CMAKE_CURRENT_BINARY_DIR}/include
                                       PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/test_fms/common/include
                                       PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/test_fms/fms/include
@@ -819,7 +849,11 @@ if(UNIT_TESTS)
   foreach (testFile ${TEST_SRC_SINGLE_TARGET})
 
     get_filename_component (TName ${testFile} NAME_WE)
+    get_filename_component (TDir ${testFile} DIRECTORY)
+    string(REPLACE "test_fms/" "" TRelDir "${TDir}")
     add_executable(${TName} ${testFile})
+    # build into the same per-subdirectory test working directory used by add_test
+    set_target_properties(${TName} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/test_fms/${TRelDir})
     target_link_libraries(${TName} PUBLIC ${fmsLibraryName}
                                   PRIVATE testLibs)
     if(32BIT)
@@ -849,13 +883,18 @@ if(UNIT_TESTS)
 
   foreach (testFile ${TEST_SRC_TWO_TARGETS})
     get_filename_component (TName ${testFile} NAME_WE)
+    get_filename_component (TDir ${testFile} DIRECTORY)
+    string(REPLACE "test_fms/" "" TRelDir "${TDir}")
 
     add_executable(${TName}_r8 ${testFile})
+    # build into the same per-subdirectory test working directory used by add_test
+    set_target_properties(${TName}_r8 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/test_fms/${TRelDir})
     target_compile_definitions(${TName}_r8 PRIVATE "${r8_defs} ${fms_defs}")
     set_target_properties(${TName}_r8 PROPERTIES COMPILE_FLAGS ${r8_flags})
     target_link_libraries(${TName}_r8 PUBLIC ${fmsLibraryName}
                                       PRIVATE testLibs)
     add_executable(${TName}_r4 ${testFile})
+    set_target_properties(${TName}_r4 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/test_fms/${TRelDir})
     target_compile_definitions(${TName}_r4 PRIVATE "${r4_defs} ${fms_defs}")
     # seems counterintuitive but r4 tests use r8 default
     # they specify kind values explicitly with the preprocessor where needed (TEST_FMS_KIND_)
@@ -901,8 +940,12 @@ if(UNIT_TESTS)
 
   foreach (testFile ${TEST_SRC_FOUR_TARGETS})
     get_filename_component (TName ${testFile} NAME_WE)
+    get_filename_component (TDir ${testFile} DIRECTORY)
+    string(REPLACE "test_fms/" "" TRelDir "${TDir}")
 
     add_executable(${TName}_r8 ${testFile})
+    # build into the same per-subdirectory test working directory used by add_test
+    set_target_properties(${TName}_r8 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/test_fms/${TRelDir})
     target_compile_definitions(${TName}_r8 PRIVATE "${r8_defs} ${fms_defs}")
     set_target_properties(${TName}_r8 PROPERTIES COMPILE_FLAGS ${r8_flags})
     target_link_libraries(${TName}_r8 PUBLIC ${fmsLibraryName}
@@ -910,6 +953,7 @@ if(UNIT_TESTS)
                                       )
 
     add_executable(${TName}_r4 ${testFile})
+    set_target_properties(${TName}_r4 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/test_fms/${TRelDir})
     target_compile_definitions(${TName}_r4 PRIVATE "${r4_defs} ${fms_defs}")
     # seems counterintuitive but r4 tests use r8 default
     # they specify kind values explicitly with the preprocessor where needed (TEST_FMS_KIND_)
@@ -919,6 +963,7 @@ if(UNIT_TESTS)
                                       )
 
     add_executable(${TName}_i8 ${testFile})
+    set_target_properties(${TName}_i8 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/test_fms/${TRelDir})
     target_compile_definitions(${TName}_i8 PRIVATE "${r8_defs} ${fms_defs}")
     set_target_properties(${TName}_i8 PROPERTIES COMPILE_FLAGS ${r8_flags})
     target_link_libraries(${TName}_i8 PUBLIC ${fmsLibraryName}
@@ -926,6 +971,7 @@ if(UNIT_TESTS)
                                       )
 
     add_executable(${TName}_i4 ${testFile})
+    set_target_properties(${TName}_i4 PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/test_fms/${TRelDir})
     target_compile_definitions(${TName}_i4 PRIVATE "${r8_defs} ${fms_defs}")
     set_target_properties(${TName}_i4 PROPERTIES COMPILE_FLAGS ${r8_flags})
     target_link_libraries(${TName}_i4 PUBLIC ${fmsLibraryName}
@@ -1002,25 +1048,31 @@ if(UNIT_TESTS)
     get_filename_component(testName ${testScript} NAME_WE)
     get_filename_component(testDirNameFull ${testScript} DIRECTORY)
     get_filename_component(testDirName ${testDirNameFull} NAME_WE)
+    # run each test in its own per-subdirectory build dir, mirroring automake's layout,
+    # so ". ../test-lib.sh" sourcing and generated files (e.g. input.nml) don't collide
+    # with tests from other subdirectories
+    set(testWorkDir ${CMAKE_CURRENT_BINARY_DIR}/test_fms/${testDirName})
+    file(MAKE_DIRECTORY ${testWorkDir})
     add_test(NAME ${testName}
             COMMAND ${testScript}
-            WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
+            WORKING_DIRECTORY ${testWorkDir})
     # all tests are labeled with directory name
     set_property(TEST ${testName} PROPERTY LABELS ${testDirName})
     # set an environment variable so the scripts know to skip tests that use libyaml
     if(NOT WITH_YAML)
-      set_tests_properties(${testName} PROPERTIES
-          ENVIRONMENT "parser_skip=skip"
-      )
+      set_property(TEST ${testName} APPEND PROPERTY ENVIRONMENT "parser_skip=skip")
+    endif()
+    # fms2_io and diag_manager gate some checks on ncdump being available, same as autotools
+    if(NOT NCDUMP_EXECUTABLE AND testDirName MATCHES "^(fms2_io|diag_manager)$")
+      set_property(TEST ${testName} APPEND PROPERTY ENVIRONMENT "ncdump_skip=skip")
     endif()
 
   endforeach()
 
   # skip parallel netcdf tests if its not enabled in given install
   IF(NOT NetCDF_PARALLEL)
-    set_tests_properties(test_collective_io PROPERTIES
-        ENVIRONMENT "parallel_skip=skip"
-    )
+    set_property(TEST test_collective_io APPEND PROPERTY ENVIRONMENT "parallel_skip=skip")
+    set_property(TEST test_time_none_netcdf4 APPEND PROPERTY ENVIRONMENT "parallel_skip=skip")
   endif()
 
   set(CMAKE_CTEST_ARGUMENTS "--output-on-failure")
