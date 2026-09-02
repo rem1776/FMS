@@ -24,7 +24,7 @@
 . ../test-lib.sh
 
 # TODO: Enable this test once generalized indices work is complete
-SKIP_TESTS="test_data_override_weights.2"
+SKIP_TESTS="$SKIP_TESTS test_data_override_weights.2"
 
 output_dir
 [ ! -d "INPUT" ] && mkdir -p "INPUT"
@@ -65,7 +65,10 @@ cat <<_EOF > input_base.nml
 _EOF
 
 #The test only runs with yaml
-if [ -z $parser_skip ]; then
+if [ ! -z "$parser_skip" ]; then
+  SKIP_TESTS="$SKIP_TESTS test_data_override_weights.[1-2]"
+fi
+
   rm -rf INPUT/.
 
   sed 's/write_only = .False./write_only = .True./g' input_base.nml > input.nml
@@ -77,7 +80,6 @@ if [ -z $parser_skip ]; then
   test_expect_success "test_data_override with and without weight files  -yaml" '
     mpirun -n 2 ../test_data_override_ongrid
   '
-fi
 
 rm -rf INPUT
 test_done

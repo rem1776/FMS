@@ -21,7 +21,10 @@
 # Set common test settings.
 . ../test-lib.sh
 
-if [ -z "${parser_skip}" ]; then
+if [ ! -z "${parser_skip}" ]; then
+  SKIP_TESTS="$SKIP_TESTS test_time_diurnal.[1-12]"
+fi
+
 # create and enter directory for in/output files
 output_dir
 
@@ -132,6 +135,5 @@ test_expect_success "checking results for diurnal test with openmp and logical m
   mpirun -n 1 ../check_time_diurnal
 '
 
-fi
 
 test_done

@@ -213,9 +213,9 @@ fi
 # Check if ncdump is avaiable
 AC_CHECK_PROG([USE_NCDUMP],[ncdump], [yes], [no])
 if test $USE_NCDUMP = yes; then
-  AM_CONDITIONAL([SKIP_NCDUMP_CHECKS], true )
-else
   AM_CONDITIONAL([SKIP_NCDUMP_CHECKS], false )
+else
+  AM_CONDITIONAL([SKIP_NCDUMP_CHECKS], true )
 fi
 
 # Check if Linux gettid is avaiable

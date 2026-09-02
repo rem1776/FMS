@@ -21,7 +21,10 @@
 # Set common test settings.
 . ../test-lib.sh
 
-if [ -z "${parser_skip}" ]; then
+if [ ! -z "${parser_skip}" ]; then
+  SKIP_TESTS="$SKIP_TESTS test_time_avg.[1-23]"
+fi
+
 # create and enter directory for in/output files
 output_dir
 
@@ -243,5 +246,4 @@ _EOF
   test_expect_failure "Fail if passing in missing_values without masking them (test $my_test_count)" '
     mpirun -n 6 ../test_reduction_methods
   '
-fi
 test_done

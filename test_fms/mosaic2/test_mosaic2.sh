@@ -31,8 +31,8 @@ touch input.nml
 rm -rf INPUT
 mkdir INPUT
 
-if [ ! $parser_skip ]; then
-  SKIP_TESTS='test_mosaic2.[1-4]'
+if [ ! "$parser_skip" ]; then
+  SKIP_TESTS="$SKIP_TESTS test_mosaic2.[1-4]"
 fi
 
 # The tests are skipped if FMS is compiled in r4 via ./configure --enable-mixedmode

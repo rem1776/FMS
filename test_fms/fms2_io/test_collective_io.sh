@@ -26,7 +26,7 @@
 . ../test-lib.sh
 
 if [ ! -z $parallel_skip ]; then
-  SKIP_TESTS="test_collective_io.[1-3]"
+  SKIP_TESTS="$SKIP_TESTS test_collective_io.[1-3]"
 fi
 
 # Create and enter output directory

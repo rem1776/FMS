@@ -21,7 +21,10 @@
 # Set common test settings.
 . ../test-lib.sh
 
-if [ -z "${parser_skip}" ]; then
+if [ ! -z "${parser_skip}" ]; then
+  SKIP_TESTS="$SKIP_TESTS test_prepend_date.[1-2]"
+fi
+
 # create and enter directory for in/output files
 output_dir
 
@@ -82,5 +85,4 @@ test_expect_failure "Running diag_manager with fields that have a different star
   mpirun -n 1 ../test_prepend_date
 '
 
-fi
 test_done

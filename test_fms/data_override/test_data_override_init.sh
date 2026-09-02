@@ -46,25 +46,31 @@ touch data_table.yaml
 test_expect_failure "data_override_init both tables present" '
  mpirun -n 1 ../test_data_override_init
 '
+
 if [ ! -z $parser_skip ]; then
-rm -rf data_table.yaml
-cat <<_EOF > input.nml
+  SKIP_TESTS="$SKIP_TESTS test_data_override_init.5"
+  rm -rf data_table.yaml
+  cat <<_EOF > input.nml
 &data_override_nml
 use_data_table_yaml=.true.
 /
 _EOF
-  test_expect_failure "data_override_init setting use_data_table_yaml = .true. but no compiling with yaml" '
-    mpirun -n 1 ../test_data_override_init
-  '
 else
+  SKIP_TESTS="$SKIP_TESTS test_data_override_init.4"
+fi
+test_expect_failure "data_override_init setting use_data_table_yaml = .true. but no compiling with yaml" '
+  mpirun -n 1 ../test_data_override_init
+'
+
+if [ -z "$parser_skip" ]; then
 rm -rf data_table
 cat <<_EOF > input.nml
 &data_override_nml
 use_data_table_yaml=.true.
 /
 _EOF
+fi
 test_expect_success "data_override_init setting use_data_table_yaml = .true." '
  mpirun -n 1 ../test_data_override_init
 '
-fi
 test_done

@@ -27,7 +27,7 @@
 # Skipping these tests for now, to avoid CI failure due to constants_mod values
 # which change according to the default real kind.
 # TODO: Enable these tests after constants_mod and/or the CI has been updated
-SKIP_TESTS="test_monin_obukhov2.1 test_monin_obukhov2.2"
+SKIP_TESTS="$SKIP_TESTS test_monin_obukhov2.1 test_monin_obukhov2.2"
 
 # Run tests
 for p in r4 r8

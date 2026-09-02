@@ -21,7 +21,10 @@
 # Set common test settings.
 . ../test-lib.sh
 
-if [ -z "${parser_skip}" ]; then
+if [ ! -z "${parser_skip}" ]; then
+  SKIP_TESTS="$SKIP_TESTS test_time_pow.[1-18]"
+fi
+
 # create and enter directory for in/output files
 output_dir
 
@@ -170,5 +173,4 @@ test_expect_success "Running diag_manager with "pow" reduction method with halo 
 test_expect_success "Checking answers for the "pow" reduction method with halo output with real mask (test $my_test_count)" '
   mpirun -n 1 ../check_time_pow
 '
-fi
 test_done

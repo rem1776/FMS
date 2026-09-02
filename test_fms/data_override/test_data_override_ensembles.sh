@@ -64,11 +64,12 @@ cat <<_EOF > input_base.nml
 _EOF
 
 #The test only runs with yaml
-if [ -z $parser_skip ]; then
+if [ ! -z "$parser_skip" ]; then
+  SKIP_TESTS="$SKIP_TESTS test_data_override_ensembles.[1-4]"
+else
   # TODO: Enable these tests once generalized indices work is complete
-  SKIP_TESTS="test_data_override_ensembles.2 \
-              test_data_override_ensembles.3 \
-              test_data_override_ensembles.4"
+  SKIP_TESTS="$SKIP_TESTS test_data_override_ensembles.[2-4]"
+fi
 
   rm -rf INPUT/.
 
@@ -120,6 +121,5 @@ _EOF
   '
 
   rm -rf INPUT
-fi
 
 test_done

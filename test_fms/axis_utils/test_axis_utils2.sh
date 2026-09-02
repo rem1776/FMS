@@ -30,7 +30,7 @@ TESTS_SUCCESS='--get-axis-modulo --get-axis-modulo-times --get-axis-cart --lon-i
 TESTS_FAIL='--frac-index-fail --nearest-index-fail'
 
 # TODO: Enable these tests after tranlon's memory corruption bug is fixed.
-SKIP_TESTS="test_axis_utils2.19 test_axis_utils2.20"
+SKIP_TESTS="$SKIP_TESTS test_axis_utils2.19 test_axis_utils2.20"
 
 # Run the tests
 

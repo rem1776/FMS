@@ -21,7 +21,10 @@
 # Set common test settings.
 . ../test-lib.sh
 
-if [ -z "${parser_skip}" ]; then
+if [ ! -z "${parser_skip}" ]; then
+  SKIP_TESTS="$SKIP_TESTS test_subregional.[1-3]"
+fi
+
 # create and enter directory for in/output files
 output_dir
 
@@ -167,5 +170,4 @@ test_expect_success "Checking results from diag_manager with different subregion
   mpirun -n 1 ../check_subregional
 '
 
-fi
 test_done

@@ -21,7 +21,10 @@
 # Set common test settings.
 . ../test-lib.sh
 
-if [ -z "${parser_skip}" ]; then
+if [ ! -z "${parser_skip}" ]; then
+  SKIP_TESTS="$SKIP_TESTS test_diag_multi_file.[1-4]"
+fi
+
 # create and enter directory for in/output files
 output_dir
 
@@ -155,5 +158,4 @@ _EOF
 test_expect_success "Running diag_manager (test $my_test_count)" '
   mpirun -n 1 ../test_diag_multi_file
 '
-fi
 test_done

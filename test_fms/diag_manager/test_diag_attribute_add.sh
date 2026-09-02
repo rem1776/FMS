@@ -21,7 +21,10 @@
 # Set common test settings.
 . ../test-lib.sh
 
-if [ -z "${parser_skip}" ]; then
+if [ ! -z "${parser_skip}" ]; then
+  SKIP_TESTS="$SKIP_TESTS test_diag_attribute_add.1"
+fi
+
 # create and enter directory for in/output files
 output_dir
 
@@ -55,5 +58,4 @@ _EOF
 test_expect_success "Testing diag_field_attribute_add (test $my_test_count)" '
   mpirun -n 1 ../test_diag_attribute_add
 '
-fi
 test_done

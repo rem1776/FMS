@@ -23,8 +23,10 @@
 
 output_dir
 
-if [ -z "${parser_skip}" ]
-then
+if [ ! -z "${parser_skip}" ]; then
+  SKIP_TESTS="$SKIP_TESTS test_multiple_zbounds.1"
+fi
+
   cat <<_EOF > input.nml
 &diag_manager_nml
   use_modern_diag = .true.
@@ -54,6 +56,5 @@ _EOF
   test_expect_success "Test with multiple zbounds limits (modern diag manager)" '
     mpirun -n 1 ../test_multiple_zbounds
   '
-fi
 
 test_done

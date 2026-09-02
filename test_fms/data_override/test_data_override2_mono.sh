@@ -24,7 +24,7 @@
 . ../test-lib.sh
 
 # TODO: Enable this test once generalized indices work is complete
-SKIP_TESTS="test_data_override2_mono.2"
+SKIP_TESTS="$SKIP_TESTS test_data_override2_mono.2"
 
 output_dir
 [ ! -d "INPUT" ] && mkdir -p "INPUT"
@@ -85,9 +85,12 @@ data_table:
 _EOF
 
 #Repeat the test with yaml if needed
-if [ -z $parser_skip ]; then
+if [ ! -z "$parser_skip" ]; then
+  SKIP_TESTS="$SKIP_TESTS test_data_override2_mono.[3-4]"
+else
   # TODO: Enable this test once generalized indices work is complete
   SKIP_TESTS="$SKIP_TESTS test_data_override2_mono.4"
+fi
 
   rm -rf INPUT/*
   sed 's/write_only = .False./write_only = .True./g' input_base.nml > input.nml
@@ -99,7 +102,6 @@ if [ -z $parser_skip ]; then
   test_expect_success "test_data_override with monotonically increasing and decreasing data sets  -yaml" '
     mpirun -n 6 ../test_data_override_ongrid
   '
-fi
 
 rm -rf INPUT
 test_done

@@ -24,12 +24,14 @@
 . ../test-lib.sh
 
 # TODO: Enable this test once generalized indices work is complete
-SKIP_TESTS="test_data_override_multi_file.2"
+SKIP_TESTS="$SKIP_TESTS test_data_override_multi_file.2"
 
 output_dir
 rm -rf data_table data_table.yaml input.nml input_base.nml
 
-if [ -z $parser_skip ]; then
+if [ ! -z "$parser_skip" ]; then
+  SKIP_TESTS="$SKIP_TESTS test_data_override_multi_file.[1-2]"
+fi
 
 cat <<_EOF > input_base.nml
 &data_override_nml
@@ -72,7 +74,5 @@ test_expect_success "data_override multi_file" '
 '
 
 rm -rf INPUT *.nc # remove any leftover files to reduce size
-
-fi
 
 test_done

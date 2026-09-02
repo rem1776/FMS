@@ -23,7 +23,10 @@
 # Set common test settings.
 . ../test-lib.sh
 
-if [ -z "${parser_skip}" ]; then
+if [ ! -z "${parser_skip}" ]; then
+  SKIP_TESTS="$SKIP_TESTS test_output_every_freq.[1-4]"
+fi
+
 # create and enter directory for in/output files
 output_dir
 
@@ -123,5 +126,4 @@ my_test_count=`expr $my_test_count + 1`
 test_expect_failure "Running diag_manager with -1 days frequency but using average reduction method (test $my_test_count)" '
   mpirun -n 1 ../test_output_every_freq
 '
-fi
 test_done

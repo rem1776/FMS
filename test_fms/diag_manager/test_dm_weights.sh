@@ -21,7 +21,10 @@
 # Set common test settings.
 . ../test-lib.sh
 
-if [ -z "${parser_skip}" ]; then
+if [ ! -z "${parser_skip}" ]; then
+  SKIP_TESTS="$SKIP_TESTS test_dm_weights.[1-2]"
+fi
+
 # create and enter directory for in/output files
 output_dir
 
@@ -55,5 +58,4 @@ test_expect_success "Running diag_manager with weight passed in 2 threads (test 
   mpirun -n 1 ../test_var_masks
 '
 export OMP_NUM_THREADS=1
-fi
 test_done

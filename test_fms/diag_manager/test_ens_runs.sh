@@ -23,7 +23,10 @@
 # Set common test settings.
 . ../test-lib.sh
 
-if [ -z "${parser_skip}" ]; then
+if [ ! -z "${parser_skip}" ]; then
+  SKIP_TESTS="$SKIP_TESTS test_ens_runs.[1-3]"
+fi
+
 # create and enter directory for in/output files
 output_dir
 
@@ -111,5 +114,4 @@ test_expect_success "Running diag_manager with 2 ensembles, both ensembles have 
   mpirun -n 2 ../test_ens_runs
 '
 
-fi
 test_done

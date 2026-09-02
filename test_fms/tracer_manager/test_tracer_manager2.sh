@@ -57,7 +57,9 @@ _EOF
 test_expect_success "tracer_manager r4 with the legacy field table" 'mpirun -n 2 ./test_tracer_manager_r4'
 test_expect_success "tracer_manager r8 with the legacy field table" 'mpirun -n 2 ./test_tracer_manager_r8'
 
-if [ -z $parser_skip ]; then
+if [ ! -z "$parser_skip" ]; then
+SKIP_TESTS="$SKIP_TESTS test_tracer_manager2.[3-4]"
+else
 rm -rf field_table
 cat <<_EOF > input.nml
 &field_manager_nml
@@ -111,8 +113,8 @@ field_table:
       units: kg/kg
 _EOF
 
+fi
 test_expect_success "tracer_manager r4 with the yaml field table" 'mpirun -n 2 ./test_tracer_manager_r4'
 test_expect_success "tracer_manager r8 with the yaml field table" 'mpirun -n 2 ./test_tracer_manager_r8'
-fi
 
 test_done

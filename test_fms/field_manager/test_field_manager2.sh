@@ -100,15 +100,18 @@ cat <<_EOF > input.nml
 _EOF
 
 if [ ! -z "$parser_skip" ]; then
-
-  test_expect_failure "field table read with use_field_table.yaml = .true. but not compiling with yaml" 'mpirun -n 1 ./test_field_table_read'
-
+  SKIP_TESTS="$SKIP_TESTS test_field_manager2.[7-12]"
 else
+  SKIP_TESTS="$SKIP_TESTS test_field_manager2.6"
+fi
 
-  test_expect_success "field table read with use_field_table.yaml = .true." 'mpirun -n 1 ./test_field_table_read'
-  test_expect_success "field manager functional r4 with yaml table" 'mpirun -n 2 ./test_field_manager_r4'
-  test_expect_success "field manager functional r8 with yaml table" 'mpirun -n 2 ./test_field_manager_r8'
+test_expect_failure "field table read with use_field_table.yaml = .true. but not compiling with yaml" 'mpirun -n 1 ./test_field_table_read'
 
+test_expect_success "field table read with use_field_table.yaml = .true." 'mpirun -n 1 ./test_field_table_read'
+test_expect_success "field manager functional r4 with yaml table" 'mpirun -n 2 ./test_field_manager_r4'
+test_expect_success "field manager functional r8 with yaml table" 'mpirun -n 2 ./test_field_manager_r8'
+
+if [ -z "$parser_skip" ]; then
   cat <<_EOF > field_table.ens_01.yaml
 field_table:
 - field_type: tracer
@@ -145,12 +148,16 @@ cat <<_EOF > input.nml
    ensemble_size = 2
 /
 _EOF
-  test_expect_failure "field manager test with both field_table.yaml and field_table.ens_XX.yaml files present" 'mpirun -n 2 ./test_field_table_read'
+fi
+test_expect_failure "field manager test with both field_table.yaml and field_table.ens_XX.yaml files present" 'mpirun -n 2 ./test_field_table_read'
 
+if [ -z "$parser_skip" ]; then
   rm -rf field_table.yaml
+fi
 
-  test_expect_success "field manager test with 2 ensembles" 'mpirun -n 2 ./test_field_table_read'
+test_expect_success "field manager test with 2 ensembles" 'mpirun -n 2 ./test_field_table_read'
 
+if [ -z "$parser_skip" ]; then
 cat <<_EOF > input.nml
 &field_manager_nml
   use_field_table_yaml = .true.
@@ -176,7 +183,7 @@ field_table:
 _EOF
 
   rm -rf field_table.ens_01.yaml field_table.ens_02.yaml
-  test_expect_success "field manager test with 2 ensembles same yaml" 'mpirun -n 2 ./test_field_table_read'
 fi
+test_expect_success "field manager test with 2 ensembles same yaml" 'mpirun -n 2 ./test_field_table_read'
 
 test_done

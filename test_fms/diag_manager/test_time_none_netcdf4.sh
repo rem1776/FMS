@@ -23,7 +23,13 @@
 # Set common test settings.
 . ../test-lib.sh
 
-if [ -z "${parser_skip}" ] && [ -z "${parallel_skip}" ]; then
+if [ ! -z "${parser_skip}" ] || [ ! -z "${parallel_skip}" ]; then
+  SKIP_TESTS="$SKIP_TESTS test_time_none_netcdf4.[1-9]"
+fi
+if [ ! -z "${ncdump_skip}" ]; then
+  SKIP_TESTS="$SKIP_TESTS test_time_none_netcdf4.3 test_time_none_netcdf4.6 test_time_none_netcdf4.9"
+fi
+
 # create and enter directory for in/output files
 output_dir
 
@@ -82,13 +88,11 @@ test_expect_success "Checking answers for the "none" reduction method (test $my_
   mpirun -n 1 ../check_time_none
 '
 
-if [ -z "${SKIP_NCDUMP_CHECKS}" ]; then
 test_expect_success "Checking chunksizes" '
     ncdump -hs test_none.nc | grep -E "var4_none:_ChunkSizes *= *1, *2, *5, *16, *96" &&
     ncdump -hs test_none.nc | grep -E "var3_none:_ChunkSizes *= *1, *5, *16, *96" &&
     ncdump -hs test_none.nc | grep -E "var2_none:_ChunkSizes *= *1, *16, *96"
   '
-fi
 
 # Repeat the test with specified chunksizes
 cat <<_EOF > diag_table.yaml
@@ -147,13 +151,11 @@ test_expect_success "Checking answers for the "none" reduction method (test $my_
   mpirun -n 1 ../check_time_none
 '
 
-if [ -z "${SKIP_NCDUMP_CHECKS}" ]; then
 test_expect_success "Checking chunksizes" '
     ncdump -hs test_none.nc | grep -E "var4_none:_ChunkSizes *= *1, *1, *1, *8, *96" &&
     ncdump -hs test_none.nc | grep -E "var3_none:_ChunkSizes *= *1, *1, *8, *96" &&
     ncdump -hs test_none.nc | grep -E "var2_none:_ChunkSizes *= *1, *8, *96"
   '
-fi
 
 # Repeat the test with specified chunksizes at variable level
 cat <<_EOF > diag_table.yaml
@@ -213,13 +215,10 @@ test_expect_success "Checking answers for the "none" reduction method (test $my_
   mpirun -n 1 ../check_time_none
 '
 
-if [ -z "${SKIP_NCDUMP_CHECKS}" ]; then
 test_expect_success "Checking chunksizes" '
     ncdump -hs test_none.nc | grep -E "var4_none:_ChunkSizes *= *1, *2, *5, *8, *96" &&
     ncdump -hs test_none.nc | grep -E "var3_none:_ChunkSizes *= *1, *1, *8, *96" &&
     ncdump -hs test_none.nc | grep -E "var2_none:_ChunkSizes *= *1, *8, *96"
   '
-fi
 
-fi
 test_done

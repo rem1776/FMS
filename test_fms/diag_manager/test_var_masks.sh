@@ -21,7 +21,10 @@
 # Set common test settings.
 . ../test-lib.sh
 
-if [ -z "${parser_skip}" ]; then
+if [ ! -z "${parser_skip}" ]; then
+  SKIP_TESTS="$SKIP_TESTS test_var_masks.[1-2]"
+fi
+
 # create and enter directory for in/output files
 output_dir
 
@@ -51,5 +54,4 @@ test_expect_success "Running diag_manager with a field with a variable mask (tes
 test_expect_success "Checking answers for when diag_manager with a field with a variable mask (test $my_test_count)" '
   mpirun -n 1 ../check_var_masks
 '
-fi
 test_done

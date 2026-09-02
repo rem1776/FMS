@@ -232,7 +232,6 @@ match_pattern_list_ () {
     isRange="`expr index $pattern_ '-'`"
     # individual test num
     if test $isRange -eq 0 ; then
-      say "is range.."
       if test "$pattern_" = "$arg" ; then
            test "$tNameArg" = "$tNamePattern" && return 0
       fi

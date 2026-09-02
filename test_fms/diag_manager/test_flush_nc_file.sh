@@ -21,7 +21,10 @@
 # Set common test settings.
 . ../test-lib.sh
 
-if [ -z "${parser_skip}" ]; then
+if [ ! -z "${parser_skip}" ]; then
+  SKIP_TESTS="$SKIP_TESTS test_flush_nc_file.1"
+fi
+
 # create and enter directory for in/output files
 output_dir
 
@@ -48,5 +51,4 @@ printf "&diag_manager_nml \n use_modern_diag=.true. \n flush_nc_files=.true. \n/
 test_expect_success "Running diag_manager with flush_nc_files = .true. (test $my_test_count)" '
   mpirun -n 1 ../test_var_masks
 '
-fi
 test_done

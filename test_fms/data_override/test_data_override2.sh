@@ -26,6 +26,10 @@
 output_dir
 rm -rf data_table data_table.yaml input.nml input_base.nml
 
+if test -z "$test_input_path" || test -z "$parser_skip" ; then
+  SKIP_TESTS="$SKIP_TESTS test_data_override2.[1-4]"
+fi
+
 for KIND in r4 r8
 do
 # Run tests with input if enabled
@@ -52,21 +56,23 @@ _EOF
 "OCN", "sst_obs",  "SST", "INPUT/sst_ice_clim.nc", .false., 300.0
 "LND", "sst_obs",  "SST", "INPUT/sst_ice_clim.nc", .false., 300.0
 _EOF
+fi
 
   test_expect_success "data_override on cubic-grid with input (${KIND})" '
     mpirun -n 6 ../test_data_override_${KIND}
   '
 
+if test ! -z "$test_input_path" && test ! -z "$parser_skip"  ; then
 cat <<_EOF > input.nml
 &test_data_override_nml
    test_num=2
 /
 _EOF
+fi
 
   test_expect_success "data_override on latlon-grid with input (${KIND})" '
     mpirun -n 6 ../test_data_override_${KIND}
   '
-fi
 done
 rm -rf INPUT *.nc # remove any leftover files to reduce size
 

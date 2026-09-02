@@ -80,10 +80,12 @@ EOF
 prepare_legacy default_test
 test_expect_success "Test gex with atm_to_lnd tracer (legacy field_table)" "$test_cmd"
 
-if [ -z "$parser_skip" ]; then
+if [ ! -z "$parser_skip" ]; then
+  SKIP_TESTS="$SKIP_TESTS test_gex.2"
+else
   prepare_yaml default_test
-  test_expect_success "Test gex with atm_to_lnd tracer (YAML field_table)" "$test_cmd"
 fi
+test_expect_success "Test gex with atm_to_lnd tracer (YAML field_table)" "$test_cmd"
 
 prepare_legacy get_n_ex_invalid_model_src
 test_expect_failure "Test gex_get_n_ex with invalid model_src" "$test_cmd"

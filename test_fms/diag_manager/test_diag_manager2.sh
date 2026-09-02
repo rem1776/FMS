@@ -23,6 +23,10 @@
 # Set common test settings.
 . ../test-lib.sh
 
+if [ ! -z "${parser_skip}" ]; then
+  SKIP_TESTS="$SKIP_TESTS test_diag_manager2.[27-49]"
+fi
+
 setup_test () {
   local tnum=$(printf "%2.2d" $my_test_count)
   # Clean up any remaining files from previous tests
@@ -509,8 +513,6 @@ test_expect_success "Test the diag update_buffer (test $my_test_count)" '
 
 ## run tests that are ifdef'd out only if compiled with yaml
 ## otherwise just run the updated end to end to check for error
-if [ -z "${parser_skip}" ]; then
-
   cat <<_EOF > diag_table.yaml
 title: test_diag_manager
 base_date: 2 1 1 0 0 0
@@ -1395,10 +1397,11 @@ printf "&diag_manager_nml \n use_modern_diag = .false. \n use_clock_average = .t
     mpirun -n 1 ../test_flexible_time
   '
 
-else
-  my_test_count=`expr $my_test_count + 1`
-  test_expect_failure "test modern diag manager failure when compiled without -Duse-yaml flag (test $my_test_count)" '
-    mpirun -n 6 ../test_modern_diag
-  '
+my_test_count=`expr $my_test_count + 1`
+if [ -z "${parser_skip}" ]; then
+  SKIP_TESTS="$SKIP_TESTS test_diag_manager2.50"
 fi
+test_expect_failure "test modern diag manager failure when compiled without -Duse-yaml flag (test $my_test_count)" '
+  mpirun -n 6 ../test_modern_diag
+'
 test_done

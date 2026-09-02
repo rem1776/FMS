@@ -29,6 +29,10 @@
 # Create and enter output directory
 output_dir
 
+if test ! -z "$ncdump_skip" ; then
+  SKIP_TESTS="$SKIP_TESTS test_io_simple.[8-11] test_io_simple.[13-16] test_io_simple.[18-21] test_io_simple.[23-26]"
+fi
+
 # make an input.nml for mpp_init to read
 touch input.nml
 
@@ -56,7 +60,6 @@ test_expect_success "Test the chunksizes functionality with the default behavior
   mpirun -n 1 ../test_chunksizes
 '
 
-if test ! -z "$ncdump_skip" ; then
   test_expect_success "test_chunksizes_netcdf4.res.nc should be chunked" '
     ncdump -hsv var1 test_chunksizes_netcdf4.res.nc | grep "ChunkSizes"
   '
@@ -69,7 +72,6 @@ if test ! -z "$ncdump_skip" ; then
   test_expect_failure "test_chunksizes.res.nc should not be chunked" '
     ncdump -hsv var1 test_chunksizes.res.nc | grep "ChunkSizes"
   '
-fi
 
 cat <<_EOF > input.nml
 &fms2_io_nml
@@ -79,7 +81,6 @@ _EOF
 test_expect_success "Test the chunksizes functionality with netcdf4 as the default file format" '
   mpirun -n 1 ../test_chunksizes
 '
-if test ! -z "$ncdump_skip" ; then
   test_expect_success "test_chunksizes_netcdf4.res.nc should be chunked" '
     ncdump -hsv var1 test_chunksizes_netcdf4.res.nc | grep "ChunkSizes"
   '
@@ -92,7 +93,6 @@ if test ! -z "$ncdump_skip" ; then
   test_expect_success "test_chunksizes.res.nc should be chunked" '
     ncdump -hsv var1 test_chunksizes.res.nc | grep "ChunkSizes"
   '
-fi
 cat <<_EOF > input.nml
 &fms2_io_nml
   deflate_level = 3
@@ -102,7 +102,6 @@ _EOF
 test_expect_success "Test the deflate level and shuffle functionality with the default behavior" '
   mpirun -n 1 ../test_chunksizes
 '
-if test ! -z "$ncdump_skip" ; then
   test_expect_success "test_chunksizes_netcdf4.res.nc should be compressed" '
     ncdump -hsv var1 test_chunksizes_netcdf4.res.nc | grep "DeflateLevel"
   '
@@ -115,7 +114,6 @@ if test ! -z "$ncdump_skip" ; then
   test_expect_failure "test_chunksizes.res.nc should not be compressed" '
     ncdump -hsv var1 test_chunksizes.res.nc | grep "DeflateLevel"
   '
-fi
 cat <<_EOF > input.nml
 &fms2_io_nml
   deflate_level = 3
@@ -126,7 +124,6 @@ _EOF
 test_expect_success "Test the deflate level and shuffle functionality with netcdf4 as the default file format" '
   mpirun -n 1 ../test_chunksizes
 '
-if test ! -z "$ncdump_skip" ; then
   test_expect_success "test_chunksizes_netcdf4.res.nc should be compressed" '
     ncdump -hsv var1 test_chunksizes_netcdf4.res.nc | grep "DeflateLevel"
   '
@@ -139,5 +136,4 @@ if test ! -z "$ncdump_skip" ; then
   test_expect_success "test_chunksizes.res.nc should be compressed" '
     ncdump -hsv var1 test_chunksizes.res.nc | grep "DeflateLevel"
   '
-fi
 test_done

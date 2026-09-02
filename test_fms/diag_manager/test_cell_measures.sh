@@ -21,7 +21,10 @@
 # Set common test settings.
 . ../test-lib.sh
 
-if [ -z "${parser_skip}" ]; then
+if [ ! -z "${parser_skip}" ]; then
+  SKIP_TESTS="$SKIP_TESTS test_cell_measures.1"
+fi
+
 # create and enter directory for in/output files
 output_dir
 
@@ -87,5 +90,4 @@ printf "&diag_manager_nml \n use_modern_diag=.true. \n/" | cat > input.nml
 test_expect_success "Running diag_manager with fields with cell measures (area, volume) (test $my_test_count)" '
   mpirun -n 1 ../test_cell_measures
 '
-fi
 test_done

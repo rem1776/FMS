@@ -37,8 +37,10 @@ test_expect_success "Test zbounds limits (legacy diag manager)" '
   mpirun -n 6 ../test_zbounds_limits
 '
 
-if [ -z "${parser_skip}" ]
-then
+if [ ! -z "${parser_skip}" ]; then
+  SKIP_TESTS="$SKIP_TESTS test_zbounds_limits.2"
+fi
+
   # Repeat the test with the modern diag_manager
   cat <<_EOF > input.nml
 &diag_manager_nml
@@ -67,6 +69,5 @@ _EOF
   test_expect_success "Test zbounds limits (modern diag manager)" '
     mpirun -n 6 ../test_zbounds_limits
   '
-fi
 
 test_done

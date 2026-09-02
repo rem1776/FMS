@@ -23,7 +23,10 @@
 # Set common test settings.
 . ../test-lib.sh
 
-if [ -z "${parser_skip}" ]; then
+if [ ! -z "${parser_skip}" ]; then
+  SKIP_TESTS="$SKIP_TESTS test_time_none.[1-30]"
+fi
+
 # create and enter directory for in/output files
 output_dir
 
@@ -456,5 +459,4 @@ test_expect_success "Running diag_manager with "none" reduction method using a d
 test_expect_success "Checking answers for the "none" reduction method using a diag table with modular yaml(test $my_test_count)" '
   mpirun -n 1 ../check_time_none
 '
-fi
 test_done
