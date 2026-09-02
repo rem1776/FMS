@@ -550,9 +550,7 @@ call initialize_module_variables()
 !TODO the use_field_table_yaml namelist can be removed when the legacy table is no longer in used
 if (use_field_table_yaml) then
   !Crash if you are not compiling with -Duse_yaml or if the field_table is present
-#ifndef use_yaml
-  call mpp_error(FATAL, "You cannot have use_field_table_yaml=.true. without compiling with -Duse_yaml")
-#else
+#ifdef use_yaml
   if (file_exists("field_table")) &
     call mpp_error(FATAL, "You cannot have the legacy field_table if use_field_table_yaml=.true.")
 
@@ -562,6 +560,8 @@ if (use_field_table_yaml) then
 The legacy field_table format will be deprecated in a future release, &
 please switch to the yaml format.")
   call read_field_table_yaml(nfields, table_name)
+#else
+  call mpp_error(FATAL, "You cannot have use_field_table_yaml=.true. without compiling with -Duse_yaml")
 #endif
 else
   if (file_exists("field_table.yaml")) &
