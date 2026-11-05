@@ -35,9 +35,8 @@ jobs:
       if: steps.cache.outputs.cache-hit != 'true'
       run: |
         spack compiler find
-        spack env create --with-view /opt/view gpu-env
-        spack -e gpu-env add nvhpc netcdf-fortran%nvhpc mpich%nvhpc libyaml%nvhpc target=x86_64
-        spack -e gpu-env install
+        spack install nvhpc netcdf-fortran%nvhpc mpich%nvhpc libyaml%nvhpc target=x86_64
+        spack view symlink /opt/view nvhpc netcdf-fortran%nvhpc mpich%nvhpc libyaml%nvhpc
     - name: Configure
       run: |
         . /home/runner/work/FMS/FMS/spack/share/spack/setup-env.sh
