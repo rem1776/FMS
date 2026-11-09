@@ -35,7 +35,8 @@ jobs:
       if: steps.cache.outputs.cache-hit != 'true'
       run: |
         spack compiler find
-        spack install nvhpc netcdf-fortran%nvhpc mpich%nvhpc libyaml%nvhpc target=x86_64
+        spack install nvhpc
+        spack install netcdf-fortran%nvhpc mpich%nvhpc libyaml%nvhpc target=x86_64
         spack view symlink /opt/view nvhpc netcdf-fortran%nvhpc mpich%nvhpc libyaml%nvhpc
     - name: Configure
       run: |
