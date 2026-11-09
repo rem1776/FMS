@@ -34,8 +34,8 @@ jobs:
     - name: Install NVHPC compilers and dependencies
       if: steps.cache.outputs.cache-hit != 'true'
       run: |
-        spack compiler find
         spack install nvhpc
+        spack compiler find
         spack install netcdf-fortran%nvhpc mpich%nvhpc libyaml%nvhpc target=x86_64
         spack view symlink /opt/view nvhpc netcdf-fortran%nvhpc mpich%nvhpc libyaml%nvhpc
     - name: Configure
