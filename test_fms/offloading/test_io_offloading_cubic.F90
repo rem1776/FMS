@@ -42,9 +42,7 @@ program test_io_offloading_cubic
   integer :: io_status
   !> Number of writer PEs; anything but 6 must be rejected for a cubic domain.
   integer :: nwriters = ntiles
-  !> Fewer pending writes than writes per step, so send buffers are reused.
-  integer :: max_pending_writes = 2
-  namelist /test_io_offloading_cubic_nml/ nwriters, max_pending_writes
+  namelist /test_io_offloading_cubic_nml/ nwriters
 
   call fms_init()
   read(input_nml_file, nml=test_io_offloading_cubic_nml, iostat=io_status)
@@ -63,7 +61,7 @@ program test_io_offloading_cubic
     call mpp_get_compute_domain(domain, isc, iec, jsc, jec)
     allocate(data_domain(is:ie, js:je), compute_domain(isc:iec, jsc:jec))
     ! send domain info and open the offloaded file
-    call send_domain_metadata(domain, max_pending_writes=max_pending_writes)
+    call send_domain_metadata(domain)
     call open_offloaded_file(filename, offload_file)
     ! register axes/fields and send writing data 
     call register_axes_offloaded_file((/"grid_xt", "grid_yt"/), (/"x", "y"/), (/n, n/), domain, offload_file)

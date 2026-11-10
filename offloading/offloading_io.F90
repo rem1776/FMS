@@ -65,9 +65,11 @@ module offloading_io_mod
   !! namelist variables
   !> Max number of io messages that can be in flight to each writer
   integer :: max_concurrent_messages = 64
+  !> Max number of io operations to cache while receiving more
+  integer :: max_pending_writes = 512
   !> Maximum number of offloaded files that can be open simultaneously.
   integer :: max_files = 10
-  namelist /offloading_io_nml/ max_files, max_concurrent_messages
+  namelist /offloading_io_nml/ max_files, max_pending_writes, max_concurrent_messages
 
   !> opcode enumerations to send the writers
   integer, parameter :: IO_OP_OPEN = 1, IO_OP_REGISTER_AXIS = 2, IO_OP_REGISTER_FIELD = 3
@@ -192,10 +194,8 @@ contains
   !> All model PEs call this once, paired with recv_domain_metadata on every writer.
   !! Each model PE must own exactly one tile, and the number of writer PEs must be a multiple of the
   !! number of tiles. All optional arguments must be the same on every model PE.
-  subroutine send_domain_metadata(model_domain, max_pending_writes, writer_layout, writer_io_layout)
+  subroutine send_domain_metadata(model_domain, writer_layout, writer_io_layout)
     type(domain2d), intent(inout) :: model_domain
-    integer, intent(in), optional :: max_pending_writes !< field writes each model PE can have in
-                                                        !! flight (default 4)
     integer, intent(in), optional :: writer_layout(2) !< layout of each tile's writers
                                                       !! (default from mpp_define_layout)
     integer, intent(in), optional :: writer_io_layout(2) !< io_layout of each tile's writers (default
@@ -211,8 +211,7 @@ contains
     if (mpp_get_current_ntile(model_domain) /= 1) &
       call mpp_error(FATAL, "offloading: each model PE must own exactly one tile")
     writers_per_tile = size(writer_pes) / ntile_count
-    nslots = default_max_pending_writes
-    if (present(max_pending_writes)) nslots = max_pending_writes
+    nslots = max_pending_writes
     if (nslots < 1) call mpp_error(FATAL, "offloading: max_pending_writes must be positive")
     tile_id = mpp_get_tile_id(model_domain)
     info(1) = tile_id(1)
