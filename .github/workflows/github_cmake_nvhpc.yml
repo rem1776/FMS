@@ -34,10 +34,10 @@ jobs:
     - name: Install NVHPC compilers and dependencies
       if: steps.cache.outputs.cache-hit != 'true'
       run: |
-        spack install nvhpc
+        spack install nvhpc target=x86_64
         spack compiler find
         spack install netcdf-fortran%nvhpc mpich%nvhpc libyaml%nvhpc target=x86_64
-        spack view symlink /opt/view nvhpc netcdf-fortran%nvhpc mpich%nvhpc libyaml%nvhpc
+        spack view symlink /opt/view nvhpc mpich%nvhpc netcdf-fortran%nvhpc mpich%nvhpc libyaml%nvhpc
     - name: Configure
       run: |
         . /home/runner/work/FMS/FMS/spack/share/spack/setup-env.sh
