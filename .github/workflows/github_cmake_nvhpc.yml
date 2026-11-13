@@ -35,6 +35,8 @@ jobs:
     - name: Install NVHPC compilers and dependencies
       if: steps.cache.outputs.cache-hit != 'true'
       run: |
+        sudo apt-get install -y libblosc1
+        spack external find blosc
         spack install nvhpc+mpi
         spack compiler find
         spack install netcdf-fortran%nvhpc netcdf-c%nvhpc libyaml%nvhpc
