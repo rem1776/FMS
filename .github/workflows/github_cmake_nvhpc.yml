@@ -30,7 +30,8 @@ jobs:
       uses: spack/setup-spack@v3.0.0
       with:
         buildcache: true
-        spack_ref: v1.2.0 # spack branch to use
+        spack_ref: v1.2.2 # spack branch to use
+        packages_ref: v2026.10.1
     - name: Install NVHPC compilers and dependencies
       if: steps.cache.outputs.cache-hit != 'true'
       run: |
