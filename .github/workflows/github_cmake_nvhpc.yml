@@ -35,14 +35,14 @@ jobs:
     - name: Install NVHPC compilers and dependencies
       if: steps.cache.outputs.cache-hit != 'true'
       run: |
-        spack install nvhpc
+        spack install nvhpc+mpi
         spack compiler find
-        spack install netcdf-fortran%nvhpc mpich%nvhpc libyaml%nvhpc
-        spack view symlink /opt/view nvhpc mpich%nvhpc netcdf-fortran%nvhpc mpich%nvhpc libyaml%nvhpc
+        spack install netcdf-fortran%nvhpc netcdf-c%nvhpc libyaml%nvhpc
+        spack view symlink /opt/view nvhpc netcdf-fortran%nvhpc netcdf-c%nvhpc libyaml%nvhpc
     - name: Configure
       run: |
         . /home/runner/work/FMS/FMS/spack/share/spack/setup-env.sh
-        spack load nvhpc netcdf-c netcdf-fortran libyaml mpich
+        spack load nvhpc netcdf-c netcdf-fortran libyaml
         export FC=mpifort FCFLAGS="-O0 -g `nf-config --fflags` `nf-config --flibs`"
         export CC=mpicc CFLAGS="-O0 -g `nc-config --cflags` `pkg-config --cflags yaml-0.1` `nc-config --libs`"
         export LDFLAGS="`nc-config --libs` `nf-config --flibs`"
