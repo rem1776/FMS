@@ -40,7 +40,7 @@ jobs:
       if: steps.cache.outputs.cache-hit != 'true'
       run: |
         sudo apt-get install -y libblosc1 libblosc-dev pkg-config
-        spack external find c-blosc
+        spack external find --path /usr c-blosc
         spack install nvhpc+mpi
         spack compiler find
         spack install netcdf-fortran%nvhpc netcdf-c%nvhpc libyaml%nvhpc
