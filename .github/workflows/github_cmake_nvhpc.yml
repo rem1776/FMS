@@ -40,8 +40,11 @@ jobs:
       if: steps.cache.outputs.cache-hit != 'true'
       run: |
         spack install nvhpc+mpi
-        spack compiler find
-        spack install libyaml%nvhpc netcdf-fortran%nvhpc netcdf-c%nvhpc ^c-blosc%nvhpc cflags="-std=c11"
+        spack compiler find "$(spack location -i nvhpc)"
+        spack install \
+          libyaml%nvhpc \
+          netcdf-fortran%nvhpc \
+          netcdf-c%nvhpc ^c-blosc%nvhpc cflags="-std=c11"
         spack view symlink /opt/view nvhpc netcdf-fortran%nvhpc netcdf-c%nvhpc libyaml%nvhpc
     - name: Configure
       run: |
